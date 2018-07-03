@@ -10,7 +10,7 @@ Interested reviewers and participants should use the Issues tab to direct questi
 Scope
 --
 
-CityGML version 3.0 consists of a single *conceptual model* and multiple implementations of the conceptual model using different data definition and data storage methodologies. Each storage methodology is designated as a named *encoding*. This scope of this repository is encodings of the conceptual model. 
+CityGML version 3.0 consists of a single *Conceptual Model* and multiple implementations of the Conceptual Model using different data definition and data storage methodologies. Each storage methodology is designated as a named *encoding*. This scope of this repository is encodings of the Conceptual Model. 
 
 ![CityModelA.png](CityModelA.png)
 Purpose
@@ -42,21 +42,21 @@ Encodings Details
 
 Definition
 
-Each encoding uses a specific representational methodology to implement the CityGML conceptual model. The number of independent encoding standards is unlimited.
+Each encoding uses a specific representational methodology to implement the CityGML Conceptual Model. The number of independent encoding standards is unlimited.
 Several encodings (GML, relational database/SQL, JSON) are in commercial use with CityGML 2.0. It is likely that these will be updated to comply with the changes in the 3.0 Conceptual Model but, as of July 2018, results provided by the Work Package 2 team led by the Technische Universitaet Muenchen are only available for GML.
 
 Purpose
 
-The purpose of an encoding is to define the actual data structures used in an implementation of the CityGML conceptual model.
+The purpose of an encoding is to define the actual data structures used in an implementation of the CityGML Conceptual Model.
 
 Use
 
-Requirements on representations in individual encodings should be derived from the conceptual model. Most encodings will not have a direct mapping of every detail of every structure and property in the conceptual model. It is the responsibility of the specific encoding standard to define how the encoding meets the representational requirements of the conceptual model and to identify gaps, ambiguities, and mis-mappings.
+Requirements on representations in individual encodings should be derived from the Conceptual Model. Most encodings will not have a direct mapping of every detail of every structure and property in the Conceptual Model. It is the responsibility of the specific encoding standard to define how the encoding meets the representational requirements of the Conceptual Model and to identify gaps, ambiguities, and mis-mappings.
 
 Characteristics and requirements
 
 CityGML can represent complete environments or disconnected pieces, including generic elements such as trees or road signs. A representation of a complete environment is called a [complete] *model*. Complete models are required for all use cases except visualisation. It is highly recommended that any model of an environment be a complete model.
-A representation of a disconnected piece is called a *fragment*.  Fragments may be physically stored as discrete elements, for example individual files, but these elements are only suitable for construction of complete models. 
+A representation of a disconnected piece is called a *fragment*.  Fragments may be physically stored as discrete elements, for example individual files, but these elements are only suitable as components of complete models. 
 
 Resources
 --
