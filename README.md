@@ -2,10 +2,9 @@ CityGML 3.0 Encodings
 ===========
 
 This is the public repository for standards defining Encodings of the Open Geospatial Consortium (OGC) CityGML Standards Working Group (SWG) CityGML version 3.0 Conceptual Model. 
-
-Discovery, discussions, and the raising and resolution of issues regarding Encodings are focussed here, under the moderation of the SWG chairs, and under the OGC policies and procedures for the adoption of results by the SWG.
-
-Interested reviewers and participants should use the Issues tab to direct questions, comments, criticisms, and issues toward the chairs or other relevant party. The chairs follow the issues and will respond or delegate as appropriate. Consensus and mutual understanding is the goal of the chairs. If an issue cannot be resolved by consensus, it will be considered by the SWG following OGC policies and procedures.
+ 
+Discovery, discussions, and the raising and resolution of issues regarding the Encodings of the Conceptual Model are focussed here and under the OGC policies and procedures for the eventual adoption of results by the SWG.
+Interested reviewers and participants should use the Issues tab to direct questions, comments, criticisms, and issues toward the chairs or other relevant party. Consensus and mutual understanding is the goal. 
 
 Scope
 --
@@ -43,7 +42,7 @@ Encodings Details
 Definition
 
 Each encoding uses a specific representational methodology to implement the CityGML Conceptual Model. The number of independent encoding standards is unlimited.
-Several encodings (GML, relational database/SQL, JSON) are in commercial use with CityGML 2.0. It is likely that these will be updated to comply with the changes in the 3.0 Conceptual Model but, as of July 2018, results provided by the Work Package 2 team led by the Technische Universitaet Muenchen are only available for GML.
+Several encodings (GML, relational database/SQL, JSON) are in commercial use with CityGML 2.0. It is likely that these will be updated to comply with the changes in the 3.0 Conceptual Model but, as of July 2018, results provided by the Work Package 2 team led by the Technische Universitaet Muenchen are only available for GML. These can be found at [https://github.com/opengeospatial/CityGML-3.0Encodings/tree/master/GML/Examples].
 
 Purpose
 
