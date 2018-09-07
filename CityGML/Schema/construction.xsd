@@ -5,6 +5,7 @@
   <import namespace="http://www.opengis.net/citygml/tunnel/3.0" schemaLocation="./tunnel.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <element abstract="true" name="AbstractGenericApplicationPropertyOfAbstractConstruction" type="anyType"/>
   <complexType name="AbstractConstructionPropertyType">
     <choice minOccurs="0">
       <element ref="brid:Bridge"/>
@@ -18,11 +19,14 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <element abstract="true" name="AbstractGenericApplicationPropertyOfAbstractConstructionOpeningSurface" type="anyType"/>
   <element abstract="true" name="AbstractConstructionOpeningSurface" substitutionGroup="core:AbstractVoidSurface" type="con:AbstractConstructionOpeningSurfaceType"/>
   <complexType abstract="true" name="AbstractConstructionOpeningSurfaceType">
     <complexContent>
       <extension base="core:AbstractVoidSurfaceType">
-        <sequence/>
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" ref="con:AbstractGenericApplicationPropertyOfAbstractConstructionOpeningSurface"/>
+        </sequence>
       </extension>
     </complexContent>
   </complexType>
@@ -33,11 +37,14 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <element abstract="true" name="AbstractGenericApplicationPropertyOfAbstractConstructionSurface" type="anyType"/>
   <element abstract="true" name="AbstractConstructionSurface" substitutionGroup="core:AbstractThematicSurface" type="con:AbstractConstructionSurfaceType"/>
   <complexType abstract="true" name="AbstractConstructionSurfaceType">
     <complexContent>
       <extension base="core:AbstractThematicSurfaceType">
-        <sequence/>
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" ref="con:AbstractGenericApplicationPropertyOfAbstractConstructionSurface"/>
+        </sequence>
       </extension>
     </complexContent>
   </complexType>
@@ -48,6 +55,7 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <element abstract="true" name="AbstractGenericApplicationPropertyOfAbstractConstructionVoid" type="anyType"/>
   <element abstract="true" name="AbstractConstructionVoid" substitutionGroup="core:AbstractVoid" type="con:AbstractConstructionVoidType">
     <annotation>
       <documentation>SIG3D: Abstract superclass of Window and Door.</documentation>
@@ -56,7 +64,9 @@
   <complexType abstract="true" name="AbstractConstructionVoidType">
     <complexContent>
       <extension base="core:AbstractVoidType">
-        <sequence/>
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" ref="con:AbstractGenericApplicationPropertyOfAbstractConstructionVoid"/>
+        </sequence>
       </extension>
     </complexContent>
   </complexType>
@@ -67,6 +77,7 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <element abstract="true" name="AbstractGenericApplicationPropertyOfAbstractConstructiveElement" type="anyType"/>
   <element abstract="true" name="AbstractConstructiveElement" substitutionGroup="core:AbstractOccupiedSpace" type="con:AbstractConstructiveElementType"/>
   <complexType abstract="true" name="AbstractConstructiveElementType">
     <complexContent>
@@ -84,6 +95,7 @@
               </complexContent>
             </complexType>
           </element>
+          <element maxOccurs="unbounded" minOccurs="0" ref="con:AbstractGenericApplicationPropertyOfAbstractConstructiveElement"/>
         </sequence>
       </extension>
     </complexContent>
@@ -95,11 +107,14 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <element abstract="true" name="AbstractGenericApplicationPropertyOfAbstractFurniture" type="anyType"/>
   <element abstract="true" name="AbstractFurniture" substitutionGroup="core:AbstractOccupiedSpace" type="con:AbstractFurnitureType"/>
   <complexType abstract="true" name="AbstractFurnitureType">
     <complexContent>
       <extension base="core:AbstractOccupiedSpaceType">
-        <sequence/>
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" ref="con:AbstractGenericApplicationPropertyOfAbstractFurniture"/>
+        </sequence>
       </extension>
     </complexContent>
   </complexType>
@@ -110,12 +125,14 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <element abstract="true" name="AbstractGenericApplicationPropertyOfAbstractInstallation" type="anyType"/>
   <element abstract="true" name="AbstractInstallation" substitutionGroup="core:AbstractOccupiedSpace" type="con:AbstractInstallationType"/>
   <complexType abstract="true" name="AbstractInstallationType">
     <complexContent>
       <extension base="core:AbstractOccupiedSpaceType">
         <sequence>
           <element minOccurs="0" name="relationToConstruction" type="con:RelationToConstructionType"/>
+          <element maxOccurs="unbounded" minOccurs="0" ref="con:AbstractGenericApplicationPropertyOfAbstractInstallation"/>
         </sequence>
       </extension>
     </complexContent>
@@ -127,6 +144,7 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <element abstract="true" name="AbstractGenericApplicationPropertyOfCeilingSurface" type="anyType"/>
   <element name="CeilingSurface" substitutionGroup="con:AbstractConstructionSurface" type="con:CeilingSurfaceType">
     <annotation>
       <documentation>SIG3D: Overhead boundary surface of a construction space, covering the upper limit of the construction space.</documentation>
@@ -135,7 +153,9 @@
   <complexType name="CeilingSurfaceType">
     <complexContent>
       <extension base="con:AbstractConstructionSurfaceType">
-        <sequence/>
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" ref="con:AbstractGenericApplicationPropertyOfCeilingSurface"/>
+        </sequence>
       </extension>
     </complexContent>
   </complexType>
@@ -183,11 +203,14 @@
       </enumeration>
     </restriction>
   </simpleType>
+  <element abstract="true" name="AbstractGenericApplicationPropertyOfConstructionSpace" type="anyType"/>
   <element name="ConstructionSpace" substitutionGroup="core:AbstractOccupiedSpace" type="con:ConstructionSpaceType"/>
   <complexType name="ConstructionSpaceType">
     <complexContent>
       <extension base="core:AbstractOccupiedSpaceType">
-        <sequence/>
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" ref="con:AbstractGenericApplicationPropertyOfConstructionSpace"/>
+        </sequence>
       </extension>
     </complexContent>
   </complexType>
@@ -198,6 +221,7 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <element abstract="true" name="AbstractGenericApplicationPropertyOfDoor" type="anyType"/>
   <element name="Door" substitutionGroup="con:AbstractConstructionVoid" type="con:DoorType">
     <annotation>
       <documentation>ISO 6707-1: Construction for closing an opening intended primarily for access or egress or both.</documentation>
@@ -212,6 +236,7 @@
               <documentation>SIG3D: Relation between Door and Address.</documentation>
             </annotation>
           </element>
+          <element maxOccurs="unbounded" minOccurs="0" ref="con:AbstractGenericApplicationPropertyOfDoor"/>
         </sequence>
       </extension>
     </complexContent>
@@ -223,12 +248,14 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <element abstract="true" name="AbstractGenericApplicationPropertyOfDoorSurface" type="anyType"/>
   <element name="DoorSurface" substitutionGroup="con:AbstractConstructionOpeningSurface" type="con:DoorSurfaceType"/>
   <complexType name="DoorSurfaceType">
     <complexContent>
       <extension base="con:AbstractConstructionOpeningSurfaceType">
         <sequence>
           <element maxOccurs="unbounded" minOccurs="0" name="address" type="core:AddressPropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" ref="con:AbstractGenericApplicationPropertyOfDoorSurface"/>
         </sequence>
       </extension>
     </complexContent>
@@ -351,6 +378,7 @@
       </enumeration>
     </restriction>
   </simpleType>
+  <element abstract="true" name="AbstractGenericApplicationPropertyOfFloorSurface" type="anyType"/>
   <element name="FloorSurface" substitutionGroup="con:AbstractConstructionSurface" type="con:FloorSurfaceType">
     <annotation>
       <documentation>SIG3D: Lower boundary surface of a construction space, covering the lower limit of a construction space.</documentation>
@@ -359,7 +387,9 @@
   <complexType name="FloorSurfaceType">
     <complexContent>
       <extension base="con:AbstractConstructionSurfaceType">
-        <sequence/>
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" ref="con:AbstractGenericApplicationPropertyOfFloorSurface"/>
+        </sequence>
       </extension>
     </complexContent>
   </complexType>
@@ -370,6 +400,7 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <element abstract="true" name="AbstractGenericApplicationPropertyOfGroundSurface" type="anyType"/>
   <element name="GroundSurface" substitutionGroup="con:AbstractConstructionSurface" type="con:GroundSurfaceType">
     <annotation>
       <documentation>SIG3D: Exterior, lower boundary surface of a construction space bounded by soil or water.</documentation>
@@ -378,7 +409,9 @@
   <complexType name="GroundSurfaceType">
     <complexContent>
       <extension base="con:AbstractConstructionSurfaceType">
-        <sequence/>
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" ref="con:AbstractGenericApplicationPropertyOfGroundSurface"/>
+        </sequence>
       </extension>
     </complexContent>
   </complexType>
@@ -440,6 +473,7 @@
       </enumeration>
     </restriction>
   </simpleType>
+  <element abstract="true" name="AbstractGenericApplicationPropertyOfInteriorWallSurface" type="anyType"/>
   <element name="InteriorWallSurface" substitutionGroup="con:AbstractConstructionSurface" type="con:InteriorWallSurfaceType">
     <annotation>
       <documentation>SIG3D: Lateral boundary surface of a construction space, covering the lateral limit of the construction space.</documentation>
@@ -448,7 +482,9 @@
   <complexType name="InteriorWallSurfaceType">
     <complexContent>
       <extension base="con:AbstractConstructionSurfaceType">
-        <sequence/>
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" ref="con:AbstractGenericApplicationPropertyOfInteriorWallSurface"/>
+        </sequence>
       </extension>
     </complexContent>
   </complexType>
@@ -459,6 +495,7 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <element abstract="true" name="AbstractGenericApplicationPropertyOfOtherConstruction" type="anyType"/>
   <element name="OtherConstruction" substitutionGroup="core:AbstractTopLevelCityObject" type="con:OtherConstructionType">
     <annotation>
       <documentation>Every construction which is not covered by any of the other subclasses of AbstractConstruction.</documentation>
@@ -498,10 +535,12 @@
               <documentation>[INSPIRE] Height above ground.</documentation>
             </annotation>
           </element>
+          <element maxOccurs="unbounded" minOccurs="0" ref="con:AbstractGenericApplicationPropertyOfAbstractConstruction"/>
           <element name="class" type="gml:CodeType"/>
           <element maxOccurs="unbounded" minOccurs="0" name="function" type="gml:CodeType"/>
           <element maxOccurs="unbounded" minOccurs="0" name="usage" type="gml:CodeType"/>
           <element name="constructionSpace" type="con:ConstructionSpacePropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" ref="con:AbstractGenericApplicationPropertyOfOtherConstruction"/>
         </sequence>
       </extension>
     </complexContent>
@@ -513,6 +552,7 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <element abstract="true" name="AbstractGenericApplicationPropertyOfOuterCeilingSurface" type="anyType"/>
   <element name="OuterCeilingSurface" substitutionGroup="con:AbstractConstructionSurface" type="con:OuterCeilingSurfaceType">
     <annotation>
       <documentation>SIG3D: Exterior, lower boundary surface of a construction space bounded by air.</documentation>
@@ -521,7 +561,9 @@
   <complexType name="OuterCeilingSurfaceType">
     <complexContent>
       <extension base="con:AbstractConstructionSurfaceType">
-        <sequence/>
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" ref="con:AbstractGenericApplicationPropertyOfOuterCeilingSurface"/>
+        </sequence>
       </extension>
     </complexContent>
   </complexType>
@@ -532,6 +574,7 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <element abstract="true" name="AbstractGenericApplicationPropertyOfOuterFloorSurface" type="anyType"/>
   <element name="OuterFloorSurface" substitutionGroup="con:AbstractConstructionSurface" type="con:OuterFloorSurfaceType">
     <annotation>
       <documentation>SIG3D: Exterior, upper boundary surface of a construction space which is not a roof.</documentation>
@@ -540,7 +583,9 @@
   <complexType name="OuterFloorSurfaceType">
     <complexContent>
       <extension base="con:AbstractConstructionSurfaceType">
-        <sequence/>
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" ref="con:AbstractGenericApplicationPropertyOfOuterFloorSurface"/>
+        </sequence>
       </extension>
     </complexContent>
   </complexType>
@@ -558,6 +603,7 @@
       <enumeration value="bothInsideAndOutside"/>
     </restriction>
   </simpleType>
+  <element abstract="true" name="AbstractGenericApplicationPropertyOfRoofSurface" type="anyType"/>
   <element name="RoofSurface" substitutionGroup="con:AbstractConstructionSurface" type="con:RoofSurfaceType">
     <annotation>
       <documentation>SIG3D: Exterior, upper boundary surface of a construction space, whose primary function is to protect from the effects of weather.</documentation>
@@ -566,7 +612,9 @@
   <complexType name="RoofSurfaceType">
     <complexContent>
       <extension base="con:AbstractConstructionSurfaceType">
-        <sequence/>
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" ref="con:AbstractGenericApplicationPropertyOfRoofSurface"/>
+        </sequence>
       </extension>
     </complexContent>
   </complexType>
@@ -577,6 +625,7 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <element abstract="true" name="AbstractGenericApplicationPropertyOfWallSurface" type="anyType"/>
   <element name="WallSurface" substitutionGroup="con:AbstractConstructionSurface" type="con:WallSurfaceType">
     <annotation>
       <documentation>SIG3D: Exterior, lateral boundary surface of a construction space.</documentation>
@@ -585,7 +634,9 @@
   <complexType name="WallSurfaceType">
     <complexContent>
       <extension base="con:AbstractConstructionSurfaceType">
-        <sequence/>
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" ref="con:AbstractGenericApplicationPropertyOfWallSurface"/>
+        </sequence>
       </extension>
     </complexContent>
   </complexType>
@@ -596,6 +647,7 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <element abstract="true" name="AbstractGenericApplicationPropertyOfWindow" type="anyType"/>
   <element name="Window" substitutionGroup="con:AbstractConstructionVoid" type="con:WindowType">
     <annotation>
       <documentation>SIG3D: Construction for closing an opening in a wall or roof, primarily intended to admit light and/or provide ventilation (cf. ISO 6707).</documentation>
@@ -604,7 +656,9 @@
   <complexType name="WindowType">
     <complexContent>
       <extension base="con:AbstractConstructionVoidType">
-        <sequence/>
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" ref="con:AbstractGenericApplicationPropertyOfWindow"/>
+        </sequence>
       </extension>
     </complexContent>
   </complexType>
@@ -615,11 +669,14 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <element abstract="true" name="AbstractGenericApplicationPropertyOfWindowSurface" type="anyType"/>
   <element name="WindowSurface" substitutionGroup="con:AbstractConstructionOpeningSurface" type="con:WindowSurfaceType"/>
   <complexType name="WindowSurfaceType">
     <complexContent>
       <extension base="con:AbstractConstructionOpeningSurfaceType">
-        <sequence/>
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" ref="con:AbstractGenericApplicationPropertyOfWindowSurface"/>
+        </sequence>
       </extension>
     </complexContent>
   </complexType>

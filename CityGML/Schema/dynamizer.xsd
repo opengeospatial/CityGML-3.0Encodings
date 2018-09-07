@@ -5,11 +5,14 @@
   <import namespace="http://www.opengis.net/sos/2.0" schemaLocation="http://schemas.opengis.net/sos/2.0/sosGetObservation.xsd"/>
   <import namespace="http://www.opengis.net/tsml/1.0" schemaLocation="http://schemas.opengis.net/tsml/1.0/timeseriesML.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <element abstract="true" name="AbstractGenericApplicationPropertyOfAbstractTimeseries" type="anyType"/>
   <element abstract="true" name="AbstractTimeseries" substitutionGroup="gml:AbstractFeature" type="dyn:AbstractTimeseriesType"/>
   <complexType abstract="true" name="AbstractTimeseriesType">
     <complexContent>
       <extension base="gml:AbstractFeatureType">
-        <sequence/>
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" ref="dyn:AbstractGenericApplicationPropertyOfAbstractTimeseries"/>
+        </sequence>
       </extension>
     </complexContent>
   </complexType>
@@ -20,6 +23,7 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <element abstract="true" name="AbstractGenericApplicationPropertyOfAtomicTimeseries" type="anyType"/>
   <element name="AtomicTimeseries" substitutionGroup="dyn:AbstractTimeseries" type="dyn:AtomicTimeseriesType"/>
   <complexType name="AtomicTimeseriesType">
     <complexContent>
@@ -28,6 +32,7 @@
           <element minOccurs="0" name="dynamicDataDR" type="tsml:TimeseriesDomainRangePropertyType"/>
           <element minOccurs="0" name="dynamicDataTVP" type="tsml:TimeseriesTVPPropertyType"/>
           <element minOccurs="0" name="observationData" type="sos:GetObservationResponsePropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" ref="dyn:AbstractGenericApplicationPropertyOfAtomicTimeseries"/>
         </sequence>
       </extension>
     </complexContent>
@@ -39,6 +44,7 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <element abstract="true" name="AbstractGenericApplicationPropertyOfCompositeTimeseries" type="anyType"/>
   <element name="CompositeTimeseries" substitutionGroup="dyn:AbstractTimeseries" type="dyn:CompositeTimeseriesType"/>
   <complexType name="CompositeTimeseriesType">
     <complexContent>
@@ -56,6 +62,7 @@
               </complexContent>
             </complexType>
           </element>
+          <element maxOccurs="unbounded" minOccurs="0" ref="dyn:AbstractGenericApplicationPropertyOfCompositeTimeseries"/>
         </sequence>
       </extension>
     </complexContent>
@@ -67,6 +74,7 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <element abstract="true" name="AbstractGenericApplicationPropertyOfDynamizer" type="anyType"/>
   <element name="Dynamizer" substitutionGroup="core:AbstractFeatureWithLifespan" type="dyn:DynamizerType"/>
   <complexType name="DynamizerType">
     <complexContent>
@@ -75,7 +83,6 @@
           <element name="attributeRef" type="anyURI"/>
           <element name="startTime" type="gml:TimePositionType"/>
           <element name="endTime" type="gml:TimePositionType"/>
-          <element minOccurs="0" name="linkToSensor" type="dyn:SensorConnectionPropertyType"/>
           <element minOccurs="0" name="dynamicData">
             <complexType>
               <complexContent>
@@ -88,6 +95,8 @@
               </complexContent>
             </complexType>
           </element>
+          <element minOccurs="0" name="linkToSensor" type="dyn:SensorConnectionPropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" ref="dyn:AbstractGenericApplicationPropertyOfDynamizer"/>
         </sequence>
       </extension>
     </complexContent>
@@ -114,6 +123,7 @@
       <element ref="dyn:SensorConnection"/>
     </sequence>
   </complexType>
+  <element abstract="true" name="AbstractGenericApplicationPropertyOfTimeseriesComponent" type="anyType"/>
   <element name="TimeseriesComponent" substitutionGroup="gml:AbstractFeature" type="dyn:TimeseriesComponentType"/>
   <complexType name="TimeseriesComponentType">
     <complexContent>
@@ -122,6 +132,7 @@
           <element name="repetitions" type="integer"/>
           <element minOccurs="0" name="additionalGap" type="duration"/>
           <element name="timeseries" type="dyn:AbstractTimeseriesPropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" ref="dyn:AbstractGenericApplicationPropertyOfTimeseriesComponent"/>
         </sequence>
       </extension>
     </complexContent>

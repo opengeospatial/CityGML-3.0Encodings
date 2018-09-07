@@ -2,6 +2,7 @@
   <import namespace="http://www.opengis.net/citygml/3.0" schemaLocation="./cityGMLBase.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <element abstract="true" name="AbstractGenericApplicationPropertyOfCityFurniture" type="anyType"/>
   <element name="CityFurniture" substitutionGroup="core:AbstractTopLevelCityObject" type="frn:CityFurnitureType">
     <annotation>
       <documentation>City furniture is a collective term for objects and pieces of equipment installed on streets and roads for various purposes. It includes benches, traffic barriers, bollards, post boxes, phone boxes, streetlamps, traffic lights, traffic signs, bus stops, tram stops, taxi stands, public lavatories, fountains, watering troughs, memorials, public sculptures, and waste receptacles. [Wikipedia]</documentation>
@@ -31,6 +32,7 @@
               <documentation>The space occupied by this city furniture. One city furniture can occupy one space at maximum.</documentation>
             </annotation>
           </element>
+          <element maxOccurs="unbounded" minOccurs="0" ref="frn:AbstractGenericApplicationPropertyOfCityFurniture"/>
         </sequence>
       </extension>
     </complexContent>
@@ -42,6 +44,7 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <element abstract="true" name="AbstractGenericApplicationPropertyOfFurnitureSpace" type="anyType"/>
   <element name="FurnitureSpace" substitutionGroup="core:AbstractOccupiedSpace" type="frn:FurnitureSpaceType">
     <annotation>
       <documentation>A space occupied by a city furniture.</documentation>
@@ -50,7 +53,9 @@
   <complexType name="FurnitureSpaceType">
     <complexContent>
       <extension base="core:AbstractOccupiedSpaceType">
-        <sequence/>
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" ref="frn:AbstractGenericApplicationPropertyOfFurnitureSpace"/>
+        </sequence>
       </extension>
     </complexContent>
   </complexType>

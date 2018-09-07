@@ -2,6 +2,7 @@
   <import namespace="http://www.opengis.net/citygml/3.0" schemaLocation="./cityGMLBase.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <element abstract="true" name="AbstractGenericApplicationPropertyOfAbstractVegetationObject" type="anyType"/>
   <element abstract="true" name="AbstractVegetationObject" substitutionGroup="core:AbstractTopLevelCityObject" type="veg:AbstractVegetationObjectType">
     <annotation>
       <documentation>SIG3D: Abstract super class of SolitaryVegetationObject and PlantCover</documentation>
@@ -10,7 +11,9 @@
   <complexType abstract="true" name="AbstractVegetationObjectType">
     <complexContent>
       <extension base="core:AbstractTopLevelCityObjectType">
-        <sequence/>
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" ref="veg:AbstractGenericApplicationPropertyOfAbstractVegetationObject"/>
+        </sequence>
       </extension>
     </complexContent>
   </complexType>
@@ -21,6 +24,7 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <element abstract="true" name="AbstractGenericApplicationPropertyOfPlantCover" type="anyType"/>
   <element name="PlantCover" substitutionGroup="veg:AbstractVegetationObject" type="veg:PlantCoverType">
     <annotation>
       <documentation>SIG3D: Area filled with a specific vegetation</documentation>
@@ -51,6 +55,7 @@
             </annotation>
           </element>
           <element maxOccurs="unbounded" minOccurs="0" name="plantCoverSpace" type="veg:VegetationSpacePropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" ref="veg:AbstractGenericApplicationPropertyOfPlantCover"/>
         </sequence>
       </extension>
     </complexContent>
@@ -62,6 +67,7 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <element abstract="true" name="AbstractGenericApplicationPropertyOfSolitaryVegetationObject" type="anyType"/>
   <element name="SolitaryVegetationObject" substitutionGroup="veg:AbstractVegetationObject" type="veg:SolitaryVegetationObjectType">
     <annotation>
       <documentation>SIG3D: Single vegetation object</documentation>
@@ -107,6 +113,7 @@
             </annotation>
           </element>
           <element minOccurs="0" name="vegetationObjectSpace" type="veg:VegetationSpacePropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" ref="veg:AbstractGenericApplicationPropertyOfSolitaryVegetationObject"/>
         </sequence>
       </extension>
     </complexContent>
@@ -118,11 +125,14 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <element abstract="true" name="AbstractGenericApplicationPropertyOfVegetationSpace" type="anyType"/>
   <element name="VegetationSpace" substitutionGroup="core:AbstractOccupiedSpace" type="veg:VegetationSpaceType"/>
   <complexType name="VegetationSpaceType">
     <complexContent>
       <extension base="core:AbstractOccupiedSpaceType">
-        <sequence/>
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" ref="veg:AbstractGenericApplicationPropertyOfVegetationSpace"/>
+        </sequence>
       </extension>
     </complexContent>
   </complexType>

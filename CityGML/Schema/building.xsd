@@ -3,6 +3,7 @@
   <import namespace="http://www.opengis.net/citygml/construction/3.0" schemaLocation="./construction.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <element abstract="true" name="AbstractGenericApplicationPropertyOfAbstractBuilding" type="anyType"/>
   <complexType name="AbstractBuildingPropertyType">
     <choice minOccurs="0">
       <element ref="bldg:Building"/>
@@ -11,6 +12,7 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <element abstract="true" name="AbstractGenericApplicationPropertyOfAbstractBuildingSubdivision" type="anyType"/>
   <element abstract="true" name="AbstractBuildingSubdivision" substitutionGroup="core:AbstractLogicalSpace" type="bldg:AbstractBuildingSubdivisionType">
     <annotation>
       <documentation>The abstract superclass for representing various types of subdivisions a building can contain. The superclass provides several attributes for providing specific information about the subdivision such as the function and usage, the height, the space type (i.e., whether the subdivision is closed, open or semi-open) and the number of occupants.</documentation>
@@ -77,6 +79,7 @@
               </appinfo>
             </annotation>
           </element>
+          <element maxOccurs="unbounded" minOccurs="0" ref="bldg:AbstractGenericApplicationPropertyOfAbstractBuildingSubdivision"/>
         </sequence>
       </extension>
     </complexContent>
@@ -88,6 +91,7 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <element abstract="true" name="AbstractGenericApplicationPropertyOfBuilding" type="anyType"/>
   <element name="Building" substitutionGroup="core:AbstractTopLevelCityObject" type="bldg:BuildingType">
     <annotation>
       <documentation>SIG3D: A free-standing, self-supporting construction that is roofed, usually walled, and can be entered by humans and is normally designed to stand permanently in one place. It is intended for human occupancy (for example: a place of work or recreation), habitation and/or shelter of humans, animals or things.</documentation>
@@ -137,32 +141,12 @@
               <documentation>SIG3D: List of heights for each storey below ground.</documentation>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" name="buildingSpace" type="con:ConstructionSpacePropertyType"/>
-          <element maxOccurs="unbounded" minOccurs="0" name="address" type="core:AddressPropertyType">
-            <annotation>
-              <documentation>SIG3D: Relation between Building or BuildingPart and Address</documentation>
-            </annotation>
-          </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="buildingSubdivision">
+          <element maxOccurs="unbounded" minOccurs="0" name="buildingConstructiveElement">
             <complexType>
               <complexContent>
                 <extension base="gml:AbstractFeatureMemberType">
                   <sequence>
-                    <element ref="bldg:AbstractBuildingSubdivision"/>
-                  </sequence>
-                </extension>
-              </complexContent>
-            </complexType>
-          </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="interiorRoom">
-            <annotation>
-              <documentation>SIG3D: Relation between Building or BuildingPart and Room.</documentation>
-            </annotation>
-            <complexType>
-              <complexContent>
-                <extension base="gml:AbstractFeatureMemberType">
-                  <sequence>
-                    <element ref="bldg:Room"/>
+                    <element ref="bldg:BuildingConstructiveElement"/>
                   </sequence>
                 </extension>
               </complexContent>
@@ -182,6 +166,21 @@
               </complexContent>
             </complexType>
           </element>
+          <element maxOccurs="unbounded" name="buildingSpace" type="con:ConstructionSpacePropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="interiorRoom">
+            <annotation>
+              <documentation>SIG3D: Relation between Building or BuildingPart and Room.</documentation>
+            </annotation>
+            <complexType>
+              <complexContent>
+                <extension base="gml:AbstractFeatureMemberType">
+                  <sequence>
+                    <element ref="bldg:Room"/>
+                  </sequence>
+                </extension>
+              </complexContent>
+            </complexType>
+          </element>
           <element maxOccurs="unbounded" minOccurs="0" name="buildingFurniture">
             <complexType>
               <complexContent>
@@ -193,17 +192,23 @@
               </complexContent>
             </complexType>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="buildingConstructiveElement">
+          <element maxOccurs="unbounded" minOccurs="0" name="buildingSubdivision">
             <complexType>
               <complexContent>
                 <extension base="gml:AbstractFeatureMemberType">
                   <sequence>
-                    <element ref="bldg:BuildingConstructiveElement"/>
+                    <element ref="bldg:AbstractBuildingSubdivision"/>
                   </sequence>
                 </extension>
               </complexContent>
             </complexType>
           </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="address" type="core:AddressPropertyType">
+            <annotation>
+              <documentation>SIG3D: Relation between Building or BuildingPart and Address</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" ref="bldg:AbstractGenericApplicationPropertyOfAbstractBuilding"/>
           <element minOccurs="0" name="conditionOfConstruction" type="con:ConditionOfConstructionValueType">
             <annotation>
               <documentation>[INSPIRE] Status of the construction.</documentation>
@@ -234,6 +239,7 @@
               <documentation>[INSPIRE] Height above ground.</documentation>
             </annotation>
           </element>
+          <element maxOccurs="unbounded" minOccurs="0" ref="con:AbstractGenericApplicationPropertyOfAbstractConstruction"/>
           <element maxOccurs="unbounded" minOccurs="0" name="buildingPart">
             <annotation>
               <documentation>Relation between Building and BuildingPart.</documentation>
@@ -249,6 +255,7 @@
               </complexContent>
             </complexType>
           </element>
+          <element maxOccurs="unbounded" minOccurs="0" ref="bldg:AbstractGenericApplicationPropertyOfBuilding"/>
         </sequence>
       </extension>
     </complexContent>
@@ -260,6 +267,7 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <element abstract="true" name="AbstractGenericApplicationPropertyOfBuildingConstructiveElement" type="anyType"/>
   <element name="BuildingConstructiveElement" substitutionGroup="con:AbstractConstructiveElement" type="bldg:BuildingConstructiveElementType"/>
   <complexType name="BuildingConstructiveElementType">
     <complexContent>
@@ -268,6 +276,7 @@
           <element minOccurs="0" name="class" type="gml:CodeType"/>
           <element maxOccurs="unbounded" minOccurs="0" name="function" type="gml:CodeType"/>
           <element maxOccurs="unbounded" minOccurs="0" name="usage" type="gml:CodeType"/>
+          <element maxOccurs="unbounded" minOccurs="0" ref="bldg:AbstractGenericApplicationPropertyOfBuildingConstructiveElement"/>
         </sequence>
       </extension>
     </complexContent>
@@ -279,6 +288,7 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <element abstract="true" name="AbstractGenericApplicationPropertyOfBuildingFurniture" type="anyType"/>
   <element name="BuildingFurniture" substitutionGroup="con:AbstractFurniture" type="bldg:BuildingFurnitureType">
     <annotation>
       <documentation>SIG3D: Equipment for occupant use, usually not fixed to the building (cf. ISO 6707-1) .</documentation>
@@ -303,6 +313,7 @@
               <documentation>SIG3D: Actual usage of BuildingFurniture as given by the relevant national regulations, information communities, or specific applications.</documentation>
             </annotation>
           </element>
+          <element maxOccurs="unbounded" minOccurs="0" ref="bldg:AbstractGenericApplicationPropertyOfBuildingFurniture"/>
         </sequence>
       </extension>
     </complexContent>
@@ -314,6 +325,7 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <element abstract="true" name="AbstractGenericApplicationPropertyOfBuildingInstallation" type="anyType"/>
   <element name="BuildingInstallation" substitutionGroup="con:AbstractInstallation" type="bldg:BuildingInstallationType">
     <annotation>
       <documentation>SIG3D: Permanently installed parts of the building's outer shell which are accessory for the building structure including loggia, dormer, etc. Doors and windows are modeled by the corresponding CityGML classes.</documentation>
@@ -338,6 +350,7 @@
               <documentation>SIG3D: Actual usage of BuildingInstallation as given by the relevant national regulations, information communities, or specific applications.</documentation>
             </annotation>
           </element>
+          <element maxOccurs="unbounded" minOccurs="0" ref="bldg:AbstractGenericApplicationPropertyOfBuildingInstallation"/>
         </sequence>
       </extension>
     </complexContent>
@@ -349,6 +362,7 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <element abstract="true" name="AbstractGenericApplicationPropertyOfBuildingPart" type="anyType"/>
   <element name="BuildingPart" substitutionGroup="core:AbstractCityObject" type="bldg:BuildingPartType">
     <annotation>
       <documentation>SIG3D: A BuildingPart is a sub-division of a Building that is homogeneous related to its physical, functional, or temporal aspects and may be considered as a Building.</documentation>
@@ -398,32 +412,12 @@
               <documentation>SIG3D: List of heights for each storey below ground.</documentation>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" name="buildingSpace" type="con:ConstructionSpacePropertyType"/>
-          <element maxOccurs="unbounded" minOccurs="0" name="address" type="core:AddressPropertyType">
-            <annotation>
-              <documentation>SIG3D: Relation between Building or BuildingPart and Address</documentation>
-            </annotation>
-          </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="buildingSubdivision">
+          <element maxOccurs="unbounded" minOccurs="0" name="buildingConstructiveElement">
             <complexType>
               <complexContent>
                 <extension base="gml:AbstractFeatureMemberType">
                   <sequence>
-                    <element ref="bldg:AbstractBuildingSubdivision"/>
-                  </sequence>
-                </extension>
-              </complexContent>
-            </complexType>
-          </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="interiorRoom">
-            <annotation>
-              <documentation>SIG3D: Relation between Building or BuildingPart and Room.</documentation>
-            </annotation>
-            <complexType>
-              <complexContent>
-                <extension base="gml:AbstractFeatureMemberType">
-                  <sequence>
-                    <element ref="bldg:Room"/>
+                    <element ref="bldg:BuildingConstructiveElement"/>
                   </sequence>
                 </extension>
               </complexContent>
@@ -443,6 +437,21 @@
               </complexContent>
             </complexType>
           </element>
+          <element maxOccurs="unbounded" name="buildingSpace" type="con:ConstructionSpacePropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="interiorRoom">
+            <annotation>
+              <documentation>SIG3D: Relation between Building or BuildingPart and Room.</documentation>
+            </annotation>
+            <complexType>
+              <complexContent>
+                <extension base="gml:AbstractFeatureMemberType">
+                  <sequence>
+                    <element ref="bldg:Room"/>
+                  </sequence>
+                </extension>
+              </complexContent>
+            </complexType>
+          </element>
           <element maxOccurs="unbounded" minOccurs="0" name="buildingFurniture">
             <complexType>
               <complexContent>
@@ -454,17 +463,23 @@
               </complexContent>
             </complexType>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="buildingConstructiveElement">
+          <element maxOccurs="unbounded" minOccurs="0" name="buildingSubdivision">
             <complexType>
               <complexContent>
                 <extension base="gml:AbstractFeatureMemberType">
                   <sequence>
-                    <element ref="bldg:BuildingConstructiveElement"/>
+                    <element ref="bldg:AbstractBuildingSubdivision"/>
                   </sequence>
                 </extension>
               </complexContent>
             </complexType>
           </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="address" type="core:AddressPropertyType">
+            <annotation>
+              <documentation>SIG3D: Relation between Building or BuildingPart and Address</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" ref="bldg:AbstractGenericApplicationPropertyOfAbstractBuilding"/>
           <element minOccurs="0" name="conditionOfConstruction" type="con:ConditionOfConstructionValueType">
             <annotation>
               <documentation>[INSPIRE] Status of the construction.</documentation>
@@ -495,6 +510,8 @@
               <documentation>[INSPIRE] Height above ground.</documentation>
             </annotation>
           </element>
+          <element maxOccurs="unbounded" minOccurs="0" ref="con:AbstractGenericApplicationPropertyOfAbstractConstruction"/>
+          <element maxOccurs="unbounded" minOccurs="0" ref="bldg:AbstractGenericApplicationPropertyOfBuildingPart"/>
         </sequence>
       </extension>
     </complexContent>
@@ -506,6 +523,7 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <element abstract="true" name="AbstractGenericApplicationPropertyOfBuildingUnit" type="anyType"/>
   <element name="BuildingUnit" substitutionGroup="bldg:AbstractBuildingSubdivision" type="bldg:BuildingUnitType">
     <annotation>
       <documentation>This object corresponds to "BuildingUnit" from INSPIRE: A semantic object for representing subdivisions of a building with their own lockable access from the outside or from a common area (i.e. not from another BuildingUnit), which are atomic, functionally independent, and may be separately sold, rented out, inherited, etc. [INSPIRE D2.8.III.2_v3.0].</documentation>
@@ -528,6 +546,7 @@
               <documentation>SIG3D: Relation between BuildingUnit and Address.</documentation>
             </annotation>
           </element>
+          <element maxOccurs="unbounded" minOccurs="0" ref="bldg:AbstractGenericApplicationPropertyOfBuildingUnit"/>
         </sequence>
       </extension>
     </complexContent>
@@ -539,6 +558,7 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <element abstract="true" name="AbstractGenericApplicationPropertyOfRoom" type="anyType"/>
   <element name="Room" substitutionGroup="core:AbstractUnoccupiedSpace" type="bldg:RoomType">
     <annotation>
       <documentation>A semantic object for modelling the free space inside a building. This object corresponds to "Room" in CityGML 2.0. The inherited attribute spaceType allows for defining the closedness of a room. A room with ceiling, for instance, would be defined as closed, whereas an room representing an atrium would be defined as open or semi-open.</documentation>
@@ -578,22 +598,6 @@
               </complexContent>
             </complexType>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="roomInstallation">
-            <annotation>
-              <documentation>SIG3D: Relation between Room and IntBuildingInstallation</documentation>
-              <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">bldg:BuildingInstallation</targetElement>
-              </appinfo>
-            </annotation>
-            <complexType>
-              <complexContent>
-                <extension base="gml:AbstractFeatureMemberType">
-                  <sequence/>
-                  <attributeGroup ref="gml:AssociationAttributeGroup"/>
-                </extension>
-              </complexContent>
-            </complexType>
-          </element>
           <element maxOccurs="unbounded" minOccurs="0" name="interiorFurniture">
             <annotation>
               <documentation>SIG3D: Relation between Room and BuildingFurniture</documentation>
@@ -610,6 +614,23 @@
               </complexContent>
             </complexType>
           </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="roomInstallation">
+            <annotation>
+              <documentation>SIG3D: Relation between Room and IntBuildingInstallation</documentation>
+              <appinfo>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">bldg:BuildingInstallation</targetElement>
+              </appinfo>
+            </annotation>
+            <complexType>
+              <complexContent>
+                <extension base="gml:AbstractFeatureMemberType">
+                  <sequence/>
+                  <attributeGroup ref="gml:AssociationAttributeGroup"/>
+                </extension>
+              </complexContent>
+            </complexType>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" ref="bldg:AbstractGenericApplicationPropertyOfRoom"/>
         </sequence>
       </extension>
     </complexContent>
@@ -669,6 +690,7 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <element abstract="true" name="AbstractGenericApplicationPropertyOfStorey" type="anyType"/>
   <element name="Storey" substitutionGroup="bldg:AbstractBuildingSubdivision" type="bldg:StoreyType">
     <annotation>
       <documentation>A semantic object for representing storeys of a building.</documentation>
@@ -686,6 +708,7 @@
               </appinfo>
             </annotation>
           </element>
+          <element maxOccurs="unbounded" minOccurs="0" ref="bldg:AbstractGenericApplicationPropertyOfStorey"/>
         </sequence>
       </extension>
     </complexContent>

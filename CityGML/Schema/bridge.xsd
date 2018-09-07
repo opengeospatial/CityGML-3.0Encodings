@@ -3,6 +3,7 @@
   <import namespace="http://www.opengis.net/citygml/construction/3.0" schemaLocation="./construction.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <element abstract="true" name="AbstractGenericApplicationPropertyOfAbstractBridge" type="anyType"/>
   <complexType name="AbstractBridgePropertyType">
     <choice minOccurs="0">
       <element ref="brid:Bridge"/>
@@ -11,6 +12,7 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <element abstract="true" name="AbstractGenericApplicationPropertyOfBridge" type="anyType"/>
   <element name="Bridge" substitutionGroup="core:AbstractTopLevelCityObject" type="brid:BridgeType">
     <annotation>
       <documentation>SIG3D: Civil engineering works that affords passage to pedestrians, animals, vehicles, and service(s) above obstacles or between two points at a height above ground (cf. ISO 6707-1).</documentation>
@@ -40,21 +42,15 @@
               <documentation>SIG3D: Indicates wether a bridge is movable to allow passages for ships (e.g. turnable bridge, liftable bridge)</documentation>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="address" type="core:AddressPropertyType">
+          <element maxOccurs="unbounded" minOccurs="0" name="bridgeConstruction">
             <annotation>
-              <documentation>SIG3D: Relation between Bridge or BridgePart and Address</documentation>
-            </annotation>
-          </element>
-          <element maxOccurs="unbounded" name="bridgeSpace" type="con:ConstructionSpacePropertyType"/>
-          <element maxOccurs="unbounded" minOccurs="0" name="interiorBridgeRoom">
-            <annotation>
-              <documentation>SIG3D: Relation between Bridge or BridgePart and BridgeRoom</documentation>
+              <documentation>SIG3D: Relation between Bridge or BridgePart and BridgeConstructionElement</documentation>
             </annotation>
             <complexType>
               <complexContent>
                 <extension base="gml:AbstractFeatureMemberType">
                   <sequence>
-                    <element ref="brid:BridgeRoom"/>
+                    <element ref="brid:BridgeConstructionElement"/>
                   </sequence>
                 </extension>
               </complexContent>
@@ -74,6 +70,21 @@
               </complexContent>
             </complexType>
           </element>
+          <element maxOccurs="unbounded" name="bridgeSpace" type="con:ConstructionSpacePropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="interiorBridgeRoom">
+            <annotation>
+              <documentation>SIG3D: Relation between Bridge or BridgePart and BridgeRoom</documentation>
+            </annotation>
+            <complexType>
+              <complexContent>
+                <extension base="gml:AbstractFeatureMemberType">
+                  <sequence>
+                    <element ref="brid:BridgeRoom"/>
+                  </sequence>
+                </extension>
+              </complexContent>
+            </complexType>
+          </element>
           <element maxOccurs="unbounded" minOccurs="0" name="bridgeFurniture">
             <complexType>
               <complexContent>
@@ -85,20 +96,12 @@
               </complexContent>
             </complexType>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="bridgeConstruction">
+          <element maxOccurs="unbounded" minOccurs="0" name="address" type="core:AddressPropertyType">
             <annotation>
-              <documentation>SIG3D: Relation between Bridge or BridgePart and BridgeConstructionElement</documentation>
+              <documentation>SIG3D: Relation between Bridge or BridgePart and Address</documentation>
             </annotation>
-            <complexType>
-              <complexContent>
-                <extension base="gml:AbstractFeatureMemberType">
-                  <sequence>
-                    <element ref="brid:BridgeConstructionElement"/>
-                  </sequence>
-                </extension>
-              </complexContent>
-            </complexType>
           </element>
+          <element maxOccurs="unbounded" minOccurs="0" ref="brid:AbstractGenericApplicationPropertyOfAbstractBridge"/>
           <element minOccurs="0" name="conditionOfConstruction" type="con:ConditionOfConstructionValueType">
             <annotation>
               <documentation>[INSPIRE] Status of the construction.</documentation>
@@ -129,6 +132,7 @@
               <documentation>[INSPIRE] Height above ground.</documentation>
             </annotation>
           </element>
+          <element maxOccurs="unbounded" minOccurs="0" ref="con:AbstractGenericApplicationPropertyOfAbstractConstruction"/>
           <element maxOccurs="unbounded" minOccurs="0" name="bridgePart">
             <annotation>
               <documentation>Relation between Bridge and BridgePart.</documentation>
@@ -144,6 +148,7 @@
               </complexContent>
             </complexType>
           </element>
+          <element maxOccurs="unbounded" minOccurs="0" ref="brid:AbstractGenericApplicationPropertyOfBridge"/>
         </sequence>
       </extension>
     </complexContent>
@@ -155,6 +160,7 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <element abstract="true" name="AbstractGenericApplicationPropertyOfBridgeConstructionElement" type="anyType"/>
   <element name="BridgeConstructionElement" substitutionGroup="con:AbstractConstructiveElement" type="brid:BridgeConstructionElementType">
     <annotation>
       <documentation>SIG3D: Element of a bridge which is essential from a structural point of view.</documentation>
@@ -179,6 +185,7 @@
               <documentation>SIG3D: Actual usage of BridgeConstructionElement as given by the relevant national regulations, information communities, or specific applications.</documentation>
             </annotation>
           </element>
+          <element maxOccurs="unbounded" minOccurs="0" ref="brid:AbstractGenericApplicationPropertyOfBridgeConstructionElement"/>
         </sequence>
       </extension>
     </complexContent>
@@ -190,6 +197,7 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <element abstract="true" name="AbstractGenericApplicationPropertyOfBridgeFurniture" type="anyType"/>
   <element name="BridgeFurniture" substitutionGroup="con:AbstractFurniture" type="brid:BridgeFurnitureType">
     <annotation>
       <documentation>SIG3D: equipment for occupant use, not usually fixed to the bridge or bridge part (cf. ISO 6707-1)</documentation>
@@ -214,6 +222,7 @@
               <documentation>SIG3D: Actual usage of BridgeFurniture as given by the relevant national regulations, information communities, or specific applications.</documentation>
             </annotation>
           </element>
+          <element maxOccurs="unbounded" minOccurs="0" ref="brid:AbstractGenericApplicationPropertyOfBridgeFurniture"/>
         </sequence>
       </extension>
     </complexContent>
@@ -225,6 +234,7 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <element abstract="true" name="AbstractGenericApplicationPropertyOfBridgeInstallation" type="anyType"/>
   <element name="BridgeInstallation" substitutionGroup="con:AbstractInstallation" type="brid:BridgeInstallationType">
     <annotation>
       <documentation>SIG3D: Permanently installed parts of the bridge outer shell, which are accessory for the bridge structure. Doors and windows are modeled by the corresponding CityGML classes.</documentation>
@@ -249,6 +259,7 @@
               <documentation>SIG3D: Actual usage of BridgeInstallation as given by the relevant national regulations, information communities, or specific applications.</documentation>
             </annotation>
           </element>
+          <element maxOccurs="unbounded" minOccurs="0" ref="brid:AbstractGenericApplicationPropertyOfBridgeInstallation"/>
         </sequence>
       </extension>
     </complexContent>
@@ -260,6 +271,7 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <element abstract="true" name="AbstractGenericApplicationPropertyOfBridgePart" type="anyType"/>
   <element name="BridgePart" substitutionGroup="core:AbstractCityObject" type="brid:BridgePartType">
     <annotation>
       <documentation>SIG3D: A bridge part is a sub-division of a Bridge that is homogeneous related to its physical, functional or temporal aspects and may be considered as a bridge.</documentation>
@@ -289,21 +301,15 @@
               <documentation>SIG3D: Indicates wether a bridge is movable to allow passages for ships (e.g. turnable bridge, liftable bridge)</documentation>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="address" type="core:AddressPropertyType">
+          <element maxOccurs="unbounded" minOccurs="0" name="bridgeConstruction">
             <annotation>
-              <documentation>SIG3D: Relation between Bridge or BridgePart and Address</documentation>
-            </annotation>
-          </element>
-          <element maxOccurs="unbounded" name="bridgeSpace" type="con:ConstructionSpacePropertyType"/>
-          <element maxOccurs="unbounded" minOccurs="0" name="interiorBridgeRoom">
-            <annotation>
-              <documentation>SIG3D: Relation between Bridge or BridgePart and BridgeRoom</documentation>
+              <documentation>SIG3D: Relation between Bridge or BridgePart and BridgeConstructionElement</documentation>
             </annotation>
             <complexType>
               <complexContent>
                 <extension base="gml:AbstractFeatureMemberType">
                   <sequence>
-                    <element ref="brid:BridgeRoom"/>
+                    <element ref="brid:BridgeConstructionElement"/>
                   </sequence>
                 </extension>
               </complexContent>
@@ -323,6 +329,21 @@
               </complexContent>
             </complexType>
           </element>
+          <element maxOccurs="unbounded" name="bridgeSpace" type="con:ConstructionSpacePropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="interiorBridgeRoom">
+            <annotation>
+              <documentation>SIG3D: Relation between Bridge or BridgePart and BridgeRoom</documentation>
+            </annotation>
+            <complexType>
+              <complexContent>
+                <extension base="gml:AbstractFeatureMemberType">
+                  <sequence>
+                    <element ref="brid:BridgeRoom"/>
+                  </sequence>
+                </extension>
+              </complexContent>
+            </complexType>
+          </element>
           <element maxOccurs="unbounded" minOccurs="0" name="bridgeFurniture">
             <complexType>
               <complexContent>
@@ -334,20 +355,12 @@
               </complexContent>
             </complexType>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="bridgeConstruction">
+          <element maxOccurs="unbounded" minOccurs="0" name="address" type="core:AddressPropertyType">
             <annotation>
-              <documentation>SIG3D: Relation between Bridge or BridgePart and BridgeConstructionElement</documentation>
+              <documentation>SIG3D: Relation between Bridge or BridgePart and Address</documentation>
             </annotation>
-            <complexType>
-              <complexContent>
-                <extension base="gml:AbstractFeatureMemberType">
-                  <sequence>
-                    <element ref="brid:BridgeConstructionElement"/>
-                  </sequence>
-                </extension>
-              </complexContent>
-            </complexType>
           </element>
+          <element maxOccurs="unbounded" minOccurs="0" ref="brid:AbstractGenericApplicationPropertyOfAbstractBridge"/>
           <element minOccurs="0" name="conditionOfConstruction" type="con:ConditionOfConstructionValueType">
             <annotation>
               <documentation>[INSPIRE] Status of the construction.</documentation>
@@ -378,6 +391,8 @@
               <documentation>[INSPIRE] Height above ground.</documentation>
             </annotation>
           </element>
+          <element maxOccurs="unbounded" minOccurs="0" ref="con:AbstractGenericApplicationPropertyOfAbstractConstruction"/>
+          <element maxOccurs="unbounded" minOccurs="0" ref="brid:AbstractGenericApplicationPropertyOfBridgePart"/>
         </sequence>
       </extension>
     </complexContent>
@@ -389,6 +404,7 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <element abstract="true" name="AbstractGenericApplicationPropertyOfBridgeRoom" type="anyType"/>
   <element name="BridgeRoom" substitutionGroup="core:AbstractUnoccupiedSpace" type="brid:BridgeRoomType">
     <annotation>
       <documentation>SIG3D: A Room represents a volume bounded actually or theoretically. Rooms are volumes that provide for certain functions within a bridge.</documentation>
@@ -413,22 +429,6 @@
               <documentation>SIG3D: Actual usage of BridgeRoom as given by the relevant national regulations, information communities, or specific applications.</documentation>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="bridgeRoomInstallation">
-            <annotation>
-              <documentation>SIG3D: Relation between BridgeRoom and BridgegInstallation</documentation>
-              <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">brid:BridgeInstallation</targetElement>
-              </appinfo>
-            </annotation>
-            <complexType>
-              <complexContent>
-                <extension base="gml:AbstractFeatureMemberType">
-                  <sequence/>
-                  <attributeGroup ref="gml:AssociationAttributeGroup"/>
-                </extension>
-              </complexContent>
-            </complexType>
-          </element>
           <element maxOccurs="unbounded" minOccurs="0" name="interiorFurniture">
             <annotation>
               <documentation>SIG3D: Relation between BridgeRoom and BridgeFurniture</documentation>
@@ -445,6 +445,23 @@
               </complexContent>
             </complexType>
           </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="bridgeRoomInstallation">
+            <annotation>
+              <documentation>SIG3D: Relation between BridgeRoom and BridgegInstallation</documentation>
+              <appinfo>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">brid:BridgeInstallation</targetElement>
+              </appinfo>
+            </annotation>
+            <complexType>
+              <complexContent>
+                <extension base="gml:AbstractFeatureMemberType">
+                  <sequence/>
+                  <attributeGroup ref="gml:AssociationAttributeGroup"/>
+                </extension>
+              </complexContent>
+            </complexType>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" ref="brid:AbstractGenericApplicationPropertyOfBridgeRoom"/>
         </sequence>
       </extension>
     </complexContent>
