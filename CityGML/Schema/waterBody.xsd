@@ -2,6 +2,7 @@
   <import namespace="http://www.opengis.net/citygml/3.0" schemaLocation="./cityGMLBase.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <element abstract="true" name="AbstractGenericApplicationPropertyOfAbstractWaterBoundarySurface" type="anyType"/>
   <element abstract="true" name="AbstractWaterBoundarySurface" substitutionGroup="core:AbstractThematicSurface" type="wtr:AbstractWaterBoundarySurfaceType">
     <annotation>
       <documentation>SIG3D: Abstract superclass of boundary surfaces of WaterBody.</documentation>
@@ -10,7 +11,9 @@
   <complexType abstract="true" name="AbstractWaterBoundarySurfaceType">
     <complexContent>
       <extension base="core:AbstractThematicSurfaceType">
-        <sequence/>
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" ref="wtr:AbstractGenericApplicationPropertyOfAbstractWaterBoundarySurface"/>
+        </sequence>
       </extension>
     </complexContent>
   </complexType>
@@ -21,6 +24,7 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <element abstract="true" name="AbstractGenericApplicationPropertyOfWaterBody" type="anyType"/>
   <element name="WaterBody" substitutionGroup="core:AbstractTopLevelCityObject" type="wtr:WaterBodyType">
     <annotation>
       <documentation>SIG3D: Any significant accumulation of water, usually covering a part of the Earth</documentation>
@@ -46,6 +50,7 @@
             </annotation>
           </element>
           <element minOccurs="0" name="waterSpace" type="wtr:WaterSpacePropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" ref="wtr:AbstractGenericApplicationPropertyOfWaterBody"/>
         </sequence>
       </extension>
     </complexContent>
@@ -57,6 +62,7 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <element abstract="true" name="AbstractGenericApplicationPropertyOfWaterClosureSurface" type="anyType"/>
   <element name="WaterClosureSurface" substitutionGroup="wtr:AbstractWaterBoundarySurface" type="wtr:WaterClosureSurfaceType">
     <annotation>
       <documentation>SIG3D: Exterior or interior boundary surface, which provides imaginary boundaries, used to describe parts of the outer shell of WaterBody.</documentation>
@@ -65,7 +71,9 @@
   <complexType name="WaterClosureSurfaceType">
     <complexContent>
       <extension base="wtr:AbstractWaterBoundarySurfaceType">
-        <sequence/>
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" ref="wtr:AbstractGenericApplicationPropertyOfWaterClosureSurface"/>
+        </sequence>
       </extension>
     </complexContent>
   </complexType>
@@ -76,6 +84,7 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <element abstract="true" name="AbstractGenericApplicationPropertyOfWaterGroundSurface" type="anyType"/>
   <element name="WaterGroundSurface" substitutionGroup="wtr:AbstractWaterBoundarySurface" type="wtr:WaterGroundSurfaceType">
     <annotation>
       <documentation>SIG3D: Exterior boundary surface of the submerged bottom of a water body, used to describe parts of the outer shell of WaterBody.</documentation>
@@ -84,7 +93,9 @@
   <complexType name="WaterGroundSurfaceType">
     <complexContent>
       <extension base="wtr:AbstractWaterBoundarySurfaceType">
-        <sequence/>
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" ref="wtr:AbstractGenericApplicationPropertyOfWaterGroundSurface"/>
+        </sequence>
       </extension>
     </complexContent>
   </complexType>
@@ -95,11 +106,14 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <element abstract="true" name="AbstractGenericApplicationPropertyOfWaterSpace" type="anyType"/>
   <element name="WaterSpace" substitutionGroup="core:AbstractOccupiedSpace" type="wtr:WaterSpaceType"/>
   <complexType name="WaterSpaceType">
     <complexContent>
       <extension base="core:AbstractOccupiedSpaceType">
-        <sequence/>
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" ref="wtr:AbstractGenericApplicationPropertyOfWaterSpace"/>
+        </sequence>
       </extension>
     </complexContent>
   </complexType>
@@ -110,6 +124,7 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <element abstract="true" name="AbstractGenericApplicationPropertyOfWaterSurface" type="anyType"/>
   <element name="WaterSurface" substitutionGroup="wtr:AbstractWaterBoundarySurface" type="wtr:WaterSurfaceType">
     <annotation>
       <documentation>SIG3D: Exterior boundary surface of a boundary layer between water and the atmosphere, used to describe parts of the outer shell of WaterBody.</documentation>
@@ -124,6 +139,7 @@
               <documentation>SIG3D: Codelist of the WaterSurface property waterLevel.</documentation>
             </annotation>
           </element>
+          <element maxOccurs="unbounded" minOccurs="0" ref="wtr:AbstractGenericApplicationPropertyOfWaterSurface"/>
         </sequence>
       </extension>
     </complexContent>

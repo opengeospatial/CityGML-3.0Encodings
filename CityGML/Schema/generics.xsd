@@ -103,6 +103,7 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <element abstract="true" name="AbstractGenericApplicationPropertyOfGenericCityObject" type="anyType"/>
   <element name="GenericCityObject" substitutionGroup="core:AbstractTopLevelCityObject" type="gen:GenericCityObjectType">
     <annotation>
       <documentation>SIG3D: Representation of a real wold city object which does not fit to any of the specific CityGML / ADE classes.</documentation>
@@ -131,6 +132,7 @@
           <element maxOccurs="unbounded" minOccurs="0" name="occupiedSpace" type="gen:GenericOccupiedSpacePropertyType"/>
           <element maxOccurs="unbounded" minOccurs="0" name="unoccupiedSpace" type="gen:GenericUnoccupiedSpacePropertyType"/>
           <element maxOccurs="unbounded" minOccurs="0" name="thematicSurface" type="gen:GenericThematicSurfacePropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" ref="gen:AbstractGenericApplicationPropertyOfGenericCityObject"/>
         </sequence>
       </extension>
     </complexContent>
@@ -142,11 +144,14 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <element abstract="true" name="AbstractGenericApplicationPropertyOfGenericLogicalSpace" type="anyType"/>
   <element name="GenericLogicalSpace" substitutionGroup="core:AbstractLogicalSpace" type="gen:GenericLogicalSpaceType"/>
   <complexType name="GenericLogicalSpaceType">
     <complexContent>
       <extension base="core:AbstractLogicalSpaceType">
-        <sequence/>
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" ref="gen:AbstractGenericApplicationPropertyOfGenericLogicalSpace"/>
+        </sequence>
       </extension>
     </complexContent>
   </complexType>
@@ -157,11 +162,14 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <element abstract="true" name="AbstractGenericApplicationPropertyOfGenericOccupiedSpace" type="anyType"/>
   <element name="GenericOccupiedSpace" substitutionGroup="core:AbstractOccupiedSpace" type="gen:GenericOccupiedSpaceType"/>
   <complexType name="GenericOccupiedSpaceType">
     <complexContent>
       <extension base="core:AbstractOccupiedSpaceType">
-        <sequence/>
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" ref="gen:AbstractGenericApplicationPropertyOfGenericOccupiedSpace"/>
+        </sequence>
       </extension>
     </complexContent>
   </complexType>
@@ -189,11 +197,14 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <element abstract="true" name="AbstractGenericApplicationPropertyOfGenericThematicSurface" type="anyType"/>
   <element name="GenericThematicSurface" substitutionGroup="core:AbstractThematicSurface" type="gen:GenericThematicSurfaceType"/>
   <complexType name="GenericThematicSurfaceType">
     <complexContent>
       <extension base="core:AbstractThematicSurfaceType">
-        <sequence/>
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" ref="gen:AbstractGenericApplicationPropertyOfGenericThematicSurface"/>
+        </sequence>
       </extension>
     </complexContent>
   </complexType>
@@ -204,11 +215,14 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <element abstract="true" name="AbstractGenericApplicationPropertyOfGenericUnoccupiedSpace" type="anyType"/>
   <element name="GenericUnoccupiedSpace" substitutionGroup="core:AbstractUnoccupiedSpace" type="gen:GenericUnoccupiedSpaceType"/>
   <complexType name="GenericUnoccupiedSpaceType">
     <complexContent>
       <extension base="core:AbstractUnoccupiedSpaceType">
-        <sequence/>
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" ref="gen:AbstractGenericApplicationPropertyOfGenericUnoccupiedSpace"/>
+        </sequence>
       </extension>
     </complexContent>
   </complexType>

@@ -6,8 +6,8 @@
   <complexType name="TransactionType">
     <sequence>
       <element name="type" type="vers:TransactionValueType"/>
-      <element minOccurs="0" name="newFeature" type="core:AbstractFeatureWithLifespanPropertyType"/>
       <element minOccurs="0" name="oldFeature" type="core:AbstractFeatureWithLifespanPropertyType"/>
+      <element minOccurs="0" name="newFeature" type="core:AbstractFeatureWithLifespanPropertyType"/>
     </sequence>
   </complexType>
   <complexType name="TransactionPropertyType">
@@ -31,6 +31,7 @@
       <enumeration value="merge"/>
     </restriction>
   </simpleType>
+  <element abstract="true" name="AbstractGenericApplicationPropertyOfVersion" type="anyType"/>
   <element name="Version" substitutionGroup="core:AbstractFeatureWithLifespan" type="vers:VersionType"/>
   <complexType name="VersionType">
     <complexContent>
@@ -49,6 +50,7 @@
               </complexContent>
             </complexType>
           </element>
+          <element maxOccurs="unbounded" minOccurs="0" ref="vers:AbstractGenericApplicationPropertyOfVersion"/>
         </sequence>
       </extension>
     </complexContent>
@@ -60,6 +62,7 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <element abstract="true" name="AbstractGenericApplicationPropertyOfVersionTransition" type="anyType"/>
   <element name="VersionTransition" substitutionGroup="core:AbstractFeatureWithLifespan" type="vers:VersionTransitionType"/>
   <complexType name="VersionTransitionType">
     <complexContent>
@@ -71,6 +74,7 @@
           <element minOccurs="0" name="from" type="vers:VersionPropertyType"/>
           <element minOccurs="0" name="to" type="vers:VersionPropertyType"/>
           <element maxOccurs="unbounded" minOccurs="0" name="transaction" type="vers:TransactionPropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" ref="vers:AbstractGenericApplicationPropertyOfVersionTransition"/>
         </sequence>
       </extension>
     </complexContent>

@@ -2,6 +2,7 @@
   <import namespace="http://www.opengis.net/citygml/3.0" schemaLocation="./cityGMLBase.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <element abstract="true" name="AbstractGenericApplicationPropertyOfCityObjectGroup" type="anyType"/>
   <element name="CityObjectGroup" substitutionGroup="core:AbstractTopLevelCityObject" type="grp:CityObjectGroupType">
     <annotation>
       <documentation>SIG3D: Aggregation of city objects according to user defined criteria (e.g. grouping of rooms belonging to a certain storey).</documentation>
@@ -32,7 +33,7 @@
             </annotation>
             <complexType>
               <complexContent>
-                <extension base="gml:AbstractMemberType">
+                <extension base="gml:AbstractFeatureMemberType">
                   <sequence minOccurs="0">
                     <element ref="grp:Role"/>
                   </sequence>
@@ -47,6 +48,7 @@
             </annotation>
           </element>
           <element minOccurs="0" name="groupSpace" type="grp:GroupSpacePropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" ref="grp:AbstractGenericApplicationPropertyOfCityObjectGroup"/>
         </sequence>
       </extension>
     </complexContent>
@@ -58,11 +60,14 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <element abstract="true" name="AbstractGenericApplicationPropertyOfGroupSpace" type="anyType"/>
   <element name="GroupSpace" substitutionGroup="core:AbstractLogicalSpace" type="grp:GroupSpaceType"/>
   <complexType name="GroupSpaceType">
     <complexContent>
       <extension base="core:AbstractLogicalSpaceType">
-        <sequence/>
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" ref="grp:AbstractGenericApplicationPropertyOfGroupSpace"/>
+        </sequence>
       </extension>
     </complexContent>
   </complexType>
