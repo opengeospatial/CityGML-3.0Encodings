@@ -15,6 +15,7 @@
     <stereotypeAliases>
       <StereotypeAlias wellknown="property" alias="Property"/>
       <StereotypeAlias wellknown="version" alias="Version"/>
+      <StereotypeAlias wellknown="FeatureType" alias="TopLevelFeatureType"/>
     </stereotypeAliases>
   </input>
   

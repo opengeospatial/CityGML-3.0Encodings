@@ -4,11 +4,89 @@
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
   <element abstract="true" name="AbstractGenericApplicationPropertyOfAbstractTunnel" type="anyType"/>
+  <element abstract="true" name="AbstractTunnel" substitutionGroup="con:AbstractConstruction" type="tun:AbstractTunnelType">
+    <annotation>
+      <documentation>SIG3D: Abstract superclass of Tunnel and TunnelPart</documentation>
+    </annotation>
+  </element>
+  <complexType abstract="true" name="AbstractTunnelType">
+    <complexContent>
+      <extension base="con:AbstractConstructionType">
+        <sequence>
+          <element minOccurs="0" name="class" type="gml:CodeType">
+            <annotation>
+              <documentation>SIG3D: Classification of the actual usage of Tunnel or TunnelPart as given by the relevant national regulations, information communities, or specific applications.</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="function" type="gml:CodeType">
+            <annotation>
+              <documentation>SIG3D: Specified function of Tunnel or TunnelPart as given by the relevant national regulations, information communities, or specific applications.</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="usage" type="gml:CodeType">
+            <annotation>
+              <documentation>SIG3D: Actual usage of Tunnel or TunnelPart as given by the relevant national regulations, information communities, or specific applications.</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="tunnelConstructiveElement">
+            <complexType>
+              <complexContent>
+                <extension base="gml:AbstractFeatureMemberType">
+                  <sequence>
+                    <element ref="tun:TunnelConstructiveElement"/>
+                  </sequence>
+                </extension>
+              </complexContent>
+            </complexType>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="tunnelInstallation">
+            <annotation>
+              <documentation>SIG3D: Relation between Tunnel or TunnelPart and TunnelInstallation.</documentation>
+            </annotation>
+            <complexType>
+              <complexContent>
+                <extension base="gml:AbstractFeatureMemberType">
+                  <sequence>
+                    <element ref="tun:TunnelInstallation"/>
+                  </sequence>
+                </extension>
+              </complexContent>
+            </complexType>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="interiorHollowSpace">
+            <annotation>
+              <documentation>SIG3D: Relation between Tunnel or TunnelPart and HollowSpace.</documentation>
+            </annotation>
+            <complexType>
+              <complexContent>
+                <extension base="gml:AbstractFeatureMemberType">
+                  <sequence>
+                    <element ref="tun:HollowSpace"/>
+                  </sequence>
+                </extension>
+              </complexContent>
+            </complexType>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="tunnelFurniture">
+            <complexType>
+              <complexContent>
+                <extension base="gml:AbstractFeatureMemberType">
+                  <sequence>
+                    <element ref="tun:TunnelFurniture"/>
+                  </sequence>
+                </extension>
+              </complexContent>
+            </complexType>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" ref="tun:AbstractGenericApplicationPropertyOfAbstractTunnel"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
   <complexType name="AbstractTunnelPropertyType">
-    <choice minOccurs="0">
-      <element ref="tun:Tunnel"/>
-      <element ref="tun:TunnelPart"/>
-    </choice>
+    <sequence minOccurs="0">
+      <element ref="tun:AbstractTunnel"/>
+    </sequence>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
@@ -82,113 +160,15 @@
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
   <element abstract="true" name="AbstractGenericApplicationPropertyOfTunnel" type="anyType"/>
-  <element name="Tunnel" substitutionGroup="core:AbstractTopLevelCityObject" type="tun:TunnelType">
+  <element name="Tunnel" substitutionGroup="tun:AbstractTunnel" type="tun:TunnelType">
     <annotation>
       <documentation>SIG3D: horizontal or sloping enclosed passage way of some length, mainly underground or underwater (cf. ISO 6707-1).</documentation>
     </annotation>
   </element>
   <complexType name="TunnelType">
     <complexContent>
-      <extension base="core:AbstractTopLevelCityObjectType">
+      <extension base="tun:AbstractTunnelType">
         <sequence>
-          <element minOccurs="0" name="class" type="gml:CodeType">
-            <annotation>
-              <documentation>SIG3D: Classification of the actual usage of Tunnel or TunnelPart as given by the relevant national regulations, information communities, or specific applications.</documentation>
-            </annotation>
-          </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="function" type="gml:CodeType">
-            <annotation>
-              <documentation>SIG3D: Specified function of Tunnel or TunnelPart as given by the relevant national regulations, information communities, or specific applications.</documentation>
-            </annotation>
-          </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="usage" type="gml:CodeType">
-            <annotation>
-              <documentation>SIG3D: Actual usage of Tunnel or TunnelPart as given by the relevant national regulations, information communities, or specific applications.</documentation>
-            </annotation>
-          </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="tunnelConstructiveElement">
-            <complexType>
-              <complexContent>
-                <extension base="gml:AbstractFeatureMemberType">
-                  <sequence>
-                    <element ref="tun:TunnelConstructiveElement"/>
-                  </sequence>
-                </extension>
-              </complexContent>
-            </complexType>
-          </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="tunnelInstallation">
-            <annotation>
-              <documentation>SIG3D: Relation between Tunnel or TunnelPart and TunnelInstallation.</documentation>
-            </annotation>
-            <complexType>
-              <complexContent>
-                <extension base="gml:AbstractFeatureMemberType">
-                  <sequence>
-                    <element ref="tun:TunnelInstallation"/>
-                  </sequence>
-                </extension>
-              </complexContent>
-            </complexType>
-          </element>
-          <element maxOccurs="unbounded" name="tunnelSpace" type="con:ConstructionSpacePropertyType"/>
-          <element maxOccurs="unbounded" minOccurs="0" name="interiorHollowSpace">
-            <annotation>
-              <documentation>SIG3D: Relation between Tunnel or TunnelPart and HollowSpace.</documentation>
-            </annotation>
-            <complexType>
-              <complexContent>
-                <extension base="gml:AbstractFeatureMemberType">
-                  <sequence>
-                    <element ref="tun:HollowSpace"/>
-                  </sequence>
-                </extension>
-              </complexContent>
-            </complexType>
-          </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="tunnelFurniture">
-            <complexType>
-              <complexContent>
-                <extension base="gml:AbstractFeatureMemberType">
-                  <sequence>
-                    <element ref="tun:TunnelFurniture"/>
-                  </sequence>
-                </extension>
-              </complexContent>
-            </complexType>
-          </element>
-          <element maxOccurs="unbounded" minOccurs="0" ref="tun:AbstractGenericApplicationPropertyOfAbstractTunnel"/>
-          <element minOccurs="0" name="conditionOfConstruction" type="con:ConditionOfConstructionValueType">
-            <annotation>
-              <documentation>[INSPIRE] Status of the construction.</documentation>
-            </annotation>
-          </element>
-          <element minOccurs="0" name="dateOfConstruction" type="date">
-            <annotation>
-              <documentation>Date of completion of a construction.</documentation>
-            </annotation>
-          </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="dateOfRenovation" type="date">
-            <annotation>
-              <documentation>Date of renovation of a construction.</documentation>
-            </annotation>
-          </element>
-          <element minOccurs="0" name="dateOfDemolition" type="date">
-            <annotation>
-              <documentation>Date of demolition of a construction.</documentation>
-            </annotation>
-          </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="elevation" type="con:ElevationPropertyType">
-            <annotation>
-              <documentation>[INSPIRE] Vertically-constrained dimensional property consisting of an absolute measure referenced to a well-defined surface which is commonly taken as origin (geoïd, water level, etc.).</documentation>
-            </annotation>
-          </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="heightAboveGround" type="con:HeightAboveGroundPropertyType">
-            <annotation>
-              <documentation>[INSPIRE] Height above ground.</documentation>
-            </annotation>
-          </element>
-          <element maxOccurs="unbounded" minOccurs="0" ref="con:AbstractGenericApplicationPropertyOfAbstractConstruction"/>
           <element maxOccurs="unbounded" minOccurs="0" name="tunnelPart">
             <annotation>
               <documentation>Relation between Tunnel and TunnelPart.</documentation>
@@ -312,113 +292,15 @@
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
   <element abstract="true" name="AbstractGenericApplicationPropertyOfTunnelPart" type="anyType"/>
-  <element name="TunnelPart" substitutionGroup="core:AbstractCityObject" type="tun:TunnelPartType">
+  <element name="TunnelPart" substitutionGroup="tun:AbstractTunnel" type="tun:TunnelPartType">
     <annotation>
       <documentation>SIG3D: A tunnel part is a sub-division of a Tunnel that is homogeneous related to its physical, functional, or temporal aspects and may be considered as a Tunnel.</documentation>
     </annotation>
   </element>
   <complexType name="TunnelPartType">
     <complexContent>
-      <extension base="core:AbstractCityObjectType">
+      <extension base="tun:AbstractTunnelType">
         <sequence>
-          <element minOccurs="0" name="class" type="gml:CodeType">
-            <annotation>
-              <documentation>SIG3D: Classification of the actual usage of Tunnel or TunnelPart as given by the relevant national regulations, information communities, or specific applications.</documentation>
-            </annotation>
-          </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="function" type="gml:CodeType">
-            <annotation>
-              <documentation>SIG3D: Specified function of Tunnel or TunnelPart as given by the relevant national regulations, information communities, or specific applications.</documentation>
-            </annotation>
-          </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="usage" type="gml:CodeType">
-            <annotation>
-              <documentation>SIG3D: Actual usage of Tunnel or TunnelPart as given by the relevant national regulations, information communities, or specific applications.</documentation>
-            </annotation>
-          </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="tunnelConstructiveElement">
-            <complexType>
-              <complexContent>
-                <extension base="gml:AbstractFeatureMemberType">
-                  <sequence>
-                    <element ref="tun:TunnelConstructiveElement"/>
-                  </sequence>
-                </extension>
-              </complexContent>
-            </complexType>
-          </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="tunnelInstallation">
-            <annotation>
-              <documentation>SIG3D: Relation between Tunnel or TunnelPart and TunnelInstallation.</documentation>
-            </annotation>
-            <complexType>
-              <complexContent>
-                <extension base="gml:AbstractFeatureMemberType">
-                  <sequence>
-                    <element ref="tun:TunnelInstallation"/>
-                  </sequence>
-                </extension>
-              </complexContent>
-            </complexType>
-          </element>
-          <element maxOccurs="unbounded" name="tunnelSpace" type="con:ConstructionSpacePropertyType"/>
-          <element maxOccurs="unbounded" minOccurs="0" name="interiorHollowSpace">
-            <annotation>
-              <documentation>SIG3D: Relation between Tunnel or TunnelPart and HollowSpace.</documentation>
-            </annotation>
-            <complexType>
-              <complexContent>
-                <extension base="gml:AbstractFeatureMemberType">
-                  <sequence>
-                    <element ref="tun:HollowSpace"/>
-                  </sequence>
-                </extension>
-              </complexContent>
-            </complexType>
-          </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="tunnelFurniture">
-            <complexType>
-              <complexContent>
-                <extension base="gml:AbstractFeatureMemberType">
-                  <sequence>
-                    <element ref="tun:TunnelFurniture"/>
-                  </sequence>
-                </extension>
-              </complexContent>
-            </complexType>
-          </element>
-          <element maxOccurs="unbounded" minOccurs="0" ref="tun:AbstractGenericApplicationPropertyOfAbstractTunnel"/>
-          <element minOccurs="0" name="conditionOfConstruction" type="con:ConditionOfConstructionValueType">
-            <annotation>
-              <documentation>[INSPIRE] Status of the construction.</documentation>
-            </annotation>
-          </element>
-          <element minOccurs="0" name="dateOfConstruction" type="date">
-            <annotation>
-              <documentation>Date of completion of a construction.</documentation>
-            </annotation>
-          </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="dateOfRenovation" type="date">
-            <annotation>
-              <documentation>Date of renovation of a construction.</documentation>
-            </annotation>
-          </element>
-          <element minOccurs="0" name="dateOfDemolition" type="date">
-            <annotation>
-              <documentation>Date of demolition of a construction.</documentation>
-            </annotation>
-          </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="elevation" type="con:ElevationPropertyType">
-            <annotation>
-              <documentation>[INSPIRE] Vertically-constrained dimensional property consisting of an absolute measure referenced to a well-defined surface which is commonly taken as origin (geoïd, water level, etc.).</documentation>
-            </annotation>
-          </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="heightAboveGround" type="con:HeightAboveGroundPropertyType">
-            <annotation>
-              <documentation>[INSPIRE] Height above ground.</documentation>
-            </annotation>
-          </element>
-          <element maxOccurs="unbounded" minOccurs="0" ref="con:AbstractGenericApplicationPropertyOfAbstractConstruction"/>
           <element maxOccurs="unbounded" minOccurs="0" ref="tun:AbstractGenericApplicationPropertyOfTunnelPart"/>
         </sequence>
       </extension>
