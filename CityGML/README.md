@@ -1,0 +1,1 @@
+The schemas were derived using [ShapeChange](https://github.com/ShapeChange/ShapeChange). Current extensions to ShapeChange are not yet integrated in the main ShapeChange repository, but are available in this [fork](https://github.com/TatjanaKutzner/ShapeChange).

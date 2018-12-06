@@ -3,14 +3,14 @@
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
   <element abstract="true" name="AbstractGenericApplicationPropertyOfLandUse" type="anyType"/>
-  <element name="LandUse" substitutionGroup="core:AbstractTopLevelCityObject" type="luse:LandUseType">
+  <element name="LandUse" substitutionGroup="core:AbstractSpaceBoundary" type="luse:LandUseType">
     <annotation>
       <documentation>SIG3D: Object describing an area of the earth's surface dedicated to a specific land use or having a specific land cover with or without vegetation, such as sand, rock, mud flats, forest, grasslands, etc (i.e. the physical appearance).</documentation>
     </annotation>
   </element>
   <complexType name="LandUseType">
     <complexContent>
-      <extension base="core:AbstractTopLevelCityObjectType">
+      <extension base="core:AbstractSpaceBoundaryType">
         <sequence>
           <element minOccurs="0" name="class" type="gml:CodeType">
             <annotation>
@@ -27,7 +27,6 @@
               <documentation>SIG3D: Actual usage of LandUse as given by the relevant national regulations, information communities or specific applications.</documentation>
             </annotation>
           </element>
-          <element minOccurs="0" name="landUseArea" type="luse:LandUseAreaPropertyType"/>
           <element maxOccurs="unbounded" minOccurs="0" ref="luse:AbstractGenericApplicationPropertyOfLandUse"/>
         </sequence>
       </extension>
@@ -36,24 +35,6 @@
   <complexType name="LandUsePropertyType">
     <sequence minOccurs="0">
       <element ref="luse:LandUse"/>
-    </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
-  </complexType>
-  <element abstract="true" name="AbstractGenericApplicationPropertyOfLandUseArea" type="anyType"/>
-  <element name="LandUseArea" substitutionGroup="core:AbstractSpaceBoundary" type="luse:LandUseAreaType"/>
-  <complexType name="LandUseAreaType">
-    <complexContent>
-      <extension base="core:AbstractSpaceBoundaryType">
-        <sequence>
-          <element maxOccurs="unbounded" minOccurs="0" ref="luse:AbstractGenericApplicationPropertyOfLandUseArea"/>
-        </sequence>
-      </extension>
-    </complexContent>
-  </complexType>
-  <complexType name="LandUseAreaPropertyType">
-    <sequence minOccurs="0">
-      <element ref="luse:LandUseArea"/>
     </sequence>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>

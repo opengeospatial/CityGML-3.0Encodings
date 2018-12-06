@@ -3,14 +3,14 @@
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
   <element abstract="true" name="AbstractGenericApplicationPropertyOfAbstractReliefComponent" type="anyType"/>
-  <element abstract="true" name="AbstractReliefComponent" substitutionGroup="core:ReliefSurface" type="dem:AbstractReliefComponentType">
+  <element abstract="true" name="AbstractReliefComponent" substitutionGroup="core:AbstractThematicSurface" type="dem:AbstractReliefComponentType">
     <annotation>
       <documentation>SIG3D: Abstract superclass of TINRelief, MassPointRelief, RasterRelief and BreaklineRelief</documentation>
     </annotation>
   </element>
   <complexType abstract="true" name="AbstractReliefComponentType">
     <complexContent>
-      <extension base="core:ReliefSurfaceType">
+      <extension base="core:AbstractThematicSurfaceType">
         <sequence>
           <element name="lod" type="core:IntegerBetween0and3Type">
             <annotation>
@@ -120,14 +120,14 @@
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
   <element abstract="true" name="AbstractGenericApplicationPropertyOfReliefFeature" type="anyType"/>
-  <element name="ReliefFeature" substitutionGroup="core:AbstractTopLevelCityObject" type="dem:ReliefFeatureType">
+  <element name="ReliefFeature" substitutionGroup="core:AbstractCityObject" type="dem:ReliefFeatureType">
     <annotation>
       <documentation>SIG3D: Feature aggregating the relief components which belong together.</documentation>
     </annotation>
   </element>
   <complexType name="ReliefFeatureType">
     <complexContent>
-      <extension base="core:AbstractTopLevelCityObjectType">
+      <extension base="core:AbstractCityObjectType">
         <sequence>
           <element name="lod" type="core:IntegerBetween0and3Type">
             <annotation>

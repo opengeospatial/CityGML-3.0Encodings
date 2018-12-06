@@ -379,14 +379,14 @@
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
   <element abstract="true" name="AbstractGenericApplicationPropertyOfTransportationComplex" type="anyType"/>
-  <element name="TransportationComplex" substitutionGroup="core:AbstractTopLevelCityObject" type="tran:TransportationComplexType">
+  <element name="TransportationComplex" substitutionGroup="core:AbstractCityObject" type="tran:TransportationComplexType">
     <annotation>
       <documentation>SIG3D: Aggregation of TrafficSpaces and AuxiliaryTrafficSpaces, e.g the different lanes of a multi-lane road.</documentation>
     </annotation>
   </element>
   <complexType name="TransportationComplexType">
     <complexContent>
-      <extension base="core:AbstractTopLevelCityObjectType">
+      <extension base="core:AbstractCityObjectType">
         <sequence>
           <element minOccurs="0" name="class" type="gml:CodeType">
             <annotation>

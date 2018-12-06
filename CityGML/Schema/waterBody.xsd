@@ -25,14 +25,14 @@
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
   <element abstract="true" name="AbstractGenericApplicationPropertyOfWaterBody" type="anyType"/>
-  <element name="WaterBody" substitutionGroup="core:AbstractTopLevelCityObject" type="wtr:WaterBodyType">
+  <element name="WaterBody" substitutionGroup="core:AbstractOccupiedSpace" type="wtr:WaterBodyType">
     <annotation>
       <documentation>SIG3D: Any significant accumulation of water, usually covering a part of the Earth</documentation>
     </annotation>
   </element>
   <complexType name="WaterBodyType">
     <complexContent>
-      <extension base="core:AbstractTopLevelCityObjectType">
+      <extension base="core:AbstractOccupiedSpaceType">
         <sequence>
           <element minOccurs="0" name="class" type="gml:CodeType">
             <annotation>
@@ -49,7 +49,6 @@
               <documentation>SIG3D: Actual usage of WaterBody as given by the relevant national regulations, information communities, or specific applications.</documentation>
             </annotation>
           </element>
-          <element minOccurs="0" name="waterSpace" type="wtr:WaterSpacePropertyType"/>
           <element maxOccurs="unbounded" minOccurs="0" ref="wtr:AbstractGenericApplicationPropertyOfWaterBody"/>
         </sequence>
       </extension>
@@ -102,24 +101,6 @@
   <complexType name="WaterGroundSurfacePropertyType">
     <sequence minOccurs="0">
       <element ref="wtr:WaterGroundSurface"/>
-    </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
-  </complexType>
-  <element abstract="true" name="AbstractGenericApplicationPropertyOfWaterSpace" type="anyType"/>
-  <element name="WaterSpace" substitutionGroup="core:AbstractOccupiedSpace" type="wtr:WaterSpaceType"/>
-  <complexType name="WaterSpaceType">
-    <complexContent>
-      <extension base="core:AbstractOccupiedSpaceType">
-        <sequence>
-          <element maxOccurs="unbounded" minOccurs="0" ref="wtr:AbstractGenericApplicationPropertyOfWaterSpace"/>
-        </sequence>
-      </extension>
-    </complexContent>
-  </complexType>
-  <complexType name="WaterSpacePropertyType">
-    <sequence minOccurs="0">
-      <element ref="wtr:WaterSpace"/>
     </sequence>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>

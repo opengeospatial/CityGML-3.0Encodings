@@ -86,60 +86,19 @@
       <element ref="gen:GenericAttributeSet"/>
     </sequence>
   </complexType>
-  <element name="GenericBoundaryRelation" substitutionGroup="core:ThematicBoundaryRelation" type="gen:GenericBoundaryRelationType"/>
-  <complexType name="GenericBoundaryRelationType">
+  <element name="GenericCityObjectRelation" substitutionGroup="core:CityObjectRelation" type="gen:GenericCityObjectRelationType"/>
+  <complexType name="GenericCityObjectRelationType">
     <complexContent>
-      <extension base="core:ThematicBoundaryRelationType">
+      <extension base="core:CityObjectRelationType">
         <sequence>
-          <element name="relationType" type="anyURI"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="genericAttribute" type="gen:AbstractGenericAttributePropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="GenericBoundaryRelationPropertyType">
+  <complexType name="GenericCityObjectRelationPropertyType">
     <sequence minOccurs="0">
-      <element ref="gen:GenericBoundaryRelation"/>
-    </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
-  </complexType>
-  <element abstract="true" name="AbstractGenericApplicationPropertyOfGenericCityObject" type="anyType"/>
-  <element name="GenericCityObject" substitutionGroup="core:AbstractTopLevelCityObject" type="gen:GenericCityObjectType">
-    <annotation>
-      <documentation>SIG3D: Representation of a real wold city object which does not fit to any of the specific CityGML / ADE classes.</documentation>
-    </annotation>
-  </element>
-  <complexType name="GenericCityObjectType">
-    <complexContent>
-      <extension base="core:AbstractTopLevelCityObjectType">
-        <sequence>
-          <element minOccurs="0" name="class" type="gml:CodeType">
-            <annotation>
-              <documentation>SIG3D: Classification of the actual usage of GenericCityObject as given by the relevant national regulations, information communities or specific applications.</documentation>
-            </annotation>
-          </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="function" type="gml:CodeType">
-            <annotation>
-              <documentation>SIG3D: Specified function of GenericCityObject as given by the relevant national regulations, information communities or specific applications.</documentation>
-            </annotation>
-          </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="usage" type="gml:CodeType">
-            <annotation>
-              <documentation>SIG3D: Actual usage of GenericCityObject as given by the relevant national regulations, information communities or specific applications.</documentation>
-            </annotation>
-          </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="logicalSpace" type="gen:GenericLogicalSpacePropertyType"/>
-          <element maxOccurs="unbounded" minOccurs="0" name="occupiedSpace" type="gen:GenericOccupiedSpacePropertyType"/>
-          <element maxOccurs="unbounded" minOccurs="0" name="unoccupiedSpace" type="gen:GenericUnoccupiedSpacePropertyType"/>
-          <element maxOccurs="unbounded" minOccurs="0" name="thematicSurface" type="gen:GenericThematicSurfacePropertyType"/>
-          <element maxOccurs="unbounded" minOccurs="0" ref="gen:AbstractGenericApplicationPropertyOfGenericCityObject"/>
-        </sequence>
-      </extension>
-    </complexContent>
-  </complexType>
-  <complexType name="GenericCityObjectPropertyType">
-    <sequence minOccurs="0">
-      <element ref="gen:GenericCityObject"/>
+      <element ref="gen:GenericCityObjectRelation"/>
     </sequence>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
@@ -150,6 +109,9 @@
     <complexContent>
       <extension base="core:AbstractLogicalSpaceType">
         <sequence>
+          <element minOccurs="0" name="class" type="gml:CodeType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="function" type="gml:CodeType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="usage" type="gml:CodeType"/>
           <element maxOccurs="unbounded" minOccurs="0" ref="gen:AbstractGenericApplicationPropertyOfGenericLogicalSpace"/>
         </sequence>
       </extension>
@@ -168,6 +130,9 @@
     <complexContent>
       <extension base="core:AbstractOccupiedSpaceType">
         <sequence>
+          <element minOccurs="0" name="class" type="gml:CodeType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="function" type="gml:CodeType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="usage" type="gml:CodeType"/>
           <element maxOccurs="unbounded" minOccurs="0" ref="gen:AbstractGenericApplicationPropertyOfGenericOccupiedSpace"/>
         </sequence>
       </extension>
@@ -180,29 +145,15 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="GenericSpaceRelation" substitutionGroup="core:ThematicSpaceRelation" type="gen:GenericSpaceRelationType"/>
-  <complexType name="GenericSpaceRelationType">
-    <complexContent>
-      <extension base="core:ThematicSpaceRelationType">
-        <sequence>
-          <element name="relationType" type="anyURI"/>
-        </sequence>
-      </extension>
-    </complexContent>
-  </complexType>
-  <complexType name="GenericSpaceRelationPropertyType">
-    <sequence minOccurs="0">
-      <element ref="gen:GenericSpaceRelation"/>
-    </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
-  </complexType>
   <element abstract="true" name="AbstractGenericApplicationPropertyOfGenericThematicSurface" type="anyType"/>
   <element name="GenericThematicSurface" substitutionGroup="core:AbstractThematicSurface" type="gen:GenericThematicSurfaceType"/>
   <complexType name="GenericThematicSurfaceType">
     <complexContent>
       <extension base="core:AbstractThematicSurfaceType">
         <sequence>
+          <element minOccurs="0" name="class" type="gml:CodeType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="function" type="gml:CodeType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="usage" type="gml:CodeType"/>
           <element maxOccurs="unbounded" minOccurs="0" ref="gen:AbstractGenericApplicationPropertyOfGenericThematicSurface"/>
         </sequence>
       </extension>
@@ -221,6 +172,9 @@
     <complexContent>
       <extension base="core:AbstractUnoccupiedSpaceType">
         <sequence>
+          <element minOccurs="0" name="class" type="gml:CodeType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="function" type="gml:CodeType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="usage" type="gml:CodeType"/>
           <element maxOccurs="unbounded" minOccurs="0" ref="gen:AbstractGenericApplicationPropertyOfGenericUnoccupiedSpace"/>
         </sequence>
       </extension>

@@ -3,14 +3,14 @@
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
   <element abstract="true" name="AbstractGenericApplicationPropertyOfAbstractVegetationObject" type="anyType"/>
-  <element abstract="true" name="AbstractVegetationObject" substitutionGroup="core:AbstractTopLevelCityObject" type="veg:AbstractVegetationObjectType">
+  <element abstract="true" name="AbstractVegetationObject" substitutionGroup="core:AbstractOccupiedSpace" type="veg:AbstractVegetationObjectType">
     <annotation>
       <documentation>SIG3D: Abstract super class of SolitaryVegetationObject and PlantCover</documentation>
     </annotation>
   </element>
   <complexType abstract="true" name="AbstractVegetationObjectType">
     <complexContent>
-      <extension base="core:AbstractTopLevelCityObjectType">
+      <extension base="core:AbstractOccupiedSpaceType">
         <sequence>
           <element maxOccurs="unbounded" minOccurs="0" ref="veg:AbstractGenericApplicationPropertyOfAbstractVegetationObject"/>
         </sequence>
@@ -54,7 +54,6 @@
               <documentation>SIG3D: Average value of the heights of the grown-up plants</documentation>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="plantCoverSpace" type="veg:VegetationSpacePropertyType"/>
           <element maxOccurs="unbounded" minOccurs="0" ref="veg:AbstractGenericApplicationPropertyOfPlantCover"/>
         </sequence>
       </extension>
@@ -112,7 +111,6 @@
               <documentation>SIG3D: Maximal diameter of the crown.</documentation>
             </annotation>
           </element>
-          <element minOccurs="0" name="vegetationObjectSpace" type="veg:VegetationSpacePropertyType"/>
           <element maxOccurs="unbounded" minOccurs="0" ref="veg:AbstractGenericApplicationPropertyOfSolitaryVegetationObject"/>
         </sequence>
       </extension>
@@ -121,24 +119,6 @@
   <complexType name="SolitaryVegetationObjectPropertyType">
     <sequence minOccurs="0">
       <element ref="veg:SolitaryVegetationObject"/>
-    </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
-  </complexType>
-  <element abstract="true" name="AbstractGenericApplicationPropertyOfVegetationSpace" type="anyType"/>
-  <element name="VegetationSpace" substitutionGroup="core:AbstractOccupiedSpace" type="veg:VegetationSpaceType"/>
-  <complexType name="VegetationSpaceType">
-    <complexContent>
-      <extension base="core:AbstractOccupiedSpaceType">
-        <sequence>
-          <element maxOccurs="unbounded" minOccurs="0" ref="veg:AbstractGenericApplicationPropertyOfVegetationSpace"/>
-        </sequence>
-      </extension>
-    </complexContent>
-  </complexType>
-  <complexType name="VegetationSpacePropertyType">
-    <sequence minOccurs="0">
-      <element ref="veg:VegetationSpace"/>
     </sequence>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
