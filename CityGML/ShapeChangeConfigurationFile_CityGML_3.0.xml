@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ShapeChangeConfiguration xmlns:xi="http://www.w3.org/2001/XInclude" 
+    xmlns="http://www.interactive-instruments.de/ShapeChange/Configuration/1.1" 
+    xmlns:sc="http://www.interactive-instruments.de/ShapeChange/Configuration/1.1"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:schemaLocation="http://www.interactive-instruments.de/ShapeChange/Configuration/1.1 http://shapechange.net/resources/schema/ShapeChangeConfiguration.xsd">
+    
+  <input>
+    <parameter name="inputModelType" value="EA7"/>
+    <parameter name="inputFile" value="D:/CityGML_3.0/CityGML_3.0_Consolidated_Draft.eap"/>
+    <parameter name="appSchemaNamespaceRegex" value="^http://www.opengis.net/citygml/.*"/>
+    <parameter name="checkingConstraints" value="disabled"/>
+    <parameter name="addTaggedValues" value="itemType"/>
+    <xi:include href="http://shapechange.net/resources/config/StandardAliases.xml"/>
+    <stereotypeAliases>
+      <StereotypeAlias wellknown="property" alias="Property"/>
+      <StereotypeAlias wellknown="version" alias="Version"/>
+    </stereotypeAliases>
+  </input>
+  
+  <log>
+    <parameter name="reportLevel" value="INFO"/>
+    <parameter name="logFile" value="D:/CityGML_3.0/logs/CityGML_3.0.xml"/>
+  </log>
+  
+  <targets>
+    <TargetXmlSchema class="de.interactive_instruments.ShapeChange.Target.XmlSchema.XmlSchema" mode="enabled">
+      <targetParameter name="outputDirectory" value="D:/CityGML_3.0/xsds"/>
+      <targetParameter name="defaultEncodingRule" value="citygml"/>
+      <rules>
+        <EncodingRule name="citygml" extends="gml33">
+          <rule name="rule-xsd-cls-basictype"/>
+          <rule name="rule-xsd-cls-adehook"/>
+          <rule name="rule-xsd-prop-initialValue"/>
+          <rule name="rule-xsd-prop-att-map-entry"/>
+          <rule name="rule-xsd-cls-mixin-classes"/>
+          <rule name="rule-xsd-prop-constrainingFacets"/>
+          <rule name="rule-xsd-all-notEncoded"/>
+        </EncodingRule>
+      </rules>
+      <xi:include href="http://shapechange.net/resources/config/StandardRules.xml"/>
+      <xi:include href="http://shapechange.net/resources/config/StandardNamespaces.xml"/>
+      <xmlNamespaces>
+       <XmlNamespace nsabr="app" ns="http://www.opengis.net/citygml/appearance/3.0" location="./appearance.xsd"/>
+       <XmlNamespace nsabr="brid" ns="http://www.opengis.net/citygml/bridge/3.0" location="./bridge.xsd"/>
+       <XmlNamespace nsabr="bldg" ns="http://www.opengis.net/citygml/building/3.0" location="./building.xsd"/>
+       <XmlNamespace nsabr="frn" ns="http://www.opengis.net/citygml/cityfurniture/3.0" location="./cityFurniture.xsd"/>
+       <XmlNamespace nsabr="grp" ns="http://www.opengis.net/citygml/cityobjectgroup/3.0" location="./cityObjectGroup.xsd"/>
+       <XmlNamespace nsabr="con" ns="http://www.opengis.net/citygml/construction/3.0" location="./construction.xsd"/>
+       <XmlNamespace nsabr="core" ns="http://www.opengis.net/citygml/3.0" location="./cityGMLBase.xsd"/>
+       <XmlNamespace nsabr="dyn" ns="http://www.opengis.net/citygml/dynamizer/3.0" location="./dynamizer.xsd"/>
+       <XmlNamespace nsabr="gen" ns="http://www.opengis.net/citygml/generics/3.0" location="./generics.xsd"/>
+       <XmlNamespace nsabr="luse" ns="http://www.opengis.net/citygml/landuse/3.0" location="./landUse.xsd"/>
+       <XmlNamespace nsabr="dem" ns="http://www.opengis.net/citygml/relief/3.0" location="./relief.xsd"/>
+       <XmlNamespace nsabr="tran" ns="http://www.opengis.net/citygml/transportation/3.0" location="./transportation.xsd"/>
+       <XmlNamespace nsabr="tun" ns="http://www.opengis.net/citygml/tunnel/3.0" location="./tunnel.xsd"/>
+       <XmlNamespace nsabr="veg" ns="http://www.opengis.net/citygml/vegetation/3.0" location="./vegetation.xsd"/>
+       <XmlNamespace nsabr="vers" ns="http://www.opengis.net/citygml/versioning/3.0" location="./versioning.xsd"/>
+       <XmlNamespace nsabr="wtr" ns="http://www.opengis.net/citygml/waterbody/3.0" location="./waterBody.xsd"/>
+       <XmlNamespace nsabr="tsml" ns="http://www.opengis.net/tsml/1.0" location="http://schemas.opengis.net/tsml/1.0/timeseriesML.xsd"/>
+       <XmlNamespace nsabr="sos" ns="http://www.opengis.net/sos/2.0" location="http://schemas.opengis.net/sos/2.0/sosGetObservation.xsd"/> 
+       <XmlNamespace nsabr="xAL" ns="urn:oasis:names:tc:ciq:xsdschema:xAL:2.0" location="http://schemas.opengis.net/citygml/xAL/xAL.xsd"/> 
+      </xmlNamespaces>
+      <xi:include href="http://shapechange.net/resources/config/StandardMapEntries.xml"/>
+      <xsdMapEntries>
+        <XsdMapEntry type="AbstractFeature" xsdEncodingRules="iso19136_2007 gml33" xmlType="gml:AbstractFeatureType" xmlElement="gml:AbstractFeature" xmlPropertyType="gml:FeaturePropertyType"/>
+        <XsdMapEntry type="XALAddressDetails" xsdEncodingRules="citygml" xmlType="xAL:AddressDetails" xmlElement="xAL:AddressDetails" xmlPropertyType="_P_"/>
+        <XsdMapEntry type="URI" xsdEncodingRules="iso19136_2007 gml33" xmlPropertyType="anyURI" xmlType="anyURI" xmlTypeType="simple" xmlTypeContent="simple"/>
+        <XsdMapEntry type="Code" xsdEncodingRules="iso19136_2007 gml33" xmlPropertyType="gml:CodeType" xmlType="gml:CodeType" xmlTypeType="complex" xmlTypeContent="simple"/>
+        <XsdMapEntry type="MeasureOrNilReasonList" xsdEncodingRules="iso19136_2007 gml33" xmlPropertyType="gml:MeasureOrNilReasonListType" xmlType="gml:MeasureOrNilReasonListType" xmlTypeType="simple" xmlTypeContent="complex"/>
+        <XsdMapEntry type="doubleList" xsdEncodingRules="iso19136_2007 gml33" xmlPropertyType="gml:doubleList" xmlType="gml:doubleList" xmlTypeType="simple" xmlTypeContent="simple"/>
+        <XsdMapEntry type="SC_CRS" xsdEncodingRules="citygml" xmlAttributeGroup="gml:SRSReferenceGroup"/>
+        <XsdMapEntry type="CV_DiscreteGridPointCoverage" xsdEncodingRules="iso19136_2007 gml33" xmlType="gml:RectifiedGridCoverageType" xmlElement="gml:RectifiedGridCoverage" xmlPropertyType="_P_"/>
+        <XsdMapEntry type="TimeseriesTVP" xsdEncodingRules="citygml" xmlType="tsml:TimeseriesTVPType" xmlElement="tsml:TimeseriesTVP" xmlPropertyType="tsml:TimeseriesTVPPropertyType"/>
+        <XsdMapEntry type="TimeseriesDomainRange" xsdEncodingRules="citygml" xmlType="tsml:TimeseriesDomainRangeType" xmlElement="tsml:TimeseriesDomainRange" xmlPropertyType="tsml:TimeseriesDomainRangePropertyType"/>
+        <XsdMapEntry type="GetObservationResponse" xsdEncodingRules="citygml" xmlType="sos:GetObservationResponseType" xmlElement="sos:GetObservationResponse" xmlPropertyType="sos:GetObservationResponsePropertyType"/>
+      </xsdMapEntries>
+    </TargetXmlSchema>
+    <!--Target class="de.interactive_instruments.ShapeChange.Target.FeatureCatalogue.FeatureCatalogue" mode="enabled">
+     <targetParameter name="outputDirectory" value="D:/CityGML_3.0/FeatureCatalog"/>
+     <targetParameter name="outputFilename" value="FC_CityGML"/>
+     <targetParameter name="package" value="CityFurniture"/>
+     <targetParameter name="inheritedProperties" value="false"/>
+     <targetParameter name="changeInfo" value="false"/>
+     <targetParameter name="outputFormat" value="HTML,DOCX"/>
+     <targetParameter name="name" value="'CityGML 3.0'"/>
+     <targetParameter name="scope" value="This feature catalogue gives an overview of the feature types and data types defined in the CityGML 3.0 conceptual model."/>
+     <targetParameter name="versionNumber" value="1.0"/>
+     <targetParameter name="versionDate" value="April 2018"/>
+     <targetParameter name="producer" value="OGC, CityGML SWG"/>
+     <targetParameter name="xsltPath" value="http://shapechange.net/resources/xslt"/>
+     <targetParameter name="xslTransformerFactory" value="org.apache.xalan.processor.TransformerFactoryImpl"/>
+     <targetParameter name="xslhtmlFile" value="html.xsl"/>
+     <targetParameter name="xsldocxFile" value="docx.xsl"/>
+     <targetParameter name="docxTemplateFilePath" value="D:/CityGML_3.0/FeatureCatalog/template.docx"/>
+    </Target-->
+  </targets>
+</ShapeChangeConfiguration>
+
+
+
+
+
+
