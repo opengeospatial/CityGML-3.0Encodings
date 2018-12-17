@@ -1,38 +1,57 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:bldg="http://www.opengis.net/citygml/building/3.0" xmlns:brid="http://www.opengis.net/citygml/bridge/3.0" xmlns:con="http://www.opengis.net/citygml/construction/3.0" xmlns:core="http://www.opengis.net/citygml/3.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:tun="http://www.opengis.net/citygml/tunnel/3.0" elementFormDefault="qualified" targetNamespace="http://www.opengis.net/citygml/construction/3.0" version="3.0.0">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:con="http://www.opengis.net/citygml/construction/3.0" xmlns:core="http://www.opengis.net/citygml/3.0" xmlns:gml="http://www.opengis.net/gml/3.2" elementFormDefault="qualified" targetNamespace="http://www.opengis.net/citygml/construction/3.0" version="3.0.0">
   <import namespace="http://www.opengis.net/citygml/3.0" schemaLocation="./cityGMLBase.xsd"/>
-  <import namespace="http://www.opengis.net/citygml/bridge/3.0" schemaLocation="./bridge.xsd"/>
-  <import namespace="http://www.opengis.net/citygml/building/3.0" schemaLocation="./building.xsd"/>
-  <import namespace="http://www.opengis.net/citygml/tunnel/3.0" schemaLocation="./tunnel.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
   <element abstract="true" name="AbstractGenericApplicationPropertyOfAbstractConstruction" type="anyType"/>
-  <complexType name="AbstractConstructionPropertyType">
-    <choice minOccurs="0">
-      <element ref="brid:Bridge"/>
-      <element ref="brid:BridgePart"/>
-      <element ref="bldg:Building"/>
-      <element ref="bldg:BuildingPart"/>
-      <element ref="con:OtherConstruction"/>
-      <element ref="tun:Tunnel"/>
-      <element ref="tun:TunnelPart"/>
-    </choice>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
-  </complexType>
-  <element abstract="true" name="AbstractGenericApplicationPropertyOfAbstractConstructionOpeningSurface" type="anyType"/>
-  <element abstract="true" name="AbstractConstructionOpeningSurface" substitutionGroup="core:AbstractVoidSurface" type="con:AbstractConstructionOpeningSurfaceType"/>
-  <complexType abstract="true" name="AbstractConstructionOpeningSurfaceType">
+  <element abstract="true" name="AbstractConstruction" substitutionGroup="core:AbstractOccupiedSpace" type="con:AbstractConstructionType">
+    <annotation>
+      <documentation>An object, manufactured by humans from construction materials, which is connected to earth and intended to be permanent. A connection with the ground also exists when the construction rests by its own weight on the ground or is moveable limited on stationary rails or if the construction  is intended to be used mainly stationary.
+Note: Everything that is covered by other CityGML modules, e.g. Transportation or Water body, is not an 
+AbstractConstruction. E.g. a road or canal is man made, but not an AbstractConstruction.</documentation>
+    </annotation>
+  </element>
+  <complexType abstract="true" name="AbstractConstructionType">
     <complexContent>
-      <extension base="core:AbstractVoidSurfaceType">
+      <extension base="core:AbstractOccupiedSpaceType">
         <sequence>
-          <element maxOccurs="unbounded" minOccurs="0" ref="con:AbstractGenericApplicationPropertyOfAbstractConstructionOpeningSurface"/>
+          <element minOccurs="0" name="conditionOfConstruction" type="con:ConditionOfConstructionValueType">
+            <annotation>
+              <documentation>[INSPIRE] Status of the construction.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="dateOfConstruction" type="date">
+            <annotation>
+              <documentation>Date of completion of a construction.</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="dateOfRenovation" type="date">
+            <annotation>
+              <documentation>Date of renovation of a construction.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="dateOfDemolition" type="date">
+            <annotation>
+              <documentation>Date of demolition of a construction.</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="elevation" type="con:ElevationPropertyType">
+            <annotation>
+              <documentation>[INSPIRE] Vertically-constrained dimensional property consisting of an absolute measure referenced to a well-defined surface which is commonly taken as origin (geoïd, water level, etc.).</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="heightAboveGround" type="con:HeightAboveGroundPropertyType">
+            <annotation>
+              <documentation>[INSPIRE] Height above ground.</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" ref="con:AbstractGenericApplicationPropertyOfAbstractConstruction"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="AbstractConstructionOpeningSurfacePropertyType">
+  <complexType name="AbstractConstructionPropertyType">
     <sequence minOccurs="0">
-      <element ref="con:AbstractConstructionOpeningSurface"/>
+      <element ref="con:AbstractConstruction"/>
     </sequence>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
@@ -55,46 +74,12 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element abstract="true" name="AbstractGenericApplicationPropertyOfAbstractConstructionVoid" type="anyType"/>
-  <element abstract="true" name="AbstractConstructionVoid" substitutionGroup="core:AbstractVoid" type="con:AbstractConstructionVoidType">
-    <annotation>
-      <documentation>SIG3D: Abstract superclass of Window and Door.</documentation>
-    </annotation>
-  </element>
-  <complexType abstract="true" name="AbstractConstructionVoidType">
-    <complexContent>
-      <extension base="core:AbstractVoidType">
-        <sequence>
-          <element maxOccurs="unbounded" minOccurs="0" ref="con:AbstractGenericApplicationPropertyOfAbstractConstructionVoid"/>
-        </sequence>
-      </extension>
-    </complexContent>
-  </complexType>
-  <complexType name="AbstractConstructionVoidPropertyType">
-    <sequence minOccurs="0">
-      <element ref="con:AbstractConstructionVoid"/>
-    </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
-  </complexType>
   <element abstract="true" name="AbstractGenericApplicationPropertyOfAbstractConstructiveElement" type="anyType"/>
   <element abstract="true" name="AbstractConstructiveElement" substitutionGroup="core:AbstractOccupiedSpace" type="con:AbstractConstructiveElementType"/>
   <complexType abstract="true" name="AbstractConstructiveElementType">
     <complexContent>
       <extension base="core:AbstractOccupiedSpaceType">
         <sequence>
-          <element maxOccurs="unbounded" minOccurs="0" name="opening">
-            <complexType>
-              <complexContent>
-                <extension base="gml:AbstractFeatureMemberType">
-                  <sequence minOccurs="0">
-                    <element ref="core:AbstractVoid"/>
-                  </sequence>
-                  <attributeGroup ref="gml:AssociationAttributeGroup"/>
-                </extension>
-              </complexContent>
-            </complexType>
-          </element>
           <element maxOccurs="unbounded" minOccurs="0" ref="con:AbstractGenericApplicationPropertyOfAbstractConstructiveElement"/>
         </sequence>
       </extension>
@@ -203,33 +188,15 @@
       </enumeration>
     </restriction>
   </simpleType>
-  <element abstract="true" name="AbstractGenericApplicationPropertyOfConstructionSpace" type="anyType"/>
-  <element name="ConstructionSpace" substitutionGroup="core:AbstractOccupiedSpace" type="con:ConstructionSpaceType"/>
-  <complexType name="ConstructionSpaceType">
-    <complexContent>
-      <extension base="core:AbstractOccupiedSpaceType">
-        <sequence>
-          <element maxOccurs="unbounded" minOccurs="0" ref="con:AbstractGenericApplicationPropertyOfConstructionSpace"/>
-        </sequence>
-      </extension>
-    </complexContent>
-  </complexType>
-  <complexType name="ConstructionSpacePropertyType">
-    <sequence minOccurs="0">
-      <element ref="con:ConstructionSpace"/>
-    </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
-  </complexType>
   <element abstract="true" name="AbstractGenericApplicationPropertyOfDoor" type="anyType"/>
-  <element name="Door" substitutionGroup="con:AbstractConstructionVoid" type="con:DoorType">
+  <element name="Door" substitutionGroup="con:AbstractConstructiveElement" type="con:DoorType">
     <annotation>
       <documentation>ISO 6707-1: Construction for closing an opening intended primarily for access or egress or both.</documentation>
     </annotation>
   </element>
   <complexType name="DoorType">
     <complexContent>
-      <extension base="con:AbstractConstructionVoidType">
+      <extension base="con:AbstractConstructiveElementType">
         <sequence>
           <element maxOccurs="unbounded" minOccurs="0" name="address" type="core:AddressPropertyType">
             <annotation>
@@ -249,10 +216,10 @@
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
   <element abstract="true" name="AbstractGenericApplicationPropertyOfDoorSurface" type="anyType"/>
-  <element name="DoorSurface" substitutionGroup="con:AbstractConstructionOpeningSurface" type="con:DoorSurfaceType"/>
+  <element name="DoorSurface" substitutionGroup="con:AbstractConstructionSurface" type="con:DoorSurfaceType"/>
   <complexType name="DoorSurfaceType">
     <complexContent>
-      <extension base="con:AbstractConstructionOpeningSurfaceType">
+      <extension base="con:AbstractConstructionSurfaceType">
         <sequence>
           <element maxOccurs="unbounded" minOccurs="0" name="address" type="core:AddressPropertyType"/>
           <element maxOccurs="unbounded" minOccurs="0" ref="con:AbstractGenericApplicationPropertyOfDoorSurface"/>
@@ -496,50 +463,18 @@
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
   <element abstract="true" name="AbstractGenericApplicationPropertyOfOtherConstruction" type="anyType"/>
-  <element name="OtherConstruction" substitutionGroup="core:AbstractTopLevelCityObject" type="con:OtherConstructionType">
+  <element name="OtherConstruction" substitutionGroup="con:AbstractConstruction" type="con:OtherConstructionType">
     <annotation>
       <documentation>Every construction which is not covered by any of the other subclasses of AbstractConstruction.</documentation>
     </annotation>
   </element>
   <complexType name="OtherConstructionType">
     <complexContent>
-      <extension base="core:AbstractTopLevelCityObjectType">
+      <extension base="con:AbstractConstructionType">
         <sequence>
-          <element minOccurs="0" name="conditionOfConstruction" type="con:ConditionOfConstructionValueType">
-            <annotation>
-              <documentation>[INSPIRE] Status of the construction.</documentation>
-            </annotation>
-          </element>
-          <element minOccurs="0" name="dateOfConstruction" type="date">
-            <annotation>
-              <documentation>Date of completion of a construction.</documentation>
-            </annotation>
-          </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="dateOfRenovation" type="date">
-            <annotation>
-              <documentation>Date of renovation of a construction.</documentation>
-            </annotation>
-          </element>
-          <element minOccurs="0" name="dateOfDemolition" type="date">
-            <annotation>
-              <documentation>Date of demolition of a construction.</documentation>
-            </annotation>
-          </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="elevation" type="con:ElevationPropertyType">
-            <annotation>
-              <documentation>[INSPIRE] Vertically-constrained dimensional property consisting of an absolute measure referenced to a well-defined surface which is commonly taken as origin (geoïd, water level, etc.).</documentation>
-            </annotation>
-          </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="heightAboveGround" type="con:HeightAboveGroundPropertyType">
-            <annotation>
-              <documentation>[INSPIRE] Height above ground.</documentation>
-            </annotation>
-          </element>
-          <element maxOccurs="unbounded" minOccurs="0" ref="con:AbstractGenericApplicationPropertyOfAbstractConstruction"/>
           <element name="class" type="gml:CodeType"/>
           <element maxOccurs="unbounded" minOccurs="0" name="function" type="gml:CodeType"/>
           <element maxOccurs="unbounded" minOccurs="0" name="usage" type="gml:CodeType"/>
-          <element name="constructionSpace" type="con:ConstructionSpacePropertyType"/>
           <element maxOccurs="unbounded" minOccurs="0" ref="con:AbstractGenericApplicationPropertyOfOtherConstruction"/>
         </sequence>
       </extension>
@@ -648,14 +583,14 @@
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
   <element abstract="true" name="AbstractGenericApplicationPropertyOfWindow" type="anyType"/>
-  <element name="Window" substitutionGroup="con:AbstractConstructionVoid" type="con:WindowType">
+  <element name="Window" substitutionGroup="con:AbstractConstructiveElement" type="con:WindowType">
     <annotation>
       <documentation>SIG3D: Construction for closing an opening in a wall or roof, primarily intended to admit light and/or provide ventilation (cf. ISO 6707).</documentation>
     </annotation>
   </element>
   <complexType name="WindowType">
     <complexContent>
-      <extension base="con:AbstractConstructionVoidType">
+      <extension base="con:AbstractConstructiveElementType">
         <sequence>
           <element maxOccurs="unbounded" minOccurs="0" ref="con:AbstractGenericApplicationPropertyOfWindow"/>
         </sequence>
@@ -670,10 +605,10 @@
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
   <element abstract="true" name="AbstractGenericApplicationPropertyOfWindowSurface" type="anyType"/>
-  <element name="WindowSurface" substitutionGroup="con:AbstractConstructionOpeningSurface" type="con:WindowSurfaceType"/>
+  <element name="WindowSurface" substitutionGroup="con:AbstractConstructionSurface" type="con:WindowSurfaceType"/>
   <complexType name="WindowSurfaceType">
     <complexContent>
-      <extension base="con:AbstractConstructionOpeningSurfaceType">
+      <extension base="con:AbstractConstructionSurfaceType">
         <sequence>
           <element maxOccurs="unbounded" minOccurs="0" ref="con:AbstractGenericApplicationPropertyOfWindowSurface"/>
         </sequence>

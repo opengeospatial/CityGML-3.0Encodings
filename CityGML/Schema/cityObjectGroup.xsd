@@ -3,14 +3,14 @@
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
   <element abstract="true" name="AbstractGenericApplicationPropertyOfCityObjectGroup" type="anyType"/>
-  <element name="CityObjectGroup" substitutionGroup="core:AbstractTopLevelCityObject" type="grp:CityObjectGroupType">
+  <element name="CityObjectGroup" substitutionGroup="core:AbstractLogicalSpace" type="grp:CityObjectGroupType">
     <annotation>
       <documentation>SIG3D: Aggregation of city objects according to user defined criteria (e.g. grouping of rooms belonging to a certain storey).</documentation>
     </annotation>
   </element>
   <complexType name="CityObjectGroupType">
     <complexContent>
-      <extension base="core:AbstractTopLevelCityObjectType">
+      <extension base="core:AbstractLogicalSpaceType">
         <sequence>
           <element minOccurs="0" name="class" type="gml:CodeType">
             <annotation>
@@ -47,7 +47,6 @@
               <documentation>SIG3D: Reference to an AbstractCityObject related to the aggregation as a whole (e.g. the corresponding building object for the aggregation of rooms to a storey).</documentation>
             </annotation>
           </element>
-          <element minOccurs="0" name="groupSpace" type="grp:GroupSpacePropertyType"/>
           <element maxOccurs="unbounded" minOccurs="0" ref="grp:AbstractGenericApplicationPropertyOfCityObjectGroup"/>
         </sequence>
       </extension>
@@ -56,24 +55,6 @@
   <complexType name="CityObjectGroupPropertyType">
     <sequence minOccurs="0">
       <element ref="grp:CityObjectGroup"/>
-    </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
-  </complexType>
-  <element abstract="true" name="AbstractGenericApplicationPropertyOfGroupSpace" type="anyType"/>
-  <element name="GroupSpace" substitutionGroup="core:AbstractLogicalSpace" type="grp:GroupSpaceType"/>
-  <complexType name="GroupSpaceType">
-    <complexContent>
-      <extension base="core:AbstractLogicalSpaceType">
-        <sequence>
-          <element maxOccurs="unbounded" minOccurs="0" ref="grp:AbstractGenericApplicationPropertyOfGroupSpace"/>
-        </sequence>
-      </extension>
-    </complexContent>
-  </complexType>
-  <complexType name="GroupSpacePropertyType">
-    <sequence minOccurs="0">
-      <element ref="grp:GroupSpace"/>
     </sequence>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
