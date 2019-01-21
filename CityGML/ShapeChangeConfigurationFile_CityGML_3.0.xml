@@ -45,6 +45,7 @@
        <XmlNamespace nsabr="app" ns="http://www.opengis.net/citygml/appearance/3.0" location="./appearance.xsd"/>
        <XmlNamespace nsabr="brid" ns="http://www.opengis.net/citygml/bridge/3.0" location="./bridge.xsd"/>
        <XmlNamespace nsabr="bldg" ns="http://www.opengis.net/citygml/building/3.0" location="./building.xsd"/>
+       <XmlNamespace nsabr="pcl" ns="http://www.opengis.net/citygml/pointcloud/3.0" location="./pointcloud.xsd"/>
        <XmlNamespace nsabr="frn" ns="http://www.opengis.net/citygml/cityfurniture/3.0" location="./cityFurniture.xsd"/>
        <XmlNamespace nsabr="grp" ns="http://www.opengis.net/citygml/cityobjectgroup/3.0" location="./cityObjectGroup.xsd"/>
        <XmlNamespace nsabr="con" ns="http://www.opengis.net/citygml/construction/3.0" location="./construction.xsd"/>
