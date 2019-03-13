@@ -29,8 +29,8 @@
     <complexContent>
       <extension base="dyn:AbstractTimeseriesType">
         <sequence>
-          <element minOccurs="0" name="dynamicDataDR" type="tsml:TimeseriesDomainRangePropertyType"/>
-          <element minOccurs="0" name="dynamicDataTVP" type="tsml:TimeseriesTVPPropertyType"/>
+          <element minOccurs="0" name="timeseriesDomainRange" type="tsml:TimeseriesDomainRangePropertyType"/>
+          <element minOccurs="0" name="timeseriesTVP" type="tsml:TimeseriesTVPPropertyType"/>
           <element minOccurs="0" name="observationData" type="sos:GetObservationResponsePropertyType"/>
           <element maxOccurs="unbounded" minOccurs="0" ref="dyn:AbstractGenericApplicationPropertyOfAtomicTimeseries"/>
         </sequence>
@@ -50,7 +50,7 @@
     <complexContent>
       <extension base="dyn:AbstractTimeseriesType">
         <sequence>
-          <element maxOccurs="unbounded" name="component">
+          <element maxOccurs="unbounded" name="timeseriesComponent">
             <complexType>
               <complexContent>
                 <extension base="gml:AbstractFeatureMemberType">
@@ -83,7 +83,7 @@
           <element name="attributeRef" type="anyURI"/>
           <element name="startTime" type="gml:TimePositionType"/>
           <element name="endTime" type="gml:TimePositionType"/>
-          <element minOccurs="0" name="dynamicData">
+          <element minOccurs="0" name="timeseries">
             <complexType>
               <complexContent>
                 <extension base="gml:AbstractFeatureMemberType">
@@ -95,7 +95,7 @@
               </complexContent>
             </complexType>
           </element>
-          <element minOccurs="0" name="linkToSensor" type="dyn:SensorConnectionPropertyType"/>
+          <element minOccurs="0" name="sensorConnection" type="dyn:SensorConnectionPropertyType"/>
           <element maxOccurs="unbounded" minOccurs="0" ref="dyn:AbstractGenericApplicationPropertyOfDynamizer"/>
         </sequence>
       </extension>

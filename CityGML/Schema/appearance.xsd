@@ -104,7 +104,7 @@
               <documentation>SIG3D: Theme name for all surfaceDataMembers. A theme is a catagory defining the semantics of the referenced surfaceDataMembers (e.g. infrared radiation,</documentation>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="surfaceDataMember">
+          <element maxOccurs="unbounded" minOccurs="0" name="surfaceData">
             <annotation>
               <documentation>SIG3D: List of surface data properties for the current appearance theme</documentation>
             </annotation>
@@ -194,7 +194,7 @@
     <complexContent>
       <extension base="app:AbstractTextureType">
         <sequence>
-          <element maxOccurs="unbounded" minOccurs="0" name="target" type="app:TextureAssociationPropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="textureParameterization" type="app:TextureAssociationPropertyType"/>
           <element maxOccurs="unbounded" minOccurs="0" ref="app:AbstractGenericApplicationPropertyOfParameterizedTexture"/>
         </sequence>
       </extension>
@@ -273,7 +273,7 @@
               <documentation>SIG3D: Link to the geometry object to be textured.</documentation>
             </annotation>
           </element>
-          <element name="target" type="app:AbstractTextureParameterizationPropertyType"/>
+          <element name="textureParameterization" type="app:AbstractTextureParameterizationPropertyType"/>
         </sequence>
       </extension>
     </complexContent>
