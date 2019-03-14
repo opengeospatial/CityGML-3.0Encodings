@@ -78,7 +78,7 @@
               </complexContent>
             </complexType>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="interiorRoom">
+          <element maxOccurs="unbounded" minOccurs="0" name="buildingRoom">
             <annotation>
               <documentation>SIG3D: Relation between Building or BuildingPart and Room.</documentation>
             </annotation>
@@ -86,7 +86,7 @@
               <complexContent>
                 <extension base="gml:AbstractFeatureMemberType">
                   <sequence>
-                    <element ref="bldg:Room"/>
+                    <element ref="bldg:BuildingRoom"/>
                   </sequence>
                 </extension>
               </complexContent>
@@ -154,14 +154,14 @@
               <documentation>Defines an order among the building unit objects, e.g. for sorting storeys.</documentation>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="buildingSubdivisionConstructiveElement" type="gml:ReferenceType">
+          <element maxOccurs="unbounded" minOccurs="0" name="buildingConstructiveElement" type="gml:ReferenceType">
             <annotation>
               <appinfo>
                 <targetElement xmlns="http://www.opengis.net/gml/3.2">bldg:BuildingConstructiveElement</targetElement>
               </appinfo>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="buildingSubdivisionFurniture">
+          <element maxOccurs="unbounded" minOccurs="0" name="buildingFurniture">
             <annotation>
               <appinfo>
                 <targetElement xmlns="http://www.opengis.net/gml/3.2">bldg:BuildingFurniture</targetElement>
@@ -176,7 +176,7 @@
               </complexContent>
             </complexType>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="buildingSubdivisionInstallation">
+          <element maxOccurs="unbounded" minOccurs="0" name="buildingInstallation">
             <annotation>
               <appinfo>
                 <targetElement xmlns="http://www.opengis.net/gml/3.2">bldg:BuildingInstallation</targetElement>
@@ -191,10 +191,10 @@
               </complexContent>
             </complexType>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="room" type="gml:ReferenceType">
+          <element maxOccurs="unbounded" minOccurs="0" name="buildingRoom" type="gml:ReferenceType">
             <annotation>
               <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">bldg:Room</targetElement>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">bldg:BuildingRoom</targetElement>
               </appinfo>
             </annotation>
           </element>
@@ -364,6 +364,90 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <element abstract="true" name="AbstractGenericApplicationPropertyOfBuildingRoom" type="anyType"/>
+  <element name="BuildingRoom" substitutionGroup="core:AbstractUnoccupiedSpace" type="bldg:BuildingRoomType">
+    <annotation>
+      <documentation>A semantic object for modelling the free space inside a building. This object corresponds to "Room" in CityGML 2.0. The inherited attribute spaceType allows for defining the closedness of a room. A room with ceiling, for instance, would be defined as closed, whereas an room representing an atrium would be defined as open or semi-open.</documentation>
+    </annotation>
+  </element>
+  <complexType name="BuildingRoomType">
+    <complexContent>
+      <extension base="core:AbstractUnoccupiedSpaceType">
+        <sequence>
+          <element minOccurs="0" name="class" type="gml:CodeType">
+            <annotation>
+              <documentation>SIG3D: Classification of Room as given by the relevant national regulations, information communities, or specific applications.</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="function" type="gml:CodeType">
+            <annotation>
+              <documentation>SIG3D: Function of Room as given by the relevant national regulations, information communities, or specific applications.</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="usage" type="gml:CodeType">
+            <annotation>
+              <documentation>SIG3D: Usage of Room as given by the relevant national regulations, information communities, or specific applications.</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="roomHeight">
+            <annotation>
+              <documentation>Height of the room.</documentation>
+            </annotation>
+            <complexType>
+              <complexContent>
+                <extension base="gml:AbstractMemberType">
+                  <sequence minOccurs="0">
+                    <element ref="bldg:RoomHeight"/>
+                  </sequence>
+                  <attributeGroup ref="gml:AssociationAttributeGroup"/>
+                </extension>
+              </complexContent>
+            </complexType>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="buildingFurniture">
+            <annotation>
+              <documentation>SIG3D: Relation between Room and BuildingFurniture</documentation>
+              <appinfo>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">bldg:BuildingFurniture</targetElement>
+              </appinfo>
+            </annotation>
+            <complexType>
+              <complexContent>
+                <extension base="gml:AbstractFeatureMemberType">
+                  <sequence/>
+                  <attributeGroup ref="gml:AssociationAttributeGroup"/>
+                </extension>
+              </complexContent>
+            </complexType>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="buildingInstallation">
+            <annotation>
+              <documentation>SIG3D: Relation between Room and IntBuildingInstallation</documentation>
+              <appinfo>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">bldg:BuildingInstallation</targetElement>
+              </appinfo>
+            </annotation>
+            <complexType>
+              <complexContent>
+                <extension base="gml:AbstractFeatureMemberType">
+                  <sequence/>
+                  <attributeGroup ref="gml:AssociationAttributeGroup"/>
+                </extension>
+              </complexContent>
+            </complexType>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" ref="bldg:AbstractGenericApplicationPropertyOfBuildingRoom"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="BuildingRoomPropertyType">
+    <sequence minOccurs="0">
+      <element ref="bldg:BuildingRoom"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
   <element abstract="true" name="AbstractGenericApplicationPropertyOfBuildingUnit" type="anyType"/>
   <element name="BuildingUnit" substitutionGroup="bldg:AbstractBuildingSubdivision" type="bldg:BuildingUnitType">
     <annotation>
@@ -399,90 +483,6 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element abstract="true" name="AbstractGenericApplicationPropertyOfRoom" type="anyType"/>
-  <element name="Room" substitutionGroup="core:AbstractUnoccupiedSpace" type="bldg:RoomType">
-    <annotation>
-      <documentation>A semantic object for modelling the free space inside a building. This object corresponds to "Room" in CityGML 2.0. The inherited attribute spaceType allows for defining the closedness of a room. A room with ceiling, for instance, would be defined as closed, whereas an room representing an atrium would be defined as open or semi-open.</documentation>
-    </annotation>
-  </element>
-  <complexType name="RoomType">
-    <complexContent>
-      <extension base="core:AbstractUnoccupiedSpaceType">
-        <sequence>
-          <element minOccurs="0" name="class" type="gml:CodeType">
-            <annotation>
-              <documentation>SIG3D: Classification of Room as given by the relevant national regulations, information communities, or specific applications.</documentation>
-            </annotation>
-          </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="function" type="gml:CodeType">
-            <annotation>
-              <documentation>SIG3D: Function of Room as given by the relevant national regulations, information communities, or specific applications.</documentation>
-            </annotation>
-          </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="usage" type="gml:CodeType">
-            <annotation>
-              <documentation>SIG3D: Usage of Room as given by the relevant national regulations, information communities, or specific applications.</documentation>
-            </annotation>
-          </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="roomHeight">
-            <annotation>
-              <documentation>Height of the room.</documentation>
-            </annotation>
-            <complexType>
-              <complexContent>
-                <extension base="gml:AbstractMemberType">
-                  <sequence minOccurs="0">
-                    <element ref="bldg:RoomHeight"/>
-                  </sequence>
-                  <attributeGroup ref="gml:AssociationAttributeGroup"/>
-                </extension>
-              </complexContent>
-            </complexType>
-          </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="interiorFurniture">
-            <annotation>
-              <documentation>SIG3D: Relation between Room and BuildingFurniture</documentation>
-              <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">bldg:BuildingFurniture</targetElement>
-              </appinfo>
-            </annotation>
-            <complexType>
-              <complexContent>
-                <extension base="gml:AbstractFeatureMemberType">
-                  <sequence/>
-                  <attributeGroup ref="gml:AssociationAttributeGroup"/>
-                </extension>
-              </complexContent>
-            </complexType>
-          </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="roomInstallation">
-            <annotation>
-              <documentation>SIG3D: Relation between Room and IntBuildingInstallation</documentation>
-              <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">bldg:BuildingInstallation</targetElement>
-              </appinfo>
-            </annotation>
-            <complexType>
-              <complexContent>
-                <extension base="gml:AbstractFeatureMemberType">
-                  <sequence/>
-                  <attributeGroup ref="gml:AssociationAttributeGroup"/>
-                </extension>
-              </complexContent>
-            </complexType>
-          </element>
-          <element maxOccurs="unbounded" minOccurs="0" ref="bldg:AbstractGenericApplicationPropertyOfRoom"/>
-        </sequence>
-      </extension>
-    </complexContent>
-  </complexType>
-  <complexType name="RoomPropertyType">
-    <sequence minOccurs="0">
-      <element ref="bldg:Room"/>
-    </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
-  </complexType>
   <simpleType name="RoomElevationReferenceValueType">
     <annotation>
       <documentation>List of possible elements considered to capture a vertical geometry for measuring the room height.</documentation>
@@ -500,7 +500,7 @@
     <complexContent>
       <extension base="gml:AbstractGMLType">
         <sequence>
-          <element name="heightReference" type="bldg:RoomElevationReferenceValueType">
+          <element name="highReference" type="bldg:RoomElevationReferenceValueType">
             <annotation>
               <documentation>[INSPIRE] Element used as the high reference.</documentation>
             </annotation>
@@ -546,6 +546,13 @@
               <appinfo>
                 <targetElement xmlns="http://www.opengis.net/gml/3.2">bldg:BuildingUnit</targetElement>
                 <reversePropertyName xmlns="http://www.opengis.net/gml/3.2">bldg:storey</reversePropertyName>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="constructionSurface" type="gml:ReferenceType">
+            <annotation>
+              <appinfo>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">con:AbstractConstructionSurface</targetElement>
               </appinfo>
             </annotation>
           </element>

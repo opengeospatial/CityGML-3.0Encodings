@@ -3,14 +3,14 @@
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
   <element abstract="true" name="AbstractGenericApplicationPropertyOfLandUse" type="anyType"/>
-  <element name="LandUse" substitutionGroup="core:AbstractSpaceBoundary" type="luse:LandUseType">
+  <element name="LandUse" substitutionGroup="core:AbstractThematicSurface" type="luse:LandUseType">
     <annotation>
       <documentation>SIG3D: Object describing an area of the earth's surface dedicated to a specific land use or having a specific land cover with or without vegetation, such as sand, rock, mud flats, forest, grasslands, etc (i.e. the physical appearance).</documentation>
     </annotation>
   </element>
   <complexType name="LandUseType">
     <complexContent>
-      <extension base="core:AbstractSpaceBoundaryType">
+      <extension base="core:AbstractThematicSurfaceType">
         <sequence>
           <element minOccurs="0" name="class" type="gml:CodeType">
             <annotation>

@@ -2,7 +2,7 @@
   <import namespace="http://www.opengis.net/citygml/appearance/3.0" schemaLocation="./appearance.xsd"/>
   <import namespace="http://www.opengis.net/citygml/dynamizer/3.0" schemaLocation="./dynamizer.xsd"/>
   <import namespace="http://www.opengis.net/citygml/generics/3.0" schemaLocation="./generics.xsd"/>
-  <import namespace="http://www.opengis.net/citygml/pointcloud/3.0"/>
+  <import namespace="http://www.opengis.net/citygml/pointcloud/3.0" schemaLocation="./pointcloud.xsd"/>
   <import namespace="http://www.opengis.net/citygml/versioning/3.0" schemaLocation="./versioning.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <import namespace="urn:oasis:names:tc:ciq:xsdschema:xAL:2.0" schemaLocation="http://schemas.opengis.net/citygml/xAL/xAL.xsd"/>
@@ -115,18 +115,6 @@ AbstractCityObject relative to the surrounding terrain.</documentation>
     <complexContent>
       <extension base="core:AbstractPhysicalSpaceType">
         <sequence>
-          <element maxOccurs="unbounded" minOccurs="0" name="opening">
-            <complexType>
-              <complexContent>
-                <extension base="gml:AbstractFeatureMemberType">
-                  <sequence minOccurs="0">
-                    <element ref="core:Void"/>
-                  </sequence>
-                  <attributeGroup ref="gml:AssociationAttributeGroup"/>
-                </extension>
-              </complexContent>
-            </complexType>
-          </element>
           <element minOccurs="0" name="lod1ImplicitRepresentation" type="core:ImplicitGeometryPropertyType">
             <annotation>
               <documentation>Relation to LOD1 implicit geometry of AbstractOccupiedSpace.</documentation>
@@ -201,6 +189,30 @@ AbstractCityObject relative to the surrounding terrain.</documentation>
               <documentation>Degree of openness of an abstract space.</documentation>
             </annotation>
           </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="volume">
+            <complexType>
+              <complexContent>
+                <extension base="gml:AbstractMemberType">
+                  <sequence minOccurs="0">
+                    <element ref="core:QualifiedVolume"/>
+                  </sequence>
+                  <attributeGroup ref="gml:AssociationAttributeGroup"/>
+                </extension>
+              </complexContent>
+            </complexType>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="area">
+            <complexType>
+              <complexContent>
+                <extension base="gml:AbstractMemberType">
+                  <sequence minOccurs="0">
+                    <element ref="core:QualifiedArea"/>
+                  </sequence>
+                  <attributeGroup ref="gml:AssociationAttributeGroup"/>
+                </extension>
+              </complexContent>
+            </complexType>
+          </element>
           <element minOccurs="0" name="lod0Point" type="gml:PointPropertyType">
             <annotation>
               <documentation>Relation to a  LOD0 point geometry of AbstractSpace.</documentation>
@@ -231,7 +243,7 @@ AbstractCityObject relative to the surrounding terrain.</documentation>
               <documentation>Relation to a  LOD2 curve geometry of AbstractSpace.</documentation>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="boundary" type="core:AbstractSpaceBoundaryPropertyType">
+          <element maxOccurs="unbounded" minOccurs="0" name="boundary" type="core:AbstractThematicSurfacePropertyType">
             <annotation>
               <appinfo>
                 <reversePropertyName xmlns="http://www.opengis.net/gml/3.2">core:bounds</reversePropertyName>
@@ -265,12 +277,24 @@ AbstractCityObject relative to the surrounding terrain.</documentation>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element abstract="true" name="AbstractGenericApplicationPropertyOfAbstractSpaceBoundary" type="anyType"/>
-  <element abstract="true" name="AbstractSpaceBoundary" substitutionGroup="core:AbstractCityObject" type="core:AbstractSpaceBoundaryType"/>
-  <complexType abstract="true" name="AbstractSpaceBoundaryType">
+  <element abstract="true" name="AbstractGenericApplicationPropertyOfAbstractThematicSurface" type="anyType"/>
+  <element abstract="true" name="AbstractThematicSurface" substitutionGroup="core:AbstractCityObject" type="core:AbstractThematicSurfaceType"/>
+  <complexType abstract="true" name="AbstractThematicSurfaceType">
     <complexContent>
       <extension base="core:AbstractCityObjectType">
         <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" name="area">
+            <complexType>
+              <complexContent>
+                <extension base="gml:AbstractMemberType">
+                  <sequence minOccurs="0">
+                    <element ref="core:QualifiedArea"/>
+                  </sequence>
+                  <attributeGroup ref="gml:AssociationAttributeGroup"/>
+                </extension>
+              </complexContent>
+            </complexType>
+          </element>
           <element minOccurs="0" name="lod0MultiCurve" type="gml:MultiCurvePropertyType">
             <annotation>
               <documentation>Relation to a  LOD0 curve geometry of AbstractSpace.</documentation>
@@ -297,36 +321,6 @@ AbstractCityObject relative to the surrounding terrain.</documentation>
                 <reversePropertyName xmlns="http://www.opengis.net/gml/3.2">core:boundary</reversePropertyName>
               </appinfo>
             </annotation>
-          </element>
-          <element maxOccurs="unbounded" minOccurs="0" ref="core:AbstractGenericApplicationPropertyOfAbstractSpaceBoundary"/>
-        </sequence>
-      </extension>
-    </complexContent>
-  </complexType>
-  <complexType name="AbstractSpaceBoundaryPropertyType">
-    <sequence minOccurs="0">
-      <element ref="core:AbstractSpaceBoundary"/>
-    </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
-  </complexType>
-  <element abstract="true" name="AbstractGenericApplicationPropertyOfAbstractThematicSurface" type="anyType"/>
-  <element abstract="true" name="AbstractThematicSurface" substitutionGroup="core:AbstractSpaceBoundary" type="core:AbstractThematicSurfaceType"/>
-  <complexType abstract="true" name="AbstractThematicSurfaceType">
-    <complexContent>
-      <extension base="core:AbstractSpaceBoundaryType">
-        <sequence>
-          <element maxOccurs="unbounded" minOccurs="0" name="opening">
-            <complexType>
-              <complexContent>
-                <extension base="gml:AbstractFeatureMemberType">
-                  <sequence minOccurs="0">
-                    <element ref="core:VoidSurface"/>
-                  </sequence>
-                  <attributeGroup ref="gml:AssociationAttributeGroup"/>
-                </extension>
-              </complexContent>
-            </complexType>
           </element>
           <element minOccurs="0" name="pointCloud" type="pcl:PointCloudPropertyType"/>
           <element maxOccurs="unbounded" minOccurs="0" ref="core:AbstractGenericApplicationPropertyOfAbstractThematicSurface"/>
@@ -494,10 +488,10 @@ AbstractCityObject relative to the surrounding terrain.</documentation>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
   <element abstract="true" name="AbstractGenericApplicationPropertyOfClosureSurface" type="anyType"/>
-  <element name="ClosureSurface" substitutionGroup="core:AbstractSpaceBoundary" type="core:ClosureSurfaceType"/>
+  <element name="ClosureSurface" substitutionGroup="core:AbstractThematicSurface" type="core:ClosureSurfaceType"/>
   <complexType name="ClosureSurfaceType">
     <complexContent>
-      <extension base="core:AbstractSpaceBoundaryType">
+      <extension base="core:AbstractThematicSurfaceType">
         <sequence>
           <element maxOccurs="unbounded" minOccurs="0" ref="core:AbstractGenericApplicationPropertyOfClosureSurface"/>
         </sequence>
@@ -606,6 +600,77 @@ AbstractCityObject relative to the surrounding terrain.</documentation>
     <restriction base="string"/>
   </simpleType>
   <simpleType name="OtherRelationTypeOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <element name="QualifiedArea" substitutionGroup="gml:AbstractGML" type="core:QualifiedAreaType"/>
+  <complexType name="QualifiedAreaType">
+    <complexContent>
+      <extension base="gml:AbstractGMLType">
+        <sequence>
+          <element name="area" type="gml:AreaType"/>
+          <element name="typeOfArea" type="core:QualifiedAreaValueType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="QualifiedAreaPropertyType">
+    <sequence minOccurs="0">
+      <element ref="core:QualifiedArea"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="QualifiedAreaValueType">
+    <union memberTypes="core:QualifiedAreaValueEnumerationType core:QualifiedAreaValueOtherType"/>
+  </simpleType>
+  <simpleType name="QualifiedAreaValueEnumerationType">
+    <restriction base="string">
+      <enumeration value="surfaceArea"/>
+      <enumeration value="wallSurfaceArea"/>
+      <enumeration value="sharedWallSurfaceArea"/>
+      <enumeration value="roofSurfaceArea"/>
+      <enumeration value="wallWindowArea"/>
+      <enumeration value="roofWindowArea"/>
+      <enumeration value="wallGlazingArea"/>
+      <enumeration value="..."/>
+    </restriction>
+  </simpleType>
+  <simpleType name="QualifiedAreaValueOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <element name="QualifiedVolume" substitutionGroup="gml:AbstractGML" type="core:QualifiedVolumeType"/>
+  <complexType name="QualifiedVolumeType">
+    <complexContent>
+      <extension base="gml:AbstractGMLType">
+        <sequence>
+          <element name="volume" type="gml:VolumeType"/>
+          <element name="typeOfVolume" type="core:QualifiedVolumeValueType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="QualifiedVolumePropertyType">
+    <sequence minOccurs="0">
+      <element ref="core:QualifiedVolume"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="QualifiedVolumeValueType">
+    <union memberTypes="core:QualifiedVolumeValueEnumerationType core:QualifiedVolumeValueOtherType"/>
+  </simpleType>
+  <simpleType name="QualifiedVolumeValueEnumerationType">
+    <restriction base="string">
+      <enumeration value="grossVolume"/>
+      <enumeration value="netVolume"/>
+      <enumeration value="..."/>
+    </restriction>
+  </simpleType>
+  <simpleType name="QualifiedVolumeValueOtherType">
     <restriction base="string">
       <pattern value="other: \w{2,}"/>
     </restriction>
@@ -764,44 +829,4 @@ AbstractCityObject relative to the surrounding terrain.</documentation>
       <length value="16"/>
     </restriction>
   </simpleType>
-  <element abstract="true" name="AbstractGenericApplicationPropertyOfVoid" type="anyType"/>
-  <element name="Void" substitutionGroup="core:AbstractUnoccupiedSpace" type="core:VoidType">
-    <annotation>
-      <documentation>SIG3D: Abstract super class of Window and Door</documentation>
-    </annotation>
-  </element>
-  <complexType name="VoidType">
-    <complexContent>
-      <extension base="core:AbstractUnoccupiedSpaceType">
-        <sequence>
-          <element maxOccurs="unbounded" minOccurs="0" ref="core:AbstractGenericApplicationPropertyOfVoid"/>
-        </sequence>
-      </extension>
-    </complexContent>
-  </complexType>
-  <complexType name="VoidPropertyType">
-    <sequence minOccurs="0">
-      <element ref="core:Void"/>
-    </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
-  </complexType>
-  <element abstract="true" name="AbstractGenericApplicationPropertyOfVoidSurface" type="anyType"/>
-  <element name="VoidSurface" substitutionGroup="core:AbstractSpaceBoundary" type="core:VoidSurfaceType"/>
-  <complexType name="VoidSurfaceType">
-    <complexContent>
-      <extension base="core:AbstractSpaceBoundaryType">
-        <sequence>
-          <element maxOccurs="unbounded" minOccurs="0" ref="core:AbstractGenericApplicationPropertyOfVoidSurface"/>
-        </sequence>
-      </extension>
-    </complexContent>
-  </complexType>
-  <complexType name="VoidSurfacePropertyType">
-    <sequence minOccurs="0">
-      <element ref="core:VoidSurface"/>
-    </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
-  </complexType>
 </schema>

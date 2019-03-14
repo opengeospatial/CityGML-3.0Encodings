@@ -24,14 +24,14 @@ AbstractConstruction. E.g. a road or canal is man made, but not an AbstractConst
               <documentation>Date of completion of a construction.</documentation>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="dateOfRenovation" type="date">
-            <annotation>
-              <documentation>Date of renovation of a construction.</documentation>
-            </annotation>
-          </element>
           <element minOccurs="0" name="dateOfDemolition" type="date">
             <annotation>
               <documentation>Date of demolition of a construction.</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="constructionEvent" type="con:ConstructionEventPropertyType">
+            <annotation>
+              <documentation>Date of renovation of a construction.</documentation>
             </annotation>
           </element>
           <element maxOccurs="unbounded" minOccurs="0" name="elevation" type="con:ElevationPropertyType">
@@ -39,11 +39,12 @@ AbstractConstruction. E.g. a road or canal is man made, but not an AbstractConst
               <documentation>[INSPIRE] Vertically-constrained dimensional property consisting of an absolute measure referenced to a well-defined surface which is commonly taken as origin (geoïd, water level, etc.).</documentation>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="heightAboveGround" type="con:HeightAboveGroundPropertyType">
+          <element maxOccurs="unbounded" minOccurs="0" name="height" type="con:HeightPropertyType">
             <annotation>
               <documentation>[INSPIRE] Height above ground.</documentation>
             </annotation>
           </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="constructionSurface" type="con:AbstractConstructionSurfacePropertyType"/>
           <element maxOccurs="unbounded" minOccurs="0" ref="con:AbstractGenericApplicationPropertyOfAbstractConstruction"/>
         </sequence>
       </extension>
@@ -62,6 +63,8 @@ AbstractConstruction. E.g. a road or canal is man made, but not an AbstractConst
     <complexContent>
       <extension base="core:AbstractThematicSurfaceType">
         <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" name="fillingSurface" type="con:AbstractFillingSurfacePropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="closureSurface" type="core:ClosureSurfacePropertyType"/>
           <element maxOccurs="unbounded" minOccurs="0" ref="con:AbstractGenericApplicationPropertyOfAbstractConstructionSurface"/>
         </sequence>
       </extension>
@@ -80,6 +83,8 @@ AbstractConstruction. E.g. a road or canal is man made, but not an AbstractConst
     <complexContent>
       <extension base="core:AbstractOccupiedSpaceType">
         <sequence>
+          <element minOccurs="0" name="isStructuralElement" type="boolean"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="filling" type="con:AbstractFillingElementPropertyType"/>
           <element maxOccurs="unbounded" minOccurs="0" ref="con:AbstractGenericApplicationPropertyOfAbstractConstructiveElement"/>
         </sequence>
       </extension>
@@ -88,6 +93,42 @@ AbstractConstruction. E.g. a road or canal is man made, but not an AbstractConst
   <complexType name="AbstractConstructiveElementPropertyType">
     <sequence minOccurs="0">
       <element ref="con:AbstractConstructiveElement"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element abstract="true" name="AbstractGenericApplicationPropertyOfAbstractFillingElement" type="anyType"/>
+  <element abstract="true" name="AbstractFillingElement" substitutionGroup="core:AbstractOccupiedSpace" type="con:AbstractFillingElementType"/>
+  <complexType abstract="true" name="AbstractFillingElementType">
+    <complexContent>
+      <extension base="core:AbstractOccupiedSpaceType">
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" ref="con:AbstractGenericApplicationPropertyOfAbstractFillingElement"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="AbstractFillingElementPropertyType">
+    <sequence minOccurs="0">
+      <element ref="con:AbstractFillingElement"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element abstract="true" name="AbstractGenericApplicationPropertyOfAbstractFillingSurface" type="anyType"/>
+  <element abstract="true" name="AbstractFillingSurface" substitutionGroup="core:AbstractThematicSurface" type="con:AbstractFillingSurfaceType"/>
+  <complexType abstract="true" name="AbstractFillingSurfaceType">
+    <complexContent>
+      <extension base="core:AbstractThematicSurfaceType">
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" ref="con:AbstractGenericApplicationPropertyOfAbstractFillingSurface"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="AbstractFillingSurfacePropertyType">
+    <sequence minOccurs="0">
+      <element ref="con:AbstractFillingSurface"/>
     </sequence>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
@@ -188,16 +229,30 @@ AbstractConstruction. E.g. a road or canal is man made, but not an AbstractConst
       </enumeration>
     </restriction>
   </simpleType>
+  <element name="ConstructionEvent" substitutionGroup="gml:AbstractObject" type="con:ConstructionEventType"/>
+  <complexType name="ConstructionEventType">
+    <sequence>
+      <element name="event" type="con:EventValueType"/>
+      <element name="dateOfEvent" type="date"/>
+      <element minOccurs="0" name="description" type="string"/>
+    </sequence>
+  </complexType>
+  <complexType name="ConstructionEventPropertyType">
+    <sequence>
+      <element ref="con:ConstructionEvent"/>
+    </sequence>
+  </complexType>
   <element abstract="true" name="AbstractGenericApplicationPropertyOfDoor" type="anyType"/>
-  <element name="Door" substitutionGroup="con:AbstractConstructiveElement" type="con:DoorType">
+  <element name="Door" substitutionGroup="con:AbstractFillingElement" type="con:DoorType">
     <annotation>
       <documentation>ISO 6707-1: Construction for closing an opening intended primarily for access or egress or both.</documentation>
     </annotation>
   </element>
   <complexType name="DoorType">
     <complexContent>
-      <extension base="con:AbstractConstructiveElementType">
+      <extension base="con:AbstractFillingElementType">
         <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" name="doorSurface" type="con:DoorSurfacePropertyType"/>
           <element maxOccurs="unbounded" minOccurs="0" name="address" type="core:AddressPropertyType">
             <annotation>
               <documentation>SIG3D: Relation between Door and Address.</documentation>
@@ -216,10 +271,10 @@ AbstractConstruction. E.g. a road or canal is man made, but not an AbstractConst
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
   <element abstract="true" name="AbstractGenericApplicationPropertyOfDoorSurface" type="anyType"/>
-  <element name="DoorSurface" substitutionGroup="con:AbstractConstructionSurface" type="con:DoorSurfaceType"/>
+  <element name="DoorSurface" substitutionGroup="con:AbstractFillingSurface" type="con:DoorSurfaceType"/>
   <complexType name="DoorSurfaceType">
     <complexContent>
-      <extension base="con:AbstractConstructionSurfaceType">
+      <extension base="con:AbstractFillingSurfaceType">
         <sequence>
           <element maxOccurs="unbounded" minOccurs="0" name="address" type="core:AddressPropertyType"/>
           <element maxOccurs="unbounded" minOccurs="0" ref="con:AbstractGenericApplicationPropertyOfDoorSurface"/>
@@ -345,6 +400,22 @@ AbstractConstruction. E.g. a road or canal is man made, but not an AbstractConst
       </enumeration>
     </restriction>
   </simpleType>
+  <simpleType name="EventValueType">
+    <union memberTypes="con:EventValueEnumerationType con:EventValueOtherType"/>
+  </simpleType>
+  <simpleType name="EventValueEnumerationType">
+    <restriction base="string">
+      <enumeration value="buildingPermit"/>
+      <enumeration value="startOfRenovation"/>
+      <enumeration value="endOfRenovation"/>
+      <enumeration value="..."/>
+    </restriction>
+  </simpleType>
+  <simpleType name="EventValueOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
   <element abstract="true" name="AbstractGenericApplicationPropertyOfFloorSurface" type="anyType"/>
   <element name="FloorSurface" substitutionGroup="con:AbstractConstructionSurface" type="con:FloorSurfaceType">
     <annotation>
@@ -389,14 +460,14 @@ AbstractConstruction. E.g. a road or canal is man made, but not an AbstractConst
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="HeightAboveGround" substitutionGroup="gml:AbstractObject" type="con:HeightAboveGroundType">
+  <element name="Height" substitutionGroup="gml:AbstractObject" type="con:HeightType">
     <annotation>
       <documentation>[INSPIRE] Vertical distance (measured or estimated) between a low reference and a high reference.</documentation>
     </annotation>
   </element>
-  <complexType name="HeightAboveGroundType">
+  <complexType name="HeightType">
     <sequence>
-      <element name="heightReference" type="con:ElevationReferenceValueType">
+      <element name="highReference" type="con:ElevationReferenceValueType">
         <annotation>
           <documentation>[INSPIRE] Element used as the high reference.</documentation>
         </annotation>
@@ -418,9 +489,9 @@ AbstractConstruction. E.g. a road or canal is man made, but not an AbstractConst
       </element>
     </sequence>
   </complexType>
-  <complexType name="HeightAboveGroundPropertyType">
+  <complexType name="HeightPropertyType">
     <sequence>
-      <element ref="con:HeightAboveGround"/>
+      <element ref="con:Height"/>
     </sequence>
   </complexType>
   <simpleType name="HeightStatusValueType">
@@ -583,15 +654,16 @@ AbstractConstruction. E.g. a road or canal is man made, but not an AbstractConst
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
   <element abstract="true" name="AbstractGenericApplicationPropertyOfWindow" type="anyType"/>
-  <element name="Window" substitutionGroup="con:AbstractConstructiveElement" type="con:WindowType">
+  <element name="Window" substitutionGroup="con:AbstractFillingElement" type="con:WindowType">
     <annotation>
       <documentation>SIG3D: Construction for closing an opening in a wall or roof, primarily intended to admit light and/or provide ventilation (cf. ISO 6707).</documentation>
     </annotation>
   </element>
   <complexType name="WindowType">
     <complexContent>
-      <extension base="con:AbstractConstructiveElementType">
+      <extension base="con:AbstractFillingElementType">
         <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" name="windowSurface" type="con:WindowSurfacePropertyType"/>
           <element maxOccurs="unbounded" minOccurs="0" ref="con:AbstractGenericApplicationPropertyOfWindow"/>
         </sequence>
       </extension>
@@ -605,10 +677,10 @@ AbstractConstruction. E.g. a road or canal is man made, but not an AbstractConst
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
   <element abstract="true" name="AbstractGenericApplicationPropertyOfWindowSurface" type="anyType"/>
-  <element name="WindowSurface" substitutionGroup="con:AbstractConstructionSurface" type="con:WindowSurfaceType"/>
+  <element name="WindowSurface" substitutionGroup="con:AbstractFillingSurface" type="con:WindowSurfaceType"/>
   <complexType name="WindowSurfaceType">
     <complexContent>
-      <extension base="con:AbstractConstructionSurfaceType">
+      <extension base="con:AbstractFillingSurfaceType">
         <sequence>
           <element maxOccurs="unbounded" minOccurs="0" ref="con:AbstractGenericApplicationPropertyOfWindowSurface"/>
         </sequence>

@@ -53,7 +53,7 @@
               </complexContent>
             </complexType>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="interiorHollowSpace">
+          <element maxOccurs="unbounded" minOccurs="0" name="hollowSpace">
             <annotation>
               <documentation>SIG3D: Relation between Tunnel or TunnelPart and HollowSpace.</documentation>
             </annotation>
@@ -115,7 +115,7 @@
               <documentation>SIG3D: Actual usage of HollowSpace as given by the relevant national regulations, information communities, or specific applications.</documentation>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="interiorFurniture">
+          <element maxOccurs="unbounded" minOccurs="0" name="tunnelFurniture">
             <annotation>
               <documentation>SIG3D: Relation between HollowSpace and TunnelFurniture.</documentation>
               <appinfo>
@@ -131,7 +131,7 @@
               </complexContent>
             </complexType>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="hollowSpaceInstallation">
+          <element maxOccurs="unbounded" minOccurs="0" name="tunnelInstallation">
             <annotation>
               <documentation>SIG3D: Relation between HollowSpace and TunnelInstallation.</documentation>
               <appinfo>

@@ -33,7 +33,7 @@
               <documentation>SIG3D: Indicates wether a bridge is movable to allow passages for ships (e.g. turnable bridge, liftable bridge)</documentation>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="bridgeConstruction">
+          <element maxOccurs="unbounded" minOccurs="0" name="bridgeConstructiveElement">
             <annotation>
               <documentation>SIG3D: Relation between Bridge or BridgePart and BridgeConstructionElement</documentation>
             </annotation>
@@ -41,7 +41,7 @@
               <complexContent>
                 <extension base="gml:AbstractFeatureMemberType">
                   <sequence>
-                    <element ref="brid:BridgeConstructionElement"/>
+                    <element ref="brid:BridgeConstructiveElement"/>
                   </sequence>
                 </extension>
               </complexContent>
@@ -61,7 +61,7 @@
               </complexContent>
             </complexType>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="interiorBridgeRoom">
+          <element maxOccurs="unbounded" minOccurs="0" name="bridgeRoom">
             <annotation>
               <documentation>SIG3D: Relation between Bridge or BridgePart and BridgeRoom</documentation>
             </annotation>
@@ -140,13 +140,13 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element abstract="true" name="AbstractGenericApplicationPropertyOfBridgeConstructionElement" type="anyType"/>
-  <element name="BridgeConstructionElement" substitutionGroup="con:AbstractConstructiveElement" type="brid:BridgeConstructionElementType">
+  <element abstract="true" name="AbstractGenericApplicationPropertyOfBridgeConstructiveElement" type="anyType"/>
+  <element name="BridgeConstructiveElement" substitutionGroup="con:AbstractConstructiveElement" type="brid:BridgeConstructiveElementType">
     <annotation>
       <documentation>SIG3D: Element of a bridge which is essential from a structural point of view.</documentation>
     </annotation>
   </element>
-  <complexType name="BridgeConstructionElementType">
+  <complexType name="BridgeConstructiveElementType">
     <complexContent>
       <extension base="con:AbstractConstructiveElementType">
         <sequence>
@@ -165,14 +165,14 @@
               <documentation>SIG3D: Actual usage of BridgeConstructionElement as given by the relevant national regulations, information communities, or specific applications.</documentation>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" ref="brid:AbstractGenericApplicationPropertyOfBridgeConstructionElement"/>
+          <element maxOccurs="unbounded" minOccurs="0" ref="brid:AbstractGenericApplicationPropertyOfBridgeConstructiveElement"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="BridgeConstructionElementPropertyType">
+  <complexType name="BridgeConstructiveElementPropertyType">
     <sequence minOccurs="0">
-      <element ref="brid:BridgeConstructionElement"/>
+      <element ref="brid:BridgeConstructiveElement"/>
     </sequence>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
@@ -298,7 +298,7 @@
               <documentation>SIG3D: Actual usage of BridgeRoom as given by the relevant national regulations, information communities, or specific applications.</documentation>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="interiorFurniture">
+          <element maxOccurs="unbounded" minOccurs="0" name="bridgeFurniture">
             <annotation>
               <documentation>SIG3D: Relation between BridgeRoom and BridgeFurniture</documentation>
               <appinfo>
@@ -314,7 +314,7 @@
               </complexContent>
             </complexType>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="bridgeRoomInstallation">
+          <element maxOccurs="unbounded" minOccurs="0" name="bridgeInstallation">
             <annotation>
               <documentation>SIG3D: Relation between BridgeRoom and BridgegInstallation</documentation>
               <appinfo>
