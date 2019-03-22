@@ -27,8 +27,7 @@
           </element>
           <element minOccurs="0" name="relativeToTerrain" type="core:RelativeToTerrainType">
             <annotation>
-              <documentation>SIG3D: Vertical position of the 
-AbstractCityObject relative to the surrounding terrain.</documentation>
+              <documentation>SIG3D: Vertical position of the AbstractCityObject relative to the surrounding terrain.</documentation>
             </annotation>
           </element>
           <element minOccurs="0" name="relativeToWater" type="core:RelativeToWaterType">
@@ -36,13 +35,7 @@ AbstractCityObject relative to the surrounding terrain.</documentation>
               <documentation>SIG3D: Vertical position of the AbstractCityObject relative to a surrounding water surface.</documentation>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="relatedTo" type="gml:ReferenceType">
-            <annotation>
-              <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">core:AbstractCityObject</targetElement>
-              </appinfo>
-            </annotation>
-          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="relatedTo" type="core:CityObjectRelationPropertyType"/>
           <element maxOccurs="unbounded" minOccurs="0" name="appearance">
             <complexType>
               <complexContent>
@@ -469,13 +462,7 @@ AbstractCityObject relative to the surrounding terrain.</documentation>
       <extension base="gml:AbstractGMLType">
         <sequence>
           <element name="relationType" type="core:RelationTypeType"/>
-          <element name="relatedTo" type="gml:ReferenceType">
-            <annotation>
-              <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">core:AbstractCityObject</targetElement>
-              </appinfo>
-            </annotation>
-          </element>
+          <element name="relatedTo" type="core:AbstractCityObjectPropertyType"/>
         </sequence>
       </extension>
     </complexContent>
