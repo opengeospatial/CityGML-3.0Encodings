@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<CityModel gml:id="cm1" xmlns:app="http://www.opengis.net/citygml/appearance/3.0" xmlns:brid="http://www.opengis.net/citygml/bridge/3.0" xmlns:bldg="http://www.opengis.net/citygml/building/3.0" xmlns:frn="http://www.opengis.net/citygml/cityfurniture/3.0" xmlns:grp="http://www.opengis.net/citygml/cityobjectgroup/3.0" xmlns:con="http://www.opengis.net/citygml/construction/3.0" xmlns:pcl="http://www.opengis.net/citygml/pointcloud/3.0" xmlns:core="http://www.opengis.net/citygml/3.0" xmlns:dyn="http://www.opengis.net/citygml/dynamizer/3.0" xmlns:gen="http://www.opengis.net/citygml/generics/3.0" xmlns:luse="http://www.opengis.net/citygml/landuse/3.0" xmlns:dem="http://www.opengis.net/citygml/relief/3.0" xmlns:tran="http://www.opengis.net/citygml/transportation/3.0" xmlns:tun="http://www.opengis.net/citygml/tunnel/3.0" xmlns:veg="http://www.opengis.net/citygml/vegetation/3.0" xmlns:vers="http://www.opengis.net/citygml/versioning/3.0" xmlns:wtr="http://www.opengis.net/citygml/waterbody/3.0" xmlns:tsml="http://www.opengis.net/tsml/1.0" xmlns:sos="http://www.opengis.net/sos/2.0" xmlns:xAL="urn:oasis:names:tc:ciq:xsdschema:xAL:2.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns="http://www.opengis.net/citygml/3.0" xsi:schemaLocation="http://www.opengis.net/citygml/appearance/3.0 http://www.3dcitydb.org/citygml3/2018-12-06/xsds/appearance.xsd http://www.opengis.net/citygml/bridge/3.0 http://www.3dcitydb.org/citygml3/2018-12-06/xsds/bridge.xsd http://www.opengis.net/citygml/building/3.0 http://www.3dcitydb.org/citygml3/2018-12-06/xsds/building.xsd http://www.opengis.net/citygml/cityfurniture/3.0 http://www.3dcitydb.org/citygml3/2018-12-06/xsds/cityFurniture.xsd http://www.opengis.net/citygml/cityobjectgroup/3.0 http://www.3dcitydb.org/citygml3/2018-12-06/xsds/cityObjectGroup.xsd http://www.opengis.net/citygml/construction/3.0 http://www.3dcitydb.org/citygml3/2018-12-06/xsds/construction.xsd http://www.opengis.net/citygml/pointcloud/3.0 http://www.3dcitydb.org/citygml3/2018-12-06/xsds/pointCloud.xsd http://www.opengis.net/citygml/3.0 http://www.3dcitydb.org/citygml3/2018-12-06/xsds/cityGMLBase.xsd http://www.opengis.net/citygml/dynamizer/3.0 http://www.3dcitydb.org/citygml3/2018-12-06/xsds/dynamizer.xsd http://www.opengis.net/citygml/generics/3.0 http://www.3dcitydb.org/citygml3/2018-12-06/xsds/generics.xsd http://www.opengis.net/citygml/landuse/3.0 http://www.3dcitydb.org/citygml3/2018-12-06/xsds/landUse.xsd http://www.opengis.net/citygml/relief/3.0 http://www.3dcitydb.org/citygml3/2018-12-06/xsds/relief.xsd http://www.opengis.net/citygml/transportation/3.0 http://www.3dcitydb.org/citygml3/2018-12-06/xsds/transportation.xsd http://www.opengis.net/citygml/tunnel/3.0 http://www.3dcitydb.org/citygml3/2018-12-06/xsds/tunnel.xsd http://www.opengis.net/citygml/vegetation/3.0 http://www.3dcitydb.org/citygml3/2018-12-06/xsds/vegetation.xsd http://www.opengis.net/citygml/versioning/3.0 http://www.3dcitydb.org/citygml3/2018-12-06/xsds/versioning.xsd http://www.opengis.net/citygml/waterbody/3.0 http://www.3dcitydb.org/citygml3/2018-12-06/xsds/waterBody.xsd http://www.opengis.net/tsml/1.0 http://schemas.opengis.net/tsml/1.0/timeseriesML.xsd http://www.opengis.net/sos/2.0 http://schemas.opengis.net/sos/2.0/sosGetObservation.xsd urn:oasis:names:tc:ciq:xsdschema:xAL:2.0 http://schemas.opengis.net/citygml/xAL/xAL.xsd">
+<CityModel gml:id="cm1" xmlns:app="http://www.opengis.net/citygml/appearance/3.0" xmlns:brid="http://www.opengis.net/citygml/bridge/3.0" xmlns:bldg="http://www.opengis.net/citygml/building/3.0" xmlns:frn="http://www.opengis.net/citygml/cityfurniture/3.0" xmlns:grp="http://www.opengis.net/citygml/cityobjectgroup/3.0" xmlns:con="http://www.opengis.net/citygml/construction/3.0" xmlns:pcl="http://www.opengis.net/citygml/pointcloud/3.0" xmlns:core="http://www.opengis.net/citygml/3.0" xmlns:dyn="http://www.opengis.net/citygml/dynamizer/3.0" xmlns:gen="http://www.opengis.net/citygml/generics/3.0" xmlns:luse="http://www.opengis.net/citygml/landuse/3.0" xmlns:dem="http://www.opengis.net/citygml/relief/3.0" xmlns:tran="http://www.opengis.net/citygml/transportation/3.0" xmlns:tun="http://www.opengis.net/citygml/tunnel/3.0" xmlns:veg="http://www.opengis.net/citygml/vegetation/3.0" xmlns:vers="http://www.opengis.net/citygml/versioning/3.0" xmlns:wtr="http://www.opengis.net/citygml/waterbody/3.0" xmlns:tsml="http://www.opengis.net/tsml/1.0" xmlns:sos="http://www.opengis.net/sos/2.0" xmlns:xAL="urn:oasis:names:tc:ciq:xsdschema:xAL:2.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:ade="http://www.3dcitydb.org/citygml-ade/3.0/citygml/1.0" xmlns="http://www.opengis.net/citygml/3.0" xsi:schemaLocation="http://www.opengis.net/citygml/appearance/3.0 http://www.3dcitydb.org/citygml3/2019-03-08/xsds/appearance.xsd http://www.opengis.net/citygml/bridge/3.0 http://www.3dcitydb.org/citygml3/2019-03-08/xsds/bridge.xsd http://www.opengis.net/citygml/building/3.0 http://www.3dcitydb.org/citygml3/2019-03-08/xsds/building.xsd http://www.opengis.net/citygml/cityfurniture/3.0 http://www.3dcitydb.org/citygml3/2019-03-08/xsds/cityFurniture.xsd http://www.opengis.net/citygml/cityobjectgroup/3.0 http://www.3dcitydb.org/citygml3/2019-03-08/xsds/cityObjectGroup.xsd http://www.opengis.net/citygml/construction/3.0 http://www.3dcitydb.org/citygml3/2019-03-08/xsds/construction.xsd http://www.opengis.net/citygml/pointcloud/3.0 http://www.3dcitydb.org/citygml3/2019-03-08/xsds/pointCloud.xsd http://www.opengis.net/citygml/3.0 http://www.3dcitydb.org/citygml3/2019-03-08/xsds/cityGMLBase.xsd http://www.opengis.net/citygml/dynamizer/3.0 http://www.3dcitydb.org/citygml3/2019-03-08/xsds/dynamizer.xsd http://www.opengis.net/citygml/generics/3.0 http://www.3dcitydb.org/citygml3/2019-03-08/xsds/generics.xsd http://www.opengis.net/citygml/landuse/3.0 http://www.3dcitydb.org/citygml3/2019-03-08/xsds/landUse.xsd http://www.opengis.net/citygml/relief/3.0 http://www.3dcitydb.org/citygml3/2019-03-08/xsds/relief.xsd http://www.opengis.net/citygml/transportation/3.0 http://www.3dcitydb.org/citygml3/2019-03-08/xsds/transportation.xsd http://www.opengis.net/citygml/tunnel/3.0 http://www.3dcitydb.org/citygml3/2019-03-08/xsds/tunnel.xsd http://www.opengis.net/citygml/vegetation/3.0 http://www.3dcitydb.org/citygml3/2019-03-08/xsds/vegetation.xsd http://www.opengis.net/citygml/versioning/3.0 http://www.3dcitydb.org/citygml3/2019-03-08/xsds/versioning.xsd http://www.opengis.net/citygml/waterbody/3.0 http://www.3dcitydb.org/citygml3/2019-03-08/xsds/waterBody.xsd http://www.opengis.net/tsml/1.0 http://schemas.opengis.net/tsml/1.0/timeseriesML.xsd http://www.opengis.net/sos/2.0 http://schemas.opengis.net/sos/2.0/sosGetObservation.xsd urn:oasis:names:tc:ciq:xsdschema:xAL:2.0 http://schemas.opengis.net/citygml/xAL/xAL.xsd">
     <gml:name>LoD2_4490_5322_1_BY</gml:name>
     <gml:boundedBy>
         <gml:Envelope srsName="urn:adv:crs:DE_DHDN_3GK4*DE_DHHN92_NH" srsDimension="3">
@@ -8,7 +8,7 @@
         </gml:Envelope>
     </gml:boundedBy>
     <cityObjectMember>
-        <bldg:Building>
+        <bldg:Building gml:id="DEBY_LOD2_5744682">
             <gml:name>DEBY_LOD2_5744682</gml:name>
             <creationDate>2014-10-08T00:00:00</creationDate>
             <lod2Solid>
@@ -31,7 +31,7 @@
                 </gml:Solid>
             </lod2Solid>
             <boundary>
-                <con:RoofSurface gml:id="DEBY_LOD2_5744682_5e13d1c8-7fb5-479f-9794-7b9e1f89ca1e">
+                <con:RoofSurface>
                     <lod2MultiSurface>
                         <gml:MultiSurface gml:id="DEBY_LOD2_5744682_5e13d1c8-7fb5-479f-9794-7b9e1f89ca1e_msl_N65598">
                             <gml:surfaceMember>
@@ -48,7 +48,7 @@
                 </con:RoofSurface>
             </boundary>
             <boundary>
-                <con:WallSurface gml:id="DEBY_LOD2_5744682_314d7d2e-1551-4946-80a4-12e463d59de5">
+                <con:WallSurface>
                     <lod2MultiSurface>
                         <gml:MultiSurface gml:id="DEBY_LOD2_5744682_314d7d2e-1551-4946-80a4-12e463d59de5_msl_N65610">
                             <gml:surfaceMember>
@@ -65,7 +65,7 @@
                 </con:WallSurface>
             </boundary>
             <boundary>
-                <con:WallSurface gml:id="DEBY_LOD2_5744682_6a1b5359-d4e4-4d80-aeb8-ad63625a56dc">
+                <con:WallSurface>
                     <lod2MultiSurface>
                         <gml:MultiSurface gml:id="DEBY_LOD2_5744682_6a1b5359-d4e4-4d80-aeb8-ad63625a56dc_msl_N65622">
                             <gml:surfaceMember>
@@ -82,7 +82,7 @@
                 </con:WallSurface>
             </boundary>
             <boundary>
-                <con:WallSurface gml:id="DEBY_LOD2_5744682_44e7c68d-da01-4f80-b1a4-9bbde8305c77">
+                <con:WallSurface>
                     <lod2MultiSurface>
                         <gml:MultiSurface gml:id="DEBY_LOD2_5744682_44e7c68d-da01-4f80-b1a4-9bbde8305c77_msl_N65634">
                             <gml:surfaceMember>
@@ -99,7 +99,7 @@
                 </con:WallSurface>
             </boundary>
             <boundary>
-                <con:WallSurface gml:id="DEBY_LOD2_5744682_1e36b54e-2518-4afe-a2b4-a59ddff93581">
+                <con:WallSurface>
                     <lod2MultiSurface>
                         <gml:MultiSurface gml:id="DEBY_LOD2_5744682_1e36b54e-2518-4afe-a2b4-a59ddff93581_msl_N65646">
                             <gml:surfaceMember>
@@ -116,7 +116,7 @@
                 </con:WallSurface>
             </boundary>
             <boundary>
-                <con:WallSurface gml:id="DEBY_LOD2_5744682_887068cb-0fcb-45f3-b436-d1a1bdef047f">
+                <con:WallSurface>
                     <lod2MultiSurface>
                         <gml:MultiSurface gml:id="DEBY_LOD2_5744682_887068cb-0fcb-45f3-b436-d1a1bdef047f_msl_N65658">
                             <gml:surfaceMember>
@@ -133,7 +133,7 @@
                 </con:WallSurface>
             </boundary>
             <boundary>
-                <con:WallSurface gml:id="DEBY_LOD2_5744682_80ce6c2a-8724-4a2a-89e4-881da9530ecc">
+                <con:WallSurface>
                     <lod2MultiSurface>
                         <gml:MultiSurface gml:id="DEBY_LOD2_5744682_80ce6c2a-8724-4a2a-89e4-881da9530ecc_msl_N65670">
                             <gml:surfaceMember>
@@ -150,7 +150,7 @@
                 </con:WallSurface>
             </boundary>
             <boundary>
-                <con:WallSurface gml:id="DEBY_LOD2_5744682_392cb098-6e22-4334-9853-1e8225966156">
+                <con:WallSurface>
                     <lod2MultiSurface>
                         <gml:MultiSurface gml:id="DEBY_LOD2_5744682_392cb098-6e22-4334-9853-1e8225966156_msl_N65682">
                             <gml:surfaceMember>
@@ -167,7 +167,7 @@
                 </con:WallSurface>
             </boundary>
             <boundary>
-                <con:RoofSurface gml:id="DEBY_LOD2_5744682_26de5877-57e7-429d-9b9a-274b8ed6aac5">
+                <con:RoofSurface>
                     <lod2MultiSurface>
                         <gml:MultiSurface gml:id="DEBY_LOD2_5744682_26de5877-57e7-429d-9b9a-274b8ed6aac5_msl_N65694">
                             <gml:surfaceMember>
@@ -184,7 +184,7 @@
                 </con:RoofSurface>
             </boundary>
             <boundary>
-                <con:WallSurface gml:id="DEBY_LOD2_5744682_dd1b367c-c6d8-4eb2-abe6-0accb0fa91b8">
+                <con:WallSurface>
                     <lod2MultiSurface>
                         <gml:MultiSurface gml:id="DEBY_LOD2_5744682_dd1b367c-c6d8-4eb2-abe6-0accb0fa91b8_msl_N65706">
                             <gml:surfaceMember>
@@ -201,7 +201,7 @@
                 </con:WallSurface>
             </boundary>
             <boundary>
-                <con:GroundSurface gml:id="DEBY_LOD2_5744682_58e93bde-fd64-4fec-9626-5824c2e94f0e">
+                <con:GroundSurface>
                     <lod2MultiSurface>
                         <gml:MultiSurface gml:id="DEBY_LOD2_5744682_58e93bde-fd64-4fec-9626-5824c2e94f0e_msl_N65718">
                             <gml:surfaceMember>
