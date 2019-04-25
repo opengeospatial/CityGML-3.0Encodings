@@ -27,7 +27,8 @@
           </element>
           <element minOccurs="0" name="relativeToTerrain" type="core:RelativeToTerrainType">
             <annotation>
-              <documentation>SIG3D: Vertical position of the AbstractCityObject relative to the surrounding terrain.</documentation>
+              <documentation>SIG3D: Vertical position of the 
+AbstractCityObject relative to the surrounding terrain.</documentation>
             </annotation>
           </element>
           <element minOccurs="0" name="relativeToWater" type="core:RelativeToWaterType">
@@ -578,6 +579,64 @@
     <restriction base="integer">
       <minInclusive value="0"/>
       <maxInclusive value="3"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="IntervalValueType">
+    <union memberTypes="core:IntervalValueEnumerationType core:IntervalValueOtherType"/>
+  </simpleType>
+  <simpleType name="IntervalValueEnumerationType">
+    <restriction base="string">
+      <enumeration value="weekday"/>
+      <enumeration value="weekend"/>
+      <enumeration value="weekday_9to12"/>
+      <enumeration value="weekday_12to17"/>
+      <enumeration value="weekday_8to16"/>
+      <enumeration value="daytime"/>
+      <enumeration value="nighttime"/>
+      <enumeration value="daily_9to12"/>
+      <enumeration value="..."/>
+    </restriction>
+  </simpleType>
+  <simpleType name="IntervalValueOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <element name="Occupancy" substitutionGroup="gml:AbstractGML" type="core:OccupancyType"/>
+  <complexType name="OccupancyType">
+    <complexContent>
+      <extension base="gml:AbstractGMLType">
+        <sequence>
+          <element name="numberOfOccupants" type="integer"/>
+          <element minOccurs="0" name="interval" type="core:IntervalValueType"/>
+          <element minOccurs="0" name="occupantType" type="core:OccupantTypeValueType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="OccupancyPropertyType">
+    <sequence minOccurs="0">
+      <element ref="core:Occupancy"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="OccupantTypeValueType">
+    <union memberTypes="core:OccupantTypeValueEnumerationType core:OccupantTypeValueOtherType"/>
+  </simpleType>
+  <simpleType name="OccupantTypeValueEnumerationType">
+    <restriction base="string">
+      <enumeration value="residents"/>
+      <enumeration value="workers"/>
+      <enumeration value="students"/>
+      <enumeration value="patients"/>
+      <enumeration value="visitors"/>
+      <enumeration value="othersOrCombination"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="OccupantTypeValueOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
   <simpleType name="OtherRelationTypeType">
