@@ -1,10 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:app="http://www.opengis.net/citygml/appearance/3.0" xmlns:core="http://www.opengis.net/citygml/3.0" xmlns:dyn="http://www.opengis.net/citygml/dynamizer/3.0" xmlns:gen="http://www.opengis.net/citygml/generics/3.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:pcl="http://www.opengis.net/citygml/pointcloud/3.0" xmlns:vers="http://www.opengis.net/citygml/versioning/3.0" xmlns:xAL="urn:oasis:names:tc:ciq:xsdschema:xAL:2.0" elementFormDefault="qualified" targetNamespace="http://www.opengis.net/citygml/3.0" version="3.0.0">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:app="http://www.opengis.net/citygml/appearance/3.0" xmlns:core="http://www.opengis.net/citygml/3.0" xmlns:dyn="http://www.opengis.net/citygml/dynamizer/3.0" xmlns:gen="http://www.opengis.net/citygml/generics/3.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:gmlexr="http://www.opengis.net/gml/3.3/exr" xmlns:pcl="http://www.opengis.net/citygml/pointcloud/3.0" xmlns:vers="http://www.opengis.net/citygml/versioning/3.0" xmlns:xAL="urn:oasis:names:tc:ciq:xsdschema:xAL:2.0" elementFormDefault="qualified" targetNamespace="http://www.opengis.net/citygml/3.0" version="3.0.0">
   <import namespace="http://www.opengis.net/citygml/appearance/3.0" schemaLocation="./appearance.xsd"/>
   <import namespace="http://www.opengis.net/citygml/dynamizer/3.0" schemaLocation="./dynamizer.xsd"/>
   <import namespace="http://www.opengis.net/citygml/generics/3.0" schemaLocation="./generics.xsd"/>
   <import namespace="http://www.opengis.net/citygml/pointcloud/3.0" schemaLocation="./pointcloud.xsd"/>
   <import namespace="http://www.opengis.net/citygml/versioning/3.0" schemaLocation="./versioning.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <import namespace="http://www.opengis.net/gml/3.3/exr" schemaLocation="http://schemas.opengis.net/gml/3.3/extdEncRule.xsd"/>
   <import namespace="urn:oasis:names:tc:ciq:xsdschema:xAL:2.0" schemaLocation="http://schemas.opengis.net/citygml/xAL/xAL.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
   <element abstract="true" name="AbstractGenericApplicationPropertyOfAbstractCityObject" type="anyType"/>
@@ -27,7 +28,8 @@
           </element>
           <element minOccurs="0" name="relativeToTerrain" type="core:RelativeToTerrainType">
             <annotation>
-              <documentation>SIG3D: Vertical position of the AbstractCityObject relative to the surrounding terrain.</documentation>
+              <documentation>SIG3D: Vertical position of the 
+AbstractCityObject relative to the surrounding terrain.</documentation>
             </annotation>
           </element>
           <element minOccurs="0" name="relativeToWater" type="core:RelativeToWaterType">
@@ -461,7 +463,13 @@
     <complexContent>
       <extension base="gml:AbstractGMLType">
         <sequence>
-          <element name="relationType" type="core:RelationTypeType"/>
+          <element name="relationType" type="gml:ReferenceType">
+            <annotation>
+              <appinfo>
+                <targetCodeList xmlns="http://www.opengis.net/gml/3.3/exr">RelationType</targetCodeList>
+              </appinfo>
+            </annotation>
+          </element>
           <element name="relatedTo" type="core:AbstractCityObjectPropertyType"/>
         </sequence>
       </extension>
@@ -580,24 +588,50 @@
       <maxInclusive value="3"/>
     </restriction>
   </simpleType>
-  <simpleType name="OtherRelationTypeType">
-    <union memberTypes="core:OtherRelationTypeEnumerationType core:OtherRelationTypeOtherType"/>
-  </simpleType>
-  <simpleType name="OtherRelationTypeEnumerationType">
-    <restriction base="string"/>
-  </simpleType>
-  <simpleType name="OtherRelationTypeOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
+  <element name="Occupancy" substitutionGroup="gml:AbstractGML" type="core:OccupancyType"/>
+  <complexType name="OccupancyType">
+    <complexContent>
+      <extension base="gml:AbstractGMLType">
+        <sequence>
+          <element name="numberOfOccupants" type="integer"/>
+          <element minOccurs="0" name="interval" type="gml:ReferenceType">
+            <annotation>
+              <appinfo>
+                <targetCodeList xmlns="http://www.opengis.net/gml/3.3/exr">IntervalValue</targetCodeList>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="occupantType" type="gml:ReferenceType">
+            <annotation>
+              <appinfo>
+                <targetCodeList xmlns="http://www.opengis.net/gml/3.3/exr">OccupantTypeValue</targetCodeList>
+              </appinfo>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="OccupancyPropertyType">
+    <sequence minOccurs="0">
+      <element ref="core:Occupancy"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
   <element name="QualifiedArea" substitutionGroup="gml:AbstractGML" type="core:QualifiedAreaType"/>
   <complexType name="QualifiedAreaType">
     <complexContent>
       <extension base="gml:AbstractGMLType">
         <sequence>
           <element name="area" type="gml:AreaType"/>
-          <element name="typeOfArea" type="core:QualifiedAreaValueType"/>
+          <element name="typeOfArea" type="gml:ReferenceType">
+            <annotation>
+              <appinfo>
+                <targetCodeList xmlns="http://www.opengis.net/gml/3.3/exr">QualifiedAreaValue</targetCodeList>
+              </appinfo>
+            </annotation>
+          </element>
         </sequence>
       </extension>
     </complexContent>
@@ -609,33 +643,19 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <simpleType name="QualifiedAreaValueType">
-    <union memberTypes="core:QualifiedAreaValueEnumerationType core:QualifiedAreaValueOtherType"/>
-  </simpleType>
-  <simpleType name="QualifiedAreaValueEnumerationType">
-    <restriction base="string">
-      <enumeration value="surfaceArea"/>
-      <enumeration value="wallSurfaceArea"/>
-      <enumeration value="sharedWallSurfaceArea"/>
-      <enumeration value="roofSurfaceArea"/>
-      <enumeration value="wallWindowArea"/>
-      <enumeration value="roofWindowArea"/>
-      <enumeration value="wallGlazingArea"/>
-      <enumeration value="..."/>
-    </restriction>
-  </simpleType>
-  <simpleType name="QualifiedAreaValueOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
   <element name="QualifiedVolume" substitutionGroup="gml:AbstractGML" type="core:QualifiedVolumeType"/>
   <complexType name="QualifiedVolumeType">
     <complexContent>
       <extension base="gml:AbstractGMLType">
         <sequence>
           <element name="volume" type="gml:VolumeType"/>
-          <element name="typeOfVolume" type="core:QualifiedVolumeValueType"/>
+          <element name="typeOfVolume" type="gml:ReferenceType">
+            <annotation>
+              <appinfo>
+                <targetCodeList xmlns="http://www.opengis.net/gml/3.3/exr">QualifiedVolumeValue</targetCodeList>
+              </appinfo>
+            </annotation>
+          </element>
         </sequence>
       </extension>
     </complexContent>
@@ -647,32 +667,6 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <simpleType name="QualifiedVolumeValueType">
-    <union memberTypes="core:QualifiedVolumeValueEnumerationType core:QualifiedVolumeValueOtherType"/>
-  </simpleType>
-  <simpleType name="QualifiedVolumeValueEnumerationType">
-    <restriction base="string">
-      <enumeration value="grossVolume"/>
-      <enumeration value="netVolume"/>
-      <enumeration value="..."/>
-    </restriction>
-  </simpleType>
-  <simpleType name="QualifiedVolumeValueOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="RelationTypeType">
-    <union memberTypes="core:RelationTypeEnumerationType core:RelationTypeOtherType"/>
-  </simpleType>
-  <simpleType name="RelationTypeEnumerationType">
-    <restriction base="string"/>
-  </simpleType>
-  <simpleType name="RelationTypeOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
   <simpleType name="RelativeToTerrainType">
     <annotation>
       <documentation>SIG3D: Enumeration of the CityObject property relativeToTerrain.</documentation>
@@ -759,37 +753,6 @@
           <documentation>at least one side has a boundary</documentation>
         </annotation>
       </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="TemporalRelationTypeType">
-    <union memberTypes="core:TemporalRelationTypeEnumerationType core:TemporalRelationTypeOtherType"/>
-  </simpleType>
-  <simpleType name="TemporalRelationTypeEnumerationType">
-    <restriction base="string"/>
-  </simpleType>
-  <simpleType name="TemporalRelationTypeOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="TopologicRelationTypeType">
-    <union memberTypes="core:TopologicRelationTypeEnumerationType core:TopologicRelationTypeOtherType"/>
-  </simpleType>
-  <simpleType name="TopologicRelationTypeEnumerationType">
-    <restriction base="string">
-      <enumeration value="disjoint"/>
-      <enumeration value="equal"/>
-      <enumeration value="touch"/>
-      <enumeration value="overlap"/>
-      <enumeration value="covers"/>
-      <enumeration value="coveredBy"/>
-      <enumeration value="inside"/>
-      <enumeration value="contains"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="TopologicRelationTypeOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
   <simpleType name="TransformationMatrix2x2Type">
