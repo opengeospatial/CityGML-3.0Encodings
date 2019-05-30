@@ -444,7 +444,6 @@ AbstractCityObject relative to the surrounding terrain.</documentation>
               </complexContent>
             </complexType>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="featureMember" type="gml:FeaturePropertyType"/>
           <element maxOccurs="unbounded" minOccurs="0" ref="core:AbstractGenericApplicationPropertyOfCityModel"/>
         </sequence>
       </extension>
