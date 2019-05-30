@@ -54,6 +54,8 @@
               <documentation>SIG3D: Average value of the heights of the grown-up plants</documentation>
             </annotation>
           </element>
+          <element minOccurs="0" name="minHeight" type="gml:LengthType"/>
+          <element minOccurs="0" name="maxHeight" type="gml:LengthType"/>
           <element maxOccurs="unbounded" minOccurs="0" ref="veg:AbstractGenericApplicationPropertyOfPlantCover"/>
         </sequence>
       </extension>
@@ -111,6 +113,8 @@
               <documentation>SIG3D: Maximal diameter of the crown.</documentation>
             </annotation>
           </element>
+          <element minOccurs="0" name="rootBallDiameter" type="gml:LengthType"/>
+          <element minOccurs="0" name="maxRootBallDepth" type="gml:LengthType"/>
           <element maxOccurs="unbounded" minOccurs="0" ref="veg:AbstractGenericApplicationPropertyOfSolitaryVegetationObject"/>
         </sequence>
       </extension>
