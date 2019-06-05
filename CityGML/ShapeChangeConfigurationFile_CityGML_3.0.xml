@@ -65,7 +65,7 @@
       </xmlNamespaces>
       <xi:include href="http://shapechange.net/resources/config/StandardMapEntries.xml"/>
       <xsdMapEntries>
-        <XsdMapEntry type="AbstractFeature" xsdEncodingRules="iso19136_2007 gml33" xmlType="gml:AbstractFeatureType" xmlElement="gml:AbstractFeature" xmlPropertyType="gml:FeaturePropertyType"/>
+        <XsdMapEntry type="AnyFeature" xsdEncodingRules="iso19136_2007 gml33" xmlType="gml:AbstractFeatureType" xmlElement="gml:AbstractFeature" xmlPropertyType="gml:FeaturePropertyType"/>
         <XsdMapEntry type="XALAddressDetails" xsdEncodingRules="citygml" xmlType="xAL:AddressDetails" xmlElement="xAL:AddressDetails" xmlPropertyType="_P_"/>
         <XsdMapEntry type="URI" xsdEncodingRules="iso19136_2007 gml33" xmlPropertyType="anyURI" xmlType="anyURI" xmlTypeType="simple" xmlTypeContent="simple"/>
         <XsdMapEntry type="Code" xsdEncodingRules="iso19136_2007 gml33" xmlPropertyType="gml:CodeType" xmlType="gml:CodeType" xmlTypeType="complex" xmlTypeContent="simple"/>

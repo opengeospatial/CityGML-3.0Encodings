@@ -177,8 +177,6 @@ AbstractCityObject relative to the surrounding terrain.</documentation>
     <complexContent>
       <extension base="core:AbstractCityObjectType">
         <sequence>
-          <element minOccurs="0" name="occupancyDaytime" type="integer"/>
-          <element minOccurs="0" name="occupancyNighttime" type="integer"/>
           <element minOccurs="0" name="spaceType" type="core:SpaceTypeType">
             <annotation>
               <documentation>Degree of openness of an abstract space.</documentation>
@@ -446,6 +444,7 @@ AbstractCityObject relative to the surrounding terrain.</documentation>
               </complexContent>
             </complexType>
           </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="featureMember" type="gml:FeaturePropertyType"/>
           <element maxOccurs="unbounded" minOccurs="0" ref="core:AbstractGenericApplicationPropertyOfCityModel"/>
         </sequence>
       </extension>
