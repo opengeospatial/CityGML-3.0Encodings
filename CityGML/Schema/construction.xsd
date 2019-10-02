@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:con="http://www.opengis.net/citygml/construction/3.0" xmlns:core="http://www.opengis.net/citygml/3.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:gmlexr="http://www.opengis.net/gml/3.3/exr" elementFormDefault="qualified" targetNamespace="http://www.opengis.net/citygml/construction/3.0" version="3.0.0">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:con="http://www.opengis.net/citygml/construction/3.0" xmlns:core="http://www.opengis.net/citygml/3.0" xmlns:gml="http://www.opengis.net/gml/3.2" elementFormDefault="qualified" targetNamespace="http://www.opengis.net/citygml/construction/3.0" version="3.0.0">
   <import namespace="http://www.opengis.net/citygml/3.0" schemaLocation="./cityGMLBase.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
-  <import namespace="http://www.opengis.net/gml/3.3/exr" schemaLocation="http://schemas.opengis.net/gml/3.3/extdEncRule.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
   <element abstract="true" name="AbstractGenericApplicationPropertyOfAbstractConstruction" type="anyType"/>
   <element abstract="true" name="AbstractConstruction" substitutionGroup="core:AbstractOccupiedSpace" type="con:AbstractConstructionType">
@@ -46,7 +45,6 @@ AbstractConstruction. E.g. a road or canal is man made, but not an AbstractConst
             </annotation>
           </element>
           <element maxOccurs="unbounded" minOccurs="0" name="occupancy" type="core:OccupancyPropertyType"/>
-          <element maxOccurs="unbounded" minOccurs="0" name="constructionSurface" type="con:AbstractConstructionSurfacePropertyType"/>
           <element maxOccurs="unbounded" minOccurs="0" ref="con:AbstractGenericApplicationPropertyOfAbstractConstruction"/>
         </sequence>
       </extension>
@@ -66,7 +64,6 @@ AbstractConstruction. E.g. a road or canal is man made, but not an AbstractConst
       <extension base="core:AbstractThematicSurfaceType">
         <sequence>
           <element maxOccurs="unbounded" minOccurs="0" name="fillingSurface" type="con:AbstractFillingSurfacePropertyType"/>
-          <element maxOccurs="unbounded" minOccurs="0" name="closureSurface" type="core:ClosureSurfacePropertyType"/>
           <element maxOccurs="unbounded" minOccurs="0" ref="con:AbstractGenericApplicationPropertyOfAbstractConstructionSurface"/>
         </sequence>
       </extension>
@@ -234,13 +231,7 @@ AbstractConstruction. E.g. a road or canal is man made, but not an AbstractConst
   <element name="ConstructionEvent" substitutionGroup="gml:AbstractObject" type="con:ConstructionEventType"/>
   <complexType name="ConstructionEventType">
     <sequence>
-      <element name="event" type="gml:ReferenceType">
-        <annotation>
-          <appinfo>
-            <targetCodeList xmlns="http://www.opengis.net/gml/3.3/exr">EventValue</targetCodeList>
-          </appinfo>
-        </annotation>
-      </element>
+      <element name="event" type="gml:CodeType"/>
       <element name="dateOfEvent" type="date"/>
       <element minOccurs="0" name="description" type="string"/>
     </sequence>
@@ -260,7 +251,9 @@ AbstractConstruction. E.g. a road or canal is man made, but not an AbstractConst
     <complexContent>
       <extension base="con:AbstractFillingElementType">
         <sequence>
-          <element maxOccurs="unbounded" minOccurs="0" name="doorSurface" type="con:DoorSurfacePropertyType"/>
+          <element minOccurs="0" name="class" type="gml:CodeType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="function" type="gml:CodeType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="usage" type="gml:CodeType"/>
           <element maxOccurs="unbounded" minOccurs="0" name="address" type="core:AddressPropertyType">
             <annotation>
               <documentation>SIG3D: Relation between Door and Address.</documentation>
@@ -535,7 +528,7 @@ AbstractConstruction. E.g. a road or canal is man made, but not an AbstractConst
     <complexContent>
       <extension base="con:AbstractConstructionType">
         <sequence>
-          <element name="class" type="gml:CodeType"/>
+          <element minOccurs="0" name="class" type="gml:CodeType"/>
           <element maxOccurs="unbounded" minOccurs="0" name="function" type="gml:CodeType"/>
           <element maxOccurs="unbounded" minOccurs="0" name="usage" type="gml:CodeType"/>
           <element maxOccurs="unbounded" minOccurs="0" ref="con:AbstractGenericApplicationPropertyOfOtherConstruction"/>
@@ -655,7 +648,9 @@ AbstractConstruction. E.g. a road or canal is man made, but not an AbstractConst
     <complexContent>
       <extension base="con:AbstractFillingElementType">
         <sequence>
-          <element maxOccurs="unbounded" minOccurs="0" name="windowSurface" type="con:WindowSurfacePropertyType"/>
+          <element minOccurs="0" name="class" type="gml:CodeType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="function" type="gml:CodeType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="usage" type="gml:CodeType"/>
           <element maxOccurs="unbounded" minOccurs="0" ref="con:AbstractGenericApplicationPropertyOfWindow"/>
         </sequence>
       </extension>
