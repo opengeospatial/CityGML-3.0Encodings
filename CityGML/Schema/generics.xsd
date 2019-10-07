@@ -5,11 +5,15 @@
   <import namespace="http://www.opengis.net/citygml/3.0" schemaLocation="./cityGMLBase.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
-  <element abstract="true" name="AbstractGenericAttribute" substitutionGroup="gml:AbstractObject" type="gen:AbstractGenericAttributeType"/>
+  <element abstract="true" name="AbstractGenericAttribute" substitutionGroup="core:AbstractGenericAttribute" type="gen:AbstractGenericAttributeType"/>
   <complexType abstract="true" name="AbstractGenericAttributeType">
-    <sequence>
-      <element name="name" type="string"/>
-    </sequence>
+    <complexContent>
+      <extension base="core:AbstractGenericAttributeType">
+        <sequence>
+          <element name="name" type="string"/>
+        </sequence>
+      </extension>
+    </complexContent>
   </complexType>
   <complexType name="AbstractGenericAttributePropertyType">
     <sequence>

@@ -1,13 +1,25 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:app="http://www.opengis.net/citygml/appearance/3.0" xmlns:core="http://www.opengis.net/citygml/3.0" xmlns:dyn="http://www.opengis.net/citygml/dynamizer/3.0" xmlns:gen="http://www.opengis.net/citygml/generics/3.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:gmlexr="http://www.opengis.net/gml/3.3/exr" xmlns:pcl="http://www.opengis.net/citygml/pointcloud/3.0" xmlns:vers="http://www.opengis.net/citygml/versioning/3.0" xmlns:xAL="urn:oasis:names:tc:ciq:xsdschema:xAL:2.0" elementFormDefault="qualified" targetNamespace="http://www.opengis.net/citygml/3.0" version="3.0.0">
-  <import namespace="http://www.opengis.net/citygml/appearance/3.0" schemaLocation="./appearance.xsd"/>
-  <import namespace="http://www.opengis.net/citygml/dynamizer/3.0" schemaLocation="./dynamizer.xsd"/>
-  <import namespace="http://www.opengis.net/citygml/generics/3.0" schemaLocation="./generics.xsd"/>
-  <import namespace="http://www.opengis.net/citygml/pointcloud/3.0" schemaLocation="./pointCloud.xsd"/>
-  <import namespace="http://www.opengis.net/citygml/versioning/3.0" schemaLocation="./versioning.xsd"/>
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:core="http://www.opengis.net/citygml/3.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xAL="urn:oasis:names:tc:ciq:xsdschema:xAL:2.0" elementFormDefault="qualified" targetNamespace="http://www.opengis.net/citygml/3.0" version="3.0.0">
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
-  <import namespace="http://www.opengis.net/gml/3.3/exr" schemaLocation="http://schemas.opengis.net/gml/3.3/extdEncRule.xsd"/>
   <import namespace="urn:oasis:names:tc:ciq:xsdschema:xAL:2.0" schemaLocation="http://schemas.opengis.net/citygml/xAL/xAL.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <element abstract="true" name="AbstractGenericApplicationPropertyOfAbstractAppearance" type="anyType"/>
+  <element abstract="true" name="AbstractAppearance" substitutionGroup="core:AbstractFeatureWithLifespan" type="core:AbstractAppearanceType"/>
+  <complexType abstract="true" name="AbstractAppearanceType">
+    <complexContent>
+      <extension base="core:AbstractFeatureWithLifespanType">
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" ref="core:AbstractGenericApplicationPropertyOfAbstractAppearance"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="AbstractAppearancePropertyType">
+    <sequence minOccurs="0">
+      <element ref="core:AbstractAppearance"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
   <element abstract="true" name="AbstractGenericApplicationPropertyOfAbstractCityObject" type="anyType"/>
   <element abstract="true" name="AbstractCityObject" substitutionGroup="core:AbstractFeatureWithLifespan" type="core:AbstractCityObjectType">
     <annotation>
@@ -43,15 +55,15 @@ AbstractCityObject relative to the surrounding terrain.</documentation>
               <complexContent>
                 <extension base="gml:AbstractFeatureMemberType">
                   <sequence minOccurs="0">
-                    <element ref="app:Appearance"/>
+                    <element ref="core:AbstractAppearance"/>
                   </sequence>
                   <attributeGroup ref="gml:AssociationAttributeGroup"/>
                 </extension>
               </complexContent>
             </complexType>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="genericAttribute" type="gen:AbstractGenericAttributePropertyType"/>
-          <element maxOccurs="unbounded" minOccurs="0" name="dynamizer" type="dyn:DynamizerPropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="genericAttribute" type="core:AbstractGenericAttributePropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="dynamizer" type="core:AbstractDynamizerPropertyType"/>
           <element maxOccurs="unbounded" minOccurs="0" ref="core:AbstractGenericApplicationPropertyOfAbstractCityObject"/>
         </sequence>
       </extension>
@@ -60,6 +72,24 @@ AbstractCityObject relative to the surrounding terrain.</documentation>
   <complexType name="AbstractCityObjectPropertyType">
     <sequence minOccurs="0">
       <element ref="core:AbstractCityObject"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element abstract="true" name="AbstractGenericApplicationPropertyOfAbstractDynamizer" type="anyType"/>
+  <element abstract="true" name="AbstractDynamizer" substitutionGroup="core:AbstractFeatureWithLifespan" type="core:AbstractDynamizerType"/>
+  <complexType abstract="true" name="AbstractDynamizerType">
+    <complexContent>
+      <extension base="core:AbstractFeatureWithLifespanType">
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" ref="core:AbstractGenericApplicationPropertyOfAbstractDynamizer"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="AbstractDynamizerPropertyType">
+    <sequence minOccurs="0">
+      <element ref="core:AbstractDynamizer"/>
     </sequence>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
@@ -85,6 +115,15 @@ AbstractCityObject relative to the surrounding terrain.</documentation>
     </sequence>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element abstract="true" name="AbstractGenericAttribute" substitutionGroup="gml:AbstractObject" type="core:AbstractGenericAttributeType"/>
+  <complexType abstract="true" name="AbstractGenericAttributeType">
+    <sequence/>
+  </complexType>
+  <complexType name="AbstractGenericAttributePropertyType">
+    <sequence>
+      <element ref="core:AbstractGenericAttribute"/>
+    </sequence>
   </complexType>
   <element abstract="true" name="AbstractGenericApplicationPropertyOfAbstractLogicalSpace" type="anyType"/>
   <element abstract="true" name="AbstractLogicalSpace" substitutionGroup="core:AbstractSpace" type="core:AbstractLogicalSpaceType"/>
@@ -158,7 +197,7 @@ AbstractCityObject relative to the surrounding terrain.</documentation>
               <documentation>SIG 3D: Relation to intersection curve(s) between an LOD3 AbstractPhysicalSpace and a terrain (LOD1 or LOD2 or LOD3).</documentation>
             </annotation>
           </element>
-          <element minOccurs="0" name="pointCloud" type="pcl:PointCloudPropertyType"/>
+          <element minOccurs="0" name="pointCloud" type="core:AbstractPointCloudPropertyType"/>
           <element maxOccurs="unbounded" minOccurs="0" ref="core:AbstractGenericApplicationPropertyOfAbstractPhysicalSpace"/>
         </sequence>
       </extension>
@@ -167,6 +206,24 @@ AbstractCityObject relative to the surrounding terrain.</documentation>
   <complexType name="AbstractPhysicalSpacePropertyType">
     <sequence minOccurs="0">
       <element ref="core:AbstractPhysicalSpace"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element abstract="true" name="AbstractGenericApplicationPropertyOfAbstractPointCloud" type="anyType"/>
+  <element abstract="true" name="AbstractPointCloud" substitutionGroup="gml:AbstractFeature" type="core:AbstractPointCloudType"/>
+  <complexType abstract="true" name="AbstractPointCloudType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" ref="core:AbstractGenericApplicationPropertyOfAbstractPointCloud"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="AbstractPointCloudPropertyType">
+    <sequence minOccurs="0">
+      <element ref="core:AbstractPointCloud"/>
     </sequence>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
@@ -184,6 +241,13 @@ AbstractCityObject relative to the surrounding terrain.</documentation>
           </element>
           <element maxOccurs="unbounded" minOccurs="0" name="volume" type="core:QualifiedVolumePropertyType"/>
           <element maxOccurs="unbounded" minOccurs="0" name="area" type="core:QualifiedAreaPropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="boundary" type="core:AbstractThematicSurfacePropertyType">
+            <annotation>
+              <appinfo>
+                <reversePropertyName xmlns="http://www.opengis.net/gml/3.2">core:bounds</reversePropertyName>
+              </appinfo>
+            </annotation>
+          </element>
           <element minOccurs="0" name="lod0Point" type="gml:PointPropertyType">
             <annotation>
               <documentation>Relation to a  LOD0 point geometry of AbstractSpace.</documentation>
@@ -212,13 +276,6 @@ AbstractCityObject relative to the surrounding terrain.</documentation>
           <element minOccurs="0" name="lod2MultiCurve" type="gml:MultiCurvePropertyType">
             <annotation>
               <documentation>Relation to a  LOD2 curve geometry of AbstractSpace.</documentation>
-            </annotation>
-          </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="boundary" type="core:AbstractThematicSurfacePropertyType">
-            <annotation>
-              <appinfo>
-                <reversePropertyName xmlns="http://www.opengis.net/gml/3.2">core:bounds</reversePropertyName>
-              </appinfo>
             </annotation>
           </element>
           <element minOccurs="0" name="lod3Solid" type="gml:SolidPropertyType">
@@ -282,7 +339,7 @@ AbstractCityObject relative to the surrounding terrain.</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="pointCloud" type="pcl:PointCloudPropertyType"/>
+          <element minOccurs="0" name="pointCloud" type="core:AbstractPointCloudPropertyType"/>
           <element maxOccurs="unbounded" minOccurs="0" ref="core:AbstractGenericApplicationPropertyOfAbstractThematicSurface"/>
         </sequence>
       </extension>
@@ -309,6 +366,42 @@ AbstractCityObject relative to the surrounding terrain.</documentation>
   <complexType name="AbstractUnoccupiedSpacePropertyType">
     <sequence minOccurs="0">
       <element ref="core:AbstractUnoccupiedSpace"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element abstract="true" name="AbstractGenericApplicationPropertyOfAbstractVersion" type="anyType"/>
+  <element abstract="true" name="AbstractVersion" substitutionGroup="core:AbstractFeatureWithLifespan" type="core:AbstractVersionType"/>
+  <complexType abstract="true" name="AbstractVersionType">
+    <complexContent>
+      <extension base="core:AbstractFeatureWithLifespanType">
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" ref="core:AbstractGenericApplicationPropertyOfAbstractVersion"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="AbstractVersionPropertyType">
+    <sequence minOccurs="0">
+      <element ref="core:AbstractVersion"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element abstract="true" name="AbstractGenericApplicationPropertyOfAbstractVersionTransition" type="anyType"/>
+  <element abstract="true" name="AbstractVersionTransition" substitutionGroup="core:AbstractFeatureWithLifespan" type="core:AbstractVersionTransitionType"/>
+  <complexType abstract="true" name="AbstractVersionTransitionType">
+    <complexContent>
+      <extension base="core:AbstractFeatureWithLifespanType">
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" ref="core:AbstractGenericApplicationPropertyOfAbstractVersionTransition"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="AbstractVersionTransitionPropertyType">
+    <sequence minOccurs="0">
+      <element ref="core:AbstractVersionTransition"/>
     </sequence>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
@@ -380,7 +473,7 @@ AbstractCityObject relative to the surrounding terrain.</documentation>
               <complexContent>
                 <extension base="gml:AbstractFeatureMemberType">
                   <sequence minOccurs="0">
-                    <element ref="app:Appearance"/>
+                    <element ref="core:AbstractAppearance"/>
                   </sequence>
                   <attributeGroup ref="gml:AssociationAttributeGroup"/>
                 </extension>
@@ -392,7 +485,7 @@ AbstractCityObject relative to the surrounding terrain.</documentation>
               <complexContent>
                 <extension base="gml:AbstractFeatureMemberType">
                   <sequence minOccurs="0">
-                    <element ref="vers:Version"/>
+                    <element ref="core:AbstractVersion"/>
                   </sequence>
                   <attributeGroup ref="gml:AssociationAttributeGroup"/>
                 </extension>
@@ -404,7 +497,7 @@ AbstractCityObject relative to the surrounding terrain.</documentation>
               <complexContent>
                 <extension base="gml:AbstractFeatureMemberType">
                   <sequence minOccurs="0">
-                    <element ref="vers:VersionTransition"/>
+                    <element ref="core:AbstractVersionTransition"/>
                   </sequence>
                   <attributeGroup ref="gml:AssociationAttributeGroup"/>
                 </extension>
@@ -429,13 +522,7 @@ AbstractCityObject relative to the surrounding terrain.</documentation>
     <complexContent>
       <extension base="gml:AbstractGMLType">
         <sequence>
-          <element name="relationType" type="gml:ReferenceType">
-            <annotation>
-              <appinfo>
-                <targetCodeList xmlns="http://www.opengis.net/gml/3.3/exr">RelationType</targetCodeList>
-              </appinfo>
-            </annotation>
-          </element>
+          <element name="relationType" type="gml:CodeType"/>
           <element name="relatedTo" type="core:AbstractCityObjectPropertyType"/>
         </sequence>
       </extension>
@@ -500,53 +587,44 @@ AbstractCityObject relative to the surrounding terrain.</documentation>
       <element ref="core:ExternalReference"/>
     </sequence>
   </complexType>
-  <element abstract="true" name="AbstractGenericApplicationPropertyOfImplicitGeometry" type="anyType"/>
-  <element name="ImplicitGeometry" substitutionGroup="gml:AbstractFeature" type="core:ImplicitGeometryType">
+  <element name="ImplicitGeometry" substitutionGroup="gml:AbstractObject" type="core:ImplicitGeometryType">
     <annotation>
       <documentation>SIG3D: A  geometric representation where the shape is stored only once as a prototypical geometry, for example a tree or other vegetation object, a traffic light or a traffic sign. This prototypic geometry object can be re-used or referenced many times, wherever the corresponding feature occurs in the 3D city model.</documentation>
     </annotation>
   </element>
   <complexType name="ImplicitGeometryType">
-    <complexContent>
-      <extension base="gml:AbstractFeatureType">
-        <sequence>
-          <element minOccurs="0" name="transformationMatrix" type="core:TransformationMatrix4x4Type">
-            <annotation>
-              <documentation>SIG3D: Mathematical transformation (translation, rotation and scaling) between the prototype geometry and the actual spatial position of the object.</documentation>
-            </annotation>
-          </element>
-          <element minOccurs="0" name="mimeType" type="gml:CodeType">
-            <annotation>
-              <documentation>SIG3D: Mime type of the referenced external geometric object (attribute libraryObject).</documentation>
-            </annotation>
-          </element>
-          <element minOccurs="0" name="libraryObject" type="anyURI">
-            <annotation>
-              <documentation>SIG3D: External link to a prototype geometry.</documentation>
-            </annotation>
-          </element>
-          <element name="referencePoint" type="gml:PointPropertyType">
-            <annotation>
-              <documentation>SIG3D: Base point of the object in the world coordinate system.</documentation>
-            </annotation>
-          </element>
-          <element minOccurs="0" name="relativeGMLGeometry" type="gml:GeometryPropertyType">
-            <annotation>
-              <documentation>SIG3D: Geometry of the prototype, specified in a local coordinate system.</documentation>
-            </annotation>
-          </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="appearance" type="app:AppearancePropertyType"/>
-          <element maxOccurs="unbounded" minOccurs="0" ref="core:AbstractGenericApplicationPropertyOfImplicitGeometry"/>
-        </sequence>
-      </extension>
-    </complexContent>
+    <sequence>
+      <element name="transformationMatrix" type="core:TransformationMatrix4x4Type">
+        <annotation>
+          <documentation>SIG3D: Mathematical transformation (translation, rotation and scaling) between the prototype geometry and the actual spatial position of the object.</documentation>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="mimeType" type="gml:CodeType">
+        <annotation>
+          <documentation>SIG3D: Mime type of the referenced external geometric object (attribute libraryObject).</documentation>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="libraryObject" type="anyURI">
+        <annotation>
+          <documentation>SIG3D: External link to a prototype geometry.</documentation>
+        </annotation>
+      </element>
+      <element name="referencePoint" type="gml:PointPropertyType">
+        <annotation>
+          <documentation>SIG3D: Base point of the object in the world coordinate system.</documentation>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="relativeGMLGeometry" type="gml:GeometryPropertyType">
+        <annotation>
+          <documentation>SIG3D: Geometry of the prototype, specified in a local coordinate system.</documentation>
+        </annotation>
+      </element>
+    </sequence>
   </complexType>
   <complexType name="ImplicitGeometryPropertyType">
-    <sequence minOccurs="0">
+    <sequence>
       <element ref="core:ImplicitGeometry"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
   <simpleType name="IntegerBetween0and3Type">
     <restriction base="integer">
@@ -558,20 +636,8 @@ AbstractCityObject relative to the surrounding terrain.</documentation>
   <complexType name="OccupancyType">
     <sequence>
       <element name="numberOfOccupants" type="integer"/>
-      <element minOccurs="0" name="interval" type="gml:ReferenceType">
-        <annotation>
-          <appinfo>
-            <targetCodeList xmlns="http://www.opengis.net/gml/3.3/exr">IntervalValue</targetCodeList>
-          </appinfo>
-        </annotation>
-      </element>
-      <element minOccurs="0" name="occupantType" type="gml:ReferenceType">
-        <annotation>
-          <appinfo>
-            <targetCodeList xmlns="http://www.opengis.net/gml/3.3/exr">OccupantTypeValue</targetCodeList>
-          </appinfo>
-        </annotation>
-      </element>
+      <element minOccurs="0" name="interval" type="gml:CodeType"/>
+      <element minOccurs="0" name="occupantType" type="gml:CodeType"/>
     </sequence>
   </complexType>
   <complexType name="OccupancyPropertyType">
@@ -583,13 +649,7 @@ AbstractCityObject relative to the surrounding terrain.</documentation>
   <complexType name="QualifiedAreaType">
     <sequence>
       <element name="area" type="gml:AreaType"/>
-      <element name="typeOfArea" type="gml:ReferenceType">
-        <annotation>
-          <appinfo>
-            <targetCodeList xmlns="http://www.opengis.net/gml/3.3/exr">QualifiedAreaValue</targetCodeList>
-          </appinfo>
-        </annotation>
-      </element>
+      <element name="typeOfArea" type="gml:CodeType"/>
     </sequence>
   </complexType>
   <complexType name="QualifiedAreaPropertyType">
@@ -601,13 +661,7 @@ AbstractCityObject relative to the surrounding terrain.</documentation>
   <complexType name="QualifiedVolumeType">
     <sequence>
       <element name="volume" type="gml:VolumeType"/>
-      <element name="typeOfVolume" type="gml:ReferenceType">
-        <annotation>
-          <appinfo>
-            <targetCodeList xmlns="http://www.opengis.net/gml/3.3/exr">QualifiedVolumeValue</targetCodeList>
-          </appinfo>
-        </annotation>
-      </element>
+      <element name="typeOfVolume" type="gml:CodeType"/>
     </sequence>
   </complexType>
   <complexType name="QualifiedVolumePropertyType">

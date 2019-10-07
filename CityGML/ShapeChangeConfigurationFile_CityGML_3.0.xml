@@ -7,7 +7,7 @@
     
   <input>
     <parameter name="inputModelType" value="EA7"/>
-    <parameter name="inputFile" value="D:/CityGML_3.0/CityGML_3.0_Consolidated_Draft.eap"/>
+    <parameter name="inputFile" value="D:/CityGML/CityGML_3.0/_CityGML_3.0_UML-Modell/CityGML 3.0 UML Arbeitskopie/CityGML_3.0_Consolidated_Draft_2019_10_01.eap"/>
     <parameter name="appSchemaNamespaceRegex" value="^http://www.opengis.net/citygml/.*"/>
     <parameter name="checkingConstraints" value="disabled"/>
     <parameter name="addTaggedValues" value="itemType"/>
@@ -21,15 +21,16 @@
   
   <log>
     <parameter name="reportLevel" value="INFO"/>
-    <parameter name="logFile" value="D:/CityGML_3.0/logs/CityGML_3.0.xml"/>
+    <parameter name="logFile" value="D:/CityGML/CityGML_3.0/_CityGML_3.0_GML-Encoding/logs/CityGML_3.0.xml"/>
   </log>
   
   <targets>
     <TargetXmlSchema class="de.interactive_instruments.ShapeChange.Target.XmlSchema.XmlSchema" mode="enabled">
-      <targetParameter name="outputDirectory" value="D:/CityGML_3.0/xsds"/>
+      <targetParameter name="outputDirectory" value="D:/CityGML/CityGML_3.0/_CityGML_3.0_GML-Encoding/xsds"/>
       <targetParameter name="defaultEncodingRule" value="citygml"/>
       <rules>
-        <EncodingRule name="citygml" extends="gml33">
+        <EncodingRule name="citygml" extends="iso19136_2007"> <!-- gml33 -->
+          <rule name="rule-xsd-rel-association-classes"/>
           <rule name="rule-xsd-cls-basictype"/>
           <rule name="rule-xsd-cls-adehook"/>
           <rule name="rule-xsd-prop-initialValue"/>
@@ -70,7 +71,7 @@
         <XsdMapEntry type="URI" xsdEncodingRules="iso19136_2007 gml33" xmlPropertyType="anyURI" xmlType="anyURI" xmlTypeType="simple" xmlTypeContent="simple"/>
         <XsdMapEntry type="Code" xsdEncodingRules="iso19136_2007 gml33" xmlPropertyType="gml:CodeType" xmlType="gml:CodeType" xmlTypeType="complex" xmlTypeContent="simple"/>
         <XsdMapEntry type="MeasureOrNilReasonList" xsdEncodingRules="iso19136_2007 gml33" xmlPropertyType="gml:MeasureOrNilReasonListType" xmlType="gml:MeasureOrNilReasonListType" xmlTypeType="simple" xmlTypeContent="complex"/>
-        <XsdMapEntry type="doubleList" xsdEncodingRules="iso19136_2007 gml33" xmlPropertyType="gml:doubleList" xmlType="gml:doubleList" xmlTypeType="simple" xmlTypeContent="simple"/>
+        <XsdMapEntry type="DoubleList" xsdEncodingRules="iso19136_2007 gml33" xmlPropertyType="gml:doubleList" xmlType="gml:doubleList" xmlTypeType="simple" xmlTypeContent="simple"/>
         <XsdMapEntry type="SC_CRS" xsdEncodingRules="citygml" xmlAttributeGroup="gml:SRSReferenceGroup"/>
         <XsdMapEntry type="CV_DiscreteGridPointCoverage" xsdEncodingRules="iso19136_2007 gml33" xmlType="gml:RectifiedGridCoverageType" xmlElement="gml:RectifiedGridCoverage" xmlPropertyType="_P_"/>
         <XsdMapEntry type="TimeseriesTVP" xsdEncodingRules="citygml" xmlType="tsml:TimeseriesTVPType" xmlElement="tsml:TimeseriesTVP" xmlPropertyType="tsml:TimeseriesTVPPropertyType"/>
@@ -79,7 +80,7 @@
       </xsdMapEntries>
     </TargetXmlSchema>
     <!--Target class="de.interactive_instruments.ShapeChange.Target.FeatureCatalogue.FeatureCatalogue" mode="enabled">
-     <targetParameter name="outputDirectory" value="D:/CityGML_3.0/FeatureCatalog"/>
+     <targetParameter name="outputDirectory" value="D:/CityGML/CityGML_3.0/_CityGML_3.0_GML-Encoding/FeatureCatalog"/>
      <targetParameter name="outputFilename" value="FC_CityGML"/>
      <targetParameter name="package" value="CityFurniture"/>
      <targetParameter name="inheritedProperties" value="false"/>
@@ -94,7 +95,7 @@
      <targetParameter name="xslTransformerFactory" value="org.apache.xalan.processor.TransformerFactoryImpl"/>
      <targetParameter name="xslhtmlFile" value="html.xsl"/>
      <targetParameter name="xsldocxFile" value="docx.xsl"/>
-     <targetParameter name="docxTemplateFilePath" value="D:/CityGML_3.0/FeatureCatalog/template.docx"/>
+     <targetParameter name="docxTemplateFilePath" value="D:/CityGML/CityGML_3.0/_CityGML_3.0_GML-Encoding/FeatureCatalog/template.docx"/>
     </Target-->
   </targets>
 </ShapeChangeConfiguration>
