@@ -2,15 +2,42 @@
   <import namespace="http://www.opengis.net/citygml/3.0" schemaLocation="./cityGMLBase.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <element abstract="true" name="AbstractGenericApplicationPropertyOfAbstractSurfaceData" type="anyType"/>
+  <element abstract="true" name="AbstractSurfaceData" substitutionGroup="gml:AbstractFeature" type="app:AbstractSurfaceDataType">
+    <annotation>
+      <documentation>SIG3D: Abstract superclass of X3DMaterial and AbstractTexture</documentation>
+    </annotation>
+  </element>
+  <complexType abstract="true" name="AbstractSurfaceDataType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element default="true" minOccurs="0" name="isFront" type="boolean">
+            <annotation>
+              <documentation>SIG3D: Indicates whether the X3DMaterial, GeoreferencedTexture or, ParametrizedTexture is assigned to the front side or back side of the surface</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" ref="app:AbstractGenericApplicationPropertyOfAbstractSurfaceData"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="AbstractSurfaceDataPropertyType">
+    <sequence minOccurs="0">
+      <element ref="app:AbstractSurfaceData"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
   <element abstract="true" name="AbstractGenericApplicationPropertyOfAbstractTexture" type="anyType"/>
-  <element abstract="true" name="AbstractTexture" substitutionGroup="core:AbstractSurfaceData" type="app:AbstractTextureType">
+  <element abstract="true" name="AbstractTexture" substitutionGroup="app:AbstractSurfaceData" type="app:AbstractTextureType">
     <annotation>
       <documentation>SIG3D: Abstract super class of ParameterizedTexture and GeoreferencedTexture</documentation>
     </annotation>
   </element>
   <complexType abstract="true" name="AbstractTextureType">
     <complexContent>
-      <extension base="core:AbstractSurfaceDataType">
+      <extension base="app:AbstractSurfaceDataType">
         <sequence>
           <element name="imageURI" type="anyURI">
             <annotation>
@@ -61,6 +88,48 @@
     <sequence>
       <element ref="app:AbstractTextureParameterization"/>
     </sequence>
+  </complexType>
+  <element abstract="true" name="AbstractGenericApplicationPropertyOfAppearance" type="anyType"/>
+  <element name="Appearance" substitutionGroup="core:AbstractAppearance" type="app:AppearanceType">
+    <annotation>
+      <documentation>SIG3D: Named container for all AbstractSurfaceData</documentation>
+    </annotation>
+  </element>
+  <complexType name="AppearanceType">
+    <complexContent>
+      <extension base="core:AbstractAppearanceType">
+        <sequence>
+          <element minOccurs="0" name="theme" type="string">
+            <annotation>
+              <documentation>SIG3D: Theme name for all surfaceDataMembers. A theme is a catagory defining the semantics of the referenced surfaceDataMembers (e.g. infrared radiation,</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="surfaceData">
+            <annotation>
+              <documentation>SIG3D: List of surface data properties for the current appearance theme</documentation>
+            </annotation>
+            <complexType>
+              <complexContent>
+                <extension base="gml:AbstractFeatureMemberType">
+                  <sequence minOccurs="0">
+                    <element ref="app:AbstractSurfaceData"/>
+                  </sequence>
+                  <attributeGroup ref="gml:AssociationAttributeGroup"/>
+                </extension>
+              </complexContent>
+            </complexType>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" ref="app:AbstractGenericApplicationPropertyOfAppearance"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="AppearancePropertyType">
+    <sequence minOccurs="0">
+      <element ref="app:Appearance"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
   <simpleType name="ColorType">
     <restriction base="core:DoubleBetween0and1ListType">
@@ -271,14 +340,14 @@
     </restriction>
   </simpleType>
   <element abstract="true" name="AbstractGenericApplicationPropertyOfX3DMaterial" type="anyType"/>
-  <element name="X3DMaterial" substitutionGroup="core:AbstractSurfaceData" type="app:X3DMaterialType">
+  <element name="X3DMaterial" substitutionGroup="app:AbstractSurfaceData" type="app:X3DMaterialType">
     <annotation>
       <documentation>SIG3D: Definition of material properties based on X3D standard.</documentation>
     </annotation>
   </element>
   <complexType name="X3DMaterialType">
     <complexContent>
-      <extension base="core:AbstractSurfaceDataType">
+      <extension base="app:AbstractSurfaceDataType">
         <sequence>
           <element default="0.2" minOccurs="0" name="ambientIntensity" type="core:DoubleBetween0and1Type">
             <annotation>
