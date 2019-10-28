@@ -481,6 +481,18 @@ Space Boundaries are objects that bound a Space. They also realize the contact b
     <complexContent>
       <extension base="core:AbstractFeatureWithLifespanType">
         <sequence>
+          <element minOccurs="0" name="engineeringCRS">
+            <complexType>
+              <complexContent>
+                <extension base="gml:AbstractMetadataPropertyType">
+                  <sequence minOccurs="0">
+                    <element ref="gml:EngineeringCRS"/>
+                  </sequence>
+                  <attributeGroup ref="gml:AssociationAttributeGroup"/>
+                </extension>
+              </complexContent>
+            </complexType>
+          </element>
           <element maxOccurs="unbounded" minOccurs="0" name="cityObjectMember">
             <annotation>
               <documentation>SIG3D: Relation of CityModel to AbstractTopLevelCityObject.</documentation>
