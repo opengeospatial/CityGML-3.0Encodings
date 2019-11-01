@@ -12,21 +12,6 @@
     <complexContent>
       <extension base="core:AbstractUnoccupiedSpaceType">
         <sequence>
-          <element minOccurs="0" name="class" type="gml:CodeType">
-            <annotation>
-              <documentation>SIG3D: Classification of TransportationComplex, Railway, Road, Square, or Track as given by the relevant national regulations, information communities, or specific applications.</documentation>
-            </annotation>
-          </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="function" type="gml:CodeType">
-            <annotation>
-              <documentation>SIG3D: Specified function of TransportationComplex, Railway, Road, Square, or Track given by the relevant national regulations, information communities, or specific applications.</documentation>
-            </annotation>
-          </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="usage" type="gml:CodeType">
-            <annotation>
-              <documentation>SIG3D: Actual usage of TransportationComplex, Railway, Road, Square or Track as given by the relevant national regulations, information communities, or specific applications.</documentation>
-            </annotation>
-          </element>
           <element maxOccurs="unbounded" minOccurs="0" name="occupancy" type="core:OccupancyPropertyType"/>
           <element maxOccurs="unbounded" minOccurs="0" name="trafficSpace">
             <annotation>
@@ -227,6 +212,7 @@
     <complexContent>
       <extension base="tran:AbstractTransportationSpaceType">
         <sequence>
+          <element minOccurs="0" name="class" type="gml:CodeType"/>
           <element maxOccurs="unbounded" minOccurs="0" ref="tran:AbstractGenericApplicationPropertyOfIntersection"/>
         </sequence>
       </extension>
@@ -268,6 +254,9 @@
     <complexContent>
       <extension base="tran:AbstractTransportationSpaceType">
         <sequence>
+          <element minOccurs="0" name="class" type="gml:CodeType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="function" type="gml:CodeType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="usage" type="gml:CodeType"/>
           <element maxOccurs="unbounded" minOccurs="0" name="section">
             <complexType>
               <complexContent>
@@ -314,6 +303,9 @@
     <complexContent>
       <extension base="tran:AbstractTransportationSpaceType">
         <sequence>
+          <element minOccurs="0" name="class" type="gml:CodeType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="function" type="gml:CodeType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="usage" type="gml:CodeType"/>
           <element maxOccurs="unbounded" minOccurs="0" name="section">
             <complexType>
               <complexContent>
@@ -356,6 +348,7 @@
     <complexContent>
       <extension base="tran:AbstractTransportationSpaceType">
         <sequence>
+          <element minOccurs="0" name="class" type="gml:CodeType"/>
           <element name="trafficFlow" type="integer"/>
           <element maxOccurs="unbounded" minOccurs="0" ref="tran:AbstractGenericApplicationPropertyOfSection"/>
         </sequence>
@@ -379,6 +372,9 @@
     <complexContent>
       <extension base="tran:AbstractTransportationSpaceType">
         <sequence>
+          <element minOccurs="0" name="class" type="gml:CodeType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="function" type="gml:CodeType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="usage" type="gml:CodeType"/>
           <element maxOccurs="unbounded" minOccurs="0" ref="tran:AbstractGenericApplicationPropertyOfSquare"/>
         </sequence>
       </extension>
@@ -401,6 +397,9 @@
     <complexContent>
       <extension base="tran:AbstractTransportationSpaceType">
         <sequence>
+          <element minOccurs="0" name="class" type="gml:CodeType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="function" type="gml:CodeType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="usage" type="gml:CodeType"/>
           <element maxOccurs="unbounded" minOccurs="0" name="section">
             <complexType>
               <complexContent>
@@ -519,6 +518,9 @@
     <complexContent>
       <extension base="tran:AbstractTransportationSpaceType">
         <sequence>
+          <element minOccurs="0" name="class" type="gml:CodeType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="function" type="gml:CodeType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="usage" type="gml:CodeType"/>
           <element maxOccurs="unbounded" minOccurs="0" name="section">
             <complexType>
               <complexContent>
