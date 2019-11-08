@@ -259,13 +259,7 @@ AbstractCityObject relative to the surrounding terrain.</documentation>
           </element>
           <element maxOccurs="unbounded" minOccurs="0" name="volume" type="core:QualifiedVolumePropertyType"/>
           <element maxOccurs="unbounded" minOccurs="0" name="area" type="core:QualifiedAreaPropertyType"/>
-          <element maxOccurs="unbounded" minOccurs="0" name="boundary" type="core:AbstractThematicSurfacePropertyType">
-            <annotation>
-              <appinfo>
-                <reversePropertyName xmlns="http://www.opengis.net/gml/3.2">core:bounds</reversePropertyName>
-              </appinfo>
-            </annotation>
-          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="boundary" type="core:AbstractSpaceBoundaryPropertyType"/>
           <element minOccurs="0" name="lod0Point" type="gml:PointPropertyType">
             <annotation>
               <documentation>Relation to a  LOD0 point geometry of AbstractSpace.</documentation>
@@ -323,8 +317,26 @@ AbstractCityObject relative to the surrounding terrain.</documentation>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <element abstract="true" name="AbstractGenericApplicationPropertyOfAbstractSpaceBoundary" type="anyType"/>
+  <element abstract="true" name="AbstractSpaceBoundary" substitutionGroup="core:AbstractCityObject" type="core:AbstractSpaceBoundaryType"/>
+  <complexType abstract="true" name="AbstractSpaceBoundaryType">
+    <complexContent>
+      <extension base="core:AbstractCityObjectType">
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" ref="core:AbstractGenericApplicationPropertyOfAbstractSpaceBoundary"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="AbstractSpaceBoundaryPropertyType">
+    <sequence minOccurs="0">
+      <element ref="core:AbstractSpaceBoundary"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
   <element abstract="true" name="AbstractGenericApplicationPropertyOfAbstractThematicSurface" type="anyType"/>
-  <element abstract="true" name="AbstractThematicSurface" substitutionGroup="core:AbstractCityObject" type="core:AbstractThematicSurfaceType">
+  <element abstract="true" name="AbstractThematicSurface" substitutionGroup="core:AbstractSpaceBoundary" type="core:AbstractThematicSurfaceType">
     <annotation>
       <documentation>A Space Boundary is an entity with areal extent in the real world.
 Space Boundaries are objects that bound a Space. They also realize the contact between adjacent spaces.</documentation>
@@ -332,15 +344,8 @@ Space Boundaries are objects that bound a Space. They also realize the contact b
   </element>
   <complexType abstract="true" name="AbstractThematicSurfaceType">
     <complexContent>
-      <extension base="core:AbstractCityObjectType">
+      <extension base="core:AbstractSpaceBoundaryType">
         <sequence>
-          <element maxOccurs="unbounded" minOccurs="0" name="bounds" type="core:AbstractSpacePropertyType">
-            <annotation>
-              <appinfo>
-                <reversePropertyName xmlns="http://www.opengis.net/gml/3.2">core:boundary</reversePropertyName>
-              </appinfo>
-            </annotation>
-          </element>
           <element maxOccurs="unbounded" minOccurs="0" name="area" type="core:QualifiedAreaPropertyType"/>
           <element minOccurs="0" name="lod0MultiCurve" type="gml:MultiCurvePropertyType">
             <annotation>
