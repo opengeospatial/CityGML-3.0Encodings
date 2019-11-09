@@ -40,8 +40,7 @@
           </element>
           <element minOccurs="0" name="relativeToTerrain" type="core:RelativeToTerrainType">
             <annotation>
-              <documentation>SIG3D: Vertical position of the 
-AbstractCityObject relative to the surrounding terrain.</documentation>
+              <documentation>SIG3D: Vertical position of the AbstractCityObject relative to the surrounding terrain.</documentation>
             </annotation>
           </element>
           <element minOccurs="0" name="relativeToWater" type="core:RelativeToWaterType">
@@ -270,6 +269,11 @@ AbstractCityObject relative to the surrounding terrain.</documentation>
               <documentation>Relation to a  LOD0 surface geometry of AbstractSpace.</documentation>
             </annotation>
           </element>
+          <element minOccurs="0" name="lod0MultiCurve" type="gml:MultiCurvePropertyType">
+            <annotation>
+              <documentation>Relation to a  LOD0 curve geometry of AbstractSpace.</documentation>
+            </annotation>
+          </element>
           <element minOccurs="0" name="lod1Solid" type="gml:SolidPropertyType">
             <annotation>
               <documentation>Relation to a  LOD1 solid geometry of AbstractSpace.</documentation>
@@ -338,8 +342,7 @@ AbstractCityObject relative to the surrounding terrain.</documentation>
   <element abstract="true" name="AbstractGenericApplicationPropertyOfAbstractThematicSurface" type="anyType"/>
   <element abstract="true" name="AbstractThematicSurface" substitutionGroup="core:AbstractSpaceBoundary" type="core:AbstractThematicSurfaceType">
     <annotation>
-      <documentation>A Space Boundary is an entity with areal extent in the real world.
-Space Boundaries are objects that bound a Space. They also realize the contact between adjacent spaces.</documentation>
+      <documentation>A Space Boundary is an entity with areal extent in the real world. Space Boundaries are objects that bound a Space. They also realize the contact between adjacent spaces.</documentation>
     </annotation>
   </element>
   <complexType abstract="true" name="AbstractThematicSurfaceType">
@@ -349,23 +352,27 @@ Space Boundaries are objects that bound a Space. They also realize the contact b
           <element maxOccurs="unbounded" minOccurs="0" name="area" type="core:QualifiedAreaPropertyType"/>
           <element minOccurs="0" name="lod0MultiCurve" type="gml:MultiCurvePropertyType">
             <annotation>
-              <documentation>Relation to a  LOD0 curve geometry of AbstractSpace.</documentation>
+              <documentation>Relation to a  LOD0 curve geometry of AbstractThematicSurface.</documentation>
             </annotation>
           </element>
-          <element minOccurs="0" name="lod0MultiSurface" type="gml:MultiSurfacePropertyType"/>
+          <element minOccurs="0" name="lod0MultiSurface" type="gml:MultiSurfacePropertyType">
+            <annotation>
+              <documentation>Relation to a  LOD0 surface geometry of AbstractThematicSurface.</documentation>
+            </annotation>
+          </element>
           <element minOccurs="0" name="lod1MultiSurface" type="gml:MultiSurfacePropertyType">
             <annotation>
-              <documentation>Relation to a  LOD1 surface geometry of AbstractSpaceBoundary.</documentation>
+              <documentation>Relation to a  LOD1 surface geometry of AbstractThematicSurface.</documentation>
             </annotation>
           </element>
           <element minOccurs="0" name="lod2MultiSurface" type="gml:MultiSurfacePropertyType">
             <annotation>
-              <documentation>Relation to a  LOD2 surface geometry of AbstractSpaceBoundary.</documentation>
+              <documentation>Relation to a  LOD2 surface geometry of AbstractThematicSurface.</documentation>
             </annotation>
           </element>
           <element minOccurs="0" name="lod3MultiSurface" type="gml:MultiSurfacePropertyType">
             <annotation>
-              <documentation>Relation to a  LOD3 surface geometry of AbstractSpaceBoundary.</documentation>
+              <documentation>Relation to a  LOD3 surface geometry of AbstractThematicSurface.</documentation>
             </annotation>
           </element>
           <element minOccurs="0" name="pointCloud" type="core:AbstractPointCloudPropertyType"/>
