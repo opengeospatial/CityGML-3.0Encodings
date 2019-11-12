@@ -72,9 +72,6 @@
         <XsdMapEntry type="DoubleList" xsdEncodingRules="iso19136_2007 gml33" xmlPropertyType="gml:doubleList" xmlType="gml:doubleList" xmlTypeType="simple" xmlTypeContent="simple"/>
         <XsdMapEntry type="SC_CRS" xsdEncodingRules="citygml" xmlAttributeGroup="gml:SRSReferenceGroup"/>
         <XsdMapEntry type="CV_DiscreteGridPointCoverage" xsdEncodingRules="iso19136_2007 gml33" xmlType="gml:RectifiedGridCoverageType" xmlElement="gml:RectifiedGridCoverage" xmlPropertyType="_P_"/>
-        <XsdMapEntry type="TimeseriesTVP" xsdEncodingRules="citygml" xmlType="tsml:TimeseriesTVPType" xmlElement="tsml:TimeseriesTVP" xmlPropertyType="tsml:TimeseriesTVPPropertyType"/>
-        <XsdMapEntry type="TimeseriesDomainRange" xsdEncodingRules="citygml" xmlType="tsml:TimeseriesDomainRangeType" xmlElement="tsml:TimeseriesDomainRange" xmlPropertyType="tsml:TimeseriesDomainRangePropertyType"/>
-        <XsdMapEntry type="GetObservationResponse" xsdEncodingRules="citygml" xmlType="sos:GetObservationResponseType" xmlElement="sos:GetObservationResponse" xmlPropertyType="sos:GetObservationResponsePropertyType"/>
         <XsdMapEntry type="EngineeringCRS" xsdEncodingRules="citygml" xmlType="gml:EngineeringCRSType" xmlElement="gml:EngineeringCRS" xmlPropertyType="_MP_"/>
       </xsdMapEntries>
     </TargetXmlSchema>
