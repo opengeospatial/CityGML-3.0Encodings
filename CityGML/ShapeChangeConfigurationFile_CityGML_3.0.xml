@@ -60,8 +60,6 @@
        <XmlNamespace nsabr="veg" ns="http://www.opengis.net/citygml/vegetation/3.0" location="./vegetation.xsd"/>
        <XmlNamespace nsabr="vers" ns="http://www.opengis.net/citygml/versioning/3.0" location="./versioning.xsd"/>
        <XmlNamespace nsabr="wtr" ns="http://www.opengis.net/citygml/waterbody/3.0" location="./waterBody.xsd"/>
-       <XmlNamespace nsabr="tsml" ns="http://www.opengis.net/tsml/1.0" location="http://schemas.opengis.net/tsml/1.0/timeseriesML.xsd"/>
-       <XmlNamespace nsabr="sos" ns="http://www.opengis.net/sos/2.0" location="http://schemas.opengis.net/sos/2.0/sosGetObservation.xsd"/> 
        <XmlNamespace nsabr="xAL" ns="urn:oasis:names:tc:ciq:xsdschema:xAL:2.0" location="http://schemas.opengis.net/citygml/xAL/xAL.xsd"/> 
       </xmlNamespaces>
       <xi:include href="http://shapechange.net/resources/config/StandardMapEntries.xml"/>
