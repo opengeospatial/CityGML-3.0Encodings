@@ -60,8 +60,6 @@
        <XmlNamespace nsabr="veg" ns="http://www.opengis.net/citygml/vegetation/3.0" location="./vegetation.xsd"/>
        <XmlNamespace nsabr="vers" ns="http://www.opengis.net/citygml/versioning/3.0" location="./versioning.xsd"/>
        <XmlNamespace nsabr="wtr" ns="http://www.opengis.net/citygml/waterbody/3.0" location="./waterBody.xsd"/>
-       <XmlNamespace nsabr="tsml" ns="http://www.opengis.net/tsml/1.0" location="http://schemas.opengis.net/tsml/1.0/timeseriesML.xsd"/>
-       <XmlNamespace nsabr="sos" ns="http://www.opengis.net/sos/2.0" location="http://schemas.opengis.net/sos/2.0/sosGetObservation.xsd"/> 
        <XmlNamespace nsabr="xAL" ns="urn:oasis:names:tc:ciq:xsdschema:xAL:2.0" location="http://schemas.opengis.net/citygml/xAL/xAL.xsd"/> 
       </xmlNamespaces>
       <xi:include href="http://shapechange.net/resources/config/StandardMapEntries.xml"/>
@@ -74,9 +72,6 @@
         <XsdMapEntry type="DoubleList" xsdEncodingRules="iso19136_2007 gml33" xmlPropertyType="gml:doubleList" xmlType="gml:doubleList" xmlTypeType="simple" xmlTypeContent="simple"/>
         <XsdMapEntry type="SC_CRS" xsdEncodingRules="citygml" xmlAttributeGroup="gml:SRSReferenceGroup"/>
         <XsdMapEntry type="CV_DiscreteGridPointCoverage" xsdEncodingRules="iso19136_2007 gml33" xmlType="gml:RectifiedGridCoverageType" xmlElement="gml:RectifiedGridCoverage" xmlPropertyType="_P_"/>
-        <XsdMapEntry type="TimeseriesTVP" xsdEncodingRules="citygml" xmlType="tsml:TimeseriesTVPType" xmlElement="tsml:TimeseriesTVP" xmlPropertyType="tsml:TimeseriesTVPPropertyType"/>
-        <XsdMapEntry type="TimeseriesDomainRange" xsdEncodingRules="citygml" xmlType="tsml:TimeseriesDomainRangeType" xmlElement="tsml:TimeseriesDomainRange" xmlPropertyType="tsml:TimeseriesDomainRangePropertyType"/>
-        <XsdMapEntry type="GetObservationResponse" xsdEncodingRules="citygml" xmlType="sos:GetObservationResponseType" xmlElement="sos:GetObservationResponse" xmlPropertyType="sos:GetObservationResponsePropertyType"/>
         <XsdMapEntry type="EngineeringCRS" xsdEncodingRules="citygml" xmlType="gml:EngineeringCRSType" xmlElement="gml:EngineeringCRS" xmlPropertyType="_MP_"/>
       </xsdMapEntries>
     </TargetXmlSchema>
