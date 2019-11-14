@@ -33,7 +33,7 @@
         <con:RoofSurface gml:id="DEBY_LOD2_5744682_roofsurface1">
           <genericAttribute>
             <gen:DoubleAttribute>
-              <name>diffuse_irradiation</name>
+              <gen:name>diffuse_irradiation</gen:name>
               <gen:value>1454.63</gen:value>
             </gen:DoubleAttribute>
           </genericAttribute>

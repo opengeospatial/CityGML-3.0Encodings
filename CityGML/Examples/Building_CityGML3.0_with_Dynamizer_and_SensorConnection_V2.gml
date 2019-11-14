@@ -275,7 +275,7 @@
           <gml:name>Living Room</gml:name>
           <genericAttribute>
             <gen:DoubleAttribute>
-              <name>temperature</name>
+              <gen:name>temperature</gen:name>
               <gen:value>20.2</gen:value>
             </gen:DoubleAttribute>
            </genericAttribute>

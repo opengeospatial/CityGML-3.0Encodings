@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<CityModel xmlns:con="http://www.opengis.net/citygml/construction/3.0" xmlns:xAL="urn:oasis:names:tc:ciq:xsdschema:xAL:2.0" xmlns:gen="http://www.opengis.net/citygml/generics/3.0" xmlns="http://www.opengis.net/citygml/3.0"
-  xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:bldg="http://www.opengis.net/citygml/building/3.0" gml:id="cm1">
+<CityModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.opengis.net/citygml/3.0 ../Schema/cityGMLBase.xsd http://www.opengis.net/citygml/generics/3.0 ../Schema/generics.xsd http://www.opengis.net/citygml/construction/3.0 ../Schema/construction.xsd http://www.opengis.net/citygml/building/3.0 ../Schema/building.xsd http://www.opengis.net/citygml/dynamizer/3.0 ../Schema/dynamizer.xsd" xmlns="http://www.opengis.net/citygml/3.0" xmlns:gen="http://www.opengis.net/citygml/generics/3.0" xmlns:xAL="urn:oasis:names:tc:ciq:xsdschema:xAL:2.0" xmlns:con="http://www.opengis.net/citygml/construction/3.0" xmlns:bldg="http://www.opengis.net/citygml/building/3.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xlink="http://www.w3.org/1999/xlink" gml:id="cm1">
   <gml:name>LoD2_4490_5322_1_BY</gml:name>
   <gml:boundedBy>
     <gml:Envelope srsName="urn:adv:crs:DE_DHDN_3GK4*DE_DHHN92_NH" srsDimension="3">
@@ -20,13 +19,13 @@
       </externalReference>
       <genericAttribute>
         <gen:StringAttribute>
-          <name>StandLK</name>
+          <gen:name>StandLK</gen:name>
           <gen:value>2014-07-28</gen:value>
         </gen:StringAttribute>
       </genericAttribute>
       <genericAttribute>
         <gen:StringAttribute>
-          <name>Gemeindeschluessel</name>
+          <gen:name>Gemeindeschluessel</gen:name>
           <gen:value>09175128</gen:value>
         </gen:StringAttribute>
       </genericAttribute>
