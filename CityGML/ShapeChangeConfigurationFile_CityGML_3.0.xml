@@ -7,7 +7,7 @@
     
   <input>
     <parameter name="inputModelType" value="EA7"/>
-    <parameter name="inputFile" value="D:/CityGML_3.0/CityGML_3.0_Consolidated_Draft.eap"/>
+    <parameter name="inputFile" value="D:/CityGML/CityGML_3.0/_CityGML_3.0_UML-Modell/CityGML 3.0 UML Arbeitskopie/CityGML_3.0_Consolidated_Draft_2019_12_17_Union.eap"/>
     <parameter name="appSchemaNamespaceRegex" value="^http://www.opengis.net/citygml/.*"/>
     <parameter name="checkingConstraints" value="disabled"/>
     <parameter name="addTaggedValues" value="itemType"/>
@@ -21,12 +21,12 @@
   
   <log>
     <parameter name="reportLevel" value="INFO"/>
-    <parameter name="logFile" value="D:/CityGML_3.0/logs/CityGML_3.0.xml"/>
+    <parameter name="logFile" value="D:/CityGML/CityGML_3.0/_CityGML_3.0_GML-Encoding/logs/CityGML_3.0.xml"/>
   </log>
   
   <targets>
     <TargetXmlSchema class="de.interactive_instruments.ShapeChange.Target.XmlSchema.XmlSchema" mode="enabled">
-      <targetParameter name="outputDirectory" value="D:/CityGML_3.0/xsds"/>
+      <targetParameter name="outputDirectory" value="D:/CityGML/CityGML_3.0/_CityGML_3.0_GML-Encoding/xsds"/>
       <targetParameter name="defaultEncodingRule" value="citygml"/>
       <rules>
         <EncodingRule name="citygml" extends="iso19136_2007"> <!-- gml33 -->
@@ -38,6 +38,7 @@
           <rule name="rule-xsd-cls-mixin-classes"/>
           <rule name="rule-xsd-prop-constrainingFacets"/>
           <rule name="rule-xsd-all-notEncoded"/>
+          <rule name="rule-xsd-cls-union-asGroup"/>
         </EncodingRule>
       </rules>
       <xi:include href="http://shapechange.net/resources/config/StandardRules.xml"/>
@@ -76,7 +77,7 @@
       </xsdMapEntries>
     </TargetXmlSchema>
     <!--Target class="de.interactive_instruments.ShapeChange.Target.FeatureCatalogue.FeatureCatalogue" mode="enabled">
-     <targetParameter name="outputDirectory" value="D:/CityGML_3.0/FeatureCatalog"/>
+     <targetParameter name="outputDirectory" value="D:/CityGML/CityGML_3.0/_CityGML_3.0_GML-Encoding/FeatureCatalog"/>
      <targetParameter name="outputFilename" value="FC_CityGML"/>
      <targetParameter name="package" value="CityFurniture"/>
      <targetParameter name="inheritedProperties" value="false"/>
@@ -91,7 +92,7 @@
      <targetParameter name="xslTransformerFactory" value="org.apache.xalan.processor.TransformerFactoryImpl"/>
      <targetParameter name="xslhtmlFile" value="html.xsl"/>
      <targetParameter name="xsldocxFile" value="docx.xsl"/>
-     <targetParameter name="docxTemplateFilePath" value="D:/CityGML_3.0/FeatureCatalog/template.docx"/>
+     <targetParameter name="docxTemplateFilePath" value="D:/CityGML/CityGML_3.0/_CityGML_3.0_GML-Encoding/FeatureCatalog/template.docx"/>
     </Target-->
   </targets>
 </ShapeChangeConfiguration>
