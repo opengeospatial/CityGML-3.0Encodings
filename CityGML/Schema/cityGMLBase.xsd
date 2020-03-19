@@ -705,10 +705,20 @@
           </complexContent>
         </complexType>
       </element>
-      <element name="featureMember" type="gml:FeaturePropertyType">
+      <element name="featureMember">
         <annotation>
           <documentation>Specifies the feature objects that are part of the CityModel. It allows to include objects that are not derived from a class defined in the CityGML data model, but from the ISO 19109 class AnyFeature.</documentation>
         </annotation>
+        <complexType>
+          <complexContent>
+            <extension base="gml:AbstractFeatureMemberType">
+              <sequence minOccurs="0">
+                <element ref="core:AbstractFeature"/>
+              </sequence>
+              <attributeGroup ref="gml:AssociationAttributeGroup"/>
+            </extension>
+          </complexContent>
+        </complexType>
       </element>
     </choice>
   </group>
