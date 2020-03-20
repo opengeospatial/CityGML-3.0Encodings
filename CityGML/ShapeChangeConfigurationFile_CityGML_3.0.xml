@@ -7,7 +7,7 @@
     
   <input>
     <parameter name="inputModelType" value="EA7"/>
-    <parameter name="inputFile" value="D:/CityGML/CityGML_3.0/_CityGML_3.0_UML-Modell/CityGML 3.0 UML Arbeitskopie/CityGML_3.0_Consolidated_Draft_2019_12_17_Union.eap"/>
+    <parameter name="inputFile" value="D:/CityGML/CityGML_3.0/_CityGML_3.0_UML-Modell/CityGML 3.0 UML Arbeitskopie/CityGML_3.0_Consolidated_Draft_2020_03_11.eap"/>
     <parameter name="appSchemaNamespaceRegex" value="^http://www.opengis.net/citygml/.*"/>
     <parameter name="checkingConstraints" value="disabled"/>
     <parameter name="addTaggedValues" value="itemType"/>
@@ -35,7 +35,6 @@
           <rule name="rule-xsd-cls-adehook"/>
           <rule name="rule-xsd-prop-initialValue"/>
           <rule name="rule-xsd-prop-att-map-entry"/>
-          <rule name="rule-xsd-cls-mixin-classes"/>
           <rule name="rule-xsd-prop-constrainingFacets"/>
           <rule name="rule-xsd-all-notEncoded"/>
           <rule name="rule-xsd-cls-union-asGroup"/>
@@ -68,32 +67,18 @@
         <XsdMapEntry type="AnyFeature" xsdEncodingRules="iso19136_2007 gml33" xmlType="gml:AbstractFeatureType" xmlElement="gml:AbstractFeature" xmlPropertyType="gml:FeaturePropertyType"/>
         <XsdMapEntry type="XALAddressDetails" xsdEncodingRules="citygml" xmlType="xAL:AddressDetails" xmlElement="xAL:AddressDetails" xmlPropertyType="_P_"/>
         <XsdMapEntry type="URI" xsdEncodingRules="iso19136_2007 gml33" xmlPropertyType="anyURI" xmlType="anyURI" xmlTypeType="simple" xmlTypeContent="simple"/>
-        <XsdMapEntry type="Code" xsdEncodingRules="iso19136_2007 gml33" xmlPropertyType="gml:CodeType" xmlType="gml:CodeType" xmlTypeType="complex" xmlTypeContent="simple"/>
         <XsdMapEntry type="MeasureOrNilReasonList" xsdEncodingRules="iso19136_2007 gml33" xmlPropertyType="gml:MeasureOrNilReasonListType" xmlType="gml:MeasureOrNilReasonListType" xmlTypeType="simple" xmlTypeContent="complex"/>
         <XsdMapEntry type="DoubleList" xsdEncodingRules="iso19136_2007 gml33" xmlPropertyType="gml:doubleList" xmlType="gml:doubleList" xmlTypeType="simple" xmlTypeContent="simple"/>
         <XsdMapEntry type="SC_CRS" xsdEncodingRules="citygml" xmlAttributeGroup="gml:SRSReferenceGroup"/>
         <XsdMapEntry type="CV_DiscreteGridPointCoverage" xsdEncodingRules="iso19136_2007 gml33" xmlType="gml:RectifiedGridCoverageType" xmlElement="gml:RectifiedGridCoverage" xmlPropertyType="_P_"/>
         <XsdMapEntry type="EngineeringCRS" xsdEncodingRules="citygml" xmlType="gml:EngineeringCRSType" xmlElement="gml:EngineeringCRS" xmlPropertyType="_MP_"/>
+        <XsdPropertyMapEntry property="AbstractFeature::featureID"/>
+        <XsdPropertyMapEntry property="AbstractFeature::identifier"/>
+        <XsdPropertyMapEntry property="AbstractFeature::name"/>
+        <XsdPropertyMapEntry property="AbstractFeature::description"/>
+        <XsdPropertyMapEntry property="ImplicitGeometry::objectID"/>
       </xsdMapEntries>
     </TargetXmlSchema>
-    <!--Target class="de.interactive_instruments.ShapeChange.Target.FeatureCatalogue.FeatureCatalogue" mode="enabled">
-     <targetParameter name="outputDirectory" value="D:/CityGML/CityGML_3.0/_CityGML_3.0_GML-Encoding/FeatureCatalog"/>
-     <targetParameter name="outputFilename" value="FC_CityGML"/>
-     <targetParameter name="package" value="CityFurniture"/>
-     <targetParameter name="inheritedProperties" value="false"/>
-     <targetParameter name="changeInfo" value="false"/>
-     <targetParameter name="outputFormat" value="HTML,DOCX"/>
-     <targetParameter name="name" value="'CityGML 3.0'"/>
-     <targetParameter name="scope" value="This feature catalogue gives an overview of the feature types and data types defined in the CityGML 3.0 conceptual model."/>
-     <targetParameter name="versionNumber" value="1.0"/>
-     <targetParameter name="versionDate" value="April 2018"/>
-     <targetParameter name="producer" value="OGC, CityGML SWG"/>
-     <targetParameter name="xsltPath" value="http://shapechange.net/resources/xslt"/>
-     <targetParameter name="xslTransformerFactory" value="org.apache.xalan.processor.TransformerFactoryImpl"/>
-     <targetParameter name="xslhtmlFile" value="html.xsl"/>
-     <targetParameter name="xsldocxFile" value="docx.xsl"/>
-     <targetParameter name="docxTemplateFilePath" value="D:/CityGML/CityGML_3.0/_CityGML_3.0_GML-Encoding/FeatureCatalog/template.docx"/>
-    </Target-->
   </targets>
 </ShapeChangeConfiguration>
 
