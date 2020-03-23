@@ -37,14 +37,14 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element abstract="true" name="AbstractTimeseries" substitutionGroup="gml:AbstractFeature" type="dyn:AbstractTimeseriesType">
+  <element abstract="true" name="AbstractTimeseries" substitutionGroup="core:AbstractFeature" type="dyn:AbstractTimeseriesType">
     <annotation>
       <documentation>AbstractTimeseries is the abstract superclass representing any type of timeseries data.</documentation>
     </annotation>
   </element>
   <complexType abstract="true" name="AbstractTimeseriesType">
     <complexContent>
-      <extension base="gml:AbstractFeatureType">
+      <extension base="core:AbstractFeatureType">
         <sequence>
           <element minOccurs="0" name="firstTimestamp" type="gml:TimePositionType">
             <annotation>
