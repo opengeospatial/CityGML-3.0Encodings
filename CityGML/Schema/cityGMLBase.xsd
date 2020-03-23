@@ -302,14 +302,14 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element abstract="true" name="AbstractPointCloud" substitutionGroup="gml:AbstractFeature" type="core:AbstractPointCloudType">
+  <element abstract="true" name="AbstractPointCloud" substitutionGroup="core:AbstractFeature" type="core:AbstractPointCloudType">
     <annotation>
       <documentation>AbstractPointCloud is the abstract superclass to represent PointCloud objects.</documentation>
     </annotation>
   </element>
   <complexType abstract="true" name="AbstractPointCloudType">
     <complexContent>
-      <extension base="gml:AbstractFeatureType">
+      <extension base="core:AbstractFeatureType">
         <sequence>
           <element maxOccurs="unbounded" minOccurs="0" ref="core:AbstractGenericApplicationPropertyOfAbstractPointCloud"/>
         </sequence>
@@ -561,14 +561,14 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="Address" substitutionGroup="gml:AbstractFeature" type="core:AddressType">
+  <element name="Address" substitutionGroup="core:AbstractFeature" type="core:AddressType">
     <annotation>
       <documentation>Address represents an address of a city object.</documentation>
     </annotation>
   </element>
   <complexType name="AddressType">
     <complexContent>
-      <extension base="gml:AbstractFeatureType">
+      <extension base="core:AbstractFeatureType">
         <sequence>
           <element name="xalAddress">
             <annotation>

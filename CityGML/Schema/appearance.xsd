@@ -5,14 +5,14 @@
   <import namespace="http://www.opengis.net/citygml/3.0" schemaLocation="./cityGMLBase.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
-  <element abstract="true" name="AbstractSurfaceData" substitutionGroup="gml:AbstractFeature" type="app:AbstractSurfaceDataType">
+  <element abstract="true" name="AbstractSurfaceData" substitutionGroup="core:AbstractFeature" type="app:AbstractSurfaceDataType">
     <annotation>
       <documentation>AbstractSurfaceData is the abstract superclass for different kinds of textures and material.</documentation>
     </annotation>
   </element>
   <complexType abstract="true" name="AbstractSurfaceDataType">
     <complexContent>
-      <extension base="gml:AbstractFeatureType">
+      <extension base="core:AbstractFeatureType">
         <sequence>
           <element default="true" minOccurs="0" name="isFront" type="boolean">
             <annotation>
