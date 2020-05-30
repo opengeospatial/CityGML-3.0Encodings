@@ -71,7 +71,7 @@
               <documentation>Specifies the name of the CodeAttribute.</documentation>
             </annotation>
           </element>
-          <element name="value" type="gml:codeType">
+          <element name="value" type="gml:CodeType">
             <annotation>
               <documentation>Specifies the "Code" value.</documentation>
             </annotation>
