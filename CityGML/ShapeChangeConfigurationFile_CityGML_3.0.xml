@@ -7,7 +7,7 @@
     
   <input>
     <parameter name="inputModelType" value="EA7"/>
-    <parameter name="inputFile" value="D:/CityGML/CityGML_3.0/_CityGML_3.0_UML-Modell/CityGML 3.0 UML Arbeitskopie/CityGML_3.0_Consolidated_Draft_2020_03_11.eap"/>
+    <parameter name="inputFile" value="D:/CityGML/CityGML_3.0/_CityGML_3.0_UML-Modell/CityGML 3.0 UML Arbeitskopie/CityGML_3.0_Consolidated_Draft_2020_05_25.eap"/>
     <parameter name="appSchemaNamespaceRegex" value="^http://www.opengis.net/citygml/.*"/>
     <parameter name="checkingConstraints" value="disabled"/>
     <parameter name="addTaggedValues" value="itemType"/>
@@ -32,7 +32,6 @@
         <EncodingRule name="citygml" extends="iso19136_2007"> <!-- gml33 -->
           <rule name="rule-xsd-rel-association-classes"/>
           <rule name="rule-xsd-cls-basictype"/>
-          <rule name="rule-xsd-cls-adehook"/>
           <rule name="rule-xsd-prop-initialValue"/>
           <rule name="rule-xsd-prop-att-map-entry"/>
           <rule name="rule-xsd-prop-constrainingFacets"/>
@@ -65,13 +64,14 @@
       <xi:include href="http://shapechange.net/resources/config/StandardMapEntries.xml"/>
       <xsdMapEntries>
         <XsdMapEntry type="AnyFeature" xsdEncodingRules="iso19136_2007 gml33" xmlType="gml:AbstractFeatureType" xmlElement="gml:AbstractFeature" xmlPropertyType="gml:FeaturePropertyType"/>
-        <XsdMapEntry type="XALAddressDetails" xsdEncodingRules="citygml" xmlType="xAL:AddressDetails" xmlElement="xAL:AddressDetails" xmlPropertyType="_P_"/>
-        <XsdMapEntry type="URI" xsdEncodingRules="iso19136_2007 gml33" xmlPropertyType="anyURI" xmlType="anyURI" xmlTypeType="simple" xmlTypeContent="simple"/>
-        <XsdMapEntry type="MeasureOrNilReasonList" xsdEncodingRules="iso19136_2007 gml33" xmlPropertyType="gml:MeasureOrNilReasonListType" xmlType="gml:MeasureOrNilReasonListType" xmlTypeType="simple" xmlTypeContent="complex"/>
-        <XsdMapEntry type="DoubleList" xsdEncodingRules="iso19136_2007 gml33" xmlPropertyType="gml:doubleList" xmlType="gml:doubleList" xmlTypeType="simple" xmlTypeContent="simple"/>
-        <XsdMapEntry type="SC_CRS" xsdEncodingRules="citygml" xmlAttributeGroup="gml:SRSReferenceGroup"/>
+        <XsdMapEntry type="Code" xsdEncodingRules="iso19136_2007 gml33" xmlPropertyType="gml:codeType" xmlType="gml:codeType" xmlTypeType="complex" xmlTypeContent="simple"/>
         <XsdMapEntry type="CV_DiscreteGridPointCoverage" xsdEncodingRules="iso19136_2007 gml33" xmlType="gml:RectifiedGridCoverageType" xmlElement="gml:RectifiedGridCoverage" xmlPropertyType="_P_"/>
+        <XsdMapEntry type="DoubleList" xsdEncodingRules="iso19136_2007 gml33" xmlPropertyType="gml:doubleList" xmlType="gml:doubleList" xmlTypeType="simple" xmlTypeContent="simple"/>
         <XsdMapEntry type="EngineeringCRS" xsdEncodingRules="citygml" xmlType="gml:EngineeringCRSType" xmlElement="gml:EngineeringCRS" xmlPropertyType="_MP_"/>
+        <XsdMapEntry type="MeasureOrNilReasonList" xsdEncodingRules="iso19136_2007 gml33" xmlPropertyType="gml:MeasureOrNilReasonListType" xmlType="gml:MeasureOrNilReasonListType" xmlTypeType="complex" xmlTypeContent="simple"/>
+        <XsdMapEntry type="SC_CRS" xsdEncodingRules="citygml" xmlAttributeGroup="gml:SRSReferenceGroup"/>
+        <XsdMapEntry type="URI" xsdEncodingRules="iso19136_2007 gml33" xmlPropertyType="anyURI" xmlType="anyURI" xmlTypeType="simple" xmlTypeContent="simple"/>
+        <XsdMapEntry type="XALAddressDetails" xsdEncodingRules="citygml" xmlType="xAL:AddressDetails" xmlElement="xAL:AddressDetails" xmlPropertyType="_P_"/>
         <XsdPropertyMapEntry property="AbstractFeature::featureID"/>
         <XsdPropertyMapEntry property="AbstractFeature::identifier"/>
         <XsdPropertyMapEntry property="AbstractFeature::name"/>
