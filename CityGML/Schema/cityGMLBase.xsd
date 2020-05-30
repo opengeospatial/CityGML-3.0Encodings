@@ -864,7 +864,7 @@
               <documentation>Relates to the MultiPoint geometry of the Address. The geometry relates the address spatially to a city object.</documentation>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="ADEOfAddress" type="core:ADEOfAddressPropertyType">
+          <element maxOccurs="unbounded" minOccurs="0" name="adeOfAddress" type="core:ADEOfAddressPropertyType">
             <annotation>
               <documentation>Augments the Address with properties defined in an ADE.</documentation>
             </annotation>

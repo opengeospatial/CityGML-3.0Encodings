@@ -64,7 +64,7 @@
       <xi:include href="http://shapechange.net/resources/config/StandardMapEntries.xml"/>
       <xsdMapEntries>
         <XsdMapEntry type="AnyFeature" xsdEncodingRules="iso19136_2007 gml33" xmlType="gml:AbstractFeatureType" xmlElement="gml:AbstractFeature" xmlPropertyType="gml:FeaturePropertyType"/>
-        <XsdMapEntry type="Code" xsdEncodingRules="iso19136_2007 gml33" xmlPropertyType="gml:codeType" xmlType="gml:codeType" xmlTypeType="complex" xmlTypeContent="simple"/>
+        <XsdMapEntry type="Code" xsdEncodingRules="iso19136_2007 gml33" xmlPropertyType="gml:CodeType" xmlType="gml:CodeType" xmlTypeType="complex" xmlTypeContent="simple"/>
         <XsdMapEntry type="CV_DiscreteGridPointCoverage" xsdEncodingRules="iso19136_2007 gml33" xmlType="gml:RectifiedGridCoverageType" xmlElement="gml:RectifiedGridCoverage" xmlPropertyType="_P_"/>
         <XsdMapEntry type="DoubleList" xsdEncodingRules="iso19136_2007 gml33" xmlPropertyType="gml:doubleList" xmlType="gml:doubleList" xmlTypeType="simple" xmlTypeContent="simple"/>
         <XsdMapEntry type="EngineeringCRS" xsdEncodingRules="citygml" xmlType="gml:EngineeringCRSType" xmlElement="gml:EngineeringCRS" xmlPropertyType="_MP_"/>
