@@ -7,7 +7,7 @@
     
   <input>
     <parameter name="inputModelType" value="EA7"/>
-    <parameter name="inputFile" value="D:/CityGML/CityGML_3.0/_CityGML_3.0_UML-Modell/CityGML 3.0 UML Arbeitskopie/CityGML_3.0_Consolidated_Draft_2020_05_25.eap"/>
+    <parameter name="inputFile" value="D:/CityGML/CityGML_3.0/_CityGML_3.0_UML-Modell/CityGML 3.0 UML Arbeitskopie/CityGML_3.0_Consolidated_Draft_2020_06_11.eap"/>
     <parameter name="appSchemaNamespaceRegex" value="^http://www.opengis.net/citygml/.*"/>
     <parameter name="checkingConstraints" value="disabled"/>
     <parameter name="addTaggedValues" value="itemType"/>
@@ -59,7 +59,7 @@
        <XmlNamespace nsabr="veg" ns="http://www.opengis.net/citygml/vegetation/3.0" location="./vegetation.xsd"/>
        <XmlNamespace nsabr="vers" ns="http://www.opengis.net/citygml/versioning/3.0" location="./versioning.xsd"/>
        <XmlNamespace nsabr="wtr" ns="http://www.opengis.net/citygml/waterbody/3.0" location="./waterBody.xsd"/>
-       <XmlNamespace nsabr="xAL" ns="urn:oasis:names:tc:ciq:xsdschema:xAL:2.0" location="http://schemas.opengis.net/citygml/xAL/xAL.xsd"/> 
+       <XmlNamespace nsabr="xAL" ns="urn:oasis:names:tc:ciq:xal:3" location="http://docs.oasis-open.org/ciq/v3.0/cs02/xsd/default/xsd/xAL.xsd"/> 
       </xmlNamespaces>
       <xi:include href="http://shapechange.net/resources/config/StandardMapEntries.xml"/>
       <xsdMapEntries>
@@ -71,7 +71,7 @@
         <XsdMapEntry type="MeasureOrNilReasonList" xsdEncodingRules="iso19136_2007 gml33" xmlPropertyType="gml:MeasureOrNilReasonListType" xmlType="gml:MeasureOrNilReasonListType" xmlTypeType="complex" xmlTypeContent="simple"/>
         <XsdMapEntry type="SC_CRS" xsdEncodingRules="citygml" xmlAttributeGroup="gml:SRSReferenceGroup"/>
         <XsdMapEntry type="URI" xsdEncodingRules="iso19136_2007 gml33" xmlPropertyType="anyURI" xmlType="anyURI" xmlTypeType="simple" xmlTypeContent="simple"/>
-        <XsdMapEntry type="XALAddressDetails" xsdEncodingRules="citygml" xmlType="xAL:AddressDetails" xmlElement="xAL:AddressDetails" xmlPropertyType="_P_"/>
+        <XsdMapEntry type="XALAddress" xsdEncodingRules="citygml" xmlType="xAL:Address" xmlElement="xAL:Address" xmlPropertyType="_P_"/>
         <XsdPropertyMapEntry property="AbstractFeature::featureID"/>
         <XsdPropertyMapEntry property="AbstractFeature::identifier"/>
         <XsdPropertyMapEntry property="AbstractFeature::name"/>
