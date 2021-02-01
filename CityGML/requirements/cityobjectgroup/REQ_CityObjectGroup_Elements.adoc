@@ -1,0 +1,6 @@
+[[req_city_object_group_elements]]
+[width="90%",cols="2,6"]
+|===
+^|*Requirement  {counter:req-id}* |*/req/cityobjectgroup/elements* 
+2+|A conforming application shall support the CityGML XML elements listed in <<city-object-group-xml-elements>> in accordance with the GML XML schema specified in http://schemas.opengis.net/citygml/3.0/cityObjectGroup.xsd[cityObjectGroup.xsd].
+|===

@@ -1,0 +1,227 @@
+[[Vegetation-package-dd]]
+=== Vegetation
+
+[cols="1,4",frame=none,grid=none]
+|===
+|{nbsp}{nbsp}{nbsp}{nbsp}Description: | The Vegetation module supports representation of vegetation objects with vegetation-specific thematic classes. CityGML’s vegetation model distinguishes between solitary vegetation objects like trees, and vegetation areas which represent biotopes like forests or other plant communities. 
+|{nbsp}{nbsp}{nbsp}{nbsp}Parent Package: | CityGML
+|{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: | «ApplicationSchema»
+|===
+
+==== Classes
+
+[[AbstractVegetationObject-section]]
+[cols="1a"]
+|===
+|*AbstractVegetationObject* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! AbstractVegetationObject is the abstract superclass for all kinds of vegetation objects. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! <<AbstractOccupiedSpace-section,AbstractOccupiedSpace>> 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «FeatureType»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} adeOfAbstractVegetationObject  !<<ADEOfAbstractVegetationObject-section,ADEOfAbstractVegetationObject>>  [0..*] !Augments AbstractVegetationObject with properties defined in an ADE.
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attributes and role names have the stereotype «Property».
+|=== 
+
+[[PlantCover-section]]
+[cols="1a"]
+|===
+|*PlantCover* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! A PlantCover represents a space covered by vegetation. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! <<AbstractVegetationObject-section,AbstractVegetationObject>> 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «TopLevelFeatureType»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} class  !<<PlantCoverClassValue-section,PlantCoverClassValue>>  [0..1] !Indicates the specific type of the PlantCover.
+ 
+!{set:cellbgcolor:#FFFFFF} function  !<<PlantCoverFunctionValue-section,PlantCoverFunctionValue>>  [0..*] !Specifies the intended purposes of the PlantCover.
+ 
+!{set:cellbgcolor:#FFFFFF} usage  !<<PlantCoverUsageValue-section,PlantCoverUsageValue>>  [0..*] !Specifies the actual uses of the PlantCover.
+ 
+!{set:cellbgcolor:#FFFFFF} averageHeight  !<<Length-section,Length>>  [0..1] !Specifies the average height of the PlantCover.
+ 
+!{set:cellbgcolor:#FFFFFF} minHeight  !<<Length-section,Length>>  [0..1] !Specifies the minimum height of the PlantCover.
+ 
+!{set:cellbgcolor:#FFFFFF} maxHeight  !<<Length-section,Length>>  [0..1] !Specifies the maximum height of the PlantCover.
+ 
+!{set:cellbgcolor:#FFFFFF} adeOfPlantCover  !<<ADEOfPlantCover-section,ADEOfPlantCover>>  [0..*] !Augments the PlantCover with properties defined in an ADE.
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attributes and role names have the stereotype «Property».
+|=== 
+
+[[SolitaryVegetationObject-section]]
+[cols="1a"]
+|===
+|*SolitaryVegetationObject* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! A SolitaryVegetationObject represents individual vegetation objects, e.g. trees or bushes. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! <<AbstractVegetationObject-section,AbstractVegetationObject>> 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «TopLevelFeatureType»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} class  !<<SolitaryVegetationObjectClassValue-section,SolitaryVegetationObjectClassValue>>  [0..1] !Indicates the specific type of the SolitaryVegetationObject.
+ 
+!{set:cellbgcolor:#FFFFFF} function  !<<SolitaryVegetationObjectFunctionValue-section,SolitaryVegetationObjectFunctionValue>>  [0..*] !Specifies the intended purposes of the SolitaryVegetationObject.
+ 
+!{set:cellbgcolor:#FFFFFF} usage  !<<SolitaryVegetationObjectUsageValue-section,SolitaryVegetationObjectUsageValue>>  [0..*] !Specifies the actual uses of the SolitaryVegetationObject.
+ 
+!{set:cellbgcolor:#FFFFFF} species  !<<SpeciesValue-section,SpeciesValue>>  [0..1] !Indicates the botanical name of the SolitaryVegetationObject.
+ 
+!{set:cellbgcolor:#FFFFFF} height  !<<Length-section,Length>>  [0..1] !Distance between the highest point of the vegetation object and the lowest point of the terrain at the bottom of the object.
+ 
+!{set:cellbgcolor:#FFFFFF} trunkDiameter  !<<Length-section,Length>>  [0..1] !Specifies the diameter of the SolitaryCityObject's trunk.
+ 
+!{set:cellbgcolor:#FFFFFF} crownDiameter  !<<Length-section,Length>>  [0..1] !Specifies the diameter of the SolitaryCityObject's crown.
+ 
+!{set:cellbgcolor:#FFFFFF} rootBallDiameter  !<<Length-section,Length>>  [0..1] !Specifies the diameter of the SolitaryCityObject's root ball.
+ 
+!{set:cellbgcolor:#FFFFFF} maxRootBallDepth  !<<Length-section,Length>>  [0..1] !Specifies the vertical distance between the lowest point of the SolitaryVegetationObject's root ball and the terrain surface.
+ 
+!{set:cellbgcolor:#FFFFFF} adeOfSolitaryVegetationObject  !<<ADEOfSolitaryVegetationObject-section,ADEOfSolitaryVegetationObject>>  [0..*] !Augments the SolitaryVegetationObject with properties defined in an ADE.
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attributes and role names have the stereotype «Property».
+|===   
+
+==== Data Types
+
+[[ADEOfAbstractVegetationObject-section]]
+[cols="1a"]
+|===
+|*ADEOfAbstractVegetationObject*
+[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! ADEOfAbstractVegetationObject acts as a hook to define properties within an ADE that are to be added to AbstractVegetationObject. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! None 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «DataType»
+!===
+|=== 
+
+[[ADEOfPlantCover-section]]
+[cols="1a"]
+|===
+|*ADEOfPlantCover*
+[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! ADEOfPlantCover acts as a hook to define properties within an ADE that are to be added to a PlantCover. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! None 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «DataType»
+!===
+|=== 
+
+[[ADEOfSolitaryVegetationObject-section]]
+[cols="1a"]
+|===
+|*ADEOfSolitaryVegetationObject*
+[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! ADEOfSolitaryVegetationObject acts as a hook to define properties within an ADE that are to be added to a SolitaryVegetationObject. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! None 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «DataType»
+!===
+|===   
+
+==== Basic Types
+
+none
+
+==== Unions
+
+none
+
+==== Code Lists
+
+[[PlantCoverClassValue-section]]
+[cols="1a"]
+|===
+|*PlantCoverClassValue* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! PlantCoverClassValue is a code list used to further classify a PlantCover. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «CodeList»
+!===
+|=== 
+
+[[PlantCoverFunctionValue-section]]
+[cols="1a"]
+|===
+|*PlantCoverFunctionValue* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! PlantCoverFunctionValue is a code list that enumerates the different purposes of a PlantCover. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «CodeList»
+!===
+|=== 
+
+[[PlantCoverUsageValue-section]]
+[cols="1a"]
+|===
+|*PlantCoverUsageValue* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! PlantCoverUsageValue is a code list that enumerates the different uses of a PlantCover. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «CodeList»
+!===
+|=== 
+
+[[SolitaryVegetationObjectClassValue-section]]
+[cols="1a"]
+|===
+|*SolitaryVegetationObjectClassValue* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! SolitaryVegetationObjectClassValue is a code list used to further classify a SolitaryVegetationObject. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «CodeList»
+!===
+|=== 
+
+[[SolitaryVegetationObjectFunctionValue-section]]
+[cols="1a"]
+|===
+|*SolitaryVegetationObjectFunctionValue* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! SolitaryVegetationObjectFunctionValue is a code list that enumerates the different purposes of a SolitaryVegetationObject. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «CodeList»
+!===
+|=== 
+
+[[SolitaryVegetationObjectUsageValue-section]]
+[cols="1a"]
+|===
+|*SolitaryVegetationObjectUsageValue* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! SolitaryVegetationObjectUsageValue is a code list that enumerates the different uses of a SolitaryVegetationObject. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «CodeList»
+!===
+|=== 
+
+[[SpeciesValue-section]]
+[cols="1a"]
+|===
+|*SpeciesValue* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! A SpeciesValue is a code list that enumerates the species of a SolitaryVegetationObject. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «CodeList»
+!===
+|===
+
+==== Enumerations
+
+none

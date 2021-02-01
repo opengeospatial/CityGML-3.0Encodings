@@ -1,0 +1,75 @@
+[big]*i.     Abstract*
+
+The CityGML 3.0 GML Encoding Standard presents the implementation-dependent, GML encoding of the concepts defined by the CityGML 3.0 Conceptual Model(CM) standard. Those concepts include the most relevant topographic objects in cities and regional models with respect to their geometrical, topological, semantical, and appearance properties. “City” is broadly defined to comprise not just built structures, but also elevation, vegetation, water bodies, city furniture, and more. Included are generalization hierarchies between thematic classes, aggregations, relations between objects, and spatial properties.
+
+CityGML is an implementation of the CityGML 3.0 Conceptual Model Standard. <<conceptual-model-mapping>> maps requirements classes from the CityGML conceptual model into the implementation details documented in this standard.
+
+[#conceptual-model-mapping,reftext='{table-caption} {counter:table-num}']
+.Conceptual Model Mapping
+[width="100%",cols="5,10,10",options="header"]
+|===
+|Conceptual Model  |Section |GML Schema 
+|ADE |<<base-section>> | http://schemas.opengis.net/citygml/3.0/cityGMLBase.xsd[cityGMLBase.xsd] 
+|Appearance |<<appearance-section>> |http://schemas.opengis.net/citygml/3.0/appearance.xsd[appearance.xsd] 
+|Bridge |<<bridge-section>> |http://schemas.opengis.net/citygml/3.0/bridge.xsd[bridge.xsd] 
+|Building |<<building-section>> |http://schemas.opengis.net/citygml/3.0/building.xsd[building.xsd] 
+|City Furniture |<<city-furniture-section>> |http://schemas.opengis.net/citygml/3.0/cityFurniture.xsd[cityFurniture.xsd]
+|City Object Group |<<city-object-group-section>>  |http://schemas.opengis.net/citygml/3.0/cityObjectGroup.xsd[cityObjectGroup.xsd]
+|Construction |<<construction-section>>|http://schemas.opengis.net/citygml/3.0/construction.xsd[construction.xsd]  
+|Core |<<base-section>>  |http://schemas.opengis.net/citygml/3.0/cityGMLBase.xsd[cityGMLBase.xsd]  
+|Dynamizer |<<dynamizer-section>>  |http://schemas.opengis.net/citygml/3.0/dynamizer.xsd[dynamizer.xsd]  
+|Generics |<<generics-section>>  |http://schemas.opengis.net/citygml/3.0/generics.xsd[generics.xsd]  
+|Land Use |<<land-use-section>> |http://schemas.opengis.net/citygml/3.0/landUse.xsd[landUse.xsd]
+|Point Cloud |<<point-cloud-section>> |http://schemas.opengis.net/citygml/3.0/pointCloud.xsd[pointCloud.xsd]
+|Relief |<<relief-section>> |http://schemas.opengis.net/citygml/3.0/relief.xsd[relief.xsd]
+|Transportation |<<transportation-section>> |http://schemas.opengis.net/citygml/3.0/transportation.xsd[transportation.xsd] 
+|Tunnel |<<tunnel-section>> |http://schemas.opengis.net/citygml/3.0/tunnel.xsd[tunnel.xsd]
+|Vegetation |<<vegetation-section>> |http://schemas.opengis.net/citygml/3.0/vegetation.xsd[vegetation.xsd]
+|Versioning |<<versioning-section>> |http://schemas.opengis.net/citygml/3.0/versioning.xsd[versioning.xsd]  
+|Water Body |<<water-body-section>> |http://schemas.opengis.net/citygml/3.0/waterBody.xsd[waterBody.xsd] 
+|===
+
+[big]*ii.    Keywords*
+
+The following are keywords to be used by search engines and document catalogues.
+
+ogcdoc, OGC document, CityGML, 3D city models, GML, XML
+
+[big]*iii.   Preface*
+
+In order to achieve consensus on the basic entities, attributes, and relations of a 3D city model, a UML Conceptual Model, CityGML 3.0, was approved as an OGC standard in March, 2021. This model provides a unifying conceptual basis for city model encoding standards. This cityGML 3.0 XML Encoding Standard defines how those concepts should be realized using XML and GML technologies. 
+
+As an OGC standard, CityGML follows the OGC modular specification standard, OGC 08-131r3. Because of the breadth of CityGML, its conceptual model was divided into separate Requirements Classes, one for each subject area. This CityGML encoding similarly is divided into Requirements Classes which are then grouped into Parts. A Part may address multiple CityGML Requirements Classes but each Requirements Class is addressed in a single part. Because Requirements Classes may depend on other Requirements Classes the reader of this CityGML Part may need to conform to Requirements Classes in other Parts as well.
+
+Note that this CityGML encoding standard is a standardization target of the CityGML 3.0 Conceptual Model Standard. Therefore this standard conforms to the Conformance Classes in that standard. Evidence of that conformance is provided in <<annex-cm-conformance>>. On the other hand, an application claiming conformance to this CityGML encoding standard must conform to
+the Requirements Classes contained in this standard.
+
+
+Attention is drawn to the possibility that some of the elements of this document may be the subject of patent rights. The Open Geospatial Consortium shall not be held responsible for identifying any or all such patent rights.
+
+Recipients of this document are requested to submit, with their comments, notification of any relevant patent claims or other intellectual property rights of which they may be aware that might be infringed by any implementation of the standard set forth in this document, and to provide supporting documentation.
+
+[big]*iv.    Submitting organizations*
+
+The following organizations submitted this Document to the Open Geospatial Consortium (OGC):
+
+[#submitting_organizations,reftext='{table-caption} {counter:table-num}']
+.Submitting Organizations
+[width="100%",cols="5,10",options="header"]
+|===
+|Organization |Points of Contact
+|Heazeltech LLC |Charles Heazel
+|===
+
+[big]*v.     Submitters*
+
+All questions regarding this submission should be directed to the editor or the submitters:
+
+[#submission_contact_points,reftext='{table-caption} {counter:table-num}']
+.Submission Contact Points
+[width="100%",cols="5,10",options="header"]
+|===
+|Name |Institution
+|Charles Heazel |Heazeltech LLC
+|===
+

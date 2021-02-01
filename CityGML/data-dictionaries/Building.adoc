@@ -1,0 +1,678 @@
+[[Building-package-dd]]
+=== Building
+
+[cols="1,4",frame=none,grid=none]
+|===
+|{nbsp}{nbsp}{nbsp}{nbsp}Description: | The Building module supports representation of thematic and spatial aspects of buildings, building parts, building installations, building subdivisions, and interior building structures. 
+|{nbsp}{nbsp}{nbsp}{nbsp}Parent Package: | CityGML
+|{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: | «ApplicationSchema»
+|===
+
+==== Classes
+
+[[AbstractBuilding-section]]
+[cols="1a"]
+|===
+|*AbstractBuilding* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! AbstractBuilding is an abstract superclass representing the common attributes and associations of the classes Building and BuildingPart. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! <<AbstractConstruction-section,AbstractConstruction>> 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «FeatureType»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Role name* !*Target class and multiplicity*  !*Definition*
+!{set:cellbgcolor:#FFFFFF} buildingFurniture  !<<BuildingFurniture-section,BuildingFurniture>> [*] !Relates the furniture objects to the Building or BuildingPart.
+!{set:cellbgcolor:#FFFFFF} buildingRoom  !<<BuildingRoom-section,BuildingRoom>> [*] !Relates the rooms to the Building or BuildingPart.
+!{set:cellbgcolor:#FFFFFF} buildingInstallation  !<<BuildingInstallation-section,BuildingInstallation>> [*] !Relates the installation objects to the Building or BuildingPart.
+!{set:cellbgcolor:#FFFFFF} buildingSubdivision  !<<AbstractBuildingSubdivision-section,AbstractBuildingSubdivision>> [*] !Relates the logical subdivisions to the Building or BuildingPart.
+!{set:cellbgcolor:#FFFFFF} buildingConstructiveElement  !<<BuildingConstructiveElement-section,BuildingConstructiveElement>> [*] !Relates the constructive elements to the Building or BuildingPart.
+!{set:cellbgcolor:#FFFFFF} address  !<<Address-section,Address>> [*] !Relates the addresses to the Building or BuildingPart.
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} class  !<<BuildingClassValue-section,BuildingClassValue>>  [0..1] !Indicates the specific type of the Building or BuildingPart.
+ 
+!{set:cellbgcolor:#FFFFFF} function  !<<BuildingFunctionValue-section,BuildingFunctionValue>>  [0..*] !Specifies the intended purposes of the Building or BuildingPart.
+ 
+!{set:cellbgcolor:#FFFFFF} usage  !<<BuildingUsageValue-section,BuildingUsageValue>>  [0..*] !Specifies the actual uses of the Building or BuildingPart.
+ 
+!{set:cellbgcolor:#FFFFFF} roofType  !<<RoofTypeValue-section,RoofTypeValue>>  [0..1] !Indicates the shape of the roof of the Building or BuildingPart.
+ 
+!{set:cellbgcolor:#FFFFFF} storeysAboveGround  !<<Integer-section,Integer>>  [0..1] !Indicates the number of storeys positioned above ground level.
+ 
+!{set:cellbgcolor:#FFFFFF} storeysBelowGround  !<<Integer-section,Integer>>  [0..1] !Indicates the number of storeys positioned below ground level.
+ 
+!{set:cellbgcolor:#FFFFFF} storeyHeightsAboveGround  !<<MeasureOrNilReasonList-section,MeasureOrNilReasonList>>  [0..1] !Lists the heights of each storey above ground. The first value in the list denotes the height of the storey closest to the ground level, the last value denotes the height furthest away.
+ 
+!{set:cellbgcolor:#FFFFFF} storeyHeightsBelowGround  !<<MeasureOrNilReasonList-section,MeasureOrNilReasonList>>  [0..1] !Lists the height of each storey below ground. The first value in the list denotes the height of the storey closest to the ground level, the last value denotes the height furthest away.
+ 
+!{set:cellbgcolor:#FFFFFF} adeOfAbstractBuilding  !<<ADEOfAbstractBuilding-section,ADEOfAbstractBuilding>>  [0..*] !Augments AbstractBuilding with properties defined in an ADE.
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attributes and role names have the stereotype «Property».
+|=== 
+
+[[AbstractBuildingSubdivision-section]]
+[cols="1a"]
+|===
+|*AbstractBuildingSubdivision* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! AbstractBuildingSubdivision is the abstract superclass for different kinds of logical building subdivisions. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! <<AbstractLogicalSpace-section,AbstractLogicalSpace>> 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «FeatureType»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Role name* !*Target class and multiplicity*  !*Definition*
+!{set:cellbgcolor:#FFFFFF} buildingRoom  !<<BuildingRoom-section,BuildingRoom>> [*] !Relates the rooms to the building subdivision.
+!{set:cellbgcolor:#FFFFFF} buildingFurniture  !<<BuildingFurniture-section,BuildingFurniture>> [*] !Relates the furniture objects to the building subdivision.
+!{set:cellbgcolor:#FFFFFF} buildingConstructiveElement  !<<BuildingConstructiveElement-section,BuildingConstructiveElement>> [*] !Relates the constructive elements to the building subdivision.
+!{set:cellbgcolor:#FFFFFF} buildingInstallation  !<<BuildingInstallation-section,BuildingInstallation>> [*] !Relates the installation objects to the building subdivision.
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} class  !<<BuildingSubdivisionClassValue-section,BuildingSubdivisionClassValue>>  [0..1] !Indicates the specific type of the building subdivision.
+ 
+!{set:cellbgcolor:#FFFFFF} function  !<<BuildingSubdivisionFunctionValue-section,BuildingSubdivisionFunctionValue>>  [0..*] !Specifies the intended purposes of the building subdivision.
+ 
+!{set:cellbgcolor:#FFFFFF} usage  !<<BuildingSubdivisionUsageValue-section,BuildingSubdivisionUsageValue>>  [0..*] !Specifies the actual uses of the building subdivision.
+ 
+!{set:cellbgcolor:#FFFFFF} elevation  !<<Elevation-section,Elevation>>  [0..*] !Specifies qualified elevations of the building subdivision in relation to a well-defined surface which is commonly taken as origin (e.g. geoid or water level). [cf. INSPIRE]
+ 
+!{set:cellbgcolor:#FFFFFF} sortKey  !<<Real-section,Real>>  [0..1] !Defines an order among the objects that belong to the building subdivision. An example is the sorting of storeys.
+ 
+!{set:cellbgcolor:#FFFFFF} adeOfAbstractBuildingSubdivision  !<<ADEOfAbstractBuildingSubdivision-section,ADEOfAbstractBuildingSubdivision>>  [0..*] !Augments AbstractBuildingSubdivision with properties defined in an ADE.
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attributes and role names have the stereotype «Property».
+|=== 
+
+[[Building-section]]
+[cols="1a"]
+|===
+|*Building* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! A Building is a free-standing, self-supporting construction that is roofed, usually walled, and can be entered by humans and is normally designed to stand permanently in one place. It is intended for human occupancy (e.g. a place of work or recreation), habitation and/or shelter of humans, animals or things. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! <<AbstractBuilding-section,AbstractBuilding>> 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «TopLevelFeatureType»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Role name* !*Target class and multiplicity*  !*Definition*
+!{set:cellbgcolor:#FFFFFF} buildingPart  !<<BuildingPart-section,BuildingPart>> [*] !Relates the building parts to the Building.
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} adeOfBuilding  !<<ADEOfBuilding-section,ADEOfBuilding>>  [0..*] !Augments the Building with properties defined in an ADE.
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attributes and role names have the stereotype «Property».
+|=== 
+
+[[BuildingConstructiveElement-section]]
+[cols="1a"]
+|===
+|*BuildingConstructiveElement* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! A BuildingConstructiveElement is an element of a Building which is essential from a structural point of view. Examples are walls, slabs, staircases, beams. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! <<AbstractConstructiveElement-section,AbstractConstructiveElement>> 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «FeatureType»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} class  !<<BuildingConstructiveElementClassValue-section,BuildingConstructiveElementClassValue>>  [0..1] !Indicates the specific type of the BuildingConstructiveElement.
+ 
+!{set:cellbgcolor:#FFFFFF} function  !<<BuildingConstructiveElementFunctionValue-section,BuildingConstructiveElementFunctionValue>>  [0..*] !Specifies the intended purposes of the BuildingConstructiveElement.
+ 
+!{set:cellbgcolor:#FFFFFF} usage  !<<BuildingConstructiveElementUsageValue-section,BuildingConstructiveElementUsageValue>>  [0..*] !Specifies the actual uses of the BuildingConstructiveElement.
+ 
+!{set:cellbgcolor:#FFFFFF} adeOfBuildingConstructiveElement  !<<ADEOfBuildingConstructiveElement-section,ADEOfBuildingConstructiveElement>>  [0..*] !Augments the BuildingConstructiveElement with properties defined in an ADE.
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attributes and role names have the stereotype «Property».
+|=== 
+
+[[BuildingFurniture-section]]
+[cols="1a"]
+|===
+|*BuildingFurniture* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! A BuildingFurniture is an equipment for occupant use, usually not fixed to the building. [cf. ISO 6707-1] 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! <<AbstractFurniture-section,AbstractFurniture>> 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «FeatureType»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} class  !<<BuildingFurnitureClassValue-section,BuildingFurnitureClassValue>>  [0..1] !Indicates the specific type of the BuildingFurniture.
+ 
+!{set:cellbgcolor:#FFFFFF} function  !<<BuildingFurnitureFunctionValue-section,BuildingFurnitureFunctionValue>>  [0..*] !Specifies the intended purposes of the BuildingFurniture.
+ 
+!{set:cellbgcolor:#FFFFFF} usage  !<<BuildingFurnitureUsageValue-section,BuildingFurnitureUsageValue>>  [0..*] !Specifies the actual uses of the BuildingFurniture.
+ 
+!{set:cellbgcolor:#FFFFFF} adeOfBuildingFurniture  !<<ADEOfBuildingFurniture-section,ADEOfBuildingFurniture>>  [0..*] !Augments the BuildingFurniture with properties defined in an ADE.
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attributes and role names have the stereotype «Property».
+|=== 
+
+[[BuildingInstallation-section]]
+[cols="1a"]
+|===
+|*BuildingInstallation* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! A BuildingInstallation is a permanent part of a Building (inside and/or outside) which has not the significance of a BuildingPart. Examples are stairs, antennas, balconies or small roofs. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! <<AbstractInstallation-section,AbstractInstallation>> 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «FeatureType»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} class  !<<BuildingInstallationClassValue-section,BuildingInstallationClassValue>>  [0..1] !Indicates the specific type of the BuildingInstallation.
+ 
+!{set:cellbgcolor:#FFFFFF} function  !<<BuildingInstallationFunctionValue-section,BuildingInstallationFunctionValue>>  [0..*] !Specifies the intended purposes of the BuildingInstallation.
+ 
+!{set:cellbgcolor:#FFFFFF} usage  !<<BuildingInstallationUsageValue-section,BuildingInstallationUsageValue>>  [0..*] !Specifies the actual uses of the BuildingInstallation.
+ 
+!{set:cellbgcolor:#FFFFFF} adeOfBuildingInstallation  !<<ADEOfBuildingInstallation-section,ADEOfBuildingInstallation>>  [0..*] !Augments the BuildingInstallation with properties defined in an ADE.
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attributes and role names have the stereotype «Property».
+|=== 
+
+[[BuildingPart-section]]
+[cols="1a"]
+|===
+|*BuildingPart* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! A BuildingPart is a physical or functional subdivision of a Building. It would be considered a Building, if it were not part of a collection of other BuildingParts. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! <<AbstractBuilding-section,AbstractBuilding>> 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «FeatureType»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} adeOfBuildingPart  !<<ADEOfBuildingPart-section,ADEOfBuildingPart>>  [0..*] !Augments the BuildingPart with properties defined in an ADE.
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attributes and role names have the stereotype «Property».
+|=== 
+
+[[BuildingRoom-section]]
+[cols="1a"]
+|===
+|*BuildingRoom* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! A BuildingRoom is a space within a Building or BuildingPart intended for human occupancy (e.g. a place of work or recreation) and/or containment of animals or things. A BuildingRoom is bounded physically and/or virtually (e.g. by ClosureSurfaces or GenericSurfaces). 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! <<AbstractUnoccupiedSpace-section,AbstractUnoccupiedSpace>> 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «FeatureType»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Role name* !*Target class and multiplicity*  !*Definition*
+!{set:cellbgcolor:#FFFFFF} buildingInstallation  !<<BuildingInstallation-section,BuildingInstallation>> [*] !Relates the installation objects to the BuildingRoom.
+!{set:cellbgcolor:#FFFFFF} buildingFurniture  !<<BuildingFurniture-section,BuildingFurniture>> [*] !Relates the furniture objects to the BuildingRoom.
+!{set:cellbgcolor:#FFFFFF} boundary  !<<AbstractThematicSurface-section,AbstractThematicSurface>> [*] !Relates to the surfaces that bound the BuildingRoom. This relation is inherited from the Core module.
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} class  !<<BuildingRoomClassValue-section,BuildingRoomClassValue>>  [0..1] !Indicates the specific type of the BuildingRoom.
+ 
+!{set:cellbgcolor:#FFFFFF} function  !<<BuildingRoomFunctionValue-section,BuildingRoomFunctionValue>>  [0..*] !Specifies the intended purposes of the BuildingRoom.
+ 
+!{set:cellbgcolor:#FFFFFF} usage  !<<BuildingRoomUsageValue-section,BuildingRoomUsageValue>>  [0..*] !Specifies the actual uses of the BuildingRoom.
+ 
+!{set:cellbgcolor:#FFFFFF} roomHeight  !<<RoomHeight-section,RoomHeight>>  [0..*] !Specifies qualified heights of the BuildingRoom.
+ 
+!{set:cellbgcolor:#FFFFFF} adeOfBuildingRoom  !<<ADEOfBuildingRoom-section,ADEOfBuildingRoom>>  [0..*] !Augments the BuildingRoom with properties defined in an ADE.
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attributes and role names have the stereotype «Property».
+|=== 
+
+[[BuildingUnit-section]]
+[cols="1a"]
+|===
+|*BuildingUnit* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! A BuildingUnit is a logical subdivision of a Building. BuildingUnits are formed according to some homogeneous property like function, ownership, management, or accessability. They may be separately sold, rented out, inherited, managed, etc. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! <<AbstractBuildingSubdivision-section,AbstractBuildingSubdivision>> 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «FeatureType»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Role name* !*Target class and multiplicity*  !*Definition*
+!{set:cellbgcolor:#FFFFFF} storey  !<<Storey-section,Storey>> [*] !Relates to the storeys on which the BuildingUnit is located.
+!{set:cellbgcolor:#FFFFFF} address  !<<Address-section,Address>> [*] !Relates to the addresses that are assigned to the BuildingUnit.
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} adeOfBuildingUnit  !<<ADEOfBuildingUnit-section,ADEOfBuildingUnit>>  [0..*] !Augments the BuildingUnit with properties defined in an ADE.
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attributes and role names have the stereotype «Property».
+|=== 
+
+[[Storey-section]]
+[cols="1a"]
+|===
+|*Storey* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! A Storey is typically a horizontal section of a Building. Storeys are not always defined according to the building structure, but can also be defined according to logical considerations. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! <<AbstractBuildingSubdivision-section,AbstractBuildingSubdivision>> 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «FeatureType»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Role name* !*Target class and multiplicity*  !*Definition*
+!{set:cellbgcolor:#FFFFFF} boundary  !<<AbstractThematicSurface-section,AbstractThematicSurface>> [*] !Relates to the surfaces that bound the Storey. This relation is inherited from the Core module.
+!{set:cellbgcolor:#FFFFFF} buildingUnit  !<<BuildingUnit-section,BuildingUnit>> [*] !Relates to the building units that belong to the Storey.
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} adeOfStorey  !<<ADEOfStorey-section,ADEOfStorey>>  [0..*] !Augments the Storey with properties defined in an ADE.
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attributes and role names have the stereotype «Property».
+|===
+
+==== Data Types
+
+[[ADEOfAbstractBuilding-section]]
+[cols="1a"]
+|===
+|*ADEOfAbstractBuilding*
+[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! ADEOfAbstractBuilding acts as a hook to define properties within an ADE that are to be added to AbstractBuilding. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! None 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «DataType»
+!===
+|=== 
+
+[[ADEOfAbstractBuildingSubdivision-section]]
+[cols="1a"]
+|===
+|*ADEOfAbstractBuildingSubdivision*
+[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! ADEOfAbstractBuildingSubdivision acts as a hook to define properties within an ADE that are to be added to AbstractBuildingSubdivision. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! None 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «DataType»
+!===
+|=== 
+
+[[ADEOfBuilding-section]]
+[cols="1a"]
+|===
+|*ADEOfBuilding*
+[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! ADEOfBuilding acts as a hook to define properties within an ADE that are to be added to a Building. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! None 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «DataType»
+!===
+|=== 
+
+[[ADEOfBuildingConstructiveElement-section]]
+[cols="1a"]
+|===
+|*ADEOfBuildingConstructiveElement*
+[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! ADEOfBuildingConstructiveElement acts as a hook to define properties within an ADE that are to be added to a BuildingConstructiveElement. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! None 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «DataType»
+!===
+|=== 
+
+[[ADEOfBuildingFurniture-section]]
+[cols="1a"]
+|===
+|*ADEOfBuildingFurniture*
+[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! ADEOfBuildingFurniture acts as a hook to define properties within an ADE that are to be added to a BuildingFurniture. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! None 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «DataType»
+!===
+|=== 
+
+[[ADEOfBuildingInstallation-section]]
+[cols="1a"]
+|===
+|*ADEOfBuildingInstallation*
+[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! ADEOfBuildingInstallation acts as a hook to define properties within an ADE that are to be added to a BuildingInstallation. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! None 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «DataType»
+!===
+|=== 
+
+[[ADEOfBuildingPart-section]]
+[cols="1a"]
+|===
+|*ADEOfBuildingPart*
+[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! ADEOfBuildingPart acts as a hook to define properties within an ADE that are to be added to a BuildingPart. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! None 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «DataType»
+!===
+|=== 
+
+[[ADEOfBuildingRoom-section]]
+[cols="1a"]
+|===
+|*ADEOfBuildingRoom*
+[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! ADEOfBuildingRoom acts as a hook to define properties within an ADE that are to be added to a BuildingRoom. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! None 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «DataType»
+!===
+|=== 
+
+[[ADEOfBuildingUnit-section]]
+[cols="1a"]
+|===
+|*ADEOfBuildingUnit*
+[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! ADEOfBuildingUnit acts as a hook to define properties within an ADE that are to be added to a BuildingUnit.
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! None 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «DataType»
+!===
+|=== 
+
+[[ADEOfStorey-section]]
+[cols="1a"]
+|===
+|*ADEOfStorey*
+[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! ADEOfStorey acts as a hook to define properties within an ADE that are to be added to a Storey. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! None 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «DataType»
+!===
+|=== 
+
+[[RoomHeight-section]]
+[cols="1a"]
+|===
+|*RoomHeight*
+[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! The RoomHeight represents a vertical distance (measured or estimated) between a low reference and a high reference. [cf. INSPIRE] 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! None 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «DataType»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} highReference  !<<RoomElevationReferenceValue-section,RoomElevationReferenceValue>> [1..1] !Indicates the high point used to calculate the value of the room height.
+ 
+!{set:cellbgcolor:#FFFFFF} lowReference  !<<RoomElevationReferenceValue-section,RoomElevationReferenceValue>> [1..1] !Indicates the low point used to calculate the value of the room height.
+ 
+!{set:cellbgcolor:#FFFFFF} status  !<<HeightStatusValue-section,HeightStatusValue>> [1..1] !Indicates the way the room height has been captured.
+ 
+!{set:cellbgcolor:#FFFFFF} value  !<<Length-section,Length>> [1..1] !Specifies the value of the room height.
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attributes and role names have the stereotype «Property».
+|===   
+
+==== Basic Types
+
+none
+
+==== Unions
+
+none
+
+==== Code Lists
+
+[[BuildingClassValue-section]]
+[cols="1a"]
+|===
+|*BuildingClassValue* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! BuildingClassValue is a code list used to further classify a Building. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «CodeList»
+!===
+|=== 
+
+[[BuildingConstructiveElementClassValue-section]]
+[cols="1a"]
+|===
+|*BuildingConstructiveElementClassValue* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! BuildingConstructiveElementClassValue is a code list used to further classify a BuildingConstructiveElement. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «CodeList»
+!===
+|=== 
+
+[[BuildingConstructiveElementFunctionValue-section]]
+[cols="1a"]
+|===
+|*BuildingConstructiveElementFunctionValue* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! BuildingConstructiveElementFunctionValue is a code list that enumerates the different purposes of a BuildingConstructiveElement. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «CodeList»
+!===
+|=== 
+
+[[BuildingConstructiveElementUsageValue-section]]
+[cols="1a"]
+|===
+|*BuildingConstructiveElementUsageValue* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! BuildingConstructiveElementUsageValue is a code list that enumerates the different uses of a BuildingConstructiveElement. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «CodeList»
+!===
+|=== 
+
+[[BuildingFunctionValue-section]]
+[cols="1a"]
+|===
+|*BuildingFunctionValue* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! BuildingFunctionValue is a code list that enumerates the different purposes of a Building. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «CodeList»
+!===
+|=== 
+
+[[BuildingFurnitureClassValue-section]]
+[cols="1a"]
+|===
+|*BuildingFurnitureClassValue* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! BuildingFurnitureClassValue is a code list used to further classify a BuildingFurniture. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «CodeList»
+!===
+|=== 
+
+[[BuildingFurnitureFunctionValue-section]]
+[cols="1a"]
+|===
+|*BuildingFurnitureFunctionValue* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! BuildingFurnitureFunctionValue is a code list that enumerates the different purposes of a BuildingFurniture. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «CodeList»
+!===
+|=== 
+
+[[BuildingFurnitureUsageValue-section]]
+[cols="1a"]
+|===
+|*BuildingFurnitureUsageValue* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! BuildingFurnitureUsageValue is a code list that enumerates the different uses of a BuildingFurniture. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «CodeList»
+!===
+|=== 
+
+[[BuildingInstallationClassValue-section]]
+[cols="1a"]
+|===
+|*BuildingInstallationClassValue* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! BuildingInstallationClassValue is a code list used to further classify a BuildingInstallation. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «CodeList»
+!===
+|=== 
+
+[[BuildingInstallationFunctionValue-section]]
+[cols="1a"]
+|===
+|*BuildingInstallationFunctionValue* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! BuildingInstallationFunctionValue is a code list that enumerates the different purposes of a BuildingInstallation. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «CodeList»
+!===
+|=== 
+
+[[BuildingInstallationUsageValue-section]]
+[cols="1a"]
+|===
+|*BuildingInstallationUsageValue* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! BuildingInstallationUsageValue is a code list that enumerates the different uses of a BuildingInstallation. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «CodeList»
+!===
+|=== 
+
+[[BuildingRoomClassValue-section]]
+[cols="1a"]
+|===
+|*BuildingRoomClassValue* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! BuildingRoomClassValue is a code list used to further classify a BuildingRoom. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «CodeList»
+!===
+|=== 
+
+[[BuildingRoomFunctionValue-section]]
+[cols="1a"]
+|===
+|*BuildingRoomFunctionValue* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! BuildingRoomFunctionValue is a code list that enumerates the different purposes of a BuildingRoom. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «CodeList»
+!===
+|=== 
+
+[[BuildingRoomUsageValue-section]]
+[cols="1a"]
+|===
+|*BuildingRoomUsageValue* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! BuildingRoomUsageValue is a code list that enumerates the different uses of a BuildingRoom. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «CodeList»
+!===
+|=== 
+
+[[BuildingSubdivisionClassValue-section]]
+[cols="1a"]
+|===
+|*BuildingSubdivisionClassValue* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! BuildingSubdivisionClassValue is a code list used to further classify a BuildingSubdivision. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «CodeList»
+!===
+|=== 
+
+[[BuildingSubdivisionFunctionValue-section]]
+[cols="1a"]
+|===
+|*BuildingSubdivisionFunctionValue* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! BuildingSubdivisionFunctionValue is a code list that enumerates the different purposes of a BuildingSubdivision. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «CodeList»
+!===
+|=== 
+
+[[BuildingSubdivisionUsageValue-section]]
+[cols="1a"]
+|===
+|*BuildingSubdivisionUsageValue* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! BuildingSubdivisionUsageValue is a code list that enumerates the different uses of a BuildingSubdivision. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «CodeList»
+!===
+|=== 
+
+[[BuildingUsageValue-section]]
+[cols="1a"]
+|===
+|*BuildingUsageValue* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! BuildingUsageValue is a code list that enumerates the different uses of a Building. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «CodeList»
+!===
+|=== 
+
+[[RoofTypeValue-section]]
+[cols="1a"]
+|===
+|*RoofTypeValue* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! RoofTypeValue is a code list that enumerates different roof types. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «CodeList»
+!===
+|=== 
+
+[[RoomElevationReferenceValue-section]]
+[cols="1a"]
+|===
+|*RoomElevationReferenceValue* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! RoomElevationReferenceValue is a code list that enumerates the different elevation reference levels used to measure room heights. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «CodeList»
+!===
+|===
+
+==== Enumerations
+
+none
+
+  

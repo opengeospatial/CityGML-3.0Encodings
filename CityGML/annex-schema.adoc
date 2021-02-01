@@ -1,0 +1,8 @@
+[appendix]
+:appendix-caption: Annex
+
+[[annex-schema]]
+== Schema ( Normative )
+
+[NOTE]
+This is where any XML or JSON schema reside. Conformance is defined, in part, by conformance to these schema.

@@ -1,0 +1,8 @@
+[appendix]
+:appendix-caption: Annex
+
+[[annex-examples]]
+== Examples ( Informative )
+
+[NOTE]
+This is where any examples will live. For ease of maintenance, each example should be created in its' own asccidoc file and then imported using an "include" statement.

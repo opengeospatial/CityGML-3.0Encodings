@@ -1,0 +1,517 @@
+[[Dynamizer-package-dd]]
+=== Dynamizer
+
+[cols="1,4",frame=none,grid=none]
+|===
+|{nbsp}{nbsp}{nbsp}{nbsp}Description: | The Dynamizer module supports the injection of timeseries data for individual attributes of CityGML features. Timeseries data can either be retrieved from external Sensor APIs (e.g. OGC SensorThings API, OGC Sensor Observation Services, MQTT, proprietary platforms), external standardized timeseries files (e.g. OGC TimeseriesML or OGC Observations & Measurements), external tabulated files (e.g CSV) or can be represented inline as basic time-value pairs. 
+|{nbsp}{nbsp}{nbsp}{nbsp}Parent Package: | CityGML
+|{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: | «ApplicationSchema»
+|===
+
+==== Classes
+
+[[AbstractAtomicTimeseries-section]]
+[cols="1a"]
+|===
+|*AbstractAtomicTimeseries* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! AbstractAtomicTimeseries represents the attributes and relationships that are common to all kinds of atomic timeseries (GenericTimeseries, TabulatedFileTimeseries, StandardFileTimeseries). An atomic timeseries represents time-varying data of a specific data type for a single contiguous time interval. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! <<AbstractTimeseries-section,AbstractTimeseries>> 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «FeatureType»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} observationProperty  !<<CharacterString-section,CharacterString>> [1..1] !Specifies the phenomenon for which the atomic timeseries provides observation values.
+ 
+!{set:cellbgcolor:#FFFFFF} uom  !<<CharacterString-section,CharacterString>>  [0..1] !Specifies the unit of measurement of the observation values.
+ 
+!{set:cellbgcolor:#FFFFFF} adeOfAbstractAtomicTimeseries  !<<ADEOfAbstractAtomicTimeseries-section,ADEOfAbstractAtomicTimeseries>>  [0..*] !Augments AbstractAtomicTimeseries with properties defined in an ADE.
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attributes and role names have the stereotype «Property».
+|=== 
+
+[[AbstractTimeseries-section]]
+[cols="1a"]
+|===
+|*AbstractTimeseries* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! AbstractTimeseries is the abstract superclass representing any type of timeseries data. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! <<AbstractFeature-section,AbstractFeature>> 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «FeatureType»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} firstTimestamp  !<<TM_Position-section,TM_Position>>  [0..1] !Specifies the beginning of the timeseries.
+ 
+!{set:cellbgcolor:#FFFFFF} lastTimestamp  !<<TM_Position-section,TM_Position>>  [0..1] !Specifies the end of the timeseries.
+ 
+!{set:cellbgcolor:#FFFFFF} adeOfAbstractTimeseries  !<<ADEOfAbstractTimeseries-section,ADEOfAbstractTimeseries>>  [0..*] !Augments AbstractTimeseries with properties defined in an ADE.
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attributes and role names have the stereotype «Property».
+|=== 
+
+[[CompositeTimeseries-section]]
+[cols="1a"]
+|===
+|*CompositeTimeseries* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! A CompositeTimeseries is a (possibly recursive) aggregation of atomic and composite timeseries. The components of a composite timeseries must have non-overlapping time intervals. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! <<AbstractTimeseries-section,AbstractTimeseries>> 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «FeatureType»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Role name* !*Target class and multiplicity*  !*Definition*
+!{set:cellbgcolor:#FFFFFF} component  !<<TimeseriesComponent-section,TimeseriesComponent>> [1..*] !Relates to the atomic and composite timeseries that are part of the CompositeTimeseries. The referenced timeseries are sequentially ordered.
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} adeOfCompositeTimeseries  !<<ADEOfCompositeTimeseries-section,ADEOfCompositeTimeseries>>  [0..*] !Augments the CompositeTimeseries with properties defined in an ADE.
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attributes and role names have the stereotype «Property».
+|=== 
+
+[[Dynamizer-section]]
+[cols="1a"]
+|===
+|*Dynamizer* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! A Dynamizer is an object that injects timeseries data for an individual attribute of the city object in which it is included. The timeseries data overrides the static value of the referenced city object attribute in order to represent dynamic (time-dependent) variations of its value. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! <<AbstractDynamizer-section,AbstractDynamizer>> 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «FeatureType»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Role name* !*Target class and multiplicity*  !*Definition*
+!{set:cellbgcolor:#FFFFFF} dynamicData  !<<AbstractTimeseries-section,AbstractTimeseries>> [0..1] !Relates to the timeseries data that is given either inline within a CityGML dataset or by a link to an external file containing timeseries data.
+!{set:cellbgcolor:#FFFFFF} sensorConnection  !<<SensorConnection-section,SensorConnection>> [0..1] !Relates to the sensor API that delivers timeseries data.
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} attributeRef  !<<CharacterString-section,CharacterString>> [1..1] !Specifies the attribute of a CityGML feature whose value is overridden or replaced by the (dynamic) values specified by the Dynamizer.
+ 
+!{set:cellbgcolor:#FFFFFF} startTime  !<<TM_Position-section,TM_Position>>  [0..1] !Specifies the beginning of the time span for which the Dynamizer provides dynamic values.
+ 
+!{set:cellbgcolor:#FFFFFF} endTime  !<<TM_Position-section,TM_Position>>  [0..1] !Specifies the end of the time span for which the Dynamizer provides dynamic values.
+ 
+!{set:cellbgcolor:#FFFFFF} adeOfDynamizer  !<<ADEOfDynamizer-section,ADEOfDynamizer>>  [0..*] !Augments the Dynamizer with properties defined in an ADE.
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attributes and role names have the stereotype «Property».
+|=== 
+
+[[GenericTimeseries-section]]
+[cols="1a"]
+|===
+|*GenericTimeseries* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! A GenericTimeseries represents time-varying data in the form of embedded time-value-pairs of a specific data type for a single contiguous time interval. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! <<AbstractAtomicTimeseries-section,AbstractAtomicTimeseries>> 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «FeatureType»
+!{nbsp}{nbsp}{nbsp}{nbsp}Constraint: ! dataTypeOfValue (OCL): inv: +
+if valueType = TimeseriesTypeValue::integer then +
+{nbsp}{nbsp}{nbsp}{nbsp}TimeValuePair->forAll(c \| c.intValue->size()=1) +
+else if valueType = TimeseriesTypeValue::double then +
+{nbsp}{nbsp}{nbsp}{nbsp}TimeValuePair->forAll(c \| c.doubleValue->size()=1) +
+else if valueType = TimeseriesTypeValue::string then +
+{nbsp}{nbsp}{nbsp}{nbsp}TimeValuePair->forAll(c \| c.stringValue->size()=1) +
+else if valueType = TimeseriesTypeValue::geometry then +
+{nbsp}{nbsp}{nbsp}{nbsp}TimeValuePair->forAll(c \| c.geometryValue->size()=1) +
+else if valueType = TimeseriesTypeValue::uri then +
+{nbsp}{nbsp}{nbsp}{nbsp}TimeValuePair->forAll(c \| c.uriValue->size()=1) +
+else if valueType = TimeseriesTypeValue::bool then +
+{nbsp}{nbsp}{nbsp}{nbsp}TimeValuePair->forAll(c \| c.boolValue->size()=1) +
+else if valueType = TimeseriesTypeValue::implicitGeometry then +
+{nbsp}{nbsp}{nbsp}{nbsp}TimeValuePair->forAll(c \| c.implicitGeometryValue->size()=1) +
+else TimeValuePair->forAll(c \| c.appearanceValue->size()=1)
+  
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Role name* !*Target class and multiplicity*  !*Definition*
+!{set:cellbgcolor:#FFFFFF} timeValuePair  !<<TimeValuePair-section,TimeValuePair>> [1..*] !Relates to the time-value-pairs that are part of the GenericTimeseries.
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} valueType  !<<TimeseriesTypeValue-section,TimeseriesTypeValue>> [1..1] !Indicates the specific type of all time-value-pairs that are part of the GenericTimeseries.
+ 
+!{set:cellbgcolor:#FFFFFF} adeOfGenericTimeseries  !<<ADEOfGenericTimeseries-section,ADEOfGenericTimeseries>>  [0..*] !Augments the GenericTimeseries with properties defined in an ADE.
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attributes and role names have the stereotype «Property».
+|=== 
+
+[[StandardFileTimeseries-section]]
+[cols="1a"]
+|===
+|*StandardFileTimeseries* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! A StandardFileTimeseries represents time-varying data for a single contiguous time interval. The data is provided in an external file referenced in the StandardFileTimeseries. The data within the external file is encoded according to a dedicated format for the representation of timeseries data such as using the OGC TimeseriesML or OGC Observations & Measurements Standard. The data type of the data has to be specified within the external file. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! <<AbstractAtomicTimeseries-section,AbstractAtomicTimeseries>> 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «FeatureType»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} fileLocation  !<<URI-section,URI>> [1..1] !Specifies the URI that points to the external timeseries file.
+ 
+!{set:cellbgcolor:#FFFFFF} fileType  !<<StandardFileTypeValue-section,StandardFileTypeValue>> [1..1] !Specifies the format used to represent the timeseries data.
+ 
+!{set:cellbgcolor:#FFFFFF} mimeType  !<<MimeTypeValue-section,MimeTypeValue>>  [0..1] !Specifies the MIME type of the external timeseries file.
+ 
+!{set:cellbgcolor:#FFFFFF} adeOfStandardFileTimeseries  !<<ADEOfStandardFileTimeseries-section,ADEOfStandardFileTimeseries>>  [0..*] !Augments the StandardFileTimeseries with properties defined in an ADE.
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attributes and role names have the stereotype «Property».
+|=== 
+
+[[TabulatedFileTimeseries-section]]
+[cols="1a"]
+|===
+|*TabulatedFileTimeseries* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! A TabulatedFileTimeseries represents time-varying data of a specific data type for a single contiguous time interval. The data is provided in an external file referenced in the TabulatedFileTimeseries. The file contains table structured data using an appropriate file format such as comma-separated values (CSV), Microsoft Excel (XLSX) or Google Spreadsheet. The timestamps and the values are given in specific columns of the table. Each row represents a single time-value-pair. A subset of rows can be selected using the idColumn and idValue attributes. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! <<AbstractAtomicTimeseries-section,AbstractAtomicTimeseries>> 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «FeatureType»
+!{nbsp}{nbsp}{nbsp}{nbsp}Constraint: ! columnNumberOrColumnName (OCL): inv: +
+(timeColumnNo->notEmpty() or timeColumnName->notEmpty()) and +
+(valueColumnNo->notEmpty() or valueColumnName->notEmpty()) and +
+(idValue->notEmpty() implies idColumnNo->notEmpty() or + idColumnName->notEmpty())    
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} fileLocation  !<<URI-section,URI>> [1..1] !Specifies the URI that points to the external timeseries file.
+ 
+!{set:cellbgcolor:#FFFFFF} fileType  !<<TabulatedFileTypeValue-section,TabulatedFileTypeValue>> [1..1] !Specifies the format used to represent the timeseries data.
+ 
+!{set:cellbgcolor:#FFFFFF} mimeType  !<<MimeTypeValue-section,MimeTypeValue>>  [0..1] !Specifies the MIME type of the external timeseries file.
+ 
+!{set:cellbgcolor:#FFFFFF} valueType  !<<TimeseriesTypeValue-section,TimeseriesTypeValue>> [1..1] !Indicates the specific type of the timeseries data.
+ 
+!{set:cellbgcolor:#FFFFFF} numberOfHeaderLines  !<<Integer-section,Integer>>  [0..1] !Indicates the number of lines at the beginning of the tabulated file that represent headers.
+ 
+!{set:cellbgcolor:#FFFFFF} fieldSeparator  !<<CharacterString-section,CharacterString>> [1..1] !Indicates which symbol is used to separate the individual values in the tabulated file.
+ 
+!{set:cellbgcolor:#FFFFFF} decimalSymbol  !<<Character-section,Character>>  [0..1] !Indicates which symbol is used to separate the integer part from the fractional part of a decimal number.
+ 
+!{set:cellbgcolor:#FFFFFF} idColumnNo  !<<Integer-section,Integer>>  [0..1] !Specifies the number of the column that stores the identifier of the time-value-pair.
+ 
+!{set:cellbgcolor:#FFFFFF} idColumnName  !<<CharacterString-section,CharacterString>>  [0..1] !Specifies the name of the column that stores the identifier of the time-value-pair.
+ 
+!{set:cellbgcolor:#FFFFFF} idValue  !<<CharacterString-section,CharacterString>>  [0..1] !Specifies the value of the identifier for which the time-value-pairs are to be selected.
+ 
+!{set:cellbgcolor:#FFFFFF} timeColumnNo  !<<Integer-section,Integer>>  [0..1] !Specifies the number of the column that stores the timestamp of the time-value-pair.
+ 
+!{set:cellbgcolor:#FFFFFF} timeColumnName  !<<CharacterString-section,CharacterString>>  [0..1] !Specifies the name of the column that stores the timestamp of the time-value-pair.
+ 
+!{set:cellbgcolor:#FFFFFF} valueColumnNo  !<<Integer-section,Integer>>  [0..1] !Specifies the number of the column that stores the value of the time-value-pair.
+ 
+!{set:cellbgcolor:#FFFFFF} valueColumnName  !<<CharacterString-section,CharacterString>>  [0..1] !Specifies the name of the column that stores the value of the time-value-pair.
+ 
+!{set:cellbgcolor:#FFFFFF} adeOfTabulatedFileTimeseries  !<<ADEOfTabulatedFileTimeseries-section,ADEOfTabulatedFileTimeseries>>  [0..*] !Augments the TabulatedFileTimeseries with properties defined in an ADE.
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attributes and role names have the stereotype «Property».
+|===   
+
+==== Data Types
+
+[[ADEOfAbstractAtomicTimeseries-section]]
+[cols="1a"]
+|===
+|*ADEOfAbstractAtomicTimeseries*
+[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! ADEOfAbstractAtomicTimeseries acts as a hook to define properties within an ADE that are to be added to AbstractAtomicTimeseries. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! None 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «DataType»
+!===
+|=== 
+
+[[ADEOfAbstractTimeseries-section]]
+[cols="1a"]
+|===
+|*ADEOfAbstractTimeseries*
+[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! ADEOfAbstractTimeseries acts as a hook to define properties within an ADE that are to be added to AbstractTimeseries. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! None 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «DataType»
+!===
+|=== 
+
+[[ADEOfCompositeTimeseries-section]]
+[cols="1a"]
+|===
+|*ADEOfCompositeTimeseries*
+[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! ADEOfCompositeTimeseries acts as a hook to define properties within an ADE that are to be added to a CompositeTimeseries. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! None 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «DataType»
+!===
+|=== 
+
+[[ADEOfDynamizer-section]]
+[cols="1a"]
+|===
+|*ADEOfDynamizer*
+[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! ADEOfDynamizer acts as a hook to define properties within an ADE that are to be added to a Dynamizer. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! None 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «DataType»
+!===
+|=== 
+
+[[ADEOfGenericTimeseries-section]]
+[cols="1a"]
+|===
+|*ADEOfGenericTimeseries*
+[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! ADEOfGenericTimeseries acts as a hook to define properties within an ADE that are to be added to a GenericTimeseries. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! None 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «DataType»
+!===
+|=== 
+
+[[ADEOfStandardFileTimeseries-section]]
+[cols="1a"]
+|===
+|*ADEOfStandardFileTimeseries*
+[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! ADEOfStandardFileTimeseries acts as a hook to define properties within an ADE that are to be added to a StandardFileTimeseries. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! None 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «DataType»
+!===
+|=== 
+
+[[ADEOfTabulatedFileTimeseries-section]]
+[cols="1a"]
+|===
+|*ADEOfTabulatedFileTimeseries*
+[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! ADEOfTabulatedFileTimeseries acts as a hook to define properties within an ADE that are to be added to a TabulatedFileTimeseries. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! None 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «DataType»
+!===
+|=== 
+
+[[SensorConnection-section]]
+[cols="1a"]
+|===
+|*SensorConnection*
+[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! A SensorConnection provides all details that are required to retrieve a specific datastream from an external sensor web service. This data type comprises the service type (e.g. OGC SensorThings API, OGC Sensor Observation Services, MQTT, proprietary platforms), the URL of the sensor service, the identifier for the sensor or thing, and its observed property as well as information about the required authentication method. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! None 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «DataType»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Role name* !*Target class and multiplicity*  !*Definition*
+!{set:cellbgcolor:#FFFFFF} sensorLocation  !<<AbstractCityObject-section,AbstractCityObject>> [0..1] !Relates the sensor to the city object where it is located.
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} connectionType  !<<SensorConnectionTypeValue-section,SensorConnectionTypeValue>> [1..1] !Indicates the type of Sensor API to which the SensorConnection refers.
+ 
+!{set:cellbgcolor:#FFFFFF} observationProperty  !<<CharacterString-section,CharacterString>> [1..1] !Specifies the phenomenon for which the SensorConnection provides observations.
+ 
+!{set:cellbgcolor:#FFFFFF} uom  !<<CharacterString-section,CharacterString>>  [0..1] !Specifies the unit of measurement of the observations.
+ 
+!{set:cellbgcolor:#FFFFFF} sensorID  !<<CharacterString-section,CharacterString>>  [0..1] !Specifies the unique identifier of the sensor from which the SensorConnection retrieves observations.
+ 
+!{set:cellbgcolor:#FFFFFF} sensorName  !<<CharacterString-section,CharacterString>>  [0..1] !Specifies the name of the sensor from which the SensorConnection retrieves observations.
+ 
+!{set:cellbgcolor:#FFFFFF} observationID  !<<CharacterString-section,CharacterString>>  [0..1] !Specifies the unique identifier of the observation that is retrieved by the SensorConnection.
+ 
+!{set:cellbgcolor:#FFFFFF} datastreamID  !<<CharacterString-section,CharacterString>>  [0..1] !Specifies the datastream that is retrieved by the SensorConnection.
+ 
+!{set:cellbgcolor:#FFFFFF} baseURL  !<<URI-section,URI>>  [0..1] !Specifies the base URL of the Sensor API request.
+ 
+!{set:cellbgcolor:#FFFFFF} authType  !<<AuthenticationTypeValue-section,AuthenticationTypeValue>>  [0..1] !Specifies the type of authentication required to be able to access the Sensor API.
+ 
+!{set:cellbgcolor:#FFFFFF} mqttServer  !<<CharacterString-section,CharacterString>>  [0..1] !Specifies the name of the MQTT Server. This attribute is relevant when the MQTT Protocol is used to connect to a Sensor API.
+ 
+!{set:cellbgcolor:#FFFFFF} mqttTopic  !<<CharacterString-section,CharacterString>>  [0..1] !Names the specific datastream that is retrieved by the SensorConnection. This attribute is relevant when the MQTT Protocol is used to connect to a Sensor API.
+ 
+!{set:cellbgcolor:#FFFFFF} linkToObservation  !<<CharacterString-section,CharacterString>>  [0..1] !Specifies the complete URL to the observation request.
+ 
+!{set:cellbgcolor:#FFFFFF} linkToSensorDescription  !<<CharacterString-section,CharacterString>>  [0..1] !Specifies the complete URL to the sensor description request.
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attributes and role names have the stereotype «Property».
+|=== 
+
+[[TimeseriesComponent-section]]
+[cols="1a"]
+|===
+|*TimeseriesComponent*
+[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! TimeseriesComponent represents an element of a CompositeTimeseries. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! None 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «DataType»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Role name* !*Target class and multiplicity*  !*Definition*
+!{set:cellbgcolor:#FFFFFF} timeseries  !<<AbstractTimeseries-section,AbstractTimeseries>> [1..1] !Relates a timeseries to the TimeseriesComponent.
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} repetitions  !<<Integer-section,Integer>> [1..1] !Specifies how often the timeseries that is referenced by the TimeseriesComponent should be iterated.
+ 
+!{set:cellbgcolor:#FFFFFF} additionalGap  !<<TM_Duration-section,TM_Duration>>  [0..1] !Specifies how much extra time is added after all repetitions as an additional gap.
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attributes and role names have the stereotype «Property».
+|=== 
+
+[[TimeValuePair-section]]
+[cols="1a"]
+|===
+|*TimeValuePair*
+[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! A TimeValuePair represents a value that is valid for a given timepoint. For each TimeValuePair, only one of the value properties can be used mutually exclusive. Which value property has to be provided depends on the selected value type in the GenericTimeSeries feature, in which the TimeValuePair is included. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! None 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «DataType»
+!{nbsp}{nbsp}{nbsp}{nbsp}Constraint: ! singleValue (OCL): inv: +
+intValue->size() + doubleValue->size() + stringValue->size() + +
+geometryValue->size() + uriValue->size() + boolValue->size() + +
+implicitGeometryValue->size() + appearanceValue->size() = 1    
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} timestamp  !<<TM_Position-section,TM_Position>> [1..1] !Specifies the timepoint at which the value of the TimeValuePair is valid.
+ 
+!{set:cellbgcolor:#FFFFFF} intValue  !<<Integer-section,Integer>>  [0..1] !Specifies the "Integer" value of the TimeValuePair.
+ 
+!{set:cellbgcolor:#FFFFFF} doubleValue  !<<Real-section,Real>>  [0..1] !Specifies the "Double" value of the TimeValuePair.
+ 
+!{set:cellbgcolor:#FFFFFF} stringValue  !<<CharacterString-section,CharacterString>>  [0..1] !Specifies the "String" value of the TimeValuePair.
+ 
+!{set:cellbgcolor:#FFFFFF} geometryValue  !<<GM_Object-section,GM_Object>>  [0..1] !Specifies the geometry value of the TimeValuePair.
+ 
+!{set:cellbgcolor:#FFFFFF} uriValue  !<<URI-section,URI>>  [0..1] !Specifies the "URI" value of the TimeValuePair.
+ 
+!{set:cellbgcolor:#FFFFFF} boolValue  !<<Boolean-section,Boolean>>  [0..1] !Specifies the "Boolean" value of the TimeValuePair.
+ 
+!{set:cellbgcolor:#FFFFFF} implicitGeometryValue  !<<ImplicitGeometry-section,ImplicitGeometry>>  [0..1] !Specifies the "ImplicitGeometry" value of the TimeValuePair.
+ 
+!{set:cellbgcolor:#FFFFFF} appearanceValue  !<<AbstractAppearance-section,AbstractAppearance>>  [0..1] !Specifies the "Appearance" value of the TimeValuePair.
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attributes and role names have the stereotype «Property».
+|===   
+
+==== Basic Types
+
+none
+
+==== Unions
+
+none
+
+==== Code Lists
+
+[[AuthenticationTypeValue-section]]
+[cols="1a"]
+|===
+|*AuthenticationTypeValue* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! AuthenticationTypeValue is a code list used to specify the authentication method to be used to access the referenced sensor service. Each value provides enough information such that a software application could determine the required access credentials. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «CodeList»
+!===
+|=== 
+
+[[SensorConnectionTypeValue-section]]
+[cols="1a"]
+|===
+|*SensorConnectionTypeValue* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! SensorConnectionTypeValue is a code list used to specify the type of the referenced sensor service. Each value provides enough information such that a software application would be able to identify the API type and version. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «CodeList»
+!===
+|=== 
+
+[[StandardFileTypeValue-section]]
+[cols="1a"]
+|===
+|*StandardFileTypeValue* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! StandardFileTypeValue is a code list used to specify the type of the referenced external timeseries data file. Each value provides information about the standard and version. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «CodeList»
+!===
+|=== 
+
+[[TabulatedFileTypeValue-section]]
+[cols="1a"]
+|===
+|*TabulatedFileTypeValue* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! TabulatedFileTypeValue is a code list used to specify the data format of the referenced external tabulated data file. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «CodeList»
+!===
+|===
+
+==== Enumerations
+
+[[TimeseriesTypeValue-section]]
+[cols="1a"]
+|===
+|*TimeseriesTypeValue*
+[cols="1,4",frame=none,grid=none]
+!===
+!Definition: ! TimeseriesTypeValue enumerates the possible value types for GenericTimeseries and TimeValuePair. 
+!StereoType: !  \<<Enumeration>>
+!===
+|[cols="1,4",frame=none,grid=none,options="header"]
+!===
+^!{set:cellbgcolor:#DDDDDD} *Literal value* !*Definition*
+ 
+^!{set:cellbgcolor:#FFFFFF} int  !Indicates that the values of the GenericTimeseries are of type "Integer".
+ 
+^!{set:cellbgcolor:#FFFFFF} double  !Indicates that the values of the GenericTimeseries are of type "Double".
+ 
+^!{set:cellbgcolor:#FFFFFF} string  !Indicates that the values of the GenericTimeseries are of type "String".
+ 
+^!{set:cellbgcolor:#FFFFFF} geometry  !Indicates that the values of the GenericTimeseries are geometries.
+ 
+^!{set:cellbgcolor:#FFFFFF} uri  !Indicates that the values of the GenericTimeseries are of type "URI".
+ 
+^!{set:cellbgcolor:#FFFFFF} bool  !Indicates that the values of the GenericTimeseries are of type "Boolean".
+ 
+^!{set:cellbgcolor:#FFFFFF} implicitGeometry  !Indicates that the values of the GenericTimeseries are of type "ImplicitGeometry".
+ 
+^!{set:cellbgcolor:#FFFFFF} appearance  !Indicates that the values of the GenericTimeseries are of type "Appearance".
+!===
+|===   
