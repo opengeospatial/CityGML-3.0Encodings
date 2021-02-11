@@ -1,0 +1,410 @@
+[[Appearance-package-dd]]
+=== *Appearance*
+
+[cols="1,4",frame=none,grid=none]
+|===
+|{nbsp}{nbsp}{nbsp}{nbsp}Description: | The Appearance module supports the modelling of the observable surface properties of CityGML features in the form of textures and material. 
+|{nbsp}{nbsp}{nbsp}{nbsp}Parent Package: | CityGML
+|{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: | «ApplicationSchema»
+|===
+
+==== *Classes*
+
+[[AbstractSurfaceData-section]]
+[cols="1a"]
+|===
+|*AbstractSurfaceData* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! AbstractSurfaceData is the abstract superclass for different kinds of textures and material. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! <<AbstractFeature-section,AbstractFeature>> 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «FeatureType»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} isFront  !<<Boolean-section,Boolean>>  [0..1] !Indicates whether the texture or material is assigned to the front side or the back side of the surface geometry object.
+ 
+!{set:cellbgcolor:#FFFFFF} adeOfAbstractSurfaceData  !<<ADEOfAbstractSurfaceData-section,ADEOfAbstractSurfaceData>>  [0..*] !Augments AbstractSurfaceData with properties defined in an ADE.
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attributes and role names have the stereotype «Property».
+|=== 
+
+[[AbstractTexture-section]]
+[cols="1a"]
+|===
+|*AbstractTexture* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! AbstractTexture is the abstract superclass to represent the common attributes of the classes ParameterizedTexture and GeoreferencedTexture. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! <<AbstractSurfaceData-section,AbstractSurfaceData>> 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «FeatureType»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} imageURI  !<<URI-section,URI>> [1..1] !Specifies the URI that points to the external image data file.
+ 
+!{set:cellbgcolor:#FFFFFF} mimeType  !<<MimeTypeValue-section,MimeTypeValue>>  [0..1] !Specifies the MIME type of the external point cloud file.
+ 
+!{set:cellbgcolor:#FFFFFF} textureType  !<<TextureType-section,TextureType>>  [0..1] !Indicates the specific type of the texture.
+ 
+!{set:cellbgcolor:#FFFFFF} wrapMode  !<<WrapMode-section,WrapMode>>  [0..1] !Specifies the behaviour of the texture when the texture is smaller than the surface to which it is applied.
+ 
+!{set:cellbgcolor:#FFFFFF} borderColor  !<<ColorPlusOpacity-section,ColorPlusOpacity>>  [0..1] !Specifies the color of that part of the surface that is not covered by the texture.
+ 
+!{set:cellbgcolor:#FFFFFF} adeOfAbstractTexture  !<<ADEOfAbstractTexture-section,ADEOfAbstractTexture>>  [0..*] !Augments AbstractTexture with properties defined in an ADE.
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attributes and role names have the stereotype «Property».
+|=== 
+
+[[Appearance-section]]
+[cols="1a"]
+|===
+|*Appearance* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! An Appearance is a collection of surface data, i.e. observable properties for surface geometry objects in the form of textures and material. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! <<AbstractAppearance-section,AbstractAppearance>> 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «FeatureType»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Role name* !*Target class and multiplicity*  !*Definition*
+!{set:cellbgcolor:#FFFFFF} surfaceData  !<<AbstractSurfaceData-section,AbstractSurfaceData>> [*] !Relates to the surface data that are part of the Appearance.
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} theme  !<<CharacterString-section,CharacterString>>  [0..1] !Specifies the topic of the Appearance. Each Appearance contains surface data for one theme only. Examples of themes are infrared radiation, noise pollution, or earthquake-induced structural stress.
+ 
+!{set:cellbgcolor:#FFFFFF} adeOfAppearance  !<<ADEOfAppearance-section,ADEOfAppearance>>  [0..*] !Augments the Appearance with properties defined in an ADE.
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attributes and role names have the stereotype «Property».
+|=== 
+
+[[GeoreferencedTexture-section]]
+[cols="1a"]
+|===
+|*GeoreferencedTexture* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! A GeoreferencedTexture is a texture that uses a planimetric projection. It contains an implicit parameterization that is either stored within the image file, an accompanying world file or specified using the orientation and referencePoint elements. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! <<AbstractTexture-section,AbstractTexture>> 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «FeatureType»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Role name* !*Target class and multiplicity*  !*Definition*
+!{set:cellbgcolor:#FFFFFF} referencePoint  !<<GM_Point-section,GM_Point>>  [0..1]!Relates to the 2D Point geometry that represents the center of the upper left image pixel in world space.
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} preferWorldFile  !<<Boolean-section,Boolean>>  [0..1] !Indicates whether the georeference from the image file or the accompanying world file should be preferred.
+ 
+!{set:cellbgcolor:#FFFFFF} orientation  !<<TransformationMatrix2x2-section,TransformationMatrix2x2>>  [0..1] !Specifies the rotation and scaling of the image in form of a 2x2 matrix.
+ 
+!{set:cellbgcolor:#FFFFFF} target  !<<URI-section,URI>>  [0..*] !Specifies the URI that points to the surface geometry objects to which the texture is applied.
+ 
+!{set:cellbgcolor:#FFFFFF} adeOfGeoreferencedTexture  !<<ADEOfGeoreferencedTexture-section,ADEOfGeoreferencedTexture>>  [0..*] !Augments the GeoreferencedTexture with properties defined in an ADE.
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attributes and role names have the stereotype «Property».
+|=== 
+
+[[ParameterizedTexture-section]]
+[cols="1a"]
+|===
+|*ParameterizedTexture* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! A ParameterizedTexture is a texture that uses texture coordinates or a transformation matrix for parameterization. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! <<AbstractTexture-section,AbstractTexture>> 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «FeatureType»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Role name* !*Target class and multiplicity*  !*Definition*
+!{set:cellbgcolor:#FFFFFF} textureParameterization  !<<AbstractTextureParameterization-section,AbstractTextureParameterization>> [*] !Relates to the texture coordinates or transformation matrices used for parameterization.
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} adeOfParameterizedTexture  !<<ADEOfParameterizedTexture-section,ADEOfParameterizedTexture>>  [0..*] !Augments the ParameterizedTexture with properties defined in an ADE.
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attributes and role names have the stereotype «Property».
+|=== 
+
+[[TextureAssociation-section]]
+[cols="1a"]
+|===
+|*TextureAssociation* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! TextureAssociation denotes the relation of a texture to a surface geometry object. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! None 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «ObjectType»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} target  !<<URI-section,URI>> [1..1] !Specifies the URI that points to the surface geometry object to which the texture is applied.
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attributes and role names have the stereotype «Property».
+|=== 
+
+[[X3DMaterial-section]]
+[cols="1a"]
+|===
+|*X3DMaterial* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! X3DMaterial defines properties for surface geometry objects based on the material definitions from the X3D and COLLADA standards. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! <<AbstractSurfaceData-section,AbstractSurfaceData>> 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «FeatureType»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} ambientIntensity  !<<DoubleBetween0and1-section,DoubleBetween0and1>>  [0..1] !Specifies the minimum percentage of diffuseColor that is visible regardless of light sources.
+ 
+!{set:cellbgcolor:#FFFFFF} diffuseColor  !<<Color-section,Color>>  [0..1] !Specifies the color of the light diffusely reflected by the surface geometry object.
+ 
+!{set:cellbgcolor:#FFFFFF} emissiveColor  !<<Color-section,Color>>  [0..1] !Specifies the color of the light emitted by the surface geometry object.
+ 
+!{set:cellbgcolor:#FFFFFF} specularColor  !<<Color-section,Color>>  [0..1] !Specifies the color of the light directly reflected by the surface geometry object.
+ 
+!{set:cellbgcolor:#FFFFFF} shininess  !<<DoubleBetween0and1-section,DoubleBetween0and1>>  [0..1] !Specifies the sharpness of the specular highlight.
+ 
+!{set:cellbgcolor:#FFFFFF} transparency  !<<DoubleBetween0and1-section,DoubleBetween0and1>>  [0..1] !Specifies the degree of transparency of the surface geometry object.
+ 
+!{set:cellbgcolor:#FFFFFF} isSmooth  !<<Boolean-section,Boolean>>  [0..1] !Specifies which interpolation method is used for the shading of the surface geometry object. If the attribute is set to true, vertex normals should be used for shading (Gouraud shading). Otherwise, normals should be constant for a surface patch (flat shading).
+ 
+!{set:cellbgcolor:#FFFFFF} target  !<<URI-section,URI>>  [0..*] !Specifies the URI that points to the surface geometry objects to which the material is applied.
+ 
+!{set:cellbgcolor:#FFFFFF} adeOfX3DMaterial  !<<ADEOfX3DMaterial-section,ADEOfX3DMaterial>>  [0..*] !Augments the X3DMaterial with properties defined in an ADE.
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attributes and role names have the stereotype «Property».
+|===   
+
+==== Data Types
+
+[[AbstractTextureParameterization-section]]
+[cols="1a"]
+|===
+|*AbstractTextureParameterization*
+[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! AbstractTextureParameterization is the abstract superclass for different kinds of texture parameterizations. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! None 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «DataType»
+!===
+|=== 
+
+[[ADEOfAbstractSurfaceData-section]]
+[cols="1a"]
+|===
+|*ADEOfAbstractSurfaceData*
+[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! ADEOfAbstractSurfaceData acts as a hook to define properties within an ADE that are to be added to AbstractSurfaceData. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! None 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «DataType»
+!===
+|=== 
+
+[[ADEOfAbstractTexture-section]]
+[cols="1a"]
+|===
+|*ADEOfAbstractTexture*
+[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! ADEOfAbstractTexture acts as a hook to define properties within an ADE that are to be added to AbstractTexture. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! None 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «DataType»
+!===
+|=== 
+
+[[ADEOfAppearance-section]]
+[cols="1a"]
+|===
+|*ADEOfAppearance*
+[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! ADEOfAppearance acts as a hook to define properties within an ADE that are to be added to an Appearance. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! None 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «DataType»
+!===
+|=== 
+
+[[ADEOfGeoreferencedTexture-section]]
+[cols="1a"]
+|===
+|*ADEOfGeoreferencedTexture*
+[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! ADEOfGeoreferencedTexture acts as a hook to define properties within an ADE that are to be added to a GeoreferencedTexture. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! None 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «DataType»
+!===
+|=== 
+
+[[ADEOfParameterizedTexture-section]]
+[cols="1a"]
+|===
+|*ADEOfParameterizedTexture*
+[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! ADEOfParameterizedTexture acts as a hook to define properties within an ADE that are to be added to a ParameterizedTexture. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! None 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «DataType»
+!===
+|=== 
+
+[[ADEOfX3DMaterial-section]]
+[cols="1a"]
+|===
+|*ADEOfX3DMaterial*
+[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! ADEOfX3DMaterial acts as a hook to define properties within an ADE that are to be added to an X3DMaterial. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! None 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «DataType»
+!===
+|=== 
+
+[[TexCoordGen-section]]
+[cols="1a"]
+|===
+|*TexCoordGen*
+[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! TexCoordGen defines texture parameterization using a transformation matrix. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! None 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «DataType»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Role name* !*Target class and multiplicity*  !*Definition*
+!{set:cellbgcolor:#FFFFFF} crs  !<<SC_CRS-section,SC_CRS>> [0..1] !Relates to the coordinate reference system of the transformation matrix.
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} worldToTexture  !<<TransformationMatrix3x4-section,TransformationMatrix3x4>> [1..1] !Specifies the 3x4 transformation matrix that defines the transformation between world coordinates and texture coordinates.
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attributes and role names have the stereotype «Property».
+|=== 
+
+[[TexCoordList-section]]
+[cols="1a"]
+|===
+|*TexCoordList*
+[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! TexCoordList defines texture parameterization using texture coordinates. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! None 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «DataType»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} textureCoordinates  !<<DoubleList-section,DoubleList>>  [1..*] !Specifies the coordinates of texture used for parameterization. The texture coordinates are provided separately for each LinearRing of the surface geometry object.
+ 
+!{set:cellbgcolor:#FFFFFF} ring  !<<URI-section,URI>>  [1..*] !Specifies the URIs that point to the LinearRings that are parameterized using the given texture coordinates.
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attributes and role names have the stereotype «Property».
+|===   
+
+==== Basic Types
+
+[[Color-section]]
+[cols="1a"]
+|===
+|*Color* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! Color is a list of three double values between 0 and 1 defining an RGB color value. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! <<DoubleBetween0and1List-section,DoubleBetween0and1List>> 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «BasicType»
+!{nbsp}{nbsp}{nbsp}{nbsp}Constraint: ! lengthOfList (OCL): inv: list->size() = 3    
+!===
+|=== 
+
+[[ColorPlusOpacity-section]]
+[cols="1a"]
+|===
+|*ColorPlusOpacity* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! Color is a list of four double values between 0 and 1 defining an RGBA color value. Opacity value of 0 means transparent. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! <<DoubleBetween0and1List-section,DoubleBetween0and1List>> 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «BasicType»
+!{nbsp}{nbsp}{nbsp}{nbsp}Constraint: ! lengthOfList (OCL): inv: list->size() = 3 or list->size() = 4    
+!===
+|===   
+
+==== Unions
+
+none
+
+==== Code Lists
+
+none
+
+==== Enumerations
+
+[[TextureType-section]]
+[cols="1a"]
+|===
+|*TextureType*
+[cols="1,4",frame=none,grid=none]
+!===
+!Definition: ! TextureType enumerates the different texture types. 
+!StereoType: !  \<<Enumeration>>
+!===
+|[cols="1,4",frame=none,grid=none,options="header"]
+!===
+^!{set:cellbgcolor:#DDDDDD} *Literal value* !*Definition*
+ 
+^!{set:cellbgcolor:#FFFFFF} specific  !Indicates that the texture is specific to a single surface.
+ 
+^!{set:cellbgcolor:#FFFFFF} typical  !Indicates that the texture is characteristic of a surface and can be used repeatedly.
+ 
+^!{set:cellbgcolor:#FFFFFF} unknown  !Indicates that the texture type is not known.
+!===
+|=== 
+
+[[WrapMode-section]]
+[cols="1a"]
+|===
+|*WrapMode*
+[cols="1,4",frame=none,grid=none]
+!===
+!Definition: ! WrapMode enumerates the different fill modes for textures. 
+!StereoType: !  \<<Enumeration>>
+!===
+|[cols="1,4",frame=none,grid=none,options="header"]
+!===
+^!{set:cellbgcolor:#DDDDDD} *Literal value* !*Definition*
+ 
+^!{set:cellbgcolor:#FFFFFF} none  !Indicates that the texture is applied to the surface "as is". The part of the surface that is not covered by the texture is shown fully transparent. [cf. COLLADA]
+ 
+^!{set:cellbgcolor:#FFFFFF} wrap  !Indicates that the texture is repeated until the surface is fully covered. [cf. COLLADA]
+ 
+^!{set:cellbgcolor:#FFFFFF} mirror  !Indicates that the texture is repeated and mirrored. [cf. COLLADA]
+ 
+^!{set:cellbgcolor:#FFFFFF} clamp  !Indicates that the texture is stretched to the edges of the surface. [cf. COLLADA]
+ 
+^!{set:cellbgcolor:#FFFFFF} border  !Indicates that the texture is applied to the surface "as is". The part of the surface that is not covered by the texture is filled with the RGBA color that is specified in the attribute borderColor. [cf. COLLADA]
+!===
+|===   

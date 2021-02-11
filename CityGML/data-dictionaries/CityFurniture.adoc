@@ -1,0 +1,98 @@
+[[CityFurniture-package-dd]]
+=== CityFurniture
+
+[cols="1,4",frame=none,grid=none]
+|===
+|{nbsp}{nbsp}{nbsp}{nbsp}Description: | The CityFurniture module supports representation of city furniture objects. City furniture objects are immovable objects like lanterns, traffic signs, advertising columns, benches, or bus stops that can be found in traffic areas, residential areas, on squares, or in built-up areas. 
+|{nbsp}{nbsp}{nbsp}{nbsp}Parent Package: | CityGML
+|{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: | «ApplicationSchema»
+|===
+
+==== Classes
+
+[[CityFurniture-section]]
+[cols="1a"]
+|===
+|*CityFurniture* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! CityFurniture is an object or piece of equipment installed in the outdoor environment for various purposes. Examples include street signs, traffic signals, street lamps, benches, fountains. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! <<AbstractOccupiedSpace-section,AbstractOccupiedSpace>> 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «TopLevelFeatureType»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} class  !<<CityFurnitureClassValue-section,CityFurnitureClassValue>>  [0..1] !Indicates the specific type of the CityFurniture.
+ 
+!{set:cellbgcolor:#FFFFFF} function  !<<CityFurnitureFunctionValue-section,CityFurnitureFunctionValue>>  [0..*] !Specifies the intended purposes of the CityFurniture.
+ 
+!{set:cellbgcolor:#FFFFFF} usage  !<<CityFurnitureUsageValue-section,CityFurnitureUsageValue>>  [0..*] !Specifies the actual uses of the CityFurniture.
+ 
+!{set:cellbgcolor:#FFFFFF} adeOfCityFurniture  !<<ADEOfCityFurniture-section,ADEOfCityFurniture>>  [0..*] !Augments the CityFurniture with properties defined in an ADE.
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attributes and role names have the stereotype «Property».
+|===   
+
+==== Data Types
+
+[[ADEOfCityFurniture-section]]
+[cols="1a"]
+|===
+|*ADEOfCityFurniture*
+[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! ADEOfCityFurniture acts as a hook to define properties within an ADE that are to be added to a CityFurniture.  
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! None 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «DataType»
+!===
+|===
+
+==== Basic Types
+
+none
+
+==== Unions
+
+none
+
+==== Code Lists
+
+[[CityFurnitureClassValue-section]]
+[cols="1a"]
+|===
+|*CityFurnitureClassValue* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! CityFurnitureClassValue is a code list used to further classify a CityFurniture. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «CodeList»
+!===
+|=== 
+
+[[CityFurnitureFunctionValue-section]]
+[cols="1a"]
+|===
+|*CityFurnitureFunctionValue* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! CityFurnitureFunctionValue is a code list that enumerates the different purposes of a CityFurniture. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «CodeList»
+!===
+|=== 
+
+[[CityFurnitureUsageValue-section]]
+[cols="1a"]
+|===
+|*CityFurnitureUsageValue* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! CityFurnitureUsageValue is a code list that enumerates the different uses of a CityFurniture. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «CodeList»
+!===
+|===
+
+==== Enumerations
+
+none
+ 

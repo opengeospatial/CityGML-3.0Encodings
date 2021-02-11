@@ -1,0 +1,338 @@
+[appendix]
+:appendix-caption: Annex
+[[glossary]]
+= Glossary
+
+*conformance test class* +
+set of conformance test modules that must be applied to receive a single certificate of
+conformance +
+{blank}[OGC 08-131r3, definition 4.4]
+
+*feature* +
+abstraction of real world phenomena +
+{blank}[ISO 19101-1:2014, definition 4.1.11]
+
+*feature attribute* +
+characteristic of a feature +
+{blank}[ISO 19101-1:2014, definition 4.1.12]
+
+[[FeatureType-section]]
+*feature type* +
+class of features having common characteristics +
+{blank}[ISO 19156:2011, definition 4.7]
+
+*measurement* +
+set of operations having the object of determining the value of a quantity +
+{blank}[ISO 19101-2:2018, definition 3.21] / [VIM:1993, 2.1]
+
+*model* +
+abstraction of some aspects of reality +
+{blank}[ISO 19109:2015, definition 4.15]
+
+*observation* +
+act of measuring or otherwise determining the value of a property +
+{blank}[ISO 19156:2011, definition 4.11]
+
+*observation procedure* +
+method, algorithm or instrument, or system of these, which may be used in making an
+observation +
+{blank}[ISO 19156:2011, 4.12]
+
+*observation result* +
+estimate of the value of a property determined through a known observation procedure +
+{blank}[ISO 19156:2011, 4.14]
+
+*property* +
+facet or attribute of an object referenced by a name. +
+{blank}[ISO 19143:2010, definition 4.21]
+
+*requirements class* +
+aggregate of all requirement modules that must all be satisfied to satisfy a conformance
+test class +
+{blank}[OGC 08-131r3, definition 4.19]
+
+*schema* +
+formal description of a model +
+{blank}[ISO 19101-1:2014, definition 4.1.34]
+
+*sensor* +
+type of observation procedure that provides the estimated value of an observed
+property at its output +
+{blank}[OGC 08-094r1, definition 4.5]
+
+[[standardization-target-definition]]
+*Standardization Target* +
+TBD
+
+*timeseries* +
+sequence of data values which are ordered in time +
+{blank}[OGC 15-043r3]
+
+*universe of discourse* +
+view of the real or hypothetical world that includes everything of interest +
+{blank}[ISO 19101-1:2014, definition 4.1.38]
+
+*version* +
+Particular variation of a spatial object +
+{blank}[INSPIRE Glossary]
+
+=== ISO Concepts
+
+The following concepts from the ISO TC211 Harmonized UML model are referenced by the CityGML Conceptual UML model but do not play a major role in its' definition. They are provided here to support a more complete understanding of the model.
+
+[[Area-section]]
+*Area* +
+The measure of the physical extent of any topologically 2-D geometric object. Usually measured in "square" units of length. +
+{blank}[<<iso19103>>]
+
+[[Boolean-section]]
+*Boolean* +
+boolean is the mathematical datatype associated with two-valued logic +
+{blank}[<<iso19103>>]
+
+[[CC_CoordinateOperation-section]]
+*CC_CoordinateOperation* +
+ mathematical operation on coordinates that transforms or converts coordinates to another coordinate reference system. +
+{blank}[<<iso19111>>]
+
+[[Character-section]]
+*Character* +
+symbol  from a standard character-set. +
+{blank}[<<iso19103>>]
+
+[[CharacterString-section]]
+*CharacterString* +
+Characterstring  is a family  of  datatypes which  represent strings of symbols  from  standard character-sets. +
+{blank}[<<iso19103>>]
+
+[[CRS-section]]
+*CRS* +
+Coordinate reference system which is usually single but may be compound. +
+{blank}[<<iso19111>>]
+
+[[CV_DiscreteCoverage-section]]
+*CV_DiscreteCoverage* +
+A subclass of CV_Coverage that returns a single record of values for any direct position within a single geometric object in  its spatiotemporal domain. +
+{blank}[<<iso19123>>]
+
+[[CV_DomainObject-section]]
+*CV_DomainObject* +
+{blank}[<<iso19123>>]
+
+[[CV_GridPointValuePair-section]]
+*CV_GridPointValuePair* +
+{blank}[<<iso19123>>]
+
+[[CV_GridValuesMatrix-section]]
+*CV_GridValuesMatrix* +
+The geometry represented by the various offset vectors is in the image plane of the grid. +
+{blank}[<<iso19123>>]
+
+[[CV_ReferenceableGrid-section]]
+*CV_ReferenceableGrid* +
+{blank}[<<iso19123>>]
+
+[[Date-section]]
+*Date* +
+Date gives values for year, month and day. Representation of Date is specified in ISO 8601. Principles for date and time are further discussed in ISO 19108. +
+{blank}[<<iso19103>>]
+
+[[DateTime-section]]
+*DateTime* +
+A DateTime is a combination of a date and a time types. Representation of DateTime is specified in ISO 8601. Principles for date and time are further discussed in ISO 19108. +
+{blank}[<<iso19103>>]
+
+[[Distance-section]]
+*Distance* +
+Used as a type for returning distances and possibly lengths. +
+{blank}[<<iso19103>>]
+
+[[EngineeringCRS-section]]
+*Engineering CRS* +
+A contextually local coordinate reference system which can be divided into two broad categories:
+
+. earth-fixed systems applied to engineering activities on or near the surface of the earth;
+. CRSs on moving platforms such as road vehicles, vessels, aircraft or spacecraft. +
+{blank}[<<iso19111>>]
+
+[[GenericName-section]]
+*Generic Name* +
+Generic Name is the abstract class for all names in a NameSpace. Each instance of a GenericName is either a LocalName or a ScopedName. +
+{blank}[<<iso19103>>]
+
+[[Geometry-section]]
+*Geometry* +
+{blank}[<<iso19107>>]
+
+[[GM_CompositePoint-section]]
+*GM_CompositePoint* +
+{blank}[<<iso19107>>]
+
+[[GM_CompositeSolid-section]]
+*GM_CompositeSolid* +
+set of geometric solids adjoining one another along common boundary geometric surfaces +
+{blank}[<<iso19107>>]
+
+[[GM_GenericSurface-section]]
+*GM_GenericSurface* +
+GM_Surface and GM_SurfacePatch both represent sections of surface geometry, and therefore share a number of operation signatures. These are defined in the interface class GM_GenericSurface. +
+{blank}[<<iso19107>>]
+
+[[GM_LineString-section]]
+*GM_LineString* +
+consists of sequence of line segments, each having a parameterization like the one for GM_LineSegment +
+{blank}[<<iso19107>>]
+
+[[GM_MultiPrimitive-section]]
+*GM_MultiPrimitive* +
+{blank}[<<iso19107>>]
+
+[[GM_OrientableSurface-section]]
+*GM_OrientableSurface* +
+a surface and an orientation inherited from GM_OrientablePrimitive. If the orientation is "+", then the GM_OrientableSurface is a GM_Surface. If the orientation is "-", then the GM_OrientableSurface is a reference to a GM_Surface with an upNormal that reverses the direction for this GM_OrientableSurface, the sense of "the top of the surface". +
+{blank}[<<iso19107>>]
+
+[[GM_PolyhedralSurface-section]]
+*GM_PolyhedralSurface* +
+ a GM_Surface composed of polygon surfaces (GM_Polygon) connected along their common boundary curves. +
+{blank}[<<iso19107>>]
+
+[[GM_Position-section]]
+*GM_Position* +
+a union type consisting of either a DirectPosition or of a reference to a GM_Point from which a DirectPosition shall be obtained. +
+{blank}[<<iso19107>>]
+
+[[GM_Primitive-section]]
+*GM_Primitive* +
+The abstract root class of the geometric primitives. Its main purpose is to define the basic "boundary" operation that ties the primitives in each dimension together. +
+{blank}[<<iso19107>>]
+
+[[Integer-section]]
+*Integer* +
+An exact integer value, with no fractional part. +
+{blank}[<<iso19103>>]
+
+[[IoT_definition]]
+*Internet of Things* +
+The network of physical objects--“things”--that are embedded with sensors, software, and other technologies for the purpose of connecting and exchanging data with other devices and systems over the Internet. +  
+{blank}https://en.wikipedia.org/wiki/Internet_of_things[Wikipedia]
+
+[[IO_IdentifiedObjectBase-section]]
+*IO_IdentifiedObjectBase* +
+{blank}[<<iso19103>>]
+
+[[Length-section]]
+*Length* +
+The measure of distance as an integral, i.e. the limit of an infinite sum of distances between points on a curve. +
+{blank}[<<iso19103>>]
+
+[[Measure-section]]
+*Measure* +
+The result from performing the act or process of ascertaining the extent, dimensions, or quantity of some entity. +
+{blank}[<<iso19103>>]
+
+[[number-section]]
+*Number* +
+The base type for all number data, giving the basic algebraic operations. +
+{blank}[<<iso19103>>]
+
+[[Point-section]]
+*Point* +
+GM_Point is the basic data type for a geometric object consisting of one and only one point. +
+{blank}[<<iso19107>>]
+
+[[Real-section]]
+*Real* +
+The common binary Real finite implementation using base 2. +
+{blank}[<<iso19103>>]
+
+[[RS_ReferenceSystem-section]]
+*RS_ReferenceSystem* +
+Description of a spatial and temporal reference system used by a dataset. +
+{blank}[<<iso19111>>]
+
+[[ScopedName-section]]
+*Scoped Name* +
+ScopedName is a composite of a LocalName for locating another NameSpace and a GenericName valid in that NameSpace. ScopedName contains a LocalName as head and a GenericName, which might be a LocalName or a ScopedName, as tail. +
+{blank}[<<iso19103>>]
+
+[[Solid-section]]
+*Solid* +
+GM_Solid, a subclass of GM_Primitive, is the basis for 3-dimensional geometry. The extent of a solid is defined by the boundary surfaces. +
+{blank}[<<iso19107>>]
+
+[[Time-section]]
+*Time* +
+Time is the designation of an instant on a selected time scale, astronomical or atomic.  It is used in the sense of time of day. +
+{blank}[<<iso19103>>]
+
+[[TM_Duration-section]]
+*TM_Duration* +
+{blank}[<<iso19108>>]
+
+[[TM_TemporalPosition-section]]
+*TM_TemporalPosition* +
+The position of a TM_Instant relative to a TM_ReferenceSystem. +
+{blank}[<<iso19108>>]
+
+[[UnitOfMeasure-section]]
+*Unit of Measure* +
+Any of the systems devised to measure some physical quantity such distance or area or a system devised to measure such things as the passage of time. +
+{blank}[<<iso19103>>]
+
+[[URI-section]]
+*URI* +
+Uniform Resource Identifier (URI), is a compact string of characters used to identify or name a resource +
+{blank}[<<iso19103>>]
+
+[[Volume-section]]
+*Volume* +
+Volume is the measure of the physical space of any 3-D geometric object. +
+{blank}[<<iso19103>>]
+
+=== Abbreviated Terms
+
+* 2D {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} Two Dimensional
+* 3D {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} Three Dimensional
+* AEC {nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp} Architecture, Engineering, Construction
+* ALKIS {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} German National Standard for Cadastral Information
+* ATKIS {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} German National Standard for Topographic and Cartographic Information
+* BIM {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} Building Information Modeling
+* B-Rep {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} Boundary Representation
+* bSI {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} buildingSMART International
+* CAD {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} Computer Aided Design
+* COLLADA {nbsp} Collaborative Design Activity
+* CSG {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} Constructive Solid Geometry
+* DTM {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} Digital Terrain Model
+* DXF {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} Drawing Exchange Format
+* EuroSDR {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} European Spatial Data Research Organisation
+* ESRI {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} Environmental Systems Research Institute
+* FM {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} Facility Management
+* GDF {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} Geographic Data Files
+* GDI-DE {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} Spatial Data Infrastructure Germany (Geodateninfrastruktur Deutschland)
+* GDI {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} NRW Geodata Infrastructure North-Rhine Westphalia
+* GML {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} Geography Markup Language
+* IAI {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} International Alliance for Interoperability (now buildingSMART International (bSI))
+* IETF {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} Internet Engineering Task Force
+* IFC {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} Industry Foundation Classes
+* IoT  {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} Internet of Things
+* ISO {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} International Organization for Standardisation
+* ISO/TC211 {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} ISO Technical Committee 211
+* LOD {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} Levels of Detail
+* MQTT  {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} 
+* NBIMS {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} National Building Information Model Standard
+* OASIS {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} Organisation for the Advancement of Structured Information Standards
+* OGC {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} Open Geospatial Consortium
+* OSCRE {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} Open Standards Consortium for Real Estate
+* SIG 3D {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} Special Interest Group 3D of the GDI-DE
+* TIC {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} Terrain Intersection Curve
+* TIN {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} Triangulated Irregular Network
+* UML {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} Unified Modeling Language
+* URI {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} Uniform Resource Identifier
+* VRML {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} Virtual Reality Modeling Language
+* W3C {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} World Wide Web Consortium
+* W3DS {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} OGC Web 3D Service
+* WFS {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} OGC Web Feature Service
+* X3D {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} Open Standards XML-enabled 3D file format of the Web 3D Consortium
+* XML {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} Extensible Markup Language
+* xAL {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} OASIS extensible Address Language

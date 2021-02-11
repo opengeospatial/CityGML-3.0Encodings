@@ -1,0 +1,208 @@
+[[WaterBody-package-dd]]
+=== WaterBody
+
+[cols="1,4",frame=none,grid=none]
+|===
+|{nbsp}{nbsp}{nbsp}{nbsp}Description: | The WaterBody module supports representation of the thematic aspects and 3D geometry of rivers, canals, lakes, and basins. It does, however, not inherit any hydrological or other dynamic aspects of fluid flow. 
+|{nbsp}{nbsp}{nbsp}{nbsp}Parent Package: | CityGML
+|{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: | «ApplicationSchema»
+|===
+
+==== Classes
+
+[[AbstractWaterBoundarySurface-section]]
+[cols="1a"]
+|===
+|*AbstractWaterBoundarySurface* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! AbstractWaterBoundarySurface is the abstract superclass for all kinds of thematic surfaces bounding a water body. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! <<AbstractThematicSurface-section,AbstractThematicSurface>> 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «FeatureType»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} adeOfAbstractWaterBoundarySurface  !<<ADEOfAbstractWaterBoundarySurface-section,ADEOfAbstractWaterBoundarySurface>>  [0..*] !Augments AbstractWaterBoundarySurface with properties defined in an ADE.
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attributes and role names have the stereotype «Property».
+|=== 
+
+[[WaterBody-section]]
+[cols="1a"]
+|===
+|*WaterBody* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! A WaterBody represents significant and permanent or semi-permanent accumulations of surface water, usually covering a part of the Earth. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! <<AbstractOccupiedSpace-section,AbstractOccupiedSpace>> 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «TopLevelFeatureType»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Role name* !*Target class and multiplicity*  !*Definition*
+!{set:cellbgcolor:#FFFFFF} boundary  !<<AbstractWaterBoundarySurface-section,AbstractWaterBoundarySurface>> [*] !
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} class  !<<WaterBodyClassValue-section,WaterBodyClassValue>>  [0..1] !Indicates the specific type of the WaterBody.
+ 
+!{set:cellbgcolor:#FFFFFF} function  !<<WaterBodyFunctionValue-section,WaterBodyFunctionValue>>  [0..*] !Specifies the intended purposes of the WaterBody.
+ 
+!{set:cellbgcolor:#FFFFFF} usage  !<<WaterBodyUsageValue-section,WaterBodyUsageValue>>  [0..*] !Specifies the actual uses of the WaterBody.
+ 
+!{set:cellbgcolor:#FFFFFF} adeOfWaterBody  !<<ADEOfWaterBody-section,ADEOfWaterBody>>  [0..*] !Augments the WaterBody with properties defined in an ADE.
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attributes and role names have the stereotype «Property».
+|=== 
+
+[[WaterGroundSurface-section]]
+[cols="1a"]
+|===
+|*WaterGroundSurface* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! A WaterGroundSurface represents the exterior boundary surface of the submerged bottom of a water body. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! <<AbstractWaterBoundarySurface-section,AbstractWaterBoundarySurface>> 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «FeatureType»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} adeOfWaterGroundSurface  !<<ADEOfWaterGroundSurface-section,ADEOfWaterGroundSurface>>  [0..*] !Augments the WaterGroundSurface with properties defined in an ADE.
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attributes and role names have the stereotype «Property».
+|=== 
+
+[[WaterSurface-section]]
+[cols="1a"]
+|===
+|*WaterSurface* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! A WaterSurface represents the upper exterior interface between a water body and the atmosphere. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! <<AbstractWaterBoundarySurface-section,AbstractWaterBoundarySurface>> 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «FeatureType»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} waterLevel  !<<WaterLevelValue-section,WaterLevelValue>>  [0..1] !Specifies the level of the WaterSurface.
+ 
+!{set:cellbgcolor:#FFFFFF} adeOfWaterSurface  !<<ADEOfWaterSurface-section,ADEOfWaterSurface>>  [0..*] !Augments the WaterSurface with properties defined in an ADE.
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attributes and role names have the stereotype «Property».
+|===     
+
+==== Data Types
+
+[[ADEOfAbstractWaterBoundarySurface-section]]
+[cols="1a"]
+|===
+|*ADEOfAbstractWaterBoundarySurface*
+[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! ADEOfAbstractWaterBoundarySurface acts as a hook to define properties within an ADE that are to be added to AbstractWaterBoundarySurface. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! None 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «DataType»
+!===
+|=== 
+
+[[ADEOfWaterBody-section]]
+[cols="1a"]
+|===
+|*ADEOfWaterBody*
+[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! ADEOfWaterBody acts as a hook to define properties within an ADE that are to be added to a WaterBody. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! None 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «DataType»
+!===
+|=== 
+
+[[ADEOfWaterGroundSurface-section]]
+[cols="1a"]
+|===
+|*ADEOfWaterGroundSurface*
+[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! ADEOfWaterGroundSurface acts as a hook to define properties within an ADE that are to be added to a WaterGroundSurface. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! None 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «DataType»
+!===
+|=== 
+
+[[ADEOfWaterSurface-section]]
+[cols="1a"]
+|===
+|*ADEOfWaterSurface*
+[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! ADEOfWaterSurface acts as a hook to define properties within an ADE that are to be added to a WaterSurface. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! None 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «DataType»
+!===
+|===     
+
+==== Basic Types
+
+none
+
+==== Unions
+
+none
+
+==== Code Lists
+
+[[WaterBodyClassValue-section]]
+[cols="1a"]
+|===
+|*WaterBodyClassValue* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! WaterBodyClassValue is a code list used to further classify a WaterBody. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «CodeList»
+!===
+|=== 
+
+[[WaterBodyFunctionValue-section]]
+[cols="1a"]
+|===
+|*WaterBodyFunctionValue* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! WaterBodyFunctionValue is a code list that enumerates the different purposes of a WaterBody. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «CodeList»
+!===
+|=== 
+
+[[WaterBodyUsageValue-section]]
+[cols="1a"]
+|===
+|*WaterBodyUsageValue* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! WaterBodyUsageValue is a code list that enumerates the different uses of a WaterBody. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «CodeList»
+!===
+|=== 
+
+[[WaterLevelValue-section]]
+[cols="1a"]
+|===
+|*WaterLevelValue* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! WaterLevelValue is a code list that enumerates the different levels of a water surface. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «CodeList»
+!===
+|===     
+
+==== Enumerations
+
+none

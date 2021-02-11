@@ -1,0 +1,252 @@
+[[Relief-package-dd]]
+=== Relief
+
+[cols="1,4",frame=none,grid=none]
+|===
+|{nbsp}{nbsp}{nbsp}{nbsp}Description: | The Relief module supports representation of the terrain. CityGML supports terrain representations at different levels of detail, reflecting different accuracies or resolutions. Terrain may be specified as a regular raster or grid, as a TIN, by break lines, and/or by mass points. 
+|{nbsp}{nbsp}{nbsp}{nbsp}Parent Package: | CityGML
+|{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: | «ApplicationSchema»
+|===
+
+==== Classes
+
+[[AbstractReliefComponent-section]]
+[cols="1a"]
+|===
+|*AbstractReliefComponent* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! An AbstractReliefComponent represents an element of the terrain surface - either a TIN, a raster or grid, mass points or break lines. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! <<AbstractSpaceBoundary-section,AbstractSpaceBoundary>> 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «FeatureType»
+!{nbsp}{nbsp}{nbsp}{nbsp}Constraint: ! polygonGeometry (OCL): inv: extent.patch->size()=1 and extent.patch->forAll(oclIsKindOf(GM_Polygon))    
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Role name* !*Target class and multiplicity*  !*Definition*
+!{set:cellbgcolor:#FFFFFF} extent  !<<GM_Surface-section,GM_Surface>> [0..1] !Indicates the geometrical extent of the terrain component. The geometrical extent is provided as a 2D Surface geometry.
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} lod  !<<IntegerBetween0and3-section,IntegerBetween0and3>> [1..1] !Indicates the Level of Detail of the terrain component.
+ 
+!{set:cellbgcolor:#FFFFFF} adeOfAbstractReliefComponent  !<<ADEOfAbstractReliefComponent-section,ADEOfAbstractReliefComponent>>  [0..*] !Augments AbstractReliefComponent with properties defined in an ADE.
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attributes and role names have the stereotype «Property».
+|=== 
+
+[[BreaklineRelief-section]]
+[cols="1a"]
+|===
+|*BreaklineRelief* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! A BreaklineRelief represents a terrain component with 3D lines. These lines denote break lines or ridge/valley lines. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! <<AbstractReliefComponent-section,AbstractReliefComponent>> 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «FeatureType»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Role name* !*Target class and multiplicity*  !*Definition*
+!{set:cellbgcolor:#FFFFFF} breaklines  !<<GM_MultiCurve-section,GM_MultiCurve>> [0..1] !Relates to the 3D MultiCurve geometry of the MassPointRelief. This association role is used to represent break lines.
+!{set:cellbgcolor:#FFFFFF} ridgeOrValleyLines  !<<GM_MultiCurve-section,GM_MultiCurve>> [0..1] !Relates to the 3D MultiCurve geometry of the MassPointRelief. This association role is used to represent ridge or valley lines.
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} adeOfBreaklineRelief  !<<ADEOfBreaklineRelief-section,ADEOfBreaklineRelief>>  [0..*] !Augments the BreaklineRelief with properties defined in an ADE.
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attributes and role names have the stereotype «Property».
+|=== 
+
+[[MassPointRelief-section]]
+[cols="1a"]
+|===
+|*MassPointRelief* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! A MassPointRelief represents a terrain component as a collection of 3D points. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! <<AbstractReliefComponent-section,AbstractReliefComponent>> 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «FeatureType»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Role name* !*Target class and multiplicity*  !*Definition*
+!{set:cellbgcolor:#FFFFFF} pointCloud  !<<AbstractPointCloud-section,AbstractPointCloud>> [0..1] !Relates to the 3D PointCloud of the MassPointRelief.
+!{set:cellbgcolor:#FFFFFF} reliefPoints  !<<GM_MultiPoint-section,GM_MultiPoint>> [0..1] !Relates to the 3D MultiPoint geometry of the MassPointRelief.
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} adeOfMassPointRelief  !<<ADEOfMassPointRelief-section,ADEOfMassPointRelief>>  [0..*] !Augments the MassPointRelief with properties defined in an ADE.
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attributes and role names have the stereotype «Property».
+|=== 
+
+[[RasterRelief-section]]
+[cols="1a"]
+|===
+|*RasterRelief* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! A RasterRelief represents a terrain component as a regular raster or grid. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! <<AbstractReliefComponent-section,AbstractReliefComponent>> 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «FeatureType»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Role name* !*Target class and multiplicity*  !*Definition*
+!{set:cellbgcolor:#FFFFFF} grid  !<<CV_DiscreteGridPointCoverage-section,CV_DiscreteGridPointCoverage>> [1] !Relates to the DiscreteGridPointCoverage of the RasterRelief.
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} adeOfRasterRelief  !<<ADEOfRasterRelief-section,ADEOfRasterRelief>>  [0..*] !Augments the RasterRelief with properties defined in an ADE.
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attributes and role names have the stereotype «Property».
+|=== 
+
+[[ReliefFeature-section]]
+[cols="1a"]
+|===
+|*ReliefFeature* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! A ReliefFeature is a collection of terrain components representing the Earth's surface, also known as the Digital Terrain Model. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! <<AbstractSpaceBoundary-section,AbstractSpaceBoundary>> 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «TopLevelFeatureType»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Role name* !*Target class and multiplicity*  !*Definition*
+!{set:cellbgcolor:#FFFFFF} reliefComponent  !<<AbstractReliefComponent-section,AbstractReliefComponent>> [1..*] !Relates to the terrain components that are part of the ReliefFeature.
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} lod  !<<IntegerBetween0and3-section,IntegerBetween0and3>> [1..1] !Indicates the Level of Detail of the ReliefFeature.
+ 
+!{set:cellbgcolor:#FFFFFF} adeOfReliefFeature  !<<ADEOfReliefFeature-section,ADEOfReliefFeature>>  [0..*] !Augments the ReliefFeature with properties defined in an ADE.
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attributes and role names have the stereotype «Property».
+|=== 
+
+[[TINRelief-section]]
+[cols="1a"]
+|===
+|*TINRelief* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! A TINRelief represents a terrain component as a triangulated irregular network. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! <<AbstractReliefComponent-section,AbstractReliefComponent>> 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «FeatureType»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Role name* !*Target class and multiplicity*  !*Definition*
+!{set:cellbgcolor:#FFFFFF} tin  !<<GM_TriangulatedSurface-section,GM_TriangulatedSurface>> [1] !Relates to the triangulated surface of the TINRelief.
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} adeOfTINRelief  !<<ADEOfTINRelief-section,ADEOfTINRelief>>  [0..*] !Augments the TINRelief with properties defined in an ADE.
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attributes and role names have the stereotype «Property».
+|===
+
+==== Data Types
+
+[[ADEOfAbstractReliefComponent-section]]
+[cols="1a"]
+|===
+|*ADEOfAbstractReliefComponent*
+[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! ADEOfAbstractReliefComponent acts as a hook to define properties within an ADE that are to be added to AbstractReliefComponent. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! None 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «DataType»
+!===
+|=== 
+
+[[ADEOfBreaklineRelief-section]]
+[cols="1a"]
+|===
+|*ADEOfBreaklineRelief*
+[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! ADEOfBreaklineRelief acts as a hook to define properties within an ADE that are to be added to a BreaklineRelief. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! None 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «DataType»
+!===
+|=== 
+
+[[ADEOfMassPointRelief-section]]
+[cols="1a"]
+|===
+|*ADEOfMassPointRelief*
+[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! ADEOfMassPointRelief acts as a hook to define properties within an ADE that are to be added to a MassPointRelief. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! None 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «DataType»
+!===
+|=== 
+
+[[ADEOfRasterRelief-section]]
+[cols="1a"]
+|===
+|*ADEOfRasterRelief*
+[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! ADEOfRasterRelief acts as a hook to define properties within an ADE that are to be added to a RasterRelief. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! None 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «DataType»
+!===
+|=== 
+
+[[ADEOfReliefFeature-section]]
+[cols="1a"]
+|===
+|*ADEOfReliefFeature*
+[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! ADEOfReliefFeature acts as a hook to define properties within an ADE that are to be added to a ReliefFeature. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! None 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «DataType»
+!===
+|=== 
+
+[[ADEOfTINRelief-section]]
+[cols="1a"]
+|===
+|*ADEOfTINRelief*
+[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! ADEOfTINRelief acts as a hook to define properties within an ADE that are to be added to a TINRelief. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! None 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «DataType»
+!===
+|===   
+
+==== Basic Types
+
+none
+
+==== Unions
+
+none
+
+==== Code Lists
+
+none
+
+==== Enumerations
+
+none

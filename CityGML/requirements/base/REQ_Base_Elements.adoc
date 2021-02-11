@@ -1,0 +1,6 @@
+[[req_base_elements]]
+[width="90%",cols="2,6"]
+|===
+^|*Requirement  {counter:req-id}* |*/req/base/elements* 
+2+|A conforming application shall support the CityGML XML elements listed in <<base-xml-elements>> in accordance with the GML XML schema specified in http://schemas.opengis.net/citygml/3.0/cityGMLBase.xsd[cityGMLBase.xsd].
+|===

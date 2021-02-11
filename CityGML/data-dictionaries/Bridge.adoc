@@ -1,0 +1,463 @@
+[[Bridge-package-dd]]
+=== Bridge
+
+[cols="1,4",frame=none,grid=none]
+|===
+|{nbsp}{nbsp}{nbsp}{nbsp}Description: | The Bridge module supports representation of thematic and spatial aspects of bridges, bridge parts, bridge installations, and interior bridge structures. 
+|{nbsp}{nbsp}{nbsp}{nbsp}Parent Package: | CityGML
+|{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: | «ApplicationSchema»
+|===
+
+==== Classes
+
+[[AbstractBridge-section]]
+[cols="1a"]
+|===
+|*AbstractBridge* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! AbstractBridge is an abstract superclass representing the common attributes and associations of the classes Bridge and BridgePart. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! <<AbstractConstruction-section,AbstractConstruction>> 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «FeatureType»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Role name* !*Target class and multiplicity*  !*Definition*
+!{set:cellbgcolor:#FFFFFF} bridgeConstructiveElement  !<<BridgeConstructiveElement-section,BridgeConstructiveElement>> [*] !Relates the constructive elements to the Bridge or BridgePart.
+!{set:cellbgcolor:#FFFFFF} bridgeInstallation  !<<BridgeInstallation-section,BridgeInstallation>> [*] !Relates the installation objects to the Bridge or BridgePart.
+!{set:cellbgcolor:#FFFFFF} bridgeFurniture  !<<BridgeFurniture-section,BridgeFurniture>> [*] !Relates the furniture objects to the Bridge or BridgePart.
+!{set:cellbgcolor:#FFFFFF} bridgeRoom  !<<BridgeRoom-section,BridgeRoom>> [*] !Relates the rooms to the Bridge or BridgePart.
+!{set:cellbgcolor:#FFFFFF} address  !<<Address-section,Address>> [*] !Relates the addresses to the Bridge or BridgePart.
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} class  !<<BridgeClassValue-section,BridgeClassValue>>  [0..1] !Indicates the specific type of the Bridge or BridgePart.
+ 
+!{set:cellbgcolor:#FFFFFF} function  !<<BridgeFunctionValue-section,BridgeFunctionValue>>  [0..*] !Specifies the intended purposes of the Bridge or BridgePart.
+ 
+!{set:cellbgcolor:#FFFFFF} usage  !<<BridgeUsageValue-section,BridgeUsageValue>>  [0..*] !Specifies the actual uses of the Bridge or BridgePart.
+ 
+!{set:cellbgcolor:#FFFFFF} isMovable  !<<Boolean-section,Boolean>>  [0..1] !Indicates whether the Bridge or BridgePart can be moved to allow for watercraft to pass.
+ 
+!{set:cellbgcolor:#FFFFFF} adeOfAbstractBridge  !<<ADEOfAbstractBridge-section,ADEOfAbstractBridge>>  [0..*] !Augments AbstractBridge with properties defined in an ADE.
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attributes and role names have the stereotype «Property».
+|=== 
+
+[[Bridge-section]]
+[cols="1a"]
+|===
+|*Bridge* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! A Bridge represents a structure that affords the passage of pedestrians, animals, vehicles, and service(s) above obstacles or between two points at a height above ground. [cf. ISO 6707-1] 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! <<AbstractBridge-section,AbstractBridge>> 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «TopLevelFeatureType»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Role name* !*Target class and multiplicity*  !*Definition*
+!{set:cellbgcolor:#FFFFFF} bridgePart  !<<BridgePart-section,BridgePart>> [*] !Relates the bridge parts to the Bridge.
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} adeOfBridge  !<<ADEOfBridge-section,ADEOfBridge>>  [0..*] !Augments the Bridge with properties defined in an ADE.
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attributes and role names have the stereotype «Property».
+|=== 
+
+[[BridgeConstructiveElement-section]]
+[cols="1a"]
+|===
+|*BridgeConstructiveElement* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! A BridgeConstructiveElement is an element of a bridge which is essential from a structural point of view. Examples are pylons, anchorages, slabs, beams. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! <<AbstractConstructiveElement-section,AbstractConstructiveElement>> 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «FeatureType»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} class  !<<BridgeConstructiveElementClassValue-section,BridgeConstructiveElementClassValue>>  [0..1] !Indicates the specific type of the BridgeConstructiveElement.
+ 
+!{set:cellbgcolor:#FFFFFF} function  !<<BridgeConstructiveElementFunctionValue-section,BridgeConstructiveElementFunctionValue>>  [0..*] !Specifies the intended purposes of the BridgeConstructiveElement.
+ 
+!{set:cellbgcolor:#FFFFFF} usage  !<<BridgeConstructiveElementUsageValue-section,BridgeConstructiveElementUsageValue>>  [0..*] !Specifies the actual uses of the BridgeConstructiveElement.
+ 
+!{set:cellbgcolor:#FFFFFF} adeOfBridgeConstructiveElement  !<<ADEOfBridgeConstructiveElement-section,ADEOfBridgeConstructiveElement>>  [0..*] !Augments the BridgeConstructiveElement with properties defined in an ADE.
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attributes and role names have the stereotype «Property».
+|=== 
+
+[[BridgeFurniture-section]]
+[cols="1a"]
+|===
+|*BridgeFurniture* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! A BridgeFurniture is an equipment for occupant use, usually not fixed to the bridge. [cf. ISO 6707-1] 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! <<AbstractFurniture-section,AbstractFurniture>> 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «FeatureType»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} class  !<<BridgeFurnitureClassValue-section,BridgeFurnitureClassValue>>  [0..1] !Indicates the specific type of the BridgeFurniture.
+ 
+!{set:cellbgcolor:#FFFFFF} function  !<<BridgeFurnitureFunctionValue-section,BridgeFurnitureFunctionValue>>  [0..*] !Specifies the intended purposes of the BridgeFurniture.
+ 
+!{set:cellbgcolor:#FFFFFF} usage  !<<BridgeFurnitureUsageValue-section,BridgeFurnitureUsageValue>>  [0..*] !Specifies the actual uses of the BridgeFurniture.
+ 
+!{set:cellbgcolor:#FFFFFF} adeOfBridgeFurniture  !<<ADEOfBridgeFurniture-section,ADEOfBridgeFurniture>>  [0..*] !Augments the BridgeFurniture with properties defined in an ADE.
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attributes and role names have the stereotype «Property».
+|=== 
+
+[[BridgeInstallation-section]]
+[cols="1a"]
+|===
+|*BridgeInstallation* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! A BridgeInstallation is a permanent part of a Bridge (inside and/or outside) which does not have the significance of a BridgePart. In contrast to BridgeConstructiveElements, a BridgeInstallation is not essential from a structural point of view. Examples are stairs, antennas or railways. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! <<AbstractInstallation-section,AbstractInstallation>> 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «FeatureType»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} class  !<<BridgeInstallationClassValue-section,BridgeInstallationClassValue>>  [0..1] !Indicates the specific type of the BridgeInstallation.
+ 
+!{set:cellbgcolor:#FFFFFF} function  !<<BridgeInstallationFunctionValue-section,BridgeInstallationFunctionValue>>  [0..*] !Specifies the intended purposes of the BridgeInstallation.
+ 
+!{set:cellbgcolor:#FFFFFF} usage  !<<BridgeInstallationUsageValue-section,BridgeInstallationUsageValue>>  [0..*] !Specifies the actual uses of the BridgeInstallation.
+ 
+!{set:cellbgcolor:#FFFFFF} adeOfBridgeInstallation  !<<ADEOfBridgeInstallation-section,ADEOfBridgeInstallation>>  [0..*] !Augments the BridgeInstallation with properties defined in an ADE.
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attributes and role names have the stereotype «Property».
+|=== 
+
+[[BridgePart-section]]
+[cols="1a"]
+|===
+|*BridgePart* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! A BridgePart is a physical or functional subdivision of a Bridge. It would be considered a Bridge, if it were not part of a collection of other BridgeParts. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! <<AbstractBridge-section,AbstractBridge>> 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «FeatureType»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} adeOfBridgePart  !<<ADEOfBridgePart-section,ADEOfBridgePart>>  [0..*] !Augments the BridgePart with properties defined in an ADE.
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attributes and role names have the stereotype «Property».
+|=== 
+
+[[BridgeRoom-section]]
+[cols="1a"]
+|===
+|*BridgeRoom* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! A BridgeRoom is a space within a Bridge or BridgePart intended for human occupancy (e.g. a place of work or recreation) and/or containment (storage) of animals or things. A BridgeRoom is bounded physically and/or virtually (e.g. by ClosureSurfaces or GenericSurfaces). 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! <<AbstractUnoccupiedSpace-section,AbstractUnoccupiedSpace>> 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «FeatureType»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Role name* !*Target class and multiplicity*  !*Definition*
+!{set:cellbgcolor:#FFFFFF} bridgeInstallation  !<<BridgeInstallation-section,BridgeInstallation>> [*] !Relates to the installation objects to the BridgeRoom.
+!{set:cellbgcolor:#FFFFFF} boundary  !<<AbstractThematicSurface-section,AbstractThematicSurface>> [*] !Relates to the surfaces that bound the BridgeRoom. This relation is inherited from the Core module.
+!{set:cellbgcolor:#FFFFFF} bridgeFurniture  !<<BridgeFurniture-section,BridgeFurniture>> [*] !Relates the furniture objects to the BridgeRoom.
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} class  !<<BridgeRoomClassValue-section,BridgeRoomClassValue>>  [0..1] !Indicates the specific type of the BridgeRoom.
+ 
+!{set:cellbgcolor:#FFFFFF} function  !<<BridgeRoomFunctionValue-section,BridgeRoomFunctionValue>>  [0..*] !Specifies the intended purposes of the BridgeRoom.
+ 
+!{set:cellbgcolor:#FFFFFF} usage  !<<BridgeRoomUsageValue-section,BridgeRoomUsageValue>>  [0..*] !Specifies the actual uses of the BridgeRoom.
+ 
+!{set:cellbgcolor:#FFFFFF} adeOfBridgeRoom  !<<ADEOfBridgeRoom-section,ADEOfBridgeRoom>>  [0..*] !Augments the BridgeRoom with properties defined in an ADE.
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attributes and role names have the stereotype «Property».
+|===   
+
+==== Data Types
+
+[[ADEOfAbstractBridge-section]]
+[cols="1a"]
+|===
+|*ADEOfAbstractBridge*
+[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! ADEOfAbstractBridge acts as a hook to define properties within an ADE that are to be added to AbstractBridge. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! None 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «DataType»
+!===
+|=== 
+
+[[ADEOfBridge-section]]
+[cols="1a"]
+|===
+|*ADEOfBridge*
+[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! ADEOfBridge acts as a hook to define properties within an ADE that are to be added to a Bridge. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! None 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «DataType»
+!===
+|=== 
+
+[[ADEOfBridgeConstructiveElement-section]]
+[cols="1a"]
+|===
+|*ADEOfBridgeConstructiveElement*
+[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! ADEOfBridgeConstructiveElement acts as a hook to define properties within an ADE that are to be added to a BridgeConstructiveElement. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! None 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «DataType»
+!===
+|=== 
+
+[[ADEOfBridgeFurniture-section]]
+[cols="1a"]
+|===
+|*ADEOfBridgeFurniture*
+[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! ADEOfBridgeFurniture acts as a hook to define properties within an ADE that are to be added to a BridgeFurniture. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! None 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «DataType»
+!===
+|=== 
+
+[[ADEOfBridgeInstallation-section]]
+[cols="1a"]
+|===
+|*ADEOfBridgeInstallation*
+[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! ADEOfBridgeInstallation acts as a hook to define properties within an ADE that are to be added to a BridgeInstallation. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! None 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «DataType»
+!===
+|=== 
+
+[[ADEOfBridgePart-section]]
+[cols="1a"]
+|===
+|*ADEOfBridgePart*
+[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! ADEOfBridgePart acts as a hook to define properties within an ADE that are to be added to a BridgePart. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! None 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «DataType»
+!===
+|=== 
+
+[[ADEOfBridgeRoom-section]]
+[cols="1a"]
+|===
+|*ADEOfBridgeRoom*
+[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! ADEOfBridgeRoom acts as a hook to define properties within an ADE that are to be added to a BridgeRoom. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! None 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «DataType»
+!===
+|===   
+
+==== Basic Types
+
+none
+
+==== Unions
+
+none
+
+==== Code Lists
+
+[[BridgeClassValue-section]]
+[cols="1a"]
+|===
+|*BridgeClassValue* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! BridgeClassValue is a code list used to further classify a Bridge. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «CodeList»
+!===
+|=== 
+
+[[BridgeConstructiveElementClassValue-section]]
+[cols="1a"]
+|===
+|*BridgeConstructiveElementClassValue* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! BridgeConstructiveElementClassValue is a code list used to further classify a BridgeConstructiveElement. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «CodeList»
+!===
+|=== 
+
+[[BridgeConstructiveElementFunctionValue-section]]
+[cols="1a"]
+|===
+|*BridgeConstructiveElementFunctionValue* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! BridgeConstructiveElementFunctionValue is a code list that enumerates the different purposes of a BridgeConstructiveElement. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «CodeList»
+!===
+|=== 
+
+[[BridgeConstructiveElementUsageValue-section]]
+[cols="1a"]
+|===
+|*BridgeConstructiveElementUsageValue* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! BridgeConstructiveElementUsageValue is a code list that enumerates the different uses of a BridgeConstructiveElement. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «CodeList»
+!===
+|=== 
+
+[[BridgeFunctionValue-section]]
+[cols="1a"]
+|===
+|*BridgeFunctionValue* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! BridgeFunctionValue is a code list that enumerates the different purposes of a Bridge. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «CodeList»
+!===
+|=== 
+
+[[BridgeFurnitureClassValue-section]]
+[cols="1a"]
+|===
+|*BridgeFurnitureClassValue* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! BridgeFurnitureClassValue is a code list used to further classify a BridgeFurniture. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «CodeList»
+!===
+|=== 
+
+[[BridgeFurnitureFunctionValue-section]]
+[cols="1a"]
+|===
+|*BridgeFurnitureFunctionValue* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! BridgeFurnitureFunctionValue is a code list that enumerates the different purposes of a BridgeFurniture. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «CodeList»
+!===
+|=== 
+
+[[BridgeFurnitureUsageValue-section]]
+[cols="1a"]
+|===
+|*BridgeFurnitureUsageValue* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! BridgeFurnitureUsageValue is a code list that enumerates the different uses of a BridgeFurniture. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «CodeList»
+!===
+|=== 
+
+[[BridgeInstallationClassValue-section]]
+[cols="1a"]
+|===
+|*BridgeInstallationClassValue* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! BridgeInstallationClassValue is a code list used to further classify a BridgeInstallation. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «CodeList»
+!===
+|=== 
+
+[[BridgeInstallationFunctionValue-section]]
+[cols="1a"]
+|===
+|*BridgeInstallationFunctionValue* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! BridgeInstallationFunctionValue is a code list that enumerates the different purposes of a BridgeInstallation. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «CodeList»
+!===
+|=== 
+
+[[BridgeInstallationUsageValue-section]]
+[cols="1a"]
+|===
+|*BridgeInstallationUsageValue* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! BridgeInstallationUsageValue is a code list that enumerates the different uses of a BridgeInstallation. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «CodeList»
+!===
+|=== 
+
+[[BridgeRoomClassValue-section]]
+[cols="1a"]
+|===
+|*BridgeRoomClassValue* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! BridgeRoomClassValue is a code list used to further classify a BridgeRoom. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «CodeList»
+!===
+|=== 
+
+[[BridgeRoomFunctionValue-section]]
+[cols="1a"]
+|===
+|*BridgeRoomFunctionValue* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! BridgeRoomFunctionValue is a code list that enumerates the different purposes of a BridgeRoom. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «CodeList»
+!===
+|=== 
+
+[[BridgeRoomUsageValue-section]]
+[cols="1a"]
+|===
+|*BridgeRoomUsageValue* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! BridgeRoomUsageValue is a code list that enumerates the different uses of a BridgeRoom. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «CodeList»
+!===
+|=== 
+
+[[BridgeUsageValue-section]]
+[cols="1a"]
+|===
+|*BridgeUsageValue* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! BridgeUsageValue is a code list that enumerates the different uses of a Bridge. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «CodeList»
+!===
+|===   
+
+==== Enumerations
+
+none
+ 

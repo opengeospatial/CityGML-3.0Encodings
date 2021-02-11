@@ -1,0 +1,122 @@
+[[CityObjectGroup-package-dd]]
+=== CityObjectGroup
+
+[cols="1,4",frame=none,grid=none]
+|===
+|{nbsp}{nbsp}{nbsp}{nbsp}Description: | The CityObjectGroup module supports grouping of city objects. Arbitrary city objects may be aggregated in groups according to user-defined criteria. A group may be further classified by application-specific attributes. 
+|{nbsp}{nbsp}{nbsp}{nbsp}Parent Package: | CityGML
+|{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: | «ApplicationSchema»
+|===
+
+==== Classes
+
+[[CityObjectGroup-section]]
+[cols="1a"]
+|===
+|*CityObjectGroup* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! A CityObjectGroup represents an application-specific aggregation of city objects according to some user-defined criteria. Examples for groups are the buildings in a specific region, the result of a query, or objects put together for visualization purposes. Each member of a group may be qualified by a role name, reflecting the role each city object plays in the context of the group. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! <<AbstractLogicalSpace-section,AbstractLogicalSpace>> 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «TopLevelFeatureType»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Role name* !*Target class and multiplicity*  !*Definition*
+!{set:cellbgcolor:#FFFFFF} parent  !<<AbstractCityObject-section,AbstractCityObject>> [0..1] !Relates to a city object to which the CityObjectGroup belongs.
+!{set:cellbgcolor:#FFFFFF} groupMember  !<<AbstractCityObject-section,AbstractCityObject>> [*] !Relates to the city objects that are part of the CityObjectGroup.
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} class  !<<CityObjectGroupClassValue-section,CityObjectGroupClassValue>>  [0..1] !Indicates the specific type of the CityObjectGroup.
+ 
+!{set:cellbgcolor:#FFFFFF} function  !<<CityObjectGroupFunctionValue-section,CityObjectGroupFunctionValue>>  [0..*] !Specifies the intended purposes of the CityObjectGroup.
+ 
+!{set:cellbgcolor:#FFFFFF} usage  !<<CityObjectGroupUsageValue-section,CityObjectGroupUsageValue>>  [0..*] !Specifies the actual usages of the CityObjectGroup.
+ 
+!{set:cellbgcolor:#FFFFFF} adeOfCityObjectGroup  !<<ADEOfCityObjectGroup-section,ADEOfCityObjectGroup>>  [0..*] !Augments the CityObjectGroup with properties defined in an ADE.
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attributes and role names have the stereotype «Property».
+|=== 
+
+[[Role-section]]
+[cols="1a"]
+|===
+|*Role* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! Role qualifies the function of a city object within the CityObjectGroup. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! None 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «ObjectType»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} role  !<<CharacterString-section,CharacterString>>  [0..1] !Describes the role the city object plays within the CityObjectGroup.
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attributes and role names have the stereotype «Property».
+|===   
+
+==== Data Types
+
+[[ADEOfCityObjectGroup-section]]
+[cols="1a"]
+|===
+|*ADEOfCityObjectGroup*
+[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! ADEOfCityObjectGroup acts as a hook to define properties within an ADE that are to be added to a CityObjectGroup. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! None 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «DataType»
+!===
+|===   
+
+==== Basic Types
+
+none
+
+==== Unions
+
+none
+
+==== Code Lists
+
+[[CityObjectGroupClassValue-section]]
+[cols="1a"]
+|===
+|*CityObjectGroupClassValue* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! CityObjectGroupClassValue is a code list used to further classify a CityObjectGroup. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «CodeList»
+!===
+|=== 
+
+[[CityObjectGroupFunctionValue-section]]
+[cols="1a"]
+|===
+|*CityObjectGroupFunctionValue* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! CityObjectGroupFunctionValue is a code list that enumerates the different purposes of a CityObjectGroup. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «CodeList»
+!===
+|=== 
+
+[[CityObjectGroupUsageValue-section]]
+[cols="1a"]
+|===
+|*CityObjectGroupUsageValue* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! CityObjectGroupUsageValue is a code list that enumerates the different uses of a CityObjectGroup. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «CodeList»
+!===
+|===   
+
+==== Enumerations
+
+none  

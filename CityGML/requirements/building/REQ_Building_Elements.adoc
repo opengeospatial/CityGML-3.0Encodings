@@ -1,0 +1,6 @@
+[[req_building_elements]]
+[width="90%",cols="2,6"]
+|===
+^|*Requirement  {counter:req-id}* |*/req/building/elements* 
+2+|A conforming application shall support the CityGML XML elements listed in <<building-xml-elements>> in accordance with the GML XML schema specified in http://schemas.opengis.net/citygml/3.0/building.xsd[bulding.xsd].
+|===

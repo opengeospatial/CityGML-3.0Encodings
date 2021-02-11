@@ -1,0 +1,459 @@
+[[Tunnel-package-dd]]
+=== Tunnel
+
+[cols="1,4",frame=none,grid=none]
+|===
+|{nbsp}{nbsp}{nbsp}{nbsp}Description: | The Tunnel module supports representation of thematic and spatial aspects of tunnels, tunnel parts, tunnel installations, and interior tunnel structures. 
+|{nbsp}{nbsp}{nbsp}{nbsp}Parent Package: | CityGML
+|{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: | «ApplicationSchema»
+|===
+
+==== Classes
+
+[[AbstractTunnel-section]]
+[cols="1a"]
+|===
+|*AbstractTunnel* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! AbstractTunnel is an abstract superclass representing the common attributes and associations of the classes Tunnel and TunnelPart. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! <<AbstractConstruction-section,AbstractConstruction>> 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «FeatureType»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Role name* !*Target class and multiplicity*  !*Definition*
+!{set:cellbgcolor:#FFFFFF} hollowSpace  !<<HollowSpace-section,HollowSpace>> [*] !Relates the hollow spaces to the Tunnel or TunnelPart.
+!{set:cellbgcolor:#FFFFFF} tunnelConstructiveElement  !<<TunnelConstructiveElement-section,TunnelConstructiveElement>> [*] !Relates the constructive elements to the Tunnel or TunnelPart.
+!{set:cellbgcolor:#FFFFFF} tunnelInstallation  !<<TunnelInstallation-section,TunnelInstallation>> [*] !Relates the installation objects to the Tunnel or TunnelPart.
+!{set:cellbgcolor:#FFFFFF} tunnelFurniture  !<<TunnelFurniture-section,TunnelFurniture>> [*] !Relates the furniture objects to the Tunnel or TunnelPart.
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} class  !<<TunnelClassValue-section,TunnelClassValue>>  [0..1] !Indicates the specific type of the Tunnel or TunnelPart.
+ 
+!{set:cellbgcolor:#FFFFFF} function  !<<TunnelFunctionValue-section,TunnelFunctionValue>>  [0..*] !Specifies the intended purposes of the Tunnel or TunnelPart.
+ 
+!{set:cellbgcolor:#FFFFFF} usage  !<<TunnelUsageValue-section,TunnelUsageValue>>  [0..*] !Specifies the actual uses of the Tunnel or TunnelPart.
+ 
+!{set:cellbgcolor:#FFFFFF} adeOfAbstractTunnel  !<<ADEOfAbstractTunnel-section,ADEOfAbstractTunnel>>  [0..*] !Augments AbstractTunnel with properties defined in an ADE.
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attributes and role names have the stereotype «Property».
+|=== 
+
+[[HollowSpace-section]]
+[cols="1a"]
+|===
+|*HollowSpace* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! A HollowSpace is a space within a Tunnel or TunnelPart intended for certain functions (e.g. transport or passage ways, service rooms, emergency shelters). A HollowSpace is bounded physically and/or virtually (e.g. by ClosureSurfaces or GenericSurfaces). 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! <<AbstractUnoccupiedSpace-section,AbstractUnoccupiedSpace>> 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «FeatureType»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Role name* !*Target class and multiplicity*  !*Definition*
+!{set:cellbgcolor:#FFFFFF} tunnelInstallation  !<<TunnelInstallation-section,TunnelInstallation>> [*] !Relates the installation objects to the HollowSpace.
+!{set:cellbgcolor:#FFFFFF} tunnelFurniture  !<<TunnelFurniture-section,TunnelFurniture>> [*] !Relates the furniture objects to the HollowSpace.
+!{set:cellbgcolor:#FFFFFF} boundary  !<<AbstractThematicSurface-section,AbstractThematicSurface>> [*] !Relates to the surfaces that bound the HollowSpace. This relation is inherited from the Core module.
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} class  !<<HollowSpaceClassValue-section,HollowSpaceClassValue>>  [0..1] !Indicates the specific type of the HollowSpace.
+ 
+!{set:cellbgcolor:#FFFFFF} function  !<<HollowSpaceFunctionValue-section,HollowSpaceFunctionValue>>  [0..*] !Specifies the intended purposes of the HollowSpace.
+ 
+!{set:cellbgcolor:#FFFFFF} usage  !<<HollowSpaceUsageValue-section,HollowSpaceUsageValue>>  [0..*] !Specifies the actual uses of the HollowSpace.
+ 
+!{set:cellbgcolor:#FFFFFF} adeOfHollowSpace  !<<ADEOfHollowSpace-section,ADEOfHollowSpace>>  [0..*] !Augments the HollowSpace with properties defined in an ADE.
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attributes and role names have the stereotype «Property».
+|=== 
+
+[[Tunnel-section]]
+[cols="1a"]
+|===
+|*Tunnel* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! A Tunnel represents a horizontal or sloping enclosed passage way of a certain length, mainly underground or underwater. [cf. ISO 6707-1] 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! <<AbstractTunnel-section,AbstractTunnel>> 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «TopLevelFeatureType»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Role name* !*Target class and multiplicity*  !*Definition*
+!{set:cellbgcolor:#FFFFFF} tunnelPart  !<<TunnelPart-section,TunnelPart>> [*] !Relates the tunnel parts to the Tunnel.
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} adeOfTunnel  !<<ADEOfTunnel-section,ADEOfTunnel>>  [0..*] !Augments the Tunnel with properties defined in an ADE.
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attributes and role names have the stereotype «Property».
+|=== 
+
+[[TunnelConstructiveElement-section]]
+[cols="1a"]
+|===
+|*TunnelConstructiveElement* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: !  A TunnelConstructiveElement is an element of a Tunnel which is essential from a structural point of view. Examples are walls, slabs, beams. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! <<AbstractConstructiveElement-section,AbstractConstructiveElement>> 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «FeatureType»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} class  !<<TunnelConstructiveElementClassValue-section,TunnelConstructiveElementClassValue>>  [0..1] !Indicates the specific type of the TunnelConstructiveElement.
+ 
+!{set:cellbgcolor:#FFFFFF} function  !<<TunnelConstructiveElementFunctionValue-section,TunnelConstructiveElementFunctionValue>>  [0..*] !Specifies the intended purposes of the TunnelConstructiveElement.
+ 
+!{set:cellbgcolor:#FFFFFF} usage  !<<TunnelConstructiveElementUsageValue-section,TunnelConstructiveElementUsageValue>>  [0..*] !Specifies the actual uses of the TunnelConstructiveElement.
+ 
+!{set:cellbgcolor:#FFFFFF} adeOfTunnelConstructiveElement  !<<ADEOfTunnelConstructiveElement-section,ADEOfTunnelConstructiveElement>>  [0..*] !Augments the TunnelConstructiveElement with properties defined in an ADE.
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attributes and role names have the stereotype «Property».
+|=== 
+
+[[TunnelFurniture-section]]
+[cols="1a"]
+|===
+|*TunnelFurniture* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! A TunnelFurniture is an equipment for occupant use, usually not fixed to the tunnel. [cf. ISO 6707-1] 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! <<AbstractFurniture-section,AbstractFurniture>> 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «FeatureType»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} class  !<<TunnelFurnitureClassValue-section,TunnelFurnitureClassValue>>  [0..1] !Indicates the specific type of the TunnelFurniture.
+ 
+!{set:cellbgcolor:#FFFFFF} function  !<<TunnelFurnitureFunctionValue-section,TunnelFurnitureFunctionValue>>  [0..*] !Specifies the intended purposes of the TunnelFurniture.
+ 
+!{set:cellbgcolor:#FFFFFF} usage  !<<TunnelFurnitureUsageValue-section,TunnelFurnitureUsageValue>>  [0..*] !Specifies the actual uses of the TunnelFurniture.
+ 
+!{set:cellbgcolor:#FFFFFF} adeOfTunnelFurniture  !<<ADEOfTunnelFurniture-section,ADEOfTunnelFurniture>>  [0..*] !Augments the TunnelFurniture with properties defined in an ADE.
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attributes and role names have the stereotype «Property».
+|=== 
+
+[[TunnelInstallation-section]]
+[cols="1a"]
+|===
+|*TunnelInstallation* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! A TunnelInstallation is a permanent part of a Tunnel (inside and/or outside) which does not have the significance of a TunnelPart. In contrast to TunnelConstructiveElement, a TunnelInstallation is not essential from a structural point of view. Examples are stairs, antennas or railings. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! <<AbstractInstallation-section,AbstractInstallation>> 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «FeatureType»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} class  !<<TunnelInstallationClassValue-section,TunnelInstallationClassValue>>  [0..1] !Indicates the specific type of the TunnelInstallation.
+ 
+!{set:cellbgcolor:#FFFFFF} function  !<<TunnelInstallationFunctionValue-section,TunnelInstallationFunctionValue>>  [0..*] !Specifies the intended purposes of the TunnelInstallation.
+ 
+!{set:cellbgcolor:#FFFFFF} usage  !<<TunnelInstallationUsageValue-section,TunnelInstallationUsageValue>>  [0..*] !Specifies the actual uses of the TunnelInstallation.
+ 
+!{set:cellbgcolor:#FFFFFF} adeOfTunnelInstallation  !<<ADEOfTunnelInstallation-section,ADEOfTunnelInstallation>>  [0..*] !Augments the TunnelInstallation with properties defined in an ADE.
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attributes and role names have the stereotype «Property».
+|=== 
+
+[[TunnelPart-section]]
+[cols="1a"]
+|===
+|*TunnelPart* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! A TunnelPart is a physical or functional subdivision of a Tunnel. It would be considered a Tunnel, if it were not part of a collection of other TunnelParts. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! <<AbstractTunnel-section,AbstractTunnel>> 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «FeatureType»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} adeOfTunnelPart  !<<ADEOfTunnelPart-section,ADEOfTunnelPart>>  [0..*] !Augments the TunnelPart with properties defined in an ADE.
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attributes and role names have the stereotype «Property».
+|===   
+
+==== Data Types
+
+[[ADEOfAbstractTunnel-section]]
+[cols="1a"]
+|===
+|*ADEOfAbstractTunnel*
+[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! ADEOfAbstractTunnel acts as a hook to define properties within an ADE that are to be added to AbstractTunnel. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! None 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «DataType»
+!===
+|=== 
+
+[[ADEOfHollowSpace-section]]
+[cols="1a"]
+|===
+|*ADEOfHollowSpace*
+[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! ADEOfHollowSpace acts as a hook to define properties within an ADE that are to be added to a HollowSpace. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! None 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «DataType»
+!===
+|=== 
+
+[[ADEOfTunnel-section]]
+[cols="1a"]
+|===
+|*ADEOfTunnel*
+[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! ADEOfTunnel acts as a hook to define properties within an ADE that are to be added to a Tunnel. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! None 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «DataType»
+!===
+|=== 
+
+[[ADEOfTunnelConstructiveElement-section]]
+[cols="1a"]
+|===
+|*ADEOfTunnelConstructiveElement*
+[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! ADEOfTunnelConstructiveElement acts as a hook to define properties within an ADE that are to be added to a TunnelConstructiveElement. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! None 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «DataType»
+!===
+|=== 
+
+[[ADEOfTunnelFurniture-section]]
+[cols="1a"]
+|===
+|*ADEOfTunnelFurniture*
+[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! ADEOfTunnelFurniture acts as a hook to define properties within an ADE that are to be added to a TunnelFurniture. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! None 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «DataType»
+!===
+|=== 
+
+[[ADEOfTunnelInstallation-section]]
+[cols="1a"]
+|===
+|*ADEOfTunnelInstallation*
+[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! ADEOfTunnelInstallation acts as a hook to define properties within an ADE that are to be added to a TunnelInstallation. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! None 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «DataType»
+!===
+|=== 
+
+[[ADEOfTunnelPart-section]]
+[cols="1a"]
+|===
+|*ADEOfTunnelPart*
+[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! ADEOfTunnelPart acts as a hook to define properties within an ADE that are to be added to a TunnelPart. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! None 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «DataType»
+!===
+|===   
+
+==== Basic Types
+
+none
+
+==== Unions
+
+none
+
+==== Code Lists
+
+[[HollowSpaceClassValue-section]]
+[cols="1a"]
+|===
+|*HollowSpaceClassValue* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! HollowSpaceClassValue is a code list used to further classify a HollowSpace. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «CodeList»
+!===
+|=== 
+
+[[HollowSpaceFunctionValue-section]]
+[cols="1a"]
+|===
+|*HollowSpaceFunctionValue* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! HollowSpaceFunctionValue is a code list that enumerates the different purposes of a HollowSpace. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «CodeList»
+!===
+|=== 
+
+[[HollowSpaceUsageValue-section]]
+[cols="1a"]
+|===
+|*HollowSpaceUsageValue* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! HollowSpaceUsageValue is a code list that enumerates the different uses of a HollowSpace. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «CodeList»
+!===
+|=== 
+
+[[TunnelClassValue-section]]
+[cols="1a"]
+|===
+|*TunnelClassValue* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! TunnelClassValue is a code list used to further classify a Tunnel. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «CodeList»
+!===
+|=== 
+
+[[TunnelConstructiveElementClassValue-section]]
+[cols="1a"]
+|===
+|*TunnelConstructiveElementClassValue* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! TunnelConstructiveElementClassValue is a code list used to further classify a TunnelConstructiveElement. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «CodeList»
+!===
+|=== 
+
+[[TunnelConstructiveElementFunctionValue-section]]
+[cols="1a"]
+|===
+|*TunnelConstructiveElementFunctionValue* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! TunnelConstructiveElementFunctionValue is a code list that enumerates the different purposes of a TunnelConstructiveElement. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «CodeList»
+!===
+|=== 
+
+[[TunnelConstructiveElementUsageValue-section]]
+[cols="1a"]
+|===
+|*TunnelConstructiveElementUsageValue* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! TunnelConstructiveElementUsageValue is a code list that enumerates the different uses of a TunnelConstructiveElement. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «CodeList»
+!===
+|=== 
+
+[[TunnelFunctionValue-section]]
+[cols="1a"]
+|===
+|*TunnelFunctionValue* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! TunnelFunctionValue is a code list that enumerates the different purposes of a Tunnel. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «CodeList»
+!===
+|=== 
+
+[[TunnelFurnitureClassValue-section]]
+[cols="1a"]
+|===
+|*TunnelFurnitureClassValue* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! TunnelFurnitureClassValue is a code list used to further classify a TunnelFurniture. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «CodeList»
+!===
+|=== 
+
+[[TunnelFurnitureFunctionValue-section]]
+[cols="1a"]
+|===
+|*TunnelFurnitureFunctionValue* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! TunnelFurnitureFunctionValue is a code list that enumerates the different purposes of a TunnelFurniture. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «CodeList»
+!===
+|=== 
+
+[[TunnelFurnitureUsageValue-section]]
+[cols="1a"]
+|===
+|*TunnelFurnitureUsageValue* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! TunnelFurnitureUsageValue is a code list that enumerates the different uses of a TunnelFurniture. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «CodeList»
+!===
+|=== 
+
+[[TunnelInstallationClassValue-section]]
+[cols="1a"]
+|===
+|*TunnelInstallationClassValue* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! TunnelInstallationClassValue is a code list used to further classify a TunnelInstallation. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «CodeList»
+!===
+|=== 
+
+[[TunnelInstallationFunctionValue-section]]
+[cols="1a"]
+|===
+|*TunnelInstallationFunctionValue* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! TunnelInstallationFunctionValue is a code list that enumerates the different purposes of a TunnelInstallation. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «CodeList»
+!===
+|=== 
+
+[[TunnelInstallationUsageValue-section]]
+[cols="1a"]
+|===
+|*TunnelInstallationUsageValue* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! TunnelInstallationUsageValue is a code list that enumerates the different uses of a TunnelInstallation. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «CodeList»
+!===
+|=== 
+
+[[TunnelUsageValue-section]]
+[cols="1a"]
+|===
+|*TunnelUsageValue* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! TunnelUsageValue is a code list that enumerates the different uses of a Tunnel. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «CodeList»
+!===
+|===   
+
+==== Enumerations
+
+none

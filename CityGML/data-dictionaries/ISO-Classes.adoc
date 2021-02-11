@@ -1,0 +1,376 @@
+[[AnyFeature-section]]
+==== Class AnyFeature <<iso19109,(ISO 19109:2015)>>
+
+[cols="1a"]
+|===
+|*AnyFeature* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! AnyFeature is an abstract class that is the generalization of all feature types. AnyFeature is an instance of the «metaclass» FeatureType [cf. ISO 19109]. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass Of: ! none 
+!{nbsp}{nbsp}{nbsp}{nbsp}StereoType: !  «FeatureType»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Role name* !*Target class and multiplicity*  !*Definition*
+!{set:cellbgcolor:#FFFFFF}   
+!<<FeatureType-section,FeatureType>>  
+[1..1]
+!
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attribute and role names have the stereotype «Property»
+|=== 
+
+[[CV_DiscreteGridPointCoverage-section]]
+==== Class CV_DiscreteGridPointCoverage <<iso19123,(ISO 19123:2005)>>
+
+[cols="1a"]
+|===
+|*CV_DiscreteGridPointCoverage* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: !A coverage that returns the same feature attribute values for every direct position within any single spatial object, temporal object or spatiotemporal object in its domain.  
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass Of: ! <<CV_DiscreteCoverage-section,CV_DiscreteCoverage>> 
+!{nbsp}{nbsp}{nbsp}{nbsp}StereoType: !  «type»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Role name* !*Target class and multiplicity*  !*Definition*
+!{set:cellbgcolor:#FFFFFF} element  
+!<<CV_GridPointValuePair-section,CV_GridPointValuePair>>  
+[1..*]
+!
+!{set:cellbgcolor:#FFFFFF} valueAssignment  
+!<<CV_GridValuesMatrix-section,CV_GridValuesMatrix>>  
+[1..1]
+!
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attribute and role names have the stereotype «Property»
+|=== 
+
+[[DirectPosition-section]]
+==== Class DirectPosition <<iso19107,(ISO 19107: 2003)>>
+
+[cols="1a"]
+|===
+|*DirectPosition* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! DirectPosition object data types (Figure 14) hold the coordinates for a position within some coordinate reference system. The coordinate reference system is described in ISO 19111. Since DirectPositions, as data types, will often be included in larger objects (such as GM_Objects) that have references to ISO19111::SC_CRS, the DirectPosition::cordinateReferenceSystem may be left NULL if this particular DirectPosition is included in a larger object with such a reference to a SC_CRS. In this case, the DirectPosition::cordinateReferenceSystem is implicitly assumed to take on the value of the containing object's SC_CRS.  
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass Of: ! None 
+!{nbsp}{nbsp}{nbsp}{nbsp}StereoType: ! None 
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Role name* !*Target class and multiplicity*  !*Definition*
+!{set:cellbgcolor:#FFFFFF} CRS !<<CRS-section,CRS>> [0..1]!
+!{set:cellbgcolor:#FFFFFF} CRS !<<SC_CRS-section,SC_CRS>> [0..1]!
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+!{set:cellbgcolor:#FFFFFF} coordinate   !Sequence<<<number-section,Number>>> [1..1]!
+!{set:cellbgcolor:#FFFFFF} dimension   !<<Integer-section,Integer>> [1..1] !
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attribute and role names have the stereotype «Property»
+|=== 
+
+[[GM_Object-section]]
+==== Class GM_Object <<iso19107,(ISO 19107: 2003)>>
+
+[cols="1a"]
+|===
+|*GM_Object* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! GM_Object is the root class of the geometric object taxonomy and supports interfaces common to all geographically referenced geometric objects. GM_Object instances are sets of direct positions in a particular coordinate reference system. A GM_Object can be regarded as an infinite set of points that satisfies the set operation interfaces for a set of direct positions, TransfiniteSet<DirectPosition>. Since an infinite collection class cannot be implemented directly, a Boolean test for inclusion shall be provided by the GM_Object interface. This international standard concentrates on vector geometry classes, but future work may use GM_Object as a root class without modification.
+NOTE As a type, GM_Object does not have a well-defined default state or value representation as a data type. Instantiated subclasses of GM_Object will. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass Of: ! none 
+!{nbsp}{nbsp}{nbsp}{nbsp}StereoType: !  «type»
+!{nbsp}{nbsp}{nbsp}{nbsp}Constraint: ! dimension() >  boundary().dimension (Invariant):     
+!{nbsp}{nbsp}{nbsp}{nbsp}Constraint: ! boundary().notEmpty() implies boundary().dimension() = dimension() -1 (Invariant):     
+!{nbsp}{nbsp}{nbsp}{nbsp}Constraint: ! boundary().isEmpty() = isCycle() (Invariant):     
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Role name* !*Target class and multiplicity*  !*Definition*
+!{set:cellbgcolor:#FFFFFF}   
+!<<Geometry-section,Geometry>> [1..1]
+!
+!{set:cellbgcolor:#FFFFFF}   
+!TransfiniteSet<<<DirectPosition-section,DirectPosition>>>  
+[1..1]
+!
+!{set:cellbgcolor:#FFFFFF}   
+!<<CV_DomainObject-section,CV_DomainObject>>  
+[1..1]
+!
+!{set:cellbgcolor:#FFFFFF} CRS  
+!<<CRS-section,CRS>>  
+[0..1]
+!
+!{set:cellbgcolor:#FFFFFF} CRS  
+!<<SC_CRS-section,SC_CRS>>  
+[0..1]
+!
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attribute and role names have the stereotype «Property»
+|=== 
+
+[[GM_MultiCurve-section]]
+==== Class GM_MultiCurve <<iso19107,(ISO 19107: 2003)>>
+
+[cols="1a"]
+|===
+|*GM_MultiCurve* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: !An aggregate class containing only instances of GM_OrientableCurve. The association role “element” shall be the set of GM_OrientableCurves contained in this GM_MultiCurve.  
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass Of: ! <<GM_MultiPrimitive-section,GM_MultiPrimitive>> 
+!{nbsp}{nbsp}{nbsp}{nbsp}StereoType: !  «type»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} length  !<<Length-section,Length>> [1..1] !
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attribute and role names have the stereotype «Property»
+|=== 
+
+[[GM_MultiPoint-section]]
+==== Class GM_MultiPoint <<iso19107,(ISO 19107:2003)>>
+
+[cols="1a"]
+|===
+|*GM_MultiPoint* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! GM_MultiPoint is an aggregate class containing only points. The association role “element” shall be the set of GM_Points contained in this GM_MultiPoint. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass Of: ! <<GM_MultiPrimitive-section,GM_MultiPrimitive>> 
+!{nbsp}{nbsp}{nbsp}{nbsp}StereoType: !  «type»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} position   !Set<<<DirectPosition-section,DirectPosition>>> [1..1] !
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attribute and role names have the stereotype «Property»
+|=== 
+
+[[GM_MultiSurface-section]]
+==== Class GM_MultiSurface <<iso19107,(ISO 19107:2003)>>
+
+[cols="1a"]
+|===
+|*GM_MultiSurface* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: !An aggregate class containing only instances of GM_OrientableSurface. The association role “element” shall be the set of GM_OrientableSurfaces contained in this GM_MultiSurface.  
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass Of: ! <<GM_MultiPrimitive-section,GM_MultiPrimitive>> 
+!{nbsp}{nbsp}{nbsp}{nbsp}StereoType: !  «type»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} area   !<<Area-section,Area>> [1..1] !
+ 
+!{set:cellbgcolor:#FFFFFF} perimeter   !<<Length-section,Length>> [1..1] !
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attribute and role names have the stereotype «Property»
+|=== 
+
+[[GM_Point-section]]
+==== Class GM_Point <<iso19107,(ISO 19107:2003)>>
+
+[cols="1a"]
+|===
+|*GM_Point* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! GM_Point is the basic data type for a geometric object consisting of one and only one point.  
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass Of: ! <<GM_Primitive-section,GM_Primitive>> 
+!{nbsp}{nbsp}{nbsp}{nbsp}StereoType: !  «type»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Role name* !*Target class and multiplicity*  !*Definition*
+!{set:cellbgcolor:#FFFFFF}   
+!<<Point-section,Point>>  
+[1..1]
+!
+!{set:cellbgcolor:#FFFFFF} composite  
+!<<GM_CompositePoint-section,GM_CompositePoint>>  
+[0..*]
+!
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} position   !<<DirectPosition-section,DirectPosition>> [1..1]  !The attribute "position" shall be the DirectPosition of this GM_Point.
+GM_Point::position [1] : DirectPosition
+NOTE In most cases, the state of a GM_Point is fully determined by its position attribute. The only exception to this is if the GM_Point has been subclassed to provide additional non-geometric information such as symbology.
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attribute and role names have the stereotype «Property»
+|=== 
+
+[[GM_Solid-section]]
+==== Class GM_Solid <<iso19107,(ISO 19107:2003)>>
+
+[cols="1a"]
+|===
+|*GM_Solid* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: !GM_Solid, a subclass of GM_Primitive, is the basis for 3-dimensional geometry. The extent of a solid is defined by the boundary surfaces. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass Of: ! <<GM_Primitive-section,GM_Primitive>> 
+!{nbsp}{nbsp}{nbsp}{nbsp}StereoType: !  «type»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Role name* !*Target class and multiplicity*  !*Definition*
+!{set:cellbgcolor:#FFFFFF} composite  
+!<<GM_CompositeSolid-section,GM_CompositeSolid>>  
+[0..*]
+!
+!{set:cellbgcolor:#FFFFFF}   
+!<<Solid-section,Solid>>  
+[1..1]
+!
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attribute and role names have the stereotype «Property»
+|=== 
+
+[[GM_Surface-section]]
+==== Class GM_Surface <<iso19107,(ISO 19107:2003)>>
+
+[cols="1a"]
+|===
+|*GM_Surface* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! GM_Surface is a subclass of GM_Primitive and is the basis for 2-dimensional geometry. Unorientable surfaces such as the Möbius band are not allowed. The orientation of a surface chooses an "up" direction through the choice of the upward normal, which, if the surface is not a cycle, is the side of the surface from which the exterior boundary appears counterclockwise. Reversal of the surface orientation reverses the curve orientation of each boundary component, and interchanges the conceptual "up" and "down" direction of the surface. If the surface is the boundary of a solid, the "up" direction is usually outward. For closed surfaces, which have no boundary, the up direction is that of the surface patches, which must be consistent with one another. Its included GM_SurfacePatches describe the interior structure of a GM_Surface.
+NOTE Other than the restriction on orientability, no other "validity" condition is required for GM_Surface. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass Of: ! <<GM_OrientableSurface-section,GM_OrientableSurface>> 
+!{nbsp}{nbsp}{nbsp}{nbsp}StereoType: !  «type»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Role name* !*Target class and multiplicity*  !*Definition*
+!{set:cellbgcolor:#FFFFFF}   
+!<<GM_GenericSurface-section,GM_GenericSurface>>  
+[1..1]
+!
+!{set:cellbgcolor:#FFFFFF}   
+!<<Building-section,Building>>  
+[0..*]
+!
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attribute and role names have the stereotype «Property»
+|=== 
+
+[[GM_Tin-section]]
+==== Class GM_Tin <<iso19107,(ISO 19107:2003)>>
+
+[cols="1a"]
+|===
+|*GM_Tin* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! A GM_Tin is a GM_TriangulatedSurface that uses the Delaunay algorithm or a similar algorithm complemented with consideration for breaklines, stoplines and maximum length of triangle sides (Figure 22). These networks satisfy the Delaunay criterion away from the modifications: For each triangle in the network, the circle passing through its vertexes does not contain, in its interior, the vertex of any other triangle. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass Of: ! <<GM_TriangulatedSurface-section,GM_TriangulatedSurface>> 
+!{nbsp}{nbsp}{nbsp}{nbsp}StereoType: !  «type»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} breakLines   !Set<<<GM_LineString-section,GM_LineString>>> [1..1] !
+ 
+!{set:cellbgcolor:#FFFFFF} controlPoint   !<<GM_Position-section,GM_Position>>  [3..*] !
+ 
+!{set:cellbgcolor:#FFFFFF} maxLength   !<<Distance-section,Distance>> [1..1] !
+ 
+!{set:cellbgcolor:#FFFFFF} stopLines   !Set<<<GM_LineString-section,GM_LineString>>> [1..1] !
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attribute and role names have the stereotype «Property»
+|=== 
+
+[[GM_TriangulatedSurface-section]]
+==== Class GM_TriangulatedSurface <<iso19107,(ISO 19107:2003)>>
+
+[cols="1a"]
+|===
+|*GM_TriangulatedSurface* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! A GM_TriangulatedSurface is a GM_PolyhedralSurface that is composed only of triangles (GM_Triangle). There is no restriction on how the triangulation is derived.  
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass Of: ! <<GM_PolyhedralSurface-section,GM_PolyhedralSurface>> 
+!{nbsp}{nbsp}{nbsp}{nbsp}StereoType: !  «type»
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attribute and role names have the stereotype «Property»
+|=== 
+
+[[SC_CRS-section]]
+==== Class SC_CRS <<iso19111,(ISO 19111:2019)>>
+
+[cols="1a"]
+|===
+|*SC_CRS* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! Coordinate reference system which is usually single but may be compound. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass Of: ! <<IO_IdentifiedObjectBase-section,IO_IdentifiedObjectBase>>, <<RS_ReferenceSystem-section,RS_ReferenceSystem>> 
+!{nbsp}{nbsp}{nbsp}{nbsp}StereoType: !  «type»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Role name* !*Target class and multiplicity*  !*Definition*
+!{set:cellbgcolor:#FFFFFF} coordOperationTo  
+!<<CC_CoordinateOperation-section,CC_CoordinateOperation>>  
+[0..*]
+!Not-navigable association from a Coordinate Operation that uses ths CRS as its targetCRS. 
+!{set:cellbgcolor:#FFFFFF} grid  
+!<<CV_ReferenceableGrid-section,CV_ReferenceableGrid>>  
+[0..*]
+!
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} scope   !<<CharacterString-section,CharacterString>>  [1..*] !Description of usage, or limitations of usage, for which this CRS is valid. If unknown, enter "not known".
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attribute and role names have the stereotype «Property»
+|=== 
+
+[[TM_Position-section]]
+==== Class TM_Position <<iso19108,(ISO 19108:2006)>>
+
+[cols="1a"]
+|===
+|*TM_Position* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! TM_Position is a union class that consists of one of the data types listed as its attributes. Date, Time, and DateTime are basic data types defined in ISO/TS 19103. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass Of: ! None 
+!{nbsp}{nbsp}{nbsp}{nbsp}StereoType: !  «Union»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} anyOther   !<<TM_TemporalPosition-section,TM_TemporalPosition>> [1..1] !
+ 
+!{set:cellbgcolor:#FFFFFF} date8601   !<<Date-section,Date>> [1..1] !
+ 
+!{set:cellbgcolor:#FFFFFF} time8601   !<<Time-section,Time>> [1..1] !
+ 
+!{set:cellbgcolor:#FFFFFF} dateTime8601   !<<DateTime-section,DateTime>> [1..1] !
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attribute and role names have the stereotype «Property»
+|=== 
+
