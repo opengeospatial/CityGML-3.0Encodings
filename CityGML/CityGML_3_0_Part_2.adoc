@@ -17,9 +17,9 @@
 |[big]*Open Geospatial Consortium*
 |Submission Date: <yyyy-mm-dd>
 |Approval Date:   <yyyy-mm-dd>
-|Publication Date:   <2021-02-01>
+|Publication Date:   <2021-02-11>
 |External identifier of this OGC(R) document: http://www.opengis.net/doc/IS/CityGML-2/3.0
-|Internal reference number of this OGC(R) document:    YY-nnnrx
+|Internal reference number of this OGC(R) document:    21-006
 |Version: 0.1
 |Category: OGC(R) Implementation Specification
 |Editor:   Charles Heazel

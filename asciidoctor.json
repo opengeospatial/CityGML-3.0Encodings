@@ -1,0 +1,17 @@
+{
+        "0":  {
+                "OGC_doc_number": "21-006",
+                "urn":"http://www.opengis.net/doc/IS/CityGML-2/3.0",
+                "title":"OGC City Geography Markup Language (CityGML) Part 2: GML Encoding Standard",
+                "path":"CityGML/CityGML_3_0_Part_2.adoc",
+                "options": ["--trace"],
+                "a":[
+                        "data-uri",
+                        "stylesdir=./resources/stylesheets",
+                        "dot=/usr/bin/dot"
+                ],
+                "r":[
+                        "asciidoctor-diagram"
+                ]
+        }
+ }
