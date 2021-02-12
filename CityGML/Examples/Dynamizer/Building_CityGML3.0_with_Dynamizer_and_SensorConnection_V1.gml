@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <!--
   Example file containing a building with thematic surfaces plus geometries in LOD2. 
-  The first RoofSurface feature has a generic attribute storing the result of a solar potential
-  analysis, i.e. the diffuse sunlight irradiation energy (measured in kW/h). A Dynamizer feature 
-  is included (within the RoofSurface feature) which provides the monthly time series values 
-  for the generic attribute for one year. The time series values are represented inline within
-  the Dynamizer feature.
+  The Building feature contains a BuildingRoom feature without geometry. 
+  The room has a generic attribute storing its current air temperature value.
+  A Dynamizer feature is included (within the respective BuildingRoom feature) establishing
+  an explicit link to an external sensor service that measures the room's temperature. 
+  The external sensor service is connected via the OGC SensorThings API. 
+  The Dynamizer links one specific datastream of the sensor node (the one with the 
+  temperature readings) to the temperature property of the room.
 -->
 <CityModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://www.opengis.net/citygml/3.0 ../Schema/cityGMLBase.xsd http://www.opengis.net/citygml/generics/3.0 ../Schema/generics.xsd http://www.opengis.net/citygml/construction/3.0 ../Schema/construction.xsd http://www.opengis.net/citygml/building/3.0 ../Schema/building.xsd http://www.opengis.net/citygml/dynamizer/3.0 ../Schema/dynamizer.xsd"
  xmlns="http://www.opengis.net/citygml/3.0"
  xmlns:gen="http://www.opengis.net/citygml/generics/3.0"
- xmlns:xAL="urn:oasis:names:tc:ciq:xsdschema:xAL:2.0"
+ xmlns:xAL="urn:oasis:names:tc:ciq:xal:3"
  xmlns:con="http://www.opengis.net/citygml/construction/3.0"
  xmlns:bldg="http://www.opengis.net/citygml/building/3.0"
  xmlns:dyn="http://www.opengis.net/citygml/dynamizer/3.0"
@@ -31,102 +33,6 @@
       <creationDate>2014-10-08T00:00:00</creationDate>
       <boundary>
         <con:RoofSurface gml:id="DEBY_LOD2_5744682_roofsurface1">
-          <genericAttribute>
-            <gen:DoubleAttribute>
-              <gen:name>diffuse_irradiation</gen:name>
-              <gen:value>1454.63</gen:value>
-            </gen:DoubleAttribute>
-          </genericAttribute>
-          <dynamizer>
-            <dyn:Dynamizer gml:id="roofsurface1_Dynamizer">
-              <dyn:attributeRef>
-                //con:RoofSurface[@gml:id='DEBY_LOD2_5744682_roofsurface1']/genericAttribute/gen:DoubleAttribute[name='diffuse_irradiation']/gen:value
-              </dyn:attributeRef> 
-              <dyn:startTime>2019-01-01T00:00:00Z</dyn:startTime>
-              <dyn:endTime>2020-01-01T00:00:00Z</dyn:endTime>
-              <dyn:dynamicData>
-                <dyn:GenericTimeseries>
-                  <dyn:firstTimestamp>2019-01-01T00:00:00Z</dyn:firstTimestamp>
-                  <dyn:lastTimestamp>2019-12-01T00:00:00Z</dyn:lastTimestamp>
-                  <dyn:observationProperty>DiffuseIrradiationPerMonth</dyn:observationProperty>
-                  <dyn:uom>kWh</dyn:uom>
-                  <dyn:valueType>double</dyn:valueType>
-                  <dyn:timeValuePair>
-                    <dyn:TimeValuePair>
-                      <dyn:timestamp>2019-01</dyn:timestamp>
-                      <dyn:doubleValue>1454.63</dyn:doubleValue>
-                    </dyn:TimeValuePair>
-                  </dyn:timeValuePair>
-                  <dyn:timeValuePair>
-                    <dyn:TimeValuePair>
-                      <dyn:timestamp>2019-02</dyn:timestamp>
-                      <dyn:doubleValue>1866.83</dyn:doubleValue>
-                    </dyn:TimeValuePair>
-                  </dyn:timeValuePair>
-                  <dyn:timeValuePair>
-                    <dyn:TimeValuePair>
-                      <dyn:timestamp>2019-03</dyn:timestamp>
-                      <dyn:doubleValue>1998.43</dyn:doubleValue>
-                    </dyn:TimeValuePair>
-                  </dyn:timeValuePair>
-                  <dyn:timeValuePair>
-                    <dyn:TimeValuePair>
-                      <dyn:timestamp>2019-04</dyn:timestamp>
-                      <dyn:doubleValue>2152.07</dyn:doubleValue>
-                    </dyn:TimeValuePair>
-                  </dyn:timeValuePair>
-                  <dyn:timeValuePair>
-                    <dyn:TimeValuePair>
-                      <dyn:timestamp>2019-05</dyn:timestamp>
-                      <dyn:doubleValue>2381.81</dyn:doubleValue>
-                    </dyn:TimeValuePair>
-                  </dyn:timeValuePair>
-                  <dyn:timeValuePair>
-                    <dyn:TimeValuePair>
-                      <dyn:timestamp>2019-06</dyn:timestamp>
-                      <dyn:doubleValue>2511.77</dyn:doubleValue>
-                    </dyn:TimeValuePair>
-                  </dyn:timeValuePair>
-                  <dyn:timeValuePair>
-                    <dyn:TimeValuePair>
-                      <dyn:timestamp>2019-07</dyn:timestamp>
-                      <dyn:doubleValue>2480.00</dyn:doubleValue>
-                    </dyn:TimeValuePair>
-                  </dyn:timeValuePair>
-                  <dyn:timeValuePair>
-                    <dyn:TimeValuePair>
-                      <dyn:timestamp>2019-08</dyn:timestamp>
-                      <dyn:doubleValue>2307.56</dyn:doubleValue>
-                    </dyn:TimeValuePair>
-                  </dyn:timeValuePair>
-                  <dyn:timeValuePair>
-                    <dyn:TimeValuePair>
-                      <dyn:timestamp>2019-09</dyn:timestamp>
-                      <dyn:doubleValue>2087.42</dyn:doubleValue>
-                    </dyn:TimeValuePair>
-                  </dyn:timeValuePair>
-                  <dyn:timeValuePair>
-                    <dyn:TimeValuePair>
-                      <dyn:timestamp>2019-10</dyn:timestamp>
-                      <dyn:doubleValue>1903.98</dyn:doubleValue>
-                    </dyn:TimeValuePair>
-                  </dyn:timeValuePair>
-                  <dyn:timeValuePair>
-                    <dyn:TimeValuePair>
-                      <dyn:timestamp>2019-11</dyn:timestamp>
-                      <dyn:doubleValue>1707.01</dyn:doubleValue>
-                    </dyn:TimeValuePair>
-                  </dyn:timeValuePair>
-                  <dyn:timeValuePair>
-                    <dyn:TimeValuePair>
-                      <dyn:timestamp>2019-12</dyn:timestamp>
-                      <dyn:doubleValue>1391.29</dyn:doubleValue>
-                    </dyn:TimeValuePair>
-                  </dyn:timeValuePair>
-                </dyn:GenericTimeseries>
-              </dyn:dynamicData>                  
-            </dyn:Dynamizer>
-          </dynamizer>
           <lod2MultiSurface>
             <gml:MultiSurface gml:id="DEBY_LOD2_5744682_5e13d1c8-7fb5-479f-9794-7b9e1f89ca1e_msl_N65598">
               <gml:surfaceMember>
@@ -338,20 +244,61 @@
       </lod2Solid>
       <bldg:function>31001_9998</bldg:function>
       <bldg:roofType>3100</bldg:roofType>
+      <bldg:buildingRoom>
+        <bldg:BuildingRoom gml:id="DEBY_LOD2_5744682_room1">
+          <gml:name>Living Room</gml:name>
+          <genericAttribute>
+            <gen:DoubleAttribute>
+              <gen:name>temperature</gen:name>
+              <gen:value>20.2</gen:value>
+            </gen:DoubleAttribute>
+           </genericAttribute>
+           <dynamizer>
+             <dyn:Dynamizer gml:id="room1_Dynamizer">
+               <dyn:attributeRef>
+                //bldg:BuildingRoom[@gml:id='DEBY_LOD2_5744682_room1']/genericAttribute/gen:DoubleAttribute[name='temperature']/gen:value
+               </dyn:attributeRef> 
+               <dyn:startTime>2019-01-01T00:00:00Z</dyn:startTime>
+               <dyn:endTime>2020-01-01T00:00:00Z</dyn:endTime>
+               <dyn:sensorConnection>
+                 <dyn:SensorConnection> 
+                   <dyn:connectionType>ogc_sta_1.0</dyn:connectionType>
+                   <dyn:observationProperty>Temperature</dyn:observationProperty>
+                   <dyn:uom>Celsius</dyn:uom>
+                   <dyn:datastreamID>1</dyn:datastreamID>
+                   <dyn:baseURL>http://127.0.0.1:8080/FROST-Server/v1.0</dyn:baseURL>
+                   <dyn:authType>none</dyn:authType>
+                   <dyn:linkToObservation>
+                    %baseURL%/Datastreams(%datastreamID%)/Observations?$filter=during(phenomenonTime, %startTime%/%endTime%)
+                   </dyn:linkToObservation>
+                   <dyn:linkToSensorDescription>
+                    %baseURL%/Datastreams(%datastreamID%)/Sensor	
+                   </dyn:linkToSensorDescription>
+                   <dyn:sensorLocation xlink:href="#DEBY_LOD2_5744682_room1"></dyn:sensorLocation>
+                </dyn:SensorConnection> 
+              </dyn:sensorConnection>
+            </dyn:Dynamizer>
+          </dynamizer>
+        </bldg:BuildingRoom>
+      </bldg:buildingRoom>     
       <bldg:address>
         <Address gml:id="fme-gen-0355784d-2ffc-4c46-b812-c4d08d6a3f81">
           <xalAddress>
-            <xAL:AddressDetails>
+            <xAL:Address>
               <xAL:Country>
-                <xAL:CountryName>Germany</xAL:CountryName>
-                <xAL:Locality Type="Town">
-                  <xAL:LocalityName>Moosach</xAL:LocalityName>
-                  <xAL:Thoroughfare Type="Street">
-                    <xAL:ThoroughfareName>Am Hang 15</xAL:ThoroughfareName>
-                  </xAL:Thoroughfare>
-                </xAL:Locality>
+                <xAL:NameElement xAL:NameType="Name">Germany</xAL:NameElement>
               </xAL:Country>
-            </xAL:AddressDetails>
+              <xAL:Locality xAL:Type="Town">
+                <xAL:NameElement xAL:NameType="Name">Moosach</xAL:NameElement>
+              </xAL:Locality>
+              <xAL:Thoroughfare xAL:Type="Street">
+                <xAL:NameElement xAL:NameType="NameAndType">Am Hang</xAL:NameElement>
+                <xAL:Number xAL:Type="Number">15</xAL:Number>
+              </xAL:Thoroughfare>
+              <xAL:PostCode>
+                <xAL:Identifier>85665</xAL:Identifier>
+              </xAL:PostCode>
+            </xAL:Address>
           </xalAddress>
         </Address>
       </bldg:address>

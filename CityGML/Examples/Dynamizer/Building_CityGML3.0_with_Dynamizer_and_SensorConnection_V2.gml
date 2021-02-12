@@ -3,7 +3,7 @@
   Example file containing a building with thematic surfaces plus geometries in LOD2. 
   The Building feature contains a BuildingRoom feature without geometry. 
   The room has a generic attribute storing its current air temperature value.
-  A Dynamizer feature is included (within the respective BuildingRoom feature) establishing
+  A Dynamizer feature is included (on the level of  the Building feature) establishing
   an explicit link to an external sensor service that measures the room's temperature. 
   The external sensor service is connected via the OGC SensorThings API. 
   The Dynamizer links one specific datastream of the sensor node (the one with the 
@@ -13,7 +13,7 @@
  xsi:schemaLocation="http://www.opengis.net/citygml/3.0 ../Schema/cityGMLBase.xsd http://www.opengis.net/citygml/generics/3.0 ../Schema/generics.xsd http://www.opengis.net/citygml/construction/3.0 ../Schema/construction.xsd http://www.opengis.net/citygml/building/3.0 ../Schema/building.xsd http://www.opengis.net/citygml/dynamizer/3.0 ../Schema/dynamizer.xsd"
  xmlns="http://www.opengis.net/citygml/3.0"
  xmlns:gen="http://www.opengis.net/citygml/generics/3.0"
- xmlns:xAL="urn:oasis:names:tc:ciq:xsdschema:xAL:2.0"
+ xmlns:xAL="urn:oasis:names:tc:ciq:xal:3"
  xmlns:con="http://www.opengis.net/citygml/construction/3.0"
  xmlns:bldg="http://www.opengis.net/citygml/building/3.0"
  xmlns:dyn="http://www.opengis.net/citygml/dynamizer/3.0"
@@ -31,6 +31,32 @@
     <bldg:Building gml:id="DEBY_LOD2_5744682">
       <gml:name>DEBY_LOD2_5744682</gml:name>
       <creationDate>2014-10-08T00:00:00</creationDate>
+      <dynamizer>
+        <dyn:Dynamizer gml:id="room1_Dynamizer">
+          <dyn:attributeRef>
+            //bldg:BuildingRoom[@gml:id='DEBY_LOD2_5744682_room1']/genericAttribute/gen:DoubleAttribute[name='temperature']/gen:value
+          </dyn:attributeRef> 
+          <dyn:startTime>2019-01-01T00:00:00Z</dyn:startTime>
+          <dyn:endTime>2020-01-01T00:00:00Z</dyn:endTime>
+          <dyn:sensorConnection>
+            <dyn:SensorConnection> 
+              <dyn:connectionType>ogc_sta_1.0</dyn:connectionType>
+              <dyn:observationProperty>Temperature</dyn:observationProperty>
+              <dyn:uom>Celsius</dyn:uom>
+              <dyn:datastreamID>1</dyn:datastreamID>
+              <dyn:baseURL>http://127.0.0.1:8080/FROST-Server/v1.0</dyn:baseURL>
+              <dyn:authType>none</dyn:authType>
+              <dyn:linkToObservation>
+                %baseURL%/Datastreams(%datastreamID%)/Observations?$filter=during(phenomenonTime, %startTime%/%endTime%)
+              </dyn:linkToObservation>
+              <dyn:linkToSensorDescription>
+                %baseURL%/Datastreams(%datastreamID%)/Sensor	
+              </dyn:linkToSensorDescription>
+              <dyn:sensorLocation xlink:href="#DEBY_LOD2_5744682_room1"></dyn:sensorLocation>
+            </dyn:SensorConnection> 
+          </dyn:sensorConnection>
+        </dyn:Dynamizer>
+      </dynamizer>
       <boundary>
         <con:RoofSurface gml:id="DEBY_LOD2_5744682_roofsurface1">
           <lod2MultiSurface>
@@ -253,48 +279,26 @@
               <gen:value>20.2</gen:value>
             </gen:DoubleAttribute>
            </genericAttribute>
-           <dynamizer>
-             <dyn:Dynamizer gml:id="room1_Dynamizer">
-               <dyn:attributeRef>
-                //bldg:BuildingRoom[@gml:id='DEBY_LOD2_5744682_room1']/genericAttribute/gen:DoubleAttribute[name='temperature']/gen:value
-               </dyn:attributeRef> 
-               <dyn:startTime>2019-01-01T00:00:00Z</dyn:startTime>
-               <dyn:endTime>2020-01-01T00:00:00Z</dyn:endTime>
-               <dyn:sensorConnection>
-                 <dyn:SensorConnection> 
-                   <dyn:connectionType>ogc_sta_1.0</dyn:connectionType>
-                   <dyn:observationProperty>Temperature</dyn:observationProperty>
-                   <dyn:uom>Celsius</dyn:uom>
-                   <dyn:datastreamID>1</dyn:datastreamID>
-                   <dyn:baseURL>http://127.0.0.1:8080/FROST-Server/v1.0</dyn:baseURL>
-                   <dyn:authType>none</dyn:authType>
-                   <dyn:linkToObservation>
-                    %baseURL%/Datastreams(%datastreamID%)/Observations?$filter=during(phenomenonTime, %startTime%/%endTime%)
-                   </dyn:linkToObservation>
-                   <dyn:linkToSensorDescription>
-                    %baseURL%/Datastreams(%datastreamID%)/Sensor	
-                   </dyn:linkToSensorDescription>
-                   <dyn:sensorLocation xlink:href="#DEBY_LOD2_5744682_room1"></dyn:sensorLocation>
-                </dyn:SensorConnection> 
-              </dyn:sensorConnection>
-            </dyn:Dynamizer>
-          </dynamizer>
         </bldg:BuildingRoom>
       </bldg:buildingRoom>     
       <bldg:address>
         <Address gml:id="fme-gen-0355784d-2ffc-4c46-b812-c4d08d6a3f81">
           <xalAddress>
-            <xAL:AddressDetails>
+            <xAL:Address>
               <xAL:Country>
-                <xAL:CountryName>Germany</xAL:CountryName>
-                <xAL:Locality Type="Town">
-                  <xAL:LocalityName>Moosach</xAL:LocalityName>
-                  <xAL:Thoroughfare Type="Street">
-                    <xAL:ThoroughfareName>Am Hang 15</xAL:ThoroughfareName>
-                  </xAL:Thoroughfare>
-                </xAL:Locality>
+                <xAL:NameElement xAL:NameType="Name">Germany</xAL:NameElement>
               </xAL:Country>
-            </xAL:AddressDetails>
+              <xAL:Locality xAL:Type="Town">
+                <xAL:NameElement xAL:NameType="Name">Moosach</xAL:NameElement>
+              </xAL:Locality>
+              <xAL:Thoroughfare xAL:Type="Street">
+                <xAL:NameElement xAL:NameType="NameAndType">Am Hang</xAL:NameElement>
+                <xAL:Number xAL:Type="Number">15</xAL:Number>
+              </xAL:Thoroughfare>
+              <xAL:PostCode>
+                <xAL:Identifier>85665</xAL:Identifier>
+              </xAL:PostCode>
+            </xAL:Address>
           </xalAddress>
         </Address>
       </bldg:address>
