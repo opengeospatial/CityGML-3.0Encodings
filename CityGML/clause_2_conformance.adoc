@@ -1,0 +1,20 @@
+[[conformance-section]]
+
+== Conformance
+
+This standard defines an <<implementation-specification-definition,Implementation Specification>> which specifies how the CityGML 3.0 <<conceptual-model-definition,Conceptual Model>> should be implemented using Geography Markup Language (GML). The <<standardization-target-definition,Standardization Target>> for this standard is:
+
+. Implementations of the CityGML 3.0 <<conceptual-model-definition,Conceptual Model>> using GML encodings.
+
+[[implementation-specification-conformance]]
+=== Implementation Specifications
+
+Implementation Specifications define how a Conceptual Model should be implemented using a specific technology. Conformant Implementation Specifications provide evidence that they are an accurate representation of the Conceptual Model. This evidence includes data demonstrating that the applicable criteria documented in the CityGML 3.0 CM Abstract Test Suite have been satisfied. That evidence is provided in <<annex-cm-conformance>>.
+
+[[conformance-class-section]]
+=== Conformance Classes
+
+This standard identifies seventeen (17) conformance classes. One conformance class is defined for each GML schema. Each conformance class is defined by one requirements class. The tests in <<abstract-test-suite,Annex A>> are organized by Requirements Class. So an implementation of the _Base_ conformance class must pass all tests specified in Annex A for the _Base_ requirements class.
+
+Of these seventeen conformance classes, only the _Base_ conformance class is mandatory. All other conformance classes are optional. In the case where a conformance class has a dependency on another conformance class, that conformance class should also be implemented.
+

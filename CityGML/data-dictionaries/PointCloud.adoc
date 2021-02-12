@@ -1,0 +1,72 @@
+[[PointCloud-package-dd]]
+=== PointCloud
+
+[cols="1,4",frame=none,grid=none]
+|===
+|{nbsp}{nbsp}{nbsp}{nbsp}Description: | The PointCloud module supports representation of CityGML features by a collection of points. 
+|{nbsp}{nbsp}{nbsp}{nbsp}Parent Package: | CityGML
+|{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: | «ApplicationSchema»
+|===
+
+==== Classes
+
+[[PointCloud-section]]
+[cols="1a"]
+|===
+|*PointCloud* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! A PointCloud is an unordered collection of points that is a sampling of the geometry of a space or space boundary. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! <<AbstractPointCloud-section,AbstractPointCloud>> 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «FeatureType»
+!{nbsp}{nbsp}{nbsp}{nbsp}Constraint: ! inlineOrExternalPointCloud (OCL): inv: (points->notEmpty() and mimeType->isEmpty() and pointFile->isEmpty() and pointFileSrsName->isEmpty()) xor (points->isEmpty() and mimeType->notEmpty() and pointFile->notEmpty())    
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Role name* !*Target class and multiplicity*  !*Definition*
+!{set:cellbgcolor:#FFFFFF} points  !<<GM_MultiPoint-section,GM_MultiPoint>> [0..1] !Relates to the 3D MultiPoint geometry of the PointCloud stored inline with the city model.
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} mimeType  !<<MimeTypeValue-section,MimeTypeValue>>  [0..1] !Specifies the MIME type of the external point cloud file.
+ 
+!{set:cellbgcolor:#FFFFFF} pointFile  !<<URI-section,URI>>  [0..1] !Specifies the URI that points to the external point cloud file.
+ 
+!{set:cellbgcolor:#FFFFFF} pointFileSrsName  !<<CharacterString-section,CharacterString>>  [0..1] !Indicates the coordinate reference system used by the external point cloud file.
+ 
+!{set:cellbgcolor:#FFFFFF} adeOfPointCloud  !<<ADEOfPointCloud-section,ADEOfPointCloud>>  [0..*] !Augments the PointCloud with properties defined in an ADE.
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attributes and role names have the stereotype «Property».
+|===   
+
+==== Data Types
+
+[[ADEOfPointCloud-section]]
+[cols="1a"]
+|===
+|*ADEOfPointCloud*
+[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! ADEOfPointCloud acts as a hook to define properties within an ADE that are to be added to a PointCloud. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! None 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «DataType»
+!===
+|===   
+
+==== Basic Types
+
+none
+
+==== Unions
+
+none
+
+==== Code Lists
+
+none
+
+==== Enumerations
+
+none

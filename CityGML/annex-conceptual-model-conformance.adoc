@@ -1,0 +1,8 @@
+[appendix]
+:appendix-caption: Annex
+
+[[annex-cm-conformance]]
+== Conceptual Model Conformance ( Normative )
+
+[NOTE]
+This is where conformance with CityGML 3.0 Conceptual Model is documented. 

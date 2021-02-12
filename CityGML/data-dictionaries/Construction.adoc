@@ -1,0 +1,975 @@
+[[Construction-package-dd]]
+=== Construction
+
+[cols="1,4",frame=none,grid=none]
+|===
+|{nbsp}{nbsp}{nbsp}{nbsp}Description: | The Construction module supports representation of key elements of different types of constructions. These key elements include construction surfaces (e.g floor and ceiling), windows and doors, constructive elements (e.g. beams and slabs), installations, and furniture. 
+|{nbsp}{nbsp}{nbsp}{nbsp}Parent Package: | CityGML
+|{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: | «ApplicationSchema»
+|===
+
+==== Classes
+
+[[AbstractConstruction-section]]
+[cols="1a"]
+|===
+|*AbstractConstruction* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! AbstractConstruction is the abstract superclass for objects that are manufactured by humans from construction materials, are connected to earth, and are intended to be permanent. A connection with the ground also exists when the construction rests by its own weight on the ground or is moveable limited on stationary rails or if the construction is intended to be used mainly stationary. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! <<AbstractOccupiedSpace-section,AbstractOccupiedSpace>> 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «FeatureType»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Role name* !*Target class and multiplicity*  !*Definition*
+!{set:cellbgcolor:#FFFFFF} boundary  !<<AbstractThematicSurface-section,AbstractThematicSurface>> [*] !Relates to the surfaces that bound the construction. This relation is inherited from the Core module.
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} conditionOfConstruction  !<<ConditionOfConstructionValue-section,ConditionOfConstructionValue>>  [0..1] !Indicates the life-cycle status of the construction. [cf. INSPIRE]
+ 
+!{set:cellbgcolor:#FFFFFF} dateOfConstruction  !<<Date-section,Date>>  [0..1] !Indicates the date at which the construction was completed.
+ 
+!{set:cellbgcolor:#FFFFFF} dateOfDemolition  !<<Date-section,Date>>  [0..1] !Indicates the date at which the construction was demolished.
+ 
+!{set:cellbgcolor:#FFFFFF} constructionEvent  !<<ConstructionEvent-section,ConstructionEvent>>  [0..*] !Describes specific events in the life-time of the construction.
+ 
+!{set:cellbgcolor:#FFFFFF} elevation  !<<Elevation-section,Elevation>>  [0..*] !Specifies qualified elevations of the construction in relation to a well-defined surface which is commonly taken as origin (e.g. geoid or water level). [cf. INSPIRE]
+ 
+!{set:cellbgcolor:#FFFFFF} height  !<<Height-section,Height>>  [0..*] !Specifies qualified heights of the construction above ground or below ground. [cf. INSPIRE]
+ 
+!{set:cellbgcolor:#FFFFFF} occupancy  !<<Occupancy-section,Occupancy>>  [0..*] !Provides qualified information on the residency of persons, animals, or other moveable objects in the construction.
+ 
+!{set:cellbgcolor:#FFFFFF} adeOfAbstractConstruction  !<<ADEOfAbstractConstruction-section,ADEOfAbstractConstruction>>  [0..*] !Augments AbstractConstruction with properties defined in an ADE.
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attributes and role names have the stereotype «Property».
+|=== 
+
+[[AbstractConstructionSurface-section]]
+[cols="1a"]
+|===
+|*AbstractConstructionSurface* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! AbstractConstructionSurface is the abstract superclass for different kinds of surfaces that bound a construction. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! <<AbstractThematicSurface-section,AbstractThematicSurface>> 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «FeatureType»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Role name* !*Target class and multiplicity*  !*Definition*
+!{set:cellbgcolor:#FFFFFF} fillingSurface  !<<AbstractFillingSurface-section,AbstractFillingSurface>> [*] !Relates to the surfaces that seal the openings of the construction surface.
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} adeOfAbstractConstructionSurface  !<<ADEOfAbstractConstructionSurface-section,ADEOfAbstractConstructionSurface>>  [0..*] !Augments AbstractConstructionSurface with properties defined in an ADE.
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attributes and role names have the stereotype «Property».
+|=== 
+
+[[AbstractConstructiveElement-section]]
+[cols="1a"]
+|===
+|*AbstractConstructiveElement* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! AbstractConstructiveElement is the abstract superclass for the representation of volumetric elements of a construction. Examples are walls, beams, slabs. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! <<AbstractOccupiedSpace-section,AbstractOccupiedSpace>> 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «FeatureType»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Role name* !*Target class and multiplicity*  !*Definition*
+!{set:cellbgcolor:#FFFFFF} boundary  !<<AbstractThematicSurface-section,AbstractThematicSurface>> [*] !Relates to the surfaces that bound the constructive element. This relation is inherited from the Core module.
+!{set:cellbgcolor:#FFFFFF} filling  !<<AbstractFillingElement-section,AbstractFillingElement>> [*] !Relates to the elements that fill the opening of the constructive element.
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} isStructuralElement  !<<Boolean-section,Boolean>>  [0..1] !Indicates whether the constructive element is essential from a structural point of view. A structural element cannot be omitted without collapsing of the construction. Examples are pylons and anchorages of bridges.
+ 
+!{set:cellbgcolor:#FFFFFF} adeOfAbstractConstructiveElement  !<<ADEOfAbstractConstructiveElement-section,ADEOfAbstractConstructiveElement>>  [0..*] !Augments AbstractConstructiveElement with properties defined in an ADE.
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attributes and role names have the stereotype «Property».
+|=== 
+
+[[AbstractFillingElement-section]]
+[cols="1a"]
+|===
+|*AbstractFillingElement* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! AbstractFillingElement is the abstract superclass for different kinds of elements that fill the openings of a construction. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! <<AbstractOccupiedSpace-section,AbstractOccupiedSpace>> 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «FeatureType»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} adeOfAbstractFillingElement  !<<ADEOfAbstractFillingElement-section,ADEOfAbstractFillingElement>>  [0..*] !Augments AbstractFillingElement with properties defined in an ADE.
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attributes and role names have the stereotype «Property».
+|=== 
+
+[[AbstractFillingSurface-section]]
+[cols="1a"]
+|===
+|*AbstractFillingSurface* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! AbstractFillingSurface is the abstract superclass for different kinds of surfaces that seal openings filled by filling elements. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! <<AbstractThematicSurface-section,AbstractThematicSurface>> 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «FeatureType»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} adeOfAbstractFillingSurface  !<<ADEOfAbstractFillingSurface-section,ADEOfAbstractFillingSurface>>  [0..*] !Augments AbstractFillingSurface with properties defined in an ADE.
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attributes and role names have the stereotype «Property».
+|=== 
+
+[[AbstractFurniture-section]]
+[cols="1a"]
+|===
+|*AbstractFurniture* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! AbstractFurniture is the abstract superclass for the representation of furniture objects of a construction. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! <<AbstractOccupiedSpace-section,AbstractOccupiedSpace>> 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «FeatureType»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} adeOfAbstractFurniture  !<<ADEOfAbstractFurniture-section,ADEOfAbstractFurniture>>  [0..*] !Augments AbstractFurniture with properties defined in an ADE.
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attributes and role names have the stereotype «Property».
+|=== 
+
+[[AbstractInstallation-section]]
+[cols="1a"]
+|===
+|*AbstractInstallation* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! AbstractInstallation is the abstract superclass for the representation of installation objects of a construction. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! <<AbstractOccupiedSpace-section,AbstractOccupiedSpace>> 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «FeatureType»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Role name* !*Target class and multiplicity*  !*Definition*
+!{set:cellbgcolor:#FFFFFF} boundary  !<<AbstractThematicSurface-section,AbstractThematicSurface>> [*] !Relates to the surfaces that bound the installation. This relation is inherited from the Core module.
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} relationToConstruction  !<<RelationToConstruction-section,RelationToConstruction>>  [0..1] !Indicates whether the installation is located inside and/or outside of the construction.
+ 
+!{set:cellbgcolor:#FFFFFF} adeOfAbstractInstallation  !<<ADEOfAbstractInstallation-section,ADEOfAbstractInstallation>>  [0..*] !Augments AbstractInstallation with properties defined in an ADE.
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attributes and role names have the stereotype «Property».
+|=== 
+
+[[CeilingSurface-section]]
+[cols="1a"]
+|===
+|*CeilingSurface* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! A CeilingSurface is a surface that represents the interior ceiling of a construction. An example is the ceiling of a room. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! <<AbstractConstructionSurface-section,AbstractConstructionSurface>> 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «FeatureType»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} adeOfCeilingSurface  !<<ADEOfCeilingSurface-section,ADEOfCeilingSurface>>  [0..*] !Augments the CeilingSurface with properties defined in an ADE.
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attributes and role names have the stereotype «Property».
+|=== 
+
+[[Door-section]]
+[cols="1a"]
+|===
+|*Door* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! A Door is a construction for closing an opening intended primarily for access or egress or both. [cf. ISO 6707-1] 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! <<AbstractFillingElement-section,AbstractFillingElement>> 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «FeatureType»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Role name* !*Target class and multiplicity*  !*Definition*
+!{set:cellbgcolor:#FFFFFF} address  !<<Address-section,Address>> [*] !Relates to the addresses that are assigned to the Door.
+!{set:cellbgcolor:#FFFFFF} boundary  !<<DoorSurface-section,DoorSurface>> [*] !Relates to the door surfaces that bound the Door. This relation is inherited from the Core module.
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} class  !<<DoorClassValue-section,DoorClassValue>>  [0..1] !Indicates the specific type of the Door.
+ 
+!{set:cellbgcolor:#FFFFFF} function  !<<DoorFunctionValue-section,DoorFunctionValue>>  [0..*] !Specifies the intended purposes of the Door.
+ 
+!{set:cellbgcolor:#FFFFFF} usage  !<<DoorUsageValue-section,DoorUsageValue>>  [0..*] !Specifies the actual uses of the Door.
+ 
+!{set:cellbgcolor:#FFFFFF} adeOfDoor  !<<ADEOfDoor-section,ADEOfDoor>>  [0..*] !Augments the Door with properties defined in an ADE.
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attributes and role names have the stereotype «Property».
+|=== 
+
+[[DoorSurface-section]]
+[cols="1a"]
+|===
+|*DoorSurface* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! A DoorSurface is either a boundary surface of a Door feature or a surface that seals an opening filled by a door. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! <<AbstractFillingSurface-section,AbstractFillingSurface>> 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «FeatureType»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Role name* !*Target class and multiplicity*  !*Definition*
+!{set:cellbgcolor:#FFFFFF} address  !<<Address-section,Address>> [*] !Relates to the addresses that are assigned to the DoorSurface.
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} adeOfDoorSurface  !<<ADEOfDoorSurface-section,ADEOfDoorSurface>>  [0..*] !Augments the DoorSurface with properties defined in an ADE.
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attributes and role names have the stereotype «Property».
+|=== 
+
+[[FloorSurface-section]]
+[cols="1a"]
+|===
+|*FloorSurface* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! A FloorSurface is surface that represents the interior floor of a construction. An example is the floor of a room. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! <<AbstractConstructionSurface-section,AbstractConstructionSurface>> 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «FeatureType»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} adeOfFloorSurface  !<<ADEOfFloorSurface-section,ADEOfFloorSurface>>  [0..*] !Augments the FloorSurface with properties defined in an ADE.
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attributes and role names have the stereotype «Property».
+|=== 
+
+[[GroundSurface-section]]
+[cols="1a"]
+|===
+|*GroundSurface* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! A GroundSurface is a surface that represents the ground plate of a construction. The polygon defining the ground plate is congruent with the footprint of the construction. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! <<AbstractConstructionSurface-section,AbstractConstructionSurface>> 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «FeatureType»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} adeOfGroundSurface  !<<ADEOfGroundSurface-section,ADEOfGroundSurface>>  [0..*] !Augments the GroundSurface with properties defined in an ADE.
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attributes and role names have the stereotype «Property».
+|=== 
+
+[[InteriorWallSurface-section]]
+[cols="1a"]
+|===
+|*InteriorWallSurface* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! An InteriorWallSurface is a surface that is visible from inside a construction. An example is the wall of a room. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! <<AbstractConstructionSurface-section,AbstractConstructionSurface>> 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «FeatureType»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} adeOfInteriorWallSurface  !<<ADEOfInteriorWallSurface-section,ADEOfInteriorWallSurface>>  [0..*] !Augments the InteriorWallSurface with properties defined in an ADE.
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attributes and role names have the stereotype «Property».
+|=== 
+
+[[OtherConstruction-section]]
+[cols="1a"]
+|===
+|*OtherConstruction* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! An OtherConstruction is a construction that is not covered by any of the other subclasses of AbstractConstruction. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! <<AbstractConstruction-section,AbstractConstruction>> 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «TopLevelFeatureType»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} class  !<<OtherConstructionClassValue-section,OtherConstructionClassValue>>  [0..1] !Indicates the specific type of the OtherConstruction.
+ 
+!{set:cellbgcolor:#FFFFFF} function  !<<OtherConstructionFunctionValue-section,OtherConstructionFunctionValue>>  [0..*] !Specifies the intended purposes of the OtherConstruction.
+ 
+!{set:cellbgcolor:#FFFFFF} usage  !<<OtherConstructionUsageValue-section,OtherConstructionUsageValue>>  [0..*] !Specifies the actual uses of the OtherConstruction.
+ 
+!{set:cellbgcolor:#FFFFFF} adeOfOtherConstruction  !<<ADEOfOtherConstruction-section,ADEOfOtherConstruction>>  [0..*] !Augments the OtherConstruction with properties defined in an ADE.
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attributes and role names have the stereotype «Property».
+|=== 
+
+[[OuterCeilingSurface-section]]
+[cols="1a"]
+|===
+|*OuterCeilingSurface* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! An OuterCeilingSurface is a surface that belongs to the outer building shell with the orientation pointing downwards. An example is the ceiling of a loggia. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! <<AbstractConstructionSurface-section,AbstractConstructionSurface>> 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «FeatureType»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} adeOfOuterCeilingSurface  !<<ADEOfOuterCeilingSurface-section,ADEOfOuterCeilingSurface>>  [0..*] !Augments the OuterCeilingSurface with properties defined in an ADE.
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attributes and role names have the stereotype «Property».
+|=== 
+
+[[OuterFloorSurface-section]]
+[cols="1a"]
+|===
+|*OuterFloorSurface* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! An OuterFloorSurface is a surface that belongs to the outer construction shell with the orientation pointing upwards. An example is the floor of a loggia. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! <<AbstractConstructionSurface-section,AbstractConstructionSurface>> 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «FeatureType»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} adeOfOuterFloorSurface  !<<ADEOfOuterFloorSurface-section,ADEOfOuterFloorSurface>>  [0..*] !Augments the OuterFloorSurface with properties defined in an ADE.
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attributes and role names have the stereotype «Property».
+|=== 
+
+[[RoofSurface-section]]
+[cols="1a"]
+|===
+|*RoofSurface* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! A RoofSurface is a surface that delimits major roof parts of a construction. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! <<AbstractConstructionSurface-section,AbstractConstructionSurface>> 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «FeatureType»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} adeOfRoofSurface  !<<ADEOfRoofSurface-section,ADEOfRoofSurface>>  [0..*] !Augments the RoofSurface with properties defined in an ADE.
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attributes and role names have the stereotype «Property».
+|=== 
+
+[[WallSurface-section]]
+[cols="1a"]
+|===
+|*WallSurface* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! A WallSurface is a surface that is part of the building facade visible from the outside. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! <<AbstractConstructionSurface-section,AbstractConstructionSurface>> 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «FeatureType»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} adeOfWallSurface  !<<ADEOfWallSurface-section,ADEOfWallSurface>>  [0..*] !Augments the WallSurface with properties defined in an ADE.
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attributes and role names have the stereotype «Property».
+|=== 
+
+[[Window-section]]
+[cols="1a"]
+|===
+|*Window* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! A Window is a construction for closing an opening in a wall or roof, primarily intended to admit light and/or provide ventilation. [cf. ISO 6707-1] 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! <<AbstractFillingElement-section,AbstractFillingElement>> 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «FeatureType»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Role name* !*Target class and multiplicity*  !*Definition*
+!{set:cellbgcolor:#FFFFFF} boundary  !<<WindowSurface-section,WindowSurface>> [*] !Relates to the window surfaces that bound the Window. This relation is inherited from the Core module.
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} class  !<<WindowClassValue-section,WindowClassValue>>  [0..1] !Indicates the specific type of the Window.
+ 
+!{set:cellbgcolor:#FFFFFF} function  !<<WindowFunctionValue-section,WindowFunctionValue>>  [0..*] !Specifies the intended purposes of the Window.
+ 
+!{set:cellbgcolor:#FFFFFF} usage  !<<WindowUsageValue-section,WindowUsageValue>>  [0..*] !Specifies the actual uses of the Window.
+ 
+!{set:cellbgcolor:#FFFFFF} adeOfWindow  !<<ADEOfWindow-section,ADEOfWindow>>  [0..*] !Augments the Window with properties defined in an ADE.
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attributes and role names have the stereotype «Property».
+|=== 
+
+[[WindowSurface-section]]
+[cols="1a"]
+|===
+|*WindowSurface* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! A WindowSurface is either a boundary surface of a Window feature or a surface that seals an opening filled by a window. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! <<AbstractFillingSurface-section,AbstractFillingSurface>> 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «FeatureType»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} adeOfWindowSurface  !<<ADEOfWindowSurface-section,ADEOfWindowSurface>>  [0..*] !Augments the WindowSurface with properties defined in an ADE.
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attributes and role names have the stereotype «Property».
+|===   
+
+==== Data Types
+
+[[ADEOfAbstractConstruction-section]]
+[cols="1a"]
+|===
+|*ADEOfAbstractConstruction*
+[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! ADEOfAbstractConstruction acts as a hook to define properties within an ADE that are to be added to AbstractConstruction. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! None 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «DataType»
+!===
+|=== 
+
+[[ADEOfAbstractConstructionSurface-section]]
+[cols="1a"]
+|===
+|*ADEOfAbstractConstructionSurface*
+[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! ADEOfAbstractConstructionSurface acts as a hook to define properties within an ADE that are to be added to AbstractConstructionSurface. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! None 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «DataType»
+!===
+|=== 
+
+[[ADEOfAbstractConstructiveElement-section]]
+[cols="1a"]
+|===
+|*ADEOfAbstractConstructiveElement*
+[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! ADEOfAbstractConstructiveElement acts as a hook to define properties within an ADE that are to be added to AbstractConstructiveElement. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! None 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «DataType»
+!===
+|=== 
+
+[[ADEOfAbstractFillingElement-section]]
+[cols="1a"]
+|===
+|*ADEOfAbstractFillingElement*
+[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! ADEOfAbstractFillingElement acts as a hook to define properties within an ADE that are to be added to AbstractFillingElement. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! None 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «DataType»
+!===
+|=== 
+
+[[ADEOfAbstractFillingSurface-section]]
+[cols="1a"]
+|===
+|*ADEOfAbstractFillingSurface*
+[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! ADEOfAbstractFillingSurface acts as a hook to define properties within an ADE that are to be added to AbstractFillingSurface. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! None 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «DataType»
+!===
+|=== 
+
+[[ADEOfAbstractFurniture-section]]
+[cols="1a"]
+|===
+|*ADEOfAbstractFurniture*
+[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! ADEOfAbstractFurniture acts as a hook to define properties within an ADE that are to be added to AbstractFurniture. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! None 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «DataType»
+!===
+|=== 
+
+[[ADEOfAbstractInstallation-section]]
+[cols="1a"]
+|===
+|*ADEOfAbstractInstallation*
+[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! ADEOfAbstractInstallation acts as a hook to define properties within an ADE that are to be added to AbstractInstallation. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! None 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «DataType»
+!===
+|=== 
+
+[[ADEOfCeilingSurface-section]]
+[cols="1a"]
+|===
+|*ADEOfCeilingSurface*
+[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! ADEOfCeilingSurface acts as a hook to define properties within an ADE that are to be added to a CeilingSurface. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! None 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «DataType»
+!===
+|=== 
+
+[[ADEOfDoor-section]]
+[cols="1a"]
+|===
+|*ADEOfDoor*
+[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! ADEOfDoor acts as a hook to define properties within an ADE that are to be added to a Door. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! None 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «DataType»
+!===
+|=== 
+
+[[ADEOfDoorSurface-section]]
+[cols="1a"]
+|===
+|*ADEOfDoorSurface*
+[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! ADEOfDoorSurface acts as a hook to define properties within an ADE that are to be added to a DoorSurface. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! None 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «DataType»
+!===
+|=== 
+
+[[ADEOfFloorSurface-section]]
+[cols="1a"]
+|===
+|*ADEOfFloorSurface*
+[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! ADEOfFloorSurface acts as a hook to define properties within an ADE that are to be added to a FloorSurface. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! None 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «DataType»
+!===
+|=== 
+
+[[ADEOfGroundSurface-section]]
+[cols="1a"]
+|===
+|*ADEOfGroundSurface*
+[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! ADEOfGroundSurface acts as a hook to define properties within an ADE that are to be added to a GroundSurface. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! None 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «DataType»
+!===
+|=== 
+
+[[ADEOfInteriorWallSurface-section]]
+[cols="1a"]
+|===
+|*ADEOfInteriorWallSurface*
+[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! ADEOfInteriorWallSurface acts as a hook to define properties within an ADE that are to be added to an InteriorWallSurface. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! None 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «DataType»
+!===
+|=== 
+
+[[ADEOfOtherConstruction-section]]
+[cols="1a"]
+|===
+|*ADEOfOtherConstruction*
+[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! ADEOfOtherConstruction acts as a hook to define properties within an ADE that are to be added to an OtherConstruction. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! None 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «DataType»
+!===
+|=== 
+
+[[ADEOfOuterCeilingSurface-section]]
+[cols="1a"]
+|===
+|*ADEOfOuterCeilingSurface*
+[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! ADEOfOuterCeilingSurface acts as a hook to define properties within an ADE that are to be added to an OuterCeilingSurface. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! None 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «DataType»
+!===
+|=== 
+
+[[ADEOfOuterFloorSurface-section]]
+[cols="1a"]
+|===
+|*ADEOfOuterFloorSurface*
+[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! ADEOfOuterFloorSurface acts as a hook to define properties within an ADE that are to be added to an OuterFloorSurface. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! None 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «DataType»
+!===
+|=== 
+
+[[ADEOfRoofSurface-section]]
+[cols="1a"]
+|===
+|*ADEOfRoofSurface*
+[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! ADEOfRoofSurface acts as a hook to define properties within an ADE that are to be added to a RoofSurface. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! None 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «DataType»
+!===
+|=== 
+
+[[ADEOfWallSurface-section]]
+[cols="1a"]
+|===
+|*ADEOfWallSurface*
+[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! ADEOfWallSurface acts as a hook to define properties within an ADE that are to be added to a WallSurface. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! None 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «DataType»
+!===
+|=== 
+
+[[ADEOfWindow-section]]
+[cols="1a"]
+|===
+|*ADEOfWindow*
+[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! ADEOfWindow acts as a hook to define properties within an ADE that are to be added to a Window. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! None 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «DataType»
+!===
+|=== 
+
+[[ADEOfWindowSurface-section]]
+[cols="1a"]
+|===
+|*ADEOfWindowSurface*
+[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! ADEOfWindowSurface acts as a hook to define properties within an ADE that are to be added to a WindowSurface. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! None 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «DataType»
+!===
+|=== 
+
+[[ConstructionEvent-section]]
+[cols="1a"]
+|===
+|*ConstructionEvent*
+[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! A ConstructionEvent is a data type used to describe a specific event that is associated with a construction. Examples are the issuing of a building permit or the renovation of a building. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! None 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «DataType»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} event  !<<EventValue-section,EventValue>> [1..1] !Indicates the specific event type.
+ 
+!{set:cellbgcolor:#FFFFFF} dateOfEvent  !<<Date-section,Date>> [1..1] !Specifies the date at which the event took or will take place.
+ 
+!{set:cellbgcolor:#FFFFFF} description  !<<CharacterString-section,CharacterString>>  [0..1] !Provides additional information on the event. 
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attributes and role names have the stereotype «Property».
+|=== 
+
+[[Elevation-section]]
+[cols="1a"]
+|===
+|*Elevation*
+[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! Elevation is a data type that includes the elevation value itself and information on how this elevation was measured. [cf. INSPIRE] 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! None 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «DataType»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} elevationReference  !<<ElevationReferenceValue-section,ElevationReferenceValue>> [1..1] !Specifies the level from which the elevation was measured. [cf. INSPIRE]
+ 
+!{set:cellbgcolor:#FFFFFF} elevationValue  !<<DirectPosition-section,DirectPosition>> [1..1] !Specifies the value of the elevation. [cf. INSPIRE]
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attributes and role names have the stereotype «Property».
+|=== 
+
+[[Height-section]]
+[cols="1a"]
+|===
+|*Height*
+[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! Height represents a vertical distance (measured or estimated) between a low reference and a high reference. [cf. INSPIRE] 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! None 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «DataType»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} highReference  !<<ElevationReferenceValue-section,ElevationReferenceValue>> [1..1] !Indicates the high point used to calculate the value of the height. [cf. INSPIRE]
+ 
+!{set:cellbgcolor:#FFFFFF} lowReference  !<<ElevationReferenceValue-section,ElevationReferenceValue>> [1..1] !Indicates the low point used to calculate the value of the height. [cf. INSPIRE]
+ 
+!{set:cellbgcolor:#FFFFFF} status  !<<HeightStatusValue-section,HeightStatusValue>> [1..1] !Indicates the way the height has been captured. [cf. INSPIRE]
+ 
+!{set:cellbgcolor:#FFFFFF} value  !<<Length-section,Length>> [1..1] !Specifies the value of the height above or below ground. [cf. INSPIRE]
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attributes and role names have the stereotype «Property».
+|===   
+
+==== Basic Types
+
+none
+
+==== Unions
+
+none
+
+==== Code Lists
+
+[[DoorClassValue-section]]
+[cols="1a"]
+|===
+|*DoorClassValue* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! DoorClassValue is a code list used to further classify a Door. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «CodeList»
+!===
+|=== 
+
+[[DoorFunctionValue-section]]
+[cols="1a"]
+|===
+|*DoorFunctionValue* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! DoorFunctionValue is a code list that enumerates the different purposes of a Door. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «CodeList»
+!===
+|=== 
+
+[[DoorUsageValue-section]]
+[cols="1a"]
+|===
+|*DoorUsageValue* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! DoorUsageValue is a code list that enumerates the different uses of a Door. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «CodeList»
+!===
+|=== 
+
+[[ElevationReferenceValue-section]]
+[cols="1a"]
+|===
+|*ElevationReferenceValue* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! ElevationReferenceValue is a code list that enumerates the different elevation reference levels used to measure construction heights. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «CodeList»
+!===
+|=== 
+
+[[EventValue-section]]
+[cols="1a"]
+|===
+|*EventValue* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! EventValue is a code list that enumerates the different events of a construction. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «CodeList»
+!===
+|=== 
+
+[[OtherConstructionClassValue-section]]
+[cols="1a"]
+|===
+|*OtherConstructionClassValue* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! OtherConstructionClassValue is a code list used to further classify an OtherConstruction. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «CodeList»
+!===
+|=== 
+
+[[OtherConstructionFunctionValue-section]]
+[cols="1a"]
+|===
+|*OtherConstructionFunctionValue* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! OtherConstructionFunctionValue is a code list that enumerates the different purposes of an OtherConstruction. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «CodeList»
+!===
+|=== 
+
+[[OtherConstructionUsageValue-section]]
+[cols="1a"]
+|===
+|*OtherConstructionUsageValue* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! OtherConstructionUsageValue is a code list that enumerates the different uses of an OtherConstruction. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «CodeList»
+!===
+|=== 
+
+[[WindowClassValue-section]]
+[cols="1a"]
+|===
+|*WindowClassValue* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! WindowClassValue is a code list used to further classify a Window. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «CodeList»
+!===
+|=== 
+
+[[WindowFunctionValue-section]]
+[cols="1a"]
+|===
+|*WindowFunctionValue* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! WindowFunctionValue is a code list that enumerates the different purposes of a Window. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «CodeList»
+!===
+|=== 
+
+[[WindowUsageValue-section]]
+[cols="1a"]
+|===
+|*WindowUsageValue* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! WindowUsageValue is a code list that enumerates the different uses of a Window. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «CodeList»
+!===
+|===   
+
+==== Enumerations
+
+[[ConditionOfConstructionValue-section]]
+[cols="1a"]
+|===
+|*ConditionOfConstructionValue*
+[cols="1,4",frame=none,grid=none]
+!===
+!Definition: ! ConditionOfConstructionValue enumerates different conditions of a construction. [cf. INSPIRE] 
+!StereoType: !  \<<Enumeration>>
+!===
+|[cols="1,4",frame=none,grid=none,options="header"]
+!===
+^!{set:cellbgcolor:#DDDDDD} *Literal value* !*Definition*
+ 
+^!{set:cellbgcolor:#FFFFFF} declined  !Indicates that the construction cannot be used under normal conditions, though its main elements (walls, roof) are still present. [cf. INSPIRE]
+ 
+^!{set:cellbgcolor:#FFFFFF} demolished  !Indicates that the construction has been demolished. There are no more visible remains. [cf. INSPIRE]
+ 
+^!{set:cellbgcolor:#FFFFFF} functional  !Indicates that the construction is functional. [cf. INSPIRE]
+ 
+^!{set:cellbgcolor:#FFFFFF} projected  !Indicates that the construction is being designed. Construction works have not yet started. [cf. INSPIRE]
+ 
+^!{set:cellbgcolor:#FFFFFF} ruin  !Indicates that the construction has been partly demolished and some main elements (roof, walls) have been destroyed. There are some visible remains of the construction. [cf. INSPIRE]
+ 
+^!{set:cellbgcolor:#FFFFFF} underConstruction  !Indicates that the construction is under construction and not yet functional. This applies only to the initial construction works of the construction and not to maintenance work. [cf. INSPIRE]
+!===
+|=== 
+
+[[HeightStatusValue-section]]
+[cols="1a"]
+|===
+|*HeightStatusValue*
+[cols="1,4",frame=none,grid=none]
+!===
+!Definition: ! HeightStatusValue enumerates the different methods used to capture a height. [cf. INSPIRE] 
+!StereoType: !  \<<Enumeration>>
+!===
+|[cols="1,4",frame=none,grid=none,options="header"]
+!===
+^!{set:cellbgcolor:#DDDDDD} *Literal value* !*Definition*
+ 
+^!{set:cellbgcolor:#FFFFFF} estimated  !Indicates that the height has been estimated and not measured. [cf. INSPIRE]
+ 
+^!{set:cellbgcolor:#FFFFFF} measured  !Indicates that the height has been (directly or indirectly) measured. [cf. INSPIRE]
+!===
+|=== 
+
+[[RelationToConstruction-section]]
+[cols="1a"]
+|===
+|*RelationToConstruction*
+[cols="1,4",frame=none,grid=none]
+!===
+!Definition: ! RelationToConstruction is an enumeration used to describe whether an installation is positioned inside and/or outside of a construction. 
+!StereoType: !  \<<Enumeration>>
+!===
+|[cols="1,4",frame=none,grid=none,options="header"]
+!===
+^!{set:cellbgcolor:#DDDDDD} *Literal value* !*Definition*
+ 
+^!{set:cellbgcolor:#FFFFFF} inside  !Indicates that the installation is positioned inside of the construction.
+ 
+^!{set:cellbgcolor:#FFFFFF} outside  !Indicates that the installation is positioned outside of the construction.
+ 
+^!{set:cellbgcolor:#FFFFFF} bothInsideAndOutside  !Indicates that the installation is positioned inside as well as outside of the construction.
+!===
+|===   

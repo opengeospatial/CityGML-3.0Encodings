@@ -1,0 +1,84 @@
+[appendix]
+:appendix-caption: Annex
+[[Bibliography]]
+= Bibliography
+
+* [[ogc08-131]]Open Geospatial Consortium: *The Specification Model -- A Standard for Modular specifications*, https://portal.opengeospatial.org/files/?artifact_id=34762[OGC 08-131]
+
+* [[Agugiaro2018,Agugiaro et al. 2018]]Agugiaro, G., Benner, J., Cipriano, P., Nouvel, R., 2018: *The Energy Application Domain Extension for CityGML: enhancing interoperability for urban energy simulations*. Open Geospatial Data, Software and Standards, Vol. 3. https://doi.org/10.1186/s40965-018-0042-y
+
+* [[Becker2011,Becker et al. 2011]]Becker, T., Nagel, C., Kolbe, T. H., 2011: *Integrated 3D Modeling of Multi-utility Networks and their Interdependencies for Critical Infrastructure Analysis*. In: T. H. Kolbe, G. König, C. Nagel (Eds.): Advances in 3D Geoinformation Sciences. LNG&C, Springer, Berlin. https://doi.org/10.1007/978-3-642-12670-3_1
+
+* [[Beil2017,Beil et al. 2017]]Beil, C., Kolbe, T. H., 2017: *CityGML and the streets of New York - A proposal for detailed street space modelling*. In: Proceedings of the 12th International 3D GeoInfo Conference 2017, ISPRS Annals of the Photogrammetry, Remote Sensing and Spatial Information Sciences, Vol. IV-4/W5, ISPRS. http://doi.org/10.5194/isprs-annals-IV-4-W5-9-2017
+
+* [[Biljecki2015,Biljecki et al. 2015]]Biljecki, F., Stoter, J., Ledoux, H., Zlatanova, S., Çöltekin, A., 2015: *Applications of 3D City Models: State of the Art Review*. ISPRS International Journal of Geo-Information, 4(4). https://doi.org/10.3390/ijgi4042842
+
+* [[Biljecki2018,Biljecki et al. 2018]]Biljecki, F., Kumar, K., Nagel, C., 2018: *CityGML Application Domain Extension (ADE): overview of developments*. Open Geospatial Data, Software and Standards, 3(1). https://doi.org/10.1186/s40965-018-0055-6
+
+* [[Billen2012,Billen et al. 2012]]Billen, R., Zaki, C. E., Servières, M., Moreau, G., Hallot, P., 2012: *Developing an ontology of space: Application to 3D city modeling*. In: Leduc, T., Moreau, G., Billen, R. (eds): Usage, usability, and utility of 3D city models — European COST Action TU0801, EDP Sciences, Nantes, Vol. 02007. https://hal.archives-ouvertes.fr/hal-01521445
+
+* [[Chaturvedi2015,Chaturvedi et al. 2015]]Chaturvedi, K., Smyth, C. S., Gesquière, G., Kutzner, T., Kolbe, T. H., 2015: *Managing versions and history within semantic 3D city models for the next generation of CityGML*. In: Selected papers from the 10th International 3DGeoInfo Conference 2015 in Kuala Lumpur, Malaysia, Springer LNG&C, Berlin. https://doi.org/10.1007/978-3-319-25691-7_11
+
+* [[Chaturvedi2016,Chaturvedi & Kolbe 2016]]Chaturvedi, K., Kolbe, T. H., 2016: *Integrating Dynamic Data and Sensors with Semantic 3D City Models in the context of Smart Cities*. In: Proceedings of the 11th International 3D Geoinfo Conference, ISPRS Annals of the Photogrammetry, Remote Sensing and Spatial Information Sciences, Vol. IV-2/W1, ISPRS. https://doi.org/10.5194/isprs-annals-IV-2-W1-31-2016
+
+* [[Chaturvedi2017,Chaturvedi & Kolbe 2017]]Chaturvedi, K., Kolbe, T. H., 2017: *Future City Pilot 1 Engineering Report*, Open Geospatial Consortium. http://docs.opengeospatial.org/per/16-098.html[OGC Doc. 19-098]
+
+* [[Chaturvedi2019,Chaturvedi & Kolbe 2019]]Chaturvedi, K., Kolbe, T. H., 2019: *A Requirement Analysis on Extending Semantic 3D City Models for Supporting Time-dependent Properties*. In: Proceedings of the 4th International Conference on Smart Data and Smart Cities, ISPRS Annals of the Photogrammetry, Remote Sensing and Spatial Information Sciences, Vol. IV-4/W9, ISPRS. https://doi.org/10.5194/isprs-annals-IV-4-W9-19-2019
+
+* [[Elfes1989,Elfes 1989]]Elfes, A., 1989: *Using occupancy grids for mobile robot perception and navigation*. Computer 22(6):46–57. https://doi.org/10.1109/2.30720
+
+* [[Foley2002,Foley et al. 2002]]Foley, J., van Dam, A., Feiner, S., Hughes, J., 2002: *Computer Graphics: Principles and Practice*. 2nd ed., Addison Wesley
+
+* [[Gröger2012a,Gröger & Plümer 2012]]Gröger, G., Plümer, L., 2012: *CityGML – Interoperable semantic 3D city models*. ISPRS Journal of Photogrammetry and Remote Sensing, Vol. 71, July 2012. https://dx.doi.org/10.1016/j.isprsjprs.2012.04.004
+
+* [[Gröger2012b,Gröger et al. 2012]]Gröger, G., Kolbe, T. H., Nagel, C., Häfele, K.-H., 2012: *OGC City Geography Markup Language (CityGML) Encoding Standard, Version 2.0.0*, Open Geospatial Consortium. https://portal.opengeospatial.org/files/?artifact_id=47842[OGC Doc. 12-019]
+
+* [[Jensen1998,Jensen & Dyreson 1998]]Jensen, Christian S. and Dyreson, Curtis E.: *The Consensus Glossary of Temporal Database Concepts*. February 1998 Version. In: Temporal Databases: Research and Practice [online]. Springer Berlin Heidelberg, 1998. p. 367–405. Lecture Notes in Computer Science. Available from: 10.1007/BFb0053710
+
+* [[Jensen2008,Jensen & Snodgrass 2008]]Jensen, Christian S. and Snodgrass, Richard T., eds.: *TR-90, Temporal Database Entries for the Springer Encyclopedia of Database Systems*. Technical Report. TimeCenter, 22 May 2008. Available from: http://timecenter.cs.aau.dk/TimeCenterPublications/TR-90.pdf[http://timecenter.cs.aau.dk/TimeCenterPublications/TR-90.pdf]
+
+* [[Johnson2010,Johnson 2010]]Johnson, Tom: *Bitemporal Data*. Elsevier, 2014. ISBN 978-0-12-408067-6. Available from: 10.1016/C2012-0-06609-4
+
+* [[Kaden2017,Kaden & Clemen 2017]]Kaden, R., Clemen, C., 2017: *Applying Geodetic Coordinate Reference Systems within Building Information Modeling (BIM)*. In: Proceedings of the FIG Working Week 2017, Helsinki, Finland. https://www.fig.net/resources/proceedings/fig_proceedings/fig2017/papers/ts06h/TS06H_kaden_clemen_8967.pdf
+
+* [[Kolbe2003,Kolbe & Gröger 2003]]Kolbe, T. H., Gröger, G., 2003: *Towards unified 3D city models*. In: Proceedings of the Joint ISPRS Commission IV Workshop on Challenges in Geospatial Analysis, Integration and Visualization II, Stuttgart, Germany. https://mediatum.ub.tum.de/doc/1145769/
+
+* [[Kolbe2009,Kolbe 2009]]Kolbe, T. H., 2009: *Representing and Exchanging 3D City Models with CityGML*. In: J. Lee, S. Zlatanova (Eds.), 3D Geo-Information Sciences, Selected Papers of the 3rd International Workshop on 3D Geo-Information in Seoul, Korea. Springer, Berlin. https://doi.org/10.1007/978-3-540-87395-2_2
+
+* [[Konde2018,Konde et al. 2018]]Konde, A., Tauscher, H., Biljecki, F., Crawford, J., 2018: *Floor plans in CityGML*. In: Proceedings of the 13th 3D GeoInfo Conference 2018, ISPRS Annals of the Photogrammetry, Remote Sensing and Spatial Information Sciences, Vol. IV-4/W6, 25–32, ISPRS. https://doi.org/10.5194/isprs-annals-IV-4-W6-25-2018
+
+* [[Kutzner2018,Kutzner et al. 2018]]Kutzner, T., Hijazi, I., Kolbe, T. H., 2018: *Semantic Modelling of 3D Multi-utility Networks for Urban Analyses and Simulations – The CityGML Utility Network ADE*. International Journal of 3-D Information Modeling (IJ3DIM) 7(2), 1-34. https://dx.doi.org/10.4018/IJ3DIM.2018040101
+
+* [[Kutzner2020,Kutzner et al. 2020]]Kutzner, T., Chaturvedi, K. & Kolbe, T. H., 2020: *CityGML 3.0: New Functions Open Up New Applications*. PFG - Journal of Photogrammetry, Remote Sensing and Geoinformation Science, 88, 43–61. https://doi.org/10.1007/s41064-020-00095-z
+
+* [[Labetski2018,Labetski et al. 2018]]Labetski, A., van Gerwen, S., Tamminga, G., Ledoux, H., Stoter, J., 2018: *A proposal for an improved transportation model in CityGML*. In: Proceedings of the 13th 3D GeoInfo Conference 2018, ISPRS Archives of the Photogrammetry, Remote Sensing and Spatial Information Sciences, Vol. XLII-4/W10, 89–96. https://doi.org/10.5194/isprs-archives-XLII-4-W10-89-2018
+
+* [[Liu2018,Liu Ling & Özsu 2018]]Liu, Ling and Özsu, M. Tamer, eds.: *Encyclopedia of Database Systems*. New York, NY : Springer New York, 2018. ISBN 978-1-4614-8266-6. Available from: 10.1007/978-1-4614-8265-9
+
+* [[Löwner2016,Löwner et al. 2016]]Löwner, M.-O., Gröger, G., Benner, J., Biljecki, F., Nagel, C., 2016: *Proposal for a new LOD and multi-representation concept for CityGML*. In: Proceedings of the 11th 3D Geoinfo Conference 2016, ISPRS Annals of the Photogrammetry, Remote Sensing and Spatial Information Sciences, Vol. IV-2/W1, 3–12. https://doi.org/10.5194/isprs-annals-IV-2-W1-3-2016
+
+* [[Nouvel2015,Nouvel et al. 2015]]Nouvel, R., Bahu, J. M., Kaden, R., Kaempf, J., Cipriano, P., Lauster, M., Haefele, K.-H., Munoz, E., Tournaire, O, Casper, E., 2015: *Development of the CityGML Application Domain Extension Energy for Urban Energy Simulation*. In: Proceedings of Building Simulation 2015 - 14th Conference of the International Building Performance Simulation Association, IBPSA, 559-564. http://www.ibpsa.org/proceedings/BS2015/p2863.pdf
+
+* [[Smith2000,Smith & Varzi 2000]]Smith, B., Varzi, A. C., 2000: *Fiat and Bona Fide Boundaries*. Philosophy and Phenomenological Research, Vol. 60, No. 2, 401-420. https://doi.org/10.2307/2653492
+
+* [[Snodgrass1999,Snodgrass 1999]]Snodgrass, Richard T: *Developing time-oriented database applications in SQL*. San Francisco, California : Morgan Kaufmann Publishers, July 1999. ISBN 1-55860-436-7. Available from: http://www.cs.arizona.edu/~rts/tdbbook.pdf[http://www.cs.arizona.edu/~rts/tdbbook.pdf]
+
+* [[Stadler2007,Stadler & Kolbe 2007]]Stadler, A., Kolbe, T. H., 2007: *Spatio-semantic Coherence in the Integration of 3D City Models*. In: Proceedings of the 5th International ISPRS Symposium on Spatial Data Quality ISSDQ 2007 in Enschede. http://www.isprs.org/proceedings/XXXVI/2-C43/Session1/paper_Stadler.pdf
+
+* [[Vretanos2010, Vrenatos 2010]]Vretanos, P. A. 2010: *OpenGIS Web Feature Service 2.0 Interface Standard*, Open Geospatial Consortium. http://www.opengeospatial.org/standards/wfs[OGC Doc. 09-025r1]
+
+* [[MQTT2019, MQTT]]OASIS MQTT Technical Committee: *MQTT Version 5.0 Standard*, OASIS, March 7, 2019, Available from https://docs.oasis-open.org/mqtt/mqtt/v5.0/mqtt-v5.0.html[OASIS].
+
+* [[i3s_citation, OGC I3S]]Reed, C., Belayneh T.: *OGC Indexed 3d Scene Layer (I3S) and Scene Layer Package Format Specification*, Open Geospatial Consortium, Available from http://docs.opengeospatial.org/cs/17-014r7/17-014r7.html[OGC Doc. 17-014r7]
+
+* [[3dtiles_citation, OGC 3D Tiles]]Cozzi, P., Lilley, S., Getz, G. *OGC 3D Tiles Specification 1.0* Open Geospatial Consortium, Available from http://docs.opengeospatial.org/cs/18-053r2/18-053r2.html[OGC Doc. 18-053r2]
+
+* [[kml_citation, OGC KML]]Burggraf, D.: *OGC KML 2.3*, Open Geospatial Consortium, Available from http://docs.opengeospatial.org/is/12-007r2/12-007r2.html[OGC Doc. 12-007r2]
+
+* [[sos_citation, OGC Sensor Observation Service]]Bröring, A., Stasch, C., Echterhoff, J.: *OGC® Sensor Observation Service Interface Standard*, Open Geospatial Consortium, Available from https://portal.opengeospatial.org/files/?artifact_id=47599[OGC Doc. 12-006]
+
+* [[sensorthing_citation, OGC SensorThing]]Liang, S., Huang, C., Khalafbeigi, T.: *OGC SensorThings API Part 1: Sensing*, Open Geospatial Consortium, Available from http://docs.opengeospatial.org/is/15-078r6/15-078r6.html[OGC Doc. 15-078r6]
+
+* [[3dps_citation, OGC 3D Portrayal Service]]Hagedorn, B., Thum, S., Reitz, T., Coors, V., Gutbell, R.: *OGC® 3D Portrayal Service 1.0*, Open Geospatial Consortium, Available from https://portal.ogc.org/files/?artifact_id=65620[OGC Doc. 15-001r3].
+
+* [[gltf_citation, gLTF]]Bhatia, S.,Cozzi, P., Knyazev, A., Parisi, T.: *The GL Transmission Format (glTF)*, The Khronos Group, Available from https://www.khronos.org/gltf[https://www.khronos.org/gltf].

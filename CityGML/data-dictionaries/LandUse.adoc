@@ -1,0 +1,97 @@
+[[LandUse-package-dd]]
+=== LandUse
+
+[cols="1,4",frame=none,grid=none]
+|===
+|{nbsp}{nbsp}{nbsp}{nbsp}Description: | The LandUse module supports representation of areas of the earth’s surface dedicated to a specific land use. 
+|{nbsp}{nbsp}{nbsp}{nbsp}Parent Package: | CityGML
+|{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: | «ApplicationSchema»
+|===
+
+==== Classes
+
+[[LandUse-section]]
+[cols="1a"]
+|===
+|*LandUse* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! A LandUse object is an area of the earth's surface dedicated to a specific land use or having a specific land cover with or without vegetation, such as sand, rock, mud flats, forest, grasslands, or wetlands. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! <<AbstractThematicSurface-section,AbstractThematicSurface>> 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «TopLevelFeatureType»
+!===
+|[cols="15,20,60",frame=none,grid=none,options="header"]
+!===
+!{set:cellbgcolor:#DDDDDD} *Attribute* !*Value type and multiplicity* !*Definition*
+ 
+!{set:cellbgcolor:#FFFFFF} class  !<<LandUseClassValue-section,LandUseClassValue>>  [0..1] !Indicates the specific type of the LandUse.
+ 
+!{set:cellbgcolor:#FFFFFF} function  !<<LandUseFunctionValue-section,LandUseFunctionValue>>  [0..*] !Specifies the intended purposes of the LandUse.
+ 
+!{set:cellbgcolor:#FFFFFF} usage  !<<LandUseUsageValue-section,LandUseUsageValue>>  [0..*] !Specifies the actual uses of the LandUse.
+ 
+!{set:cellbgcolor:#FFFFFF} adeOfLandUse  !<<ADEOfLandUse-section,ADEOfLandUse>>  [0..*] !Augments the LandUse with properties defined in an ADE.
+!===
+|{set:cellbgcolor:#FFFFFF} Note: Unless otherwise specified, all attributes and role names have the stereotype «Property».
+|===
+
+==== Data Types
+
+[[ADEOfLandUse-section]]
+[cols="1a"]
+|===
+|*ADEOfLandUse*
+[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! ADEOfLandUse acts as a hook to define properties within an ADE that are to be added to a LandUse. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Subclass of: ! None 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «DataType»
+!===
+|===   
+
+==== Basic Types
+
+none
+
+==== Unions
+
+none
+
+==== Code Lists
+
+[[LandUseClassValue-section]]
+[cols="1a"]
+|===
+|*LandUseClassValue* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! LandUseClassValue is a code list used to further classify a LandUse. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «CodeList»
+!===
+|=== 
+
+[[LandUseFunctionValue-section]]
+[cols="1a"]
+|===
+|*LandUseFunctionValue* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! LandUseFunctionValue is a code list that enumerates the different purposes of a LandUse. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «CodeList»
+!===
+|=== 
+
+[[LandUseUsageValue-section]]
+[cols="1a"]
+|===
+|*LandUseUsageValue* 
+|[cols="1,4",frame=none,grid=none]
+!===
+!{nbsp}{nbsp}{nbsp}{nbsp}Definition: ! LandUseUsageValue is a code list that enumerates the different uses of a LandUse. 
+!{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: !  «CodeList»
+!===
+|===   
+
+==== Enumerations
+
+none

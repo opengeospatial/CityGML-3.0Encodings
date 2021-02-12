@@ -1,0 +1,6 @@
+[[req_dynamizer_elements]]
+[width="90%",cols="2,6"]
+|===
+^|*Requirement  {counter:req-id}* |*/req/dynamizer/elements* 
+2+|A conforming application shall support the CityGML XML elements listed in <<dynamizer-xml-elements>> in accordance with the GML XML schema specified in http://schemas.opengis.net/citygml/3.0/dynamizer.xsd[dynamizer.xsd].
+|===

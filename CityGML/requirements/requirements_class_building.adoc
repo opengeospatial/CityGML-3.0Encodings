@@ -1,0 +1,10 @@
+[[building-requirements-class]]
+[cols="1,4",width="90%"]
+|===
+2+|*Requirements Class* {set:cellbgcolor:#CACCCE}
+2+|http://www.opengis.net/spec/CityGML-2/3.0/req/req-class-building {set:cellbgcolor:#FFFFFF}
+|Target type |Implementation
+|Dependency |http://schemas.opengis.net/citygml/3.0/building.xsd[building.xsd]
+|Dependency |http://www.opengis.net/spec/CityGML-1/3.0/req/req-class-building
+|Dependency |http://www.opengis.net/spec/CityGML-2/3.0/req/req-class-base
+|===

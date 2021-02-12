@@ -1,0 +1,14 @@
+[[water-body-section]]
+=== Water Body Conformance Class
+
+The Water Body Conformance Class implements the following Requirements Classes from the CityGML 3.0 Conceptual Model Standard:
+
+* WaterBody: http://www.opengis.net/spec/CityGML-1/3.0/req/req-class-waterbody
+
+The applicable GML schema is http://schemas.opengis.net/citygml/3.0/waterBody.xsd[waterBody.xsd]
+
+include::requirements/requirements_class_waterbody.adoc[]
+
+include::requirements/waterbody/REQ_WaterBody_Elements.adoc[]
+
+

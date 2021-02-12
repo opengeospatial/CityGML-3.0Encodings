@@ -1,0 +1,76 @@
+[[terms-and-definitions-section]]
+== Terms and Definitions
+This document uses the terms defined in Sub-clause 5.3 of [OGC 06-121r8], which is based on the ISO/IEC Directives, Part 2, Rules for the structure and drafting of International Standards. In particular, the word “shall” (not “must”) is the verb form used to indicate a requirement to be strictly followed to conform to this Standard.
+
+For the purposes of this document, the following additional terms and definitions apply.
+
+[[d2d-data-definition]]
+*2D data* +
+geometry of features is represented in a two-dimensional space +
+NOTE In other words, the geometry of 2D data is given using (X,Y) coordinates. +
+{blank}[INSPIRE D2.8.III.2, definition 1]
+
+[[d2-5d-data-definition]]
+*2.5D data* +
+geometry of features is represented in a three-dimensional space with the constraint that, for each (X,Y) position, there is only one Z +
+{blank}[INSPIRE D2.8.III.2, definition 2]
+
+[[d3d-data-definition]]
+*3D data* +
+Geometry of features is represented in a three-dimensional space. +
+NOTE In other words, the geometry of 2D data is given using (X,Y,Z) coordinates without any constraints. +
+{blank}[INSPIRE D2.8.III.2, definition 3]
+
+[[application-schema-definition]]
+*application schema* +
+A set of <<conceptual-schema-definition,conceptual schema>> for data required by one or more applications. An application schema contains selected parts of the base schemas presented in the ORM Information Viewpoint. Designers of application schemas may extend or restrict the types defined in the base schemas to define appropriate types for an application domain. Application schemas are information models for a specific information community. +
+{blank}OGC Definitions Register at link:http://www.opengis.net/def/glossary/term/ApplicationSchema[]
+
+[[codelist-definition]]
+*codelist* +
+A value domain including a code for each permissible value.
+
+[[conceptual-model-definition]]
+*conceptual model* +
+model that defines concepts of a universe of discourse +
+{blank}[ISO 19101-1:2014, 4.1.5]
+
+[[conceptual-schema-definition]]
+*conceptual schema* 
+
+. formal description of a <<conceptual-model-definition,conceptual model>> +
+{blank}[ISO 19101-1:2014, 4.1.6]
+. base schema. Formal description of the model of any geospatial information. <<application-schema-definition,Application schemas>> are built from conceptual schemas. +
+{blank}OGC Definitions Register at link:http://www.opengis.net/def/glossary/term/ConceptualSchema[]
+
+[[implementation-specification-definition]]
+*Implementation Specification* +
+Specified on the OGC Document Types Register at link:http://www.opengis.net/def/doc-type/is[]
+
+[[levels-of-detail-definition]]
+*levels of detail* +
+quantity of information that portrays the real world +
+NOTE The concept comprises data capturing rules of spatial object types, the accuracy and the types of geometries, and other aspects of a data specification. In particular, it is related to the notions of scale and resolution. +
+{blank}[INSPIRE Glossary]
+
+[[life-cycle-information-definition]]
+*life-cycle information* +
+set of properties of a spatial object that describe the temporal characteristics of a version of a spatial object or the changes between versions +
+{blank}[INSPIRE Glossary]
+
+[[mda-platform-definition]]
+*Platform (Model Driven Architecture)* +
+the set of resources on which a system is realized. +
+{blank}[Object Management Group, Model Driven Architecture Guide rev. 2.0]
+
+[[pim-definition]]
+*Platform Independent Model* +
+a model that is independent of a spacific platform +
+{blank}[Object Management Group, Model Driven Architecture Guide rev. 2.0]
+
+[[psm-definition]]
+*Platform Specific Model* +
+a model of a system that is defined in terms of a specific platform +
+{blank}[Object Management Group, Model Driven Architecture Guide rev. 2.0]
+
+
