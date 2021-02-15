@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<CityModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.opengis.net/citygml/3.0 ../Schema/cityGMLBase.xsd http://www.opengis.net/citygml/generics/3.0 ../Schema/generics.xsd http://www.opengis.net/citygml/construction/3.0 ../Schema/construction.xsd http://www.opengis.net/citygml/building/3.0 ../Schema/building.xsd http://www.opengis.net/citygml/dynamizer/3.0 ../Schema/dynamizer.xsd" xmlns="http://www.opengis.net/citygml/3.0" xmlns:gen="http://www.opengis.net/citygml/generics/3.0" xmlns:xAL="urn:oasis:names:tc:ciq:xsdschema:xAL:2.0" xmlns:con="http://www.opengis.net/citygml/construction/3.0" xmlns:bldg="http://www.opengis.net/citygml/building/3.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xlink="http://www.w3.org/1999/xlink" gml:id="cm1">
+<!--
+  Example file containing a building with thematic surfaces plus geometries in LOD2.
+  The building has the attributes <name>, <creationDate>, <externalReference>, <height>, <function>, <roofType>, <address> as well as two generic attributes.
+-->
+<CityModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+ xsi:schemaLocation="http://www.opengis.net/citygml/3.0 ../Schema/cityGMLBase.xsd http://www.opengis.net/citygml/generics/3.0 ../Schema/generics.xsd http://www.opengis.net/citygml/construction/3.0 ../Schema/construction.xsd http://www.opengis.net/citygml/building/3.0 ../Schema/building.xsd http://www.opengis.net/citygml/dynamizer/3.0 ../Schema/dynamizer.xsd" 
+ xmlns="http://www.opengis.net/citygml/3.0" 
+ xmlns:gen="http://www.opengis.net/citygml/generics/3.0" 
+ xmlns:xAL="urn:oasis:names:tc:ciq:xsdschema:xAL:2.0" 
+ xmlns:con="http://www.opengis.net/citygml/construction/3.0" 
+ xmlns:bldg="http://www.opengis.net/citygml/building/3.0" 
+ xmlns:gml="http://www.opengis.net/gml/3.2" 
+ xmlns:xlink="http://www.w3.org/1999/xlink" 
+ gml:id="cm1">
   <gml:name>LoD2_4490_5322_1_BY</gml:name>
   <gml:boundedBy>
     <gml:Envelope srsName="urn:adv:crs:DE_DHDN_3GK4*DE_DHHN92_NH" srsDimension="3">
@@ -253,17 +266,21 @@
       <bldg:address>
         <Address gml:id="fme-gen-0355784d-2ffc-4c46-b812-c4d08d6a3f81">
           <xalAddress>
-            <xAL:AddressDetails>
+            <xAL:Address>
               <xAL:Country>
-                <xAL:CountryName>Germany</xAL:CountryName>
-                <xAL:Locality Type="Town">
-                  <xAL:LocalityName>Moosach</xAL:LocalityName>
-                  <xAL:Thoroughfare Type="Street">
-                    <xAL:ThoroughfareName>Am Hang 15</xAL:ThoroughfareName>
-                  </xAL:Thoroughfare>
-                </xAL:Locality>
+                <xAL:NameElement xAL:NameType="Name">Germany</xAL:NameElement>
               </xAL:Country>
-            </xAL:AddressDetails>
+              <xAL:Locality xAL:Type="Town">
+                <xAL:NameElement xAL:NameType="Name">Moosach</xAL:NameElement>
+              </xAL:Locality>
+              <xAL:Thoroughfare xAL:Type="Street">
+                <xAL:NameElement xAL:NameType="NameAndType">Am Hang</xAL:NameElement>
+                <xAL:Number xAL:Type="Number">15</xAL:Number>
+              </xAL:Thoroughfare>
+              <xAL:PostCode>
+                <xAL:Identifier></xAL:Identifier>
+              </xAL:PostCode>
+            </xAL:Address>
           </xalAddress>
         </Address>
       </bldg:address>
