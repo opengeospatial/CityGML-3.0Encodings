@@ -26,10 +26,10 @@ This is a request for test data sets that cover the aspects listed below. You ar
 
 * [ ] A simple piece of road (just one section or intersection) with road markings, holes and road damages. Maybe also with traffic signs & trees (to show the capabilities of CityGML).
 
-* [ ] A road going over a bridge
+* [x] A road going over a bridge
 
 * [ ] A road going through a tunnel
 
 * [ ] A metro railway line going through a tunnel
 
-* [ ] A parking garage connected to a road. Inside the garage, which is of feature type Building, there should also be traffic spaces (roads with sections and intersections).
+* [x] A parking garage connected to a road. Inside the garage, which is of feature type Building, there should also be traffic spaces (roads with sections and intersections).
