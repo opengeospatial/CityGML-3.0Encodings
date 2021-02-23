@@ -2,6 +2,7 @@
 
 This folder contains test data for the Transportation module.
 
+You are welcome to contribute further test data sets. A list of test data that is of particular interest can be found in the file [Request_for_test_data_sets](../Transportation/Request_for_test_data_sets.md)
 
 The **folder "Basic examples"** provides examples that were created specifically for illustrating specific concepts and that are kept as simple as possible. The following files are available in this folder:
 
@@ -15,11 +16,11 @@ The **folder "Real-word examples"** provides test data sets with examples taken 
 
 File name | Description of test data | Release against which the test data validates
 -------------------------|-----------------------------------------------|-------------------
-- | - | -
+| - | - | -
 
 
 Additional test data is available in the following **external repositories**:
 
 Description of test data | Release against which the test data validates | Link to external repository
 -------------------------|-----------------------------------------------|-------------------
-- | - | -
+| - | - | -
