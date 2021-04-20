@@ -1,5 +1,7 @@
 The test data provided in this folder demonstrates the usage of the CityGML PointCloud module using real-world data from the City of Munich, Germany.
 
+The PDF [CityGML 3.0 buildings with point cloud representation - explanatory slides](../CityGML_3.0_buildings_with_point_cloud_representation/CityGML%203.0%20buildings%20with%20point%20cloud%20representation%20-%20explanatory%20slides.pdf) contains additional information on the three data sets.
+
 * Subfolder **Buildings_CityGML3.0_LOD2_with_PointClouds_inline**: This folder provides one CityGML file that represents the point clouds inline within the buildings
 
 * Subfolder **Buildings_CityGML3.0_LOD2_with_PointClouds_external_one_laz_file**: This folder provides 1) separate point cloud files for every building and 2) one CityGML file with each building referencing the corresponding point cloud file
