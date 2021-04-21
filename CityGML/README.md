@@ -50,4 +50,4 @@ Concepts which are severable in the Conceptual Model may not be severable in an 
 
 ## XML Schema
 
-The schemas located in the `schema` directory. They were derived using [ShapeChange](https://github.com/ShapeChange/ShapeChange). Current extensions to ShapeChange are not yet integrated in the main ShapeChange repository, but are available in this [fork](https://github.com/TatjanaKutzner/ShapeChange).
+The schemas located in the `schema` directory. They were derived using [ShapeChange](https://github.com/ShapeChange/ShapeChange). Current extensions to ShapeChange are not yet integrated in the main ShapeChange repository, but are available in this [fork](https://github.com/tum-gis/ShapeChange).
