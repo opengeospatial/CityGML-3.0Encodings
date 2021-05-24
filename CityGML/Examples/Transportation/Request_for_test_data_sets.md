@@ -18,7 +18,7 @@ This is a request for test data sets that cover the aspects listed below. You ar
   - [ ] One dataset only including waterways
   - [ ] One dataset combining all three types (i.e. roads, railways, and waterways)
 
-* [ ] Datasets converted from OpenDRIVE
+* [X] Datasets converted from OpenDRIVE
 
 * [ ] Streetspace with shared spaces between cars and trams
 

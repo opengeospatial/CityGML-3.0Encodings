@@ -20,7 +20,7 @@ The **folder "Real-word examples"** provides test data sets with examples taken 
 
 File name | Description of test data | Release against which the test data validates
 -------------------------|-----------------------------------------------|-------------------
-| - | - | -
+Subfolder<br>CityGML_3.0_transportation_data_from_OpenDRIVE | This folder provides a CityGML file that represents an intersection in the city of Ingolstadt created from OpenDRIVE data. | 3.0.0-draft.2020.09.17.1
 
 ***
 
