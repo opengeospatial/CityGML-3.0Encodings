@@ -150,6 +150,12 @@
       </bldg:boundedBy>
     </bldg:Building>
   </cityObjectMember>
+  
+  
+  5k buildings
+  
+  
+  
   <cityObjectMember>
     <bldg:Building gml:id="Test-002-Solid-SimpleBldg">
       <bldg:function>3010</bldg:function>

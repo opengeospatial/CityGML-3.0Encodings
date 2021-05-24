@@ -337,14 +337,14 @@
               </lod2MultiSurface>
             </con:WallSurface>
           </boundary>
-          <lod0MultiSurface>
+          <lod2MultiSurface>
             <gml:MultiSurface>
               <gml:surfaceMember xlink:href="#UUID_84f8ea35-4b92-41db-80e3-2d979a970ac2"/>              
               <gml:surfaceMember xlink:href="#UUID_be2c46d0-bef6-4da8-b8cc-817e3beb4720"/>              
               <gml:surfaceMember xlink:href="#UUID_9e77f5ea-3e2a-4964-a943-794560667853"/>              
               <gml:surfaceMember xlink:href="#UUID_61856807-9ac5-46d9-8787-33be39c89875"/>
             </gml:MultiSurface>
-          </lod0MultiSurface>
+          </lod2MultiSurface>
           <con:relationToConstruction>outside</con:relationToConstruction>
         </bldg:BuildingInstallation>
       </bldg:buildingInstallation>
