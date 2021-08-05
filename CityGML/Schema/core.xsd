@@ -308,10 +308,9 @@
             <complexType>
               <complexContent>
                 <extension base="gml:AbstractFeatureMemberType">
-                  <sequence minOccurs="0">
+                  <sequence>
                     <element ref="core:AbstractAppearance"/>
                   </sequence>
-                  <attributeGroup ref="gml:AssociationAttributeGroup"/>
                 </extension>
               </complexContent>
             </complexType>
@@ -321,10 +320,16 @@
               <documentation>Relates generic attributes to the city object.</documentation>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="dynamizer" type="core:AbstractDynamizerPropertyType">
+          <element maxOccurs="unbounded" minOccurs="0" name="dynamizer">
             <annotation>
               <documentation>Relates Dynamizer objects to the city object. These allow timeseries data to override static attribute values of the city object.</documentation>
             </annotation>
+            <complexType>
+              <sequence>
+                <element ref="core:AbstractDynamizer"/>
+              </sequence>
+              <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+            </complexType>
           </element>
           <element maxOccurs="unbounded" minOccurs="0" name="adeOfAbstractCityObject" type="core:ADEOfAbstractCityObjectPropertyType">
             <annotation>
@@ -484,20 +489,38 @@
     <complexContent>
       <extension base="core:AbstractPhysicalSpaceType">
         <sequence>
-          <element minOccurs="0" name="lod1ImplicitRepresentation" type="core:ImplicitGeometryPropertyType">
+          <element minOccurs="0" name="lod1ImplicitRepresentation">
             <annotation>
               <documentation>Relates to an implicit geometry that represents the occupied space in Level of Detail 1.</documentation>
             </annotation>
+            <complexType>
+              <sequence>
+                <element ref="core:ImplicitGeometry"/>
+              </sequence>
+              <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+            </complexType>
           </element>
-          <element minOccurs="0" name="lod2ImplicitRepresentation" type="core:ImplicitGeometryPropertyType">
+          <element minOccurs="0" name="lod2ImplicitRepresentation">
             <annotation>
               <documentation>Relates to an implicit geometry that represents the occupied space in Level of Detail 2.</documentation>
             </annotation>
+            <complexType>
+              <sequence>
+                <element ref="core:ImplicitGeometry"/>
+              </sequence>
+              <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+            </complexType>
           </element>
-          <element minOccurs="0" name="lod3ImplicitRepresentation" type="core:ImplicitGeometryPropertyType">
+          <element minOccurs="0" name="lod3ImplicitRepresentation">
             <annotation>
               <documentation>Relates to an implicit geometry that represents the occupied space in Level of Detail 3.</documentation>
             </annotation>
+            <complexType>
+              <sequence>
+                <element ref="core:ImplicitGeometry"/>
+              </sequence>
+              <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+            </complexType>
           </element>
           <element maxOccurs="unbounded" minOccurs="0" name="adeOfAbstractOccupiedSpace" type="core:ADEOfAbstractOccupiedSpacePropertyType">
             <annotation>
@@ -539,10 +562,16 @@
               <documentation>Relates to a 3D MultiCurve geometry that represents the terrain intersection curve of the physical space in Level of Detail 3.</documentation>
             </annotation>
           </element>
-          <element minOccurs="0" name="pointCloud" type="core:AbstractPointCloudPropertyType">
+          <element minOccurs="0" name="pointCloud">
             <annotation>
               <documentation>Relates to a 3D PointCloud that represents the physical space.</documentation>
             </annotation>
+            <complexType>
+              <sequence>
+                <element ref="core:AbstractPointCloud"/>
+              </sequence>
+              <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+            </complexType>
           </element>
           <element maxOccurs="unbounded" minOccurs="0" name="adeOfAbstractPhysicalSpace" type="core:ADEOfAbstractPhysicalSpacePropertyType">
             <annotation>
@@ -609,10 +638,16 @@
               <documentation>Specifies qualified areas related to the space.</documentation>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="boundary" type="core:AbstractSpaceBoundaryPropertyType">
+          <element maxOccurs="unbounded" minOccurs="0" name="boundary">
             <annotation>
               <documentation>Relates to surfaces that bound the space.</documentation>
             </annotation>
+            <complexType>
+              <sequence>
+                <element ref="core:AbstractSpaceBoundary"/>
+              </sequence>
+              <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+            </complexType>
           </element>
           <element minOccurs="0" name="lod0Point" type="gml:PointPropertyType">
             <annotation>
@@ -744,10 +779,16 @@
               <documentation>Relates to a 3D MultiSurface geometry that represents the thematic surface in Level of Detail 3.</documentation>
             </annotation>
           </element>
-          <element minOccurs="0" name="pointCloud" type="core:AbstractPointCloudPropertyType">
+          <element minOccurs="0" name="pointCloud">
             <annotation>
               <documentation>Relates to a 3D PointCloud that represents the thematic surface.</documentation>
             </annotation>
+            <complexType>
+              <sequence>
+                <element ref="core:AbstractPointCloud"/>
+              </sequence>
+              <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+            </complexType>
           </element>
           <element maxOccurs="unbounded" minOccurs="0" name="adeOfAbstractThematicSurface" type="core:ADEOfAbstractThematicSurfacePropertyType">
             <annotation>

@@ -2,7 +2,7 @@
   <annotation>
     <documentation>The Bridge module supports representation of thematic and spatial aspects of bridges, bridge parts, bridge installations, and interior bridge structures.</documentation>
   </annotation>
-  <import namespace="http://www.opengis.net/citygml/3.0" schemaLocation="./cityGMLBase.xsd"/>
+  <import namespace="http://www.opengis.net/citygml/3.0" schemaLocation="./core.xsd"/>
   <import namespace="http://www.opengis.net/citygml/construction/3.0" schemaLocation="./construction.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
@@ -133,9 +133,10 @@
             <complexType>
               <complexContent>
                 <extension base="gml:AbstractFeatureMemberType">
-                  <sequence>
+                  <sequence minOccurs="0">
                     <element ref="brid:BridgeConstructiveElement"/>
                   </sequence>
+                  <attributeGroup ref="gml:AssociationAttributeGroup"/>
                 </extension>
               </complexContent>
             </complexType>
@@ -147,9 +148,10 @@
             <complexType>
               <complexContent>
                 <extension base="gml:AbstractFeatureMemberType">
-                  <sequence>
+                  <sequence minOccurs="0">
                     <element ref="brid:BridgeInstallation"/>
                   </sequence>
+                  <attributeGroup ref="gml:AssociationAttributeGroup"/>
                 </extension>
               </complexContent>
             </complexType>
@@ -161,9 +163,10 @@
             <complexType>
               <complexContent>
                 <extension base="gml:AbstractFeatureMemberType">
-                  <sequence>
+                  <sequence minOccurs="0">
                     <element ref="brid:BridgeRoom"/>
                   </sequence>
+                  <attributeGroup ref="gml:AssociationAttributeGroup"/>
                 </extension>
               </complexContent>
             </complexType>
@@ -175,17 +178,24 @@
             <complexType>
               <complexContent>
                 <extension base="gml:AbstractFeatureMemberType">
-                  <sequence>
+                  <sequence minOccurs="0">
                     <element ref="brid:BridgeFurniture"/>
                   </sequence>
+                  <attributeGroup ref="gml:AssociationAttributeGroup"/>
                 </extension>
               </complexContent>
             </complexType>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="address" type="core:AddressPropertyType">
+          <element maxOccurs="unbounded" minOccurs="0" name="address">
             <annotation>
               <documentation>Relates the addresses to the Bridge or BridgePart.</documentation>
             </annotation>
+            <complexType>
+              <sequence>
+                <element ref="core:Address"/>
+              </sequence>
+              <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+            </complexType>
           </element>
           <element maxOccurs="unbounded" minOccurs="0" name="adeOfAbstractBridge" type="brid:ADEOfAbstractBridgePropertyType">
             <annotation>
@@ -219,10 +229,9 @@
             <complexType>
               <complexContent>
                 <extension base="gml:AbstractFeatureMemberType">
-                  <sequence minOccurs="0">
+                  <sequence>
                     <element ref="brid:BridgePart"/>
                   </sequence>
-                  <attributeGroup ref="gml:AssociationAttributeGroup"/>
                 </extension>
               </complexContent>
             </complexType>
