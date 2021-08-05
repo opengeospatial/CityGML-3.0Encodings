@@ -2,7 +2,7 @@ The PDF [CityGML_3.0_UML-Diagrams_inline-byReference-definitions.pdf](../UML/Cit
 
 The XSD files that apply these definitions can be found here: https://github.com/opengeospatial/CityGML-3.0Encodings/tree/inline-byreference-discussion/CityGML/Schema
 
-The test data sets currently available here validated against these schemas: https://github.com/opengeospatial/CityGML-3.0Encodings/tree/inline-byreference-discussion/CityGML/Examples
+The test data sets currently available here validated against these schemas: https://github.com/opengeospatial/CityGML-3.0Encodings/tree/master/CityGML/Examples
 
 -----
 
