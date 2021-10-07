@@ -43,17 +43,12 @@
             </annotation>
           </element>
           <element maxOccurs="unbounded" minOccurs="0" name="groupMember">
-            <annotation>
-              <documentation>Relates to the city objects that are part of the CityObjectGroup.</documentation>
-              <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">core:AbstractCityObject</targetElement>
-              </appinfo>
-            </annotation>
             <complexType>
               <complexContent>
-                <extension base="gml:AbstractFeatureMemberType">
-                  <sequence/>
-                  <attributeGroup ref="gml:AssociationAttributeGroup"/>
+                <extension base="gml:AbstractMemberType">
+                  <sequence>
+                    <element ref="grp:Role"/>
+                  </sequence>
                 </extension>
               </complexContent>
             </complexType>
@@ -82,23 +77,14 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="Role" substitutionGroup="gml:AbstractGML" type="grp:RoleType">
-    <annotation>
-      <documentation>Role qualifies the function of a city object within the CityObjectGroup.</documentation>
-    </annotation>
-  </element>
+  <element name="Role" substitutionGroup="gml:AbstractGML" type="grp:RoleType"/>
   <complexType name="RoleType">
     <complexContent>
       <extension base="gml:AbstractGMLType">
         <sequence>
-          <element minOccurs="0" name="role" type="string">
-            <annotation>
-              <documentation>Describes the role the city object plays within the CityObjectGroup.</documentation>
-            </annotation>
-          </element>
+          <element minOccurs="0" name="role" type="string"/>
           <element name="groupMember">
             <annotation>
-              <documentation>Relates to the city objects that are part of the CityObjectGroup.</documentation>
               <appinfo>
                 <targetElement xmlns="http://www.opengis.net/gml/3.2">core:AbstractCityObject</targetElement>
               </appinfo>
