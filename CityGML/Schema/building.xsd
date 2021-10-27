@@ -260,16 +260,10 @@
               </complexContent>
             </complexType>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="address">
+          <element maxOccurs="unbounded" minOccurs="0" name="address" type="core:AddressPropertyType">
             <annotation>
               <documentation>Relates the addresses to the Building or BuildingPart.</documentation>
             </annotation>
-            <complexType>
-              <sequence>
-                <element ref="core:Address"/>
-              </sequence>
-              <attributeGroup ref="gml:OwnershipAttributeGroup"/>
-            </complexType>
           </element>
           <element maxOccurs="unbounded" minOccurs="0" name="adeOfAbstractBuilding" type="bldg:ADEOfAbstractBuildingPropertyType">
             <annotation>
@@ -321,25 +315,21 @@
               <documentation>Defines an order among the objects that belong to the building subdivision. An example is the sorting of storeys.</documentation>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="buildingConstructiveElement" type="gml:ReferenceType">
+          <element maxOccurs="unbounded" minOccurs="0" name="buildingConstructiveElement" type="bldg:BuildingConstructiveElementPropertyType">
             <annotation>
               <documentation>Relates the constructive elements to the building subdivision.</documentation>
-              <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">bldg:BuildingConstructiveElement</targetElement>
-              </appinfo>
             </annotation>
           </element>
           <element maxOccurs="unbounded" minOccurs="0" name="buildingFurniture">
             <annotation>
               <documentation>Relates the furniture objects to the building subdivision.</documentation>
-              <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">bldg:BuildingFurniture</targetElement>
-              </appinfo>
             </annotation>
             <complexType>
               <complexContent>
                 <extension base="gml:AbstractFeatureMemberType">
-                  <sequence/>
+                  <sequence minOccurs="0">
+                    <element ref="bldg:BuildingFurniture"/>
+                  </sequence>
                   <attributeGroup ref="gml:AssociationAttributeGroup"/>
                 </extension>
               </complexContent>
@@ -348,25 +338,21 @@
           <element maxOccurs="unbounded" minOccurs="0" name="buildingInstallation">
             <annotation>
               <documentation>Relates the installation objects to the building subdivision.</documentation>
-              <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">bldg:BuildingInstallation</targetElement>
-              </appinfo>
             </annotation>
             <complexType>
               <complexContent>
                 <extension base="gml:AbstractFeatureMemberType">
-                  <sequence/>
+                  <sequence minOccurs="0">
+                    <element ref="bldg:BuildingInstallation"/>
+                  </sequence>
                   <attributeGroup ref="gml:AssociationAttributeGroup"/>
                 </extension>
               </complexContent>
             </complexType>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="buildingRoom" type="gml:ReferenceType">
+          <element maxOccurs="unbounded" minOccurs="0" name="buildingRoom" type="bldg:BuildingRoomPropertyType">
             <annotation>
               <documentation>Relates the rooms to the building subdivision.</documentation>
-              <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">bldg:BuildingRoom</targetElement>
-              </appinfo>
             </annotation>
           </element>
           <element maxOccurs="unbounded" minOccurs="0" name="adeOfAbstractBuildingSubdivision" type="bldg:ADEOfAbstractBuildingSubdivisionPropertyType">
@@ -401,9 +387,10 @@
             <complexType>
               <complexContent>
                 <extension base="gml:AbstractFeatureMemberType">
-                  <sequence>
+                  <sequence minOccurs="0">
                     <element ref="bldg:BuildingPart"/>
                   </sequence>
+                  <attributeGroup ref="gml:AssociationAttributeGroup"/>
                 </extension>
               </complexContent>
             </complexType>
@@ -601,14 +588,13 @@
           <element maxOccurs="unbounded" minOccurs="0" name="buildingFurniture">
             <annotation>
               <documentation>Relates the furniture objects to the BuildingRoom.</documentation>
-              <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">bldg:BuildingFurniture</targetElement>
-              </appinfo>
             </annotation>
             <complexType>
               <complexContent>
                 <extension base="gml:AbstractFeatureMemberType">
-                  <sequence/>
+                  <sequence minOccurs="0">
+                    <element ref="bldg:BuildingFurniture"/>
+                  </sequence>
                   <attributeGroup ref="gml:AssociationAttributeGroup"/>
                 </extension>
               </complexContent>
@@ -617,14 +603,13 @@
           <element maxOccurs="unbounded" minOccurs="0" name="buildingInstallation">
             <annotation>
               <documentation>Relates the installation objects to the BuildingRoom.</documentation>
-              <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">bldg:BuildingInstallation</targetElement>
-              </appinfo>
             </annotation>
             <complexType>
               <complexContent>
                 <extension base="gml:AbstractFeatureMemberType">
-                  <sequence/>
+                  <sequence minOccurs="0">
+                    <element ref="bldg:BuildingInstallation"/>
+                  </sequence>
                   <attributeGroup ref="gml:AssociationAttributeGroup"/>
                 </extension>
               </complexContent>
@@ -655,24 +640,15 @@
     <complexContent>
       <extension base="bldg:AbstractBuildingSubdivisionType">
         <sequence>
-          <element maxOccurs="unbounded" minOccurs="0" name="storey" type="gml:ReferenceType">
+          <element maxOccurs="unbounded" minOccurs="0" name="storey" type="bldg:StoreyPropertyType">
             <annotation>
               <documentation>Relates to the storeys on which the BuildingUnit is located.</documentation>
-              <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">bldg:Storey</targetElement>
-              </appinfo>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="address">
+          <element maxOccurs="unbounded" minOccurs="0" name="address" type="core:AddressPropertyType">
             <annotation>
               <documentation>Relates to the addresses that are assigned to the BuildingUnit.</documentation>
             </annotation>
-            <complexType>
-              <sequence>
-                <element ref="core:Address"/>
-              </sequence>
-              <attributeGroup ref="gml:OwnershipAttributeGroup"/>
-            </complexType>
           </element>
           <element maxOccurs="unbounded" minOccurs="0" name="adeOfBuildingUnit" type="bldg:ADEOfBuildingUnitPropertyType">
             <annotation>
@@ -733,12 +709,9 @@
     <complexContent>
       <extension base="bldg:AbstractBuildingSubdivisionType">
         <sequence>
-          <element maxOccurs="unbounded" minOccurs="0" name="buildingUnit" type="gml:ReferenceType">
+          <element maxOccurs="unbounded" minOccurs="0" name="buildingUnit" type="bldg:BuildingUnitPropertyType">
             <annotation>
               <documentation>Relates to the building units that belong to the Storey.</documentation>
-              <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">bldg:BuildingUnit</targetElement>
-              </appinfo>
             </annotation>
           </element>
           <element maxOccurs="unbounded" minOccurs="0" name="adeOfStorey" type="bldg:ADEOfStoreyPropertyType">

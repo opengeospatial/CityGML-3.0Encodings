@@ -591,9 +591,10 @@
             <complexType>
               <complexContent>
                 <extension base="gml:AbstractFeatureMemberType">
-                  <sequence>
+                  <sequence minOccurs="0">
                     <element ref="tran:Section"/>
                   </sequence>
+                  <attributeGroup ref="gml:AssociationAttributeGroup"/>
                 </extension>
               </complexContent>
             </complexType>
@@ -660,9 +661,10 @@
             <complexType>
               <complexContent>
                 <extension base="gml:AbstractFeatureMemberType">
-                  <sequence>
+                  <sequence minOccurs="0">
                     <element ref="tran:Section"/>
                   </sequence>
+                  <attributeGroup ref="gml:AssociationAttributeGroup"/>
                 </extension>
               </complexContent>
             </complexType>
@@ -799,9 +801,10 @@
             <complexType>
               <complexContent>
                 <extension base="gml:AbstractFeatureMemberType">
-                  <sequence>
+                  <sequence minOccurs="0">
                     <element ref="tran:Section"/>
                   </sequence>
+                  <attributeGroup ref="gml:AssociationAttributeGroup"/>
                 </extension>
               </complexContent>
             </complexType>
@@ -966,9 +969,10 @@
             <complexType>
               <complexContent>
                 <extension base="gml:AbstractFeatureMemberType">
-                  <sequence>
+                  <sequence minOccurs="0">
                     <element ref="tran:ClearanceSpace"/>
                   </sequence>
+                  <attributeGroup ref="gml:AssociationAttributeGroup"/>
                 </extension>
               </complexContent>
             </complexType>
@@ -1020,9 +1024,10 @@
             <complexType>
               <complexContent>
                 <extension base="gml:AbstractFeatureMemberType">
-                  <sequence>
+                  <sequence minOccurs="0">
                     <element ref="tran:Section"/>
                   </sequence>
+                  <attributeGroup ref="gml:AssociationAttributeGroup"/>
                 </extension>
               </complexContent>
             </complexType>

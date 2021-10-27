@@ -167,16 +167,10 @@
               <documentation>Relates to the 3D MultiPoint geometry of the MassPointRelief.</documentation>
             </annotation>
           </element>
-          <element minOccurs="0" name="pointCloud">
+          <element minOccurs="0" name="pointCloud" type="core:AbstractPointCloudPropertyType">
             <annotation>
               <documentation>Relates to the 3D PointCloud of the MassPointRelief.</documentation>
             </annotation>
-            <complexType>
-              <sequence>
-                <element ref="core:AbstractPointCloud"/>
-              </sequence>
-              <attributeGroup ref="gml:OwnershipAttributeGroup"/>
-            </complexType>
           </element>
           <element maxOccurs="unbounded" minOccurs="0" name="adeOfMassPointRelief" type="dem:ADEOfMassPointReliefPropertyType">
             <annotation>
@@ -252,9 +246,10 @@
             <complexType>
               <complexContent>
                 <extension base="gml:AbstractFeatureMemberType">
-                  <sequence>
+                  <sequence minOccurs="0">
                     <element ref="dem:AbstractReliefComponent"/>
                   </sequence>
+                  <attributeGroup ref="gml:AssociationAttributeGroup"/>
                 </extension>
               </complexContent>
             </complexType>

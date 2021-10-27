@@ -77,7 +77,11 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="Role" substitutionGroup="gml:AbstractGML" type="grp:RoleType"/>
+  <element name="Role" substitutionGroup="gml:AbstractGML" type="grp:RoleType">
+    <annotation>
+      <documentation>Role qualifies the function of a city object within the CityObjectGroup.</documentation>
+    </annotation>
+  </element>
   <complexType name="RoleType">
     <complexContent>
       <extension base="gml:AbstractGMLType">

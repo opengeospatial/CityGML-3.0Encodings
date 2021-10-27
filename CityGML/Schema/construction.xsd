@@ -369,16 +369,10 @@
               <documentation>Indicates whether the constructive element is essential from a structural point of view. A structural element cannot be omitted without collapsing of the construction. Examples are pylons and anchorages of bridges.</documentation>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="filling">
+          <element maxOccurs="unbounded" minOccurs="0" name="filling" type="con:AbstractFillingElementPropertyType">
             <annotation>
               <documentation>Relates to the elements that fill the opening of the constructive element.</documentation>
             </annotation>
-            <complexType>
-              <sequence>
-                <element ref="con:AbstractFillingElement"/>
-              </sequence>
-              <attributeGroup ref="gml:OwnershipAttributeGroup"/>
-            </complexType>
           </element>
           <element maxOccurs="unbounded" minOccurs="0" name="adeOfAbstractConstructiveElement" type="con:ADEOfAbstractConstructiveElementPropertyType">
             <annotation>
