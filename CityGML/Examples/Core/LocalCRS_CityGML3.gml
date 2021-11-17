@@ -2,7 +2,7 @@
 <!--
 This dataset demonstrates the use of local engineering coordinate reference systems in CityGML. The definition of the local CRS is encoded in the core:engineeringCRS element of the CityModel and describes a 3D Cartesian reference system. Its origin corresponds to an anchor point which references a point on the earth’s surface (here: in Germany). This anchor point is defined in the EngineeringDatum element that is used by the local CRS, and is associated with a compound 3D CRS which combines a Projected CRS (ETRS89 / UTM zone 32N; EPSG code 25832) for the planimetry with a Vertical CRS (DHHN92 height, EPSG code 5783) for the height reference. The gml:Envelope of the CityModel references the local CRS by its gml:id "local-CRS-1" and, thus, is inherited by all geometries in all properties of the CityModel and members of this feature collection. If required, the reference system may be overridden by the members of the CityModel, for example, to provide a separate anchor point for each city object.
 -->
-<core:CityModel xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:bldg="http://www.opengis.net/citygml/building/3.0" xmlns:wtr="http://www.opengis.net/citygml/waterbody/3.0" xmlns:brid="http://www.opengis.net/citygml/bridge/3.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:tun="http://www.opengis.net/citygml/tunnel/3.0" xmlns:tran="http://www.opengis.net/citygml/transportation/3.0" xmlns:core="http://www.opengis.net/citygml/3.0" xmlns:grp="http://www.opengis.net/citygml/cityobjectgroup/3.0" xmlns:con="http://www.opengis.net/citygml/construction/3.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:luse="http://www.opengis.net/citygml/landuse/3.0" xmlns:frn="http://www.opengis.net/citygml/cityfurniture/3.0" xmlns:pcl="http://www.opengis.net/citygml/pointcloud/3.0" xmlns:xal="urn:oasis:names:tc:ciq:xal:3" xmlns:dem="http://www.opengis.net/citygml/relief/3.0" xmlns:gen="http://www.opengis.net/citygml/generics/3.0" xmlns:app="http://www.opengis.net/citygml/appearance/3.0" xmlns:vers="http://www.opengis.net/citygml/versioning/3.0" xmlns:dyn="http://www.opengis.net/citygml/dynamizer/3.0" xmlns:veg="http://www.opengis.net/citygml/vegetation/3.0" gml:id="fme-gen-c131818d-2c1a-4897-864c-99855ab75de1"
+<core:CityModel xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:bldg="http://www.opengis.net/citygml/building/3.0" xmlns:wtr="http://www.opengis.net/citygml/waterbody/3.0" xmlns:brid="http://www.opengis.net/citygml/bridge/3.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:tun="http://www.opengis.net/citygml/tunnel/3.0" xmlns:tran="http://www.opengis.net/citygml/transportation/3.0" xmlns:core="http://www.opengis.net/citygml/3.0" xmlns:grp="http://www.opengis.net/citygml/cityobjectgroup/3.0" xmlns:con="http://www.opengis.net/citygml/construction/3.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:luse="http://www.opengis.net/citygml/landuse/3.0" xmlns:frn="http://www.opengis.net/citygml/cityfurniture/3.0" xmlns:pcl="http://www.opengis.net/citygml/pointcloud/3.0" xmlns:xAL="urn:oasis:names:tc:ciq:xal:3" xmlns:dem="http://www.opengis.net/citygml/relief/3.0" xmlns:gen="http://www.opengis.net/citygml/generics/3.0" xmlns:app="http://www.opengis.net/citygml/appearance/3.0" xmlns:vers="http://www.opengis.net/citygml/versioning/3.0" xmlns:dyn="http://www.opengis.net/citygml/dynamizer/3.0" xmlns:veg="http://www.opengis.net/citygml/vegetation/3.0" gml:id="fme-gen-c131818d-2c1a-4897-864c-99855ab75de1" 
 xsi:schemaLocation="http://www.opengis.net/citygml/3.0 ../Schema/cityGMLBase.xsd http://www.opengis.net/citygml/construction/3.0 ../Schema/construction.xsd http://www.opengis.net/citygml/building/3.0 ../Schema/building.xsd http://www.opengis.net/citygml/relief/3.0 ../Schema/relief.xsd">
   <gml:description>Simple example for a CityGML dataset using a local engineering CRS</gml:description>
   <gml:name>Simple 3D city model LOD1 without Appearance</gml:name>
@@ -63,7 +63,7 @@ xsi:schemaLocation="http://www.opengis.net/citygml/3.0 ../Schema/cityGMLBase.xsd
   </core:engineeringCRS>
   <core:cityObjectMember>
     <bldg:Building gml:id="GML_7b1a5a6f-ddad-4c3d-a507-3eb9ee0a8e68">
-      <gml:name>Example Building LOD1 </gml:name>
+      <gml:name>Example Building LOD1</gml:name>
       <core:lod1Solid>
         <gml:Solid>
           <gml:exterior>
@@ -132,7 +132,49 @@ xsi:schemaLocation="http://www.opengis.net/citygml/3.0 ../Schema/cityGMLBase.xsd
           </gml:exterior>
         </gml:Solid>
       </core:lod1Solid>
-      <!-- ... Address of building -->
+      <con:dateOfConstruction>1985-01-01</con:dateOfConstruction>
+      <con:height>
+        <con:Height>
+          <con:highReference>highestRoofEdge</con:highReference>
+          <con:lowReference>lowestGroundPoint</con:lowReference>
+          <con:status>measured</con:status>
+          <con:value uom="#m">5.0</con:value>
+        </con:Height>
+      </con:height>
+      <bldg:function codeSpace="XYZ">1000</bldg:function>
+      <bldg:roofType codeSpace="XYZ">1030</bldg:roofType>
+      <bldg:storeysAboveGround>1</bldg:storeysAboveGround>
+      <bldg:storeyHeightsAboveGround uom="#m">3.0</bldg:storeyHeightsAboveGround>
+      <bldg:address>
+        <core:Address gml:id="GML-0355784d-2ffc-4c46-b812-c4d08d6a3f81">
+          <core:xalAddress>
+            <xAL:Address>
+              <xAL:Country>
+                <xAL:NameElement xAL:NameType="Name">Germany</xAL:NameElement>
+              </xAL:Country>
+              <xAL:Locality xAL:Type="Town">
+                <xAL:NameElement xAL:NameType="Name">Eggenstein-Leopoldshafen</xAL:NameElement>
+              </xAL:Locality>
+              <xAL:Thoroughfare xAL:Type="Street">
+                <xAL:NameElement xAL:NameType="NameAndType">Hermann-von-Helmholtz-Platz</xAL:NameElement>
+                <xAL:Number xAL:Type="Number">1</xAL:Number>
+              </xAL:Thoroughfare>
+              <xAL:PostCode>
+                <xAL:Identifier>76344</xAL:Identifier>
+              </xAL:PostCode>
+            </xAL:Address>
+          </core:xalAddress>
+          <core:multiPoint>
+            <gml:MultiPoint>
+              <gml:pointMember>
+                <gml:Point>
+                  <gml:pos srsDimension="3">12.0 9.59999999962747 0.0</gml:pos>
+                </gml:Point>
+              </gml:pointMember>
+            </gml:MultiPoint>
+          </core:multiPoint>
+        </core:Address>
+      </bldg:address>
     </bldg:Building>
   </core:cityObjectMember>
   <core:cityObjectMember>
@@ -153,7 +195,62 @@ xsi:schemaLocation="http://www.opengis.net/citygml/3.0 ../Schema/cityGMLBase.xsd
                     </gml:LinearRing>
                   </gml:exterior>
                 </gml:Triangle>
-                <!-- ... (more triangles) -->
+                <gml:Triangle>
+                  <gml:exterior>
+                    <gml:LinearRing>
+                      <gml:posList>7.0 12.0 0.0 17.0 12.0 0.0 15.0 19.0 2.0 7.0 12.0 0.0</gml:posList>
+                    </gml:LinearRing>
+                  </gml:exterior>
+                </gml:Triangle>
+                <gml:Triangle>
+                  <gml:exterior>
+                    <gml:LinearRing>
+                      <gml:posList>15.0 19.0 2.0 17.0 12.0 0.0 24.0 19.0 0.0 15.0 19.0 2.0</gml:posList>
+                    </gml:LinearRing>
+                  </gml:exterior>
+                </gml:Triangle>
+                <gml:Triangle>
+                  <gml:exterior>
+                    <gml:LinearRing>
+                      <gml:posList>17.0 12.0 0.0 17.0 7.0 0.0 24.0 19.0 0.0 17.0 12.0 0.0</gml:posList>
+                    </gml:LinearRing>
+                  </gml:exterior>
+                </gml:Triangle>
+                <gml:Triangle>
+                  <gml:exterior>
+                    <gml:LinearRing>
+                      <gml:posList>17.0 7.0 0.0 24.0 0.0 0.0 24.0 19.0 0.0 17.0 7.0 0.0</gml:posList>
+                    </gml:LinearRing>
+                  </gml:exterior>
+                </gml:Triangle>
+                <gml:Triangle>
+                  <gml:exterior>
+                    <gml:LinearRing>
+                      <gml:posList>7.0 7.0 0.0 24.0 0.0 0.0 17.0 7.0 0.0 7.0 7.0 0.0</gml:posList>
+                    </gml:LinearRing>
+                  </gml:exterior>
+                </gml:Triangle>
+                <gml:Triangle>
+                  <gml:exterior>
+                    <gml:LinearRing>
+                      <gml:posList>0.0 0.0 0.0 24.0 0.0 0.0 7.0 7.0 0.0 0.0 0.0 0.0</gml:posList>
+                    </gml:LinearRing>
+                  </gml:exterior>
+                </gml:Triangle>
+                <gml:Triangle>
+                  <gml:exterior>
+                    <gml:LinearRing>
+                      <gml:posList>0.0 0.0 0.0 7.0 7.0 0.0 7.0 12.0 0.0 0.0 0.0 0.0</gml:posList>
+                    </gml:LinearRing>
+                  </gml:exterior>
+                </gml:Triangle>
+                <gml:Triangle>
+                  <gml:exterior>
+                    <gml:LinearRing>
+                      <gml:posList>0.0 0.0 0.0 7.0 12.0 0.0 0.0 19.0 0.0 0.0 0.0 0.0</gml:posList>
+                    </gml:LinearRing>
+                  </gml:exterior>
+                </gml:Triangle>
               </gml:trianglePatches>
             </gml:TriangulatedSurface>
           </dem:tin>
