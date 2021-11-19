@@ -5,7 +5,7 @@
   The file validates against release 3.0.0-draft.2020.09.17.1
 -->
 <CityModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
- xsi:schemaLocation="http://www.opengis.net/citygml/3.0 ../Schema/cityGMLBase.xsd http://www.opengis.net/citygml/generics/3.0 ../Schema/generics.xsd http://www.opengis.net/citygml/construction/3.0 ../Schema/construction.xsd http://www.opengis.net/citygml/building/3.0 ../Schema/building.xsd http://www.opengis.net/citygml/dynamizer/3.0 ../Schema/dynamizer.xsd" 
+ xsi:schemaLocation="http://www.opengis.net/citygml/3.0 ../../Schema/cityGMLBase.xsd http://www.opengis.net/citygml/generics/3.0 ../../Schema/generics.xsd http://www.opengis.net/citygml/construction/3.0 ../../Schema/construction.xsd http://www.opengis.net/citygml/building/3.0 ../../Schema/building.xsd http://www.opengis.net/citygml/dynamizer/3.0 ../../Schema/dynamizer.xsd" 
  xmlns="http://www.opengis.net/citygml/3.0" 
  xmlns:gen="http://www.opengis.net/citygml/generics/3.0" 
  xmlns:xAL="urn:oasis:names:tc:ciq:xal:3" 
