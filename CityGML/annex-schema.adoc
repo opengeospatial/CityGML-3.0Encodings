@@ -2,7 +2,227 @@
 :appendix-caption: Annex
 
 [[annex-schema]]
-== Schema ( Normative )
+== XML Schema ( Normative )
 
 [NOTE]
-This is where any XML or JSON schema reside. Conformance is defined, in part, by conformance to these schema.
+This is where any XML or JSON schema reside. Conformance is defined, in part, by conformance to these schemas.
+
+[[xml-core-module]]
+=== Core module
+
+The CityGML Core module is defined in the XML Schema Definition file _core.xsd_ (<<listing-xml-core-module>>). The target namespace http://www.opengis.net/citygml/3.0 is associated with this module.
+
+[[listing-xml-core-module]]
+.core.xsd
+[source,XML]
+----
+include::Schema/core.xsd[]
+----
+
+
+[[xml-appearance-module]]
+=== Appearance module
+
+The CityGML Appearance module is defined in the XML Schema Definition file _appearance.xsd_ (<<listing-xml-appearance-module>>). The target namespace http://www.opengis.net/citygml/appearance/3.0 is associated with this module.
+
+[[listing-xml-appearance-module]]
+.appearance.xsd
+[source,XML]
+----
+include::Schema/appearance.xsd[]
+----
+
+
+[[xml-bridge-module]]
+=== Bridge module
+
+The CityGML Bridge module is defined in the XML Schema Definition file _bridge.xsd_ (<<listing-xml-bridge-module>>). The target namespace http://www.opengis.net/citygml/bridge/3.0 is associated with this module.
+
+[[listing-xml-bridge-module]]
+.bridge.xsd
+[source,XML]
+----
+include::Schema/bridge.xsd[]
+----
+
+
+[[xml-building-module]]
+=== Building module
+
+The CityGML Building module is defined in the XML Schema Definition file _building.xsd_ (<<listing-xml-building-module>>). The target namespace http://www.opengis.net/citygml/building/3.0 is associated with this module.
+
+[[listing-xml-building-module]]
+.building.xsd
+[source,XML]
+----
+include::Schema/building.xsd[]
+----
+
+
+[[xml-cityfurniture-module]]
+=== City Furniture module
+
+The CityGML City Furniture module is defined in the XML Schema Definition file _cityFurniture.xsd_ (<<listing-xml-cityfurniture-module>>). The target namespace http://www.opengis.net/citygml/cityfurniture/3.0 is associated with this module.
+
+[[listing-xml-cityfurniture-module]]
+.cityFurniture.xsd
+[source,XML]
+----
+include::Schema/cityFurniture.xsd[]
+----
+
+
+[[xml-cityobjectgroup-module]]
+=== City Object Group module
+
+The CityGML City Object Group module is defined in the XML Schema Definition file _cityObjectGroup.xsd_ (<<listing-xml-cityobjectgroup-module>>). The target namespace http://www.opengis.net/citygml/cityobjectgroup/3.0 is associated with this module.
+
+[[listing-xml-cityobjectgroup-module]]
+.cityObjectGroup.xsd
+[source,XML]
+----
+include::Schema/cityObjectGroup.xsd[]
+----
+
+
+[[xml-construction-module]]
+=== Construction module
+
+The CityGML Construction module is defined in the XML Schema Definition file _construction.xsd_ (<<listing-xml-construction-module>>). The target namespace http://www.opengis.net/citygml/construction/3.0 is associated with this module.
+
+[[listing-xml-construction-module]]
+.construction.xsd
+[source,XML]
+----
+include::Schema/construction.xsd[]
+----
+
+
+[[xml-dynamizer-module]]
+=== Dynamizer module
+
+The CityGML Dynamizer module is defined in the XML Schema Definition file _dynamizer.xsd_ (<<listing-xml-dynamizer-module>>). The target namespace http://www.opengis.net/citygml/dynamizer/3.0 is associated with this module.
+
+[[listing-xml-dynamizer-module]]
+.dynamizer.xsd
+[source,XML]
+----
+include::Schema/dynamizer.xsd[]
+----
+
+
+[[xml-generics-module]]
+=== Generics module
+
+The CityGML Generics module is defined in the XML Schema Definition file _generics.xsd_ (<<listing-xml-generics-module>>). The target namespace http://www.opengis.net/citygml/generics/3.0 is associated with this module.
+
+[[listing-xml-generics-module]]
+.generics.xsd
+[source,XML]
+----
+include::Schema/generics.xsd[]
+----
+
+
+[[xml-landuse-module]]
+=== Land Use module
+
+The CityGML Land Use module is defined in the XML Schema Definition file _landUse.xsd_ (<<listing-xml-landuse-module>>). The target namespace http://www.opengis.net/citygml/landuse/3.0 is associated with this module.
+
+[[listing-xml-landuse-module]]
+.landUse.xsd
+[source,XML]
+----
+include::Schema/landUse.xsd[]
+----
+
+
+[[xml-pointcloud-module]]
+=== Point Cloud module
+
+The CityGML Point Cloud module is defined in the XML Schema Definition file _pointCloud.xsd_ (<<listing-xml-pointcloud-module>>). The target namespace http://www.opengis.net/citygml/pointcloud/3.0 is associated with this module.
+
+[[listing-xml-pointcloud-module]]
+.pointCloud.xsd
+[source,XML]
+----
+include::Schema/pointCloud.xsd[]
+----
+
+
+[[xml-relief-module]]
+=== Relief module
+
+The CityGML Relief module is defined in the XML Schema Definition file _relief.xsd_ (<<listing-xml-relief-module>>). The target namespace http://www.opengis.net/citygml/relief/3.0 is associated with this module.
+
+[[listing-xml-relief-module]]
+.relief.xsd
+[source,XML]
+----
+include::Schema/relief.xsd[]
+----
+
+
+[[xml-transportation-module]]
+=== Transportation module
+
+The CityGML Transportation module is defined in the XML Schema Definition file _transportation.xsd_ (<<listing-xml-transportation-module>>). The target namespace http://www.opengis.net/citygml/transportation/3.0 is associated with this module.
+
+[[listing-xml-transportation-module]]
+.transportation.xsd
+[source,XML]
+----
+include::Schema/transportation.xsd[]
+----
+
+
+[[xml-tunnel-module]]
+=== Tunnel module
+
+The CityGML Tunnel module is defined in the XML Schema Definition file _tunnel.xsd_ (<<listing-xml-tunnel-module>>). The target namespace http://www.opengis.net/citygml/tunnel/3.0 is associated with this module.
+
+[[listing-xml-tunnel-module]]
+.tunnel.xsd
+[source,XML]
+----
+include::Schema/tunnel.xsd[]
+----
+
+
+[[xml-vegetation-module]]
+=== Vegetation module
+
+The CityGML Vegetation module is defined in the XML Schema Definition file _vegetation.xsd_ (<<listing-xml-vegetation-module>>). The target namespace http://www.opengis.net/citygml/vegetation/3.0 is associated with this module.
+
+[[listing-xml-vegetation-module]]
+.vegetation.xsd
+[source,XML]
+----
+include::Schema/vegetation.xsd[]
+----
+
+
+[[xml-versioning-module]]
+=== Versioning module
+
+The CityGML Versioning module is defined in the XML Schema Definition file _versioning.xsd_ (<<listing-xml-versioning-module>>). The target namespace http://www.opengis.net/citygml/versioning/3.0 is associated with this module.
+
+[[listing-xml-versioning-module]]
+.versioning.xsd
+[source,XML]
+----
+include::Schema/versioning.xsd[]
+----
+
+
+[[xml-waterbody-module]]
+=== Water Body module
+
+The CityGML Water Body module is defined in the XML Schema Definition file _waterBody.xsd_ (<<listing-xml-waterbody-module>>). The target namespace http://www.opengis.net/citygml/waterbody/3.0 is associated with this module.
+
+[[listing-xml-waterbody-module]]
+.waterBody.xsd
+[source,XML]
+----
+include::Schema/waterBody.xsd[]
+----

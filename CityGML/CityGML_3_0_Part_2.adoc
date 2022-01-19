@@ -104,8 +104,6 @@ include::annex-schema.adoc[]
 
 include::annex-conceptual-model-conformance.adoc[]
 
-include::annex-data-dictionary.adoc[]
-
 include::annex-history.adoc[]
 
 include::annex-glossary.adoc[]
