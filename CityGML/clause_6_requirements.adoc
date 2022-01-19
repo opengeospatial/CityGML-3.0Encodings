@@ -1,6 +1,8 @@
 [[requirements-section]]
 == Requirements
 
+include::clause_6_0_Global.adoc[]
+
 include::clause_6_1_Base.adoc[]
 
 include::clause_6_2_Appearance.adoc[]
@@ -34,4 +36,3 @@ include::clause_6_15_Vegetation.adoc[]
 include::clause_6_16_Versioning.adoc[]
 
 include::clause_6_17_WaterBody.adoc[]
-

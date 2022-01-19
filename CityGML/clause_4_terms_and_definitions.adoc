@@ -4,6 +4,47 @@ This document uses the terms defined in Sub-clause 5.3 of [OGC 06-121r8], which 
 
 For the purposes of this document, the following additional terms and definitions apply.
 
+[[feature-definition]]
+*feature* +
+abstraction of real world phenomena +
+NOTE Features are objects that have an identity that allows for distinguishing features from each other. Features can have spatial and non-spatial properties that describe the features in more detail. Spatial properties are properties that have a geometry from ISO 19107 as data type. +
+NOTE Features are denoted by the stereotype «FeatureType» in the CityGML 3.0 Conceptual Model. +
+{blank}[ISO 19101‑1:2014, 4.1.11]
+
+[[geometry-definition]]
+*geometry* +
+an ordered set of n-dimensional points in a given coordinate reference system; can be used to model the spatial extent or shape of a feature  +
+NOTE Geometries are objects that can have an identity that allows for distinguishing geometries from each other. Geometries define the data types of spatial properties of features. +
+{blank}[OGC 15-107, modified]
+
+[[top-level-feature-definition]]
+*top-level feature* +
+a feature that represents one of the main components of 3D city models; can be further semantically and spatially decomposed and substructured into parts +
+NOTE Top-level features are denoted by the stereotype «TopLevelFeatureType» in the CityGML 3.0 Conceptual Model. +
+{blank}[CityGML Conceptual Model]
+
+[[space-definition]]
+*space* +
+an entity of volumetric extent in the real world +
+NOTE Spaces can be spatially represented in different LODs and by different types of geometric objects. +
+NOTE Spaces are represented in the CityGML 3.0 Conceptual Model by those classes that are derived from the class AbstractSpace. +
+{blank}[CityGML Conceptual Model]
+
+[[space-definition]]
+*space boundary* +
+an entity with areal extent in the real world. Space boundaries are objects that bound a Space. They also realize the contact between adjacent spaces. +
+NOTE Space boundaries can be spatially represented in different LODs and by different types of geometric objects. +
+NOTE Space boundaries are represented in the CityGML 3.0 Conceptual Model by those classes that are derived from the class AbstractSpaceBoundary. +
+{blank}[CityGML Conceptual Model]
+
+[[city-object-relation-definition]]
+*city-object relation* +
+a specific relation from the city object in which the relation is included to another city object +
+{blank}[CityGML Conceptual Model]
+
+
+*The following definitions were copied from the Conceptual Model specification. We need to decide which of them to keep also in this specification.*
+
 [[d2d-data-definition]]
 *2D data* +
 geometry of features is represented in a two-dimensional space +
@@ -36,7 +77,7 @@ model that defines concepts of a universe of discourse +
 {blank}[ISO 19101-1:2014, 4.1.5]
 
 [[conceptual-schema-definition]]
-*conceptual schema* 
+*conceptual schema*
 
 . formal description of a <<conceptual-model-definition,conceptual model>> +
 {blank}[ISO 19101-1:2014, 4.1.6]
@@ -72,5 +113,3 @@ a model that is independent of a spacific platform +
 *Platform Specific Model* +
 a model of a system that is defined in terms of a specific platform +
 {blank}[Object Management Group, Model Driven Architecture Guide rev. 2.0]
-
-

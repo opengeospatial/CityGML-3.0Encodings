@@ -9,6 +9,8 @@
 :numbered:
 :sectanchors:
 :source-highlighter: pygments
+:xrefstyle: short
+:listing-caption: Listing
 
 <<<
 [cols = ">",frame = "none",grid = "none"]
