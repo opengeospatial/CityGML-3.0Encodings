@@ -1,4 +1,4 @@
-[[base-section]]
+[[core-section]]
 === Core Conformance Class
 
 The Core Conformance Class implements the following Requirements Classes from the CityGML 3.0 Conceptual Model Standard:
@@ -8,6 +8,6 @@ The Core Conformance Class implements the following Requirements Classes from th
 
 The applicable GML schema is http://schemas.opengis.net/citygml/3.0/core.xsd[core.xsd]
 
-include::requirements/requirements_class_base.adoc[]
+include::requirements/requirements_class_core.adoc[]
 
-include::requirements/base/REQ_Base_Elements.adoc[]
+include::requirements/core/REQ_Core_Elements.adoc[]

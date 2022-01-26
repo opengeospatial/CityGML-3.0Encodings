@@ -8,25 +8,25 @@ CityGML is an implementation of the CityGML 3.0 Conceptual Model Standard. <<con
 .Conceptual Model Mapping
 [width="100%",cols="5,10,10",options="header"]
 |===
-|Conceptual Model  |Section |GML Schema 
-|ADE |<<base-section>> | http://schemas.opengis.net/citygml/3.0/cityGMLBase.xsd[cityGMLBase.xsd] 
-|Appearance |<<appearance-section>> |http://schemas.opengis.net/citygml/3.0/appearance.xsd[appearance.xsd] 
-|Bridge |<<bridge-section>> |http://schemas.opengis.net/citygml/3.0/bridge.xsd[bridge.xsd] 
-|Building |<<building-section>> |http://schemas.opengis.net/citygml/3.0/building.xsd[building.xsd] 
+|Conceptual Model  |Section |GML Schema
+|ADE |<<core-section>> | http://schemas.opengis.net/citygml/3.0/core.xsd[core.xsd]
+|Appearance |<<appearance-section>> |http://schemas.opengis.net/citygml/3.0/appearance.xsd[appearance.xsd]
+|Bridge |<<bridge-section>> |http://schemas.opengis.net/citygml/3.0/bridge.xsd[bridge.xsd]
+|Building |<<building-section>> |http://schemas.opengis.net/citygml/3.0/building.xsd[building.xsd]
 |City Furniture |<<city-furniture-section>> |http://schemas.opengis.net/citygml/3.0/cityFurniture.xsd[cityFurniture.xsd]
 |City Object Group |<<city-object-group-section>>  |http://schemas.opengis.net/citygml/3.0/cityObjectGroup.xsd[cityObjectGroup.xsd]
-|Construction |<<construction-section>>|http://schemas.opengis.net/citygml/3.0/construction.xsd[construction.xsd]  
-|Core |<<base-section>>  |http://schemas.opengis.net/citygml/3.0/cityGMLBase.xsd[cityGMLBase.xsd]  
-|Dynamizer |<<dynamizer-section>>  |http://schemas.opengis.net/citygml/3.0/dynamizer.xsd[dynamizer.xsd]  
-|Generics |<<generics-section>>  |http://schemas.opengis.net/citygml/3.0/generics.xsd[generics.xsd]  
+|Construction |<<construction-section>>|http://schemas.opengis.net/citygml/3.0/construction.xsd[construction.xsd]
+|Core |<<core-section>>  |http://schemas.opengis.net/citygml/3.0/core.xsd[core.xsd]
+|Dynamizer |<<dynamizer-section>>  |http://schemas.opengis.net/citygml/3.0/dynamizer.xsd[dynamizer.xsd]
+|Generics |<<generics-section>>  |http://schemas.opengis.net/citygml/3.0/generics.xsd[generics.xsd]
 |Land Use |<<land-use-section>> |http://schemas.opengis.net/citygml/3.0/landUse.xsd[landUse.xsd]
 |Point Cloud |<<point-cloud-section>> |http://schemas.opengis.net/citygml/3.0/pointCloud.xsd[pointCloud.xsd]
 |Relief |<<relief-section>> |http://schemas.opengis.net/citygml/3.0/relief.xsd[relief.xsd]
-|Transportation |<<transportation-section>> |http://schemas.opengis.net/citygml/3.0/transportation.xsd[transportation.xsd] 
+|Transportation |<<transportation-section>> |http://schemas.opengis.net/citygml/3.0/transportation.xsd[transportation.xsd]
 |Tunnel |<<tunnel-section>> |http://schemas.opengis.net/citygml/3.0/tunnel.xsd[tunnel.xsd]
 |Vegetation |<<vegetation-section>> |http://schemas.opengis.net/citygml/3.0/vegetation.xsd[vegetation.xsd]
-|Versioning |<<versioning-section>> |http://schemas.opengis.net/citygml/3.0/versioning.xsd[versioning.xsd]  
-|Water Body |<<water-body-section>> |http://schemas.opengis.net/citygml/3.0/waterBody.xsd[waterBody.xsd] 
+|Versioning |<<versioning-section>> |http://schemas.opengis.net/citygml/3.0/versioning.xsd[versioning.xsd]
+|Water Body |<<water-body-section>> |http://schemas.opengis.net/citygml/3.0/waterBody.xsd[waterBody.xsd]
 |===
 
 [big]*ii.    Keywords*
@@ -37,7 +37,7 @@ ogcdoc, OGC document, CityGML, 3D city models, GML, XML
 
 [big]*iii.   Preface*
 
-In order to achieve consensus on the basic entities, attributes, and relations of a 3D city model, a UML Conceptual Model, CityGML 3.0, was approved as an OGC standard in March, 2021. This model provides a unifying conceptual basis for city model encoding standards. This cityGML 3.0 XML Encoding Standard defines how those concepts should be realized using XML and GML technologies. 
+In order to achieve consensus on the basic entities, attributes, and relations of a 3D city model, a UML Conceptual Model, CityGML 3.0, was approved as an OGC standard in March, 2021. This model provides a unifying conceptual basis for city model encoding standards. This cityGML 3.0 XML Encoding Standard defines how those concepts should be realized using XML and GML technologies.
 
 As an OGC standard, CityGML follows the OGC modular specification standard, OGC 08-131r3. Because of the breadth of CityGML, its conceptual model was divided into separate Requirements Classes, one for each subject area. This CityGML encoding similarly is divided into Requirements Classes which are then grouped into Parts. A Part may address multiple CityGML Requirements Classes but each Requirements Class is addressed in a single part. Because Requirements Classes may depend on other Requirements Classes the reader of this CityGML Part may need to conform to Requirements Classes in other Parts as well.
 
@@ -72,4 +72,3 @@ All questions regarding this submission should be directed to the editor or the 
 |Name |Institution
 |Charles Heazel |Heazeltech LLC
 |===
-

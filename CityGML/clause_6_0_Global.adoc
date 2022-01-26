@@ -7,7 +7,7 @@ In the GML encoding of the CityGML 3.0 Conceptual Model, different types of obje
 
 The CityGML 3.0 Conceptual Model introduces two attributes to provide all features and toplevel features with a unique identity: 1) the mandatory _featureID_ attribute to distinguish all (top-level) features and possible multiple versions of the same real-world object and 2) an optional _identifier_ attribute to reference specific (top-level) features independent from their actual feature version. The featureID attribute value is unique within the same CityGML dataset and also for a specific version of a feature, whereas the identifier attribute has an identical value for all versions of the same real-world object. It is recommended to use globally unique identifiers like UUID values or identifiers maintained by an organization such as a mapping agency for both attributes: for the identifier attribute, as these identifiers should remain stable over the lifetime of the real-world object, and for the featureID attribute, as this ensures that 3D city models which are integrated from different sources into e.g. one GIS or database will not have colliding featureID values and also to be able to uniquely identify a specific version of a feature using these identifiers together with a timestamp and a version number.
 
-The two attributes are defined in the UML class _AbstractFeature_ as part of the Core module of the CityGML 3.0 Conceptual Model. The class was introduced to the UML model to be able to define attributes at the conceptual level that are automatically inherited from the class _AbstractGML_ in the GML encoding, but not in other encodings. In this way, it will be ensured that these attributes are available in all possible CityGML 3.0 encodings. Since these two attributes originate from the GML specification, they are mapped onto the predefined GML concepts _gml:id_ and _gml:identifier_ in the GML encoding. <<table-gml-identifiers>> lists the two identity attributes together with their definition and GML encoding, and the GML code in <<figure-gml-identifiers>> illustrates the use of the identity attributes to represent the object identity in GML instance documents.
+The two attributes are defined in the UML class _AbstractFeature_ as part of the Core module of the CityGML 3.0 Conceptual Model. The class was introduced to the UML model to be able to define attributes at the conceptual level that are automatically inherited from the class _AbstractGML_ in the GML encoding, but not in other encodings. In this way, it will be ensured that these attributes are available in all possible CityGML 3.0 encodings. Since these two attributes originate from the GML specification, they are mapped onto the predefined GML concepts _gml:id_ and _gml:identifier_ in the GML encoding. <<table-gml-identifiers>> lists the two identity attributes together with their definition and GML encoding, and the GML code in <<listing-gml-identifiers>> illustrates the use of the identity attributes to represent the object identity in GML instance documents.
 
 [[table-gml-identifiers]]
 .Identity attributes used in CityGML 3.
@@ -22,9 +22,21 @@ The two attributes are defined in the UML class _AbstractFeature_ as part of the
 |Specifies the unique identifier of the feature that is valid globally.
 |===
 
-[[figure-gml-identifiers]]
+//[[figure-gml-identifiers]]
+//.Use of the identity attributes in CityGML 3 instance documents.
+//image::images/GML_Identifiers.png[align="center"]
+
+[[listing-gml-identifiers]]
 .Use of the identity attributes in CityGML 3 instance documents.
-image::images/GML_Identifiers.png[align="center"]
+[source,XML,highlight='1,2']
+----
+<bldg:Building gml:id="B1020_t1">
+  <gml:identifier codeSpace="www.xyz.org">B1020</gml:identifier>
+  <core:creationDate>2012-08-02T00:00:00</core:creationDate>
+  <core:terminationDate>2013-10-09T00:00:00</core:terminationDate>
+  <bldg:function>Office</bldg:function>
+</bldg:Building>
+----
 
 The GML encoding implements the geometry model defined in ISO 19107. This means that all geometries are derived from the class AbstractGML as well and, thus, also geometries exhibit the same unique identity as features do. The fact that geometries also have identifiers is of particular importance for CityGML, since CityGML requires defining references to geometries. One example is the application of textures to surfaces. The textures reference the gml:ids of those LinearRings that describe the boundaries of the surface geometries (e.g. Triangle, Polygon, or a MultiSurface consisting of Polygons) to which the textures are applied. Another example is that the CityGML GML encoding allows for realising topological relationships amongst others through referencing of shared geometries.
 
@@ -34,18 +46,35 @@ There are two XML concepts that are used to reference objects in GML instance do
 
 XLink allows for creating links to other documents by providing specific attributes that are added to the element that references the document. The most commonly used attribute is _xlink:href_, the value of the attribute is the URI of the referenced document.
 
-In CityGML, however, we are mainly interested in referencing specific objects (features and geometries) within the same or external GML instance document. For this, XPointer is used. To reference objects by their gml:id, a number sign (#) followed by the gml:id of the object to be referenced is added to the URI of the referenced document. In <<figure-gml-references>>, the element <versionMember> references a <Building> feature. Since the feature is part of the same GML instance document, a relative URI is specified by simply providing the number sign and the gml:id of the building as value of the attribute xlink:href. In the context of version management, referencing features by their gml:id means that a specific feature version of a real-world object is referenced.
+In CityGML, however, we are mainly interested in referencing specific objects (features and geometries) within the same or external GML instance document. For this, XPointer is used. To reference objects by their gml:id, a number sign (#) followed by the gml:id of the object to be referenced is added to the URI of the referenced document. In <<listing-gml-references>>, the element <versionMember> references a <Building> feature. Since the feature is part of the same GML instance document, a relative URI is specified by simply providing the number sign and the gml:id of the building as value of the attribute xlink:href. In the context of version management, referencing features by their gml:id means that a specific feature version of a real-world object is referenced.
 
-[[figure-gml-references]]
+//[[figure-gml-references]]
+//.Referencing a feature by its gml:id.
+//image::images/GML_Identifiers.png[align="center"]
+
+[[listing-gml-references]]
 .Referencing a feature by its gml:id.
-image::images/GML_Identifiers.png[align="center"]
+[source,XML,highlight='4,8']
+----
+<core:CityModel gml:id="CM_1">
+  <core:versionMember>
+    <vers:Version gml:id="V_1">
+      <vers:versionMember xlink:href="#BU_234"/>
+    </vers:Version>
+  </core:versionMember>
+  <core:cityObjectMember>
+    <bldg:Building gml:id="BU_234"> ... </bldg:Building>
+  </core:cityObjectMember>
+<core:CityModel>
+----
+
 
 //For referencing the actual real-world object itself, a reference to the <gml:identifier> element of the feature versions needs to be provided. However, this kind of reference can be ambiguous, since all feature versions of a specific real-world object hold the same <gml:identifier> value; thus, a reference to a <gml:identifier> value may refer to multiple features. A possible disambiguation can be performed when selecting only that feature version that is valid for a given time point (and optionally a specific workspace). In the example below, the XPointer references the real-world feature BuildingPart with the ID “BP_12” by referencing all versions of the BuildingPart feature with the corresponding <gml:identifier> value “BP_12”. For selecting a specific BuildingPart version only, the time points <core:creationDate> and <core:terminationDate> need to be evaluated in addition.
 //Figure
 
 When using references, it is important to keep in mind that many (top-level) features in CityGML have a complex structure. This is shown in <<listing-gml-complex-structure>>. In general, features can have spatial and non-spatial properties that describe the features in more detail. Spatial properties are properties that have a geometry from ISO 19107 as data type (<lod2Solid> in the example). Non-spatial properties can either have a simple data type (<function> with Integer value or <creationDate> with Date value), but they can also be further specified by additional attributes, such as the height of the building that is described by further properties (<height> with the additional properties <highReference>, <lowReference>, <status>, and <value>). In addition, they can also be composed of subfeatures that contain spatial and non-spatial properties themselves (<WallSurface> with <lod2MultiSurface> geometry).
 
-The subfeatures can be provided _inline_ or _by reference_. Inline means that the subfeatures are provided directly as content of the (top-level) feature as is shown below, where the subfeature <BuildingRoom> is provided as content of the <Building> feature. In contrast, by reference means that the subfeatures are provided elsewhere in the CityGML document and are referenced from the (top-level) feature using an XLink as is described above and illustrated in <<figure-gml-references>>.
+The subfeatures can be provided _inline_ or _by reference_. Inline means that the subfeatures are provided directly as content of the (top-level) feature as is shown below, where the subfeature <BuildingRoom> is provided as content of the <Building> feature. In contrast, by reference means that the subfeatures are provided elsewhere in the CityGML document and are referenced from the (top-level) feature using an XLink as is described above and illustrated in <<listing-gml-references>>.
 
 [[listing-gml-complex-structure]]
 .Complex structure of CityGML features.

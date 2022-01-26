@@ -3,7 +3,7 @@
 
 include::clause_6_0_Global.adoc[]
 
-include::clause_6_1_Base.adoc[]
+include::clause_6_1_Core.adoc[]
 
 include::clause_6_2_Appearance.adoc[]
 

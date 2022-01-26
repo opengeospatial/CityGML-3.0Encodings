@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ShapeChangeConfiguration xmlns:xi="http://www.w3.org/2001/XInclude" 
-    xmlns="http://www.interactive-instruments.de/ShapeChange/Configuration/1.1" 
-    xmlns:sc="http://www.interactive-instruments.de/ShapeChange/Configuration/1.1"  
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+<ShapeChangeConfiguration xmlns:xi="http://www.w3.org/2001/XInclude"
+    xmlns="http://www.interactive-instruments.de/ShapeChange/Configuration/1.1"
+    xmlns:sc="http://www.interactive-instruments.de/ShapeChange/Configuration/1.1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.interactive-instruments.de/ShapeChange/Configuration/1.1 http://shapechange.net/resources/schema/ShapeChangeConfiguration.xsd">
-    
+
   <input>
     <parameter name="inputModelType" value="EA7"/>
     <parameter name="inputFile" value="D:/CityGML/CityGML_3.0/_CityGML_3.0_UML-Modell/CityGML 3.0 UML Arbeitskopie/CityGML_3.0_Consolidated_Draft_2020_06_11.eap"/>
@@ -18,12 +18,12 @@
       <StereotypeAlias wellknown="FeatureType" alias="TopLevelFeatureType"/>
     </stereotypeAliases>
   </input>
-  
+
   <log>
     <parameter name="reportLevel" value="INFO"/>
     <parameter name="logFile" value="D:/CityGML/CityGML_3.0/_CityGML_3.0_GML-Encoding/logs/CityGML_3.0.xml"/>
   </log>
-  
+
   <targets>
     <TargetXmlSchema class="de.interactive_instruments.ShapeChange.Target.XmlSchema.XmlSchema" mode="enabled">
       <targetParameter name="outputDirectory" value="D:/CityGML/CityGML_3.0/_CityGML_3.0_GML-Encoding/xsds"/>
@@ -49,7 +49,7 @@
        <XmlNamespace nsabr="frn" ns="http://www.opengis.net/citygml/cityfurniture/3.0" location="./cityFurniture.xsd"/>
        <XmlNamespace nsabr="grp" ns="http://www.opengis.net/citygml/cityobjectgroup/3.0" location="./cityObjectGroup.xsd"/>
        <XmlNamespace nsabr="con" ns="http://www.opengis.net/citygml/construction/3.0" location="./construction.xsd"/>
-       <XmlNamespace nsabr="core" ns="http://www.opengis.net/citygml/3.0" location="./cityGMLBase.xsd"/>
+       <XmlNamespace nsabr="core" ns="http://www.opengis.net/citygml/3.0" location="./core.xsd"/>
        <XmlNamespace nsabr="dyn" ns="http://www.opengis.net/citygml/dynamizer/3.0" location="./dynamizer.xsd"/>
        <XmlNamespace nsabr="gen" ns="http://www.opengis.net/citygml/generics/3.0" location="./generics.xsd"/>
        <XmlNamespace nsabr="luse" ns="http://www.opengis.net/citygml/landuse/3.0" location="./landUse.xsd"/>
@@ -59,7 +59,7 @@
        <XmlNamespace nsabr="veg" ns="http://www.opengis.net/citygml/vegetation/3.0" location="./vegetation.xsd"/>
        <XmlNamespace nsabr="vers" ns="http://www.opengis.net/citygml/versioning/3.0" location="./versioning.xsd"/>
        <XmlNamespace nsabr="wtr" ns="http://www.opengis.net/citygml/waterbody/3.0" location="./waterBody.xsd"/>
-       <XmlNamespace nsabr="xAL" ns="urn:oasis:names:tc:ciq:xal:3" location="http://docs.oasis-open.org/ciq/v3.0/cs02/xsd/default/xsd/xAL.xsd"/> 
+       <XmlNamespace nsabr="xAL" ns="urn:oasis:names:tc:ciq:xal:3" location="http://docs.oasis-open.org/ciq/v3.0/cs02/xsd/default/xsd/xAL.xsd"/>
       </xmlNamespaces>
       <xi:include href="http://shapechange.net/resources/config/StandardMapEntries.xml"/>
       <xsdMapEntries>
@@ -81,9 +81,3 @@
     </TargetXmlSchema>
   </targets>
 </ShapeChangeConfiguration>
-
-
-
-
-
-

@@ -17,7 +17,7 @@ include::requirements/requirements_class_appearance.adoc[]
 
 The Appearance Requirements Classes is dependent on the following Requirements Classes from this standard.
 
-* The <<base-section,Base>> Requirements Class is the only mandatory Requirements Class. This class contains foundational elements upon which a CityGML dataset is built. The <<base-section,Base>> Requirements Class also defines XML elements and types reused by other Requirements Classes.
+* The <<core-section,Core>> Requirements Class is the only mandatory Requirements Class. This class contains foundational elements upon which a CityGML dataset is built. The <<core-section,Core>> Requirements Class also defines XML elements and types reused by other Requirements Classes.
 
 * <<ogc07-036,GML 3.2>> provides most of the geometry types (e.g., Point, LineString, Polygon) used for spatial representations in this Standard. Defines Coordinate Reference Systems. Supports the General Feature Model upon which this Standard is based.
 
@@ -31,7 +31,7 @@ The CityGML Appearance XML elements and their corresponding CityGML UML classes 
 .Appearance XML Elements
 [width="100%",cols="10,10",options="header"]
 |===
-^|XML Schema Element  ^|Conceptual Model 
+^|XML Schema Element  ^|Conceptual Model
 |AbstractSurfaceData | «FeatureType» <<AbstractSurfaceData-section,AbstractSurfaceData>>
 |AbstractTexture |«FeatureType» <<AbstractTexture-section,AbstractTexture>>
 |Appearance |«FeatureType» <<Appearance-section,Appearance>>
