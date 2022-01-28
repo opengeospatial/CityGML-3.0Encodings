@@ -1,6 +1,6 @@
 [[req_bridge_elements]]
 [width="90%",cols="2,6"]
 |===
-^|*Requirement  {counter:req-id}* |*/req/bridge/elements* 
-2+|A conforming application shall support the CityGML XML elements listed in <<bridge-xml-elements>> in accordance with the GML XML schema specified in http://schemas.opengis.net/citygml/3.0/bridge.xsd[bridge.xsd].
+^|*Requirement  {counter:req-id}* |*/req/bridge/elements*
+2+|CityGML XML elements implemented by a conforming instance document shall conform to the GML XML schema in http://schemas.opengis.net/citygml/3.0/bridge.xsd[bridge.xsd].
 |===

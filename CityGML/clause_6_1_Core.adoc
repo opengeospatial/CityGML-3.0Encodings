@@ -6,8 +6,28 @@ The Core Conformance Class implements the following Requirements Classes from th
 * Core: http://www.opengis.net/spec/CityGML-1/3.0/req/req-class-core
 * ADE: http://www.opengis.net/spec/CityGML-1/3.0/req/req-class-ade
 
-The applicable GML schema is http://schemas.opengis.net/citygml/3.0/core.xsd[core.xsd]
+The applicable GML schema is http://schemas.opengis.net/citygml/3.0/core.xsd[core.xsd].
 
 include::requirements/requirements_class_core.adoc[]
+
+==== GML Elements
+
+The CityGML Core XML elements are listed in the GML schema http://schemas.opengis.net/citygml/3.0/core.xsd[core.xsd].
+
+==== Implementation Decisions
+
+The following decisions have been made regarding implementation of the CityGML 3.0 Core conformance class in GML.
+
+. The UML class AnyFeature is an instance of the metaclass FeatureType which is defined in ISO 19109. AnyFeature is the generalization of all feature types and acts as superclass of all classes in the CityGML UML model with the stereotype «FeatureType». A comparable concept is defined in ISO 19136 with the XML element gml:AbstractFeature as the most generic feature in GML and its basic feature model gml:AbstractFeatureType from which all feature defined in GML application schemas and, thus, also in the CityGML application schema, are derived. For this reason, the UML class AnyFeature is not encoded as CityGML-specific XML element, but is simply mapped to gml:AbstractFeature.
+. The UML class AbstractFeature is the abstract superclass of all feature types within the CityGML Conceptual Model. This class defines amongst others the attributes featureID, identifier, name, and description. These attributes represent properties that are predefined in ISO 19136 (i.e. gml:id, gml:identifier, gml:name, and gml:description) and are inherited by all features defined in GML application schemas. The attributes were added to the UML model to guarantee that they are available in all possible CityGML encodings. In the GML schema, these attributes are suppressed from being encoded, as they are already inherited by all CityGML features.
+. The UML class ImplicitGeometry is represented as an object type that defines the attribute objectID. This attribute was added to the UML model to guarantee that it is available in all possible CityGML encodings. This attribute represents the GML property gml:id which all object types automatically inherit in the GML encoding, thus, this attribute is suppressed from being encoded.
+. The UML class XALAddress is a placeholder for representing address details according to the OASIS xAL standard. The class is not encoded in the GML schema, but is simply mapped to xAL:Address, the root element for xAL-based address information.
+. As described in <<association-classes-section>>, the UML association class CityObjectRelation is modelled as an intermediate class in an Implementation Model before the GML encoding is applied. In this way, a relation between two features A and B can be represented in such a way that feature A provides the element CityObjectRelation inline, whereas the CityObjectRelation references feature B using XLink. This encoding also ensures that the rule on referencing features from alternative aggregations as described in <<linking-rules-4-section>> is observed.
+. All associations allow by default that the referenced features can be provided inline or by reference. However, a restriction is defined for the following association, since it represents an alternative aggregation (see rule on referencing features from alternative aggregations in <<linking-rules-4-section>>):
+* The reflexive association generalizesTo of the element AbstractCityObject; here, a city object must reference its generalized city object using XLink.
+. An execption to the rule that XLinks shall not be used to reference geometries from another top-level feature (Rule 2 in <<linking-rules-1-section>>) is defined for the element ImplicitGeometry. The concept of ImplicitGeometry requires that different top-level features can reference the same geometry and appearance; thus, XLinks from different top-level features to the same geometry and appearance are allowed in this case.
+//. CityModelMember: tagged value "gmlAsGroup = true" -> not so important
+
+==== Requirements
 
 include::requirements/core/REQ_Core_Elements.adoc[]

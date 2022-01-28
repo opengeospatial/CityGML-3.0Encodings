@@ -1,61 +1,38 @@
 [[appearance-section]]
 === Appearance Conformance Class
 
-NOTE: replace with appropriate text
+include::requirements/requirements_class_appearance.adoc[]
 
-Features of the land, such as naturally occurring water features and vegetation are specified in the LandFeature Requirements Class as land features. Also included are models of the land surface and subsurface layers. Improvements to the land such as the construction of an embankment or the planting of landscape material are considered to be part of Site Facilities in the Facility Requirements Class.
+The Appearance module supports the modelling of the observable surface properties of CityGML features in the form of textures and material.
 
-The Appearance Conformance Class implements the following Requirements Classes from the CityGML 3.0 Conceptual Model Standard:
+The Appearance Conformance Class implements the following Requirements Class from the CityGML 3.0 Conceptual Model Standard:
 
 * Appearance: http://www.opengis.net/spec/CityGML-1/3.0/req/req-class-appearance
 
-The applicable GML schema is http://schemas.opengis.net/citygml/3.0/appearance.xsd[appearance.xsd]
-
-include::requirements/requirements_class_appearance.adoc[]
+The applicable GML schema is http://schemas.opengis.net/citygml/3.0/appearance.xsd[appearance.xsd].
 
 ==== Dependencies
 
-The Appearance Requirements Classes is dependent on the following Requirements Classes from this standard.
+The Appearance Requirements Class is dependent on the following Requirements Class from this standard:
 
 * The <<core-section,Core>> Requirements Class is the only mandatory Requirements Class. This class contains foundational elements upon which a CityGML dataset is built. The <<core-section,Core>> Requirements Class also defines XML elements and types reused by other Requirements Classes.
 
-* <<ogc07-036,GML 3.2>> provides most of the geometry types (e.g., Point, LineString, Polygon) used for spatial representations in this Standard. Defines Coordinate Reference Systems. Supports the General Feature Model upon which this Standard is based.
+In addition, the Appearance Requirements Class is dependent on the following external OGC and ISO standards:
 
-* <<ogc10-129r1,GML 3.3>> defines the linear referencing concepts (e.g., linear element, distance along, Linear Referencing Methods) used for linearly referenced locations in this Standard. Also included are TINs.
+* <<ogc07-036,GML 3.2>> provides most of the geometry types (e.g., Point, LineString, Polygon) used for spatial representations in this standard. Defines Coordinate Reference Systems. Supports the General Feature Model upon which this standard is based.
+
+* <<ogc10-129r1,GML 3.3>> defines the linear referencing concepts (e.g., linear element, distance along, Linear Referencing Methods) used for linearly referenced locations in this standard. Also included are TINs.
 
 ==== GML Elements
 
-The CityGML Appearance XML elements and their corresponding CityGML UML classes are shown in <<appearance-xml-elements>>.
-
-[#appearance-xml-elements,reftext='{table-caption} {counter:table-num}']
-.Appearance XML Elements
-[width="100%",cols="10,10",options="header"]
-|===
-^|XML Schema Element  ^|Conceptual Model
-|AbstractSurfaceData | «FeatureType» <<AbstractSurfaceData-section,AbstractSurfaceData>>
-|AbstractTexture |«FeatureType» <<AbstractTexture-section,AbstractTexture>>
-|Appearance |«FeatureType» <<Appearance-section,Appearance>>
-|GeoreferencedTexture |«FeatureType» <<GeoreferencedTexture-section,GeoreferencedTexture>>
-|ParameterizedTexture |«FeatureType» <<ParameterizedTexture-section,ParameterizedTexture>>
-|TextureAssociation |«ObjectType» <<TextureAssociation-section,TextureAssociation>>
-|X3DMaterial |«FeatureType» <<X3DMaterial-section,X3DMaterial>>
-|AbstractTextureParameterization |«DataType» <<AbstractTextureParameterization-section,AbstractTextureParameterization>>
-|ADEOfAbstractSurfaceData |«DataType» <<ADEOfAbstractSurfaceData-section,ADEOfAbstractSurfaceData>>
-|ADEOfAbstractTexture |«DataType» <<ADEOfAbstractTexture-section,ADEOfAbstractTexture>>
-|ADEOfAppearance |«DataType» <<ADEOfAppearance-section,ADEOfAppearance>>
-|ADEOfGeoreferencedTexture |«DataType» <<ADEOfGeoreferencedTexture-section,ADEOfGeoreferencedTexture>>
-|ADEOfParameterizedTexture |«DataType» <<ADEOfParameterizedTexture-section,ADEOfParameterizedTexture>>
-|ADEOfX3DMaterial |«DataType» <<ADEOfX3DMaterial-section,ADEOfX3DMaterial>>
-|TexCoordGen |«DataType» <<TexCoordGen-section,TexCoordGen>>
-|TexCoordList |«DataType» <<TexCoordList-section,TexCoordList>>
-|===
+The CityGML Appearance XML elements are listed in the GML schema http://schemas.opengis.net/citygml/3.0/appearance.xsd[appearance.xsd]. In addition, they are provided in the HTML documentation http://...
 
 ==== Implementation Decisions
 
-The following decisions have been made regarding implementation of the CityGML 3.0 `Appearance` conformance class in GML.
+The following decisions have been made regarding implementation of the CityGML 3.0 Appearance conformance class in GML.
 
-. decision 1
-. decision 2
+. All associations allow by default that the referenced features can be provided inline or by reference. However, a restriction is defined for following association:
+* The assocation class TextureAssociation which connects ParameterizedTexture with AbstractTextureParameterization; here, AbstractTextureParameterization (or rather of the non-abstract subclasses TexCoordList and TexCoordGen) must be represented inline For the GML encoding this means that the element ParameterizedTexture embeds the element TextureAssociation which, in turn, embeds either the element TexCoordList or TexCoordGen.
 
 ==== Requirements
 
