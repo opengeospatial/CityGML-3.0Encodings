@@ -4,17 +4,48 @@
 [[annex-codelist-usage]]
 == Codelists ( Informative )
 
-Codelists are tables of attribute values and corresponding discription or definition. Values in a specific table may be used for designated properties with the <<codelist>> stereotype in the UML Conceptual Model(CM). The CityGML 3.0 CM defines 140 such attributes.
+Codelists are tables of attribute values and corresponding discription or definition. Values in a specific table may be used for designated properties with the codelist stereotype in the UML Conceptual Model(CM). The CityGML 3.0 CM defines 140 such attributes.
 
-The values for each of these 140 <<codelist>> attributes are interpreted in a specific application context. In particular, they may be required, recommended, or suggested by an authority within an organization or community. As a consequence, the lists and contained values are outside the scope of standardization of the CityGML CM or any of its encodings. Since only the values themselves, not the lists or tables, appear in CiotyGML GML-encoded documents, the structure of codelists also lies outside the scope of CityGML CM and Encoding standards. Nevertheless, it is helpful to have some example codelists available for inspection by developers working with a specific encoding. This Annex contains example structures for GML, comma-separated-value (CS), and JSON codelists. SUpplementing these structures, OGC maintains a CityGML 3.0 codelist repository with samples of each of the 140 CityGML 3.0 <<codelist>> attributes in GML, CSV, and JSON form at XXXXXXXXX.
+The values for each of these 140 codelist attributes are interpreted in a specific application context. In particular, they may be required, recommended, or suggested by an authority within an organization or community. As a consequence, the lists and contained values are outside the scope of standardization of the CityGML CM or any of its encodings. Since only the values themselves, not the lists or tables, appear in CiotyGML GML-encoded documents, the structure of codelists also lies outside the scope of CityGML CM and Encoding standards. Nevertheless, it is helpful to have some example codelists available for inspection by developers working with a specific encoding. This Annex contains example structures for GML, comma-separated-value (CS), and JSON codelists. SUpplementing these structures, OGC maintains a CityGML 3.0 codelist repository with samples of each of the 140 CityGML 3.0 codelist attributes in GML, CSV, and JSON form at XXXXXXXXX.
 
-=== Logical Model
+=== Example Logical Model
 
-=== GML Structure
+There is no standardized model for CityGML codelists but the following is an example that meets rqeuirements for documenting the source, currency, language, and other characteristics of the list of values. This is the model followed by the CityGML 3.0 codelist examples hosted by OGC.
 
-=== CSV Structure
+----
+uml diagram goes here
+----
 
-=== JSON StTructure
+=== Example GML Structure
+
+This GML encoding of the example logical model for codelists has an XML schema definition as follows: 
+
+----
+xsd file content here
+----
+
+The following is an example:
+
+----
+GML example goes here
+----
+
+=== Example CSV Structure
+
+This CSV encoding of the example logical model is illustrated with the following example:author: 
+
+----
+csv example goes here
+----
+
+=== Example JSON Structure
+
+This JSON encoding of the example logical model for codelists has a JSON-Schema 2019-09 definition as follows:
+
+----
+json-schema file content goes here
+----
+
 
 
 
