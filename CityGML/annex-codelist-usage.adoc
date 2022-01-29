@@ -20,16 +20,141 @@ uml diagram goes here
 
 ==== GML 
 
-This GML encoding of the example logical model for codelists has an XML schema definition as follows: 
+This GML encoding of the example logical model for codelists, dictionary entry, and entry metadata have XML schema definitions as follows: 
+
+* codelist
+----
+
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:cmd="http://www" attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="schema1.xsd" namespace="http://www.opengis.net/gml/3.2" />
+  <xs:element name="codelist">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="gml:Dictionary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
 
 ----
-xsd file content here
+
+* dictionary entry
+
+----
+
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created with Liquid Technologies Online Tools 1.0 (https://www.liquid-technologies.com) -->
+<xs:schema xmlns:tns="http://www.opengis.net/gml/3.2" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.opengis.net/gml/3.2" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="schema2.xsd" namespace="http://www" />
+  <xs:element name="Dictionary">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="metaDataProperty">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element xmlns:q1="http://www" ref="q1:CodeListMetaData" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="description" type="xs:string" />
+        <xs:element name="identifier">
+          <xs:complexType>
+            <xs:simpleContent>
+              <xs:extension base="xs:string">
+                <xs:attribute name="codeSpace" type="xs:string" use="required" />
+              </xs:extension>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+        <xs:element maxOccurs="unbounded" name="dictionaryEntry">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Definition">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="description" type="xs:string" />
+                    <xs:element name="identifier">
+                      <xs:complexType>
+                        <xs:simpleContent>
+                          <xs:extension base="xs:unsignedShort">
+                            <xs:attribute name="codeSpace" type="xs:string" use="required" />
+                          </xs:extension>
+                        </xs:simpleContent>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="name" type="xs:string" />
+                  </xs:sequence>
+                  <xs:attribute ref="tns:id" use="required" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute ref="tns:id" use="required" />
+    </xs:complexType>
+  </xs:element>
+  <xs:attribute name="id" type="xs:string" />
+</xs:schema>
+
+----
+
+* metadata
+
+----
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created with Liquid Technologies Online Tools 1.0 (https://www.liquid-technologies.com) -->
+<xs:schema xmlns:tns="http://www" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="CodeListMetaData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="dataType" type="xs:string" />
+        <xs:element name="namespace" type="xs:string" />
+        <xs:element name="language" type="xs:string" />
+        <xs:element name="authority" type="xs:string" />
+        <xs:element name="version" type="xs:decimal" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
+
 ----
 
 The following is an example:
 
 ----
-GML example goes here
+<?xml version="1.0" encoding="utf-8"?>
+<codelist xmlns:gml="http://www.opengis.net/gml/3.2"
+          xmlns:cmd="http://www">
+	<gml:Dictionary gml:id="roofTypes">
+		<gml:metaDataProperty>
+			<cmd:CodeListMetaData>
+				<cmd:dataType>RoofTypeValue</cmd:dataType>
+				<cmd:namespace>http://www.opengis.net/citygml/building/3.0</cmd:namespace>
+				<cmd:language>en</cmd:language>
+				<cmd:authority>xyz</cmd:authority>
+				<cmd:version>1.0</cmd:version>
+			</cmd:CodeListMetaData>
+		</gml:metaDataProperty>
+		<gml:description>Roof type values</gml:description>
+		<gml:identifier codeSpace="https://ogc.org/citygml/3.0/codelists/gml/rooftypes">RoofTypeValue</gml:identifier>
+		<gml:dictionaryEntry>
+			<gml:Definition gml:id="id1">
+				<gml:description>roof primarily a single plane, not necessarily level</gml:description>
+				<gml:identifier codeSpace="https://ogc.org/citygml/3.0/codelists/gml/rooftypes">1000</gml:identifier>
+				<gml:name>flat roof</gml:name>
+			</gml:Definition>
+		</gml:dictionaryEntry>
+		<gml:dictionaryEntry>
+			<gml:Definition gml:id="id2">
+				<gml:description>a roof that has a ridge and two gables</gml:description>
+				<gml:identifier codeSpace="https://ogc.org/citygml/3.0/codelists/gml/rooftypes">3100</gml:identifier>
+				<gml:name>saddle roof</gml:name>
+			</gml:Definition>
+		</gml:dictionaryEntry>
+	</gml:Dictionary>
+</codelist>
 ----
 
 ==== Comma Separated Values(CSV) Structure
