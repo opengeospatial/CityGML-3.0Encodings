@@ -96,6 +96,7 @@ include::clause_6_requirements.adoc[]
 include::clause_7_media_types.adoc[]
 
 <<<
+    
 include::annex-a.adoc[]
 
 include::annex-examples.adoc[]
@@ -103,6 +104,8 @@ include::annex-examples.adoc[]
 include::annex-schema.adoc[]
 
 include::annex-conceptual-model-conformance.adoc[]
+
+include::annex-codelist-usage.adoc[]
 
 include::annex-history.adoc[]
 
