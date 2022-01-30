@@ -44,7 +44,6 @@ This GML encoding of the example logical model for codelists, dictionary entry, 
 ----
 
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Created with Liquid Technologies Online Tools 1.0 (https://www.liquid-technologies.com) -->
 <xs:schema xmlns:tns="http://www.opengis.net/gml/3.2" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.opengis.net/gml/3.2" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="schema2.xsd" namespace="http://www" />
   <xs:element name="Dictionary">
@@ -104,7 +103,6 @@ This GML encoding of the example logical model for codelists, dictionary entry, 
 
 ----
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Created with Liquid Technologies Online Tools 1.0 (https://www.liquid-technologies.com) -->
 <xs:schema xmlns:tns="http://www" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:element name="CodeListMetaData">
     <xs:complexType>
