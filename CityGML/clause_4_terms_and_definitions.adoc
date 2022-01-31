@@ -30,7 +30,7 @@ NOTE Spaces can be spatially represented in different LODs and by different type
 NOTE Spaces are represented in the CityGML 3.0 Conceptual Model by those classes that are derived from the class AbstractSpace. +
 {blank}[CityGML Conceptual Model]
 
-[[space-definition]]
+[[space-boundary-definition]]
 *space boundary* +
 an entity with areal extent in the real world. Space boundaries are objects that bound a Space. They also realize the contact between adjacent spaces. +
 NOTE Space boundaries can be spatially represented in different LODs and by different types of geometric objects. +

@@ -1,17 +1,27 @@
 [[dynamizer-section]]
 === Dynamizer Conformance Class
 
+The Dynamizer module supports the injection of timeseries data for individual attributes of CityGML features. Timeseries data can either be retrieved from external Sensor APIs (e.g. OGC SensorThings API, OGC Sensor Observation Services, MQTT, proprietary platforms), external standardized timeseries files (e.g. OGC TimeseriesML or OGC Observations & Measurements), external tabulated files (e.g CSV) or can be represented inline as basic time- value pairs.
+
+include::requirements/requirements_class_dynamizer.adoc[]
+
 The Dynamizer Conformance Class implements the following Requirements Class from the CityGML 3.0 Conceptual Model Standard:
 
 * Dynamizer: http://www.opengis.net/spec/CityGML-1/3.0/req/req-class-dynamizer
 
 The applicable GML schema is http://schemas.opengis.net/citygml/3.0/dynamizer.xsd[dynamizer.xsd].
 
-include::requirements/requirements_class_dynamizer.adoc[]
+==== Dependencies
 
-==== GML Elements
+The Appearance Requirements Class is dependent on the following Requirements Class from this standard:
 
-The CityGML Dynamizer XML elements are listed in the GML schema http://schemas.opengis.net/citygml/3.0/dynamizer.xsd[dynamizer.xsd].
+* The <<core-section,Core>> Requirements Class which is the only mandatory Requirements Class. This class contains foundational elements upon which a CityGML dataset is built. The <<core-section,Core>> Requirements Class also defines XML elements and types reused by other Requirements Classes.
+
+In addition, the Appearance Requirements Class is dependent on the following external OGC and ISO standards:
+
+* <<ogc07-036,GML 3.2>> provides most of the geometry types (e.g., Point, LineString, Polygon) used for spatial representations in this standard. Defines Coordinate Reference Systems. Supports the General Feature Model upon which this standard is based.
+
+* <<ogc10-129r1,GML 3.3>> defines compact encodings of geometry types, linear referencing concepts (e.g., linear element, distance along, Linear Referencing Methods), TINs, and encoding rules for association classes.
 
 ==== Implementation Decisions
 
@@ -20,6 +30,15 @@ The following decisions have been made regarding implementation of the CityGML 3
 . All associations allow by default that the referenced features can be provided inline or by reference. However, a restriction is defined for the following association, since it represents an alternative aggregation (see rule on referencing features from alternative aggregations in <<linking-rules-4-section>>):
 * The association sensorLocation which connects SensorConnection with AbstractCityObject; here, a sensor connection must reference the city object for which it provides sensor information using XLink.
 
+. The PointCloud module allows for representing the geometries of city objects by 3D point clouds in three ways. Examples for each representation option are provided in <<annex-examples-dynamizer>>:
+* A MultiPoint geometry is provided inline with the CityGML file, i.e. the point cloud of a specific feature is embedded directly within the feature represented by the point cloud.
+* A separate point cloud file is provided for every feature. Each feature in the CityGML file references the corresponding point cloud file.
+* One point cloud file is provided that contains all points from all features in a specific area. In the point cloud file, all points belonging to a specific feature have the same value set in the attribute "point_source_id". Each feature in the CityGML instance document references the point cloud file and all points with the corresponding value in the attribute "point_source_id".
+
 ==== Requirements
 
 include::requirements/dynamizer/REQ_Dynamizer_Elements.adoc[]
+
+//==== GML Elements
+
+The CityGML Dynamizer XML elements are listed in the GML schema http://schemas.opengis.net/citygml/3.0/dynamizer.xsd[dynamizer.xsd].

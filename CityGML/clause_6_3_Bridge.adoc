@@ -1,17 +1,27 @@
 [[bridge-section]]
 === Bridge Conformance Class
 
+The Bridge module supports representation of thematic and spatial aspects of bridges, bridge parts, bridge installations, and interior bridge structures.
+
+include::requirements/requirements_class_bridge.adoc[]
+
 The Bridge Conformance Class implements the following Requirements Class from the CityGML 3.0 Conceptual Model Standard:
 
 * Bridge: http://www.opengis.net/spec/CityGML-1/3.0/req/req-class-bridge
 
 The applicable GML schema is http://schemas.opengis.net/citygml/3.0/bridge.xsd[bridge.xsd].
 
-include::requirements/requirements_class_bridge.adoc[]
+==== Dependencies
 
-==== GML Elements
+The Appearance Requirements Class is dependent on the following Requirements Class from this standard:
 
-The CityGML Bridge XML elements are listed in the GML schema http://schemas.opengis.net/citygml/3.0/bridge.xsd[bridge.xsd].
+* The <<core-section,Core>> Requirements Class which is the only mandatory Requirements Class. This class contains foundational elements upon which a CityGML dataset is built. The <<core-section,Core>> Requirements Class also defines XML elements and types reused by other Requirements Classes.
+
+In addition, the Appearance Requirements Class is dependent on the following external OGC and ISO standards:
+
+* <<ogc07-036,GML 3.2>> provides most of the geometry types (e.g., Point, LineString, Polygon) used for spatial representations in this standard. Defines Coordinate Reference Systems. Supports the General Feature Model upon which this standard is based.
+
+* <<ogc10-129r1,GML 3.3>> defines compact encodings of geometry types, linear referencing concepts (e.g., linear element, distance along, Linear Referencing Methods), TINs, and encoding rules for association classes.
 
 ==== Implementation Decisions
 
@@ -22,3 +32,7 @@ The following decisions have been made regarding implementation of the CityGML 3
 ==== Requirements
 
 include::requirements/bridge/REQ_Bridge_Elements.adoc[]
+
+//==== GML Elements
+
+The CityGML Bridge XML elements are listed in the GML schema http://schemas.opengis.net/citygml/3.0/bridge.xsd[bridge.xsd].
