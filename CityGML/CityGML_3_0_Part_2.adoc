@@ -8,7 +8,7 @@
 :toclevels: 3
 :numbered:
 :sectanchors:
-
+:source-highlighter: pygments
 :xrefstyle: short
 :listing-caption: Listing
 
@@ -96,7 +96,7 @@ include::clause_6_requirements.adoc[]
 include::clause_7_media_types.adoc[]
 
 <<<
-    
+
 include::annex-a.adoc[]
 
 include::annex-examples.adoc[]
