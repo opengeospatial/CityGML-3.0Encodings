@@ -141,13 +141,222 @@ def|name|saddle roof
 This JSON encoding of the example logical model for codelists has a JSON-Schema 2019-09 definition as follows:
 
 ----
-json-schema file content goes here
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "Dictionary": {
+      "type": "object",
+      "properties": {
+        "@id": {
+          "type": "string"
+        },
+        "metaDataProperty": {
+          "type": "object",
+          "properties": {
+            "CodeListMetaData": {
+              "type": "object",
+              "properties": {
+                "dataType": {
+                  "type": "string"
+                },
+                "namespace": {
+                  "type": "string"
+                },
+                "language": {
+                  "type": "string"
+                },
+                "authority": {
+                  "type": "string"
+                },
+                "version": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "dataType",
+                "namespace",
+                "language",
+                "authority",
+                "version"
+              ]
+            }
+          },
+          "required": [
+            "CodeListMetaData"
+          ]
+        },
+        "description": {
+          "type": "string"
+        },
+        "identifier": {
+          "type": "object",
+          "properties": {
+            "@codeSpace": {
+              "type": "string"
+            },
+            "#text": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "@codeSpace",
+            "#text"
+          ]
+        },
+        "dictionaryEntry": {
+          "type": "array",
+          "items": [
+            {
+              "type": "object",
+              "properties": {
+                "Definition": {
+                  "type": "object",
+                  "properties": {
+                    "@id": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "identifier": {
+                      "type": "object",
+                      "properties": {
+                        "@codeSpace": {
+                          "type": "string"
+                        },
+                        "#text": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "@codeSpace",
+                        "#text"
+                      ]
+                    },
+                    "name": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "@id",
+                    "description",
+                    "identifier",
+                    "name"
+                  ]
+                }
+              },
+              "required": [
+                "Definition"
+              ]
+            },
+            {
+              "type": "object",
+              "properties": {
+                "Definition": {
+                  "type": "object",
+                  "properties": {
+                    "@id": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "identifier": {
+                      "type": "object",
+                      "properties": {
+                        "@codeSpace": {
+                          "type": "string"
+                        },
+                        "#text": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "@codeSpace",
+                        "#text"
+                      ]
+                    },
+                    "name": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "@id",
+                    "description",
+                    "identifier",
+                    "name"
+                  ]
+                }
+              },
+              "required": [
+                "Definition"
+              ]
+            }
+          ]
+        }
+      },
+      "required": [
+        "@id",
+        "metaDataProperty",
+        "description",
+        "identifier",
+        "dictionaryEntry"
+      ]
+    }
+  },
+  "required": [
+    "Dictionary"
+  ]
+}
 ----
 
 The following is an example: 
 
 ----
-json example goes here
+{
+   "Dictionary": {
+      "@id": "roofTypes",
+      "metaDataProperty": {
+         "CodeListMetaData": {
+            "dataType": "RoofTypeValue",
+            "namespace": "http://www.opengis.net/citygml/building/3.0",
+            "language": "en",
+            "authority": "xyz",
+            "version": "1.0"
+         }
+      },
+      "description": "Roof type values",
+      "identifier": {
+         "@codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/rooftypes",
+         "#text": "RoofTypeValue"
+      },
+      "dictionaryEntry": [
+         {
+            "Definition": {
+               "@id": "id1",
+               "description": "roof primarily a single plane, not necessarily level",
+               "identifier": {
+                  "@codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/rooftypes",
+                  "#text": "1000"
+               },
+               "name": "flat roof"
+            }
+         },
+         {
+            "Definition": {
+               "@id": "id2",
+               "description": "a roof that has a ridge and two gables",
+               "identifier": {
+                  "@codeSpace": "https://ogc.org/citygml/3.0/codelists/gml/rooftypes",
+                  "#text": "3100"
+               },
+               "name": "saddle roof"
+            }
+         }
+      ]
+   }
+}
 ----
 
 
