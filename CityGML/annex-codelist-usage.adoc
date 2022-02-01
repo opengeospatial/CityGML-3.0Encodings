@@ -12,7 +12,7 @@ The values for each of these 140 codelist attributes are interpreted in a specif
 
 === Logical Model
 
-There is no standardized model for CityGML codelists but the following is an example that meets rqeuirements for documenting the source, currency, language, and other characteristics of the list of values. This is the model followed by the CityGML 3.0 codelist examples hosted by OGC.
+There is no standardized model for CityGML codelists. The following is suggested structure that meets rqeuirements for documenting the source, currency, language, and other characteristics of the list of values. This *suggested* model is followed by the CityGML 3.0 codelist examples hosted by OGC. Note that many existing codelists, maintained by various organizations, are already in existence with different and permissible structures. These codelists remain valid.
 
 [[codelist_uml]]
 .Suggested Codelist UML Class Diagram
@@ -91,8 +91,8 @@ The following is an XML example:
 				<cmd:dataType>RoofTypeValue</cmd:dataType>
 				<cmd:namespace>http://www.opengis.net/citygml/building/3.0</cmd:namespace>
 				<cmd:language>en</cmd:language>
-				<cmd:authority>xyz</cmd:authority>
-				<cmd:version>1.0</cmd:version>
+				<cmd:authority>Some Organization</cmd:authority>
+				<cmd:version>3.0</cmd:version>
 			</cmd:CodeListMetaData>
 		</gml:metaDataProperty>
 		<gml:description>Roof type values</gml:description>
@@ -117,12 +117,12 @@ The following is an XML example:
 
 ==== Comma Separated Values(CSV) Structure
 
-This CSV encoding of the example logical model is illustrated with the following example with the delimiter '|':
+A suggested CSV encoding of the example logical model is illustrated with the following example with the delimiter '|':
 
 ----
 cdl|description|Roof type values
 cdl|identifier|"https://ogc.org/citygml/3.0/codelists/gml/RoofTypeValues" 
-cmd|authority|Example
+cmd|authority|Some Organization
 cmd|dataType|RoofTypeValue
 cmd|language|en-UK
 cmd|namespace|"http://www.opengis.net/citygml/building/3.0"
@@ -138,7 +138,7 @@ def|name|saddle roof
 ==== JSON
 
 
-This JSON encoding of the example logical model for codelists has a JSON-Schema 2019-09 definition as follows:
+A suggested JSON encoding of the example logical model for codelists has a JSON-Schema 2019-09 definition as follows:
 
 ----
 {
@@ -311,7 +311,7 @@ This JSON encoding of the example logical model for codelists has a JSON-Schema 
 }
 ----
 
-The following is an example: 
+The following is the previous example in the suggested JSON encoding: 
 
 ----
 {
@@ -322,8 +322,8 @@ The following is an example:
             "dataType": "RoofTypeValue",
             "namespace": "http://www.opengis.net/citygml/building/3.0",
             "language": "en",
-            "authority": "xyz",
-            "version": "1.0"
+            "authority": "Some Organization",
+            "version": "3.0"
          }
       },
       "description": "Roof type values",
