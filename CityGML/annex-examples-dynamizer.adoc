@@ -1,0 +1,147 @@
+[[annex-examples-dynamizer]]
+=== Examples for the Dynamizer module ( Informative )
+
+The PointCloud module allows for representing the geometries of city objects by 3D point clouds in three ways. The complete CityGML and LAZ files are available https://github.com/opengeospatial/CityGML-3.0Encodings/tree/master/CityGML/Examples/PointCloud/Real-world%20examples/CityGML_3.0_buildings_with_point_cloud_representation[here^].
+
+*Inline representation*
+
+A MultiPoint geometry is provided inline with the CityGML file, i.e. the point cloud of a specific feature is embedded directly within the feature represented by the point cloud. <<listing-gml-pointcloud-inline>> shows an example for a point cloud of a building reprented inline the Building feature.
+
+[[listing-gml-pointcloud-inline]]
+.The point cloud of a building is embedded in the Building feature.
+[source,XML]
+----
+<?xml version="1.0" encoding="UTF-8"?>
+<core:CityModel ... Namespaces and Schema location ... >
+    <core:cityObjectMember>
+        <bldg:Building gml:id="DEBY_LOD2_4903217">
+            <gml:name>DEBY_LOD2_4903217</gml:name>
+            <core:creationDate>2015-09-24T00:00:00</core:creationDate>
+            <core:boundary> ... </core:boundary>
+             ...
+            <core:pointCloud>
+                <pcl:PointCloud gml:id="93648526a0d3">
+                    <pcl:points>
+                        <gml:MultiPoint gml:id="93648526a0d3-0" srsName="urn:adv:crs:DE_DHDN_3GK4*DE_DHN92_NH" srsDimension="3">
+                            <gml:pointMember>
+                                <gml:Point gml:id="93648526a0d3-1">
+                                    <gml:pos>4467308.6 5331553.4 539.28</gml:pos>
+                                </gml:Point>
+                            </gml:pointMember>
+                            <gml:pointMember>
+                                <gml:Point gml:id="93648526a0d3-2">
+                                    <gml:pos>4467308.6 5331553 539.62</gml:pos>
+                                </gml:Point>
+                            </gml:pointMember>
+                            <gml:pointMember>
+                                <gml:Point gml:id="93648526a0d3-3">
+                                    <gml:pos>4467309 5331553 539.66</gml:pos>
+                                </gml:Point>
+                            </gml:pointMember>
+
+                            ... further points ...
+
+                          </gml:MultiPoint>
+                      </pcl:points>
+                  </pcl:PointCloud>
+              </core:pointCloud>
+              <con:height>
+                  <con:Height>
+                      <con:highReference>topOfConstruction</con:highReference>
+                      <con:lowReference>lowestGroundPoint</con:lowReference>
+                      <con:status>measured</con:status>
+                      <con:value uom="urn:adv:uom:m">24.709</con:value>
+                  </con:Height>
+              </con:height>
+              <bldg:function>99999_1001</bldg:function>
+              <bldg:roofType>3100</bldg:roofType>
+          </bldg:Building>
+      </core:cityObjectMember>
+  </core:CityModel>
+----
+
+<<figure-example-pointcloud-inline>> shows different visualisations of the GML file. The left image displays the building features themselves, the middle image shows the point clouds of the buildings, and the right image is a combination of the building features and the point clouds.
+
+[[figure-example-pointcloud-inline]]
+.Visualization of the inline representation of points clouds.
+image::images/Example_PointCloud_inline.png[align="center"]
+
+*Exernal representation in multiple files*
+
+A separate point cloud file is provided for every feature. Each feature in the CityGML file references the corresponding point cloud file. This is shown in <<listing-gml-pointcloud-external-multiple-files>>, where the building feature references the LAZ file DEBY_LOD2_4903217.laz that contains the points for this building (illustrated in <<figure-example-pointcloud-external-multiple-files>>).
+
+[[listing-gml-pointcloud-external-multiple-files]]
+.The point cloud of a building is referenced in an external file.
+[source,XML,highlight='11']
+----
+<?xml version="1.0" encoding="UTF-8"?>
+<core:CityModel ... Namespaces and Schema location ... >
+    <core:cityObjectMember>
+        <bldg:Building gml:id="DEBY_LOD2_4903217">
+            <gml:name>DEBY_LOD2_4903217</gml:name>
+            <core:creationDate>2015-09-24T00:00:00</core:creationDate>
+            <core:boundary> ... </core:boundary>
+             ...
+            <core:pointCloud>
+                <pcl:PointCloud gml:id="DEBY_LOD2_4903217_c0e8322c-8cf4-4fdd-8ddc-4780566814a5">
+                    <pcl:pointFile>..\pointcloud\DEBY_LOD2_4903217.laz</pcl:pointFile>
+                </pcl:PointCloud>
+            </core:pointCloud>
+            <con:height>
+                <con:Height>
+                    <con:highReference>topOfConstruction</con:highReference>
+                    <con:lowReference>lowestGroundPoint</con:lowReference>
+                    <con:status>measured</con:status>
+                    <con:value uom="urn:adv:uom:m">24.709</con:value>
+                </con:Height>
+            </con:height>
+            <bldg:function>99999_1001</bldg:function>
+            <bldg:roofType>3100</bldg:roofType>
+        </bldg:Building>
+    </core:cityObjectMember>
+</core:CityModel>
+----
+
+[[figure-example-pointcloud-external-multiple-files]]
+.Visualization of the externally referenced LAZ file containing the point cloud of one building.
+image::images/Example_PointCloud_external_multiple_files.png[align="center",width="50%"]
+
+*External representation in a single file*
+
+One point cloud file is provided that contains all points from all features in a specific area. In the point cloud file, all points belonging to a specific feature have the same value set in the attribute "point_source_id". Each feature in the CityGML instance document references the point cloud file and all points with the corresponding value in the attribute "point_source_id". In <<listing-gml-pointcloud-external-single-file>>, the building feature references all points with the point_source_id value 132 in the LAZ file 4467_5331_40_bDOM_classified.laz. The LAZ file itself is shown in <<figure-example-pointcloud-external-single-file>>. Highlighted are those points with the point_source_id value 132.
+
+[[listing-gml-pointcloud-external-single-file]]
+.The point cloud of a building is referenced in an external file.
+[source,XML,highlight='11']
+----
+<?xml version="1.0" encoding="UTF-8"?>
+<core:CityModel  ... Namespaces and Schema location ... >
+    <core:cityObjectMember>
+        <bldg:Building gml:id="DEBY_LOD2_4903217">
+            <gml:name>DEBY_LOD2_4903217</gml:name>
+            <core:creationDate>2015-09-24T00:00:00</core:creationDate>
+            <core:boundary> ... </core:boundary>
+             ...
+            <core:pointCloud>
+                <pcl:PointCloud gml:id="DEBY_LOD2_4903217_5e7144be-258f-4d58-8f0c-bd10cb1387a5">
+                    <pcl:pointFile>..\pointcloud\4467_5331_40_bDOM_classified.laz?idattr=point_source_id&amp;id=132</pcl:pointFile>
+                </pcl:PointCloud>
+            </core:pointCloud>
+            <con:height>
+                <con:Height>
+                    <con:highReference>topOfConstruction</con:highReference>
+                    <con:lowReference>lowestGroundPoint</con:lowReference>
+                    <con:status>measured</con:status>
+                    <con:value uom="urn:adv:uom:m">24.709</con:value>
+                </con:Height>
+            </con:height>
+            <bldg:function>99999_1001</bldg:function>
+            <bldg:roofType>3100</bldg:roofType>
+        </bldg:Building>
+    </core:cityObjectMember>
+</core:CityModel>
+----
+
+[[figure-example-pointcloud-external-single-file]]
+.Visualization of an external LAZ file containing amongst others the referenced points of a specific building.
+image::images/Example_PointCloud_external_single_file.png[align="center"]

@@ -1,9 +1,9 @@
 [[appearance-section]]
 === Appearance Conformance Class
 
-include::requirements/requirements_class_appearance.adoc[]
-
 The Appearance module supports the modelling of the observable surface properties of CityGML features in the form of textures and material.
+
+include::requirements/requirements_class_appearance.adoc[]
 
 The Appearance Conformance Class implements the following Requirements Class from the CityGML 3.0 Conceptual Model Standard:
 
@@ -15,17 +15,13 @@ The applicable GML schema is http://schemas.opengis.net/citygml/3.0/appearance.x
 
 The Appearance Requirements Class is dependent on the following Requirements Class from this standard:
 
-* The <<core-section,Core>> Requirements Class is the only mandatory Requirements Class. This class contains foundational elements upon which a CityGML dataset is built. The <<core-section,Core>> Requirements Class also defines XML elements and types reused by other Requirements Classes.
+* The <<core-section,Core>> Requirements Class which is the only mandatory Requirements Class. This class contains foundational elements upon which a CityGML dataset is built. The <<core-section,Core>> Requirements Class also defines XML elements and types reused by other Requirements Classes.
 
 In addition, the Appearance Requirements Class is dependent on the following external OGC and ISO standards:
 
 * <<ogc07-036,GML 3.2>> provides most of the geometry types (e.g., Point, LineString, Polygon) used for spatial representations in this standard. Defines Coordinate Reference Systems. Supports the General Feature Model upon which this standard is based.
 
-* <<ogc10-129r1,GML 3.3>> defines the linear referencing concepts (e.g., linear element, distance along, Linear Referencing Methods) used for linearly referenced locations in this standard. Also included are TINs.
-
-==== GML Elements
-
-The CityGML Appearance XML elements are listed in the GML schema http://schemas.opengis.net/citygml/3.0/appearance.xsd[appearance.xsd]. In addition, they are provided in the HTML documentation http://...
+* <<ogc10-129r1,GML 3.3>> defines compact encodings of geometry types, linear referencing concepts (e.g., linear element, distance along, Linear Referencing Methods), TINs, and encoding rules for association classes.
 
 ==== Implementation Decisions
 
@@ -37,3 +33,30 @@ The following decisions have been made regarding implementation of the CityGML 3
 ==== Requirements
 
 include::requirements/appearance/REQ_Appearance_Elements.adoc[]
+
+//==== GML Elements
+
+The CityGML Appearance XML elements and their corresponding CityGML UML classes are shown in <<appearance-xml-elements>>. In addition, the CityGML Appearance XML elements are documented in the GML schema http://schemas.opengis.net/citygml/3.0/appearance.xsd[appearance.xsd] and in this link:XML-schema-documentation/appearance.xsd.html[HTML documentation].
+
+[#appearance-xml-elements,reftext='{table-caption} {counter:table-num}']
+.Appearance XML Elements
+[width="100%",cols="10,10",options="header"]
+|===
+^|XML Schema Element  ^|Conceptual Model
+|link:XML-schema-documentation/appearance.xsd.html#element_AbstractSurfaceData[AbstractSurfaceData^] |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#AbstractSurfaceData-section[AbstractSurfaceData^]
+|link:XML-schema-documentation/appearance.xsd.html#element_AbstractTexture[AbstractTexture^] |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#AbstractTexture-section[AbstractTexture^]
+|link:XML-schema-documentation/appearance.xsd.html#element_Appearance[Appearance^] |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#Appearance-section[Appearance^]
+|link:XML-schema-documentation/appearance.xsd.html#element_GeoreferencedTexture[GeoreferencedTexture^] |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#GeoreferencedTexture-section[GeoreferencedTexture^]
+|link:XML-schema-documentation/appearance.xsd.html#element_ParameterizedTexture[ParameterizedTexture^] |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#ParameterizedTexture-section[ParameterizedTexture^]
+|link:XML-schema-documentation/appearance.xsd.html#element_TextureAssociation[TextureAssociation^] |«ObjectType» https://docs.ogc.org/is/20-010/20-010.html#TextureAssociation-section[TextureAssociation^]
+|link:XML-schema-documentation/appearance.xsd.html#element_X3DMaterial[X3DMaterial^] |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#X3DMaterial-section[X3DMaterial^]
+|link:XML-schema-documentation/appearance.xsd.html#element_AbstractTextureParameterization[AbstractTextureParameterization^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#AbstractTextureParameterization-section[AbstractTextureParameterization^]
+|link:XML-schema-documentation/appearance.xsd.html#element_ADEOfAbstractSurfaceData[ADEOfAbstractSurfaceData^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#AbstractTextureParameterization-section[ADEOfAbstractSurfaceData^]
+|link:XML-schema-documentation/appearance.xsd.html#element_ADEOfAbstractTexture[ADEOfAbstractTexture^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfAbstractTexture-section[ADEOfAbstractTexture^]
+|link:XML-schema-documentation/appearance.xsd.html#element_ADEOfAppearance[ADEOfAppearance^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfAppearance-section[ADEOfAppearance^]
+|link:XML-schema-documentation/appearance.xsd.html#element_ADEOfGeoreferencedTexture[ADEOfGeoreferencedTexture^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfGeoreferencedTexture-section[ADEOfGeoreferencedTexture^]
+|link:XML-schema-documentation/appearance.xsd.html#element_ADEOfParameterizedTexture[ADEOfParameterizedTexture^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfParameterizedTexture-section[ADEOfParameterizedTexture^]
+|link:XML-schema-documentation/appearance.xsd.html#element_ADEOfX3DMaterial[ADEOfX3DMaterial^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfX3DMaterial-section[ADEOfX3DMaterial^]
+|link:XML-schema-documentation/appearance.xsd.html#element_TexCoordGen[TexCoordGen^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#TexCoordGen-section[TexCoordGen^]
+|link:XML-schema-documentation/appearance.xsd.html#element_TexCoordList[TexCoordList^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#TexCoordList-section[TexCoordList^]
+|===
