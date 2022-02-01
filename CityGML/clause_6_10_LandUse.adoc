@@ -1,11 +1,13 @@
 [[land-use-section]]
-=== Land Use Conformance Class
+=== LandUse
 
 The LandUse module supports representation of areas of the earth’s surface dedicated to a specific land use.
 
+The concepts of the LandUse module are defined in the OGC CityGML 3.0 Conceptual Model standard. The UML diagram for the LandUse module is available under https://docs.ogc.org/is/20-010/20-010.html#landuse-uml[^], the Data Dictionary is available under https://docs.ogc.org/is/20-010/20-010.html#toc55[^].
+
 include::requirements/requirements_class_landuse.adoc[]
 
-The Land Use Conformance Class implements the following Requirements Class from the CityGML 3.0 Conceptual Model Standard:
+The LandUse Conformance Class implements the following Requirements Class from the CityGML 3.0 Conceptual Model Standard:
 
 * LandUse: http://www.opengis.net/spec/CityGML-1/3.0/req/req-class-landuse
 
@@ -13,11 +15,11 @@ The applicable GML schema is http://schemas.opengis.net/citygml/landuse/3.0/land
 
 ==== Dependencies
 
-The Appearance Requirements Class is dependent on the following Requirements Class from this standard:
+The LandUse Requirements Class is dependent on the following Requirements Class from this standard:
 
 * The <<core-section,Core>> Requirements Class which is the only mandatory Requirements Class. This class contains foundational elements upon which a CityGML dataset is built. The <<core-section,Core>> Requirements Class also defines XML elements and types reused by other Requirements Classes.
 
-In addition, the Appearance Requirements Class is dependent on the following external OGC and ISO standards:
+In addition, the LandUse Requirements Class is dependent on the following external OGC and ISO standards:
 
 * <<ogc07-036,GML 3.2>> provides most of the geometry types (e.g., Point, LineString, Polygon) used for spatial representations in this standard. Defines Coordinate Reference Systems. Supports the General Feature Model upon which this standard is based.
 
@@ -25,7 +27,7 @@ In addition, the Appearance Requirements Class is dependent on the following ext
 
 ==== Implementation Decisions
 
-The following decisions have been made regarding implementation of the CityGML 3.0 Land Use conformance class in GML.
+The following decisions have been made regarding implementation of the CityGML 3.0 LandUse conformance class in GML.
 
 . All associations allow by default that the referenced features can be provided inline or by reference.
 
@@ -35,4 +37,4 @@ include::requirements/landuse/REQ_LandUse_Elements.adoc[]
 
 //==== GML Elements
 
-The CityGML Land Use XML elements are listed in the GML schema http://schemas.opengis.net/citygml/landuse/3.0/landUse.xsd[landUse.xsd^].
+The CityGML LandUse XML elements are listed in the GML schema http://schemas.opengis.net/citygml/landuse/3.0/landUse.xsd[landUse.xsd^].

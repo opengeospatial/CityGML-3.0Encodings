@@ -1,7 +1,9 @@
 [[transportation-section]]
-=== Transportation Conformance Class
+=== Transportation
 
 The Transportation module supports representation of the transportation infrastructure. Transportation features include roads, tracks, waterways, railways, and squares. Transportation features may be represented as a network and/or as a collection of spaces or surface elements embedded in a three-dimensional space.
+
+The concepts of the Transportation module are defined in the OGC CityGML 3.0 Conceptual Model standard. The UML diagram for the Transportation module is available under https://docs.ogc.org/is/20-010/20-010.html#transportation-uml[^], the Data Dictionary is available under https://docs.ogc.org/is/20-010/20-010.html#toc58[^].
 
 include::requirements/requirements_class_transportation.adoc[]
 
@@ -13,11 +15,11 @@ The applicable GML schema is http://schemas.opengis.net/citygml/transportation/3
 
 ==== Dependencies
 
-The Appearance Requirements Class is dependent on the following Requirements Class from this standard:
+The Transportation Requirements Class is dependent on the following Requirements Class from this standard:
 
 * The <<core-section,Core>> Requirements Class which is the only mandatory Requirements Class. This class contains foundational elements upon which a CityGML dataset is built. The <<core-section,Core>> Requirements Class also defines XML elements and types reused by other Requirements Classes.
 
-In addition, the Appearance Requirements Class is dependent on the following external OGC and ISO standards:
+In addition, the Transportation Requirements Class is dependent on the following external OGC and ISO standards:
 
 * <<ogc07-036,GML 3.2>> provides most of the geometry types (e.g., Point, LineString, Polygon) used for spatial representations in this standard. Defines Coordinate Reference Systems. Supports the General Feature Model upon which this standard is based.
 

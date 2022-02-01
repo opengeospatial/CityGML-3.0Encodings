@@ -1,11 +1,13 @@
 [[city-object-group-section]]
-=== City Object Group Conformance Class
+=== CityObjectGroup
 
 The CityObjectGroup module supports grouping of city objects. Arbitrary city objects may be aggregated in groups according to user-defined criteria. A group may be further classified by application-specific attributes.
 
+The concepts of the CityObjectGroup module are defined in the OGC CityGML 3.0 Conceptual Model standard. The UML diagram for the CityObjectGroup module is available under https://docs.ogc.org/is/20-010/20-010.html#cityobject-uml[^], the Data Dictionary is available under https://docs.ogc.org/is/20-010/20-010.html#toc52[^].
+
 include::requirements/requirements_class_cityobjectgroup.adoc[]
 
-The City Object Group Conformance Class implements the following Requirements Class from the CityGML 3.0 Conceptual Model Standard:
+The CityObjectGroup Conformance Class implements the following Requirements Class from the CityGML 3.0 Conceptual Model Standard:
 
 * CityObjectGroup: http://www.opengis.net/spec/CityGML-1/3.0/req/req-class-cityobjectgroup
 
@@ -13,11 +15,11 @@ The applicable GML schema is http://schemas.opengis.net/citygml/cityobjectgroup/
 
 ==== Dependencies
 
-The Appearance Requirements Class is dependent on the following Requirements Class from this standard:
+The CityObjectGroup Requirements Class is dependent on the following Requirements Class from this standard:
 
 * The <<core-section,Core>> Requirements Class which is the only mandatory Requirements Class. This class contains foundational elements upon which a CityGML dataset is built. The <<core-section,Core>> Requirements Class also defines XML elements and types reused by other Requirements Classes.
 
-In addition, the Appearance Requirements Class is dependent on the following external OGC and ISO standards:
+In addition, the CityObjectGroup Requirements Class is dependent on the following external OGC and ISO standards:
 
 * <<ogc07-036,GML 3.2>> provides most of the geometry types (e.g., Point, LineString, Polygon) used for spatial representations in this standard. Defines Coordinate Reference Systems. Supports the General Feature Model upon which this standard is based.
 
@@ -25,7 +27,7 @@ In addition, the Appearance Requirements Class is dependent on the following ext
 
 ==== Implementation Decisions
 
-The following decisions have been made regarding implementation of the CityGML 3.0 City Object Group conformance class in GML.
+The following decisions have been made regarding implementation of the CityGML 3.0 CityObjectGroup conformance class in GML.
 
 . As described in <<association-classes-section>>, the UML association class Role is modelled as an intermediate class in an Implementation Model before the GML encoding is applied. In this way, a relation between a city object group and the features it groups can be represented in such a way that the city object group provides the element Role inline, whereas the Role references the features that belong to the city object group using XLink. This encoding also ensures that the rule on referencing features from alternative aggregations as described in <<linking-rules-4-section>> is observed.
 . All associations allow by default that the referenced features can be provided inline or by reference. However, a restriction is defined for the following association, since it represents an alternative aggregation (see rule on referencing features from alternative aggregations in <<linking-rules-4-section>>):
@@ -37,4 +39,4 @@ include::requirements/cityobjectgroup/REQ_CityObjectGroup_Elements.adoc[]
 
 //==== GML Elements
 
-The CityGML City Object Group XML elements are listed in the GML schema http://schemas.opengis.net/citygml/cityobjectgroup/3.0/cityObjectGroup.xsd[cityObjectGroup.xsd^].
+The CityGML CityObjectGroup XML elements are listed in the GML schema http://schemas.opengis.net/citygml/cityobjectgroup/3.0/cityObjectGroup.xsd[cityObjectGroup.xsd^].

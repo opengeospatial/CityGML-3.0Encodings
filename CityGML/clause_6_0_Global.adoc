@@ -1,12 +1,12 @@
 [[global-section]]
-=== Global requirements
+=== Global Requirements
 
 [[object-identifier-section]]
 ==== Object identifiers for features and geometries
 
 In the GML encoding of the CityGML 3.0 Conceptual Model, different types of objects exist: _features_, _top-level features_, and _geometries_. All these objects have a unique identity, thus, they can be distinguished from each other and can also be referenced from other objects.
 
-The CityGML 3.0 Conceptual Model introduces two attributes to provide all features and toplevel features with a unique identity: 1) the mandatory _featureID_ attribute to distinguish all (top-level) features and possible multiple versions of the same real-world object and 2) an optional _identifier_ attribute to reference specific (top-level) features independent from their actual feature version. The featureID attribute value is unique within the same CityGML dataset and also for a specific version of a feature, whereas the identifier attribute has an identical value for all versions of the same real-world object. It is recommended to use globally unique identifiers like UUID values or identifiers maintained by an organization such as a mapping agency for both attributes: for the identifier attribute, as these identifiers should remain stable over the lifetime of the real-world object, and for the featureID attribute, as this ensures that 3D city models which are integrated from different sources into e.g. one GIS or database will not have colliding featureID values and also to be able to uniquely identify a specific version of a feature using these identifiers together with a timestamp and a version number.
+The CityGML 3.0 Conceptual Model introduces two attributes to provide all features and top-level features with a unique identity: 1) the mandatory _featureID_ attribute to distinguish all (top-level) features and possible multiple versions of the same real-world object and 2) an optional _identifier_ attribute to reference specific (top-level) features independent from their actual feature version. The featureID attribute value is unique within the same CityGML dataset and also for a specific version of a feature, whereas the identifier attribute has an identical value for all versions of the same real-world object. It is recommended to use globally unique identifiers like UUID values or identifiers maintained by an organization such as a mapping agency for both attributes: for the identifier attribute, as these identifiers should remain stable over the lifetime of the real-world object, and for the featureID attribute, as this ensures that 3D city models which are integrated from different sources into e.g. one GIS or database will not have colliding featureID values and also to be able to uniquely identify a specific version of a feature using these identifiers together with a timestamp and a version number.
 
 The two attributes are defined in the UML class _AbstractFeature_ as part of the Core module of the CityGML 3.0 Conceptual Model. The class was introduced to the UML model to be able to define attributes at the conceptual level that are automatically inherited from the class _AbstractGML_ in the GML encoding, but not in other encodings. In this way, it will be ensured that these attributes are available in all possible CityGML 3.0 encodings. Since these two attributes originate from the GML specification, they are mapped onto the predefined GML concepts _gml:id_ and _gml:identifier_ in the GML encoding. <<table-gml-identifiers>> lists the two identity attributes together with their definition and GML encoding, and the GML code in <<listing-gml-identifiers>> illustrates the use of the identity attributes to represent the object identity in GML instance documents.
 
@@ -116,9 +116,7 @@ The subfeatures can be provided _inline_ or _by reference_. Inline means that th
 [[linking-rules-section]]
 ==== Rules for linking features and geometries that are shared by multiple (top-level) features
 
-When modelling cities, geometries and features can be integral parts of multiple city objects. To avoid redundant modelling of these geometries and features, CityGML offers the possibility to represent geometries and features only once and to reference them from any other city object to which they belong as well.
-
-This non-redundant representation guarantees that no integrity problems occur, i.e. several differing instances of the same geometry or feature will not exist.
+When modelling cities, geometries and features can be integral parts of multiple city objects. To avoid redundant modelling of these geometries and features, CityGML offers the possibility to represent geometries and features only once and to reference them from any other city object to which they belong as well. This non-redundant representation guarantees that no integrity problems occur, i.e., several differing instances of the same geometry or feature will not exist.
 
 Three different cases for non-redundant representation need to be differentiated:
 
@@ -126,18 +124,16 @@ Three different cases for non-redundant representation need to be differentiated
 . One geometry can be part of the representation of different features. An example is a road across a bridge, the road surface sharing the geometry with the roof surface of the bridge.
 . One and the same feature can belong to different aggregations. Examples are an intersection that belongs to two roads, the intersection being one and the same feature for both roads, or features that belong to a CityObjectGroup and that are already integral part of the city model.
 
-For these cases, different recommendations are provided for how to encode the references in CityGML.
-
-Although these recommendations impose restrictions, they facilitate at the same time reading, storing, processing, and generating of CityGML documents, because they reduce the multiple possibilities of how to represent and link features and geometries in CityGML documents to the most appropriate ones. Furthermore, top-level features can now completely be loaded in the main memory, because links to shared geometries that are part of different top-level features represented further down in the GML document do not need to be resolved any more. This also facilitates querying features and geometries using web services, as up to now queries cannot address specific parts of a geometry. Maintenance becomes easier as well, because links between feature geometries do not need to be maintained and updated any more when a feature changes its geometry or when the feature does not exist anymore.
+For these cases, different recommendations are provided for how to encode the references in CityGML. Although these recommendations impose restrictions, they facilitate at the same time reading, storing, processing, and generating of CityGML documents, because they reduce the multiple possibilities of how to represent and link features and geometries in CityGML documents to the most appropriate ones. Furthermore, top-level features can now completely be loaded in the main memory, because links to shared geometries that are part of different top-level features represented further down in the GML document do not need to be resolved any more. This also facilitates querying features and geometries using web services, as up to now queries cannot address specific parts of a geometry. Maintenance becomes easier as well, because links between feature geometries do not need to be maintained and updated any more when a feature changes its geometry or when the feature does not exist anymore.
 
 [[linking-rules-1-section]]
-=====  Referencing geometries using XLinks within the same and from different top-level features
+=====  Recommendation 1: Referencing geometries using XLinks within the same and from different top-level features
 
-. XLinks may be used to reference geometries within the same top-level feature in accordance with rules 1 - 5 in <<linking-rules-2-section>>.
+. XLinks may be used to reference geometries within the same top-level feature in accordance with Recommendation 2.
 . XLinks shall not be used to reference geometries from another top-level feature.
 
 [[linking-rules-2-section]]
-=====  Referencing geometries of spaces and space boundaries
+=====  Recommendation 2: Referencing geometries of spaces and space boundaries
 
 . [The geometry describing a space shall be stored with the space or its space boundaries.]
 . Geometries stored inline a space boundary must be referenced from the geometry of the space using XLinks.
@@ -145,7 +141,7 @@ Although these recommendations impose restrictions, they facilitate at the same 
 . The geometry of a space may contain the geometries of nested spaces.
 . LoDs must be self-contained: Geometries shall not be shared between different LoDs using XLinks.
 
-Here, XLink represents a link at the geometry level (“geometry link”), i.e. a reference to the ID of the geometry to be reused. The link direction is always from the geometry of the space to the geometries of the space boundaries (example 1).
+Here, XLink represents a link at the geometry level (“geometry link”), i.e., a reference to the ID of the geometry to be reused. The link direction is always from the geometry of the space to the geometries of the space boundaries (example 1).
 
 If the space is not bounded by space boundaries (e.g. WallSurface or RoofSurface), then the geometry is stored as a geometry property (e.g. lod2MultiSurface) of the space. No XLinks are required in this case.
 
@@ -205,9 +201,9 @@ The Building from the GML file is illustrated in the object diagram in <<figure-
 image::images/UML_BuildingWithBuildingInstallation.png[align="center"]
 
 [[linking-rules-3-section]]
-===== Expressing shared geometries between top-level features using CityObjectRelations
+===== Recommendation 3: Expressing shared geometries between top-level features using CityObjectRelations
 
-. If two top-level features share a common geometry, the shared geometry must be stored for each top-level feature separately (follows from 4.1.2).
+. If two top-level features share a common geometry, the shared geometry must be stored for each top-level feature separately (follows from Recommendation 1).
 . A CityObjectRelation may be modelled for the features where the shared geometries are stored (might be the top-level feature itself or one of its nested features).
 . Each CityObjectRelation must be assigned the relation type “shared”.
 . Each CityObjectRelation must reference the other feature using an XLink. Thus, the reference shall be bi-directional.
@@ -223,7 +219,7 @@ image::images/Example_TwoBuildings.png[width="25%"]
 
 The two buildings (=top-level features) in <<figure-example-two-buildings>> are modelled in LOD2 as Solid geometry and are bounded by Wall-, Roof-, and GroundSurfaces that are modelled as Polygon geometries. One of the WallSurfaces of the first Building shares the Polygon geometry with one of the WallSurfaces of the second Building. Both WallSurfaces might appear identical, however, the surface normals of the Polygon geometries of the WallSurfaces are pointing in opposite directions.
 
-To express that the WallSurfaces of the two buildings share the Polygon geometry, the WallSurfaces reference each other using a CityObjectRelation with the relation type "shared". Both WallSurfaces contain the Polygon geometry themselves, the second WallSurface, however, in reverse order.
+To express that the WallSurfaces of the two buildings share the Polygon geometry, the WallSurfaces reference each other using a CityObjectRelation with the relation type “shared”. Both WallSurfaces contain the Polygon geometry themselves, the second WallSurface, however, in reverse order.
 
 The GML file is available here:
 https://github.com/opengeospatial/CityGML-3.0Encodings/tree/xlinks-discussion/CityGML/Examples/Building/XLink_examples/4_Cross-Top-Level-XLink
@@ -242,7 +238,7 @@ image::images/Example_RoadOverBridge.png[align="center",width="70%"]
 
 A Road and a Bridge (=top-level features) are modelled in LOD2, as is shown in <<figure-example-road-over-bridge>>. The Bridge is bounded by Ground-, Roof-, and WallSurfaces that are modelled as MultiSurface geometries. The Road consists of three sections; each section is bounded by two TrafficAreas that are modelled as MultiSurface geometries as well. The RoofSurfaces of the Bridge share MultiSurface geometries with two TrafficAreas of the Road. The RoofSurfaces and the TrafficAreas are geometrically identical, but they differ semantically.
 
-To express that the RoofSurfaces share MultiSurface geometries with two TrafficAreas, they reference each other using CityObjectRelations with the relation type "shared".
+To express that the RoofSurfaces share MultiSurface geometries with two TrafficAreas, they reference each other using CityObjectRelations with the relation type “shared”.
 
 The GML file is available here:
 https://github.com/opengeospatial/CityGML-3.0Encodings/blob/master/CityGML/Examples/Transportation/Basic%20examples/Road_over_Bridge_CityGML3.0_LOD2_with_CityObjectRelations.gml
@@ -261,18 +257,18 @@ image::images/Example_ParkingGarage.png[align="center",width="70%"]
 
 The parking garage in <<figure-example-parking-garage>> is modelled in LOD2 as a building (=top-level feature) with Floor-, Roof-, and WallSurfaces that are modelled as MultiSurface geometries. The parking garage contains a Road with Sections and TrafficAreas that are modelled as MultiSurface geometries as well. The Floor- and RoofSurface of the Building share MultiSurface geometries with the Sections and TrafficAreas of the Road.
 
-To express the sharing of MultiSurface geometries between the Roof-/WallSurfaces and the Sections/TrafficAreas, they reference each other using CityObjectRelations with the relation type "shared".
+To express the sharing of MultiSurface geometries between the Roof-/WallSurfaces and the Sections/TrafficAreas, they reference each other using CityObjectRelations with the relation type “shared”.
 
 The GML file is available here:
 https://github.com/opengeospatial/CityGML-3.0Encodings/blob/master/CityGML/Examples/Transportation/Basic%20examples/Road_over_Bridge_CityGML3.0_LOD2_with_CityObjectRelations.gml
 
 [[linking-rules-4-section]]
-===== Referencing features from alternative aggregations
+===== Recommendation 4: Referencing features from alternative aggregations
 
 . Each feature belongs to a natural aggregation hierarchy and shall be stored inline in this hierarchy.
 . Alternative aggregations may not contain the feature inline but must use an XLink to reference the feature.
 
-Here, XLink represents a link at the feature level (“feature link”), i.e. a reference to the ID of the feature being part of the natural aggregation. All features are part of a natural aggregation, i.e. features are typically represented in a data set once in physical form, either directly as part of the city model when they are top-level features (e.g. a Building), or inline as part of other (top-level) features (e.g. a BuildingRoom represented inline as part of the top-level feature Building). At the same time, the features can also occur in alternative aggregations.
+Here, XLink represents a link at the feature level (“feature link”), i.e., a reference to the ID of the feature being part of the natural aggregation. All features are part of a natural aggregation, i.e., features are typically represented in a data set once in physical form, either directly as part of the city model when they are top-level features (e.g. a Building), or inline as part of other (top-level) features (e.g. a BuildingRoom represented inline as part of the top-level feature Building). At the same time, the features can also occur in alternative aggregations.
 
 *Example 1: Intersection as part of two Roads*
 
@@ -301,7 +297,7 @@ BuildingRooms are usually represented inline as part of the Building they belong
 
 *Example 4: A Building installation spanning across several Building Parts*
 
-This example was discussed in issue https://github.com/opengeospatial/CityGML-3.0CM/issues/8: “Installations that are spanning across several building parts are to be physically modelled as part of one building part, all other building parts reference the installation using XLinks, expressing in this way, that the installation does not exclusively belong to one building part only.”
+Installations that are spanning across several building parts are to be physically modelled as part of one building part, all other building parts reference the installation using XLinks, expressing in this way, that the installation does not exclusively belong to one building part only.
 
 This means, that one of the BuildingParts represents the natural aggregation of the BuildingInstallation (i.e. inline representation), whereas the other BuildingParts represent alternative aggregations (i.e. XLink reference).
 
@@ -321,6 +317,7 @@ ISO 19136-2 defines an encoding rule for association classes. The encoding rule 
 image::images/UML_AssociationClass.png[align="center",width="70%"]
 
 The UML model in <<figure-uml-association-class>> defines association class X with an association between source class A and target class B. The following steps are defined by the encoding rule, resulting in the UML model shown in <<figure-uml-intermediate-class>>:
+
 - Association class X is converted into intermediate class X. The new intermediate class has the same name, stereotype, tagged values, constraints, attributes, and relationships as the original association class.
 - The association between source class A and target class B is replaced by two associations, association 1 between the classes A and X, and association 2 between the classes X and B.
 - The association ends at class X of association 1 and at class B of association 2 receive the role name, navigability, stereotype, and tagged values of the association end at the original target class B. In addition, the association end at class X receives the multiplicity of the association end at the original target class B. The association end at class B receives multiplicity 1.
@@ -386,7 +383,7 @@ The second GML instance document (<<listing-gml-byreference>>) results from sett
 </B>
 ----
 
-The third GML instance document (<<listing-gml-inlineorbyreference>>) is obtained when the tagged value is set to “inlineOrByReference”. Here, the inline and byReference representations are combined, i.e. element X is provided inline element A and element B is referenced by element X using XLink. Alternatively, it is also possible that element X is referenced by element A and element B is provided inline element X. In addition, also the GML instances as shown above for “inline” and “byReference” can be represented with the value “inlineOrByReference”.
+The third GML instance document (<<listing-gml-inlineorbyreference>>) is obtained when the tagged value is set to “inlineOrByReference”. Here, the inline and byReference representations are combined, i.e., element X is provided inline element A and element B is referenced by element X using XLink. Alternatively, it is also possible that element X is referenced by element A and element B is provided inline element X. In addition, also the GML instances as shown above for “inline” and “byReference” can be represented with the value “inlineOrByReference”.
 
 [[listing-gml-inlineorbyreference]]
 .GML instance document for the value “inlineOrByReference”.
@@ -415,7 +412,7 @@ image::images/UML_IntermediateClass_Byreference.png[align="center"]
 
 In order to obtain the restricted structure in GML instance documents, an Implementation Model is created prior to the GML encoding of the CityGML 3.0 Conceptual Model. Within the Implementation Model, the association classes are manually converted into intermediate classes and the tagged values of the associations are set as shown in <<figure-uml-intermediate-class-byreference>>. This means that the encoding will directly be performed on the Implementation Model. This solution guarantees for representing references between features according to <<listing-gml-inlineorbyreference>> in GML instance documents and it can be applied directly without any changes to the conversion tools.
 
-In the following, the solution will be exemplified based on the association class CityObjectRelation. This association class can be used to specify relationships between different features, e.g. it can be expressed that the WallSurface of one building shares the Polygon geometry with the WallSurface of a second Building. The association class is illustrated in <<figure-uml-cityobjectrelation-associationclass>>, the tagged value is set to "inlineOrByReference".
+In the following, the solution will be exemplified based on the association class CityObjectRelation. This association class can be used to specify relationships between different features, e.g. it can be expressed that the WallSurface of one building shares the Polygon geometry with the WallSurface of a second Building. The association class is illustrated in <<figure-uml-cityobjectrelation-associationclass>>, the tagged value is set to “inlineOrByReference”.
 
 [[figure-uml-cityobjectrelation-associationclass]]
 .Association class CityObjectRelation.
@@ -460,3 +457,8 @@ Within a GML instance document, specifying that the WallSurfaces of two building
   </boundary>
 </bldg:Building>
 ----
+
+[[gml-section]]
+==== Usage of GML 3.2.1 and GML 3.3
+
+TODO
