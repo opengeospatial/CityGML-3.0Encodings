@@ -15,7 +15,7 @@ The values for each of these 140 codelist attributes are interpreted in a specif
 There is no standardized model for CityGML codelists but the following is an example that meets rqeuirements for documenting the source, currency, language, and other characteristics of the list of values. This is the model followed by the CityGML 3.0 codelist examples hosted by OGC.
 
 [[codelist_uml]]
-.Codelist UML Class Diagram
+.Suggested Codelist UML Class Diagram
 image::images/codelist_uml.png[codelist UML diagram,align="center"]
 
 
@@ -29,105 +29,62 @@ This GML encoding of the example logical model for codelists, dictionary entry, 
 ----
 
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:cmd="http://www" attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="schema1.xsd" namespace="http://www.opengis.net/gml/3.2" />
-  <xs:element name="codelist">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element ref="gml:Dictionary" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
+<xs:schema targetNamespace="http://www.opengis.net/gml/3.2" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.opengis.net/gml/3.2" elementFormDefault="qualified">
+	<xs:element name="Codelist" type="cdl:Codelist"/>
+	<xs:complexType name="Codelist">
+		<xs:sequence>
+			<xs:element name="description" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="identifier" type="cdl:Identifier" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Definition" type="cdl:Definition" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Metadata" type="cdl:Metadata" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Definition" type="cdl:Definition"/>
+	<xs:complexType name="Definition">
+		<xs:sequence>
+			<xs:element name="description" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="identifier" type="identifier" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="gml::Dictionary" type="cdl:gml::Dictionary"/>
+	<xs:complexType name="gml::Dictionary">
+		<xs:complexContent>
+			<xs:extension base="cdl:Definition">
+				<xs:sequence>
+					<xs:element ref="gml:Dictionary" minOccurs="1" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="Metadata" type="cdl:Metadata"/>
+	<xs:complexType name="Metadata">
+		<xs:sequence>
+			<xs:element name="authority" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dataType" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="language" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="namespace" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="version" type="xs:decimal" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+  <xs:element name="identifier" type="cdl:Identifier">
+	<xs:complexType name="cdl:Identifier">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="codeSpace" type="xs:string" use="required"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
 </xs:schema>
-
 ----
 
-* dictionary entry
-
-----
-
-<?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://www.opengis.net/gml/3.2" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.opengis.net/gml/3.2" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="schema2.xsd" namespace="http://www" />
-  <xs:element name="Dictionary">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element name="metaDataProperty">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element xmlns:q1="http://www" ref="q1:CodeListMetaData" />
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="description" type="xs:string" />
-        <xs:element name="identifier">
-          <xs:complexType>
-            <xs:simpleContent>
-              <xs:extension base="xs:string">
-                <xs:attribute name="codeSpace" type="xs:string" use="required" />
-              </xs:extension>
-            </xs:simpleContent>
-          </xs:complexType>
-        </xs:element>
-        <xs:element maxOccurs="unbounded" name="dictionaryEntry">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="Definition">
-                <xs:complexType>
-                  <xs:sequence>
-                    <xs:element name="description" type="xs:string" />
-                    <xs:element name="identifier">
-                      <xs:complexType>
-                        <xs:simpleContent>
-                          <xs:extension base="xs:unsignedShort">
-                            <xs:attribute name="codeSpace" type="xs:string" use="required" />
-                          </xs:extension>
-                        </xs:simpleContent>
-                      </xs:complexType>
-                    </xs:element>
-                    <xs:element name="name" type="xs:string" />
-                  </xs:sequence>
-                  <xs:attribute ref="tns:id" use="required" />
-                </xs:complexType>
-              </xs:element>
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-      </xs:sequence>
-      <xs:attribute ref="tns:id" use="required" />
-    </xs:complexType>
-  </xs:element>
-  <xs:attribute name="id" type="xs:string" />
-</xs:schema>
-
-----
-
-* metadata
-
-----
-<?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://www" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:element name="CodeListMetaData">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element name="dataType" type="xs:string" />
-        <xs:element name="namespace" type="xs:string" />
-        <xs:element name="language" type="xs:string" />
-        <xs:element name="authority" type="xs:string" />
-        <xs:element name="version" type="xs:decimal" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-</xs:schema>
-
-----
 
 The following is an example:
 
 ----
 <?xml version="1.0" encoding="utf-8"?>
 <codelist xmlns:gml="http://www.opengis.net/gml/3.2"
-          xmlns:cmd="http://www">
+          xmlns:cmd="http://www.something">
 	<gml:Dictionary gml:id="roofTypes">
 		<gml:metaDataProperty>
 			<cmd:CodeListMetaData>
