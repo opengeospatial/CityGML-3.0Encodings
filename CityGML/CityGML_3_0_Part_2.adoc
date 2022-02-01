@@ -8,7 +8,6 @@
 :toclevels: 3
 :numbered:
 :sectanchors:
-:source-highlighter: pygments
 :xrefstyle: short
 :listing-caption: Listing
 

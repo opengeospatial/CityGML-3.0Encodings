@@ -79,7 +79,7 @@ This GML encoding of the example logical model for codelists, dictionary entry, 
 ----
 
 
-The following is an example:
+The following is an XML example:
 
 ----
 <?xml version="1.0" encoding="utf-8"?>
@@ -117,10 +117,22 @@ The following is an example:
 
 ==== Comma Separated Values(CSV) Structure
 
-This CSV encoding of the example logical model is illustrated with the following example:
+This CSV encoding of the example logical model is illustrated with the following example with the delimiter '|':
 
 ----
-csv example goes here
+cdl|description|Roof type values
+cdl|identifier|"https://ogc.org/citygml/3.0/codelists/gml/RoofTypeValues" 
+cmd|authority|Example
+cmd|dataType|RoofTypeValue
+cmd|language|en-UK
+cmd|namespace|"http://www.opengis.net/citygml/building/3.0"
+cmd|version|3.0
+def|description|roof primarily a single plane, not necessarily level
+def|identifier  |"https://ogc.org/citygml/3.0/codelists/gml/RoofTypeValues/1000"
+def|name|flat roof
+def|description|a roof that has a ridge and two gablesv
+def|identifier|"https://ogc.org/citygml/3.0/codelists/gml/RoofTypeValues/3100"
+def|name|saddle roof
 ----
 
 ==== JSON
