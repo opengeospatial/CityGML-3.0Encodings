@@ -12432,7 +12432,7 @@ This is where conformance with CityGML 3.0 Conceptual Model is documented.
 <div class="sect2">
 <h3 id="_logical_model"><a class="anchor" href="#_logical_model"></a>E.1. Logical Model</h3>
 <div class="paragraph">
-<p>There is no standardized model for CityGML codelists but the following is an example that meets rqeuirements for documenting the source, currency, language, and other characteristics of the list of values. This is the model followed by the CityGML 3.0 codelist examples hosted by OGC.</p>
+<p>There is no standardized model for CityGML codelists. The following is suggested structure that meets rqeuirements for documenting the source, currency, language, and other characteristics of the list of values. This <strong>suggested</strong> model is followed by the CityGML 3.0 codelist examples hosted by OGC. Note that many existing codelists, maintained by various organizations, are already in existence with different and permissible structures. These codelists remain valid.</p>
 </div>
 <div id="codelist_uml" class="imageblock text-center">
 <div class="content">
@@ -12521,8 +12521,8 @@ This is where conformance with CityGML 3.0 Conceptual Model is documented.
 				&lt;cmd:dataType&gt;RoofTypeValue&lt;/cmd:dataType&gt;
 				&lt;cmd:namespace&gt;http://www.opengis.net/citygml/building/3.0&lt;/cmd:namespace&gt;
 				&lt;cmd:language&gt;en&lt;/cmd:language&gt;
-				&lt;cmd:authority&gt;xyz&lt;/cmd:authority&gt;
-				&lt;cmd:version&gt;1.0&lt;/cmd:version&gt;
+				&lt;cmd:authority&gt;Some Organization&lt;/cmd:authority&gt;
+				&lt;cmd:version&gt;3.0&lt;/cmd:version&gt;
 			&lt;/cmd:CodeListMetaData&gt;
 		&lt;/gml:metaDataProperty&gt;
 		&lt;gml:description&gt;Roof type values&lt;/gml:description&gt;
@@ -12549,13 +12549,13 @@ This is where conformance with CityGML 3.0 Conceptual Model is documented.
 <div class="sect3">
 <h4 id="_comma_separated_valuescsv_structure"><a class="anchor" href="#_comma_separated_valuescsv_structure"></a>E.2.2. Comma Separated Values(CSV) Structure</h4>
 <div class="paragraph">
-<p>This CSV encoding of the example logical model is illustrated with the following example with the delimiter '|':</p>
+<p>A suggested CSV encoding of the example logical model is illustrated with the following example with the delimiter '|':</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre>cdl|description|Roof type values
 cdl|identifier|"https://ogc.org/citygml/3.0/codelists/gml/RoofTypeValues"
-cmd|authority|Example
+cmd|authority|Some Organization
 cmd|dataType|RoofTypeValue
 cmd|language|en-UK
 cmd|namespace|"http://www.opengis.net/citygml/building/3.0"
@@ -12572,7 +12572,7 @@ def|name|saddle roof</pre>
 <div class="sect3">
 <h4 id="_json"><a class="anchor" href="#_json"></a>E.2.3. JSON</h4>
 <div class="paragraph">
-<p>This JSON encoding of the example logical model for codelists has a JSON-Schema 2019-09 definition as follows:</p>
+<p>A suggested JSON encoding of the example logical model for codelists has a JSON-Schema 2019-09 definition as follows:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -12747,7 +12747,7 @@ def|name|saddle roof</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The following is an example:</p>
+<p>The following is the previous example in the suggested JSON encoding:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -12759,8 +12759,8 @@ def|name|saddle roof</pre>
             "dataType": "RoofTypeValue",
             "namespace": "http://www.opengis.net/citygml/building/3.0",
             "language": "en",
-            "authority": "xyz",
-            "version": "1.0"
+            "authority": "Some Organization",
+            "version": "3.0"
          }
       },
       "description": "Roof type values",
@@ -12822,11 +12822,18 @@ def|name|saddle roof</pre>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">2016-04-28</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">2021-12-15</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">0.1</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">G. Editor</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">T. Kutzner</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">all</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">initial version</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">2022-02-01</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">0.2</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">T. Kutzner, S. Smyth</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Conformance, Codelist Annex</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Most sections are complete, at least in draft form.</p></td>
 </tr>
 </tbody>
 </table>
