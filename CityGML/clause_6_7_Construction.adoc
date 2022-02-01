@@ -9,7 +9,7 @@ The Construction Conformance Class implements the following Requirements Class f
 
 * Construction: http://www.opengis.net/spec/CityGML-1/3.0/req/req-class-construction
 
-The applicable GML schema is http://schemas.opengis.net/citygml/3.0/construction.xsd[construction.xsd].
+The applicable GML schema is http://schemas.opengis.net/citygml/construction/3.0/construction.xsd[construction.xsd^].
 
 ==== Dependencies
 
@@ -35,4 +35,4 @@ include::requirements/construction/REQ_Construction_Elements.adoc[]
 
 //==== GML Elements
 
-The CityGML Construction XML elements are listed in the GML schema http://schemas.opengis.net/citygml/3.0/construction.xsd[construction.xsd].
+The CityGML Construction XML elements are listed in the GML schema http://schemas.opengis.net/citygml/construction/3.0/construction.xsd[construction.xsd^].

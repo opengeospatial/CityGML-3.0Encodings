@@ -4,7 +4,7 @@
 2+|*Requirements Class* {set:cellbgcolor:#CACCCE}
 2+|http://www.opengis.net/spec/CityGML-2/3.0/req/req-class-bridgee {set:cellbgcolor:#FFFFFF}
 |Target type |Implementation
-|Dependency |http://schemas.opengis.net/citygml/3.0/bridge.xsd[bridge.xsd]
+|Dependency |http://schemas.opengis.net/citygml/bridge/3.0/bridge.xsd[bridge.xsd^]
 |Dependency |http://www.opengis.net/spec/CityGML-1/3.0/req/req-class-bridge
 |Dependency |http://www.opengis.net/spec/CityGML-2/3.0/req/req-class-core
 |===

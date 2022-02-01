@@ -4,7 +4,7 @@
 2+|*Requirements Class* {set:cellbgcolor:#CACCCE}
 2+|http://www.opengis.net/spec/CityGML-2/3.0/req/req-class-appearance {set:cellbgcolor:#FFFFFF}
 |Target type |Implementation
-|Dependency |http://schemas.opengis.net/citygml/3.0/appearance.xsd[appearance.xsd]
+|Dependency |http://schemas.opengis.net/citygml/appearance/3.0/appearance.xsd[appearance.xsd^]
 |Dependency |http://www.opengis.net/spec/CityGML-1/3.0/req/req-class-appearance
 |Dependency |http://www.opengis.net/spec/CityGML-2/3.0/req/req-class-core
 |===

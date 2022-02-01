@@ -2,5 +2,5 @@
 [width="90%",cols="2,6"]
 |===
 ^|*Requirement  {counter:req-id}* |*/req/cityobjectgroup/elements*
-2+|CityGML XML elements implemented by a conforming instance document shall conform to the GML XML schema in http://schemas.opengis.net/citygml/3.0/cityObjectGroup.xsd[cityObjectGroup.xsd].
+2+|CityGML XML elements implemented by a conforming instance document shall conform to the GML XML schema in http://schemas.opengis.net/citygml/cityobjectgroup/3.0/cityObjectGroup.xsd[cityObjectGroup.xsd^].
 |===

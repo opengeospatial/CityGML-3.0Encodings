@@ -2,5 +2,5 @@
 [width="90%",cols="2,6"]
 |===
 ^|*Requirement  {counter:req-id}* |*/req/tunnel/elements*
-2+|CityGML XML elements implemented by a conforming instance document shall conform to the GML XML schema in http://schemas.opengis.net/citygml/3.0/tunnel.xsd[tunnel.xsd].
+2+|CityGML XML elements implemented by a conforming instance document shall conform to the GML XML schema in http://schemas.opengis.net/citygml/tunnel/3.0/tunnel.xsd[tunnel.xsd^].
 |===
