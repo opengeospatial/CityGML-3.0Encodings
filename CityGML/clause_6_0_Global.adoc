@@ -1,6 +1,8 @@
 [[global-section]]
 === Global Requirements
 
+This chapter defines general requirements which are valid for all Conformance Classes and cannot be derived from the GML schemas.
+
 [[object-identifier-section]]
 ==== Object identifiers for features and geometries
 
@@ -127,13 +129,13 @@ Three different cases for non-redundant representation need to be differentiated
 For these cases, different recommendations are provided for how to encode the references in CityGML. Although these recommendations impose restrictions, they facilitate at the same time reading, storing, processing, and generating of CityGML documents, because they reduce the multiple possibilities of how to represent and link features and geometries in CityGML documents to the most appropriate ones. Furthermore, top-level features can now completely be loaded in the main memory, because links to shared geometries that are part of different top-level features represented further down in the GML document do not need to be resolved any more. This also facilitates querying features and geometries using web services, as up to now queries cannot address specific parts of a geometry. Maintenance becomes easier as well, because links between feature geometries do not need to be maintained and updated any more when a feature changes its geometry or when the feature does not exist anymore.
 
 [[linking-rules-1-section]]
-=====  Recommendation 1: Referencing geometries using XLinks within the same and from different top-level features
+=====  Rule 1: Referencing geometries using XLinks within the same and from different top-level features
 
 . XLinks may be used to reference geometries within the same top-level feature in accordance with Recommendation 2.
 . XLinks shall not be used to reference geometries from another top-level feature.
 
 [[linking-rules-2-section]]
-=====  Recommendation 2: Referencing geometries of spaces and space boundaries
+=====  Rule 2: Referencing geometries of spaces and space boundaries
 
 . [The geometry describing a space shall be stored with the space or its space boundaries.]
 . Geometries stored inline a space boundary must be referenced from the geometry of the space using XLinks.
@@ -201,7 +203,7 @@ The Building from the GML file is illustrated in the object diagram in <<figure-
 image::images/UML_BuildingWithBuildingInstallation.png[align="center"]
 
 [[linking-rules-3-section]]
-===== Recommendation 3: Expressing shared geometries between top-level features using CityObjectRelations
+===== Rule 3: Expressing shared geometries between top-level features using CityObjectRelations
 
 . If two top-level features share a common geometry, the shared geometry must be stored for each top-level feature separately (follows from Recommendation 1).
 . A CityObjectRelation may be modelled for the features where the shared geometries are stored (might be the top-level feature itself or one of its nested features).
@@ -263,7 +265,7 @@ The GML file is available here:
 https://github.com/opengeospatial/CityGML-3.0Encodings/blob/master/CityGML/Examples/Transportation/Basic%20examples/Road_over_Bridge_CityGML3.0_LOD2_with_CityObjectRelations.gml
 
 [[linking-rules-4-section]]
-===== Recommendation 4: Referencing features from alternative aggregations
+===== Rule 4: Referencing features from alternative aggregations
 
 . Each feature belongs to a natural aggregation hierarchy and shall be stored inline in this hierarchy.
 . Alternative aggregations may not contain the feature inline but must use an XLink to reference the feature.
@@ -461,4 +463,35 @@ Within a GML instance document, specifying that the WallSurfaces of two building
 [[gml-section]]
 ==== Usage of GML 3.2.1 and GML 3.3
 
-TODO
+This CityGML 3.0 GML schemas have been derived based on the OGC GML 3.2.1 standard. This means that CityGML GML instance documents can be created and exchanged in the GML version 3.2.1.
+
+For certain applications, however, it might be useful to create CityGML GML instance documents in the GML version 3.3. GML 3.3 complements GML 3.2.1 with concepts such as compact encodings of geometry types, linear referencing concepts (e.g., linear element, distance along, Linear Referencing Methods), TINs, and encoding rules for association classes.
+
+To be able to create CityGML instance documents based on GML 3.3, those GML 3.3 XML schemas that define the required concepts need to be referenced in the XML root element <CityModel> of CityGML GML instance documents. This is illustrated in <<listing-gml-3.3>>. The RoofSurface of the building is to be represented by a SimplePolygon which is a compact encoding of a Polygon defined in the GML 3.3 XML schema http://www.opengis.net/gml/3.3/ce. Thus, this XML schema is referenced in the root element by indicating its namespace and schema location.
+
+[[listing-gml-3.3]]
+.Use of GML 3.3 concepts in a CityGML GML instance document.
+[source,XML,highlight="1,10,12"]
+----
+<CityModel xmlns:gmlce="http://www.opengis.net/gml/3.3/ce" ... further Namespaces ... xsi:schemaLocation="http://www.opengis.net/gml/3.3/ce http://schemas.opengis.net/gml/3.3/geometryCompact.xsd ... further schema location entries ...">
+  <cityObjectMember>
+    <bldg:Building gml:id="DEBY_LOD2_5744682">
+      ....
+      <boundary>
+        <con:RoofSurface>
+          <lod2MultiSurface>
+            <gml:MultiSurface gml:id="ms1">
+              <gml:surfaceMember>
+                <gmlce:SimplePolygon gml:id="sp1">
+                      <gml:posList> ... coordinates ... </gml:posList>
+                </gmlce:SimplePolygon>
+              </gml:surfaceMember>
+            </gml:MultiSurface>
+          </lod2MultiSurface>
+        </con:RoofSurface>
+      </boundary>
+      ...
+    </bldg:Building>
+  </cityObjectMember>
+</CityModel>
+----
