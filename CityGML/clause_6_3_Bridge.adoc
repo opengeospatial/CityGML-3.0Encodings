@@ -1,7 +1,9 @@
 [[bridge-section]]
-=== Bridge Conformance Class
+=== Bridge
 
 The Bridge module supports representation of thematic and spatial aspects of bridges, bridge parts, bridge installations, and interior bridge structures.
+
+The concepts of the Bridge module are defined in the OGC CityGML 3.0 Conceptual Model standard. The UML diagram for the Bridge module is available under https://docs.ogc.org/is/20-010/20-010.html#bridge-uml[^], the Data Dictionary is available under https://docs.ogc.org/is/20-010/20-010.html#toc63[^].
 
 include::requirements/requirements_class_bridge.adoc[]
 
@@ -13,11 +15,11 @@ The applicable GML schema is http://schemas.opengis.net/citygml/bridge/3.0/bridg
 
 ==== Dependencies
 
-The Appearance Requirements Class is dependent on the following Requirements Class from this standard:
+The Bridge Requirements Class is dependent on the following Requirements Class from this standard:
 
 * The <<core-section,Core>> Requirements Class which is the only mandatory Requirements Class. This class contains foundational elements upon which a CityGML dataset is built. The <<core-section,Core>> Requirements Class also defines XML elements and types reused by other Requirements Classes.
 
-In addition, the Appearance Requirements Class is dependent on the following external OGC and ISO standards:
+In addition, the Bridge Requirements Class is dependent on the following external OGC and ISO standards:
 
 * <<ogc07-036,GML 3.2>> provides most of the geometry types (e.g., Point, LineString, Polygon) used for spatial representations in this standard. Defines Coordinate Reference Systems. Supports the General Feature Model upon which this standard is based.
 

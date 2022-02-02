@@ -2,7 +2,7 @@
 :appendix-caption: Annex
 
 [[annex-codelist-usage]]
-== Codelists ( Informative )
+== Codelists (Informative)
 
 Codelists are tables of attribute values and corresponding discription or definition. Values in a specific table may be used for designated properties with the codelist stereotype in the UML Conceptual Model(CM). The CityGML 3.0 CM defines 140 such attributes.
 
@@ -19,11 +19,11 @@ There is no standardized model for CityGML codelists. The following is suggested
 image::images/codelist_uml.png[codelist UML diagram,align="center"]
 
 
-=== Examples 
+=== Examples
 
-==== GML 
+==== GML
 
-This GML encoding of the example logical model for codelists, dictionary entry, and entry metadata have XML schema definitions as follows: 
+This GML encoding of the example logical model for codelists, dictionary entry, and entry metadata have XML schema definitions as follows:
 
 * codelist
 ----
@@ -121,7 +121,7 @@ A suggested CSV encoding of the example logical model is illustrated with the fo
 
 ----
 cdl|description|Roof type values
-cdl|identifier|"https://ogc.org/citygml/3.0/codelists/gml/RoofTypeValues" 
+cdl|identifier|"https://ogc.org/citygml/3.0/codelists/gml/RoofTypeValues"
 cmd|authority|Some Organization
 cmd|dataType|RoofTypeValue
 cmd|language|en-UK
@@ -311,7 +311,7 @@ A suggested JSON encoding of the example logical model for codelists has a JSON-
 }
 ----
 
-The following is the previous example in the suggested JSON encoding: 
+The following is the previous example in the suggested JSON encoding:
 
 ----
 {
@@ -358,5 +358,3 @@ The following is the previous example in the suggested JSON encoding:
    }
 }
 ----
-
-

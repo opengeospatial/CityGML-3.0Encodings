@@ -5,7 +5,7 @@
 :lang: en
 :toc:
 :toc-placement!:
-:toclevels: 3
+:toclevels: 2
 :numbered:
 :sectanchors:
 :xrefstyle: short
@@ -23,7 +23,7 @@
 |Internal reference number of this OGC(R) document:    21-006
 |Version: 0.1
 |Category: OGC(R) Implementation Specification
-|Editor:   Charles Heazel
+|Editor: Tatjana Kutzner, Carl Stephen Smyth, Claus Nagel, ... , Charles Heazel, Thomas H. Kolbe
 |===
 
 [cols = "^", frame = "none"]

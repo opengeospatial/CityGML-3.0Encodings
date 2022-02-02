@@ -1,7 +1,9 @@
 [[appearance-section]]
-=== Appearance Conformance Class
+=== Appearance
 
 The Appearance module supports the modelling of the observable surface properties of CityGML features in the form of textures and material.
+
+The concepts of the Appearance module are defined in the OGC CityGML 3.0 Conceptual Model standard. The UML diagram for the Appearance module is available under https://docs.ogc.org/is/20-010/20-010.html#appearance-uml[^], the Data Dictionary is available under https://docs.ogc.org/is/20-010/20-010.html#toc50[^].
 
 include::requirements/requirements_class_appearance.adoc[]
 
@@ -28,7 +30,7 @@ In addition, the Appearance Requirements Class is dependent on the following ext
 The following decisions have been made regarding implementation of the CityGML 3.0 Appearance conformance class in GML.
 
 . All associations allow by default that the referenced features can be provided inline or by reference. However, a restriction is defined for following association:
-* The assocation class TextureAssociation which connects ParameterizedTexture with AbstractTextureParameterization; here, AbstractTextureParameterization (or rather of the non-abstract subclasses TexCoordList and TexCoordGen) must be represented inline For the GML encoding this means that the element ParameterizedTexture embeds the element TextureAssociation which, in turn, embeds either the element TexCoordList or TexCoordGen.
+* The assocation class TextureAssociation which connects ParameterizedTexture with AbstractTextureParameterization; here, AbstractTextureParameterization (or rather of the non-abstract subclasses TexCoordList and TexCoordGen) must be represented inline. For the GML encoding this means that the element ParameterizedTexture embeds the element TextureAssociation which, in turn, embeds either the element TexCoordList or TexCoordGen.
 
 ==== Requirements
 
@@ -36,13 +38,16 @@ include::requirements/appearance/REQ_Appearance_Elements.adoc[]
 
 //==== GML Elements
 
-The CityGML Appearance XML elements and their corresponding CityGML UML classes are shown in <<appearance-xml-elements>>. In addition, the CityGML Appearance XML elements are documented in the GML schema http://schemas.opengis.net/citygml/appearance/3.0/appearance.xsd[appearance.xsd^] and in this link:XML-schema-documentation/appearance.xsd.html[HTML documentation].
+The CityGML Appearance XML elements and their corresponding CityGML UML classes are listed in <<appearance-xml-elements>>. In addition, the CityGML Appearance XML elements are documented in the GML schema http://schemas.opengis.net/citygml/appearance/3.0/appearance.xsd[appearance.xsd^] and in this link:XML-schema-documentation/appearance.xsd.html[XML Schema documentation^].
 
 [#appearance-xml-elements,reftext='{table-caption} {counter:table-num}']
 .Appearance XML Elements
 [width="100%",cols="10,10",options="header"]
 |===
-^|XML Schema Element  ^|Conceptual Model
+^|XML Schema Element +
+ (link:XML-schema-documentation/appearance.xsd.html[XML Schema documentation^])
+^|Conceptual Model +
+(https://docs.ogc.org/is/20-010/20-010.html#appearance-uml[UML model^]; https://docs.ogc.org/is/20-010/20-010.html#toc50[Data Dictionary^])
 |link:XML-schema-documentation/appearance.xsd.html#element_AbstractSurfaceData[AbstractSurfaceData^] |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#AbstractSurfaceData-section[AbstractSurfaceData^]
 |link:XML-schema-documentation/appearance.xsd.html#element_AbstractTexture[AbstractTexture^] |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#AbstractTexture-section[AbstractTexture^]
 |link:XML-schema-documentation/appearance.xsd.html#element_Appearance[Appearance^] |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#Appearance-section[Appearance^]
