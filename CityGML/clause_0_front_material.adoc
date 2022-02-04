@@ -9,7 +9,7 @@ The CityGML 3.0 GML encoding is an implementation of the CityGML 3.0 Conceptual 
 [width="100%",cols="5,10,10",options="header"]
 |===
 |Conceptual Model  |Section |GML Schema
-|ADE |<<core-section>> |http://schemas.opengis.net/citygml/3.0/core.xsd[core.xsd^]
+//|ADE |<<core-section>> |http://schemas.opengis.net/citygml/3.0/core.xsd[core.xsd^]
 |Appearance |<<appearance-section>> |http://schemas.opengis.net/citygml/appearance/3.0/appearance.xsd[appearance.xsd^]
 |Bridge |<<bridge-section>> |http://schemas.opengis.net/citygml/bridge/3.0/bridge.xsd[bridge.xsd^]
 |Building |<<building-section>> |http://schemas.opengis.net/citygml/building/3.0/building.xsd[building.xsd^]

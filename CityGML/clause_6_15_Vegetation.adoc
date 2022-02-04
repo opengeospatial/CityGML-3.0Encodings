@@ -19,12 +19,6 @@ The Vegetation Requirements Class is dependent on the following Requirements Cla
 
 * The <<core-section,Core>> Requirements Class which is the only mandatory Requirements Class. This class contains foundational elements upon which a CityGML dataset is built. The <<core-section,Core>> Requirements Class also defines XML elements and types reused by other Requirements Classes.
 
-In addition, the Vegetation Requirements Class is dependent on the following external OGC and ISO standards:
-
-* <<ogc07-036,GML 3.2>> provides most of the geometry types (e.g., Point, LineString, Polygon) used for spatial representations in this standard. Defines Coordinate Reference Systems. Supports the General Feature Model upon which this standard is based.
-
-* <<ogc10-129r1,GML 3.3>> defines compact encodings of geometry types, linear referencing concepts (e.g., linear element, distance along, Linear Referencing Methods), TINs, and encoding rules for association classes.
-
 ==== Implementation Decisions
 
 The following decisions have been made regarding implementation of the CityGML 3.0 Vegetation conformance class in GML.
@@ -35,6 +29,21 @@ The following decisions have been made regarding implementation of the CityGML 3
 
 include::requirements/vegetation/REQ_Vegetation_Elements.adoc[]
 
-//==== GML Elements
+The CityGML Vegetation XML elements and their corresponding CityGML UML classes are listed in <<vegetation-xml-elements>>. In addition, the CityGML Vegetation XML elements are documented in the GML schema http://schemas.opengis.net/citygml/vegetation/3.0/vegetation.xsd[vegetation.xsd^] and in this link:XML-schema-documentation/vegetation.xsd.html[XML Schema documentation^].
 
-The CityGML Vegetation XML elements are listed in the GML schema http://schemas.opengis.net/citygml/vegetation/3.0/vegetation.xsd[vegetation.xsd^].
+//[#vegetation-xml-elements,reftext='{table-caption} {counter:table-num}']
+[[vegetation-xml-elements]]
+.Vegetation XML Elements
+[width="100%",cols="10,10",options="header"]
+|===
+^|XML Schema Element +
+ (link:XML-schema-documentation/vegetation.xsd.html[XML Schema documentation^])
+^|Conceptual Model +
+(https://docs.ogc.org/is/20-010/20-010.html#vegetation-uml[UML model^]; https://docs.ogc.org/is/20-010/20-010.html#toc59[Data Dictionary^])
+|AbstractVegetationObject |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#AbstractVegetationObject-section[AbstractVegetationObject^]
+|PlantCover |«TopLevelFeatureType» https://docs.ogc.org/is/20-010/20-010.html#PlantCover-section[PlantCover^]
+|SolitaryVegetationObject |«TopLevelFeatureType» https://docs.ogc.org/is/20-010/20-010.html#SolitaryVegetationObject-section[SolitaryVegetationObject^]
+|ADEOfAbstractVegetationObject |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfAbstractVegetationObject-section[ADEOfAbstractVegetationObject^]
+|ADEOfPlantCover |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfPlantCover-section[ADEOfPlantCover^]
+|ADEOfSolitaryVegetationObject |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfSolitaryVegetationObject-section[ADEOfSolitaryVegetationObject^]
+|===

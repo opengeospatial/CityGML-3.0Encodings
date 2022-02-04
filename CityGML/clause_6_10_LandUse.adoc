@@ -19,12 +19,6 @@ The LandUse Requirements Class is dependent on the following Requirements Class 
 
 * The <<core-section,Core>> Requirements Class which is the only mandatory Requirements Class. This class contains foundational elements upon which a CityGML dataset is built. The <<core-section,Core>> Requirements Class also defines XML elements and types reused by other Requirements Classes.
 
-In addition, the LandUse Requirements Class is dependent on the following external OGC and ISO standards:
-
-* <<ogc07-036,GML 3.2>> provides most of the geometry types (e.g., Point, LineString, Polygon) used for spatial representations in this standard. Defines Coordinate Reference Systems. Supports the General Feature Model upon which this standard is based.
-
-* <<ogc10-129r1,GML 3.3>> defines compact encodings of geometry types, linear referencing concepts (e.g., linear element, distance along, Linear Referencing Methods), TINs, and encoding rules for association classes.
-
 ==== Implementation Decisions
 
 The following decisions have been made regarding implementation of the CityGML 3.0 LandUse conformance class in GML.
@@ -35,6 +29,17 @@ The following decisions have been made regarding implementation of the CityGML 3
 
 include::requirements/landuse/REQ_LandUse_Elements.adoc[]
 
-//==== GML Elements
+The CityGML LandUse XML elements and their corresponding CityGML UML classes are listed in <<land-use-xml-elements>>. In addition, the CityGML LandUse XML elements are documented in the GML schema http://schemas.opengis.net/citygml/landuse/3.0/landUse.xsd[landUse.xsd^] and in this link:XML-schema-documentation/landUse.xsd.html[XML Schema documentation^].
 
-The CityGML LandUse XML elements are listed in the GML schema http://schemas.opengis.net/citygml/landuse/3.0/landUse.xsd[landUse.xsd^].
+//[#land-use-xml-elements,reftext='{table-caption} {counter:table-num}']
+[[land-use-xml-elements]]
+.LandUse XML Elements
+[width="100%",cols="10,10",options="header"]
+|===
+^|XML Schema Element +
+ (link:XML-schema-documentation/landUse.xsd.html[XML Schema documentation^])
+^|Conceptual Model +
+(https://docs.ogc.org/is/20-010/20-010.html#landuse-uml[UML model^]; https://docs.ogc.org/is/20-010/20-010.html#toc55[Data Dictionary^])
+|LandUse |«TopLevelFeatureType» https://docs.ogc.org/is/20-010/20-010.html#LandUse-section[LandUse^]
+|ADEOfLandUse |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfLandUse-section[ADEOfLandUse^]
+|===

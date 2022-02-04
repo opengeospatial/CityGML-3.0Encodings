@@ -19,12 +19,6 @@ The Generics Requirements Class is dependent on the following Requirements Class
 
 * The <<core-section,Core>> Requirements Class which is the only mandatory Requirements Class. This class contains foundational elements upon which a CityGML dataset is built. The <<core-section,Core>> Requirements Class also defines XML elements and types reused by other Requirements Classes.
 
-In addition, the Generics Requirements Class is dependent on the following external OGC and ISO standards:
-
-* <<ogc07-036,GML 3.2>> provides most of the geometry types (e.g., Point, LineString, Polygon) used for spatial representations in this standard. Defines Coordinate Reference Systems. Supports the General Feature Model upon which this standard is based.
-
-* <<ogc10-129r1,GML 3.3>> defines compact encodings of geometry types, linear referencing concepts (e.g., linear element, distance along, Linear Referencing Methods), TINs, and encoding rules for association classes.
-
 ==== Implementation Decisions
 
 The following decisions have been made regarding implementation of the CityGML 3.0 Generics conformance class in GML.
@@ -35,6 +29,31 @@ The following decisions have been made regarding implementation of the CityGML 3
 
 include::requirements/generics/REQ_Generics_Elements.adoc[]
 
-//==== GML Elements
+The CityGML Generics XML elements and their corresponding CityGML UML classes are listed in <<generics-xml-elements>>. In addition, the CityGML Generics XML elements are documented in the GML schema http://schemas.opengis.net/citygml/generics/3.0/generics.xsd[generics.xsd^] and in this link:XML-schema-documentation/generics.xsd.html[XML Schema documentation^].
 
-The CityGML Generics XML elements are listed in the GML schema http://schemas.opengis.net/citygml/generics/3.0/generics.xsd[generics.xsd^].
+//[#generics-xml-elements,reftext='{table-caption} {counter:table-num}']
+[[generics-xml-elements]]
+.Generics XML Elements
+[width="100%",cols="10,10",options="header"]
+|===
+^|XML Schema Element +
+ (link:XML-schema-documentation/generics.xsd.html[XML Schema documentation^])
+^|Conceptual Model +
+(https://docs.ogc.org/is/20-010/20-010.html#generics-uml[UML model^]; https://docs.ogc.org/is/20-010/20-010.html#toc54[Data Dictionary^])
+|GenericLogicalSpace |«TopLevelFeatureType» https://docs.ogc.org/is/20-010/20-010.html#GenericLogicalSpace-section[GenericLogicalSpace^]
+|GenericOccupiedSpace |«TopLevelFeatureType» https://docs.ogc.org/is/20-010/20-010.html#GenericOccupiedSpace-section[GenericOccupiedSpace^]
+|GenericThematicSurface |«TopLevelFeatureType» https://docs.ogc.org/is/20-010/20-010.html#GenericThematicSurface-section[GenericThematicSurface^]
+|GenericUnoccupiedSpace |«TopLevelFeatureType» https://docs.ogc.org/is/20-010/20-010.html#GenericUnoccupiedSpace-section[GenericUnoccupiedSpace^]
+|ADEOfGenericLogicalSpace |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfGenericLogicalSpace-section[ADEOfGenericLogicalSpace^]
+|ADEOfGenericOccupiedSpace |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfGenericOccupiedSpace-section[ADEOfGenericOccupiedSpace^]
+|ADEOfGenericThematicSurface |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfGenericThematicSurface-section[ADEOfGenericThematicSurface^]
+|ADEOfGenericUnoccupiedSpace |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfGenericUnoccupiedSpace-section[ADEOfGenericUnoccupiedSpace^]
+|CodeAttribute |«DataType» https://docs.ogc.org/is/20-010/20-010.html#CodeAttribute-section[CodeAttribute^]
+|DateAttribute |«DataType» https://docs.ogc.org/is/20-010/20-010.html#DateAttribute-section[DateAttribute^]
+|DoubleAttribute |«DataType» https://docs.ogc.org/is/20-010/20-010.html#DoubleAttribute-section[DoubleAttribute^]
+|GenericAttributeSet |«DataType» https://docs.ogc.org/is/20-010/20-010.html#GenericAttributeSet-section[GenericAttributeSet^]
+|IntAttribute |«DataType» https://docs.ogc.org/is/20-010/20-010.html#IntAttribute-section[IntAttribute^]
+|MeasureAttribute |«DataType» https://docs.ogc.org/is/20-010/20-010.html#MeasureAttribute-section[MeasureAttribute^]
+|StringAttribute |«DataType» https://docs.ogc.org/is/20-010/20-010.html#StringAttribute-section[StringAttribute^]
+|UriAttribute |«DataType» https://docs.ogc.org/is/20-010/20-010.html#UriAttribute-section[UriAttribute^]
+|===

@@ -19,19 +19,13 @@ The PointCloud Requirements Class is dependent on the following Requirements Cla
 
 * The <<core-section,Core>> Requirements Class which is the only mandatory Requirements Class. This class contains foundational elements upon which a CityGML dataset is built. The <<core-section,Core>> Requirements Class also defines XML elements and types reused by other Requirements Classes.
 
-In addition, the PointCloud Requirements Class is dependent on the following external OGC and ISO standards:
-
-* <<ogc07-036,GML 3.2>> provides most of the geometry types (e.g., Point, LineString, Polygon) used for spatial representations in this standard. Defines Coordinate Reference Systems. Supports the General Feature Model upon which this standard is based.
-
-* <<ogc10-129r1,GML 3.3>> defines compact encodings of geometry types, linear referencing concepts (e.g., linear element, distance along, Linear Referencing Methods), TINs, and encoding rules for association classes.
-
 ==== Implementation Decisions
 
 The following decisions have been made regarding implementation of the CityGML 3.0 PointCloud conformance class in GML.
 
 . All associations allow by default that the referenced features can be provided inline or by reference.
 . The PointCloud module allows for representing the geometries of city objects by 3D point clouds in three ways. Examples for each representation option are provided in <<annex-examples-pointcloud>>:
-* A MultiPoint geometry is provided inline with the CityGML file, i.e. the point cloud of a specific feature is embedded directly within the feature represented by the point cloud.
+* A MultiPoint geometry is provided inline with the CityGML file, i.e., the point cloud of a specific feature is embedded directly within the feature represented by the point cloud.
 * A separate point cloud file is provided for every feature. Each feature in the CityGML file references the corresponding point cloud file.
 * One point cloud file is provided that contains all points from all features in a specific area. In the point cloud file, all points belonging to a specific feature have the same value set in the attribute “point_source_id”. Each feature in the CityGML instance document references the point cloud file and all points with the corresponding value in the attribute “point_source_id”.
 
@@ -39,6 +33,17 @@ The following decisions have been made regarding implementation of the CityGML 3
 
 include::requirements/pointcloud/REQ_PointCloud_Elements.adoc[]
 
-//==== GML Elements
+The CityGML PointCloud XML elements and their corresponding CityGML UML classes are listed in <<point-cloud-xml-elements>>. In addition, the CityGML PointCloud XML elements are documented in the GML schema http://schemas.opengis.net/citygml/pointcloud/3.0/pointCloud.xsd[pointCloud.xsd^] and in this link:XML-schema-documentation/pointCloud.xsd.html[XML Schema documentation^].
 
-The CityGML PointCloud XML elements are listed in the GML schema http://schemas.opengis.net/citygml/pointcloud/3.0/pointCloud.xsd[pointCloud.xsd^].
+//[#point-cloud-xml-elements,reftext='{table-caption} {counter:table-num}']
+[[point-cloud-xml-elements]]
+.PointCloud XML Elements
+[width="100%",cols="10,10",options="header"]
+|===
+^|XML Schema Element +
+ (link:XML-schema-documentation/pointCloud.xsd.html[XML Schema documentation^])
+^|Conceptual Model +
+(https://docs.ogc.org/is/20-010/20-010.html#pointcloud-uml[UML model^]; https://docs.ogc.org/is/20-010/20-010.html#toc56[Data Dictionary^])
+|PointCloud |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#PointCloud-section[PointCloud^]
+|ADEOfPointCloud |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfPointCloud-section[ADEOfPointCloud^]
+|===

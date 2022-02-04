@@ -23,7 +23,7 @@
 |Internal reference number of this OGC(R) document:    21-006
 |Version: 0.1
 |Category: OGC(R) Implementation Specification
-|Editor: Tatjana Kutzner, Carl Stephen Smyth, Claus Nagel, ... , Charles Heazel, Thomas H. Kolbe
+|Editor: Tatjana Kutzner, Carl Stephen Smyth, Claus Nagel, Volker Coors, ... , Charles Heazel, Thomas H. Kolbe
 |===
 
 [cols = "^", frame = "none"]

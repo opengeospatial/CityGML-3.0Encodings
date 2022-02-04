@@ -19,15 +19,9 @@ The Construction Requirements Class is dependent on the following Requirements C
 
 * The <<core-section,Core>> Requirements Class which is the only mandatory Requirements Class. This class contains foundational elements upon which a CityGML dataset is built. The <<core-section,Core>> Requirements Class also defines XML elements and types reused by other Requirements Classes.
 
-In addition, the Construction Requirements Class is dependent on the following external OGC and ISO standards:
-
-* <<ogc07-036,GML 3.2>> provides most of the geometry types (e.g., Point, LineString, Polygon) used for spatial representations in this standard. Defines Coordinate Reference Systems. Supports the General Feature Model upon which this standard is based.
-
-* <<ogc10-129r1,GML 3.3>> defines compact encodings of geometry types, linear referencing concepts (e.g., linear element, distance along, Linear Referencing Methods), TINs, and encoding rules for association classes.
-
 ==== Implementation Decisions
 
-The following decisions have been made regarding implementation of the CityGML 3.0 Construction conformance class in GML.
+The following decisions have been made regarding implementation of the CityGML 3.0 Construction conformance class in GML:
 
 . All associations allow by default that the referenced features can be provided inline or by reference.
 
@@ -35,6 +29,58 @@ The following decisions have been made regarding implementation of the CityGML 3
 
 include::requirements/construction/REQ_Construction_Elements.adoc[]
 
-//==== GML Elements
+The CityGML Construction XML elements and their corresponding CityGML UML classes are listed in <<construction-xml-elements>>. In addition, the CityGML Construction XML elements are documented in the GML schema http://schemas.opengis.net/citygml/construction/3.0/construction.xsd[construction.xsd^] and in this link:XML-schema-documentation/construction.xsd.html[XML Schema documentation^].
 
-The CityGML Construction XML elements are listed in the GML schema http://schemas.opengis.net/citygml/construction/3.0/construction.xsd[construction.xsd^].
+//[#construction-xml-elements,reftext='{table-caption} {counter:table-num}']
+[[construction-xml-elements]]
+.Construction XML Elements
+[width="100%",cols="10,10",options="header"]
+|===
+^|XML Schema Element +
+ (link:XML-schema-documentation/construction.xsd.html[XML Schema documentation^])
+^|Conceptual Model +
+(https://docs.ogc.org/is/20-010/20-010.html#construction-uml[UML model^]; https://docs.ogc.org/is/20-010/20-010.html#toc62[Data Dictionary^])
+|AbstractConstruction |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#AbstractConstruction-section[AbstractConstruction^]
+|AbstractConstructionSurface |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#AbstractConstructionSurface-section[AbstractConstructionSurface^]
+|AbstractConstructiveElement |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#AbstractConstructiveElement-section[AbstractConstructiveElement^]
+|AbstractFillingElement |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#AbstractFillingElement-section[AbstractFillingElement^]
+|AbstractFillingSurface |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#AbstractFillingSurface-section[AbstractFillingSurface^]
+|AbstractFurniture |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#AbstractFurniture-section[AbstractFurniture^]
+|AbstractInstallation |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#AbstractInstallation-section[AbstractInstallation^]
+|CeilingSurface |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#CeilingSurface-section[CeilingSurface^]
+|Door |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#Door-section[Door^]
+|DoorSurface |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#DoorSurface-section[DoorSurface^]
+|FloorSurface |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#FloorSurface-section[FloorSurface^]
+|GroundSurface |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#GroundSurface-section[GroundSurface^]
+|InteriorWallSurface |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#InteriorWallSurface-section[InteriorWallSurface^]
+|OtherConstruction |«TopLevelFeatureType» https://docs.ogc.org/is/20-010/20-010.html#OtherConstruction-section[OtherConstruction^]
+|OuterCeilingSurface |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#OuterCeilingSurface-section[OuterCeilingSurface^]
+|OuterFloorSurface |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#OuterFloorSurface-section[OuterFloorSurface^]
+|RoofSurface |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#RoofSurface-section[RoofSurface^]
+|WallSurface |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#WallSurface-section[WallSurface^]
+|Window |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#Window-section[Window^]
+|WindowSurface |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#WindowSurface-section[WindowSurface^]
+|ADEOfAbstractConstruction |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfAbstractConstruction-section[ADEOfAbstractConstruction^]
+|ADEOfAbstractConstructionSurface |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfAbstractConstructionSurface-section[ADEOfAbstractConstructionSurface^]
+|ADEOfAbstractConstructiveElement |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfAbstractConstructiveElement-section[ADEOfAbstractConstructiveElement^]
+|ADEOfAbstractFillingElement |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfAbstractFillingElement-section[ADEOfAbstractFillingElement^]
+|ADEOfAbstractFillingSurface |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfAbstractFillingSurface-section[ADEOfAbstractFillingSurface^]
+|ADEOfAbstractFurniture |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfAbstractFurniture-section[ADEOfAbstractFurniture^]
+|ADEOfAbstractInstallation |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfAbstractInstallation-section[ADEOfAbstractInstallation^]
+|ADEOfCeilingSurface |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfCeilingSurface-section[ADEOfCeilingSurface^]
+|ADEOfDoor |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfDoor-section[ADEOfDoor^]
+|ADEOfDoorSurface |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfDoorSurface-section[ADEOfDoorSurface^]
+|ADEOfFloorSurface |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfFloorSurface-section[ADEOfFloorSurface^]
+|ADEOfGroundSurface |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfGroundSurface-section[ADEOfGroundSurface^]
+|ADEOfInteriorWallSurface |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfInteriorWallSurface-section[ADEOfInteriorWallSurface^]
+|ADEOfOtherConstruction |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfOtherConstruction-section[ADEOfOtherConstruction^]
+|ADEOfOuterCeilingSurface |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfOuterCeilingSurface-section[ADEOfOuterCeilingSurface^]
+|ADEOfOuterFloorSurface |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfOuterFloorSurface-section[ADEOfOuterFloorSurface^]
+|ADEOfRoofSurface |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfRoofSurface-section[ADEOfRoofSurface^]
+|ADEOfWallSurface |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfWallSurface-section[ADEOfWallSurface^]
+|ADEOfWindow |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfWindow-section[ADEOfWindow^]
+|ADEOfWindowSurface |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfWindowSurface-section[ADEOfWindowSurface^]
+|ConstructionEvent |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ConstructionEvent-section[ConstructionEvent^]
+|Elevation |«DataType» https://docs.ogc.org/is/20-010/20-010.html#Elevation-section[Elevation^]
+|Height |«DataType» https://docs.ogc.org/is/20-010/20-010.html#Height-section[Height^]
+|===

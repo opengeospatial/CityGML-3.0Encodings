@@ -19,15 +19,9 @@ The Bridge Requirements Class is dependent on the following Requirements Class f
 
 * The <<core-section,Core>> Requirements Class which is the only mandatory Requirements Class. This class contains foundational elements upon which a CityGML dataset is built. The <<core-section,Core>> Requirements Class also defines XML elements and types reused by other Requirements Classes.
 
-In addition, the Bridge Requirements Class is dependent on the following external OGC and ISO standards:
-
-* <<ogc07-036,GML 3.2>> provides most of the geometry types (e.g., Point, LineString, Polygon) used for spatial representations in this standard. Defines Coordinate Reference Systems. Supports the General Feature Model upon which this standard is based.
-
-* <<ogc10-129r1,GML 3.3>> defines compact encodings of geometry types, linear referencing concepts (e.g., linear element, distance along, Linear Referencing Methods), TINs, and encoding rules for association classes.
-
 ==== Implementation Decisions
 
-The following decisions have been made regarding implementation of the CityGML 3.0 Bridge conformance class in GML.
+The following decisions have been made regarding implementation of the CityGML 3.0 Bridge conformance class in GML:
 
 . All associations allow by default that the referenced features can be provided inline or by reference.
 
@@ -35,6 +29,29 @@ The following decisions have been made regarding implementation of the CityGML 3
 
 include::requirements/bridge/REQ_Bridge_Elements.adoc[]
 
-//==== GML Elements
+The CityGML Bridge XML elements and their corresponding CityGML UML classes are listed in <<bridge-xml-elements>>. In addition, the CityGML Bridge XML elements are documented in the GML schema http://schemas.opengis.net/citygml/bridge/3.0/bridge.xsd[bridge.xsd^] and in this link:XML-schema-documentation/bridge.xsd.html[XML Schema documentation^].
 
-The CityGML Bridge XML elements are listed in the GML schema http://schemas.opengis.net/citygml/bridge/3.0/bridge.xsd[bridge.xsd^].
+//[#bridge-xml-elements,reftext='{table-caption} {counter:table-num}']
+[[bridge-xml-elements]]
+.Bridge XML Elements
+[width="100%",cols="10,10",options="header"]
+|===
+^|XML Schema Element +
+ (link:XML-schema-documentation/bridge.xsd.html[XML Schema documentation^])
+^|Conceptual Model +
+(https://docs.ogc.org/is/20-010/20-010.html#bridge-uml[UML model^]; https://docs.ogc.org/is/20-010/20-010.html#toc63[Data Dictionary^])
+| AbstractBridge |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#AbstractBridge-section[AbstractBridge^]
+| Bridge |«TopLevelFeatureType» https://docs.ogc.org/is/20-010/20-010.html#Bridge-section[Bridge^]
+| BridgeConstructiveElement |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#BridgeConstructiveElement-section[BridgeConstructiveElement^]
+| BridgeFurniture |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#BridgeFurniture-section[BridgeFurniture^]
+| BridgeInstallation |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#BridgeInstallation-section[BridgeInstallation^]
+| BridgePart |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#BridgePart-section[BridgePart^]
+| BridgeRoom |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#BridgeRoom-section[BridgeRoom^]
+| ADEOfAbstractBridge |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfAbstractBridge-section[ADEOfAbstractBridge^]
+| ADEOfBridge |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfBridge-section[ADEOfBridge^]
+| ADEOfBridgeConstructiveElement |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfBridgeConstructiveElement-section[ADEOfBridgeConstructiveElement^]
+| ADEOfBridgeFurniture |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfBridgeFurniture-section[ADEOfBridgeFurniture^]
+| ADEOfBridgeInstallation |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfBridgeInstallation-section[ADEOfBridgeInstallation^]
+| ADEOfBridgePart |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfBridgePart-section[ADEOfBridgePart^]
+| ADEOfBridgeRoom |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfBridgeRoom-section[ADEOfBridgeRoom^]
+|===

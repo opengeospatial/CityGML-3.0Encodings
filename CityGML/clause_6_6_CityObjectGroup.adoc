@@ -19,17 +19,11 @@ The CityObjectGroup Requirements Class is dependent on the following Requirement
 
 * The <<core-section,Core>> Requirements Class which is the only mandatory Requirements Class. This class contains foundational elements upon which a CityGML dataset is built. The <<core-section,Core>> Requirements Class also defines XML elements and types reused by other Requirements Classes.
 
-In addition, the CityObjectGroup Requirements Class is dependent on the following external OGC and ISO standards:
-
-* <<ogc07-036,GML 3.2>> provides most of the geometry types (e.g., Point, LineString, Polygon) used for spatial representations in this standard. Defines Coordinate Reference Systems. Supports the General Feature Model upon which this standard is based.
-
-* <<ogc10-129r1,GML 3.3>> defines compact encodings of geometry types, linear referencing concepts (e.g., linear element, distance along, Linear Referencing Methods), TINs, and encoding rules for association classes.
-
 ==== Implementation Decisions
 
-The following decisions have been made regarding implementation of the CityGML 3.0 CityObjectGroup conformance class in GML.
+The following decisions have been made regarding implementation of the CityGML 3.0 CityObjectGroup conformance class in GML:
 
-. As described in <<association-classes-section>>, the UML association class Role is modelled as an intermediate class in an Implementation Model before the GML encoding is applied. In this way, a relation between a city object group and the features it groups can be represented in such a way that the city object group provides the element Role inline, whereas the Role references the features that belong to the city object group using XLink. This encoding also ensures that the rule on referencing features from alternative aggregations as described in <<linking-rules-4-section>> is observed.
+. As described in <<association-classes-section>>, the UML association class Role is modelled as an intermediate class in an Implementation Model before the GML encoding is applied. In this way, a relation between a city object group and the features it groups can be represented in such a way that the city object group provides the Role element inline, whereas the Role element references the features that belong to the city object group using XLink. This encoding also ensures that the rule on referencing features from alternative aggregations as described in <<linking-rules-4-section>> is observed.
 . All associations allow by default that the referenced features can be provided inline or by reference. However, a restriction is defined for the following association, since it represents an alternative aggregation (see rule on referencing features from alternative aggregations in <<linking-rules-4-section>>):
 * The association parent which connects CityObjectGroup with AbstractCityObject; here, a city object group must reference its parent city object using XLink.
 
@@ -37,6 +31,18 @@ The following decisions have been made regarding implementation of the CityGML 3
 
 include::requirements/cityobjectgroup/REQ_CityObjectGroup_Elements.adoc[]
 
-//==== GML Elements
+The CityGML CityObjectGroup XML elements and their corresponding CityGML UML classes are listed in <<city-object-group-xml-elements>>. In addition, the CityGML CityObjectGroup XML elements are documented in the GML schema http://schemas.opengis.net/citygml/cityobjectgroup/3.0/cityObjectGroup.xsd[cityObjectGroup.xsd^] and in this link:XML-schema-documentation/cityObjectGroup.xsd.html[XML Schema documentation^].
 
-The CityGML CityObjectGroup XML elements are listed in the GML schema http://schemas.opengis.net/citygml/cityobjectgroup/3.0/cityObjectGroup.xsd[cityObjectGroup.xsd^].
+//[#city-object-group-xml-elements,reftext='{table-caption} {counter:table-num}']
+[[city-object-group-xml-elements]]
+.CityObjectGroup XML Elements
+[width="100%",cols="10,10",options="header"]
+|===
+^|XML Schema Element +
+ (link:XML-schema-documentation/cityObjectGroup.xsd.html[XML Schema documentation^])
+^|Conceptual Model +
+(https://docs.ogc.org/is/20-010/20-010.html#cityobject-uml[UML model^]; https://docs.ogc.org/is/20-010/20-010.html#toc52[Data Dictionary^])
+|CityObjectGroup |«TopLevelFeatureType» https://docs.ogc.org/is/20-010/20-010.html#CityObjectGroup-section[CityObjectGroup^]
+|Role |«ObjectType» https://docs.ogc.org/is/20-010/20-010.html#Role-section[Role^]
+|ADEOfCityObjectGroup |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfCityObjectGroup-section[ADEOfCityObjectGroup^]
+|===

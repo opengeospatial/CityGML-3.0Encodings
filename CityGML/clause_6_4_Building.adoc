@@ -19,15 +19,9 @@ The Building Requirements Class is dependent on the following Requirements Class
 
 * The <<core-section,Core>> Requirements Class which is the only mandatory Requirements Class. This class contains foundational elements upon which a CityGML dataset is built. The <<core-section,Core>> Requirements Class also defines XML elements and types reused by other Requirements Classes.
 
-In addition, the Building Requirements Class is dependent on the following external OGC and ISO standards:
-
-* <<ogc07-036,GML 3.2>> provides most of the geometry types (e.g., Point, LineString, Polygon) used for spatial representations in this standard. Defines Coordinate Reference Systems. Supports the General Feature Model upon which this standard is based.
-
-* <<ogc10-129r1,GML 3.3>> defines compact encodings of geometry types, linear referencing concepts (e.g., linear element, distance along, Linear Referencing Methods), TINs, and encoding rules for association classes.
-
 ==== Implementation Decisions
 
-The following decisions have been made regarding implementation of the CityGML 3.0 Building conformance class in GML.
+The following decisions have been made regarding implementation of the CityGML 3.0 Building conformance class in GML:
 
 . All associations allow by default that the referenced features can be provided inline or by reference.
 
@@ -35,6 +29,36 @@ The following decisions have been made regarding implementation of the CityGML 3
 
 include::requirements/building/REQ_Building_Elements.adoc[]
 
-//==== GML Elements
+The CityGML Building XML elements and their corresponding CityGML UML classes are listed in <<building-xml-elements>>. In addition, the CityGML Building XML elements are documented in the GML schema http://schemas.opengis.net/citygml/building/3.0/building.xsd[building.xsd^] and in this link:XML-schema-documentation/building.xsd.html[XML Schema documentation^].
 
-The CityGML Building XML elements are listed in the GML schema http://schemas.opengis.net/citygml/building/3.0/building.xsd[building.xsd^].
+//[#building-xml-elements,reftext='{table-caption} {counter:table-num}']
+[[building-xml-elements]]
+.Building XML Elements
+[width="100%",cols="10,10",options="header"]
+|===
+^|XML Schema Element +
+ (link:XML-schema-documentation/building.xsd.html[XML Schema documentation^])
+^|Conceptual Model +
+(https://docs.ogc.org/is/20-010/20-010.html#building-uml[UML model^]; https://docs.ogc.org/is/20-010/20-010.html#toc64[Data Dictionary^])
+|AbstractBuilding |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#AbstractBuilding-section[AbstractBuilding^]
+|AbstractBuildingSubdivision |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#AbstractBuildingSubdivision-section[AbstractBuildingSubdivision^]
+|Building |«TopLevelFeatureType» https://docs.ogc.org/is/20-010/20-010.html#Building-section[Building^]
+|BuildingConstructiveElement |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#BuildingConstructiveElement-section[BuildingConstructiveElement^]
+|BuildingFurniture |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#BuildingFurniture-section[BuildingFurniture^]
+|BuildingInstallation |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#BuildingInstallation-section[BuildingInstallation^]
+|BuildingPart |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#BuildingPart-section[BuildingPart^]
+|BuildingRoom |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#BuildingRoom-section[BuildingRoom^]
+|BuildingUnit |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#BuildingUnit-section[BuildingUnit^]
+|Storey |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#Storey-section[Storey^]
+|ADEOfAbstractBuilding |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfAbstractBuilding-section[ADEOfAbstractBuilding^]
+|ADEOfAbstractBuildingSubdivision |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfAbstractBuildingSubdivision-section[ADEOfAbstractBuildingSubdivision^]
+|ADEOfBuilding |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfBuilding-section[ADEOfBuilding^]
+|ADEOfBuildingConstructiveElement |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfBuildingConstructiveElement-section[ADEOfBuildingConstructiveElement^]
+|ADEOfBuildingFurniture |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfBuildingFurniture-section[ADEOfBuildingFurniture^]
+|ADEOfBuildingInstallation |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfBuildingInstallation-section[ADEOfBuildingInstallation^]
+|ADEOfBuildingPart |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfBuildingPart-section[ADEOfBuildingPart^]
+|ADEOfBuildingRoom |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfBuildingRoom-section[ADEOfBuildingRoom^]
+|ADEOfBuildingUnit |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfBuildingUnit-section[ADEOfBuildingUnit^]
+|ADEOfStorey |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfStorey-section[ADEOfStorey^]
+|RoomHeight |«DataType» https://docs.ogc.org/is/20-010/20-010.html#RoomHeight-section[RoomHeight^]
+|===

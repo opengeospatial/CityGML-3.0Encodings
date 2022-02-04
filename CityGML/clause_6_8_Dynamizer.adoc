@@ -19,12 +19,6 @@ The Dynamizer Requirements Class is dependent on the following Requirements Clas
 
 * The <<core-section,Core>> Requirements Class which is the only mandatory Requirements Class. This class contains foundational elements upon which a CityGML dataset is built. The <<core-section,Core>> Requirements Class also defines XML elements and types reused by other Requirements Classes.
 
-In addition, the Dynamizer Requirements Class is dependent on the following external OGC and ISO standards:
-
-* <<ogc07-036,GML 3.2>> provides most of the geometry types (e.g., Point, LineString, Polygon) used for spatial representations in this standard. Defines Coordinate Reference Systems. Supports the General Feature Model upon which this standard is based.
-
-* <<ogc10-129r1,GML 3.3>> defines compact encodings of geometry types, linear referencing concepts (e.g., linear element, distance along, Linear Referencing Methods), TINs, and encoding rules for association classes.
-
 ==== Implementation Decisions
 
 The following decisions have been made regarding implementation of the CityGML 3.0 Dynamizer conformance class in GML.
@@ -36,6 +30,32 @@ The following decisions have been made regarding implementation of the CityGML 3
 
 include::requirements/dynamizer/REQ_Dynamizer_Elements.adoc[]
 
-//==== GML Elements
+The CityGML Dynamizer XML elements and their corresponding CityGML UML classes are listed in <<dynamizer-xml-elements>>. In addition, the CityGML Dynamizer XML elements are documented in the GML schema http://schemas.opengis.net/citygml/dynamizer/3.0/dynamizer.xsd[dynamizer.xsd^] and in this link:XML-schema-documentation/dynamizer.xsd.html[XML Schema documentation^].
 
-The CityGML Dynamizer XML elements are listed in the GML schema http://schemas.opengis.net/citygml/dynamizer/3.0/dynamizer.xsd[dynamizer.xsd^].
+//[#dynamizer-xml-elements,reftext='{table-caption} {counter:table-num}']
+[[dynamizer-xml-elements]]
+.Dynamizer XML Elements
+[width="100%",cols="10,10",options="header"]
+|===
+^|XML Schema Element +
+ (link:XML-schema-documentation/dynamizer.xsd.html[XML Schema documentation^])
+^|Conceptual Model +
+(https://docs.ogc.org/is/20-010/20-010.html#dynamizer-uml[UML model^]; https://docs.ogc.org/is/20-010/20-010.html#toc53[Data Dictionary^])
+|AbstractAtomicTimeseries |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#AbstractAtomicTimeseries-section[AbstractAtomicTimeseries^]
+|AbstractTimeseries |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#AbstractTimeseries-section[AbstractTimeseries^]
+|CompositeTimeseries |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#CompositeTimeseries-section[CompositeTimeseries^]
+|Dynamizer |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#Dynamizer-section[Dynamizer^]
+|GenericTimeseries |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#GenericTimeseries-section[GenericTimeseries^]
+|StandardFileTimeseries |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#StandardFileTimeseries-section[StandardFileTimeseries^]
+|TabulatedFileTimeseries |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#TabulatedFileTimeseries-section[TabulatedFileTimeseries^]
+|ADEOfAbstractAtomicTimeseries |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfAbstractAtomicTimeseries-section[ADEOfAbstractAtomicTimeseries^]
+|ADEOfAbstractTimeseries |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfAbstractTimeseries-section[ADEOfAbstractTimeseries^]
+|ADEOfCompositeTimeseries |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfCompositeTimeseries-section[ADEOfCompositeTimeseries^]
+|ADEOfDynamizer |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfDynamizer-section[ADEOfDynamizer^]
+|ADEOfGenericTimeseries |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfGenericTimeseries-section[ADEOfGenericTimeseries^]
+|ADEOfStandardFileTimeseries |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfStandardFileTimeseries-section[ADEOfStandardFileTimeseries^]
+|ADEOfTabulatedFileTimeseries |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfTabulatedFileTimeseries-section[ADEOfTabulatedFileTimeseries^]
+|SensorConnection |«DataType» https://docs.ogc.org/is/20-010/20-010.html#SensorConnection-section[SensorConnection^]
+|TimeseriesComponent |«DataType» https://docs.ogc.org/is/20-010/20-010.html#TimeseriesComponent-section[TimeseriesComponent^]
+|TimeValuePair |«DataType» https://docs.ogc.org/is/20-010/20-010.html#TimeValuePair-section[TimeValuePair^]
+|===

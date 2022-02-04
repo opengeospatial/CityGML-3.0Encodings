@@ -19,12 +19,6 @@ The Transportation Requirements Class is dependent on the following Requirements
 
 * The <<core-section,Core>> Requirements Class which is the only mandatory Requirements Class. This class contains foundational elements upon which a CityGML dataset is built. The <<core-section,Core>> Requirements Class also defines XML elements and types reused by other Requirements Classes.
 
-In addition, the Transportation Requirements Class is dependent on the following external OGC and ISO standards:
-
-* <<ogc07-036,GML 3.2>> provides most of the geometry types (e.g., Point, LineString, Polygon) used for spatial representations in this standard. Defines Coordinate Reference Systems. Supports the General Feature Model upon which this standard is based.
-
-* <<ogc10-129r1,GML 3.3>> defines compact encodings of geometry types, linear referencing concepts (e.g., linear element, distance along, Linear Referencing Methods), TINs, and encoding rules for association classes.
-
 ==== Implementation Decisions
 
 The following decisions have been made regarding implementation of the CityGML 3.0 Transportation conformance class in GML.
@@ -37,6 +31,47 @@ The following decisions have been made regarding implementation of the CityGML 3
 
 include::requirements/transportation/REQ_Transportation_Elements.adoc[]
 
-//==== GML Elements
+The CityGML Transportation XML elements and their corresponding CityGML UML classes are listed in <<transportation-xml-elements>>. In addition, the CityGML Transportation XML elements are documented in the GML schema http://schemas.opengis.net/citygml/transportation/3.0/transportation.xsd[transportation.xsd^] and in this link:XML-schema-documentation/transportation.xsd.html[XML Schema documentation^].
 
-The CityGML Transportation XML elements are listed in the GML schema http://schemas.opengis.net/citygml/transportation/3.0/transportation.xsd[transportation.xsd^].
+//[#transportation-xml-elements,reftext='{table-caption} {counter:table-num}']
+[[transportation-xml-elements]]
+.Transportation XML Elements
+[width="100%",cols="10,10",options="header"]
+|===
+^|XML Schema Element +
+ (link:XML-schema-documentation/transportation.xsd.html[XML Schema documentation^])
+^|Conceptual Model +
+(https://docs.ogc.org/is/20-010/20-010.html#transportation-uml[UML model^]; https://docs.ogc.org/is/20-010/20-010.html#toc58[Data Dictionary^])
+|AbstractTransportationSpace |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#AbstractTransportationSpace-section[AbstractTransportationSpace^]
+|AuxiliaryTrafficArea |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#AuxiliaryTrafficArea-section[AuxiliaryTrafficArea^]
+|AuxiliaryTrafficSpace |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#AuxiliaryTrafficSpace-section[AuxiliaryTrafficSpace^]
+|ClearanceSpace |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#ClearanceSpace-section[ClearanceSpace^]
+|Hole |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#Hole-section[Hole^]
+|HoleSurface |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#HoleSurface-section[HoleSurface^]
+|Intersection |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#Intersection-section[Intersection^]
+|Marking |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#Marking-section[Marking^]
+|Railway |«TopLevelFeatureType» https://docs.ogc.org/is/20-010/20-010.html#Railway-section[Railway^]
+|Road |«TopLevelFeatureType» https://docs.ogc.org/is/20-010/20-010.html#Road-section[Road^]
+|Section |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#Section-section[Section^]
+|Square |«TopLevelFeatureType» https://docs.ogc.org/is/20-010/20-010.html#Square-section[Square^]
+|Track |«TopLevelFeatureType» https://docs.ogc.org/is/20-010/20-010.html#Track-section[Track^]
+|TrafficArea |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#TrafficArea-section[TrafficArea^]
+|TrafficSpace |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#TrafficSpace-section[TrafficSpace^]
+|Waterway |«TopLevelFeatureType» https://docs.ogc.org/is/20-010/20-010.html#Waterway-section[Waterway^]
+|ADEOfAbstractTransportationSpace |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfAbstractTransportationSpace-section[ADEOfAbstractTransportationSpace^]
+|ADEOfAuxiliaryTrafficArea |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfAuxiliaryTrafficArea-section[ADEOfAuxiliaryTrafficArea^]
+|ADEOfAuxiliaryTrafficSpace |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfAuxiliaryTrafficSpace-section[ADEOfAuxiliaryTrafficSpace^]
+|ADEOfClearanceSpace |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfClearanceSpace-section[ADEOfClearanceSpace^]
+|ADEOfHole |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfHole-section[ADEOfHole^]
+|ADEOfHoleSurface |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfHoleSurface-section[ADEOfHoleSurface^]
+|ADEOfIntersection |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfIntersection-section[ADEOfIntersection^]
+|ADEOfMarking |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfMarking-section[ADEOfMarking^]
+|ADEOfRailway |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfRailway-section[ADEOfRailway^]
+|ADEOfRoad |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfRoad-section[ADEOfRoad^]
+|ADEOfSection |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfSection-section[ADEOfSection^]
+|ADEOfSquare |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfSquare-section[ADEOfSquare^]
+|ADEOfTrack |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfTrack-section[ADEOfTrack^]
+|ADEOfTrafficArea |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfTrafficArea-section[ADEOfTrafficArea^]
+|ADEOfTrafficSpace |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfTrafficSpace-section[ADEOfTrafficSpace^]
+|ADEOfWaterway |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfWaterway-section[ADEOfWaterway^]
+|===
