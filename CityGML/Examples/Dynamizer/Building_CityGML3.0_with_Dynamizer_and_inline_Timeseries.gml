@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <!--
-  Example file containing a building with thematic surfaces plus geometries in LOD2. 
+  Example file containing a building with thematic surfaces plus geometries in LOD2.
   The first RoofSurface feature has a generic attribute storing the result of a solar potential
-  analysis, i.e. the diffuse sunlight irradiation energy (measured in kW/h). A Dynamizer feature 
-  is included (within the RoofSurface feature) which provides the monthly time series values 
+  analysis, i.e. the diffuse sunlight irradiation energy (measured in kW/h). A Dynamizer feature
+  is included (within the RoofSurface feature) which provides the monthly time series values
   for the generic attribute for one year. The time series values are represented inline within
   the Dynamizer feature.
 -->
 <CityModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://www.opengis.net/citygml/3.0 ../../Schema/cityGMLBase.xsd http://www.opengis.net/citygml/generics/3.0 ../../Schema/generics.xsd http://www.opengis.net/citygml/construction/3.0 ../../Schema/construction.xsd http://www.opengis.net/citygml/building/3.0 ../../Schema/building.xsd http://www.opengis.net/citygml/dynamizer/3.0 ../../Schema/dynamizer.xsd"
+ xsi:schemaLocation="http://www.opengis.net/citygml/3.0 ../../Schema/core.xsd http://www.opengis.net/citygml/generics/3.0 ../../Schema/generics.xsd http://www.opengis.net/citygml/construction/3.0 ../../Schema/construction.xsd http://www.opengis.net/citygml/building/3.0 ../../Schema/building.xsd http://www.opengis.net/citygml/dynamizer/3.0 ../../Schema/dynamizer.xsd"
  xmlns="http://www.opengis.net/citygml/3.0"
  xmlns:gen="http://www.opengis.net/citygml/generics/3.0"
  xmlns:xAL="urn:oasis:names:tc:ciq:xal:3"
@@ -41,7 +41,7 @@
             <dyn:Dynamizer gml:id="roofsurface1_Dynamizer">
               <dyn:attributeRef>
                 //con:RoofSurface[@gml:id='DEBY_LOD2_5744682_roofsurface1']/genericAttribute/gen:DoubleAttribute[name='diffuse_irradiation']/gen:value
-              </dyn:attributeRef> 
+              </dyn:attributeRef>
               <dyn:startTime>2019-01-01T00:00:00Z</dyn:startTime>
               <dyn:endTime>2020-01-01T00:00:00Z</dyn:endTime>
               <dyn:dynamicData>
@@ -124,7 +124,7 @@
                     </dyn:TimeValuePair>
                   </dyn:timeValuePair>
                 </dyn:GenericTimeseries>
-              </dyn:dynamicData>                  
+              </dyn:dynamicData>
             </dyn:Dynamizer>
           </dynamizer>
           <lod2MultiSurface>

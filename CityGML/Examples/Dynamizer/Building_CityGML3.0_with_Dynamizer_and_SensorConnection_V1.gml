@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <!--
-  Example file containing a building with thematic surfaces plus geometries in LOD2. 
-  The Building feature contains a BuildingRoom feature without geometry. 
+  Example file containing a building with thematic surfaces plus geometries in LOD2.
+  The Building feature contains a BuildingRoom feature without geometry.
   The room has a generic attribute storing its current air temperature value.
   A Dynamizer feature is included (within the respective BuildingRoom feature) establishing
-  an explicit link to an external sensor service that measures the room's temperature. 
-  The external sensor service is connected via the OGC SensorThings API. 
-  The Dynamizer links one specific datastream of the sensor node (the one with the 
+  an explicit link to an external sensor service that measures the room's temperature.
+  The external sensor service is connected via the OGC SensorThings API.
+  The Dynamizer links one specific datastream of the sensor node (the one with the
   temperature readings) to the temperature property of the room.
 -->
 <CityModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://www.opengis.net/citygml/3.0 ../../Schema/cityGMLBase.xsd http://www.opengis.net/citygml/generics/3.0 ../../Schema/generics.xsd http://www.opengis.net/citygml/construction/3.0 ../../Schema/construction.xsd http://www.opengis.net/citygml/building/3.0 ../../Schema/building.xsd http://www.opengis.net/citygml/dynamizer/3.0 ../../Schema/dynamizer.xsd"
+ xsi:schemaLocation="http://www.opengis.net/citygml/3.0 ../../Schema/core.xsd http://www.opengis.net/citygml/generics/3.0 ../../Schema/generics.xsd http://www.opengis.net/citygml/construction/3.0 ../../Schema/construction.xsd http://www.opengis.net/citygml/building/3.0 ../../Schema/building.xsd http://www.opengis.net/citygml/dynamizer/3.0 ../../Schema/dynamizer.xsd"
  xmlns="http://www.opengis.net/citygml/3.0"
  xmlns:gen="http://www.opengis.net/citygml/generics/3.0"
  xmlns:xAL="urn:oasis:names:tc:ciq:xal:3"
@@ -257,11 +257,11 @@
              <dyn:Dynamizer gml:id="room1_Dynamizer">
                <dyn:attributeRef>
                 //bldg:BuildingRoom[@gml:id='DEBY_LOD2_5744682_room1']/genericAttribute/gen:DoubleAttribute[name='temperature']/gen:value
-               </dyn:attributeRef> 
+               </dyn:attributeRef>
                <dyn:startTime>2019-01-01T00:00:00Z</dyn:startTime>
                <dyn:endTime>2020-01-01T00:00:00Z</dyn:endTime>
                <dyn:sensorConnection>
-                 <dyn:SensorConnection> 
+                 <dyn:SensorConnection>
                    <dyn:connectionType>ogc_sta_1.0</dyn:connectionType>
                    <dyn:observationProperty>Temperature</dyn:observationProperty>
                    <dyn:uom>Celsius</dyn:uom>
@@ -272,15 +272,15 @@
                     %baseURL%/Datastreams(%datastreamID%)/Observations?$filter=during(phenomenonTime, %startTime%/%endTime%)
                    </dyn:linkToObservation>
                    <dyn:linkToSensorDescription>
-                    %baseURL%/Datastreams(%datastreamID%)/Sensor	
+                    %baseURL%/Datastreams(%datastreamID%)/Sensor
                    </dyn:linkToSensorDescription>
                    <dyn:sensorLocation xlink:href="#DEBY_LOD2_5744682_room1"></dyn:sensorLocation>
-                </dyn:SensorConnection> 
+                </dyn:SensorConnection>
               </dyn:sensorConnection>
             </dyn:Dynamizer>
           </dynamizer>
         </bldg:BuildingRoom>
-      </bldg:buildingRoom>     
+      </bldg:buildingRoom>
       <bldg:address>
         <Address gml:id="fme-gen-0355784d-2ffc-4c46-b812-c4d08d6a3f81">
           <xalAddress>

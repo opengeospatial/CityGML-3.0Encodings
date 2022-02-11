@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  This file contains a Road and a Bridge that share two surfaces (TrafficArea5/RoofSurface1 and TrafficArea6/RoofSurface2). 
+  This file contains a Road and a Bridge that share two surfaces (TrafficArea5/RoofSurface1 and TrafficArea6/RoofSurface2).
   The surfaces are related to each other using CityObectRelation with the relationType "equal".
   The file validates against release 3.0.0-draft.2020.09.17.1
 -->
-<core:CityModel xmlns:wtr="http://www.opengis.net/citygml/waterbody/3.0" xmlns:veg="http://www.opengis.net/citygml/vegetation/3.0" xmlns:core="http://www.opengis.net/citygml/3.0" xmlns:gsr="http://www.isotc211.org/2005/gsr" xmlns:tran="http://www.opengis.net/citygml/transportation/3.0" xmlns:gts="http://www.isotc211.org/2005/gts" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:tun="http://www.opengis.net/citygml/tunnel/3.0" xmlns:luse="http://www.opengis.net/citygml/landuse/3.0" xmlns:pfx0="urn:oasis:names:tc:ciq:xal:3" xmlns:brid="http://www.opengis.net/citygml/bridge/3.0" xmlns:gss="http://www.isotc211.org/2005/gss" xmlns:ct="urn:oasis:names:tc:ciq:ct:3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://www.opengis.net/citygml/construction/3.0" xmlns:app="http://www.opengis.net/citygml/appearance/3.0" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:gen="http://www.opengis.net/citygml/generics/3.0" xmlns:dem="http://www.opengis.net/citygml/relief/3.0" xmlns:dyn="http://www.opengis.net/citygml/dynamizer/3.0" xmlns:bldg="http://www.opengis.net/citygml/building/3.0" xmlns:vers="http://www.opengis.net/citygml/versioning/3.0" xmlns:pcl="http://www.opengis.net/citygml/pointcloud/3.0" xmlns:frn="http://www.opengis.net/citygml/cityfurniture/3.0" xmlns:grp="http://www.opengis.net/citygml/cityobjectgroup/3.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:gco="http://www.isotc211.org/2005/gco" gml:id="id_bridge_example" 
-                xsi:schemaLocation="http://www.opengis.net/citygml/3.0 ../../../Schema/cityGMLBase.xsd http://www.opengis.net/citygml/construction/3.0 ../../../Schema/construction.xsd http://www.opengis.net/citygml/bridge/3.0 ../../../Schema/bridge.xsd http://www.opengis.net/citygml/transportation/3.0 ../../../Schema/transportation.xsd">
+<core:CityModel xmlns:wtr="http://www.opengis.net/citygml/waterbody/3.0" xmlns:veg="http://www.opengis.net/citygml/vegetation/3.0" xmlns:core="http://www.opengis.net/citygml/3.0" xmlns:gsr="http://www.isotc211.org/2005/gsr" xmlns:tran="http://www.opengis.net/citygml/transportation/3.0" xmlns:gts="http://www.isotc211.org/2005/gts" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:tun="http://www.opengis.net/citygml/tunnel/3.0" xmlns:luse="http://www.opengis.net/citygml/landuse/3.0" xmlns:pfx0="urn:oasis:names:tc:ciq:xal:3" xmlns:brid="http://www.opengis.net/citygml/bridge/3.0" xmlns:gss="http://www.isotc211.org/2005/gss" xmlns:ct="urn:oasis:names:tc:ciq:ct:3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://www.opengis.net/citygml/construction/3.0" xmlns:app="http://www.opengis.net/citygml/appearance/3.0" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:gen="http://www.opengis.net/citygml/generics/3.0" xmlns:dem="http://www.opengis.net/citygml/relief/3.0" xmlns:dyn="http://www.opengis.net/citygml/dynamizer/3.0" xmlns:bldg="http://www.opengis.net/citygml/building/3.0" xmlns:vers="http://www.opengis.net/citygml/versioning/3.0" xmlns:pcl="http://www.opengis.net/citygml/pointcloud/3.0" xmlns:frn="http://www.opengis.net/citygml/cityfurniture/3.0" xmlns:grp="http://www.opengis.net/citygml/cityobjectgroup/3.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:gco="http://www.isotc211.org/2005/gco" gml:id="id_bridge_example"
+                xsi:schemaLocation="http://www.opengis.net/citygml/3.0 ../../../Schema/core.xsd http://www.opengis.net/citygml/construction/3.0 ../../../Schema/construction.xsd http://www.opengis.net/citygml/bridge/3.0 ../../../Schema/bridge.xsd http://www.opengis.net/citygml/transportation/3.0 ../../../Schema/transportation.xsd">
     <core:cityObjectMember>
         <brid:Bridge gml:id="id_bridge1">
             <core:boundary>
@@ -51,8 +51,8 @@
                     <core:relatedTo>
                         <core:CityObjectRelation>
                             <core:relationType>equal</core:relationType>
-                            <core:relatedTo xlink:href="id_trafficarea5"/> 
-                        </core:CityObjectRelation> 
+                            <core:relatedTo xlink:href="id_trafficarea5"/>
+                        </core:CityObjectRelation>
                     </core:relatedTo>
                     <core:lod2MultiSurface>
                         <gml:MultiSurface gml:id="id_roofsurface1-0" srsDimension="3">
@@ -96,7 +96,7 @@
                         <core:CityObjectRelation>
                             <core:relationType>equal</core:relationType>
                             <core:relatedTo xlink:href="id_trafficarea6"/>
-                        </core:CityObjectRelation> 
+                        </core:CityObjectRelation>
                     </core:relatedTo>
                     <core:lod2MultiSurface>
                         <gml:MultiSurface gml:id="id_roofsurface2-0" srsDimension="3">
@@ -416,7 +416,7 @@
                                         <core:CityObjectRelation>
                                             <core:relationType>equal</core:relationType>
                                             <core:relatedTo xlink:href="id_roofSurface1"/>
-                                        </core:CityObjectRelation> 
+                                        </core:CityObjectRelation>
                                     </core:relatedTo>
                                     <core:lod2MultiSurface>
                                         <gml:MultiSurface gml:id="id_trafficarea5-0" srsDimension="3">
@@ -465,7 +465,7 @@
                                         <core:CityObjectRelation>
                                             <core:relationType>equal</core:relationType>
                                             <core:relatedTo xlink:href="id_roofSurface2"/>
-                                        </core:CityObjectRelation> 
+                                        </core:CityObjectRelation>
                                     </core:relatedTo>
                                     <core:lod2MultiSurface>
                                         <gml:MultiSurface gml:id="id_trafficarea6-0" srsDimension="3">

@@ -10,7 +10,7 @@ The **folder "Basic examples"** provides examples that were created specifically
 
 File name | Description of test data | Release against which the test data validates
 -------------------------|-----------------------------------------------|-------------------
-historicalSuccession_CityGML_3.0_LOD2_<br>Versioning.gml | This file contains 4 `Building` features represented across 2 `Versions`. A `versionTransition` (as a _historicalSuccession_) composed of 3 `transactions` (_delete_, _insert_, _replace_) demonstrates the changes between each `Version` | 3.0.0-draft.2020.09.17.1
+historicalSuccession_CityGML_3.0_LOD2_<br>Versioning.gml | This file contains 4 `Building` features represented across 2 `Versions`. A `versionTransition` (as a _historicalSuccession_) composed of 3 `transactions` (_delete_, _insert_, _replace_) demonstrates the changes between each `Version` | 3.0.0-draft.2021.12.01.1
 
 ***
 

@@ -4,8 +4,8 @@
   The file contains also an Intersection that is part of the roads "Road2" and "Road3". The intersection is represented twice, i.e. as part of "Road2" and "Road3", and is related using CityObectRelation with the relationType "equal" as well.
   The file validates against release 3.0.0-draft.2020.09.17.1
 -->
-<core:CityModel xmlns:pfx0="http://www.opengis.net/citygml/profiles/base/3.0" xmlns:wtr="http://www.opengis.net/citygml/waterbody/3.0" xmlns:dem="http://www.opengis.net/citygml/relief/3.0" xmlns:ct="urn:oasis:names:tc:ciq:ct:3" xmlns:dyn="http://www.opengis.net/citygml/dynamizer/3.0" xmlns:tun="http://www.opengis.net/citygml/tunnel/3.0" xmlns:xAL="urn:oasis:names:tc:ciq:xal:3" xmlns:con="http://www.opengis.net/citygml/construction/3.0" xmlns:app="http://www.opengis.net/citygml/appearance/3.0" xmlns:veg="http://www.opengis.net/citygml/vegetation/3.0" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:vers="http://www.opengis.net/citygml/versioning/3.0" xmlns:grp="http://www.opengis.net/citygml/cityobjectgroup/3.0" xmlns:luse="http://www.opengis.net/citygml/landuse/3.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gsr="http://www.isotc211.org/2005/gsr" xmlns:gen="http://www.opengis.net/citygml/generics/3.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:brid="http://www.opengis.net/citygml/bridge/3.0" xmlns:pcl="http://www.opengis.net/citygml/pointcloud/3.0" xmlns:core="http://www.opengis.net/citygml/3.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:frn="http://www.opengis.net/citygml/cityfurniture/3.0" xmlns:gss="http://www.isotc211.org/2005/gss" xmlns:gts="http://www.isotc211.org/2005/gts" xmlns:bldg="http://www.opengis.net/citygml/building/3.0" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:tran="http://www.opengis.net/citygml/transportation/3.0" gml:id="CityModel" 
-                xsi:schemaLocation="http://www.opengis.net/citygml/3.0 ../../../Schema/cityGMLBase.xsd http://www.opengis.net/citygml/construction/3.0 ../../../Schema/construction.xsd http://www.opengis.net/citygml/building/3.0 ../../../Schema/building.xsd http://www.opengis.net/citygml/transportation/3.0 ../../../Schema/transportation.xsd">
+<core:CityModel xmlns:pfx0="http://www.opengis.net/citygml/profiles/base/3.0" xmlns:wtr="http://www.opengis.net/citygml/waterbody/3.0" xmlns:dem="http://www.opengis.net/citygml/relief/3.0" xmlns:ct="urn:oasis:names:tc:ciq:ct:3" xmlns:dyn="http://www.opengis.net/citygml/dynamizer/3.0" xmlns:tun="http://www.opengis.net/citygml/tunnel/3.0" xmlns:xAL="urn:oasis:names:tc:ciq:xal:3" xmlns:con="http://www.opengis.net/citygml/construction/3.0" xmlns:app="http://www.opengis.net/citygml/appearance/3.0" xmlns:veg="http://www.opengis.net/citygml/vegetation/3.0" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:vers="http://www.opengis.net/citygml/versioning/3.0" xmlns:grp="http://www.opengis.net/citygml/cityobjectgroup/3.0" xmlns:luse="http://www.opengis.net/citygml/landuse/3.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gsr="http://www.isotc211.org/2005/gsr" xmlns:gen="http://www.opengis.net/citygml/generics/3.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:brid="http://www.opengis.net/citygml/bridge/3.0" xmlns:pcl="http://www.opengis.net/citygml/pointcloud/3.0" xmlns:core="http://www.opengis.net/citygml/3.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:frn="http://www.opengis.net/citygml/cityfurniture/3.0" xmlns:gss="http://www.isotc211.org/2005/gss" xmlns:gts="http://www.isotc211.org/2005/gts" xmlns:bldg="http://www.opengis.net/citygml/building/3.0" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:tran="http://www.opengis.net/citygml/transportation/3.0" gml:id="CityModel"
+                xsi:schemaLocation="http://www.opengis.net/citygml/3.0 ../../../Schema/core.xsd http://www.opengis.net/citygml/construction/3.0 ../../../Schema/construction.xsd http://www.opengis.net/citygml/building/3.0 ../../../Schema/building.xsd http://www.opengis.net/citygml/transportation/3.0 ../../../Schema/transportation.xsd">
 	<core:cityObjectMember>
 		<bldg:Building gml:id="building1">
 			<core:boundary>
@@ -13,8 +13,8 @@
 				    <core:relatedTo>
 				        <core:CityObjectRelation>
 				            <core:relationType>equal</core:relationType>
-					        <core:relatedTo xlink:href="section2"/> 
-				        </core:CityObjectRelation> 
+					        <core:relatedTo xlink:href="section2"/>
+				        </core:CityObjectRelation>
 				    </core:relatedTo>
 					<core:lod2MultiSurface>
 						<gml:MultiSurface gml:id="floorsurface2-0" srsDimension="3">
@@ -40,8 +40,8 @@
 				    <core:relatedTo>
 				        <core:CityObjectRelation>
 				            <core:relationType>equal</core:relationType>
-					        <core:relatedTo xlink:href="section4"/> 
-				        </core:CityObjectRelation> 
+					        <core:relatedTo xlink:href="section4"/>
+				        </core:CityObjectRelation>
 				    </core:relatedTo>
 					<core:lod2MultiSurface>
 						<gml:MultiSurface gml:id="floorsurface4-0" srsDimension="3">
@@ -67,8 +67,8 @@
 				    <core:relatedTo>
 				        <core:CityObjectRelation>
 				            <core:relationType>equal</core:relationType>
-					        <core:relatedTo xlink:href="section1"/> 
-				        </core:CityObjectRelation> 
+					        <core:relatedTo xlink:href="section1"/>
+				        </core:CityObjectRelation>
 				    </core:relatedTo>
 					<core:lod2MultiSurface>
 						<gml:MultiSurface gml:id="floorsurface1-0" srsDimension="3">
@@ -94,8 +94,8 @@
 				    <core:relatedTo>
 				        <core:CityObjectRelation>
 				            <core:relationType>equal</core:relationType>
-					        <core:relatedTo xlink:href="section3"/> 
-				        </core:CityObjectRelation> 
+					        <core:relatedTo xlink:href="section3"/>
+				        </core:CityObjectRelation>
 				    </core:relatedTo>
 					<core:lod2MultiSurface>
 						<gml:MultiSurface gml:id="floorsurface3-0" srsDimension="3">
@@ -121,8 +121,8 @@
 				    <core:relatedTo>
 				        <core:CityObjectRelation>
 				            <core:relationType>equal</core:relationType>
-					        <core:relatedTo xlink:href="section5"/> 
-				        </core:CityObjectRelation> 
+					        <core:relatedTo xlink:href="section5"/>
+				        </core:CityObjectRelation>
 				    </core:relatedTo>
 					<core:lod2MultiSurface>
 						<gml:MultiSurface gml:id="floorsurface5-0" srsDimension="3">
@@ -148,8 +148,8 @@
 				    <core:relatedTo>
 				        <core:CityObjectRelation>
 				            <core:relationType>equal</core:relationType>
-					        <core:relatedTo xlink:href="trafficarea3"/> 
-				        </core:CityObjectRelation> 
+					        <core:relatedTo xlink:href="trafficarea3"/>
+				        </core:CityObjectRelation>
 				    </core:relatedTo>
 					<core:lod2MultiSurface>
 						<gml:MultiSurface gml:id="roofsurface5-0" srsDimension="3">
@@ -175,8 +175,8 @@
 				    <core:relatedTo>
 				        <core:CityObjectRelation>
 				            <core:relationType>equal</core:relationType>
-					        <core:relatedTo xlink:href="trafficarea8"/> 
-				        </core:CityObjectRelation> 
+					        <core:relatedTo xlink:href="trafficarea8"/>
+				        </core:CityObjectRelation>
 				    </core:relatedTo>
 					<core:lod2MultiSurface>
 						<gml:MultiSurface gml:id="roofsurface10-0" srsDimension="3">
@@ -202,8 +202,8 @@
 				    <core:relatedTo>
 				        <core:CityObjectRelation>
 				            <core:relationType>equal</core:relationType>
-					        <core:relatedTo xlink:href="trafficarea7"/> 
-				        </core:CityObjectRelation> 
+					        <core:relatedTo xlink:href="trafficarea7"/>
+				        </core:CityObjectRelation>
 				    </core:relatedTo>
 					<core:lod2MultiSurface>
 						<gml:MultiSurface gml:id="roofsurface9-0" srsDimension="3">
@@ -229,8 +229,8 @@
 				    <core:relatedTo>
 				        <core:CityObjectRelation>
 				            <core:relationType>equal</core:relationType>
-					        <core:relatedTo xlink:href="trafficarea4"/> 
-				        </core:CityObjectRelation> 
+					        <core:relatedTo xlink:href="trafficarea4"/>
+				        </core:CityObjectRelation>
 				    </core:relatedTo>
 					<core:lod2MultiSurface>
 						<gml:MultiSurface gml:id="roofsurface6-0" srsDimension="3">
@@ -256,8 +256,8 @@
 				    <core:relatedTo>
 				        <core:CityObjectRelation>
 				            <core:relationType>equal</core:relationType>
-					        <core:relatedTo xlink:href="auxiliarytrafficarea1"/> 
-				        </core:CityObjectRelation> 
+					        <core:relatedTo xlink:href="auxiliarytrafficarea1"/>
+				        </core:CityObjectRelation>
 				    </core:relatedTo>
 					<core:lod2MultiSurface>
 						<gml:MultiSurface gml:id="roofsurface3-0" srsDimension="3">
@@ -283,8 +283,8 @@
 				    <core:relatedTo>
 				        <core:CityObjectRelation>
 				            <core:relationType>equal</core:relationType>
-					        <core:relatedTo xlink:href="trafficarea6"/> 
-				        </core:CityObjectRelation> 
+					        <core:relatedTo xlink:href="trafficarea6"/>
+				        </core:CityObjectRelation>
 				    </core:relatedTo>
 					<core:lod2MultiSurface>
 						<gml:MultiSurface gml:id="roofsurface8-0" srsDimension="3">
@@ -310,8 +310,8 @@
 				    <core:relatedTo>
 				        <core:CityObjectRelation>
 				            <core:relationType>equal</core:relationType>
-					        <core:relatedTo xlink:href="trafficarea1"/> 
-				        </core:CityObjectRelation> 
+					        <core:relatedTo xlink:href="trafficarea1"/>
+				        </core:CityObjectRelation>
 				    </core:relatedTo>
 					<core:lod2MultiSurface>
 						<gml:MultiSurface gml:id="roofsurface2-0" srsDimension="3">
@@ -337,8 +337,8 @@
 				    <core:relatedTo>
 				        <core:CityObjectRelation>
 				            <core:relationType>equal</core:relationType>
-					        <core:relatedTo xlink:href="trafficarea2"/> 
-				        </core:CityObjectRelation> 
+					        <core:relatedTo xlink:href="trafficarea2"/>
+				        </core:CityObjectRelation>
 				    </core:relatedTo>
 					<core:lod2MultiSurface>
 						<gml:MultiSurface gml:id="roofsurface4-0" srsDimension="3">
@@ -364,8 +364,8 @@
 				    <core:relatedTo>
 				        <core:CityObjectRelation>
 				            <core:relationType>equal</core:relationType>
-					        <core:relatedTo xlink:href="trafficarea5"/> 
-				        </core:CityObjectRelation> 
+					        <core:relatedTo xlink:href="trafficarea5"/>
+				        </core:CityObjectRelation>
 				    </core:relatedTo>
 					<core:lod2MultiSurface>
 						<gml:MultiSurface gml:id="roofsurface7-0" srsDimension="3">
@@ -391,8 +391,8 @@
 				    <core:relatedTo>
 				        <core:CityObjectRelation>
 				            <core:relationType>equal</core:relationType>
-					        <core:relatedTo xlink:href="section6"/> 
-				        </core:CityObjectRelation> 
+					        <core:relatedTo xlink:href="section6"/>
+				        </core:CityObjectRelation>
 				    </core:relatedTo>
 					<core:lod2MultiSurface>
 						<gml:MultiSurface gml:id="roofsurface1-0" srsDimension="3">
@@ -1720,8 +1720,8 @@
 				    <core:relatedTo>
 				        <core:CityObjectRelation>
 				            <core:relationType>equal</core:relationType>
-					        <core:relatedTo xlink:href="intersection2"/> 
-				        </core:CityObjectRelation> 
+					        <core:relatedTo xlink:href="intersection2"/>
+				        </core:CityObjectRelation>
 				    </core:relatedTo>
 					<core:lod2MultiSurface>
 						<gml:MultiSurface gml:id="intersection1-0" srsDimension="3">
@@ -1793,8 +1793,8 @@
 				    <core:relatedTo>
 				        <core:CityObjectRelation>
 				            <core:relationType>equal</core:relationType>
-					        <core:relatedTo xlink:href="intersection1"/> 
-				        </core:CityObjectRelation> 
+					        <core:relatedTo xlink:href="intersection1"/>
+				        </core:CityObjectRelation>
 				    </core:relatedTo>
 					<core:lod2MultiSurface>
 						<gml:MultiSurface gml:id="intersection2-0" srsDimension="3">
@@ -1853,8 +1853,8 @@
 								    <core:relatedTo>
 				                    <core:CityObjectRelation>
 				                            <core:relationType>equal</core:relationType>
-					                        <core:relatedTo xlink:href="roofsurface4"/> 
-				                        </core:CityObjectRelation> 
+					                        <core:relatedTo xlink:href="roofsurface4"/>
+				                        </core:CityObjectRelation>
 				                    </core:relatedTo>
 									<core:lod2MultiSurface>
 										<gml:MultiSurface gml:id="trafficarea2-0" srsDimension="3">
@@ -1885,8 +1885,8 @@
 								    <core:relatedTo>
 				                        <core:CityObjectRelation>
 				                            <core:relationType>equal</core:relationType>
-					                        <core:relatedTo xlink:href="roofsurface7"/> 
-				                        </core:CityObjectRelation> 
+					                        <core:relatedTo xlink:href="roofsurface7"/>
+				                        </core:CityObjectRelation>
 				                    </core:relatedTo>
 									<core:lod2MultiSurface>
 										<gml:MultiSurface gml:id="trafficarea5-0" srsDimension="3">
@@ -1917,8 +1917,8 @@
 								    <core:relatedTo>
 				                        <core:CityObjectRelation>
 				                            <core:relationType>equal</core:relationType>
-					                        <core:relatedTo xlink:href="roofsurface8"/> 
-				                        </core:CityObjectRelation> 
+					                        <core:relatedTo xlink:href="roofsurface8"/>
+				                        </core:CityObjectRelation>
 				                    </core:relatedTo>
 									<core:lod2MultiSurface>
 										<gml:MultiSurface gml:id="trafficarea6-0" srsDimension="3">
@@ -1949,8 +1949,8 @@
 								    <core:relatedTo>
 				                        <core:CityObjectRelation>
 				                            <core:relationType>equal</core:relationType>
-					                        <core:relatedTo xlink:href="roofsurface2"/> 
-				                        </core:CityObjectRelation> 
+					                        <core:relatedTo xlink:href="roofsurface2"/>
+				                        </core:CityObjectRelation>
 				                    </core:relatedTo>
 									<core:lod2MultiSurface>
 										<gml:MultiSurface gml:id="trafficarea1-0" srsDimension="3">
@@ -1981,8 +1981,8 @@
 								    <core:relatedTo>
 				                        <core:CityObjectRelation>
 				                            <core:relationType>equal</core:relationType>
-					                        <core:relatedTo xlink:href="roofsurface10"/> 
-				                        </core:CityObjectRelation> 
+					                        <core:relatedTo xlink:href="roofsurface10"/>
+				                        </core:CityObjectRelation>
 				                    </core:relatedTo>
 									<core:lod2MultiSurface>
 										<gml:MultiSurface gml:id="trafficarea8-0" srsDimension="3">
@@ -2013,8 +2013,8 @@
 								    <core:relatedTo>
 				                        <core:CityObjectRelation>
 				                            <core:relationType>equal</core:relationType>
-					                        <core:relatedTo xlink:href="roofsurface5"/> 
-				                        </core:CityObjectRelation> 
+					                        <core:relatedTo xlink:href="roofsurface5"/>
+				                        </core:CityObjectRelation>
 				                    </core:relatedTo>
 									<core:lod2MultiSurface>
 										<gml:MultiSurface gml:id="trafficarea3-0" srsDimension="3">
@@ -2045,8 +2045,8 @@
 								    <core:relatedTo>
 				                        <core:CityObjectRelation>
 				                            <core:relationType>equal</core:relationType>
-					                        <core:relatedTo xlink:href="roofsurface6"/> 
-				                        </core:CityObjectRelation> 
+					                        <core:relatedTo xlink:href="roofsurface6"/>
+				                        </core:CityObjectRelation>
 				                    </core:relatedTo>
 									<core:lod2MultiSurface>
 										<gml:MultiSurface gml:id="trafficarea4-0" srsDimension="3">
@@ -2077,8 +2077,8 @@
 								    <core:relatedTo>
 				                        <core:CityObjectRelation>
 				                            <core:relationType>equal</core:relationType>
-					                        <core:relatedTo xlink:href="roofsurface9"/> 
-				                        </core:CityObjectRelation> 
+					                        <core:relatedTo xlink:href="roofsurface9"/>
+				                        </core:CityObjectRelation>
 				                    </core:relatedTo>
 									<core:lod2MultiSurface>
 										<gml:MultiSurface gml:id="trafficarea7-0" srsDimension="3">
@@ -2109,8 +2109,8 @@
 								    <core:relatedTo>
 				                        <core:CityObjectRelation>
 				                            <core:relationType>equal</core:relationType>
-					                        <core:relatedTo xlink:href="roofsurface3"/> 
-				                        </core:CityObjectRelation> 
+					                        <core:relatedTo xlink:href="roofsurface3"/>
+				                        </core:CityObjectRelation>
 				                    </core:relatedTo>
 									<core:lod2MultiSurface>
 										<gml:MultiSurface gml:id="auxiliarytrafficarea1-0" srsDimension="3">
@@ -2141,8 +2141,8 @@
 				    <core:relatedTo>
 				        <core:CityObjectRelation>
 				            <core:relationType>equal</core:relationType>
-					        <core:relatedTo xlink:href="roofsurface1"/> 
-				        </core:CityObjectRelation> 
+					        <core:relatedTo xlink:href="roofsurface1"/>
+				        </core:CityObjectRelation>
 				    </core:relatedTo>
 					<core:lod2MultiSurface>
 						<gml:MultiSurface gml:id="section6-0" srsDimension="3">
@@ -2168,8 +2168,8 @@
 				    <core:relatedTo>
 				        <core:CityObjectRelation>
 				            <core:relationType>equal</core:relationType>
-					        <core:relatedTo xlink:href="floorsurface1"/> 
-				        </core:CityObjectRelation> 
+					        <core:relatedTo xlink:href="floorsurface1"/>
+				        </core:CityObjectRelation>
 				    </core:relatedTo>
 					<core:lod2MultiSurface>
 						<gml:MultiSurface gml:id="section1-0" srsDimension="3">
@@ -2195,8 +2195,8 @@
 				    <core:relatedTo>
 				        <core:CityObjectRelation>
 				            <core:relationType>equal</core:relationType>
-					        <core:relatedTo xlink:href="floorsurface3"/> 
-				        </core:CityObjectRelation> 
+					        <core:relatedTo xlink:href="floorsurface3"/>
+				        </core:CityObjectRelation>
 				    </core:relatedTo>
 					<core:lod2MultiSurface>
 						<gml:MultiSurface gml:id="section3-0" srsDimension="3">
@@ -2222,8 +2222,8 @@
 				    <core:relatedTo>
 				        <core:CityObjectRelation>
 				            <core:relationType>equal</core:relationType>
-					        <core:relatedTo xlink:href="floorsurface4"/> 
-				        </core:CityObjectRelation> 
+					        <core:relatedTo xlink:href="floorsurface4"/>
+				        </core:CityObjectRelation>
 				    </core:relatedTo>
 					<core:lod2MultiSurface>
 						<gml:MultiSurface gml:id="section4-0" srsDimension="3">
@@ -2249,8 +2249,8 @@
 				    <core:relatedTo>
 				        <core:CityObjectRelation>
 				            <core:relationType>equal</core:relationType>
-					        <core:relatedTo xlink:href="floorsurface5"/> 
-				        </core:CityObjectRelation> 
+					        <core:relatedTo xlink:href="floorsurface5"/>
+				        </core:CityObjectRelation>
 				    </core:relatedTo>
 					<core:lod2MultiSurface>
 						<gml:MultiSurface gml:id="section5-0" srsDimension="3">
@@ -2276,8 +2276,8 @@
 				    <core:relatedTo>
 				        <core:CityObjectRelation>
 				            <core:relationType>equal</core:relationType>
-					        <core:relatedTo xlink:href="floorsurface2"/> 
-				        </core:CityObjectRelation> 
+					        <core:relatedTo xlink:href="floorsurface2"/>
+				        </core:CityObjectRelation>
 				    </core:relatedTo>
 					<core:lod2MultiSurface>
 						<gml:MultiSurface gml:id="section2-0" srsDimension="3">

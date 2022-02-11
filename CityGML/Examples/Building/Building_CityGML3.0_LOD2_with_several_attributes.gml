@@ -4,15 +4,15 @@
   The building has the attributes <name>, <creationDate>, <externalReference>, <height>, <function>, <roofType>, <address> as well as two generic attributes.
   The file validates against release 3.0.0-draft.2020.09.17.1
 -->
-<CityModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
- xsi:schemaLocation="http://www.opengis.net/citygml/3.0 ../../Schema/cityGMLBase.xsd http://www.opengis.net/citygml/generics/3.0 ../../Schema/generics.xsd http://www.opengis.net/citygml/construction/3.0 ../../Schema/construction.xsd http://www.opengis.net/citygml/building/3.0 ../../Schema/building.xsd http://www.opengis.net/citygml/dynamizer/3.0 ../../Schema/dynamizer.xsd" 
- xmlns="http://www.opengis.net/citygml/3.0" 
- xmlns:gen="http://www.opengis.net/citygml/generics/3.0" 
- xmlns:xAL="urn:oasis:names:tc:ciq:xal:3" 
- xmlns:con="http://www.opengis.net/citygml/construction/3.0" 
- xmlns:bldg="http://www.opengis.net/citygml/building/3.0" 
- xmlns:gml="http://www.opengis.net/gml/3.2" 
- xmlns:xlink="http://www.w3.org/1999/xlink" 
+<CityModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.opengis.net/citygml/3.0 ../../Schema/core.xsd http://www.opengis.net/citygml/generics/3.0 ../../Schema/generics.xsd http://www.opengis.net/citygml/construction/3.0 ../../Schema/construction.xsd http://www.opengis.net/citygml/building/3.0 ../../Schema/building.xsd http://www.opengis.net/citygml/dynamizer/3.0 ../../Schema/dynamizer.xsd"
+ xmlns="http://www.opengis.net/citygml/3.0"
+ xmlns:gen="http://www.opengis.net/citygml/generics/3.0"
+ xmlns:xAL="urn:oasis:names:tc:ciq:xal:3"
+ xmlns:con="http://www.opengis.net/citygml/construction/3.0"
+ xmlns:bldg="http://www.opengis.net/citygml/building/3.0"
+ xmlns:gml="http://www.opengis.net/gml/3.2"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
  gml:id="cm1">
   <gml:name>LoD2_4490_5322_1_BY</gml:name>
   <gml:boundedBy>
