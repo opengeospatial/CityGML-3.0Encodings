@@ -1,2 +1,111 @@
 [[annex-examples-versioning]]
 === Versioning Examples
+
+*Version Management using XLinks*
+
+The CityGML 3.0 Conceptual Model introduces the concept of versioned features. The individual versions of a specific city object can be identified by their _featureID_ attribute, which is different for each version of the same real-world object. The featureID attribute is mapped to the _gml:id_ attribute in CityGML 3.0 data sets encoded in GML. This gml:id is used for referencing versioned features. See <<object-identifier-section>> for more information on identifiers for features.
+
+To ensure that new versions of a city object are always created and referenced in the same way, the following rules have been defined for version management with CityGML 3.0.
+The rules clearly define when to create new versions of features and when to reference existing versions of features. The relationship between versioned top-level features and their corresponding versioned subordinate features is always unambiguous, since the versioned subordinate features are clearly assigned to their corresponding versioned top-level features. In this way, it is also possible to see directly for each top-level feature, whether the top-level feature itself or its subordinate features have changed. This also makes database queries very easy.
+
+*Rule 1: Only the top-level feature changes*
+
+. When only the top-level feature changes, a new version of the top-level feature shall be created which receives a new gml:id.
+. All subordinate features, i.e. the features that are part of the top-level feature, must remain unchanged and must be referenced in their unchanged version by the new version of the top-level feature via their gml:id using XLink.
+
+With this rule, the subordinate features can remain in their current state and do not need to be copied as new versions for every change within in a top-level feature.
+
+The use of Rule 1 is illustrated in <<figure-version-management-rule1>>.
+The _function_ attribute of the top-level feature Building changes from _Living_ to _Office_; thus, a new version of the Building feature is created with a new gml:id. Since the subordinate feature BuildingPart remains unchanged, the new Building version references the unchanged BuildingPart feature.
+
+[[figure-version-management-rule1]]
+.Version management when only the top-level feature changes.
+image::images/VersionManagement_Rule1.png[align="center"]
+
+*Rule 2: Only a subordinate feature changes*
+
+. When only a subordinate feature changes, a new version of this subordinate feature shall be created which receives a new gml:id.
+. This subordinate feature is referenced by a superordinate feature. By creating a new version of the subordinate feature with a new gml:id, the XLink reference of the superordinate to the subordinate feature must be adapted to this new gml:id as well, which means that also a new version of the superordinate feature must be created.
+. Changes to these XLink references and creation of new superordinate features must be applied transitively to all superordinate features up to the top-level feature.
+. All other subordinate features that do not change must be referenced in their unchanged versions by the new versions of the superordinate features according to Rule 1.
+
+For aggregation hierarchies this means that whenever a subordinate feature changes, also new versions of all corresponding superordinate features up to the top-level feature need to be created.
+
+The use of rule 2 is illustrated in <<figure-version-management-rule2>>. Here the roof type of the subordinate feature BuildingPart changes from _Flat_ to _Saddle_ which results in a new version of the BuildingPart feature with a new gml:id. The feature is referenced from a superordinate feature, i.e., the top-level feature Building. This means that also a new version needs to be created for the Building feature with a new gml:id and a reference to the new BuildingPart feature.
+
+[[figure-version-management-rule2]]
+.Version management when only a subordinate feature changes that is directly referenced from the top-level feature.
+image::images/VersionManagement_Rule2.png[align="center"]
+
+<<figure-version-management-rule2-aggregation>> illustrates rule 2 for an aggregation hierarchy. Here, the BuildingPart feature has two subordinate features BuildingRoom. The function of one BuildingRoom changes from _Bedroom_ to _Home Office_, whereas the other BuildingRoom feature remains unchanged. This means that a new version is created for the changed BuildingRoom feature and also for the superordinate BuildingPart feature. The new BuildingPart feature references then the changed BuildingRoom feature and the unchanged BuildingRoom feature. Since BuildingPart, in turn, is subordinate to the top-level feature Building, also a new version of the Building feature is created.
+
+[[figure-version-management-rule2-aggregation]]
+.Version management when only a subordinate feature changes that is part of an aggregation hierarchy.
+image::images/VersionManagement_Rule2_Aggregation.png[align="center"]
+
+*Rule 3: Top-level and subordinate features change*
+
+. This rule is a combination of Rules 1 and 2; i.e., when a top-level feature and its corresponding subordinate features change, both rules must be applied jointly.
+
+[[figure-version-management-rule3]]
+.Use of Rule3 in case a top-level feature and a corresponding subordinate feature changes.
+image::images/VersionManagement_Rule3.png[align="center"]
+
+The use of rule 3 is illustrated in <<figure-version-management-rule2>>. Here, the top-level feature Building and its subordinate feature BuildingPart change. Thus, new versions are created for both features with new gml:ids, new attribute values and a reference from the new Building feature to the new BuildingPart feature.
+
+
+*Example: Successive version management over a period of time*
+
+The example in <<figure-version-management-example1>> illustrates different versions of a building at three points in time. The original Building including its BuildingPart exists at time t1. At time t2, the top-level feature Building changes its function which results in the application of Rule 1. Afterwards at time t3, the subordinate feature BuildingPart changes its roof type, thus, Rule 2 is applied in this case. <<listing-gml-version-management-example1>> represents this example in GML.
+
+[[figure-version-management-example1]]
+.Successive version management over a period of time.
+image::images/VersionManagement_Example1.png[align="center"]
+
+
+[[listing-gml-version-management-example1]]
+.GML instance document for the example on successive version management over a period of time illustrated in <<figure-version-management-example1>>.
+[source,XML]
+----
+<?xml version="1.0" encoding="UTF-8"?>
+<core:CityModel ... Namespaces and Schema location ... >
+    <core:cityObjectMember>
+        <bldg:Building gml:id="B1020_t1">
+            <gml:identifier codeSpace="www.test.org/xyz">B1020</gml:identifier>
+            <core:creationDate>2012-08-02T00:00:00</core:creationDate>
+            <core:terminationDate>2013-10-09T00:00:00</core:terminationDate>
+            <bldg:function>Office</bldg:function>
+            <bldg:buildingPart>
+                <bldg:BuildingPart gml:id="BP12_t1">
+                    <gml:identifier codeSpace="www.test.org/xyz">BP12</gml:identifier>
+                    <core:creationDate>2012-08-02T00:00:00</core:creationDate>
+                    <core:terminationDate>2014-06-03T00:00:00</core:terminationDate>
+                    <bldg:roofType>Flat</bldg:roofType>
+                </bldg:BuildingPart>
+            </bldg:buildingPart>
+        </bldg:Building>
+    </core:cityObjectMember>
+    <core:cityObjectMember>
+        <bldg:Building gml:id="B1020_t2">
+            <gml:identifier codeSpace="www.test.org/xyz">B1020</gml:identifier>
+            <core:creationDate>2013-10-09T00:00:00</core:creationDate>
+            <bldg:function>Living</bldg:function>
+            <bldg:buildingPart xlink:href="#BP12_t1"/>
+        </bldg:Building>
+    </core:cityObjectMember>
+    <core:cityObjectMember>
+        <bldg:Building gml:id="B1020_t3">
+            <gml:identifier codeSpace="www.test.org/xyz">B1020</gml:identifier>
+            <core:creationDate>2014-06-03T00:00:00</core:creationDate>
+            <bldg:function>Living</bldg:function>
+            <bldg:buildingPart>
+                <bldg:BuildingPart gml:id="BP12_t3">
+                    <gml:identifier codeSpace="www.test.org/xyz">BP12</gml:identifier>
+                    <core:creationDate>2014-06-03T00:00:00</core:creationDate>
+                    <bldg:roofType>Saddle</bldg:roofType>
+                </bldg:BuildingPart>
+            </bldg:buildingPart>
+        </bldg:Building>
+    </core:cityObjectMember>
+</core:CityModel>
+----
