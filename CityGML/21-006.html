@@ -1292,7 +1292,7 @@ a model of a system that is defined in terms of a specific platform<br>
 <p>There are two XML concepts that are used to reference objects in GML instance documents: the XML Linking Language (XLink) and the XML Pointer Language (XPointer).</p>
 </div>
 <div class="paragraph">
-<p>XLink allows for creating links between resources by providing XML elements with specific attributes for referencing other resources. The most commonly used attribute is <em>xlink:href</em>, the value of the attribute is the URI of the referenced document.</p>
+<p>XLink allows for creating links (refered to as XLinks in this document) by providing specific attributes to XML elements for referencing other resources. The most commonly used attribute is <em>xlink:href</em>, the value of the attribute is the URI of the referenced document.</p>
 </div>
 <div class="paragraph">
 <p>In CityGML, however, we are mainly interested in referencing specific objects (features and geometries) within the same or external GML instance document. For this, XPointer is used. To reference objects by their gml:id, a number sign (#) followed by the gml:id of the object to be referenced is added to the URI of the referenced document. In <a href="#listing-gml-references">Listing 2</a>, the element &lt;versionMember&gt; references a &lt;Building&gt; feature. Since the feature is part of the same GML instance document, a relative URI is specified by simply providing the number sign and the gml:id of the building as value of the attribute xlink:href. In the context of version management, referencing features by their gml:id means that a specific feature version of a real-world object is referenced.</p>
@@ -1378,14 +1378,14 @@ a model of a system that is defined in terms of a specific platform<br>
 <p>For these cases, different recommendations are provided for how to encode the references in CityGML. Although these recommendations impose restrictions, they facilitate at the same time reading, storing, processing, and generating of CityGML documents, because they reduce the multiple possibilities of how to represent and link features and geometries in CityGML documents to the most appropriate ones. Furthermore, top-level features can now completely be loaded in the main memory, because links to shared geometries that are part of different top-level features represented further down in the GML document do not need to be resolved any more. This also facilitates querying features and geometries using web services, as up to now queries cannot address specific parts of a geometry. Maintenance becomes easier as well, because links between feature geometries do not need to be maintained and updated any more when a feature changes its geometry or when the feature does not exist anymore.</p>
 </div>
 <div class="sect4">
-<h5 id="linking-rules-1-section"><a class="anchor" href="#linking-rules-1-section"></a>Rule 1: Referencing geometries using XLink within the same and from different top-level features</h5>
+<h5 id="linking-rules-1-section"><a class="anchor" href="#linking-rules-1-section"></a>Rule 1: Referencing geometries using XLinks within the same and from different top-level features</h5>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>XLink may be used to reference geometries within the same top-level feature in accordance with Recommendation 2.</p>
+<p>XLinks may be used to reference geometries within the same top-level feature in accordance with Recommendation 2.</p>
 </li>
 <li>
-<p>XLink shall not be used to reference geometries from another top-level feature.</p>
+<p>XLinks shall not be used to reference geometries from another top-level feature.</p>
 </li>
 </ol>
 </div>
@@ -1398,16 +1398,16 @@ a model of a system that is defined in terms of a specific platform<br>
 <p>The geometry describing a space shall be stored with the space or its space boundaries.</p>
 </li>
 <li>
-<p>Geometries stored inline a space boundary must be referenced from the geometry of the space using XLink.</p>
+<p>Geometries stored inline a space boundary must be referenced from the geometry of the space using XLinks.</p>
 </li>
 <li>
-<p>Space boundaries shall not reference geometries of the space using XLink.</p>
+<p>Space boundaries shall not reference geometries of the space using XLinks.</p>
 </li>
 <li>
 <p>The geometry of a space may contain the geometries of nested spaces.</p>
 </li>
 <li>
-<p>LoDs must be self-contained: Geometries shall not be shared between different LoDs using XLink.</p>
+<p>LoDs must be self-contained: Geometries shall not be shared between different LoDs using XLinks.</p>
 </li>
 </ol>
 </div>
@@ -1415,7 +1415,7 @@ a model of a system that is defined in terms of a specific platform<br>
 <p>Here, XLink represents a link at the geometry level (“geometry link”), i.e., a reference to the ID of the geometry to be reused. The link direction is always from the geometry of the space to the geometries of the space boundaries (example 1).</p>
 </div>
 <div class="paragraph">
-<p>If the space is not bounded by space boundaries (e.g. WallSurface or RoofSurface), then the geometry is stored as a geometry property (e.g. lod2MultiSurface) of the space. XLink is not required in this case.</p>
+<p>If the space is not bounded by space boundaries (e.g. WallSurface or RoofSurface), then the geometry is stored as a geometry property (e.g. lod2MultiSurface) of the space. No XLinks are required in this case.</p>
 </div>
 <div class="paragraph">
 <p><strong>Example 1: Building with Solid geometry and boundary surfaces</strong></p>
@@ -1653,7 +1653,7 @@ The explicit representation of the relation between the features facilitates spa
 <p><strong>Example 4: A Building installation spanning across several Building Parts</strong></p>
 </div>
 <div class="paragraph">
-<p>Installations that are spanning across several building parts are to be physically modelled as part of one building part, all other building parts reference the installation using XLink, expressing in this way, that the installation does not exclusively belong to one building part only.</p>
+<p>Installations that are spanning across several building parts are to be physically modelled as part of one building part, all other building parts reference the installation using XLinks, expressing in this way, that the installation does not exclusively belong to one building part only.</p>
 </div>
 <div class="paragraph">
 <p>This means, that one of the BuildingParts represents the natural aggregation of the BuildingInstallation (i.e. inline representation), whereas the other BuildingParts represent alternative aggregations (i.e. XLink reference).</p>
@@ -2002,7 +2002,7 @@ The explicit representation of the relation between the features facilitates spa
 </div>
 </li>
 <li>
-<p>An exception to the rule that XLink shall not be used to reference geometries from another top-level feature (Rule 2 in <a href="#linking-rules-1-section">Section 6.1.3.1</a>) is defined for the element ImplicitGeometry. The concept of ImplicitGeometry requires that different top-level features can reference the same geometry and appearance; thus, Xlink references from different top-level features to the same geometry and appearance are allowed in this case.</p>
+<p>An exception to the rule that XLinks shall not be used to reference geometries from another top-level feature (Rule 2 in <a href="#linking-rules-1-section">Section 6.1.3.1</a>) is defined for the element ImplicitGeometry. The concept of ImplicitGeometry requires that different top-level features can reference the same geometry and appearance; thus, XLinks from different top-level features to the same geometry and appearance are allowed in this case.</p>
 </li>
 <li>
 <p>The UML class XALAddress is a placeholder for representing address details according to the OASIS xAL standard. The class is not encoded in the GML schema, but is simply mapped to xAL:Address, the root element for xAL-based address information.</p>
@@ -5097,7 +5097,7 @@ Ensure that there is a conformance class for each requirements class and a test 
 <p>Building in LOD3</p>
 </li>
 <li>
-<p>One example with three top-level features, e.g. Building, Tree (maybe with implicit geometry), and Street + CityObjectGroup which groups theses features using XLink</p>
+<p>One example with three top-level features, e.g. Building, Tree (maybe with implicit geometry), and Street + CityObjectGroup which groups theses features using XLinks</p>
 </li>
 </ul>
 </div>
@@ -5275,7 +5275,7 @@ Ensure that there is a conformance class for each requirements class and a test 
 <div class="sect2">
 <h3 id="annex-examples-versioning"><a class="anchor" href="#annex-examples-versioning"></a>B.5. Versioning Examples</h3>
 <div class="paragraph">
-<p><strong>Version Management using XLink</strong></p>
+<p><strong>Version Management using XLinks</strong></p>
 </div>
 <div class="paragraph">
 <p>The CityGML 3.0 Conceptual Model introduces the concept of versioned features. The individual versions of a specific city object can be identified by their <em>featureID</em> attribute, which is different for each version of the same real-world object. The featureID attribute is mapped to the <em>gml:id</em> attribute in CityGML 3.0 data sets encoded in GML. This gml:id is used for referencing versioned features. See <a href="#object-identifier-section">Section 6.1.1</a> for more information on identifiers for features.</p>
@@ -5293,7 +5293,7 @@ The rules clearly define when to create new versions of features and when to ref
 <p>When only the top-level feature changes, a new version of the top-level feature shall be created which receives a new gml:id.</p>
 </li>
 <li>
-<p>All subordinate features, i.e. the features that are part of the top-level feature, must remain unchanged and must be referenced in their unchanged version by the new version of the top-level feature via their gml:id using XLink.</p>
+<p>All subordinate features, i.e. the features that are part of the top-level feature, must remain unchanged and must be referenced in their unchanged version by the new version of the top-level feature via their gml:id using XLinks.</p>
 </li>
 </ol>
 </div>
