@@ -48,7 +48,7 @@ The GML encoding implements the geometry model defined in ISO 19107. This means 
 
 There are two XML concepts that are used to reference objects in GML instance documents: the XML Linking Language (XLink) and the XML Pointer Language (XPointer).
 
-XLink allows for creating links (refered to as XLinks in this document) by providing specific attributes to XML elements for referencing other resources. The most commonly used attribute is _xlink:href_, the value of the attribute is the URI of the referenced document.
+XLink allows for creating links (referred to as XLinks in this document) by providing specific attributes to XML elements for referencing other resources. The most commonly used attribute is _xlink:href_, the value of the attribute is the URI of the referenced document.
 
 In CityGML, however, we are mainly interested in referencing specific objects (features and geometries) within the same or external GML instance document. For this, XPointer is used. To reference objects by their gml:id, a number sign (#) followed by the gml:id of the object to be referenced is added to the URI of the referenced document. In <<listing-gml-references>>, the element <versionMember> references a <Building> feature. Since the feature is part of the same GML instance document, a relative URI is specified by simply providing the number sign and the gml:id of the building as value of the attribute xlink:href. In the context of version management, referencing features by their gml:id means that a specific feature version of a real-world object is referenced.
 
