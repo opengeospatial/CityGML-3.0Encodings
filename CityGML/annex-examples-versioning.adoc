@@ -11,7 +11,7 @@ The rules clearly define when to create new versions of features and when to ref
 *Rule 1: Only the top-level feature changes*
 
 . When only the top-level feature changes, a new version of the top-level feature shall be created which receives a new gml:id.
-. All subordinate features, i.e. the features that are part of the top-level feature, must remain unchanged and must be referenced in their unchanged version by the new version of the top-level feature via their gml:id using XLink.
+. All subordinate features, i.e. the features that are part of the top-level feature, must remain unchanged and must be referenced in their unchanged version by the new version of the top-level feature via their gml:id using XLinks.
 
 With this rule, the subordinate features can remain in their current state and do not need to be copied as new versions for every change within in a top-level feature.
 
