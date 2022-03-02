@@ -1292,7 +1292,7 @@ a model of a system that is defined in terms of a specific platform<br>
 <p>There are two XML concepts that are used to reference objects in GML instance documents: the XML Linking Language (XLink) and the XML Pointer Language (XPointer).</p>
 </div>
 <div class="paragraph">
-<p>XLink allows for creating links (refered to as XLinks in this document) by providing specific attributes to XML elements for referencing other resources. The most commonly used attribute is <em>xlink:href</em>, the value of the attribute is the URI of the referenced document.</p>
+<p>XLink allows for creating links (referred to as XLinks in this document) by providing specific attributes to XML elements for referencing other resources. The most commonly used attribute is <em>xlink:href</em>, the value of the attribute is the URI of the referenced document.</p>
 </div>
 <div class="paragraph">
 <p>In CityGML, however, we are mainly interested in referencing specific objects (features and geometries) within the same or external GML instance document. For this, XPointer is used. To reference objects by their gml:id, a number sign (#) followed by the gml:id of the object to be referenced is added to the URI of the referenced document. In <a href="#listing-gml-references">Listing 2</a>, the element &lt;versionMember&gt; references a &lt;Building&gt; feature. Since the feature is part of the same GML instance document, a relative URI is specified by simply providing the number sign and the gml:id of the building as value of the attribute xlink:href. In the context of version management, referencing features by their gml:id means that a specific feature version of a real-world object is referenced.</p>
@@ -1395,7 +1395,7 @@ a model of a system that is defined in terms of a specific platform<br>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>The geometry describing a space shall be stored with the space or its space boundaries.</p>
+<p>[The geometry describing a space shall be stored with the space or its space boundaries.]</p>
 </li>
 <li>
 <p>Geometries stored inline a space boundary must be referenced from the geometry of the space using XLinks.</p>
@@ -1434,7 +1434,7 @@ a model of a system that is defined in terms of a specific platform<br>
 <a href="https://github.com/opengeospatial/CityGML-3.0Encodings/tree/xlinks-discussion/CityGML/Examples/Building/XLink_examples/1_SimpleBuilding" class="bare">https://github.com/opengeospatial/CityGML-3.0Encodings/tree/xlinks-discussion/CityGML/Examples/Building/XLink_examples/1_SimpleBuilding</a></p>
 </div>
 <div class="paragraph">
-<p>The Building from the GML file is illustrated in the object diagram in <a href="#figure-uml-simple-building">Figure 4</a>. The XLink relations between the Solid geometry and the Polygon geometries are highlighted in red.</p>
+<p>The Building from the GML file is illustrated in the object diagram in <a href="#figure-uml-simple-building">Figure 4</a>. The XLink references between the Solid geometry and the Polygon geometries are highlighted in red.</p>
 </div>
 <div id="figure-uml-simple-building" class="imageblock text-center">
 <div class="content">
@@ -1462,7 +1462,7 @@ a model of a system that is defined in terms of a specific platform<br>
 <a href="https://github.com/opengeospatial/CityGML-3.0Encodings/tree/xlinks-discussion/CityGML/Examples/Building/XLink_examples/2_SimpleBuilding_Roof_Overhangs" class="bare">https://github.com/opengeospatial/CityGML-3.0Encodings/tree/xlinks-discussion/CityGML/Examples/Building/XLink_examples/2_SimpleBuilding_Roof_Overhangs</a></p>
 </div>
 <div class="paragraph">
-<p>The Building from the GML file is illustrated in the object diagram in <a href="#figure-uml-building-with-roof-overhangs">Figure 6</a>. The XLink relations between the Solid geometry and the Polygon geometries are highlighted in red, the XLink relations between the MultiSurface geometry and the dangling surfaces in blue.</p>
+<p>The Building from the GML file is illustrated in the object diagram in <a href="#figure-uml-building-with-roof-overhangs">Figure 6</a>. The XLink references between the Solid geometry and the Polygon geometries are highlighted in red, the XLink references between the MultiSurface geometry and the dangling surfaces in blue.</p>
 </div>
 <div id="figure-uml-building-with-roof-overhangs" class="imageblock text-center">
 <div class="content">
@@ -1490,7 +1490,7 @@ a model of a system that is defined in terms of a specific platform<br>
 <a href="https://github.com/opengeospatial/CityGML-3.0Encodings/tree/xlinks-discussion/CityGML/Examples/Building/XLink_examples/3_Building_With_Nested_Features" class="bare">https://github.com/opengeospatial/CityGML-3.0Encodings/tree/xlinks-discussion/CityGML/Examples/Building/XLink_examples/3_Building_With_Nested_Features</a></p>
 </div>
 <div class="paragraph">
-<p>The Building from the GML file is illustrated in the object diagram in <a href="#figure-uml-building-with-building-installation">Figure 8</a>. The XLink relations are highlighted in red.</p>
+<p>The Building from the GML file is illustrated in the object diagram in <a href="#figure-uml-building-with-building-installation">Figure 8</a>. The XLink references are highlighted in red.</p>
 </div>
 <div id="figure-uml-building-with-building-installation" class="imageblock text-center">
 <div class="content">
@@ -1629,7 +1629,7 @@ The explicit representation of the relation between the features facilitates spa
 <a href="https://github.com/opengeospatial/CityGML-3.0Encodings/blob/master/CityGML/Examples/Transportation/Basic%20examples/ParkingGarage_CityGML3.0_LOD2_with_CityObjectRelations_and_XLinks.gml" class="bare">https://github.com/opengeospatial/CityGML-3.0Encodings/blob/master/CityGML/Examples/Transportation/Basic%20examples/ParkingGarage_CityGML3.0_LOD2_with_CityObjectRelations_and_XLinks.gml</a></p>
 </div>
 <div class="paragraph">
-<p>The two Roads and the Intersection from the GML file are illustrated in the object diagram in <a href="#figure-uml-intersection">Figure 15</a>. The XLink relation is highlighted in red.</p>
+<p>The two Roads and the Intersection from the GML file are illustrated in the object diagram in <a href="#figure-uml-intersection">Figure 15</a>. The XLink references is highlighted in red.</p>
 </div>
 <div id="figure-uml-intersection" class="imageblock text-center">
 <div class="content">
@@ -1641,13 +1641,13 @@ The explicit representation of the relation between the features facilitates spa
 <p><strong>Example 2: A specific version of a city model</strong></p>
 </div>
 <div class="paragraph">
-<p>A Version features groups, for instance, versions of city objects that are valid within a specific time period. The city model represents the natural aggregation of these versioned city objects, whereas the Version feature represents the alternative aggregation. Thus, the versioned city objects are represented inline as part of the city model, whereas they are referenced by the Version feature using XLink relations.</p>
+<p>A Version features groups, for instance, versions of city objects that are valid within a specific time period. The city model represents the natural aggregation of these versioned city objects, whereas the Version feature represents the alternative aggregation. Thus, the versioned city objects are represented inline as part of the city model, whereas they are referenced by the Version feature using XLink references.</p>
 </div>
 <div class="paragraph">
 <p><strong>Example 3: Building rooms belonging to a Storey</strong></p>
 </div>
 <div class="paragraph">
-<p>BuildingRooms are usually represented inline as part of the Building they belong to, thus, the Building represents the natural aggregation. In addition, Storeys can group BuildingRooms to indicate which BuildingRoom belongs to which Storey. This grouping represents an alternative aggregation, thus, the Storeys must reference the BuildingRooms using XLink relations.</p>
+<p>BuildingRooms are usually represented inline as part of the Building they belong to, thus, the Building represents the natural aggregation. In addition, Storeys can group BuildingRooms to indicate which BuildingRoom belongs to which Storey. This grouping represents an alternative aggregation, thus, the Storeys must reference the BuildingRooms using XLink references.</p>
 </div>
 <div class="paragraph">
 <p><strong>Example 4: A Building installation spanning across several Building Parts</strong></p>
@@ -5293,7 +5293,7 @@ The rules clearly define when to create new versions of features and when to ref
 <p>When only the top-level feature changes, a new version of the top-level feature shall be created which receives a new gml:id.</p>
 </li>
 <li>
-<p>All subordinate features, i.e. the features that are part of the top-level feature, must remain unchanged and must be referenced in their unchanged version by the new version of the top-level feature via their gml:id using XLinks.</p>
+<p>All subordinate features, i.e. the features that are part of the top-level feature, must remain unchanged and must be referenced in their unchanged version by the new version of the top-level feature via their gml:id using XLink.</p>
 </li>
 </ol>
 </div>
@@ -14639,7 +14639,7 @@ Volume is the measure of the physical space of any 3-D geometric object.<br>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-02-25 17:48:12 +0100
+Last updated 2022-03-02 19:35:00 +0100
 </div>
 </div>
 </body>
