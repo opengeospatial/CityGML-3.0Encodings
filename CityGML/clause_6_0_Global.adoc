@@ -137,7 +137,7 @@ For these cases, different recommendations are provided for how to encode the re
 [[linking-rules-2-section]]
 =====  Rule 2: Referencing geometries of spaces and space boundaries
 
-. The geometry describing a space shall be stored with the space or its space boundaries.
+. [The geometry describing a space shall be stored with the space or its space boundaries.]
 . Geometries stored inline a space boundary must be referenced from the geometry of the space using XLinks.
 . Space boundaries shall not reference geometries of the space using XLinks.
 . The geometry of a space may contain the geometries of nested spaces.
@@ -158,7 +158,7 @@ The building (=space) in <<figure-example-simple-building>> is modelled in LOD2 
 The GML file is available here:
 https://github.com/opengeospatial/CityGML-3.0Encodings/tree/xlinks-discussion/CityGML/Examples/Building/XLink_examples/1_SimpleBuilding
 
-The Building from the GML file is illustrated in the object diagram in <<figure-uml-simple-building>>. The XLink relations between the Solid geometry and the Polygon geometries are highlighted in red.
+The Building from the GML file is illustrated in the object diagram in <<figure-uml-simple-building>>. The XLink references between the Solid geometry and the Polygon geometries are highlighted in red.
 
 [[figure-uml-simple-building]]
 .UML object diagram for the building in <<figure-example-simple-building>>.
@@ -177,7 +177,7 @@ The RoofSurface contains four Polygon geometries. Two of these Polygons are roof
 The GML file is available here:
 https://github.com/opengeospatial/CityGML-3.0Encodings/tree/xlinks-discussion/CityGML/Examples/Building/XLink_examples/2_SimpleBuilding_Roof_Overhangs
 
-The Building from the GML file is illustrated in the object diagram in <<figure-uml-building-with-roof-overhangs>>. The XLink relations between the Solid geometry and the Polygon geometries are highlighted in red, the XLink relations between the MultiSurface geometry and the dangling surfaces in blue.
+The Building from the GML file is illustrated in the object diagram in <<figure-uml-building-with-roof-overhangs>>. The XLink references between the Solid geometry and the Polygon geometries are highlighted in red, the XLink references between the MultiSurface geometry and the dangling surfaces in blue.
 
 [[figure-uml-building-with-roof-overhangs]]
 .UML object diagram for the building in <<figure-example-building-with-roof-overhangs>>.
@@ -196,7 +196,7 @@ The space boundaries of the building and of the building installation are all mo
 The GML file is available here:
 https://github.com/opengeospatial/CityGML-3.0Encodings/tree/xlinks-discussion/CityGML/Examples/Building/XLink_examples/3_Building_With_Nested_Features
 
-The Building from the GML file is illustrated in the object diagram in <<figure-uml-building-with-building-installation>>. The XLink relations are highlighted in red.
+The Building from the GML file is illustrated in the object diagram in <<figure-uml-building-with-building-installation>>. The XLink references are highlighted in red.
 
 [[figure-uml-building-with-building-installation]]
 .UML object diagram for the building in <<figure-example-building-with-building-installation>>.
@@ -283,7 +283,7 @@ In <<figure-example-intersection>>, two roads are shown that each have two Secti
 The GML file is available here:
 https://github.com/opengeospatial/CityGML-3.0Encodings/blob/master/CityGML/Examples/Transportation/Basic%20examples/ParkingGarage_CityGML3.0_LOD2_with_CityObjectRelations_and_XLinks.gml
 
-The two Roads and the Intersection from the GML file are illustrated in the object diagram in <<figure-uml-intersection>>. The XLink relation is highlighted in red.
+The two Roads and the Intersection from the GML file are illustrated in the object diagram in <<figure-uml-intersection>>. The XLink references is highlighted in red.
 
 [[figure-uml-intersection]]
 .UML object diagram for the building in <<figure-example-intersection>>.
@@ -291,11 +291,11 @@ image::images/UML_Intersection.png[align="center"]
 
 *Example 2: A specific version of a city model*
 
-A Version features groups, for instance, versions of city objects that are valid within a specific time period. The city model represents the natural aggregation of these versioned city objects, whereas the Version feature represents the alternative aggregation. Thus, the versioned city objects are represented inline as part of the city model, whereas they are referenced by the Version feature using XLink relations.
+A Version features groups, for instance, versions of city objects that are valid within a specific time period. The city model represents the natural aggregation of these versioned city objects, whereas the Version feature represents the alternative aggregation. Thus, the versioned city objects are represented inline as part of the city model, whereas they are referenced by the Version feature using XLink references.
 
 *Example 3: Building rooms belonging to a Storey*
 
-BuildingRooms are usually represented inline as part of the Building they belong to, thus, the Building represents the natural aggregation. In addition, Storeys can group BuildingRooms to indicate which BuildingRoom belongs to which Storey. This grouping represents an alternative aggregation, thus, the Storeys must reference the BuildingRooms using XLink relations.
+BuildingRooms are usually represented inline as part of the Building they belong to, thus, the Building represents the natural aggregation. In addition, Storeys can group BuildingRooms to indicate which BuildingRoom belongs to which Storey. This grouping represents an alternative aggregation, thus, the Storeys must reference the BuildingRooms using XLink references.
 
 *Example 4: A Building installation spanning across several Building Parts*
 
