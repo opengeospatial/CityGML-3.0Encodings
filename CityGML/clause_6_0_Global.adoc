@@ -283,7 +283,7 @@ In <<figure-example-intersection>>, two roads are shown that each have two Secti
 The GML file is available here:
 https://github.com/opengeospatial/CityGML-3.0Encodings/blob/master/CityGML/Examples/Transportation/Basic%20examples/ParkingGarage_CityGML3.0_LOD2_with_CityObjectRelations_and_XLinks.gml
 
-The two Roads and the Intersection from the GML file are illustrated in the object diagram in <<figure-uml-intersection>>. The XLink references is highlighted in red.
+The two Roads and the Intersection from the GML file are illustrated in the object diagram in <<figure-uml-intersection>>. The XLink reference is highlighted in red.
 
 [[figure-uml-intersection]]
 .UML object diagram for the building in <<figure-example-intersection>>.
