@@ -1,7 +1,7 @@
 [[versioning-section]]
 === Versioning
 
-The Versioning module supports representation of multiple versions of CityGML features within a single CityGML model. In addition, also the version transitions and transactions that lead to the different versions can be represented.
+The Versioning module supports representation of multiple versions of CityGML features within a single CityGML model. In addition, the version transitions and transactions that lead to the different versions can be represented.
 
 The concepts of the Versioning module are defined in the OGC CityGML 3.0 Conceptual Model standard. The UML diagram for the Versioning module is available under https://docs.ogc.org/is/20-010/20-010.html#versioning-uml[^], the Data Dictionary is available under https://docs.ogc.org/is/20-010/20-010.html#toc60[^].
 
