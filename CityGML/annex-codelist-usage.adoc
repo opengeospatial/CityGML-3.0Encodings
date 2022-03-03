@@ -12,7 +12,7 @@ The values for each of these 140 codelist attributes are interpreted in a specif
 
 === Logical Model
 
-There is no standardized model for CityGML codelists. The following is suggested structure that meets rqeuirements for documenting the source, currency, language, and other characteristics of the list of values. This *suggested* model is followed by the CityGML 3.0 codelist examples hosted by OGC. Note that many existing codelists, maintained by various organizations, are already in existence with different and permissible structures. These codelists remain valid.
+There is no standardized model for CityGML codelists. The following is a suggested structure that meets requirements for documenting the source, currency, language, and other characteristics of the list of values. This *suggested* model is followed by the CityGML 3.0 codelist examples hosted by OGC. Note that many existing codelists, maintained by various organizations, are already in existence with different and permissible structures. These codelists remain valid.
 
 [[codelist_uml]]
 .Suggested Codelist UML Class Diagram
@@ -25,7 +25,6 @@ image::images/codelist_uml.png[codelist UML diagram,align="center"]
 
 This GML encoding of the example logical model for codelists, dictionary entry, and entry metadata have XML schema definitions as follows:
 
-* codelist
 ----
 
 <?xml version="1.0" encoding="utf-8"?>
@@ -115,7 +114,7 @@ The following is an XML example:
 </codelist>
 ----
 
-==== Comma Separated Values(CSV) Structure
+==== Comma Separated Values (CSV) Structure
 
 A suggested CSV encoding of the example logical model is illustrated with the following example with the delimiter '|':
 
