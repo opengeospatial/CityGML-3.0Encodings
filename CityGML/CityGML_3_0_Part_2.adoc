@@ -106,6 +106,10 @@ include::annex-conceptual-model-conformance.adoc[]
 
 include::annex-codelist-usage.adoc[]
 
+include::annex-gml-3.3.adoc[]
+
+include::annex-implementation-decisions.adoc[]
+
 include::annex-history.adoc[]
 
 include::annex-glossary.adoc[]

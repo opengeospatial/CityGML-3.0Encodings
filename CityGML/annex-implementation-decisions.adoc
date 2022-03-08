@@ -1,0 +1,158 @@
+[appendix]
+:appendix-caption: Annex
+
+[[annex-implementation-decisions]]
+== Implementation Decisions (Informative)
+
+[[association-classes-section]]
+=== Encoding of association classes
+
+==== GML encoding of association classes according to ISO 19136-2
+
+ISO 19136-2 defines an encoding rule for association classes. The encoding rule comprises several steps for deriving a GML encoding from association classes which will be explained in the following based on the UML model provided in <<figure-uml-association-class>>.
+
+[[figure-uml-association-class]]
+.UML object diagram for the building in <<figure-example-intersection>>.
+image::images/UML_AssociationClass.png[align="center",width="70%"]
+
+The UML model in <<figure-uml-association-class>> defines association class X with an association between source class A and target class B. The following steps are defined by the encoding rule, resulting in the UML model shown in <<figure-uml-intermediate-class>>:
+
+- Association class X is converted into intermediate class X. The new intermediate class has the same name, stereotype, tagged values, constraints, attributes, and relationships as the original association class.
+- The association between source class A and target class B is replaced by two associations, association 1 between the classes A and X, and association 2 between the classes X and B.
+- The association ends at class X of association 1 and at class B of association 2 receive the role name, navigability, stereotype, and tagged values of the association end at the original target class B. In addition, the association end at class X receives the multiplicity of the association end at the original target class B. The association end at class B receives multiplicity 1.
+- The association ends at class A of association 1 and at class X of association 2 receive the role name, navigability, stereotype, and tagged values of the association end at the original source class A. In addition, the association end at class X receives the multiplicity of the association end at the original source class A. The association end at class A receives multiplicity 1.
+
+[[figure-uml-intermediate-class]]
+.UML model resulting from applying the encoding rule.
+image::images/UML_IntermediateClass.png[align="center"]
+
+The encoding rule can be applied to association classes that are defined with unidirectional, bidirectional or unspecified navigability. Correspondingly, the UML model that results from the encoding rule will also have the associations defined unidirectional, bidirectional or unspecified. The examples here focus on unidirectional associations, since all associations in the CityGML 3.0 Conceptual Model are defined with unidirectional navigability.
+
+==== Encoding of the tagged value “inlineOrByReference” within association classes
+
+The tagged value “inlineOrByReference” from ISO 19136-1 is commonly used for associations to define how a feature (the so-called referenced feature) that is referenced by another feature (the so-called referencing feature) is to be represented in GML instance documents. Three different values are defined for this tagged value:
+
+- inline: the referenced feature is embedded inside the referencing feature
+- byReference: the referenced feature is provided elsewhere in the same or an external GML instance document and is referenced from the referencing feature using XLink
+- inlineOrByReference: both representations, i.e. inline and byReference, are possible and, in addition, a mixture of both representations.
+
+When making use of this tagged value in association classes, the encoding rule described above will add this tagged value to the corresponding association ends of association 1 and 2 after having created the intermediate class. <<figure-uml-association-class-inline>> and <<figure-uml-intermediate-class-inline>> illustrate this. <<figure-uml-association-class-inline>> assumes that for the association end at class B the tagged value “inlineOrByReference” is set to the value “inline”. After applying the encoding rule, both the association ends at class X and at class B, will exhibit the value “inline” as is shown in <<figure-uml-intermediate-class-inline>>. Similarly, when the association in <<figure-uml-association-class-inline>> will have the value “byReference” or “inlineOrByReference”, both associations in Figure 4 will exhibit the value “byReference” or “inlineOrByReference”, respectively.
+
+[[figure-uml-association-class-inline]]
+.Association class with the tagged value “inlineOrByReference” set to “inline”.
+image::images/UML_AssociationClass_Inline.png[align="center",width="70%"]
+
+[[figure-uml-intermediate-class-inline]]
+.“inlineOrByReference” settings after applying the encoding rule.
+image::images/UML_IntermediateClass_Inline.png[align="center"]
+
+Using this tagged value means that three different encodings can be obtained depending on which of the three values is set. These different encodings are illustrated in the following by three different GML instance documents. The source class A, the target class B, and the intermediate class X are represented by corresponding XML elements <A>, <B>, and <X>. The associations between the classes A and X and between X and B are both represented by the property element <role>. For illustration purposes, the GML instance documents do not contain root elements and namespaces.
+
+The first GML instance document (<<listing-gml-inline>>) is obtained when setting the tagged value to “inline”. Here, element X needs to be provided inline element A and element B inline element X.
+
+[[listing-gml-inline]]
+.GML instance document for the value “inline”.
+[source,XML]
+----
+<A gml:id="f1">
+  <role>
+    <X gml:id="f3">
+      <role>
+        <B gml:id="f2">
+        </B>
+      </role>
+    </X>
+  </role>
+</A>
+----
+
+The second GML instance document (<<listing-gml-byreference>>) results from setting the tagged value to “byReference”. Here, element A references element X and element X references element B using XLink.
+
+[[listing-gml-byreference]]
+.GML instance document for the value “byReference”.
+[source,XML]
+----
+<A gml:id="f1">
+  <role xlink:href="#f3"/>
+</A>
+<X gml:id="f3">
+  <role xlink:href="#f2"/>
+</X>
+<B gml:id="f2">
+</B>
+----
+
+The third GML instance document (<<listing-gml-inlineorbyreference>>) is obtained when the tagged value is set to “inlineOrByReference”. Here, the inline and byReference representations are combined, i.e., element X is provided inline element A and element B is referenced by element X using XLink. Alternatively, it is also possible that element X is referenced by element A and element B is provided inline element X. In addition, also the GML instances as shown above for “inline” and “byReference” can be represented with the value “inlineOrByReference”.
+
+[[listing-gml-inlineorbyreference]]
+.GML instance document for the value “inlineOrByReference”.
+[source,XML]
+----
+<A gml:id="f1">
+  <role>
+    <X gml:id="f3">
+      <role xlink:href="f2"/>
+    </X>
+  </role>
+</A>
+<B gml:id="f2">
+</B>
+----
+
+==== Restricting the combination of inline and byReference representations in the GML encoding using an Implementation Model
+
+As described above, four different instance representations are possible in the case of the “inlineOrByReference” value. This behaviour is not desired in the GML encoding of the CityGML 3.0 Conceptual Model, as it allows for too many possibilities of how to reference features and, thus, needs to be restricted.
+
+In the CityGML 3.0 Conceptual Model, this setting affects two association classes, _CityObjectRelation_ in the Core module and _Role_ in the CityObjectGroup module. For both, the only desired way of representing them in GML instance documents is the structure shown in <<listing-gml-inlineorbyreference>>. This structure can be specified in a UML model as shown in <<figure-uml-intermediate-class-byreference>>. After converting the association class into an intermediate class, the tagged value of association 1 nneds to receive the value “inline” and the tagged value of association 2 the value “byReference”. (Please note: The CityGML 3.0 Conceptual Model also defines the association class _TextureAssociation_ in the Appearance module. This association class, however, is not affected here, because it makes use of the value “inline” for which the encoding is correct.)
+
+[[figure-uml-intermediate-class-byreference]]
+.Desired settings for the value “inlineOrByReference” after applying the encoding rule.
+image::images/UML_IntermediateClass_Byreference.png[align="center"]
+
+In order to obtain the restricted structure in GML instance documents, an Implementation Model is created prior to the GML encoding of the CityGML 3.0 Conceptual Model. Within the Implementation Model, the association classes are manually converted into intermediate classes and the tagged values of the associations are set as shown in <<figure-uml-intermediate-class-byreference>>. This means that the encoding will directly be performed on the Implementation Model. This solution guarantees for representing references between features according to <<listing-gml-inlineorbyreference>> in GML instance documents and it can be applied directly without any changes to the conversion tools.
+
+In the following, the solution will be exemplified based on the association class CityObjectRelation. This association class can be used to specify relationships between different features, e.g. it can be expressed that the WallSurface of one building shares the Polygon geometry with the WallSurface of a second Building. The association class is illustrated in <<figure-uml-cityobjectrelation-associationclass>>, the tagged value is set to “inlineOrByReference”.
+
+[[figure-uml-cityobjectrelation-associationclass]]
+.Association class CityObjectRelation.
+image::images/UML_CityObjectRelation_AssociationClass.png[align="center",width="70%"]
+
+Within the Implementation Model, this association class is manually converted into an intermediate class and the tagged values of the associations are set as illustrated in <<figure-uml-cityobjectrelation-intermediateclass>>. Afterwards, the XML schemas are derived from the Implementation Model.
+
+[[figure-uml-cityobjectrelation-intermediateclass]]
+.Association class CityObjectRelation represented as intermediate class.
+image::images/UML_CityObjectRelation_IntermediateClass.png[align="center",width="70%"]
+
+Within a GML instance document, specifying that the WallSurfaces of two buildings share the same geometry is then restricted to the structure as shown in <<listing-gml-inlineorbyreference-cityobjectrelation>>. The source and target classes are represented by two XML elements <WallSurface> and the intermediate class by the element <CityObjectRelation>. The element WallSurface of building 1 provides the element CityObjectRelation inline, whereas the element CityObjectRelation references the WallSurface element of building 2 using XLink. In the same way, building 2 provides the element CityObjectRelation inline its WallSurface, and the CityObjectRelation references the WallSurface of building 1 using Xlink.
+
+[[listing-gml-inlineorbyreference-cityobjectrelation]]
+.GML instance document for the association class CityObjectRelation.
+[source,XML]
+----
+<bldg:Building gml:id="bldg_1">
+  <boundary>
+    <con:WallSurface gml:id="bldg_1_ws_2">
+      <relatedTo>
+        <CityObjectRelation>
+          <relationType>shared</relationType>
+          <relatedTo xlink:href="#bldg_2_ws_4"/>
+        </CityObjectRelation>
+      </relatedTo>
+      <lod2MultiSurface> ... </lod2MultiSurface>
+    </con:WallSurface>
+  </boundary>
+</bldg:Building>
+<bldg:Building gml:id="bldg_2">
+  <boundary>
+    <con:WallSurface gml:id="bldg_2_ws_4">
+      <relatedTo>
+        <CityObjectRelation>
+          <relationType>equal</relationType>
+          <relatedTo xlink:href="#bldg_1_ws_2"/>
+        </CityObjectRelation>
+      </relatedTo>
+      <lod2MultiSurface> ... </lod2MultiSurface>
+    </con:WallSurface>
+  </boundary>
+</bldg:Building>
+----

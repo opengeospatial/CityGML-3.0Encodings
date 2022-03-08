@@ -3,6 +3,17 @@
 
 This chapter defines general requirements which are valid for all Conformance Classes and cannot be derived from the GML schemas.
 
+
+[[gml-section]]
+==== Use of GML 3.2.1
+
+The CityGML 3.0 GML schemas have been derived based on the OGC GML 3.2.1 standard. This means that CityGML GML instance documents must be created and exchanged in the GML version 3.2.1.
+
+NOTE: Add requirement in tabular form
+
+If for certain reasons the use of GML 3.3 is preferred, <<annex-gml-3.3>> provides an example for how to make use of GML 3.3 in CityGML instance documents. Please note, however, that software compliant to this standard might not be able to read the additional GML 3.3 content.
+
+
 [[object-identifier-section]]
 ==== Object identifiers for features and geometries
 
@@ -33,7 +44,7 @@ The two attributes are defined in the UML class _AbstractFeature_ as part of the
 .Use of the identity attributes in CityGML 3 instance documents.
 [source,XML,highlight='1,2']
 ----
-<bldg:Building gml:id="B1020_t1">
+<bldg:Building gml:id="B1020">
   <gml:identifier codeSpace="www.xyz.org">B1020</gml:identifier>
   <core:creationDate>2012-08-02T00:00:00</core:creationDate>
   <core:terminationDate>2013-10-09T00:00:00</core:terminationDate>
@@ -41,7 +52,7 @@ The two attributes are defined in the UML class _AbstractFeature_ as part of the
 </bldg:Building>
 ----
 
-The GML encoding implements the geometry model defined in ISO 19107. This means that all geometries are derived from the class AbstractGML as well and, thus, also geometries exhibit the same unique identity as features do. The fact that geometries also have identifiers is of particular importance for CityGML, since CityGML requires defining references to geometries. One example is the application of textures to surfaces. The textures reference the gml:ids of those LinearRings that describe the boundaries of the surface geometries (e.g. Triangle, Polygon, or a MultiSurface consisting of Polygons) to which the textures are applied. Another example is that the CityGML GML encoding allows for realising topological relationships amongst others through referencing of shared geometries.
+The GML encoding implements the geometry model defined in ISO 19107. This means that all geometries are derived from the class AbstractGML as well and, thus, also geometries exhibit the same unique identity as features do. The fact that geometries also have an identity is of particular importance for CityGML, since CityGML requires defining references to geometries. For these references, only the gml:id attribute is of interest. One example is the application of textures to surfaces. The textures reference the gml:ids of those LinearRings that describe the boundaries of the surface geometries (e.g. Triangle, Polygon, or a MultiSurface consisting of Polygons) to which the textures are applied. Another example is that the CityGML GML encoding allows for realising topological relationships amongst others through referencing of shared geometries.
 
 [[referencing-features-section]]
 ==== Referencing features and geometries
@@ -126,12 +137,12 @@ Three different cases for non-redundant representation need to be differentiated
 . One geometry can be part of the representation of different features. An example is a road across a bridge, the road surface sharing the geometry with the roof surface of the bridge.
 . One and the same feature can belong to different aggregations. Examples are an intersection that belongs to two roads, the intersection being one and the same feature for both roads, or features that belong to a CityObjectGroup and that are already integral part of the city model.
 
-For these cases, different recommendations are provided for how to encode the references in CityGML. Although these recommendations impose restrictions, they facilitate at the same time reading, storing, processing, and generating of CityGML documents, because they reduce the multiple possibilities of how to represent and link features and geometries in CityGML documents to the most appropriate ones. Furthermore, top-level features can now completely be loaded in the main memory, because links to shared geometries that are part of different top-level features represented further down in the GML document do not need to be resolved any more. This also facilitates querying features and geometries using web services, as up to now queries cannot address specific parts of a geometry. Maintenance becomes easier as well, because links between feature geometries do not need to be maintained and updated any more when a feature changes its geometry or when the feature does not exist anymore.
+For these cases, different requirements are provided for how to encode the references in CityGML. Although these requirements impose restrictions, they facilitate at the same time reading, storing, processing, and generating of CityGML documents, because they reduce the multiple possibilities of how to represent and link features and geometries in CityGML documents to the most appropriate ones. Furthermore, top-level features can now completely be loaded in the main memory, because links to shared geometries that are part of different top-level features represented further down in the GML document do not need to be resolved any more. This also facilitates querying features and geometries using web services, as up to now queries cannot address specific parts of a geometry. Maintenance becomes easier as well, because links between feature geometries do not need to be maintained and updated any more when a feature changes its geometry or when the feature does not exist anymore.
 
 [[linking-rules-1-section]]
 =====  Rule 1: Referencing geometries using XLinks within the same and from different top-level features
 
-. XLinks may be used to reference geometries within the same top-level feature in accordance with Recommendation 2.
+. XLinks may be used to reference geometries within the same top-level feature in accordance with Rule 2.
 . XLinks shall not be used to reference geometries from another top-level feature.
 
 [[linking-rules-2-section]]
@@ -172,7 +183,7 @@ image::images/Example_BuildingWithRoofOverhangs.png[width="25%"]
 
 The building (=space) in <<figure-example-building-with-roof-overhangs>> is modelled in LOD2 as Solid geometry and is bounded by four WallSurfaces, one RoofSurface, and one GroundSurface (=space boundaries). All space boundaries are modelled as Polygon geometries. The Solid geometry of the building references the Polygon geometries using XLink.
 
-The RoofSurface contains four Polygon geometries. Two of these Polygons are roof overhangs (i.e. dangling surfaces), and, thus, are not referenced by the Solid geometry of the building, as they would render the solid invalid if referenced. For this reason, an additional MultiSurface geometry is added to the building that references the dangling surfaces.
+The RoofSurface contains four Polygon geometries. Two of these Polygons are roof overhangs (i.e. dangling surfaces), and, thus, are not referenced by the Solid geometry of the building, as they would render the solid invalid if referenced. For this reason, an additional MultiSurface geometry is added to the building that references the dangling surfaces. In accordance with Rule 2 this MultiSurface geometry is optional. It is added to the building to provide additional information, but it is not mandatory to add this geometry.
 
 The GML file is available here:
 https://github.com/opengeospatial/CityGML-3.0Encodings/tree/xlinks-discussion/CityGML/Examples/Building/XLink_examples/2_SimpleBuilding_Roof_Overhangs
@@ -191,7 +202,7 @@ image::images/Example_BuildingWithBuildingInstallation.png[width="25%"]
 
 The building (=space) in <<figure-example-building-with-building-installation>> is modelled in LOD2 as Solid geometry and is bounded by eight WallSurfaces, four RoofSurfaces, and one GroundSurface (=space boundaries). In addition, the building has a dormer that is modelled as BuildingInstallation (=space). The building installation is modelled as MultiSurface geometry and is bounded by one RoofSurface and three WallSurfaces (=space boundaries).
 
-The space boundaries of the building and of the building installation are all modelled as Polygon geometries. The Solid geometry of the building references those Polygon geometries that represent the space boundaries of the building space using XLink. The MultiSurface geometry of the building installation references those Polygon geometries that represent the space boundaries of the building installation using XLink. In addition, the Solid geometry may also reference the Polygon geometries that represent the space boundaries of the building installation using XLink.
+The space boundaries of the building and of the building installation are all modelled as Polygon geometries. The Solid geometry of the building references those Polygon geometries that represent the space boundaries of the building space using XLink. The MultiSurface geometry of the building installation references those Polygon geometries that represent the space boundaries of the building installation using XLink. In addition, the Solid geometry may also reference the Polygon geometries that represent the space boundaries of the building installation using XLink. These references to the geometries of a nested space are optional, in accordance with Rule 2 it is also allowed to not reference these geometries.
 
 The GML file is available here:
 https://github.com/opengeospatial/CityGML-3.0Encodings/tree/xlinks-discussion/CityGML/Examples/Building/XLink_examples/3_Building_With_Nested_Features
@@ -205,13 +216,12 @@ image::images/UML_BuildingWithBuildingInstallation.png[align="center"]
 [[linking-rules-3-section]]
 ===== Rule 3: Expressing shared geometries between top-level features using CityObjectRelations
 
-. If two top-level features share a common geometry, the shared geometry must be stored for each top-level feature separately (follows from Recommendation 1).
+. If two top-level features share a common geometry, the shared geometry must be stored for each top-level feature separately (follows from Rule 1).
 . A CityObjectRelation may be modelled for the features where the shared geometries are stored (might be the top-level feature itself or one of its nested features).
 . Each CityObjectRelation must be assigned the relation type “shared”.
 . Each CityObjectRelation must reference the other feature using an XLink. Thus, the reference shall be bi-directional.
 
-CityObjectRelation represents a link at the feature level (“feature link”) referencing the ID of another feature that contains a shared geometry.
-The explicit representation of the relation between the features facilitates spatial analyses. For visualisation it would be enough to render only one of the two surfaces (if the viewer is capable of doing so).
+CityObjectRelation represents a link at the feature level (“feature link”) referencing the ID of another feature that contains a shared geometry. The explicit representation of the relation between the features facilitates spatial analyses.
 
 *Example 1: Two buildings with shared boundary surface*
 
@@ -306,192 +316,3 @@ This means, that one of the BuildingParts represents the natural aggregation of 
 *Example 5: CityObjectGroups*
 
 A CityObjectGroup groups existing city objects that are usually represented inline somewhere else in the data set. Thus, CityObjectGroups represent alternative aggregations and have to use XLink to reference the city objects they are grouping.
-
-[[association-classes-section]]
-==== Encoding of association classes
-
-===== GML encoding of association classes according to ISO 19136-2
-
-ISO 19136-2 defines an encoding rule for association classes. The encoding rule comprises several steps for deriving a GML encoding from association classes which will be explained in the following based on the UML model provided in <<figure-uml-association-class>>.
-
-[[figure-uml-association-class]]
-.UML object diagram for the building in <<figure-example-intersection>>.
-image::images/UML_AssociationClass.png[align="center",width="70%"]
-
-The UML model in <<figure-uml-association-class>> defines association class X with an association between source class A and target class B. The following steps are defined by the encoding rule, resulting in the UML model shown in <<figure-uml-intermediate-class>>:
-
-- Association class X is converted into intermediate class X. The new intermediate class has the same name, stereotype, tagged values, constraints, attributes, and relationships as the original association class.
-- The association between source class A and target class B is replaced by two associations, association 1 between the classes A and X, and association 2 between the classes X and B.
-- The association ends at class X of association 1 and at class B of association 2 receive the role name, navigability, stereotype, and tagged values of the association end at the original target class B. In addition, the association end at class X receives the multiplicity of the association end at the original target class B. The association end at class B receives multiplicity 1.
-- The association ends at class A of association 1 and at class X of association 2 receive the role name, navigability, stereotype, and tagged values of the association end at the original source class A. In addition, the association end at class X receives the multiplicity of the association end at the original source class A. The association end at class A receives multiplicity 1.
-
-[[figure-uml-intermediate-class]]
-.UML model resulting from applying the encoding rule.
-image::images/UML_IntermediateClass.png[align="center"]
-
-The encoding rule can be applied to association classes that are defined with unidirectional, bidirectional or unspecified navigability. Correspondingly, the UML model that results from the encoding rule will also have the associations defined unidirectional, bidirectional or unspecified. The examples here focus on unidirectional associations, since all associations in the CityGML 3.0 Conceptual Model are defined with unidirectional navigability.
-
-===== Encoding of the tagged value “inlineOrByReference” within association classes
-
-The tagged value “inlineOrByReference” from ISO 19136-1 is commonly used for associations to define how a feature (the so-called referenced feature) that is referenced by another feature (the so-called referencing feature) is to be represented in GML instance documents. Three different values are defined for this tagged value:
-
-- inline: the referenced feature is embedded inside the referencing feature
-- byReference: the referenced feature is provided elsewhere in the same or an external GML instance document and is referenced from the referencing feature using XLink
-- inlineOrByReference: both representations, i.e. inline and byReference, are possible and, in addition, a mixture of both representations.
-
-When making use of this tagged value in association classes, the encoding rule described above will add this tagged value to the corresponding association ends of association 1 and 2 after having created the intermediate class. <<figure-uml-association-class-inline>> and <<figure-uml-intermediate-class-inline>> illustrate this. <<figure-uml-association-class-inline>> assumes that for the association end at class B the tagged value “inlineOrByReference” is set to the value “inline”. After applying the encoding rule, both the association ends at class X and at class B, will exhibit the value “inline” as is shown in <<figure-uml-intermediate-class-inline>>. Similarly, when the association in <<figure-uml-association-class-inline>> will have the value “byReference” or “inlineOrByReference”, both associations in Figure 4 will exhibit the value “byReference” or “inlineOrByReference”, respectively.
-
-[[figure-uml-association-class-inline]]
-.Association class with the tagged value “inlineOrByReference” set to “inline”.
-image::images/UML_AssociationClass_Inline.png[align="center",width="70%"]
-
-[[figure-uml-intermediate-class-inline]]
-.“inlineOrByReference” settings after applying the encoding rule.
-image::images/UML_IntermediateClass_Inline.png[align="center"]
-
-Using this tagged value means that three different encodings can be obtained depending on which of the three values is set. These different encodings are illustrated in the following by three different GML instance documents. The source class A, the target class B, and the intermediate class X are represented by corresponding XML elements <A>, <B>, and <X>. The associations between the classes A and X and between X and B are both represented by the property element <role>. For illustration purposes, the GML instance documents do not contain root elements and namespaces.
-
-The first GML instance document (<<listing-gml-inline>>) is obtained when setting the tagged value to “inline”. Here, element X needs to be provided inline element A and element B inline element X.
-
-[[listing-gml-inline]]
-.GML instance document for the value “inline”.
-[source,XML]
-----
-<A gml:id="f1">
-  <role>
-    <X gml:id="f3">
-      <role>
-        <B gml:id="f2">
-        </B>
-      </role>
-    </X>
-  </role>
-</A>
-----
-
-The second GML instance document (<<listing-gml-byreference>>) results from setting the tagged value to “byReference”. Here, element A references element X and element X references element B using XLink.
-
-[[listing-gml-byreference]]
-.GML instance document for the value “byReference”.
-[source,XML]
-----
-<A gml:id="f1">
-  <role xlink:href="#f3"/>
-</A>
-<X gml:id="f3">
-  <role xlink:href="#f2"/>
-</X>
-<B gml:id="f2">
-</B>
-----
-
-The third GML instance document (<<listing-gml-inlineorbyreference>>) is obtained when the tagged value is set to “inlineOrByReference”. Here, the inline and byReference representations are combined, i.e., element X is provided inline element A and element B is referenced by element X using XLink. Alternatively, it is also possible that element X is referenced by element A and element B is provided inline element X. In addition, also the GML instances as shown above for “inline” and “byReference” can be represented with the value “inlineOrByReference”.
-
-[[listing-gml-inlineorbyreference]]
-.GML instance document for the value “inlineOrByReference”.
-[source,XML]
-----
-<A gml:id="f1">
-  <role>
-    <X gml:id="f3">
-      <role xlink:href="f2"/>
-    </X>
-  </role>
-</A>
-<B gml:id="f2">
-</B>
-----
-
-===== Restricting the combination of inline and byReference representations in the GML encoding using an Implementation Model
-
-As described above, four different instance representations are possible in the case of the “inlineOrByReference” value. This behaviour is not desired in the GML encoding of the CityGML 3.0 Conceptual Model, as it allows for too many possibilities of how to reference features and, thus, needs to be restricted.
-
-In the CityGML 3.0 Conceptual Model, this setting affects two association classes, _CityObjectRelation_ in the Core module and _Role_ in the CityObjectGroup module. For both, the only desired way of representing them in GML instance documents is the structure shown in <<listing-gml-inlineorbyreference>>. This structure can be specified in a UML model as shown in <<figure-uml-intermediate-class-byreference>>. After converting the association class into an intermediate class, the tagged value of association 1 nneds to receive the value “inline” and the tagged value of association 2 the value “byReference”. (Please note: The CityGML 3.0 Conceptual Model also defines the association class _TextureAssociation_ in the Appearance module. This association class, however, is not affected here, because it makes use of the value “inline” for which the encoding is correct.)
-
-[[figure-uml-intermediate-class-byreference]]
-.Desired settings for the value “inlineOrByReference” after applying the encoding rule.
-image::images/UML_IntermediateClass_Byreference.png[align="center"]
-
-In order to obtain the restricted structure in GML instance documents, an Implementation Model is created prior to the GML encoding of the CityGML 3.0 Conceptual Model. Within the Implementation Model, the association classes are manually converted into intermediate classes and the tagged values of the associations are set as shown in <<figure-uml-intermediate-class-byreference>>. This means that the encoding will directly be performed on the Implementation Model. This solution guarantees for representing references between features according to <<listing-gml-inlineorbyreference>> in GML instance documents and it can be applied directly without any changes to the conversion tools.
-
-In the following, the solution will be exemplified based on the association class CityObjectRelation. This association class can be used to specify relationships between different features, e.g. it can be expressed that the WallSurface of one building shares the Polygon geometry with the WallSurface of a second Building. The association class is illustrated in <<figure-uml-cityobjectrelation-associationclass>>, the tagged value is set to “inlineOrByReference”.
-
-[[figure-uml-cityobjectrelation-associationclass]]
-.Association class CityObjectRelation.
-image::images/UML_CityObjectRelation_AssociationClass.png[align="center",width="70%"]
-
-Within the Implementation Model, this association class is manually converted into an intermediate class and the tagged values of the associations are set as illustrated in <<figure-uml-cityobjectrelation-intermediateclass>>. Afterwards, the XML schemas are derived from the Implementation Model.
-
-[[figure-uml-cityobjectrelation-intermediateclass]]
-.Association class CityObjectRelation represented as intermediate class.
-image::images/UML_CityObjectRelation_IntermediateClass.png[align="center",width="70%"]
-
-Within a GML instance document, specifying that the WallSurfaces of two buildings share the same geometry is then restricted to the structure as shown in <<listing-gml-inlineorbyreference-cityobjectrelation>>. The source and target classes are represented by two XML elements <WallSurface> and the intermediate class by the element <CityObjectRelation>. The element WallSurface of building 1 provides the element CityObjectRelation inline, whereas the element CityObjectRelation references the WallSurface element of building 2 using XLink. In the same way, building 2 provides the element CityObjectRelation inline its WallSurface, and the CityObjectRelation references the WallSurface of building 1 using Xlink.
-
-[[listing-gml-inlineorbyreference-cityobjectrelation]]
-.GML instance document for the association class CityObjectRelation.
-[source,XML]
-----
-<bldg:Building gml:id="bldg_1">
-  <boundary>
-    <con:WallSurface gml:id="bldg_1_ws_2">
-      <relatedTo>
-        <CityObjectRelation>
-          <relationType>shared</relationType>
-          <relatedTo xlink:href="#bldg_2_ws_4"/>
-        </CityObjectRelation>
-      </relatedTo>
-      <lod2MultiSurface> ... </lod2MultiSurface>
-    </con:WallSurface>
-  </boundary>
-</bldg:Building>
-<bldg:Building gml:id="bldg_2">
-  <boundary>
-    <con:WallSurface gml:id="bldg_2_ws_4">
-      <relatedTo>
-        <CityObjectRelation>
-          <relationType>equal</relationType>
-          <relatedTo xlink:href="#bldg_1_ws_2"/>
-        </CityObjectRelation>
-      </relatedTo>
-      <lod2MultiSurface> ... </lod2MultiSurface>
-    </con:WallSurface>
-  </boundary>
-</bldg:Building>
-----
-
-[[gml-section]]
-==== Usage of GML 3.2.1 and GML 3.3
-
-This CityGML 3.0 GML schemas have been derived based on the OGC GML 3.2.1 standard. This means that CityGML GML instance documents can be created and exchanged in the GML version 3.2.1.
-
-For certain applications, however, it might be useful to create CityGML GML instance documents in the GML version 3.3. GML 3.3 complements GML 3.2.1 with concepts such as compact encodings of geometry types, linear referencing concepts (e.g., linear element, distance along, Linear Referencing Methods), TINs, and encoding rules for association classes.
-
-To be able to create CityGML instance documents based on GML 3.3, those GML 3.3 XML schemas that define the required concepts need to be referenced in the XML root element <CityModel> of CityGML GML instance documents. This is illustrated in <<listing-gml-3.3>>. The RoofSurface of the building is to be represented by a SimplePolygon which is a compact encoding of a Polygon defined in the GML 3.3 XML schema http://www.opengis.net/gml/3.3/ce. Thus, this XML schema is referenced in the root element by indicating its namespace and schema location.
-
-[[listing-gml-3.3]]
-.Use of GML 3.3 concepts in a CityGML GML instance document.
-[source,XML,highlight="1,10,12"]
-----
-<CityModel xmlns:gmlce="http://www.opengis.net/gml/3.3/ce" ... further Namespaces ... xsi:schemaLocation="http://www.opengis.net/gml/3.3/ce http://schemas.opengis.net/gml/3.3/geometryCompact.xsd ... further schema location entries ...">
-  <cityObjectMember>
-    <bldg:Building gml:id="DEBY_LOD2_5744682">
-      ....
-      <boundary>
-        <con:RoofSurface>
-          <lod2MultiSurface>
-            <gml:MultiSurface gml:id="ms1">
-              <gml:surfaceMember>
-                <gmlce:SimplePolygon gml:id="sp1">
-                      <gml:posList> ... coordinates ... </gml:posList>
-                </gmlce:SimplePolygon>
-              </gml:surfaceMember>
-            </gml:MultiSurface>
-          </lod2MultiSurface>
-        </con:RoofSurface>
-      </boundary>
-      ...
-    </bldg:Building>
-  </cityObjectMember>
-</CityModel>
-----

@@ -1,0 +1,40 @@
+[appendix]
+:appendix-caption: Annex
+
+[[annex-gml-3.3]]
+== Use of GML 3.3 (Informative)
+
+
+The CityGML 3.0 GML schemas have been derived based on the OGC GML 3.2.1 standard. This means that CityGML GML instance documents must be created and exchanged in the GML version 3.2.1.
+
+For certain applications, however, it might be useful to create CityGML GML instance documents in the GML version 3.3. GML 3.3 complements GML 3.2.1 with concepts such as compact encodings of geometry types, linear referencing concepts (e.g., linear element, distance along, linear referencing methods), TINs, and encoding rules for association classes.
+Please note that software compliant to this standard might not be able to read the additional GML 3.3 concepts. This depends on whether the software only supports GML 3.2.1 or also GML 3.3.
+
+To be able to create CityGML instance documents based on GML 3.3, those GML 3.3 XML schemas that define the required concepts need to be referenced in the XML root element <CityModel> of CityGML GML instance documents. This is illustrated in <<listing-gml-3.3>>. The RoofSurface of the building is to be represented by a SimplePolygon which is a compact encoding of a Polygon defined in the GML 3.3 XML schema http://www.opengis.net/gml/3.3/ce. Thus, this XML schema is referenced in the root element by indicating its namespace and schema location.
+
+[[listing-gml-3.3]]
+.Use of GML 3.3 concepts in a CityGML GML instance document.
+[source,XML,highlight="1,10,12"]
+----
+<CityModel xmlns:gmlce="http://www.opengis.net/gml/3.3/ce" ... further Namespaces ... xsi:schemaLocation="http://www.opengis.net/gml/3.3/ce http://schemas.opengis.net/gml/3.3/geometryCompact.xsd ... further schema location entries ...">
+  <cityObjectMember>
+    <bldg:Building gml:id="DEBY_LOD2_5744682">
+      ....
+      <boundary>
+        <con:RoofSurface>
+          <lod2MultiSurface>
+            <gml:MultiSurface gml:id="ms1">
+              <gml:surfaceMember>
+                <gmlce:SimplePolygon gml:id="sp1">
+                      <gml:posList> ... coordinates ... </gml:posList>
+                </gmlce:SimplePolygon>
+              </gml:surfaceMember>
+            </gml:MultiSurface>
+          </lod2MultiSurface>
+        </con:RoofSurface>
+      </boundary>
+      ...
+    </bldg:Building>
+  </cityObjectMember>
+</CityModel>
+----
