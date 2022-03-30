@@ -1,6 +1,9 @@
 [[annex-examples-building]]
 === Building Examples
 
+==== Buildings Units for representing ownership
+
+
 - Building in LOD0
 - Building in LOD1
 - Building in LOD2
