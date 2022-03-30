@@ -17,3 +17,5 @@ include::annex-examples-dynamizer.adoc[]
 include::annex-examples-versioning.adoc[]
 
 include::annex-examples-localcrs.adoc[]
+
+include::annex-examples-ade.adoc[]

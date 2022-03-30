@@ -1,0 +1,16 @@
+[[annex-examples-ade]]
+=== Application Domain Extension (ADE) Examples
+
+The CityGML 3.0 Conceptual Model introduces the concept of the https://docs.ogc.org/is/20-010/20-010.html#toc66[Application Domain Extension (ADE)] to ensure extensibility of the CityGML data model as in the previous version CityGML 2.0. The ADE mechanism allows to add new application-specific feature types, to inject additional properties to the predefined CityGML feature types, to associate application data with predefined CityGML content, or to define value domains for attributes.
+
+Since CityGML 3.0 applies the Model-Driven Architecture approach which separates the conceptual model and the encoding, the development of ADEs differs from CityGML 2.0. In a first step, ADEs shall be defined as UML conceptual models. Afterwards, XML schemas shall be derived automatically from the UML conceptual models using suitable software tools. This is identical to the creation of the CityGML 3.0 XML schemas which have been derived automatically from the CityGML 3.0 UML Conceptual Model.
+
+This chapter will illustrate the workflow of ADE generation using the example of two ADEs: 1) a so-called Test ADE, which is an artificial ADE that comprises all possible scenarios that can occur in an ADE, and 2) the Urban Planning ADE as real-world example.
+
+For both ADEs, UML models have been created based on the rules described in Chapter 9 of the CityGML 3.0 Conceptual Model standard for how to define UML models for ADEs. The UML models were created using the Enterprise Architect project file that already contains the CityGML 3.0 UML model. Afterwards, the software tool ShapeChange was applied to the UML models to derive the XML schemas. Finally, test data sets were implemented that validate against the XML schemas.
+
+
+==== Example 1: Test ADE
+
+
+==== Example 2: Urban Planning ADE
