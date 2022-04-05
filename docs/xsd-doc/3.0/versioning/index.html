@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:exslt="http://exslt.org/common"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Schema documentation versioning</title><meta charset="UTF-8"></meta><link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet"></link><style type="text/css">
+
+
+nav, section {
+  display: block; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+
+/*dl {
+  display: grid;
+  grid-template-columns: max-content auto; }
+  dl dt p, dl dd p {
+    margin-top: 0; }
+  dl dt {
+    grid-column-start: 1; }
+  dl dd {
+    grid-column-start: 2; }
+*/
+
+body {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.4em;
+  color: -internal-root-color;
+  background-color: #ffffff; }
+  body main {
+    margin: 0 3em 0 6em; }
+  body main {
+    margin: 0; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1.3; }
+
+
+body {
+  margin-left: 270px;
+  margin-right: 2em; }
+
+main {
+  padding-left: 4em;
+  padding-right: 2em; }
+
+.title-section{
+  padding-left: 4em;
+  padding-top: 2em; }
+
+
+
+
+
+h2 p {
+  display: inline; }
+
+
+
+/* Navigation*/
+#toc {
+  font-weight: 400; }
+  #toc a {
+   color: black;
+   text-decoration-color: black; }
+  #toc ul {
+    margin: 0;
+    padding: 0;
+    list-style: none; }
+    #toc ul li a {
+      padding: 5px 10px; }
+    #toc ul a {
+      text-decoration: none;
+      display: block; }
+      #toc ul a:hover {
+        box-shadow: none;
+        color: black; }
+  #toc .h2 {
+    padding-left: 30px; }
+  #toc .h3 {
+    padding-left: 50px; }
+  #toc .toc-active, #toc li:hover {
+    background: #f7f7f7;
+    box-shadow: inset -5px 0px 10px -5px #f7f7f7 !important; }
+    #toc .toc-active a, #toc li:hover a {
+      color: black; }
+  @media print {
+    #toc .toc-active, #toc li:hover {
+      background: white;
+      box-shadow: none !important; }
+    #toc li:hover a {
+      color: black; } }
+  @media screen and (max-width: 768px) {
+    #toc {
+      padding: 0 1.5em;
+      overflow: visible; } }
+  #toc .toc-active,
+  #toc li:hover {
+    box-shadow: 0px 1px 0px 0px black !important;
+    background: none; }
+  #toc li:before {
+    content: " ";
+    display: none; }
+
+nav {
+  line-height: 1.2em; }
+  @media screen and (min-width: 768px) {
+    nav {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 270px;
+      font-size: 0.9em;
+      overflow: auto;
+      padding: 0 0 0 0px;
+      background-color: #fefefe; } }
+  @media print {
+    nav {
+      position: relative;
+      width: auto;
+      font-size: 0.9em;
+      overflow: auto;
+      padding: 0;
+      margin-right: 0;
+      background-color: white; } }
+#toggle {
+  margin-left: -4em;
+  margin-top: -2em; }
+  @media screen and (min-width: 768px) {
+    #toggle {
+      position: fixed;
+      height: 100%;
+      width: 20px;
+      font-weight: bold;
+      background-color: #d8e4ff;
+      color: black !important;
+      cursor: pointer;
+      z-index: 100; }
+      #toggle span {
+        text-align: center;
+        width: 100%;
+        position: absolute;
+        top: 50%;
+        transform: translate(0, -50%); } }
+  @media screen and (max-width: 768px) {
+    #toggle {
+      display: none; } }
+  @media print {
+    #toggle {
+      display: none; } }
+@media screen and (min-width: 768px) {
+  .container {
+    padding-left: 360px; }
+  .rule.toc {
+    display: none; }
+  h1.toc-contents {
+    margin-top: 1em; }
+  ul#toc-list {
+    padding: 0;
+    margin: 0; } }
+
+
+ul, ol {
+  margin-left: 2em; }
+
+#toc-list ul {
+  margin-bottom: 0.25em; }
+
+#toc-list ol li {
+  list-style-type: none; }
+
+
+/* XS3P specific CSS */
+body {
+    background-color: #FFF;
+    
+}
+
+.nav > li.active {
+    background-color: #FFF;
+}
+.nav > li > a:hover {
+   
+    background-color: rgb(0,0,0, 0.05);
+}
+
+.nav-sub-item > a {
+    padding-left: 30px !important;
+}
+
+
+.nav-sub-item strong {
+      font-weight: normal; }
+
+//.nav-list-elements
+.nav {
+   //background-color: #efe;
+   background-color: #e4ecff;
+}
+
+.xs3p-sidenav {
+    //background-color: #efe;
+    background-color: #e4ecff;
+}
+
+code {
+    color: #333;
+}
+
+a.name {
+    padding-top: 65px;
+}
+
+a:not([href]) {
+   color:#1c476c;
+}
+
+a:not([href]):hover {
+  text-decoration: none;
+}
+
+
+h3.xs3p-subsection-heading {
+    margin-bottom: 30px;
+}
+
+section, #top {
+    margin-top: -65px;
+    padding-top: 65px;
+}
+
+pre {
+    padding: 5px;
+}
+
+.xs3p-in-panel-table {
+    margin-bottom: 0px;
+}
+
+.xs3p-collapse-button {
+    font-size: 8pt;
+}
+.panel-heading .xs3p-panel-title:after {
+    font-family: 'Glyphicons Halflings';
+    content: "\e114";
+    float: left;
+    color: grey;
+    margin-right: 10px;
+}
+.panel-heading .xs3p-panel-title.collapsed:after {
+    content: "\e080";
+}
+.panel-info > .panel-heading .xs3p-panel-title:after {
+    color: white;
+}
+.xs3p-panel-help {
+    color: #888888;
+    cursor: pointer;
+}
+
+.panel-group {
+    margin-bottom: 20px;
+}
+
+.btn-doc {
+    padding: 0px;
+    border: 0px none;
+    background: none repeat scroll 0% 0% transparent;
+    line-height: 1;
+    font-size: 12px;
+}
+
+.unpre {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    white-space: normal;
+    word-break: normal;
+    word-wrap: normal;
+}
+
+.popover {
+    max-width: 400px;
+}
+
+// Syntax highlighting
+.codehilite .err {color: #FFF; background-color: #D2322D; font-weight: bold;} /* Error */
+.codehilite .c   {color: #999;}
+.codehilite .cs  {color: #999; font-style: italic;}
+.codehilite .nt  {color: #2F6F9F;}
+.codehilite .nn  {color: #39B3D7;}
+.codehilite .na  {color: #47A447;}
+.codehilite .s   {color: #D2322D;}
+.codehilite a       {color: inherit !important; text-decoration: underline !important;}
+.codehilite a:hover {opacity: 0.7 !important;}
+
+dl {
+  margin-bottom: 10px;
+}
+
+dt {
+	font-weight: normal;
+
+	margin-bottom: 10px;
+}
+
+dt.header{
+	font-weight: 700;
+}
+
+.dl-horizontal dt {
+	white-space: normal;
+}
+
+dd.header{
+	font-weight: 700;
+}
+
+dd ul {
+	margin-left: 0em;
+}
+
+.bs-callout {
+   padding: 20px;
+   padding-top: 10px;
+   padding-bottom: 5px;
+   margin: 20px 0;
+   border: 1px solid #eee;
+   border-left-width: 5px;
+   border-radius: 3px;
+}
+.bs-callout-danger {
+   border-left-color: #d9534f;
+}
+.bs-callout-warning {
+   border-left-color: #f0ad4e;
+}
+.bs-callout-info {
+   border-left-color: #5bc0de;
+}
+.bs-callout h4 {
+   margin-top: 0;
+   margin-bottom: 5px;
+}
+.bs-callout-danger h4 {
+   color: #d9534f;
+}
+.bs-callout-warning h4 {
+   color: #f0ad4e;
+}
+.bs-callout-info h4 {
+   color: black;
+   font-size: 11pt;
+}
+
+
+      </style><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js">
+               //Import JQuery, required for Bootstrap
+            </script><script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js">
+               // Import Bootstrap JS code
+            </script><script src="https://cdnjs.cloudflare.com/ajax/libs/pagedown/1.0/Markdown.Converter.js">
+              // Import Markdown converter for comments processing
+            </script></head><body lang="en" xml:lang="en"><div class="title-section"><div id="toggle"><span>&lt;</span></div><div class="modal fade ADEOfVersion" id="idm3212928-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="idm3212928-label">Element ADEOfVersion</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-idm3212928-hidden"><div class="hidden" id="idm3212928-hidden-doc-raw">ADEOfVersion acts as a hook to define properties within an ADE that are to be added to a Version.</div><div class="xs3p-doc" id="idm3212928-hidden-doc"> </div></div></div></div><div class="modal fade ADEOfVersionTransition" id="idm3221376-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="idm3221376-label">Element ADEOfVersionTransition</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-idm3221376-hidden"><div class="hidden" id="idm3221376-hidden-doc-raw">ADEOfVersionTransition acts as a hook to define properties within an ADE that are to be added to a VersionTransition.</div><div class="xs3p-doc" id="idm3221376-hidden-doc"> </div></div></div></div><div class="modal fade Transaction" id="idm3242112-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="idm3242112-label">Element Transaction</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-idm3242112-hidden"><div class="hidden" id="idm3242112-hidden-doc-raw">Transaction represents a modification of the city model by the creation, termination, or replacement of a specific city object. While the creation of a city object also marks its first object version, the termination marks the end of existence of a real world object and, hence, also terminates the final version of a city object. The replacement of a city object means that a specific version of it is replaced by a new version.</div><div class="xs3p-doc" id="idm3242112-hidden-doc"> </div></div></div></div><div class="modal fade type" id="idm3246464-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="idm3246464-label">Element type</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-idm3246464-hidden"><div class="hidden" id="idm3246464-hidden-doc-raw">Indicates the specific type of the Transaction.</div><div class="xs3p-doc" id="idm3246464-hidden-doc"> </div></div></div></div><div class="modal fade oldFeature" id="idm3255680-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="idm3255680-label">Element oldFeature</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-idm3255680-hidden"><div class="hidden" id="idm3255680-hidden-doc-raw">Relates to the version of the city object prior to the Transaction.</div><div class="xs3p-doc" id="idm3255680-hidden-doc"> </div></div><div class="annotation appinfo"><h4>Application Data</h4>
+            <code class="test">&lt;targetElement&gt; <div class="fakeclass3" style="margin-left: 3em">core:AbstractFeatureWithLifespan</div>&lt;/targetElement&gt;</code>
+          <br></br></div></div></div><div class="modal fade newFeature" id="idm3259392-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="idm3259392-label">Element newFeature</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-idm3259392-hidden"><div class="hidden" id="idm3259392-hidden-doc-raw">Relates to the version of the city object subsequent to the Transaction.</div><div class="xs3p-doc" id="idm3259392-hidden-doc"> </div></div><div class="annotation appinfo"><h4>Application Data</h4>
+            <code class="test">&lt;targetElement&gt; <div class="fakeclass3" style="margin-left: 3em">core:AbstractFeatureWithLifespan</div>&lt;/targetElement&gt;</code>
+          <br></br></div></div></div><div class="modal fade TransactionTypeValueType" id="idm3111808-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="idm3111808-label">Simple Type TransactionTypeValueType</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-idm3111808-hidden"><div class="hidden" id="idm3111808-hidden-doc-raw">TransactionTypeValue enumerates the three possible types of transactions: insert, delete, or replace.</div><div class="xs3p-doc" id="idm3111808-hidden-doc"> </div></div></div></div><div class="modal fade TransitionTypeValueType" id="idm3296000-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="idm3296000-label">Simple Type TransitionTypeValueType</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-idm3296000-hidden"><div class="hidden" id="idm3296000-hidden-doc-raw">TransitionTypeValue enumerates the different kinds of version transitions. “planned” and “fork” should be used in cases when from one city model version multiple successor versions are being created. “realized” and “merge” should be used when different city model versions are converging into a common successor version.</div><div class="xs3p-doc" id="idm3296000-hidden-doc"> </div></div></div></div><div class="modal fade Version" id="idm3328000-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="idm3328000-label">Element Version</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-idm3328000-hidden"><div class="hidden" id="idm3328000-hidden-doc-raw">Version represents a defined state of a city model consisting of the dedicated versions of all city object instances that belong to the respective city model version. Versions can have names, a description and can be labeled with an arbitrary number of user defined tags.</div><div class="xs3p-doc" id="idm3328000-hidden-doc"> </div></div></div></div><div class="modal fade tag" id="idm3337088-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="idm3337088-label">Element tag</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-idm3337088-hidden"><div class="hidden" id="idm3337088-hidden-doc-raw">Allows for adding keywords to the city model version.</div><div class="xs3p-doc" id="idm3337088-hidden-doc"> </div></div></div></div><div class="modal fade versionMember" id="idm3345536-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="idm3345536-label">Element versionMember</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-idm3345536-hidden"><div class="hidden" id="idm3345536-hidden-doc-raw">Relates to all city objects that are part of the city model version.</div><div class="xs3p-doc" id="idm3345536-hidden-doc"> </div></div><div class="annotation appinfo"><h4>Application Data</h4>
+                <code class="test">&lt;targetElement&gt; <div class="fakeclass3" style="margin-left: 3em">core:AbstractFeatureWithLifespan</div>&lt;/targetElement&gt;</code>
+              <br></br></div></div></div><div class="modal fade adeOfVersion" id="idm3372032-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="idm3372032-label">Element adeOfVersion</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-idm3372032-hidden"><div class="hidden" id="idm3372032-hidden-doc-raw">Augments the Version with properties defined in an ADE.</div><div class="xs3p-doc" id="idm3372032-hidden-doc"> </div></div></div></div><div class="modal fade VersionTransition" id="idm3379456-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="idm3379456-label">Element VersionTransition</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-idm3379456-hidden"><div class="hidden" id="idm3379456-hidden-doc-raw">VersionTransition describes the change of the state of a city model from one version to another. Version transitions can have names, a description and can be further qualified by a type and a reason.</div><div class="xs3p-doc" id="idm3379456-hidden-doc"> </div></div></div></div><div class="modal fade reason" id="idm3381760-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="idm3381760-label">Element reason</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-idm3381760-hidden"><div class="hidden" id="idm3381760-hidden-doc-raw">Specifies why the VersionTransition has been carried out.</div><div class="xs3p-doc" id="idm3381760-hidden-doc"> </div></div></div></div><div class="modal fade clonePredecessor" id="idm3387776-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="idm3387776-label">Element clonePredecessor</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-idm3387776-hidden"><div class="hidden" id="idm3387776-hidden-doc-raw">Indicates whether the set of city object instances belonging to the successor version of the city model is either explicitly enumerated within the successor version object (attribute clonePredecessor=false),  or has to be derived from the modifications of the city model provided as a list of transactions on the city object versions contained in the predecessor version (attribute clonePredecessor=true).</div><div class="xs3p-doc" id="idm3387776-hidden-doc"> </div></div></div></div><div class="modal fade type" id="idm3391488-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="idm3391488-label">Element type</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-idm3391488-hidden"><div class="hidden" id="idm3391488-hidden-doc-raw">Indicates the specific type of the VersionTransition.</div><div class="xs3p-doc" id="idm3391488-hidden-doc"> </div></div></div></div><div class="modal fade from" id="idm3395584-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="idm3395584-label">Element from</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-idm3395584-hidden"><div class="hidden" id="idm3395584-hidden-doc-raw">Relates to the predecessor version of the VersionTransition.</div><div class="xs3p-doc" id="idm3395584-hidden-doc"> </div></div><div class="annotation appinfo"><h4>Application Data</h4>
+                <code class="test">&lt;targetElement&gt; <div class="fakeclass3" style="margin-left: 3em">vers:Version</div>&lt;/targetElement&gt;</code>
+              <br></br></div></div></div><div class="modal fade to" id="idm3407616-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="idm3407616-label">Element to</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-idm3407616-hidden"><div class="hidden" id="idm3407616-hidden-doc-raw">Relates to the successor version of the VersionTransition.</div><div class="xs3p-doc" id="idm3407616-hidden-doc"> </div></div><div class="annotation appinfo"><h4>Application Data</h4>
+                <code class="test">&lt;targetElement&gt; <div class="fakeclass3" style="margin-left: 3em">vers:Version</div>&lt;/targetElement&gt;</code>
+              <br></br></div></div></div><div class="modal fade transaction" id="idm3410432-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="idm3410432-label">Element transaction</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-idm3410432-hidden"><div class="hidden" id="idm3410432-hidden-doc-raw">Relates to all transactions that have been applied as part of the VersionTransition.</div><div class="xs3p-doc" id="idm3410432-hidden-doc"> </div></div></div></div><div class="modal fade adeOfVersionTransition" id="idm3417856-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="idm3417856-label">Element adeOfVersionTransition</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-idm3417856-hidden"><div class="hidden" id="idm3417856-hidden-doc-raw">Augments the VersionTransition with properties defined in an ADE.</div><div class="xs3p-doc" id="idm3417856-hidden-doc"> </div></div></div></div><h1><a id="top">Schema documentation versioning</a></h1><section id="SectionSchemaProperties"><h2><a id="SchemaProperties">Schema Document Properties</a></h2><dl class="dl-horizontal"><dt class="header"><a title="Look up 'Target Namespace' in glossary" href="#term_TargetNS">Target Namespace</a></dt><dd class=""><span class="targetNS">http://www.opengis.net/citygml/versioning/3.0</span></dd><dt class="header">Version</dt><dd class="">3.0.0</dd><dt class="header">Element and Attribute Namespaces</dt><dd class=""><ul><li>Global element and attribute declarations belong to this schema's target namespace.</li><li>By default, local element declarations belong to this schema's target namespace.</li><li>By default, local attribute declarations have no namespace.</li></ul></dd><dt class="header">Schema Composition</dt><dd class=""><ul><li>This schema imports schema(s) from the following namespace(s):<ul><li><em>http://www.opengis.net/citygml/3.0</em> (at ./core.xsd)</li><li><em>http://www.opengis.net/gml/3.2</em> (at http://schemas.opengis.net/gml/3.2.1/gml.xsd)</li></ul></li></ul></dd></dl><dl class="dl-horizontal"><dt>Documentation</dt><dd><div class="annotation documentation" id="wdoc-idm3212016"><div class="hidden" id="idm3212016-doc-raw">The Versioning module supports representation of multiple versions of CityGML features within a single CityGML model. In addition, also the version transitions and transactions that lead to the different versions can be represented.</div><div class="xs3p-doc" id="idm3212016-doc"> </div></div></dd></dl><h4>Declared Namespaces:</h4><dl class="dl-horizontal"><dt class="header">Prefix</dt><dd class="header">Namespace</dd><dt class=""><a id="ns_">Default namespace</a></dt><dd class="">http://www.w3.org/2001/XMLSchema</dd><dt class=""><a id="ns_xml">xml</a></dt><dd class="">http://www.w3.org/XML/1998/namespace</dd><dt class=""><a id="ns_vers">vers</a></dt><dd class=""><span class="targetNS">http://www.opengis.net/citygml/versioning/3.0</span></dd><dt class=""><a id="ns_gml">gml</a></dt><dd class="">http://www.opengis.net/gml/3.2</dd><dt class=""><a id="ns_core">core</a></dt><dd class="">http://www.opengis.net/citygml/3.0</dd></dl><div class="bs-callout bs-callout-info"><h4>Schema Component Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The Schema Component Representation table below displays the underlying XML representation of the schema component. (Annotations are not shown.)"><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;schema</span> <span class="na">elementFormDefault=</span><span class="s">"qualified"</span> <span class="na">targetNamespace=</span><span class="s">"http://www.opengis.net/citygml/versioning/3.0"</span> <span class="na">version=</span><span class="s">"3.0.0"</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;import</span> <span class="na">namespace=</span><span class="s">"http://www.opengis.net/citygml/3.0"</span> <span class="na">schemaLocation=</span><span class="s">"./core.xsd"</span><span class="nt">/&gt;</span>
+   <span class="nt">&lt;import</span> <span class="na">namespace=</span><span class="s">"http://www.opengis.net/gml/3.2"</span> <span class="na">schemaLocation=</span><span class="s">"http://schemas.opengis.net/gml/3.2.1/gml.xsd"</span><span class="nt">/&gt;</span>
+<span class="scContent">...</span>
+<span class="nt">&lt;/schema&gt;</span>
+</pre></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr></section><section id="SectionSchemaElements"><h2><a id="SchemaElements">Elements</a></h2><h3 class="xs3p-subsection-heading">Element: <a id="element_ADEOfVersion"></a><strong>ADEOfVersion</strong></h3><object data="diagrams/ADEOfVersion.svg" type="image/svg+xml"></object><h4>Type hierarchy:</h4><table class="table table-striped xs3p-in-panel-table"><tbody><tr><td><ul><li><em>This element can be used wherever the following element is referenced:</em><ul><li><a href="#ns_gml" title="Find out namespace of 'gml' prefix">gml</a>:<a title='"AbstractObject" element declaration could not be found.' href="javascript:void(0)" onclick="alert('&quot;AbstractObject&quot; element declaration could not be found.');">AbstractObject</a></li></ul></li></ul></td></tr></tbody></table><dl class="dl-horizontal"><dt class="header">Type</dt><dd class=""><span class="type"><a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:<a title='Jump to "ADEOfVersionType" type definition.' href="#type_ADEOfVersionType">ADEOfVersionType</a></span></dd><dt class="header"><a title="Look up 'Abstract' in glossary" href="#term_Abstract">Abstract</a></dt><dd class="">yes</dd></dl><dl class="dl-horizontal"><dt>Documentation</dt><dd><div class="annotation documentation" id="wdoc-idm3212928"><div class="hidden" id="idm3212928-doc-raw">ADEOfVersion acts as a hook to define properties within an ADE that are to be added to a Version.</div><div class="xs3p-doc" id="idm3212928-doc"> </div></div></dd></dl><div class="bs-callout bs-callout-info"><h4>XML Instance Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="right" data-html="true" data-content="The XML Instance Representation table shows the schema component's content as an XML instance.
+         &lt;ul&gt;
+         &lt;li&gt;The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].&lt;/li&gt;
+         &lt;li&gt;Model group information are shown in gray, e.g. Start Choice ... End Choice.&lt;/li&gt;
+         &lt;li&gt;For type derivations, the elements and attributes that have been added to or changed from the base type's content are shown in &lt;strong&gt;bold&lt;/strong&gt;&lt;/li&gt;
+         &lt;li&gt;If an element/attribute has a fixed value, the fixed value is shown in green.&lt;/li&gt;
+         &lt;li&gt;More stuff&lt;/li&gt;
+         &lt;li&gt;If a local element/attribute has documentation, it will be displayed in a window that pops up when the question mark inside the attribute or next to the element is clicked.&lt;/li&gt;
+         &lt;/ul&gt;
+      "><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;<a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:ADEOfVersion</span><span class="nt">/&gt; </span>
+
+</pre></div><div class="bs-callout bs-callout-info"><h4>Schema Component Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The Schema Component Representation table below displays the underlying XML representation of the schema component. (Annotations are not shown.)"><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;element</span> <span class="na">name=</span><span class="s">"ADEOfVersion"</span> <span class="na">type=</span><span class="s">"<span class="type"><a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:<a title='Jump to "ADEOfVersionType" type definition.' href="#type_ADEOfVersionType">ADEOfVersionType</a></span>"</span> <span class="na">abstract=</span><span class="s">"true"</span> <span class="na">substitutionGroup=</span><span class="s">"gml:AbstractObject"</span><span class="nt">/&gt;</span>
+</pre></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr><h3 class="xs3p-subsection-heading">Element: <a id="element_ADEOfVersionTransition"></a><strong>ADEOfVersionTransition</strong></h3><object data="diagrams/ADEOfVersionTransition.svg" type="image/svg+xml"></object><h4>Type hierarchy:</h4><table class="table table-striped xs3p-in-panel-table"><tbody><tr><td><ul><li><em>This element can be used wherever the following element is referenced:</em><ul><li><a href="#ns_gml" title="Find out namespace of 'gml' prefix">gml</a>:<a title='"AbstractObject" element declaration could not be found.' href="javascript:void(0)" onclick="alert('&quot;AbstractObject&quot; element declaration could not be found.');">AbstractObject</a></li></ul></li></ul></td></tr></tbody></table><dl class="dl-horizontal"><dt class="header">Type</dt><dd class=""><span class="type"><a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:<a title='Jump to "ADEOfVersionTransitionType" type definition.' href="#type_ADEOfVersionTransitionType">ADEOfVersionTransitionType</a></span></dd><dt class="header"><a title="Look up 'Abstract' in glossary" href="#term_Abstract">Abstract</a></dt><dd class="">yes</dd></dl><dl class="dl-horizontal"><dt>Documentation</dt><dd><div class="annotation documentation" id="wdoc-idm3221376"><div class="hidden" id="idm3221376-doc-raw">ADEOfVersionTransition acts as a hook to define properties within an ADE that are to be added to a VersionTransition.</div><div class="xs3p-doc" id="idm3221376-doc"> </div></div></dd></dl><div class="bs-callout bs-callout-info"><h4>XML Instance Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="right" data-html="true" data-content="The XML Instance Representation table shows the schema component's content as an XML instance.
+         &lt;ul&gt;
+         &lt;li&gt;The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].&lt;/li&gt;
+         &lt;li&gt;Model group information are shown in gray, e.g. Start Choice ... End Choice.&lt;/li&gt;
+         &lt;li&gt;For type derivations, the elements and attributes that have been added to or changed from the base type's content are shown in &lt;strong&gt;bold&lt;/strong&gt;&lt;/li&gt;
+         &lt;li&gt;If an element/attribute has a fixed value, the fixed value is shown in green.&lt;/li&gt;
+         &lt;li&gt;More stuff&lt;/li&gt;
+         &lt;li&gt;If a local element/attribute has documentation, it will be displayed in a window that pops up when the question mark inside the attribute or next to the element is clicked.&lt;/li&gt;
+         &lt;/ul&gt;
+      "><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;<a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:ADEOfVersionTransition</span><span class="nt">/&gt; </span>
+
+</pre></div><div class="bs-callout bs-callout-info"><h4>Schema Component Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The Schema Component Representation table below displays the underlying XML representation of the schema component. (Annotations are not shown.)"><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;element</span> <span class="na">name=</span><span class="s">"ADEOfVersionTransition"</span> <span class="na">type=</span><span class="s">"<span class="type"><a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:<a title='Jump to "ADEOfVersionTransitionType" type definition.' href="#type_ADEOfVersionTransitionType">ADEOfVersionTransitionType</a></span>"</span> <span class="na">abstract=</span><span class="s">"true"</span> <span class="na">substitutionGroup=</span><span class="s">"gml:AbstractObject"</span><span class="nt">/&gt;</span>
+</pre></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr><h3 class="xs3p-subsection-heading">Element: <a id="element_Transaction"></a><strong>Transaction</strong></h3><object data="diagrams/Transaction.svg" type="image/svg+xml"></object><h4>Type hierarchy:</h4><table class="table table-striped xs3p-in-panel-table"><tbody><tr><td><ul><li><em>This element can be used wherever the following element is referenced:</em><ul><li><a href="#ns_gml" title="Find out namespace of 'gml' prefix">gml</a>:<a title='"AbstractObject" element declaration could not be found.' href="javascript:void(0)" onclick="alert('&quot;AbstractObject&quot; element declaration could not be found.');">AbstractObject</a></li></ul></li></ul></td></tr></tbody></table><dl class="dl-horizontal"><dt class="header">Type</dt><dd class=""><span class="type"><a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:<a title='Jump to "TransactionType" type definition.' href="#type_TransactionType">TransactionType</a></span></dd></dl><dl class="dl-horizontal"><dt>Documentation</dt><dd><div class="annotation documentation" id="wdoc-idm3242112"><div class="hidden" id="idm3242112-doc-raw">Transaction represents a modification of the city model by the creation, termination, or replacement of a specific city object. While the creation of a city object also marks its first object version, the termination marks the end of existence of a real world object and, hence, also terminates the final version of a city object. The replacement of a city object means that a specific version of it is replaced by a new version.</div><div class="xs3p-doc" id="idm3242112-doc"> </div></div></dd></dl><div class="bs-callout bs-callout-info"><h4>XML Instance Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="right" data-html="true" data-content="The XML Instance Representation table shows the schema component's content as an XML instance.
+         &lt;ul&gt;
+         &lt;li&gt;The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].&lt;/li&gt;
+         &lt;li&gt;Model group information are shown in gray, e.g. Start Choice ... End Choice.&lt;/li&gt;
+         &lt;li&gt;For type derivations, the elements and attributes that have been added to or changed from the base type's content are shown in &lt;strong&gt;bold&lt;/strong&gt;&lt;/li&gt;
+         &lt;li&gt;If an element/attribute has a fixed value, the fixed value is shown in green.&lt;/li&gt;
+         &lt;li&gt;More stuff&lt;/li&gt;
+         &lt;li&gt;If a local element/attribute has documentation, it will be displayed in a window that pops up when the question mark inside the attribute or next to the element is clicked.&lt;/li&gt;
+         &lt;/ul&gt;
+      "><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;<a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:Transaction</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;<a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:type&gt;</span> <span class="type"><a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:<a title='Jump to "TransactionTypeValueType" type definition.' href="#type_TransactionTypeValueType">TransactionTypeValueType</a></span> <span class="nt">&lt;/<a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:type&gt;</span> <span class="cs">[1]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#idm3246464-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+   <span class="nt">&lt;<a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:oldFeature&gt;</span> <span class="type"><a href="#ns_gml" title="Find out namespace of 'gml' prefix">gml</a>:<a title='"ReferenceType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;ReferenceType&quot; type definition could not be found.');">ReferenceType</a></span> <span class="nt">&lt;/<a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:oldFeature&gt;</span> <span class="cs">[0..1]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#idm3255680-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+   <span class="nt">&lt;<a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:newFeature&gt;</span> <span class="type"><a href="#ns_gml" title="Find out namespace of 'gml' prefix">gml</a>:<a title='"ReferenceType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;ReferenceType&quot; type definition could not be found.');">ReferenceType</a></span> <span class="nt">&lt;/<a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:newFeature&gt;</span> <span class="cs">[0..1]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#idm3259392-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+<span class="nt">&lt;/<a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:Transaction&gt;</span>
+</pre></div><div class="bs-callout bs-callout-info"><h4>Schema Component Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The Schema Component Representation table below displays the underlying XML representation of the schema component. (Annotations are not shown.)"><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;element</span> <span class="na">name=</span><span class="s">"Transaction"</span> <span class="na">type=</span><span class="s">"<span class="type"><a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:<a title='Jump to "TransactionType" type definition.' href="#type_TransactionType">TransactionType</a></span>"</span> <span class="na">substitutionGroup=</span><span class="s">"gml:AbstractObject"</span><span class="nt">/&gt;</span>
+</pre></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr><h3 class="xs3p-subsection-heading">Element: <a id="element_Version"></a><strong>Version</strong></h3><object data="diagrams/Version.svg" type="image/svg+xml"></object><h4>Type hierarchy:</h4><table class="table table-striped xs3p-in-panel-table"><tbody><tr><td><ul><li><em>This element can be used wherever the following element is referenced:</em><ul><li><a href="#ns_core" title="Find out namespace of 'core' prefix">core</a>:<a title='"AbstractVersion" element declaration could not be found.' href="javascript:void(0)" onclick="alert('&quot;AbstractVersion&quot; element declaration could not be found.');">AbstractVersion</a></li></ul></li></ul></td></tr></tbody></table><dl class="dl-horizontal"><dt class="header">Type</dt><dd class=""><span class="type"><a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:<a title='Jump to "VersionType" type definition.' href="#type_VersionType">VersionType</a></span></dd></dl><dl class="dl-horizontal"><dt>Documentation</dt><dd><div class="annotation documentation" id="wdoc-idm3328000"><div class="hidden" id="idm3328000-doc-raw">Version represents a defined state of a city model consisting of the dedicated versions of all city object instances that belong to the respective city model version. Versions can have names, a description and can be labeled with an arbitrary number of user defined tags.</div><div class="xs3p-doc" id="idm3328000-doc"> </div></div></dd></dl><div class="bs-callout bs-callout-info"><h4>XML Instance Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="right" data-html="true" data-content="The XML Instance Representation table shows the schema component's content as an XML instance.
+         &lt;ul&gt;
+         &lt;li&gt;The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].&lt;/li&gt;
+         &lt;li&gt;Model group information are shown in gray, e.g. Start Choice ... End Choice.&lt;/li&gt;
+         &lt;li&gt;For type derivations, the elements and attributes that have been added to or changed from the base type's content are shown in &lt;strong&gt;bold&lt;/strong&gt;&lt;/li&gt;
+         &lt;li&gt;If an element/attribute has a fixed value, the fixed value is shown in green.&lt;/li&gt;
+         &lt;li&gt;More stuff&lt;/li&gt;
+         &lt;li&gt;If a local element/attribute has documentation, it will be displayed in a window that pops up when the question mark inside the attribute or next to the element is clicked.&lt;/li&gt;
+         &lt;/ul&gt;
+      "><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;<a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:Version</span><span class="nt">&gt;</span>
+   <span class="c">&lt;!-- '<span class="type"><a href="#ns_core" title="Find out namespace of 'core' prefix">core</a>:<a title='"AbstractVersionType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;AbstractVersionType&quot; type definition could not be found.');">AbstractVersionType</a></span>' super type was not found in this schema. Some elements and attributes may be missing. --&gt;</span>
+   <span class="nt">&lt;<a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:tag&gt;</span> <span class="type">string</span> <span class="nt">&lt;/<a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:tag&gt;</span> <span class="cs">[0..*]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#idm3337088-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+   <span class="nt">&lt;<a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:versionMember</span>
+<div class="other" style="margin-left: 4em">Attribute group reference (not shown): <a href="#ns_gml" title="Find out namespace of 'gml' prefix">gml</a>:<a title='"AssociationAttributeGroup" attribute group definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;AssociationAttributeGroup&quot; attribute group definition could not be found.');">AssociationAttributeGroup</a></div>   <span class="nt">&gt;</span> <span class="cs">[0..*]</span>  <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#idm3345536-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+      <span class="c">&lt;!-- '<span class="type"><a href="#ns_gml" title="Find out namespace of 'gml' prefix">gml</a>:<a title='"AbstractFeatureMemberType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;AbstractFeatureMemberType&quot; type definition could not be found.');">AbstractFeatureMemberType</a></span>' super type was not found in this schema. Some elements and attributes may be missing. --&gt;</span>
+   <span class="nt">&lt;/<a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:versionMember&gt;</span>
+   <span class="nt">&lt;<a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:adeOfVersion&gt;</span> <span class="type"><a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:<a title='Jump to "ADEOfVersionPropertyType" type definition.' href="#type_ADEOfVersionPropertyType">ADEOfVersionPropertyType</a></span> <span class="nt">&lt;/<a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:adeOfVersion&gt;</span> <span class="cs">[0..*]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#idm3372032-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+<span class="nt">&lt;/<a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:Version&gt;</span>
+</pre></div><div class="bs-callout bs-callout-info"><h4>Schema Component Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The Schema Component Representation table below displays the underlying XML representation of the schema component. (Annotations are not shown.)"><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;element</span> <span class="na">name=</span><span class="s">"Version"</span> <span class="na">type=</span><span class="s">"<span class="type"><a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:<a title='Jump to "VersionType" type definition.' href="#type_VersionType">VersionType</a></span>"</span> <span class="na">substitutionGroup=</span><span class="s">"core:AbstractVersion"</span><span class="nt">/&gt;</span>
+</pre></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr><h3 class="xs3p-subsection-heading">Element: <a id="element_VersionTransition"></a><strong>VersionTransition</strong></h3><object data="diagrams/VersionTransition.svg" type="image/svg+xml"></object><h4>Type hierarchy:</h4><table class="table table-striped xs3p-in-panel-table"><tbody><tr><td><ul><li><em>This element can be used wherever the following element is referenced:</em><ul><li><a href="#ns_core" title="Find out namespace of 'core' prefix">core</a>:<a title='"AbstractVersionTransition" element declaration could not be found.' href="javascript:void(0)" onclick="alert('&quot;AbstractVersionTransition&quot; element declaration could not be found.');">AbstractVersionTransition</a></li></ul></li></ul></td></tr></tbody></table><dl class="dl-horizontal"><dt class="header">Type</dt><dd class=""><span class="type"><a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:<a title='Jump to "VersionTransitionType" type definition.' href="#type_VersionTransitionType">VersionTransitionType</a></span></dd></dl><dl class="dl-horizontal"><dt>Documentation</dt><dd><div class="annotation documentation" id="wdoc-idm3379456"><div class="hidden" id="idm3379456-doc-raw">VersionTransition describes the change of the state of a city model from one version to another. Version transitions can have names, a description and can be further qualified by a type and a reason.</div><div class="xs3p-doc" id="idm3379456-doc"> </div></div></dd></dl><div class="bs-callout bs-callout-info"><h4>XML Instance Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="right" data-html="true" data-content="The XML Instance Representation table shows the schema component's content as an XML instance.
+         &lt;ul&gt;
+         &lt;li&gt;The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].&lt;/li&gt;
+         &lt;li&gt;Model group information are shown in gray, e.g. Start Choice ... End Choice.&lt;/li&gt;
+         &lt;li&gt;For type derivations, the elements and attributes that have been added to or changed from the base type's content are shown in &lt;strong&gt;bold&lt;/strong&gt;&lt;/li&gt;
+         &lt;li&gt;If an element/attribute has a fixed value, the fixed value is shown in green.&lt;/li&gt;
+         &lt;li&gt;More stuff&lt;/li&gt;
+         &lt;li&gt;If a local element/attribute has documentation, it will be displayed in a window that pops up when the question mark inside the attribute or next to the element is clicked.&lt;/li&gt;
+         &lt;/ul&gt;
+      "><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;<a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:VersionTransition</span><span class="nt">&gt;</span>
+   <span class="c">&lt;!-- '<span class="type"><a href="#ns_core" title="Find out namespace of 'core' prefix">core</a>:<a title='"AbstractVersionTransitionType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;AbstractVersionTransitionType&quot; type definition could not be found.');">AbstractVersionTransitionType</a></span>' super type was not found in this schema. Some elements and attributes may be missing. --&gt;</span>
+   <span class="nt">&lt;<a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:reason&gt;</span> <span class="type">string</span> <span class="nt">&lt;/<a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:reason&gt;</span> <span class="cs">[0..1]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#idm3381760-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+   <span class="nt">&lt;<a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:clonePredecessor&gt;</span> <span class="type">boolean</span> <span class="nt">&lt;/<a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:clonePredecessor&gt;</span> <span class="cs">[1]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#idm3387776-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+   <span class="nt">&lt;<a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:type&gt;</span> <span class="type"><a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:<a title='Jump to "TransitionTypeValueType" type definition.' href="#type_TransitionTypeValueType">TransitionTypeValueType</a></span> <span class="nt">&lt;/<a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:type&gt;</span> <span class="cs">[0..1]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#idm3391488-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+   <span class="nt">&lt;<a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:from&gt;</span> <span class="type"><a href="#ns_gml" title="Find out namespace of 'gml' prefix">gml</a>:<a title='"ReferenceType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;ReferenceType&quot; type definition could not be found.');">ReferenceType</a></span> <span class="nt">&lt;/<a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:from&gt;</span> <span class="cs">[0..1]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#idm3395584-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+   <span class="nt">&lt;<a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:to&gt;</span> <span class="type"><a href="#ns_gml" title="Find out namespace of 'gml' prefix">gml</a>:<a title='"ReferenceType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;ReferenceType&quot; type definition could not be found.');">ReferenceType</a></span> <span class="nt">&lt;/<a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:to&gt;</span> <span class="cs">[0..1]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#idm3407616-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+   <span class="nt">&lt;<a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:transaction&gt;</span> <span class="type"><a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:<a title='Jump to "TransactionPropertyType" type definition.' href="#type_TransactionPropertyType">TransactionPropertyType</a></span> <span class="nt">&lt;/<a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:transaction&gt;</span> <span class="cs">[0..*]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#idm3410432-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+   <span class="nt">&lt;<a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:adeOfVersionTransition&gt;</span> <span class="type"><a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:<a title='Jump to "ADEOfVersionTransitionPropertyType" type definition.' href="#type_ADEOfVersionTransitionPropertyType">ADEOfVersionTransitionPropertyType</a></span> <span class="nt">&lt;/<a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:adeOfVersionTransition&gt;</span> <span class="cs">[0..*]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#idm3417856-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+<span class="nt">&lt;/<a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:VersionTransition&gt;</span>
+</pre></div><div class="bs-callout bs-callout-info"><h4>Schema Component Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The Schema Component Representation table below displays the underlying XML representation of the schema component. (Annotations are not shown.)"><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;element</span> <span class="na">name=</span><span class="s">"VersionTransition"</span> <span class="na">type=</span><span class="s">"<span class="type"><a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:<a title='Jump to "VersionTransitionType" type definition.' href="#type_VersionTransitionType">VersionTransitionType</a></span>"</span> <span class="na">substitutionGroup=</span><span class="s">"core:AbstractVersionTransition"</span><span class="nt">/&gt;</span>
+</pre></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr></section><section id="SectionSchemaComplexTypes"><h2><a id="SchemaComplexTypes">Complex Types</a></h2><h3 class="xs3p-subsection-heading">Complex Type: <a id="type_ADEOfVersionPropertyType"></a><strong>ADEOfVersionPropertyType</strong></h3><div class="bs-callout bs-callout-info"><h4>XML Instance Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="right" data-html="true" data-content="The XML Instance Representation table shows the schema component's content as an XML instance.
+         &lt;ul&gt;
+         &lt;li&gt;The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].&lt;/li&gt;
+         &lt;li&gt;Model group information are shown in gray, e.g. Start Choice ... End Choice.&lt;/li&gt;
+         &lt;li&gt;For type derivations, the elements and attributes that have been added to or changed from the base type's content are shown in &lt;strong&gt;bold&lt;/strong&gt;&lt;/li&gt;
+         &lt;li&gt;If an element/attribute has a fixed value, the fixed value is shown in green.&lt;/li&gt;
+         &lt;li&gt;More stuff&lt;/li&gt;
+         &lt;li&gt;If a local element/attribute has documentation, it will be displayed in a window that pops up when the question mark inside the attribute or next to the element is clicked.&lt;/li&gt;
+         &lt;/ul&gt;
+      "><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;...</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;<a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:<a title='Jump to "ADEOfVersion" element declaration.' href="#element_ADEOfVersion">ADEOfVersion</a>&gt;</span> ... <span class="nt">&lt;/<a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:<a title='Jump to "ADEOfVersion" element declaration.' href="#element_ADEOfVersion">ADEOfVersion</a>&gt;</span> <span class="cs">[1]</span>
+<span class="nt">&lt;/...&gt;</span>
+</pre></div><div class="bs-callout bs-callout-info"><h4>Schema Component Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The Schema Component Representation table below displays the underlying XML representation of the schema component. (Annotations are not shown.)"><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;complexType</span> <span class="na">name=</span><span class="s">"ADEOfVersionPropertyType"</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;sequence</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;element</span> <span class="na">ref=</span><span class="s">"<a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:<a title='Jump to "ADEOfVersion" element declaration.' href="#element_ADEOfVersion">ADEOfVersion</a>"</span><span class="nt">/&gt;</span>
+   <span class="nt">&lt;/sequence&gt;</span>
+<span class="nt">&lt;/complexType&gt;</span>
+</pre></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr><h3 class="xs3p-subsection-heading">Complex Type: <a id="type_ADEOfVersionTransitionPropertyType"></a><strong>ADEOfVersionTransitionPropertyType</strong></h3><div class="bs-callout bs-callout-info"><h4>XML Instance Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="right" data-html="true" data-content="The XML Instance Representation table shows the schema component's content as an XML instance.
+         &lt;ul&gt;
+         &lt;li&gt;The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].&lt;/li&gt;
+         &lt;li&gt;Model group information are shown in gray, e.g. Start Choice ... End Choice.&lt;/li&gt;
+         &lt;li&gt;For type derivations, the elements and attributes that have been added to or changed from the base type's content are shown in &lt;strong&gt;bold&lt;/strong&gt;&lt;/li&gt;
+         &lt;li&gt;If an element/attribute has a fixed value, the fixed value is shown in green.&lt;/li&gt;
+         &lt;li&gt;More stuff&lt;/li&gt;
+         &lt;li&gt;If a local element/attribute has documentation, it will be displayed in a window that pops up when the question mark inside the attribute or next to the element is clicked.&lt;/li&gt;
+         &lt;/ul&gt;
+      "><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;...</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;<a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:<a title='Jump to "ADEOfVersionTransition" element declaration.' href="#element_ADEOfVersionTransition">ADEOfVersionTransition</a>&gt;</span> ... <span class="nt">&lt;/<a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:<a title='Jump to "ADEOfVersionTransition" element declaration.' href="#element_ADEOfVersionTransition">ADEOfVersionTransition</a>&gt;</span> <span class="cs">[1]</span>
+<span class="nt">&lt;/...&gt;</span>
+</pre></div><div class="bs-callout bs-callout-info"><h4>Schema Component Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The Schema Component Representation table below displays the underlying XML representation of the schema component. (Annotations are not shown.)"><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;complexType</span> <span class="na">name=</span><span class="s">"ADEOfVersionTransitionPropertyType"</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;sequence</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;element</span> <span class="na">ref=</span><span class="s">"<a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:<a title='Jump to "ADEOfVersionTransition" element declaration.' href="#element_ADEOfVersionTransition">ADEOfVersionTransition</a>"</span><span class="nt">/&gt;</span>
+   <span class="nt">&lt;/sequence&gt;</span>
+<span class="nt">&lt;/complexType&gt;</span>
+</pre></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr><h3 class="xs3p-subsection-heading">Complex Type: <a id="type_ADEOfVersionTransitionType"></a><strong>ADEOfVersionTransitionType</strong></h3><h4>Properties:</h4><dl class="dl-horizontal"><dt class="header"><a title="Look up 'Abstract' in glossary" href="#term_Abstract">Abstract</a></dt><dd class="">yes</dd></dl><div class="bs-callout bs-callout-info"><h4>XML Instance Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="right" data-html="true" data-content="The XML Instance Representation table shows the schema component's content as an XML instance.
+         &lt;ul&gt;
+         &lt;li&gt;The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].&lt;/li&gt;
+         &lt;li&gt;Model group information are shown in gray, e.g. Start Choice ... End Choice.&lt;/li&gt;
+         &lt;li&gt;For type derivations, the elements and attributes that have been added to or changed from the base type's content are shown in &lt;strong&gt;bold&lt;/strong&gt;&lt;/li&gt;
+         &lt;li&gt;If an element/attribute has a fixed value, the fixed value is shown in green.&lt;/li&gt;
+         &lt;li&gt;More stuff&lt;/li&gt;
+         &lt;li&gt;If a local element/attribute has documentation, it will be displayed in a window that pops up when the question mark inside the attribute or next to the element is clicked.&lt;/li&gt;
+         &lt;/ul&gt;
+      "><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;...</span><span class="nt">/&gt; </span>
+
+</pre></div><div class="bs-callout bs-callout-info"><h4>Schema Component Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The Schema Component Representation table below displays the underlying XML representation of the schema component. (Annotations are not shown.)"><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;complexType</span> <span class="na">name=</span><span class="s">"ADEOfVersionTransitionType"</span> <span class="na">abstract=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;sequence</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/complexType&gt;</span>
+</pre></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr><h3 class="xs3p-subsection-heading">Complex Type: <a id="type_ADEOfVersionType"></a><strong>ADEOfVersionType</strong></h3><h4>Properties:</h4><dl class="dl-horizontal"><dt class="header"><a title="Look up 'Abstract' in glossary" href="#term_Abstract">Abstract</a></dt><dd class="">yes</dd></dl><div class="bs-callout bs-callout-info"><h4>XML Instance Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="right" data-html="true" data-content="The XML Instance Representation table shows the schema component's content as an XML instance.
+         &lt;ul&gt;
+         &lt;li&gt;The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].&lt;/li&gt;
+         &lt;li&gt;Model group information are shown in gray, e.g. Start Choice ... End Choice.&lt;/li&gt;
+         &lt;li&gt;For type derivations, the elements and attributes that have been added to or changed from the base type's content are shown in &lt;strong&gt;bold&lt;/strong&gt;&lt;/li&gt;
+         &lt;li&gt;If an element/attribute has a fixed value, the fixed value is shown in green.&lt;/li&gt;
+         &lt;li&gt;More stuff&lt;/li&gt;
+         &lt;li&gt;If a local element/attribute has documentation, it will be displayed in a window that pops up when the question mark inside the attribute or next to the element is clicked.&lt;/li&gt;
+         &lt;/ul&gt;
+      "><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;...</span><span class="nt">/&gt; </span>
+
+</pre></div><div class="bs-callout bs-callout-info"><h4>Schema Component Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The Schema Component Representation table below displays the underlying XML representation of the schema component. (Annotations are not shown.)"><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;complexType</span> <span class="na">name=</span><span class="s">"ADEOfVersionType"</span> <span class="na">abstract=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;sequence</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/complexType&gt;</span>
+</pre></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr><h3 class="xs3p-subsection-heading">Complex Type: <a id="type_TransactionPropertyType"></a><strong>TransactionPropertyType</strong></h3><div class="bs-callout bs-callout-info"><h4>XML Instance Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="right" data-html="true" data-content="The XML Instance Representation table shows the schema component's content as an XML instance.
+         &lt;ul&gt;
+         &lt;li&gt;The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].&lt;/li&gt;
+         &lt;li&gt;Model group information are shown in gray, e.g. Start Choice ... End Choice.&lt;/li&gt;
+         &lt;li&gt;For type derivations, the elements and attributes that have been added to or changed from the base type's content are shown in &lt;strong&gt;bold&lt;/strong&gt;&lt;/li&gt;
+         &lt;li&gt;If an element/attribute has a fixed value, the fixed value is shown in green.&lt;/li&gt;
+         &lt;li&gt;More stuff&lt;/li&gt;
+         &lt;li&gt;If a local element/attribute has documentation, it will be displayed in a window that pops up when the question mark inside the attribute or next to the element is clicked.&lt;/li&gt;
+         &lt;/ul&gt;
+      "><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;...</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;<a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:<a title='Jump to "Transaction" element declaration.' href="#element_Transaction">Transaction</a>&gt;</span> ... <span class="nt">&lt;/<a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:<a title='Jump to "Transaction" element declaration.' href="#element_Transaction">Transaction</a>&gt;</span> <span class="cs">[1]</span>
+<span class="nt">&lt;/...&gt;</span>
+</pre></div><div class="bs-callout bs-callout-info"><h4>Schema Component Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The Schema Component Representation table below displays the underlying XML representation of the schema component. (Annotations are not shown.)"><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;complexType</span> <span class="na">name=</span><span class="s">"TransactionPropertyType"</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;sequence</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;element</span> <span class="na">ref=</span><span class="s">"<a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:<a title='Jump to "Transaction" element declaration.' href="#element_Transaction">Transaction</a>"</span><span class="nt">/&gt;</span>
+   <span class="nt">&lt;/sequence&gt;</span>
+<span class="nt">&lt;/complexType&gt;</span>
+</pre></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr><h3 class="xs3p-subsection-heading">Complex Type: <a id="type_TransactionType"></a><strong>TransactionType</strong></h3><div class="bs-callout bs-callout-info"><h4>XML Instance Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="right" data-html="true" data-content="The XML Instance Representation table shows the schema component's content as an XML instance.
+         &lt;ul&gt;
+         &lt;li&gt;The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].&lt;/li&gt;
+         &lt;li&gt;Model group information are shown in gray, e.g. Start Choice ... End Choice.&lt;/li&gt;
+         &lt;li&gt;For type derivations, the elements and attributes that have been added to or changed from the base type's content are shown in &lt;strong&gt;bold&lt;/strong&gt;&lt;/li&gt;
+         &lt;li&gt;If an element/attribute has a fixed value, the fixed value is shown in green.&lt;/li&gt;
+         &lt;li&gt;More stuff&lt;/li&gt;
+         &lt;li&gt;If a local element/attribute has documentation, it will be displayed in a window that pops up when the question mark inside the attribute or next to the element is clicked.&lt;/li&gt;
+         &lt;/ul&gt;
+      "><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;...</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;<a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:type&gt;</span> <span class="type"><a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:<a title='Jump to "TransactionTypeValueType" type definition.' href="#type_TransactionTypeValueType">TransactionTypeValueType</a></span> <span class="nt">&lt;/<a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:type&gt;</span> <span class="cs">[1]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#idm3246464-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+   <span class="nt">&lt;<a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:oldFeature&gt;</span> <span class="type"><a href="#ns_gml" title="Find out namespace of 'gml' prefix">gml</a>:<a title='"ReferenceType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;ReferenceType&quot; type definition could not be found.');">ReferenceType</a></span> <span class="nt">&lt;/<a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:oldFeature&gt;</span> <span class="cs">[0..1]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#idm3255680-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+   <span class="nt">&lt;<a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:newFeature&gt;</span> <span class="type"><a href="#ns_gml" title="Find out namespace of 'gml' prefix">gml</a>:<a title='"ReferenceType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;ReferenceType&quot; type definition could not be found.');">ReferenceType</a></span> <span class="nt">&lt;/<a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:newFeature&gt;</span> <span class="cs">[0..1]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#idm3259392-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+<span class="nt">&lt;/...&gt;</span>
+</pre></div><div class="bs-callout bs-callout-info"><h4>Schema Component Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The Schema Component Representation table below displays the underlying XML representation of the schema component. (Annotations are not shown.)"><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;complexType</span> <span class="na">name=</span><span class="s">"TransactionType"</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;sequence</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;element</span> <span class="na">name=</span><span class="s">"type"</span> <span class="na">type=</span><span class="s">"<span class="type"><a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:<a title='Jump to "TransactionTypeValueType" type definition.' href="#type_TransactionTypeValueType">TransactionTypeValueType</a></span>"</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;element</span> <span class="na">name=</span><span class="s">"oldFeature"</span> <span class="na">type=</span><span class="s">"<span class="type"><a href="#ns_gml" title="Find out namespace of 'gml' prefix">gml</a>:<a title='"ReferenceType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;ReferenceType&quot; type definition could not be found.');">ReferenceType</a></span>"</span> <span class="na">minOccurs=</span><span class="s">"0"</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;element</span> <span class="na">name=</span><span class="s">"newFeature"</span> <span class="na">type=</span><span class="s">"<span class="type"><a href="#ns_gml" title="Find out namespace of 'gml' prefix">gml</a>:<a title='"ReferenceType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;ReferenceType&quot; type definition could not be found.');">ReferenceType</a></span>"</span> <span class="na">minOccurs=</span><span class="s">"0"</span><span class="nt">/&gt;</span>
+   <span class="nt">&lt;/sequence&gt;</span>
+<span class="nt">&lt;/complexType&gt;</span>
+</pre></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr><h3 class="xs3p-subsection-heading">Complex Type: <a id="type_VersionPropertyType"></a><strong>VersionPropertyType</strong></h3><div class="bs-callout bs-callout-info"><h4>XML Instance Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="right" data-html="true" data-content="The XML Instance Representation table shows the schema component's content as an XML instance.
+         &lt;ul&gt;
+         &lt;li&gt;The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].&lt;/li&gt;
+         &lt;li&gt;Model group information are shown in gray, e.g. Start Choice ... End Choice.&lt;/li&gt;
+         &lt;li&gt;For type derivations, the elements and attributes that have been added to or changed from the base type's content are shown in &lt;strong&gt;bold&lt;/strong&gt;&lt;/li&gt;
+         &lt;li&gt;If an element/attribute has a fixed value, the fixed value is shown in green.&lt;/li&gt;
+         &lt;li&gt;More stuff&lt;/li&gt;
+         &lt;li&gt;If a local element/attribute has documentation, it will be displayed in a window that pops up when the question mark inside the attribute or next to the element is clicked.&lt;/li&gt;
+         &lt;/ul&gt;
+      "><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;...</span>
+<div class="other" style="margin-left: 1em">Attribute group reference (not shown): <a href="#ns_gml" title="Find out namespace of 'gml' prefix">gml</a>:<a title='"AssociationAttributeGroup" attribute group definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;AssociationAttributeGroup&quot; attribute group definition could not be found.');">AssociationAttributeGroup</a></div><div class="other" style="margin-left: 1em">Attribute group reference (not shown): <a href="#ns_gml" title="Find out namespace of 'gml' prefix">gml</a>:<a title='"OwnershipAttributeGroup" attribute group definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;OwnershipAttributeGroup&quot; attribute group definition could not be found.');">OwnershipAttributeGroup</a></div><span class="nt">&gt;</span>
+   <span class="group">Start <a title="Look up 'Sequence' in glossary" href="#term_Sequence">Sequence</a> <span class="cs">[0..1]</span></span>
+      <span class="nt">&lt;<a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:<a title='Jump to "Version" element declaration.' href="#element_Version">Version</a>&gt;</span> ... <span class="nt">&lt;/<a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:<a title='Jump to "Version" element declaration.' href="#element_Version">Version</a>&gt;</span> <span class="cs">[1]</span>
+   <span class="group">End Sequence</span>
+<span class="nt">&lt;/...&gt;</span>
+</pre></div><div class="bs-callout bs-callout-info"><h4>Schema Component Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The Schema Component Representation table below displays the underlying XML representation of the schema component. (Annotations are not shown.)"><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;complexType</span> <span class="na">name=</span><span class="s">"VersionPropertyType"</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;sequence</span> <span class="na">minOccurs=</span><span class="s">"0"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;element</span> <span class="na">ref=</span><span class="s">"<a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:<a title='Jump to "Version" element declaration.' href="#element_Version">Version</a>"</span><span class="nt">/&gt;</span>
+   <span class="nt">&lt;/sequence&gt;</span>
+   <span class="nt">&lt;attributeGroup</span> <span class="na">ref=</span><span class="s">"<a href="#ns_gml" title="Find out namespace of 'gml' prefix">gml</a>:<a title='"AssociationAttributeGroup" attribute group definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;AssociationAttributeGroup&quot; attribute group definition could not be found.');">AssociationAttributeGroup</a>"</span><span class="nt">/&gt;</span>
+   <span class="nt">&lt;attributeGroup</span> <span class="na">ref=</span><span class="s">"<a href="#ns_gml" title="Find out namespace of 'gml' prefix">gml</a>:<a title='"OwnershipAttributeGroup" attribute group definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;OwnershipAttributeGroup&quot; attribute group definition could not be found.');">OwnershipAttributeGroup</a>"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/complexType&gt;</span>
+</pre></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr><h3 class="xs3p-subsection-heading">Complex Type: <a id="type_VersionTransitionPropertyType"></a><strong>VersionTransitionPropertyType</strong></h3><div class="bs-callout bs-callout-info"><h4>XML Instance Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="right" data-html="true" data-content="The XML Instance Representation table shows the schema component's content as an XML instance.
+         &lt;ul&gt;
+         &lt;li&gt;The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].&lt;/li&gt;
+         &lt;li&gt;Model group information are shown in gray, e.g. Start Choice ... End Choice.&lt;/li&gt;
+         &lt;li&gt;For type derivations, the elements and attributes that have been added to or changed from the base type's content are shown in &lt;strong&gt;bold&lt;/strong&gt;&lt;/li&gt;
+         &lt;li&gt;If an element/attribute has a fixed value, the fixed value is shown in green.&lt;/li&gt;
+         &lt;li&gt;More stuff&lt;/li&gt;
+         &lt;li&gt;If a local element/attribute has documentation, it will be displayed in a window that pops up when the question mark inside the attribute or next to the element is clicked.&lt;/li&gt;
+         &lt;/ul&gt;
+      "><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;...</span>
+<div class="other" style="margin-left: 1em">Attribute group reference (not shown): <a href="#ns_gml" title="Find out namespace of 'gml' prefix">gml</a>:<a title='"AssociationAttributeGroup" attribute group definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;AssociationAttributeGroup&quot; attribute group definition could not be found.');">AssociationAttributeGroup</a></div><div class="other" style="margin-left: 1em">Attribute group reference (not shown): <a href="#ns_gml" title="Find out namespace of 'gml' prefix">gml</a>:<a title='"OwnershipAttributeGroup" attribute group definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;OwnershipAttributeGroup&quot; attribute group definition could not be found.');">OwnershipAttributeGroup</a></div><span class="nt">&gt;</span>
+   <span class="group">Start <a title="Look up 'Sequence' in glossary" href="#term_Sequence">Sequence</a> <span class="cs">[0..1]</span></span>
+      <span class="nt">&lt;<a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:<a title='Jump to "VersionTransition" element declaration.' href="#element_VersionTransition">VersionTransition</a>&gt;</span> ... <span class="nt">&lt;/<a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:<a title='Jump to "VersionTransition" element declaration.' href="#element_VersionTransition">VersionTransition</a>&gt;</span> <span class="cs">[1]</span>
+   <span class="group">End Sequence</span>
+<span class="nt">&lt;/...&gt;</span>
+</pre></div><div class="bs-callout bs-callout-info"><h4>Schema Component Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The Schema Component Representation table below displays the underlying XML representation of the schema component. (Annotations are not shown.)"><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;complexType</span> <span class="na">name=</span><span class="s">"VersionTransitionPropertyType"</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;sequence</span> <span class="na">minOccurs=</span><span class="s">"0"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;element</span> <span class="na">ref=</span><span class="s">"<a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:<a title='Jump to "VersionTransition" element declaration.' href="#element_VersionTransition">VersionTransition</a>"</span><span class="nt">/&gt;</span>
+   <span class="nt">&lt;/sequence&gt;</span>
+   <span class="nt">&lt;attributeGroup</span> <span class="na">ref=</span><span class="s">"<a href="#ns_gml" title="Find out namespace of 'gml' prefix">gml</a>:<a title='"AssociationAttributeGroup" attribute group definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;AssociationAttributeGroup&quot; attribute group definition could not be found.');">AssociationAttributeGroup</a>"</span><span class="nt">/&gt;</span>
+   <span class="nt">&lt;attributeGroup</span> <span class="na">ref=</span><span class="s">"<a href="#ns_gml" title="Find out namespace of 'gml' prefix">gml</a>:<a title='"OwnershipAttributeGroup" attribute group definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;OwnershipAttributeGroup&quot; attribute group definition could not be found.');">OwnershipAttributeGroup</a>"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/complexType&gt;</span>
+</pre></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr><h3 class="xs3p-subsection-heading">Complex Type: <a id="type_VersionTransitionType"></a><strong>VersionTransitionType</strong></h3><h4>Type hierarchy:</h4><dl class="dl-horizontal"><dt class="header">Super-types:</dt><dd class=""><span class="type"><a href="#ns_core" title="Find out namespace of 'core' prefix">core</a>:<a title='"AbstractVersionTransitionType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;AbstractVersionTransitionType&quot; type definition could not be found.');">AbstractVersionTransitionType</a></span> &lt; <strong>VersionTransitionType</strong> (by extension)</dd></dl><div class="bs-callout bs-callout-info"><h4>XML Instance Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="right" data-html="true" data-content="The XML Instance Representation table shows the schema component's content as an XML instance.
+         &lt;ul&gt;
+         &lt;li&gt;The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].&lt;/li&gt;
+         &lt;li&gt;Model group information are shown in gray, e.g. Start Choice ... End Choice.&lt;/li&gt;
+         &lt;li&gt;For type derivations, the elements and attributes that have been added to or changed from the base type's content are shown in &lt;strong&gt;bold&lt;/strong&gt;&lt;/li&gt;
+         &lt;li&gt;If an element/attribute has a fixed value, the fixed value is shown in green.&lt;/li&gt;
+         &lt;li&gt;More stuff&lt;/li&gt;
+         &lt;li&gt;If a local element/attribute has documentation, it will be displayed in a window that pops up when the question mark inside the attribute or next to the element is clicked.&lt;/li&gt;
+         &lt;/ul&gt;
+      "><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;...</span><span class="nt">&gt;</span>
+   <span class="c">&lt;!-- '<span class="type"><a href="#ns_core" title="Find out namespace of 'core' prefix">core</a>:<a title='"AbstractVersionTransitionType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;AbstractVersionTransitionType&quot; type definition could not be found.');">AbstractVersionTransitionType</a></span>' super type was not found in this schema. Some elements and attributes may be missing. --&gt;</span>
+   <span class="nt">&lt;<a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:reason&gt;</span> <span class="type">string</span> <span class="nt">&lt;/<a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:reason&gt;</span> <span class="cs">[0..1]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#idm3381760-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+   <span class="nt">&lt;<a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:clonePredecessor&gt;</span> <span class="type">boolean</span> <span class="nt">&lt;/<a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:clonePredecessor&gt;</span> <span class="cs">[1]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#idm3387776-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+   <span class="nt">&lt;<a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:type&gt;</span> <span class="type"><a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:<a title='Jump to "TransitionTypeValueType" type definition.' href="#type_TransitionTypeValueType">TransitionTypeValueType</a></span> <span class="nt">&lt;/<a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:type&gt;</span> <span class="cs">[0..1]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#idm3391488-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+   <span class="nt">&lt;<a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:from&gt;</span> <span class="type"><a href="#ns_gml" title="Find out namespace of 'gml' prefix">gml</a>:<a title='"ReferenceType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;ReferenceType&quot; type definition could not be found.');">ReferenceType</a></span> <span class="nt">&lt;/<a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:from&gt;</span> <span class="cs">[0..1]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#idm3395584-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+   <span class="nt">&lt;<a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:to&gt;</span> <span class="type"><a href="#ns_gml" title="Find out namespace of 'gml' prefix">gml</a>:<a title='"ReferenceType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;ReferenceType&quot; type definition could not be found.');">ReferenceType</a></span> <span class="nt">&lt;/<a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:to&gt;</span> <span class="cs">[0..1]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#idm3407616-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+   <span class="nt">&lt;<a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:transaction&gt;</span> <span class="type"><a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:<a title='Jump to "TransactionPropertyType" type definition.' href="#type_TransactionPropertyType">TransactionPropertyType</a></span> <span class="nt">&lt;/<a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:transaction&gt;</span> <span class="cs">[0..*]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#idm3410432-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+   <span class="nt">&lt;<a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:adeOfVersionTransition&gt;</span> <span class="type"><a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:<a title='Jump to "ADEOfVersionTransitionPropertyType" type definition.' href="#type_ADEOfVersionTransitionPropertyType">ADEOfVersionTransitionPropertyType</a></span> <span class="nt">&lt;/<a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:adeOfVersionTransition&gt;</span> <span class="cs">[0..*]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#idm3417856-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+<span class="nt">&lt;/...&gt;</span>
+</pre></div><div class="bs-callout bs-callout-info"><h4>Schema Component Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The Schema Component Representation table below displays the underlying XML representation of the schema component. (Annotations are not shown.)"><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;complexType</span> <span class="na">name=</span><span class="s">"VersionTransitionType"</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;complexContent</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;extension</span> <span class="na">base=</span><span class="s">"<span class="type"><a href="#ns_core" title="Find out namespace of 'core' prefix">core</a>:<a title='"AbstractVersionTransitionType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;AbstractVersionTransitionType&quot; type definition could not be found.');">AbstractVersionTransitionType</a></span>"</span><span class="nt">&gt;</span>
+         <span class="nt">&lt;sequence</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;element</span> <span class="na">name=</span><span class="s">"reason"</span> <span class="na">type=</span><span class="s">"<span class="type">string</span>"</span> <span class="na">minOccurs=</span><span class="s">"0"</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;element</span> <span class="na">name=</span><span class="s">"clonePredecessor"</span> <span class="na">type=</span><span class="s">"<span class="type">boolean</span>"</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;element</span> <span class="na">name=</span><span class="s">"type"</span> <span class="na">type=</span><span class="s">"<span class="type"><a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:<a title='Jump to "TransitionTypeValueType" type definition.' href="#type_TransitionTypeValueType">TransitionTypeValueType</a></span>"</span> <span class="na">minOccurs=</span><span class="s">"0"</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;element</span> <span class="na">name=</span><span class="s">"from"</span> <span class="na">type=</span><span class="s">"<span class="type"><a href="#ns_gml" title="Find out namespace of 'gml' prefix">gml</a>:<a title='"ReferenceType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;ReferenceType&quot; type definition could not be found.');">ReferenceType</a></span>"</span> <span class="na">minOccurs=</span><span class="s">"0"</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;element</span> <span class="na">name=</span><span class="s">"to"</span> <span class="na">type=</span><span class="s">"<span class="type"><a href="#ns_gml" title="Find out namespace of 'gml' prefix">gml</a>:<a title='"ReferenceType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;ReferenceType&quot; type definition could not be found.');">ReferenceType</a></span>"</span> <span class="na">minOccurs=</span><span class="s">"0"</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;element</span> <span class="na">name=</span><span class="s">"transaction"</span> <span class="na">type=</span><span class="s">"<span class="type"><a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:<a title='Jump to "TransactionPropertyType" type definition.' href="#type_TransactionPropertyType">TransactionPropertyType</a></span>"</span> <span class="na">maxOccurs=</span><span class="s">"unbounded"</span> <span class="na">minOccurs=</span><span class="s">"0"</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;element</span> <span class="na">name=</span><span class="s">"adeOfVersionTransition"</span> <span class="na">type=</span><span class="s">"<span class="type"><a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:<a title='Jump to "ADEOfVersionTransitionPropertyType" type definition.' href="#type_ADEOfVersionTransitionPropertyType">ADEOfVersionTransitionPropertyType</a></span>"</span> <span class="na">maxOccurs=</span><span class="s">"unbounded"</span> <span class="na">minOccurs=</span><span class="s">"0"</span><span class="nt">/&gt;</span>
+         <span class="nt">&lt;/sequence&gt;</span>
+      <span class="nt">&lt;/extension&gt;</span>
+   <span class="nt">&lt;/complexContent&gt;</span>
+<span class="nt">&lt;/complexType&gt;</span>
+</pre></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr><h3 class="xs3p-subsection-heading">Complex Type: <a id="type_VersionType"></a><strong>VersionType</strong></h3><h4>Type hierarchy:</h4><dl class="dl-horizontal"><dt class="header">Super-types:</dt><dd class=""><span class="type"><a href="#ns_core" title="Find out namespace of 'core' prefix">core</a>:<a title='"AbstractVersionType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;AbstractVersionType&quot; type definition could not be found.');">AbstractVersionType</a></span> &lt; <strong>VersionType</strong> (by extension)</dd></dl><div class="bs-callout bs-callout-info"><h4>XML Instance Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="right" data-html="true" data-content="The XML Instance Representation table shows the schema component's content as an XML instance.
+         &lt;ul&gt;
+         &lt;li&gt;The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].&lt;/li&gt;
+         &lt;li&gt;Model group information are shown in gray, e.g. Start Choice ... End Choice.&lt;/li&gt;
+         &lt;li&gt;For type derivations, the elements and attributes that have been added to or changed from the base type's content are shown in &lt;strong&gt;bold&lt;/strong&gt;&lt;/li&gt;
+         &lt;li&gt;If an element/attribute has a fixed value, the fixed value is shown in green.&lt;/li&gt;
+         &lt;li&gt;More stuff&lt;/li&gt;
+         &lt;li&gt;If a local element/attribute has documentation, it will be displayed in a window that pops up when the question mark inside the attribute or next to the element is clicked.&lt;/li&gt;
+         &lt;/ul&gt;
+      "><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;...</span><span class="nt">&gt;</span>
+   <span class="c">&lt;!-- '<span class="type"><a href="#ns_core" title="Find out namespace of 'core' prefix">core</a>:<a title='"AbstractVersionType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;AbstractVersionType&quot; type definition could not be found.');">AbstractVersionType</a></span>' super type was not found in this schema. Some elements and attributes may be missing. --&gt;</span>
+   <span class="nt">&lt;<a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:tag&gt;</span> <span class="type">string</span> <span class="nt">&lt;/<a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:tag&gt;</span> <span class="cs">[0..*]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#idm3337088-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+   <span class="nt">&lt;<a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:versionMember</span>
+<div class="other" style="margin-left: 4em">Attribute group reference (not shown): <a href="#ns_gml" title="Find out namespace of 'gml' prefix">gml</a>:<a title='"AssociationAttributeGroup" attribute group definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;AssociationAttributeGroup&quot; attribute group definition could not be found.');">AssociationAttributeGroup</a></div>   <span class="nt">&gt;</span> <span class="cs">[0..*]</span>  <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#idm3345536-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+      <span class="c">&lt;!-- '<span class="type"><a href="#ns_gml" title="Find out namespace of 'gml' prefix">gml</a>:<a title='"AbstractFeatureMemberType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;AbstractFeatureMemberType&quot; type definition could not be found.');">AbstractFeatureMemberType</a></span>' super type was not found in this schema. Some elements and attributes may be missing. --&gt;</span>
+   <span class="nt">&lt;/<a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:versionMember&gt;</span>
+   <span class="nt">&lt;<a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:adeOfVersion&gt;</span> <span class="type"><a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:<a title='Jump to "ADEOfVersionPropertyType" type definition.' href="#type_ADEOfVersionPropertyType">ADEOfVersionPropertyType</a></span> <span class="nt">&lt;/<a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:adeOfVersion&gt;</span> <span class="cs">[0..*]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#idm3372032-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+<span class="nt">&lt;/...&gt;</span>
+</pre></div><div class="bs-callout bs-callout-info"><h4>Schema Component Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The Schema Component Representation table below displays the underlying XML representation of the schema component. (Annotations are not shown.)"><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;complexType</span> <span class="na">name=</span><span class="s">"VersionType"</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;complexContent</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;extension</span> <span class="na">base=</span><span class="s">"<span class="type"><a href="#ns_core" title="Find out namespace of 'core' prefix">core</a>:<a title='"AbstractVersionType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;AbstractVersionType&quot; type definition could not be found.');">AbstractVersionType</a></span>"</span><span class="nt">&gt;</span>
+         <span class="nt">&lt;sequence</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;element</span> <span class="na">name=</span><span class="s">"tag"</span> <span class="na">type=</span><span class="s">"<span class="type">string</span>"</span> <span class="na">maxOccurs=</span><span class="s">"unbounded"</span> <span class="na">minOccurs=</span><span class="s">"0"</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;element</span> <span class="na">name=</span><span class="s">"versionMember"</span> <span class="na">maxOccurs=</span><span class="s">"unbounded"</span> <span class="na">minOccurs=</span><span class="s">"0"</span><span class="nt">&gt;</span>
+               <span class="nt">&lt;complexType</span><span class="nt">&gt;</span>
+                  <span class="nt">&lt;complexContent</span><span class="nt">&gt;</span>
+                     <span class="nt">&lt;extension</span> <span class="na">base=</span><span class="s">"<span class="type"><a href="#ns_gml" title="Find out namespace of 'gml' prefix">gml</a>:<a title='"AbstractFeatureMemberType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;AbstractFeatureMemberType&quot; type definition could not be found.');">AbstractFeatureMemberType</a></span>"</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;sequence</span><span class="nt">/&gt;</span>
+                        <span class="nt">&lt;attributeGroup</span> <span class="na">ref=</span><span class="s">"<a href="#ns_gml" title="Find out namespace of 'gml' prefix">gml</a>:<a title='"AssociationAttributeGroup" attribute group definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;AssociationAttributeGroup&quot; attribute group definition could not be found.');">AssociationAttributeGroup</a>"</span><span class="nt">/&gt;</span>
+                     <span class="nt">&lt;/extension&gt;</span>
+                  <span class="nt">&lt;/complexContent&gt;</span>
+               <span class="nt">&lt;/complexType&gt;</span>
+            <span class="nt">&lt;/element&gt;</span>
+            <span class="nt">&lt;element</span> <span class="na">name=</span><span class="s">"adeOfVersion"</span> <span class="na">type=</span><span class="s">"<span class="type"><a href="#ns_vers" title="Find out namespace of 'vers' prefix">vers</a>:<a title='Jump to "ADEOfVersionPropertyType" type definition.' href="#type_ADEOfVersionPropertyType">ADEOfVersionPropertyType</a></span>"</span> <span class="na">maxOccurs=</span><span class="s">"unbounded"</span> <span class="na">minOccurs=</span><span class="s">"0"</span><span class="nt">/&gt;</span>
+         <span class="nt">&lt;/sequence&gt;</span>
+      <span class="nt">&lt;/extension&gt;</span>
+   <span class="nt">&lt;/complexContent&gt;</span>
+<span class="nt">&lt;/complexType&gt;</span>
+</pre></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr></section><section id="SectionSchemaSimpleTypes"><h2><a id="SchemaSimpleTypes">Types</a></h2><h3 class="xs3p-subsection-heading">Simple Type: <a id="type_TransactionTypeValueType"></a><strong>TransactionTypeValueType</strong></h3><h4>Type hierarchy:</h4><dl class="dl-horizontal"><dt class="header">Super-types:</dt><dd class=""><span class="type">string</span> &lt; <strong>TransactionTypeValueType</strong> (by restriction)</dd><dt class="header">Sub-types:</dt><dd class="">None</dd></dl><h4>Properties:</h4><dl class="dl-horizontal"><dt class="header">Content</dt><dd class=""><ul><li>Base XSD Type: string</li></ul><ul><li><em>value</em> comes from list: {'insert'|'delete'|'replace'}</li></ul></dd></dl><dl class="dl-horizontal"><dt>Documentation</dt><dd><div class="annotation documentation" id="wdoc-idm3111808"><div class="hidden" id="idm3111808-doc-raw">TransactionTypeValue enumerates the three possible types of transactions: insert, delete, or replace.</div><div class="xs3p-doc" id="idm3111808-doc"> </div></div></dd></dl><div class="bs-callout bs-callout-info"><h4>Schema Component Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The Schema Component Representation table below displays the underlying XML representation of the schema component. (Annotations are not shown.)"><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;simpleType</span> <span class="na">name=</span><span class="s">"TransactionTypeValueType"</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;restriction</span> <span class="na">base=</span><span class="s">"<span class="type">string</span>"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;enumeration</span> <span class="na">value=</span><span class="s">"insert"</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;enumeration</span> <span class="na">value=</span><span class="s">"delete"</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;enumeration</span> <span class="na">value=</span><span class="s">"replace"</span><span class="nt">/&gt;</span>
+   <span class="nt">&lt;/restriction&gt;</span>
+<span class="nt">&lt;/simpleType&gt;</span>
+</pre></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr><h3 class="xs3p-subsection-heading">Simple Type: <a id="type_TransitionTypeValueType"></a><strong>TransitionTypeValueType</strong></h3><h4>Type hierarchy:</h4><dl class="dl-horizontal"><dt class="header">Super-types:</dt><dd class=""><span class="type">string</span> &lt; <strong>TransitionTypeValueType</strong> (by restriction)</dd><dt class="header">Sub-types:</dt><dd class="">None</dd></dl><h4>Properties:</h4><dl class="dl-horizontal"><dt class="header">Content</dt><dd class=""><ul><li>Base XSD Type: string</li></ul><ul><li><em>value</em> comes from list: {'planned'|'realized'|'historicalSuccession'|'fork'|'merge'}</li></ul></dd></dl><dl class="dl-horizontal"><dt>Documentation</dt><dd><div class="annotation documentation" id="wdoc-idm3296000"><div class="hidden" id="idm3296000-doc-raw">TransitionTypeValue enumerates the different kinds of version transitions. “planned” and “fork” should be used in cases when from one city model version multiple successor versions are being created. “realized” and “merge” should be used when different city model versions are converging into a common successor version.</div><div class="xs3p-doc" id="idm3296000-doc"> </div></div></dd></dl><div class="bs-callout bs-callout-info"><h4>Schema Component Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The Schema Component Representation table below displays the underlying XML representation of the schema component. (Annotations are not shown.)"><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;simpleType</span> <span class="na">name=</span><span class="s">"TransitionTypeValueType"</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;restriction</span> <span class="na">base=</span><span class="s">"<span class="type">string</span>"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;enumeration</span> <span class="na">value=</span><span class="s">"planned"</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;enumeration</span> <span class="na">value=</span><span class="s">"realized"</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;enumeration</span> <span class="na">value=</span><span class="s">"historicalSuccession"</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;enumeration</span> <span class="na">value=</span><span class="s">"fork"</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;enumeration</span> <span class="na">value=</span><span class="s">"merge"</span><span class="nt">/&gt;</span>
+   <span class="nt">&lt;/restriction&gt;</span>
+<span class="nt">&lt;/simpleType&gt;</span>
+</pre></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr></section><div id="glossary"><h2><a id="Glossary">Glossary</a></h2><p><span class="glossaryTerm"><a id="term_Abstract">Abstract</a> </span>(Applies to complex type definitions and element declarations). An abstract element or complex type cannot used to validate an element instance. If there is a reference to an abstract element, only element declarations that can substitute the abstract element can be used to validate the instance. For references to abstract type definitions, only derived types can be used.</p><p><span class="glossaryTerm"><a id="term_All">All Model Group</a> </span>Child elements can be provided <em>in any order</em> in instances. See: <a title="http://www.w3.org/TR/xmlschema-1/#element-all" href="http://www.w3.org/TR/xmlschema-1/#element-all">http://www.w3.org/TR/xmlschema-1/#element-all</a>.</p><p><span class="glossaryTerm"><a id="term_Choice">Choice Model Group</a> </span><em>Only one</em> from the list of child elements and model groups can be provided in instances. See: <a title="http://www.w3.org/TR/xmlschema-1/#element-choice" href="http://www.w3.org/TR/xmlschema-1/#element-choice">http://www.w3.org/TR/xmlschema-1/#element-choice</a>.</p><p><span class="glossaryTerm"><a id="term_CollapseWS">Collapse Whitespace Policy</a> </span>Replace tab, line feed, and carriage return characters with space character (Unicode character 32). Then, collapse contiguous sequences of space characters into single space character, and remove leading and trailing space characters.</p><p><span class="glossaryTerm"><a id="term_ElemBlock">Disallowed Substitutions</a> </span>(Applies to element declarations). If <em>substitution</em> is specified, then <a title="Look up 'substitution group' in glossary" href="#term_SubGroup">substitution group</a> members cannot be used in place of the given element declaration to validate element instances. If <em>derivation methods</em>, e.g. extension, restriction, are specified, then the given element declaration will not validate element instances that have types derived from the element declaration's type using the specified derivation methods. Normally, element instances can override their declaration's type by specifying an <code>xsi:type</code> attribute.</p><p><span class="glossaryTerm"><a id="term_Key">Key Constraint</a> </span>Like <a title="Look up 'Uniqueness Constraint' in glossary" href="#term_Unique">Uniqueness Constraint</a>, but additionally requires that the specified value(s) must be provided. See: <a title="http://www.w3.org/TR/xmlschema-1/#cIdentity-constraint_Definitions" href="http://www.w3.org/TR/xmlschema-1/#cIdentity-constraint_Definitions">http://www.w3.org/TR/xmlschema-1/#cIdentity-constraint_Definitions</a>.</p><p><span class="glossaryTerm"><a id="term_KeyRef">Key Reference Constraint</a> </span>Ensures that the specified value(s) must match value(s) from a <a title="Look up 'Key Constraint' in glossary" href="#term_Key">Key Constraint</a> or <a title="Look up 'Uniqueness Constraint' in glossary" href="#term_Unique">Uniqueness Constraint</a>. See: <a title="http://www.w3.org/TR/xmlschema-1/#cIdentity-constraint_Definitions" href="http://www.w3.org/TR/xmlschema-1/#cIdentity-constraint_Definitions">http://www.w3.org/TR/xmlschema-1/#cIdentity-constraint_Definitions</a>.</p><p><span class="glossaryTerm"><a id="term_ModelGroup">Model Group</a> </span>Groups together element content, specifying the order in which the element content can occur and the number of times the group of element content may be repeated. See: <a title="http://www.w3.org/TR/xmlschema-1/#Model_Groups" href="http://www.w3.org/TR/xmlschema-1/#Model_Groups">http://www.w3.org/TR/xmlschema-1/#Model_Groups</a>.</p><p><span class="glossaryTerm"><a id="term_Nillable">Nillable</a> </span>(Applies to element declarations). If an element declaration is nillable, instances can use the <code>xsi:nil</code> attribute. The <code>xsi:nil</code> attribute is the boolean attribute, <em>nil</em>, from the <em>http://www.w3.org/2001/XMLSchema-instance</em> namespace. If an element instance has an <code>xsi:nil</code> attribute set to true, it can be left empty, even though its element declaration may have required content.</p><p><span class="glossaryTerm"><a id="term_Notation">Notation</a> </span>A notation is used to identify the format of a piece of data. Values of elements and attributes that are of type, NOTATION, must come from the names of declared notations. See: <a title="http://www.w3.org/TR/xmlschema-1/#cNotation_Declarations" href="http://www.w3.org/TR/xmlschema-1/#cNotation_Declarations">http://www.w3.org/TR/xmlschema-1/#cNotation_Declarations</a>.</p><p><span class="glossaryTerm"><a id="term_PreserveWS">Preserve Whitespace Policy</a> </span>Preserve whitespaces exactly as they appear in instances.</p><p><span class="glossaryTerm"><a id="term_TypeFinal">Prohibited Derivations</a> </span>(Applies to type definitions). Derivation methods that cannot be used to create sub-types from a given type definition.</p><p><span class="glossaryTerm"><a id="term_TypeBlock">Prohibited Substitutions</a> </span>(Applies to complex type definitions). Prevents sub-types that have been derived using the specified derivation methods from validating element instances in place of the given type definition.</p><p><span class="glossaryTerm"><a id="term_ReplaceWS">Replace Whitespace Policy</a> </span>Replace tab, line feed, and carriage return characters with space character (Unicode character 32).</p><p><span class="glossaryTerm"><a id="term_Sequence">Sequence Model Group</a> </span>Child elements and model groups must be provided <em>in the specified order</em> in instances. See: <a title="http://www.w3.org/TR/xmlschema-1/#element-sequence" href="http://www.w3.org/TR/xmlschema-1/#element-sequence">http://www.w3.org/TR/xmlschema-1/#element-sequence</a>.</p><p><span class="glossaryTerm"><a id="term_SubGroup">Substitution Group</a> </span>Elements that are <em>members</em> of a substitution group can be used wherever the <em>head</em> element of the substitution group is referenced.</p><p><span class="glossaryTerm"><a id="term_ElemFinal">Substitution Group Exclusions</a> </span>(Applies to element declarations). Prohibits element declarations from nominating themselves as being able to substitute a given element declaration, if they have types that are derived from the original element's type using the specified derivation methods.</p><p><span class="glossaryTerm"><a id="term_TargetNS">Target Namespace</a> </span>The target namespace identifies the namespace that components in this schema belongs to. If no target namespace is provided, then the schema components do not belong to any namespace.</p><p><span class="glossaryTerm"><a id="term_Unique">Uniqueness Constraint</a> </span>Ensures uniqueness of an element/attribute value, or a combination of values, within a specified scope. See: <a title="http://www.w3.org/TR/xmlschema-1/#cIdentity-constraint_Definitions" href="http://www.w3.org/TR/xmlschema-1/#cIdentity-constraint_Definitions">http://www.w3.org/TR/xmlschema-1/#cIdentity-constraint_Definitions</a>.</p><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr></div><p class="footer">Generated by <a href="https://github.com/unitsml/schemas/blob/master/xsl/xs3p.xsl">xs3p</a> (fork of <a href="http://github.com/bitfehler/xs3p">xs3p</a>)
+                  . Last Modified: <script type="text/javascript">
+<!--
+document.write(document.lastModified);
+// -->
+</script></p></div><br></br><nav><div id="toc"><ul class="nav nav-list xs3p-sidenav"><li><strong><a href="#SchemaProperties">Schema Document Properties</a></strong></li><ul class="nav nav-list nav-list-elements"><li><strong><a href="#SchemaElements">Elements </a></strong></li><li class="nav-sub-item"><a href="#element_ADEOfVersion"><strong>ADEOfVersion</strong></a></li><li class="nav-sub-item"><a href="#element_ADEOfVersionTransition"><strong>ADEOfVersionTransition</strong></a></li><li class="nav-sub-item"><a href="#element_Transaction"><strong>Transaction</strong></a></li><li class="nav-sub-item"><a href="#element_Version"><strong>Version</strong></a></li><li class="nav-sub-item"><a href="#element_VersionTransition"><strong>VersionTransition</strong></a></li></ul><li><strong><a href="#SchemaComplexTypes">Complex Types </a></strong></li><li class="nav-sub-item"><a href="#type_ADEOfVersionPropertyType"><strong>ADEOfVersionPropertyType</strong></a></li><li class="nav-sub-item"><a href="#type_ADEOfVersionTransitionPropertyType"><strong>ADEOfVersionTransitionPropertyType</strong></a></li><li class="nav-sub-item"><a href="#type_ADEOfVersionTransitionType"><strong>ADEOfVersionTransitionType</strong></a></li><li class="nav-sub-item"><a href="#type_ADEOfVersionType"><strong>ADEOfVersionType</strong></a></li><li class="nav-sub-item"><a href="#type_TransactionPropertyType"><strong>TransactionPropertyType</strong></a></li><li class="nav-sub-item"><a href="#type_TransactionType"><strong>TransactionType</strong></a></li><li class="nav-sub-item"><a href="#type_VersionPropertyType"><strong>VersionPropertyType</strong></a></li><li class="nav-sub-item"><a href="#type_VersionTransitionPropertyType"><strong>VersionTransitionPropertyType</strong></a></li><li class="nav-sub-item"><a href="#type_VersionTransitionType"><strong>VersionTransitionType</strong></a></li><li class="nav-sub-item"><a href="#type_VersionType"><strong>VersionType</strong></a></li><li><strong><a href="#SchemaSimpleTypes">Types </a></strong></li><li class="nav-sub-item"><a href="#type_TransactionTypeValueType"><strong>TransactionTypeValueType</strong></a></li><li class="nav-sub-item"><a href="#type_TransitionTypeValueType"><strong>TransitionTypeValueType</strong></a></li><li><strong><a href="#Glossary">Glossary</a></strong></li></ul></div></nav><script>
+               //TOC toggle animation
+               $('#toggle').on('click', function(){
+                  var duration = 400;
+                  if( $('nav').is(':visible') ) {
+                     $('nav').animate({ 'left': '-353px' }, duration, function(){
+                        $('nav').hide();
+                     });
+                     $('body').animate({ 'margin-left': '0' }, duration);
+                     $('#toggle > span').text('>');
+                  }
+                  else {
+                     $('nav').show();
+                     $('nav').animate({ 'left': '0px' }, duration);
+                     $('body').animate({ 'margin-left': '270px' }, duration);
+                     $('#toggle > span').text('<');
+                  }
+               });
+            </script><script>
+
+                  $(function () { $("[data-toggle='tooltip']").tooltip(); });
+                  $(function () { $("[data-toggle='popover']").popover({ trigger: "hover" }); });
+                  
+                  $(function () { $("[data-toggle='modal']").click(function() { return false; })});
+                  
+                  $(function () { $("[data-toggle='modal']").popover({ trigger: "hover", html: true,
+    content: function () {
+        var targetId = $(this).attr('data-target');
+        return $(targetId).html();
+    }}); });
+                  
+    
+                  
+                  var c = new Markdown.Converter();
+                  $('.xs3p-doc').each(function(i, obj) {
+                     var rawDocID = '#' + $(this).attr('id') + '-raw';
+                     var indent = $(rawDocID).html().match("^\\n[\\t ]*");
+                     if (!(indent === null)) {
+                        normalized = $(rawDocID).html().replace(new RegExp(indent[0], "gm"), "\n");
+                     } else {
+                        normalized = $(rawDocID).html();
+                     }
+                     $(this).html(c.makeHtml(normalized));
+                     $(this).find('code,pre').each(function(i, block) {
+                        $(this).html($(this).text());
+                     });
+                  });
+
+                  $(window).scroll(function() {
+                     if ($(".xs3p-sidebar").css("position") == "fixed" && $(window).height() < $(".xs3p-sidebar").height()) {
+                        var perc = $(window).scrollTop() / $("#xs3p-content").height();
+                        var overflow = $(".xs3p-sidebar").height() + 105 - $(window).height();
+                        $(".xs3p-sidebar").css("top", (65 - Math.round(overflow * perc)) + "px");
+                     }
+                  });
+                  $(window).resize(function() {
+                     if ($(".xs3p-sidebar").css("position") == "fixed") {
+                        $(".xs3p-sidebar").css("top", "65px");
+                     }
+                  });
+                  </script></body></html>
