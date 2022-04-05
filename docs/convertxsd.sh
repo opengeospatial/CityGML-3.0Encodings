@@ -10,10 +10,11 @@ cd /citygml/xsd-doc-tools
 make docs
 cd /citygml
 mkdir /citygml/xsd-doc
-mv /citygml/xsd-doc-tools/docs /citygml/xsd-doc/3.0
+mkdir /citygml/xsd-doc/3.0
+cp -r /citygml/xsd-doc-tools/docs/* /citygml/xsd-doc/3.0
 rm -rf /citygml/xsd-doc-tools
 
-cp /citygml/xsd-doc/version_index.html /citygml/xsd-doc/index.html
-cp /citygml/xsd-doc/package_index.html /citygml/xsd-doc/3.0/index.html
+cp /citygml/version_index.html /citygml/xsd-doc/index.html
+cp /citygml/package_index.html /citygml/xsd-doc/3.0/index.html
 
 echo Process completed.
