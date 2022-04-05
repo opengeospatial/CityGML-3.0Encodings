@@ -9,7 +9,11 @@ rm -rf /citygml/CityGML-3.0Encodings
 cd /citygml/xsd-doc-tools
 make docs
 cd /citygml
-mv /citygml/xsd-doc-tools/docs /citygml/xsd-doc
+mkdir /citygml/xsd-doc
+mv /citygml/xsd-doc-tools/docs /citygml/xsd-doc/3.0
 rm -rf /citygml/xsd-doc-tools
+
+cp /citygml/xsd-doc/version_index.html /citygml/xsd-doc/index.html
+cp /citygml/xsd-doc/package_index.html /citygml/xsd-doc/3.0/index.html
 
 echo Process completed.
