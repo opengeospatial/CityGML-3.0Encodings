@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:exslt="http://exslt.org/common"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Schema documentation waterBody</title><meta charset="UTF-8"></meta><link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet"></link><style type="text/css">
+
+
+nav, section {
+  display: block; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+
+/*dl {
+  display: grid;
+  grid-template-columns: max-content auto; }
+  dl dt p, dl dd p {
+    margin-top: 0; }
+  dl dt {
+    grid-column-start: 1; }
+  dl dd {
+    grid-column-start: 2; }
+*/
+
+body {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.4em;
+  color: -internal-root-color;
+  background-color: #ffffff; }
+  body main {
+    margin: 0 3em 0 6em; }
+  body main {
+    margin: 0; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1.3; }
+
+
+body {
+  margin-left: 270px;
+  margin-right: 2em; }
+
+main {
+  padding-left: 4em;
+  padding-right: 2em; }
+
+.title-section{
+  padding-left: 4em;
+  padding-top: 2em; }
+
+
+
+
+
+h2 p {
+  display: inline; }
+
+
+
+/* Navigation*/
+#toc {
+  font-weight: 400; }
+  #toc a {
+   color: black;
+   text-decoration-color: black; }
+  #toc ul {
+    margin: 0;
+    padding: 0;
+    list-style: none; }
+    #toc ul li a {
+      padding: 5px 10px; }
+    #toc ul a {
+      text-decoration: none;
+      display: block; }
+      #toc ul a:hover {
+        box-shadow: none;
+        color: black; }
+  #toc .h2 {
+    padding-left: 30px; }
+  #toc .h3 {
+    padding-left: 50px; }
+  #toc .toc-active, #toc li:hover {
+    background: #f7f7f7;
+    box-shadow: inset -5px 0px 10px -5px #f7f7f7 !important; }
+    #toc .toc-active a, #toc li:hover a {
+      color: black; }
+  @media print {
+    #toc .toc-active, #toc li:hover {
+      background: white;
+      box-shadow: none !important; }
+    #toc li:hover a {
+      color: black; } }
+  @media screen and (max-width: 768px) {
+    #toc {
+      padding: 0 1.5em;
+      overflow: visible; } }
+  #toc .toc-active,
+  #toc li:hover {
+    box-shadow: 0px 1px 0px 0px black !important;
+    background: none; }
+  #toc li:before {
+    content: " ";
+    display: none; }
+
+nav {
+  line-height: 1.2em; }
+  @media screen and (min-width: 768px) {
+    nav {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 270px;
+      font-size: 0.9em;
+      overflow: auto;
+      padding: 0 0 0 0px;
+      background-color: #fefefe; } }
+  @media print {
+    nav {
+      position: relative;
+      width: auto;
+      font-size: 0.9em;
+      overflow: auto;
+      padding: 0;
+      margin-right: 0;
+      background-color: white; } }
+#toggle {
+  margin-left: -4em;
+  margin-top: -2em; }
+  @media screen and (min-width: 768px) {
+    #toggle {
+      position: fixed;
+      height: 100%;
+      width: 20px;
+      font-weight: bold;
+      background-color: #d8e4ff;
+      color: black !important;
+      cursor: pointer;
+      z-index: 100; }
+      #toggle span {
+        text-align: center;
+        width: 100%;
+        position: absolute;
+        top: 50%;
+        transform: translate(0, -50%); } }
+  @media screen and (max-width: 768px) {
+    #toggle {
+      display: none; } }
+  @media print {
+    #toggle {
+      display: none; } }
+@media screen and (min-width: 768px) {
+  .container {
+    padding-left: 360px; }
+  .rule.toc {
+    display: none; }
+  h1.toc-contents {
+    margin-top: 1em; }
+  ul#toc-list {
+    padding: 0;
+    margin: 0; } }
+
+
+ul, ol {
+  margin-left: 2em; }
+
+#toc-list ul {
+  margin-bottom: 0.25em; }
+
+#toc-list ol li {
+  list-style-type: none; }
+
+
+/* XS3P specific CSS */
+body {
+    background-color: #FFF;
+    
+}
+
+.nav > li.active {
+    background-color: #FFF;
+}
+.nav > li > a:hover {
+   
+    background-color: rgb(0,0,0, 0.05);
+}
+
+.nav-sub-item > a {
+    padding-left: 30px !important;
+}
+
+
+.nav-sub-item strong {
+      font-weight: normal; }
+
+//.nav-list-elements
+.nav {
+   //background-color: #efe;
+   background-color: #e4ecff;
+}
+
+.xs3p-sidenav {
+    //background-color: #efe;
+    background-color: #e4ecff;
+}
+
+code {
+    color: #333;
+}
+
+a.name {
+    padding-top: 65px;
+}
+
+a:not([href]) {
+   color:#1c476c;
+}
+
+a:not([href]):hover {
+  text-decoration: none;
+}
+
+
+h3.xs3p-subsection-heading {
+    margin-bottom: 30px;
+}
+
+section, #top {
+    margin-top: -65px;
+    padding-top: 65px;
+}
+
+pre {
+    padding: 5px;
+}
+
+.xs3p-in-panel-table {
+    margin-bottom: 0px;
+}
+
+.xs3p-collapse-button {
+    font-size: 8pt;
+}
+.panel-heading .xs3p-panel-title:after {
+    font-family: 'Glyphicons Halflings';
+    content: "\e114";
+    float: left;
+    color: grey;
+    margin-right: 10px;
+}
+.panel-heading .xs3p-panel-title.collapsed:after {
+    content: "\e080";
+}
+.panel-info > .panel-heading .xs3p-panel-title:after {
+    color: white;
+}
+.xs3p-panel-help {
+    color: #888888;
+    cursor: pointer;
+}
+
+.panel-group {
+    margin-bottom: 20px;
+}
+
+.btn-doc {
+    padding: 0px;
+    border: 0px none;
+    background: none repeat scroll 0% 0% transparent;
+    line-height: 1;
+    font-size: 12px;
+}
+
+.unpre {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    white-space: normal;
+    word-break: normal;
+    word-wrap: normal;
+}
+
+.popover {
+    max-width: 400px;
+}
+
+// Syntax highlighting
+.codehilite .err {color: #FFF; background-color: #D2322D; font-weight: bold;} /* Error */
+.codehilite .c   {color: #999;}
+.codehilite .cs  {color: #999; font-style: italic;}
+.codehilite .nt  {color: #2F6F9F;}
+.codehilite .nn  {color: #39B3D7;}
+.codehilite .na  {color: #47A447;}
+.codehilite .s   {color: #D2322D;}
+.codehilite a       {color: inherit !important; text-decoration: underline !important;}
+.codehilite a:hover {opacity: 0.7 !important;}
+
+dl {
+  margin-bottom: 10px;
+}
+
+dt {
+	font-weight: normal;
+
+	margin-bottom: 10px;
+}
+
+dt.header{
+	font-weight: 700;
+}
+
+.dl-horizontal dt {
+	white-space: normal;
+}
+
+dd.header{
+	font-weight: 700;
+}
+
+dd ul {
+	margin-left: 0em;
+}
+
+.bs-callout {
+   padding: 20px;
+   padding-top: 10px;
+   padding-bottom: 5px;
+   margin: 20px 0;
+   border: 1px solid #eee;
+   border-left-width: 5px;
+   border-radius: 3px;
+}
+.bs-callout-danger {
+   border-left-color: #d9534f;
+}
+.bs-callout-warning {
+   border-left-color: #f0ad4e;
+}
+.bs-callout-info {
+   border-left-color: #5bc0de;
+}
+.bs-callout h4 {
+   margin-top: 0;
+   margin-bottom: 5px;
+}
+.bs-callout-danger h4 {
+   color: #d9534f;
+}
+.bs-callout-warning h4 {
+   color: #f0ad4e;
+}
+.bs-callout-info h4 {
+   color: black;
+   font-size: 11pt;
+}
+
+
+      </style><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js">
+               //Import JQuery, required for Bootstrap
+            </script><script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js">
+               // Import Bootstrap JS code
+            </script><script src="https://cdnjs.cloudflare.com/ajax/libs/pagedown/1.0/Markdown.Converter.js">
+              // Import Markdown converter for comments processing
+            </script></head><body lang="en" xml:lang="en"><div class="title-section"><div id="toggle"><span>&lt;</span></div><div class="modal fade ADEOfAbstractWaterBoundarySurface" id="idm3212928-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="idm3212928-label">Element ADEOfAbstractWaterBoundarySurface</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-idm3212928-hidden"><div class="hidden" id="idm3212928-hidden-doc-raw">ADEOfAbstractWaterBoundarySurface acts as a hook to define properties within an ADE that are to be added to AbstractWaterBoundarySurface.</div><div class="xs3p-doc" id="idm3212928-hidden-doc"> </div></div></div></div><div class="modal fade ADEOfWaterBody" id="idm3221376-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="idm3221376-label">Element ADEOfWaterBody</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-idm3221376-hidden"><div class="hidden" id="idm3221376-hidden-doc-raw">ADEOfWaterBody acts as a hook to define properties within an ADE that are to be added to a WaterBody.</div><div class="xs3p-doc" id="idm3221376-hidden-doc"> </div></div></div></div><div class="modal fade ADEOfWaterGroundSurface" id="idm3242112-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="idm3242112-label">Element ADEOfWaterGroundSurface</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-idm3242112-hidden"><div class="hidden" id="idm3242112-hidden-doc-raw">ADEOfWaterGroundSurface acts as a hook to define properties within an ADE that are to be added to a WaterGroundSurface.</div><div class="xs3p-doc" id="idm3242112-hidden-doc"> </div></div></div></div><div class="modal fade ADEOfWaterSurface" id="idm3254784-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="idm3254784-label">Element ADEOfWaterSurface</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-idm3254784-hidden"><div class="hidden" id="idm3254784-hidden-doc-raw">ADEOfWaterSurface acts as a hook to define properties within an ADE that are to be added to a WaterSurface.</div><div class="xs3p-doc" id="idm3254784-hidden-doc"> </div></div></div></div><div class="modal fade AbstractWaterBoundarySurface" id="idm3107200-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="idm3107200-label">Element AbstractWaterBoundarySurface</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-idm3107200-hidden"><div class="hidden" id="idm3107200-hidden-doc-raw">AbstractWaterBoundarySurface is the abstract superclass for all kinds of thematic surfaces bounding a water body.</div><div class="xs3p-doc" id="idm3107200-hidden-doc"> </div></div></div></div><div class="modal fade adeOfAbstractWaterBoundarySurface" id="idm3116928-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="idm3116928-label">Element adeOfAbstractWaterBoundarySurface</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-idm3116928-hidden"><div class="hidden" id="idm3116928-hidden-doc-raw">Augments AbstractWaterBoundarySurface with properties defined in an ADE.</div><div class="xs3p-doc" id="idm3116928-hidden-doc"> </div></div></div></div><div class="modal fade WaterBody" id="idm3295872-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="idm3295872-label">Element WaterBody</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-idm3295872-hidden"><div class="hidden" id="idm3295872-hidden-doc-raw">A WaterBody represents significant and permanent or semi-permanent accumulations of surface water, usually covering a part of the Earth.</div><div class="xs3p-doc" id="idm3295872-hidden-doc"> </div></div></div></div><div class="modal fade class" id="idm3309440-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="idm3309440-label">Element class</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-idm3309440-hidden"><div class="hidden" id="idm3309440-hidden-doc-raw">Indicates the specific type of the WaterBody.</div><div class="xs3p-doc" id="idm3309440-hidden-doc"> </div></div></div></div><div class="modal fade function" id="idm3313152-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="idm3313152-label">Element function</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-idm3313152-hidden"><div class="hidden" id="idm3313152-hidden-doc-raw">Specifies the intended purposes of the WaterBody.</div><div class="xs3p-doc" id="idm3313152-hidden-doc"> </div></div></div></div><div class="modal fade usage" id="idm3325184-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="idm3325184-label">Element usage</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-idm3325184-hidden"><div class="hidden" id="idm3325184-hidden-doc-raw">Specifies the actual uses of the WaterBody.</div><div class="xs3p-doc" id="idm3325184-hidden-doc"> </div></div></div></div><div class="modal fade adeOfWaterBody" id="idm3328640-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="idm3328640-label">Element adeOfWaterBody</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-idm3328640-hidden"><div class="hidden" id="idm3328640-hidden-doc-raw">Augments the WaterBody with properties defined in an ADE.</div><div class="xs3p-doc" id="idm3328640-hidden-doc"> </div></div></div></div><div class="modal fade WaterGroundSurface" id="idm3335808-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="idm3335808-label">Element WaterGroundSurface</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-idm3335808-hidden"><div class="hidden" id="idm3335808-hidden-doc-raw">A WaterGroundSurface represents the exterior boundary surface of the submerged bottom of a water body.</div><div class="xs3p-doc" id="idm3335808-hidden-doc"> </div></div></div></div><div class="modal fade adeOfWaterGroundSurface" id="idm3368320-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="idm3368320-label">Element adeOfWaterGroundSurface</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-idm3368320-hidden"><div class="hidden" id="idm3368320-hidden-doc-raw">Augments the WaterGroundSurface with properties defined in an ADE.</div><div class="xs3p-doc" id="idm3368320-hidden-doc"> </div></div></div></div><div class="modal fade WaterSurface" id="idm3376384-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="idm3376384-label">Element WaterSurface</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-idm3376384-hidden"><div class="hidden" id="idm3376384-hidden-doc-raw">A WaterSurface represents the upper exterior interface between a water body and the atmosphere.</div><div class="xs3p-doc" id="idm3376384-hidden-doc"> </div></div></div></div><div class="modal fade waterLevel" id="idm3378944-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="idm3378944-label">Element waterLevel</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-idm3378944-hidden"><div class="hidden" id="idm3378944-hidden-doc-raw">Specifies the level of the WaterSurface.</div><div class="xs3p-doc" id="idm3378944-hidden-doc"> </div></div></div></div><div class="modal fade adeOfWaterSurface" id="idm3383040-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="idm3383040-label">Element adeOfWaterSurface</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-idm3383040-hidden"><div class="hidden" id="idm3383040-hidden-doc-raw">Augments the WaterSurface with properties defined in an ADE.</div><div class="xs3p-doc" id="idm3383040-hidden-doc"> </div></div></div></div><h1><a id="top">Schema documentation waterBody</a></h1><section id="SectionSchemaProperties"><h2><a id="SchemaProperties">Schema Document Properties</a></h2><dl class="dl-horizontal"><dt class="header"><a title="Look up 'Target Namespace' in glossary" href="#term_TargetNS">Target Namespace</a></dt><dd class=""><span class="targetNS">http://www.opengis.net/citygml/waterbody/3.0</span></dd><dt class="header">Version</dt><dd class="">3.0.0</dd><dt class="header">Element and Attribute Namespaces</dt><dd class=""><ul><li>Global element and attribute declarations belong to this schema's target namespace.</li><li>By default, local element declarations belong to this schema's target namespace.</li><li>By default, local attribute declarations have no namespace.</li></ul></dd><dt class="header">Schema Composition</dt><dd class=""><ul><li>This schema imports schema(s) from the following namespace(s):<ul><li><em>http://www.opengis.net/citygml/3.0</em> (at ./core.xsd)</li><li><em>http://www.opengis.net/gml/3.2</em> (at http://schemas.opengis.net/gml/3.2.1/gml.xsd)</li></ul></li></ul></dd></dl><dl class="dl-horizontal"><dt>Documentation</dt><dd><div class="annotation documentation" id="wdoc-idm3212016"><div class="hidden" id="idm3212016-doc-raw">The WaterBody module supports representation of the thematic aspects and 3D geometry of rivers, canals, lakes, and basins. It does, however, not inherit any hydrological or other dynamic aspects of fluid flow.</div><div class="xs3p-doc" id="idm3212016-doc"> </div></div></dd></dl><h4>Declared Namespaces:</h4><dl class="dl-horizontal"><dt class="header">Prefix</dt><dd class="header">Namespace</dd><dt class=""><a id="ns_">Default namespace</a></dt><dd class="">http://www.w3.org/2001/XMLSchema</dd><dt class=""><a id="ns_xml">xml</a></dt><dd class="">http://www.w3.org/XML/1998/namespace</dd><dt class=""><a id="ns_wtr">wtr</a></dt><dd class=""><span class="targetNS">http://www.opengis.net/citygml/waterbody/3.0</span></dd><dt class=""><a id="ns_gml">gml</a></dt><dd class="">http://www.opengis.net/gml/3.2</dd><dt class=""><a id="ns_core">core</a></dt><dd class="">http://www.opengis.net/citygml/3.0</dd></dl><div class="bs-callout bs-callout-info"><h4>Schema Component Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The Schema Component Representation table below displays the underlying XML representation of the schema component. (Annotations are not shown.)"><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;schema</span> <span class="na">elementFormDefault=</span><span class="s">"qualified"</span> <span class="na">targetNamespace=</span><span class="s">"http://www.opengis.net/citygml/waterbody/3.0"</span> <span class="na">version=</span><span class="s">"3.0.0"</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;import</span> <span class="na">namespace=</span><span class="s">"http://www.opengis.net/citygml/3.0"</span> <span class="na">schemaLocation=</span><span class="s">"./core.xsd"</span><span class="nt">/&gt;</span>
+   <span class="nt">&lt;import</span> <span class="na">namespace=</span><span class="s">"http://www.opengis.net/gml/3.2"</span> <span class="na">schemaLocation=</span><span class="s">"http://schemas.opengis.net/gml/3.2.1/gml.xsd"</span><span class="nt">/&gt;</span>
+<span class="scContent">...</span>
+<span class="nt">&lt;/schema&gt;</span>
+</pre></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr></section><section id="SectionSchemaElements"><h2><a id="SchemaElements">Elements</a></h2><h3 class="xs3p-subsection-heading">Element: <a id="element_ADEOfAbstractWaterBoundarySurface"></a><strong>ADEOfAbstractWaterBoundarySurface</strong></h3><object data="diagrams/ADEOfAbstractWaterBoundarySurface.svg" type="image/svg+xml"></object><h4>Type hierarchy:</h4><table class="table table-striped xs3p-in-panel-table"><tbody><tr><td><ul><li><em>This element can be used wherever the following element is referenced:</em><ul><li><a href="#ns_gml" title="Find out namespace of 'gml' prefix">gml</a>:<a title='"AbstractObject" element declaration could not be found.' href="javascript:void(0)" onclick="alert('&quot;AbstractObject&quot; element declaration could not be found.');">AbstractObject</a></li></ul></li></ul></td></tr></tbody></table><dl class="dl-horizontal"><dt class="header">Type</dt><dd class=""><span class="type"><a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:<a title='Jump to "ADEOfAbstractWaterBoundarySurfaceType" type definition.' href="#type_ADEOfAbstractWaterBoundarySurfaceType">ADEOfAbstractWaterBoundarySurfaceType</a></span></dd><dt class="header"><a title="Look up 'Abstract' in glossary" href="#term_Abstract">Abstract</a></dt><dd class="">yes</dd></dl><dl class="dl-horizontal"><dt>Documentation</dt><dd><div class="annotation documentation" id="wdoc-idm3212928"><div class="hidden" id="idm3212928-doc-raw">ADEOfAbstractWaterBoundarySurface acts as a hook to define properties within an ADE that are to be added to AbstractWaterBoundarySurface.</div><div class="xs3p-doc" id="idm3212928-doc"> </div></div></dd></dl><div class="bs-callout bs-callout-info"><h4>XML Instance Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="right" data-html="true" data-content="The XML Instance Representation table shows the schema component's content as an XML instance.
+         &lt;ul&gt;
+         &lt;li&gt;The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].&lt;/li&gt;
+         &lt;li&gt;Model group information are shown in gray, e.g. Start Choice ... End Choice.&lt;/li&gt;
+         &lt;li&gt;For type derivations, the elements and attributes that have been added to or changed from the base type's content are shown in &lt;strong&gt;bold&lt;/strong&gt;&lt;/li&gt;
+         &lt;li&gt;If an element/attribute has a fixed value, the fixed value is shown in green.&lt;/li&gt;
+         &lt;li&gt;More stuff&lt;/li&gt;
+         &lt;li&gt;If a local element/attribute has documentation, it will be displayed in a window that pops up when the question mark inside the attribute or next to the element is clicked.&lt;/li&gt;
+         &lt;/ul&gt;
+      "><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;<a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:ADEOfAbstractWaterBoundarySurface</span><span class="nt">/&gt; </span>
+
+</pre></div><div class="bs-callout bs-callout-info"><h4>Schema Component Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The Schema Component Representation table below displays the underlying XML representation of the schema component. (Annotations are not shown.)"><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;element</span> <span class="na">name=</span><span class="s">"ADEOfAbstractWaterBoundarySurface"</span> <span class="na">type=</span><span class="s">"<span class="type"><a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:<a title='Jump to "ADEOfAbstractWaterBoundarySurfaceType" type definition.' href="#type_ADEOfAbstractWaterBoundarySurfaceType">ADEOfAbstractWaterBoundarySurfaceType</a></span>"</span> <span class="na">abstract=</span><span class="s">"true"</span> <span class="na">substitutionGroup=</span><span class="s">"gml:AbstractObject"</span><span class="nt">/&gt;</span>
+</pre></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr><h3 class="xs3p-subsection-heading">Element: <a id="element_ADEOfWaterBody"></a><strong>ADEOfWaterBody</strong></h3><object data="diagrams/ADEOfWaterBody.svg" type="image/svg+xml"></object><h4>Type hierarchy:</h4><table class="table table-striped xs3p-in-panel-table"><tbody><tr><td><ul><li><em>This element can be used wherever the following element is referenced:</em><ul><li><a href="#ns_gml" title="Find out namespace of 'gml' prefix">gml</a>:<a title='"AbstractObject" element declaration could not be found.' href="javascript:void(0)" onclick="alert('&quot;AbstractObject&quot; element declaration could not be found.');">AbstractObject</a></li></ul></li></ul></td></tr></tbody></table><dl class="dl-horizontal"><dt class="header">Type</dt><dd class=""><span class="type"><a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:<a title='Jump to "ADEOfWaterBodyType" type definition.' href="#type_ADEOfWaterBodyType">ADEOfWaterBodyType</a></span></dd><dt class="header"><a title="Look up 'Abstract' in glossary" href="#term_Abstract">Abstract</a></dt><dd class="">yes</dd></dl><dl class="dl-horizontal"><dt>Documentation</dt><dd><div class="annotation documentation" id="wdoc-idm3221376"><div class="hidden" id="idm3221376-doc-raw">ADEOfWaterBody acts as a hook to define properties within an ADE that are to be added to a WaterBody.</div><div class="xs3p-doc" id="idm3221376-doc"> </div></div></dd></dl><div class="bs-callout bs-callout-info"><h4>XML Instance Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="right" data-html="true" data-content="The XML Instance Representation table shows the schema component's content as an XML instance.
+         &lt;ul&gt;
+         &lt;li&gt;The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].&lt;/li&gt;
+         &lt;li&gt;Model group information are shown in gray, e.g. Start Choice ... End Choice.&lt;/li&gt;
+         &lt;li&gt;For type derivations, the elements and attributes that have been added to or changed from the base type's content are shown in &lt;strong&gt;bold&lt;/strong&gt;&lt;/li&gt;
+         &lt;li&gt;If an element/attribute has a fixed value, the fixed value is shown in green.&lt;/li&gt;
+         &lt;li&gt;More stuff&lt;/li&gt;
+         &lt;li&gt;If a local element/attribute has documentation, it will be displayed in a window that pops up when the question mark inside the attribute or next to the element is clicked.&lt;/li&gt;
+         &lt;/ul&gt;
+      "><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;<a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:ADEOfWaterBody</span><span class="nt">/&gt; </span>
+
+</pre></div><div class="bs-callout bs-callout-info"><h4>Schema Component Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The Schema Component Representation table below displays the underlying XML representation of the schema component. (Annotations are not shown.)"><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;element</span> <span class="na">name=</span><span class="s">"ADEOfWaterBody"</span> <span class="na">type=</span><span class="s">"<span class="type"><a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:<a title='Jump to "ADEOfWaterBodyType" type definition.' href="#type_ADEOfWaterBodyType">ADEOfWaterBodyType</a></span>"</span> <span class="na">abstract=</span><span class="s">"true"</span> <span class="na">substitutionGroup=</span><span class="s">"gml:AbstractObject"</span><span class="nt">/&gt;</span>
+</pre></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr><h3 class="xs3p-subsection-heading">Element: <a id="element_ADEOfWaterGroundSurface"></a><strong>ADEOfWaterGroundSurface</strong></h3><object data="diagrams/ADEOfWaterGroundSurface.svg" type="image/svg+xml"></object><h4>Type hierarchy:</h4><table class="table table-striped xs3p-in-panel-table"><tbody><tr><td><ul><li><em>This element can be used wherever the following element is referenced:</em><ul><li><a href="#ns_gml" title="Find out namespace of 'gml' prefix">gml</a>:<a title='"AbstractObject" element declaration could not be found.' href="javascript:void(0)" onclick="alert('&quot;AbstractObject&quot; element declaration could not be found.');">AbstractObject</a></li></ul></li></ul></td></tr></tbody></table><dl class="dl-horizontal"><dt class="header">Type</dt><dd class=""><span class="type"><a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:<a title='Jump to "ADEOfWaterGroundSurfaceType" type definition.' href="#type_ADEOfWaterGroundSurfaceType">ADEOfWaterGroundSurfaceType</a></span></dd><dt class="header"><a title="Look up 'Abstract' in glossary" href="#term_Abstract">Abstract</a></dt><dd class="">yes</dd></dl><dl class="dl-horizontal"><dt>Documentation</dt><dd><div class="annotation documentation" id="wdoc-idm3242112"><div class="hidden" id="idm3242112-doc-raw">ADEOfWaterGroundSurface acts as a hook to define properties within an ADE that are to be added to a WaterGroundSurface.</div><div class="xs3p-doc" id="idm3242112-doc"> </div></div></dd></dl><div class="bs-callout bs-callout-info"><h4>XML Instance Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="right" data-html="true" data-content="The XML Instance Representation table shows the schema component's content as an XML instance.
+         &lt;ul&gt;
+         &lt;li&gt;The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].&lt;/li&gt;
+         &lt;li&gt;Model group information are shown in gray, e.g. Start Choice ... End Choice.&lt;/li&gt;
+         &lt;li&gt;For type derivations, the elements and attributes that have been added to or changed from the base type's content are shown in &lt;strong&gt;bold&lt;/strong&gt;&lt;/li&gt;
+         &lt;li&gt;If an element/attribute has a fixed value, the fixed value is shown in green.&lt;/li&gt;
+         &lt;li&gt;More stuff&lt;/li&gt;
+         &lt;li&gt;If a local element/attribute has documentation, it will be displayed in a window that pops up when the question mark inside the attribute or next to the element is clicked.&lt;/li&gt;
+         &lt;/ul&gt;
+      "><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;<a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:ADEOfWaterGroundSurface</span><span class="nt">/&gt; </span>
+
+</pre></div><div class="bs-callout bs-callout-info"><h4>Schema Component Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The Schema Component Representation table below displays the underlying XML representation of the schema component. (Annotations are not shown.)"><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;element</span> <span class="na">name=</span><span class="s">"ADEOfWaterGroundSurface"</span> <span class="na">type=</span><span class="s">"<span class="type"><a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:<a title='Jump to "ADEOfWaterGroundSurfaceType" type definition.' href="#type_ADEOfWaterGroundSurfaceType">ADEOfWaterGroundSurfaceType</a></span>"</span> <span class="na">abstract=</span><span class="s">"true"</span> <span class="na">substitutionGroup=</span><span class="s">"gml:AbstractObject"</span><span class="nt">/&gt;</span>
+</pre></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr><h3 class="xs3p-subsection-heading">Element: <a id="element_ADEOfWaterSurface"></a><strong>ADEOfWaterSurface</strong></h3><object data="diagrams/ADEOfWaterSurface.svg" type="image/svg+xml"></object><h4>Type hierarchy:</h4><table class="table table-striped xs3p-in-panel-table"><tbody><tr><td><ul><li><em>This element can be used wherever the following element is referenced:</em><ul><li><a href="#ns_gml" title="Find out namespace of 'gml' prefix">gml</a>:<a title='"AbstractObject" element declaration could not be found.' href="javascript:void(0)" onclick="alert('&quot;AbstractObject&quot; element declaration could not be found.');">AbstractObject</a></li></ul></li></ul></td></tr></tbody></table><dl class="dl-horizontal"><dt class="header">Type</dt><dd class=""><span class="type"><a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:<a title='Jump to "ADEOfWaterSurfaceType" type definition.' href="#type_ADEOfWaterSurfaceType">ADEOfWaterSurfaceType</a></span></dd><dt class="header"><a title="Look up 'Abstract' in glossary" href="#term_Abstract">Abstract</a></dt><dd class="">yes</dd></dl><dl class="dl-horizontal"><dt>Documentation</dt><dd><div class="annotation documentation" id="wdoc-idm3254784"><div class="hidden" id="idm3254784-doc-raw">ADEOfWaterSurface acts as a hook to define properties within an ADE that are to be added to a WaterSurface.</div><div class="xs3p-doc" id="idm3254784-doc"> </div></div></dd></dl><div class="bs-callout bs-callout-info"><h4>XML Instance Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="right" data-html="true" data-content="The XML Instance Representation table shows the schema component's content as an XML instance.
+         &lt;ul&gt;
+         &lt;li&gt;The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].&lt;/li&gt;
+         &lt;li&gt;Model group information are shown in gray, e.g. Start Choice ... End Choice.&lt;/li&gt;
+         &lt;li&gt;For type derivations, the elements and attributes that have been added to or changed from the base type's content are shown in &lt;strong&gt;bold&lt;/strong&gt;&lt;/li&gt;
+         &lt;li&gt;If an element/attribute has a fixed value, the fixed value is shown in green.&lt;/li&gt;
+         &lt;li&gt;More stuff&lt;/li&gt;
+         &lt;li&gt;If a local element/attribute has documentation, it will be displayed in a window that pops up when the question mark inside the attribute or next to the element is clicked.&lt;/li&gt;
+         &lt;/ul&gt;
+      "><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;<a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:ADEOfWaterSurface</span><span class="nt">/&gt; </span>
+
+</pre></div><div class="bs-callout bs-callout-info"><h4>Schema Component Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The Schema Component Representation table below displays the underlying XML representation of the schema component. (Annotations are not shown.)"><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;element</span> <span class="na">name=</span><span class="s">"ADEOfWaterSurface"</span> <span class="na">type=</span><span class="s">"<span class="type"><a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:<a title='Jump to "ADEOfWaterSurfaceType" type definition.' href="#type_ADEOfWaterSurfaceType">ADEOfWaterSurfaceType</a></span>"</span> <span class="na">abstract=</span><span class="s">"true"</span> <span class="na">substitutionGroup=</span><span class="s">"gml:AbstractObject"</span><span class="nt">/&gt;</span>
+</pre></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr><h3 class="xs3p-subsection-heading">Element: <a id="element_AbstractWaterBoundarySurface"></a><strong>AbstractWaterBoundarySurface</strong></h3><object data="diagrams/AbstractWaterBoundarySurface.svg" type="image/svg+xml"></object><h4>Type hierarchy:</h4><table class="table table-striped xs3p-in-panel-table"><tbody><tr><td><ul><li><em>This element can be used wherever the following element is referenced:</em><ul><li><a href="#ns_core" title="Find out namespace of 'core' prefix">core</a>:<a title='"AbstractThematicSurface" element declaration could not be found.' href="javascript:void(0)" onclick="alert('&quot;AbstractThematicSurface&quot; element declaration could not be found.');">AbstractThematicSurface</a></li></ul></li><li><em>The following elements can be used wherever this element is referenced:</em><ul><li><a title='Jump to "WaterGroundSurface" element declaration.' href="#element_WaterGroundSurface">WaterGroundSurface</a></li><li><a title='Jump to "WaterSurface" element declaration.' href="#element_WaterSurface">WaterSurface</a></li></ul></li></ul></td></tr></tbody></table><dl class="dl-horizontal"><dt class="header">Type</dt><dd class=""><span class="type"><a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:<a title='Jump to "AbstractWaterBoundarySurfaceType" type definition.' href="#type_AbstractWaterBoundarySurfaceType">AbstractWaterBoundarySurfaceType</a></span></dd><dt class="header"><a title="Look up 'Abstract' in glossary" href="#term_Abstract">Abstract</a></dt><dd class="">yes</dd></dl><dl class="dl-horizontal"><dt>Documentation</dt><dd><div class="annotation documentation" id="wdoc-idm3107200"><div class="hidden" id="idm3107200-doc-raw">AbstractWaterBoundarySurface is the abstract superclass for all kinds of thematic surfaces bounding a water body.</div><div class="xs3p-doc" id="idm3107200-doc"> </div></div></dd></dl><div class="bs-callout bs-callout-info"><h4>XML Instance Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="right" data-html="true" data-content="The XML Instance Representation table shows the schema component's content as an XML instance.
+         &lt;ul&gt;
+         &lt;li&gt;The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].&lt;/li&gt;
+         &lt;li&gt;Model group information are shown in gray, e.g. Start Choice ... End Choice.&lt;/li&gt;
+         &lt;li&gt;For type derivations, the elements and attributes that have been added to or changed from the base type's content are shown in &lt;strong&gt;bold&lt;/strong&gt;&lt;/li&gt;
+         &lt;li&gt;If an element/attribute has a fixed value, the fixed value is shown in green.&lt;/li&gt;
+         &lt;li&gt;More stuff&lt;/li&gt;
+         &lt;li&gt;If a local element/attribute has documentation, it will be displayed in a window that pops up when the question mark inside the attribute or next to the element is clicked.&lt;/li&gt;
+         &lt;/ul&gt;
+      "><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;<a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:AbstractWaterBoundarySurface</span><span class="nt">&gt;</span>
+   <span class="c">&lt;!-- '<span class="type"><a href="#ns_core" title="Find out namespace of 'core' prefix">core</a>:<a title='"AbstractThematicSurfaceType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;AbstractThematicSurfaceType&quot; type definition could not be found.');">AbstractThematicSurfaceType</a></span>' super type was not found in this schema. Some elements and attributes may be missing. --&gt;</span>
+   <span class="nt">&lt;<a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:adeOfAbstractWaterBoundarySurface&gt;</span> <span class="type"><a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:<a title='Jump to "ADEOfAbstractWaterBoundarySurfacePropertyType" type definition.' href="#type_ADEOfAbstractWaterBoundarySurfacePropertyType">ADEOfAbstractWaterBoundarySurfacePropertyType</a></span> <span class="nt">&lt;/<a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:adeOfAbstractWaterBoundarySurface&gt;</span> <span class="cs">[0..*]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#idm3116928-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+<span class="nt">&lt;/<a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:AbstractWaterBoundarySurface&gt;</span>
+</pre></div><div class="bs-callout bs-callout-info"><h4>Schema Component Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The Schema Component Representation table below displays the underlying XML representation of the schema component. (Annotations are not shown.)"><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;element</span> <span class="na">name=</span><span class="s">"AbstractWaterBoundarySurface"</span> <span class="na">type=</span><span class="s">"<span class="type"><a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:<a title='Jump to "AbstractWaterBoundarySurfaceType" type definition.' href="#type_AbstractWaterBoundarySurfaceType">AbstractWaterBoundarySurfaceType</a></span>"</span> <span class="na">abstract=</span><span class="s">"true"</span> <span class="na">substitutionGroup=</span><span class="s">"core:AbstractThematicSurface"</span><span class="nt">/&gt;</span>
+</pre></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr><h3 class="xs3p-subsection-heading">Element: <a id="element_WaterBody"></a><strong>WaterBody</strong></h3><object data="diagrams/WaterBody.svg" type="image/svg+xml"></object><h4>Type hierarchy:</h4><table class="table table-striped xs3p-in-panel-table"><tbody><tr><td><ul><li><em>This element can be used wherever the following element is referenced:</em><ul><li><a href="#ns_core" title="Find out namespace of 'core' prefix">core</a>:<a title='"AbstractOccupiedSpace" element declaration could not be found.' href="javascript:void(0)" onclick="alert('&quot;AbstractOccupiedSpace&quot; element declaration could not be found.');">AbstractOccupiedSpace</a></li></ul></li></ul></td></tr></tbody></table><dl class="dl-horizontal"><dt class="header">Type</dt><dd class=""><span class="type"><a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:<a title='Jump to "WaterBodyType" type definition.' href="#type_WaterBodyType">WaterBodyType</a></span></dd></dl><dl class="dl-horizontal"><dt>Documentation</dt><dd><div class="annotation documentation" id="wdoc-idm3295872"><div class="hidden" id="idm3295872-doc-raw">A WaterBody represents significant and permanent or semi-permanent accumulations of surface water, usually covering a part of the Earth.</div><div class="xs3p-doc" id="idm3295872-doc"> </div></div></dd></dl><div class="bs-callout bs-callout-info"><h4>XML Instance Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="right" data-html="true" data-content="The XML Instance Representation table shows the schema component's content as an XML instance.
+         &lt;ul&gt;
+         &lt;li&gt;The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].&lt;/li&gt;
+         &lt;li&gt;Model group information are shown in gray, e.g. Start Choice ... End Choice.&lt;/li&gt;
+         &lt;li&gt;For type derivations, the elements and attributes that have been added to or changed from the base type's content are shown in &lt;strong&gt;bold&lt;/strong&gt;&lt;/li&gt;
+         &lt;li&gt;If an element/attribute has a fixed value, the fixed value is shown in green.&lt;/li&gt;
+         &lt;li&gt;More stuff&lt;/li&gt;
+         &lt;li&gt;If a local element/attribute has documentation, it will be displayed in a window that pops up when the question mark inside the attribute or next to the element is clicked.&lt;/li&gt;
+         &lt;/ul&gt;
+      "><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;<a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:WaterBody</span><span class="nt">&gt;</span>
+   <span class="c">&lt;!-- '<span class="type"><a href="#ns_core" title="Find out namespace of 'core' prefix">core</a>:<a title='"AbstractOccupiedSpaceType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;AbstractOccupiedSpaceType&quot; type definition could not be found.');">AbstractOccupiedSpaceType</a></span>' super type was not found in this schema. Some elements and attributes may be missing. --&gt;</span>
+   <span class="nt">&lt;<a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:class&gt;</span> <span class="type"><a href="#ns_gml" title="Find out namespace of 'gml' prefix">gml</a>:<a title='"CodeType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;CodeType&quot; type definition could not be found.');">CodeType</a></span> <span class="nt">&lt;/<a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:class&gt;</span> <span class="cs">[0..1]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#idm3309440-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+   <span class="nt">&lt;<a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:function&gt;</span> <span class="type"><a href="#ns_gml" title="Find out namespace of 'gml' prefix">gml</a>:<a title='"CodeType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;CodeType&quot; type definition could not be found.');">CodeType</a></span> <span class="nt">&lt;/<a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:function&gt;</span> <span class="cs">[0..*]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#idm3313152-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+   <span class="nt">&lt;<a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:usage&gt;</span> <span class="type"><a href="#ns_gml" title="Find out namespace of 'gml' prefix">gml</a>:<a title='"CodeType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;CodeType&quot; type definition could not be found.');">CodeType</a></span> <span class="nt">&lt;/<a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:usage&gt;</span> <span class="cs">[0..*]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#idm3325184-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+   <span class="nt">&lt;<a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:adeOfWaterBody&gt;</span> <span class="type"><a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:<a title='Jump to "ADEOfWaterBodyPropertyType" type definition.' href="#type_ADEOfWaterBodyPropertyType">ADEOfWaterBodyPropertyType</a></span> <span class="nt">&lt;/<a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:adeOfWaterBody&gt;</span> <span class="cs">[0..*]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#idm3328640-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+<span class="nt">&lt;/<a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:WaterBody&gt;</span>
+</pre></div><div class="bs-callout bs-callout-info"><h4>Schema Component Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The Schema Component Representation table below displays the underlying XML representation of the schema component. (Annotations are not shown.)"><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;element</span> <span class="na">name=</span><span class="s">"WaterBody"</span> <span class="na">type=</span><span class="s">"<span class="type"><a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:<a title='Jump to "WaterBodyType" type definition.' href="#type_WaterBodyType">WaterBodyType</a></span>"</span> <span class="na">substitutionGroup=</span><span class="s">"core:AbstractOccupiedSpace"</span><span class="nt">/&gt;</span>
+</pre></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr><h3 class="xs3p-subsection-heading">Element: <a id="element_WaterGroundSurface"></a><strong>WaterGroundSurface</strong></h3><object data="diagrams/WaterGroundSurface.svg" type="image/svg+xml"></object><h4>Type hierarchy:</h4><table class="table table-striped xs3p-in-panel-table"><tbody><tr><td><ul><li><em>This element can be used wherever the following element is referenced:</em><ul><li><a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:<a title='Jump to "AbstractWaterBoundarySurface" element declaration.' href="#element_AbstractWaterBoundarySurface">AbstractWaterBoundarySurface</a></li></ul></li></ul></td></tr></tbody></table><dl class="dl-horizontal"><dt class="header">Type</dt><dd class=""><span class="type"><a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:<a title='Jump to "WaterGroundSurfaceType" type definition.' href="#type_WaterGroundSurfaceType">WaterGroundSurfaceType</a></span></dd></dl><dl class="dl-horizontal"><dt>Documentation</dt><dd><div class="annotation documentation" id="wdoc-idm3335808"><div class="hidden" id="idm3335808-doc-raw">A WaterGroundSurface represents the exterior boundary surface of the submerged bottom of a water body.</div><div class="xs3p-doc" id="idm3335808-doc"> </div></div></dd></dl><div class="bs-callout bs-callout-info"><h4>XML Instance Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="right" data-html="true" data-content="The XML Instance Representation table shows the schema component's content as an XML instance.
+         &lt;ul&gt;
+         &lt;li&gt;The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].&lt;/li&gt;
+         &lt;li&gt;Model group information are shown in gray, e.g. Start Choice ... End Choice.&lt;/li&gt;
+         &lt;li&gt;For type derivations, the elements and attributes that have been added to or changed from the base type's content are shown in &lt;strong&gt;bold&lt;/strong&gt;&lt;/li&gt;
+         &lt;li&gt;If an element/attribute has a fixed value, the fixed value is shown in green.&lt;/li&gt;
+         &lt;li&gt;More stuff&lt;/li&gt;
+         &lt;li&gt;If a local element/attribute has documentation, it will be displayed in a window that pops up when the question mark inside the attribute or next to the element is clicked.&lt;/li&gt;
+         &lt;/ul&gt;
+      "><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;<a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:WaterGroundSurface</span><span class="nt">&gt;</span>
+   <span class="c">&lt;!-- '<span class="type"><a href="#ns_core" title="Find out namespace of 'core' prefix">core</a>:<a title='"AbstractThematicSurfaceType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;AbstractThematicSurfaceType&quot; type definition could not be found.');">AbstractThematicSurfaceType</a></span>' super type was not found in this schema. Some elements and attributes may be missing. --&gt;</span>
+   <span class="nt">&lt;<a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:adeOfAbstractWaterBoundarySurface&gt;</span> <span class="type"><a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:<a title='Jump to "ADEOfAbstractWaterBoundarySurfacePropertyType" type definition.' href="#type_ADEOfAbstractWaterBoundarySurfacePropertyType">ADEOfAbstractWaterBoundarySurfacePropertyType</a></span> <span class="nt">&lt;/<a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:adeOfAbstractWaterBoundarySurface&gt;</span> <span class="cs">[0..*]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#idm3116928-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+   <span class="nt">&lt;<a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:adeOfWaterGroundSurface&gt;</span> <span class="type"><a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:<a title='Jump to "ADEOfWaterGroundSurfacePropertyType" type definition.' href="#type_ADEOfWaterGroundSurfacePropertyType">ADEOfWaterGroundSurfacePropertyType</a></span> <span class="nt">&lt;/<a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:adeOfWaterGroundSurface&gt;</span> <span class="cs">[0..*]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#idm3368320-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+<span class="nt">&lt;/<a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:WaterGroundSurface&gt;</span>
+</pre></div><div class="bs-callout bs-callout-info"><h4>Schema Component Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The Schema Component Representation table below displays the underlying XML representation of the schema component. (Annotations are not shown.)"><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;element</span> <span class="na">name=</span><span class="s">"WaterGroundSurface"</span> <span class="na">type=</span><span class="s">"<span class="type"><a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:<a title='Jump to "WaterGroundSurfaceType" type definition.' href="#type_WaterGroundSurfaceType">WaterGroundSurfaceType</a></span>"</span> <span class="na">substitutionGroup=</span><span class="s">"wtr:AbstractWaterBoundarySurface"</span><span class="nt">/&gt;</span>
+</pre></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr><h3 class="xs3p-subsection-heading">Element: <a id="element_WaterSurface"></a><strong>WaterSurface</strong></h3><object data="diagrams/WaterSurface.svg" type="image/svg+xml"></object><h4>Type hierarchy:</h4><table class="table table-striped xs3p-in-panel-table"><tbody><tr><td><ul><li><em>This element can be used wherever the following element is referenced:</em><ul><li><a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:<a title='Jump to "AbstractWaterBoundarySurface" element declaration.' href="#element_AbstractWaterBoundarySurface">AbstractWaterBoundarySurface</a></li></ul></li></ul></td></tr></tbody></table><dl class="dl-horizontal"><dt class="header">Type</dt><dd class=""><span class="type"><a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:<a title='Jump to "WaterSurfaceType" type definition.' href="#type_WaterSurfaceType">WaterSurfaceType</a></span></dd></dl><dl class="dl-horizontal"><dt>Documentation</dt><dd><div class="annotation documentation" id="wdoc-idm3376384"><div class="hidden" id="idm3376384-doc-raw">A WaterSurface represents the upper exterior interface between a water body and the atmosphere.</div><div class="xs3p-doc" id="idm3376384-doc"> </div></div></dd></dl><div class="bs-callout bs-callout-info"><h4>XML Instance Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="right" data-html="true" data-content="The XML Instance Representation table shows the schema component's content as an XML instance.
+         &lt;ul&gt;
+         &lt;li&gt;The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].&lt;/li&gt;
+         &lt;li&gt;Model group information are shown in gray, e.g. Start Choice ... End Choice.&lt;/li&gt;
+         &lt;li&gt;For type derivations, the elements and attributes that have been added to or changed from the base type's content are shown in &lt;strong&gt;bold&lt;/strong&gt;&lt;/li&gt;
+         &lt;li&gt;If an element/attribute has a fixed value, the fixed value is shown in green.&lt;/li&gt;
+         &lt;li&gt;More stuff&lt;/li&gt;
+         &lt;li&gt;If a local element/attribute has documentation, it will be displayed in a window that pops up when the question mark inside the attribute or next to the element is clicked.&lt;/li&gt;
+         &lt;/ul&gt;
+      "><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;<a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:WaterSurface</span><span class="nt">&gt;</span>
+   <span class="c">&lt;!-- '<span class="type"><a href="#ns_core" title="Find out namespace of 'core' prefix">core</a>:<a title='"AbstractThematicSurfaceType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;AbstractThematicSurfaceType&quot; type definition could not be found.');">AbstractThematicSurfaceType</a></span>' super type was not found in this schema. Some elements and attributes may be missing. --&gt;</span>
+   <span class="nt">&lt;<a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:adeOfAbstractWaterBoundarySurface&gt;</span> <span class="type"><a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:<a title='Jump to "ADEOfAbstractWaterBoundarySurfacePropertyType" type definition.' href="#type_ADEOfAbstractWaterBoundarySurfacePropertyType">ADEOfAbstractWaterBoundarySurfacePropertyType</a></span> <span class="nt">&lt;/<a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:adeOfAbstractWaterBoundarySurface&gt;</span> <span class="cs">[0..*]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#idm3116928-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+   <span class="nt">&lt;<a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:waterLevel&gt;</span> <span class="type"><a href="#ns_gml" title="Find out namespace of 'gml' prefix">gml</a>:<a title='"CodeType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;CodeType&quot; type definition could not be found.');">CodeType</a></span> <span class="nt">&lt;/<a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:waterLevel&gt;</span> <span class="cs">[0..1]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#idm3378944-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+   <span class="nt">&lt;<a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:adeOfWaterSurface&gt;</span> <span class="type"><a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:<a title='Jump to "ADEOfWaterSurfacePropertyType" type definition.' href="#type_ADEOfWaterSurfacePropertyType">ADEOfWaterSurfacePropertyType</a></span> <span class="nt">&lt;/<a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:adeOfWaterSurface&gt;</span> <span class="cs">[0..*]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#idm3383040-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+<span class="nt">&lt;/<a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:WaterSurface&gt;</span>
+</pre></div><div class="bs-callout bs-callout-info"><h4>Schema Component Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The Schema Component Representation table below displays the underlying XML representation of the schema component. (Annotations are not shown.)"><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;element</span> <span class="na">name=</span><span class="s">"WaterSurface"</span> <span class="na">type=</span><span class="s">"<span class="type"><a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:<a title='Jump to "WaterSurfaceType" type definition.' href="#type_WaterSurfaceType">WaterSurfaceType</a></span>"</span> <span class="na">substitutionGroup=</span><span class="s">"wtr:AbstractWaterBoundarySurface"</span><span class="nt">/&gt;</span>
+</pre></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr></section><section id="SectionSchemaComplexTypes"><h2><a id="SchemaComplexTypes">Complex Types</a></h2><h3 class="xs3p-subsection-heading">Complex Type: <a id="type_ADEOfAbstractWaterBoundarySurfacePropertyType"></a><strong>ADEOfAbstractWaterBoundarySurfacePropertyType</strong></h3><div class="bs-callout bs-callout-info"><h4>XML Instance Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="right" data-html="true" data-content="The XML Instance Representation table shows the schema component's content as an XML instance.
+         &lt;ul&gt;
+         &lt;li&gt;The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].&lt;/li&gt;
+         &lt;li&gt;Model group information are shown in gray, e.g. Start Choice ... End Choice.&lt;/li&gt;
+         &lt;li&gt;For type derivations, the elements and attributes that have been added to or changed from the base type's content are shown in &lt;strong&gt;bold&lt;/strong&gt;&lt;/li&gt;
+         &lt;li&gt;If an element/attribute has a fixed value, the fixed value is shown in green.&lt;/li&gt;
+         &lt;li&gt;More stuff&lt;/li&gt;
+         &lt;li&gt;If a local element/attribute has documentation, it will be displayed in a window that pops up when the question mark inside the attribute or next to the element is clicked.&lt;/li&gt;
+         &lt;/ul&gt;
+      "><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;...</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;<a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:<a title='Jump to "ADEOfAbstractWaterBoundarySurface" element declaration.' href="#element_ADEOfAbstractWaterBoundarySurface">ADEOfAbstractWaterBoundarySurface</a>&gt;</span> ... <span class="nt">&lt;/<a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:<a title='Jump to "ADEOfAbstractWaterBoundarySurface" element declaration.' href="#element_ADEOfAbstractWaterBoundarySurface">ADEOfAbstractWaterBoundarySurface</a>&gt;</span> <span class="cs">[1]</span>
+<span class="nt">&lt;/...&gt;</span>
+</pre></div><div class="bs-callout bs-callout-info"><h4>Schema Component Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The Schema Component Representation table below displays the underlying XML representation of the schema component. (Annotations are not shown.)"><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;complexType</span> <span class="na">name=</span><span class="s">"ADEOfAbstractWaterBoundarySurfacePropertyType"</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;sequence</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;element</span> <span class="na">ref=</span><span class="s">"<a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:<a title='Jump to "ADEOfAbstractWaterBoundarySurface" element declaration.' href="#element_ADEOfAbstractWaterBoundarySurface">ADEOfAbstractWaterBoundarySurface</a>"</span><span class="nt">/&gt;</span>
+   <span class="nt">&lt;/sequence&gt;</span>
+<span class="nt">&lt;/complexType&gt;</span>
+</pre></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr><h3 class="xs3p-subsection-heading">Complex Type: <a id="type_ADEOfAbstractWaterBoundarySurfaceType"></a><strong>ADEOfAbstractWaterBoundarySurfaceType</strong></h3><h4>Properties:</h4><dl class="dl-horizontal"><dt class="header"><a title="Look up 'Abstract' in glossary" href="#term_Abstract">Abstract</a></dt><dd class="">yes</dd></dl><div class="bs-callout bs-callout-info"><h4>XML Instance Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="right" data-html="true" data-content="The XML Instance Representation table shows the schema component's content as an XML instance.
+         &lt;ul&gt;
+         &lt;li&gt;The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].&lt;/li&gt;
+         &lt;li&gt;Model group information are shown in gray, e.g. Start Choice ... End Choice.&lt;/li&gt;
+         &lt;li&gt;For type derivations, the elements and attributes that have been added to or changed from the base type's content are shown in &lt;strong&gt;bold&lt;/strong&gt;&lt;/li&gt;
+         &lt;li&gt;If an element/attribute has a fixed value, the fixed value is shown in green.&lt;/li&gt;
+         &lt;li&gt;More stuff&lt;/li&gt;
+         &lt;li&gt;If a local element/attribute has documentation, it will be displayed in a window that pops up when the question mark inside the attribute or next to the element is clicked.&lt;/li&gt;
+         &lt;/ul&gt;
+      "><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;...</span><span class="nt">/&gt; </span>
+
+</pre></div><div class="bs-callout bs-callout-info"><h4>Schema Component Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The Schema Component Representation table below displays the underlying XML representation of the schema component. (Annotations are not shown.)"><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;complexType</span> <span class="na">name=</span><span class="s">"ADEOfAbstractWaterBoundarySurfaceType"</span> <span class="na">abstract=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;sequence</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/complexType&gt;</span>
+</pre></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr><h3 class="xs3p-subsection-heading">Complex Type: <a id="type_ADEOfWaterBodyPropertyType"></a><strong>ADEOfWaterBodyPropertyType</strong></h3><div class="bs-callout bs-callout-info"><h4>XML Instance Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="right" data-html="true" data-content="The XML Instance Representation table shows the schema component's content as an XML instance.
+         &lt;ul&gt;
+         &lt;li&gt;The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].&lt;/li&gt;
+         &lt;li&gt;Model group information are shown in gray, e.g. Start Choice ... End Choice.&lt;/li&gt;
+         &lt;li&gt;For type derivations, the elements and attributes that have been added to or changed from the base type's content are shown in &lt;strong&gt;bold&lt;/strong&gt;&lt;/li&gt;
+         &lt;li&gt;If an element/attribute has a fixed value, the fixed value is shown in green.&lt;/li&gt;
+         &lt;li&gt;More stuff&lt;/li&gt;
+         &lt;li&gt;If a local element/attribute has documentation, it will be displayed in a window that pops up when the question mark inside the attribute or next to the element is clicked.&lt;/li&gt;
+         &lt;/ul&gt;
+      "><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;...</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;<a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:<a title='Jump to "ADEOfWaterBody" element declaration.' href="#element_ADEOfWaterBody">ADEOfWaterBody</a>&gt;</span> ... <span class="nt">&lt;/<a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:<a title='Jump to "ADEOfWaterBody" element declaration.' href="#element_ADEOfWaterBody">ADEOfWaterBody</a>&gt;</span> <span class="cs">[1]</span>
+<span class="nt">&lt;/...&gt;</span>
+</pre></div><div class="bs-callout bs-callout-info"><h4>Schema Component Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The Schema Component Representation table below displays the underlying XML representation of the schema component. (Annotations are not shown.)"><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;complexType</span> <span class="na">name=</span><span class="s">"ADEOfWaterBodyPropertyType"</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;sequence</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;element</span> <span class="na">ref=</span><span class="s">"<a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:<a title='Jump to "ADEOfWaterBody" element declaration.' href="#element_ADEOfWaterBody">ADEOfWaterBody</a>"</span><span class="nt">/&gt;</span>
+   <span class="nt">&lt;/sequence&gt;</span>
+<span class="nt">&lt;/complexType&gt;</span>
+</pre></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr><h3 class="xs3p-subsection-heading">Complex Type: <a id="type_ADEOfWaterBodyType"></a><strong>ADEOfWaterBodyType</strong></h3><h4>Properties:</h4><dl class="dl-horizontal"><dt class="header"><a title="Look up 'Abstract' in glossary" href="#term_Abstract">Abstract</a></dt><dd class="">yes</dd></dl><div class="bs-callout bs-callout-info"><h4>XML Instance Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="right" data-html="true" data-content="The XML Instance Representation table shows the schema component's content as an XML instance.
+         &lt;ul&gt;
+         &lt;li&gt;The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].&lt;/li&gt;
+         &lt;li&gt;Model group information are shown in gray, e.g. Start Choice ... End Choice.&lt;/li&gt;
+         &lt;li&gt;For type derivations, the elements and attributes that have been added to or changed from the base type's content are shown in &lt;strong&gt;bold&lt;/strong&gt;&lt;/li&gt;
+         &lt;li&gt;If an element/attribute has a fixed value, the fixed value is shown in green.&lt;/li&gt;
+         &lt;li&gt;More stuff&lt;/li&gt;
+         &lt;li&gt;If a local element/attribute has documentation, it will be displayed in a window that pops up when the question mark inside the attribute or next to the element is clicked.&lt;/li&gt;
+         &lt;/ul&gt;
+      "><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;...</span><span class="nt">/&gt; </span>
+
+</pre></div><div class="bs-callout bs-callout-info"><h4>Schema Component Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The Schema Component Representation table below displays the underlying XML representation of the schema component. (Annotations are not shown.)"><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;complexType</span> <span class="na">name=</span><span class="s">"ADEOfWaterBodyType"</span> <span class="na">abstract=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;sequence</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/complexType&gt;</span>
+</pre></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr><h3 class="xs3p-subsection-heading">Complex Type: <a id="type_ADEOfWaterGroundSurfacePropertyType"></a><strong>ADEOfWaterGroundSurfacePropertyType</strong></h3><div class="bs-callout bs-callout-info"><h4>XML Instance Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="right" data-html="true" data-content="The XML Instance Representation table shows the schema component's content as an XML instance.
+         &lt;ul&gt;
+         &lt;li&gt;The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].&lt;/li&gt;
+         &lt;li&gt;Model group information are shown in gray, e.g. Start Choice ... End Choice.&lt;/li&gt;
+         &lt;li&gt;For type derivations, the elements and attributes that have been added to or changed from the base type's content are shown in &lt;strong&gt;bold&lt;/strong&gt;&lt;/li&gt;
+         &lt;li&gt;If an element/attribute has a fixed value, the fixed value is shown in green.&lt;/li&gt;
+         &lt;li&gt;More stuff&lt;/li&gt;
+         &lt;li&gt;If a local element/attribute has documentation, it will be displayed in a window that pops up when the question mark inside the attribute or next to the element is clicked.&lt;/li&gt;
+         &lt;/ul&gt;
+      "><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;...</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;<a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:<a title='Jump to "ADEOfWaterGroundSurface" element declaration.' href="#element_ADEOfWaterGroundSurface">ADEOfWaterGroundSurface</a>&gt;</span> ... <span class="nt">&lt;/<a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:<a title='Jump to "ADEOfWaterGroundSurface" element declaration.' href="#element_ADEOfWaterGroundSurface">ADEOfWaterGroundSurface</a>&gt;</span> <span class="cs">[1]</span>
+<span class="nt">&lt;/...&gt;</span>
+</pre></div><div class="bs-callout bs-callout-info"><h4>Schema Component Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The Schema Component Representation table below displays the underlying XML representation of the schema component. (Annotations are not shown.)"><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;complexType</span> <span class="na">name=</span><span class="s">"ADEOfWaterGroundSurfacePropertyType"</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;sequence</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;element</span> <span class="na">ref=</span><span class="s">"<a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:<a title='Jump to "ADEOfWaterGroundSurface" element declaration.' href="#element_ADEOfWaterGroundSurface">ADEOfWaterGroundSurface</a>"</span><span class="nt">/&gt;</span>
+   <span class="nt">&lt;/sequence&gt;</span>
+<span class="nt">&lt;/complexType&gt;</span>
+</pre></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr><h3 class="xs3p-subsection-heading">Complex Type: <a id="type_ADEOfWaterGroundSurfaceType"></a><strong>ADEOfWaterGroundSurfaceType</strong></h3><h4>Properties:</h4><dl class="dl-horizontal"><dt class="header"><a title="Look up 'Abstract' in glossary" href="#term_Abstract">Abstract</a></dt><dd class="">yes</dd></dl><div class="bs-callout bs-callout-info"><h4>XML Instance Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="right" data-html="true" data-content="The XML Instance Representation table shows the schema component's content as an XML instance.
+         &lt;ul&gt;
+         &lt;li&gt;The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].&lt;/li&gt;
+         &lt;li&gt;Model group information are shown in gray, e.g. Start Choice ... End Choice.&lt;/li&gt;
+         &lt;li&gt;For type derivations, the elements and attributes that have been added to or changed from the base type's content are shown in &lt;strong&gt;bold&lt;/strong&gt;&lt;/li&gt;
+         &lt;li&gt;If an element/attribute has a fixed value, the fixed value is shown in green.&lt;/li&gt;
+         &lt;li&gt;More stuff&lt;/li&gt;
+         &lt;li&gt;If a local element/attribute has documentation, it will be displayed in a window that pops up when the question mark inside the attribute or next to the element is clicked.&lt;/li&gt;
+         &lt;/ul&gt;
+      "><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;...</span><span class="nt">/&gt; </span>
+
+</pre></div><div class="bs-callout bs-callout-info"><h4>Schema Component Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The Schema Component Representation table below displays the underlying XML representation of the schema component. (Annotations are not shown.)"><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;complexType</span> <span class="na">name=</span><span class="s">"ADEOfWaterGroundSurfaceType"</span> <span class="na">abstract=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;sequence</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/complexType&gt;</span>
+</pre></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr><h3 class="xs3p-subsection-heading">Complex Type: <a id="type_ADEOfWaterSurfacePropertyType"></a><strong>ADEOfWaterSurfacePropertyType</strong></h3><div class="bs-callout bs-callout-info"><h4>XML Instance Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="right" data-html="true" data-content="The XML Instance Representation table shows the schema component's content as an XML instance.
+         &lt;ul&gt;
+         &lt;li&gt;The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].&lt;/li&gt;
+         &lt;li&gt;Model group information are shown in gray, e.g. Start Choice ... End Choice.&lt;/li&gt;
+         &lt;li&gt;For type derivations, the elements and attributes that have been added to or changed from the base type's content are shown in &lt;strong&gt;bold&lt;/strong&gt;&lt;/li&gt;
+         &lt;li&gt;If an element/attribute has a fixed value, the fixed value is shown in green.&lt;/li&gt;
+         &lt;li&gt;More stuff&lt;/li&gt;
+         &lt;li&gt;If a local element/attribute has documentation, it will be displayed in a window that pops up when the question mark inside the attribute or next to the element is clicked.&lt;/li&gt;
+         &lt;/ul&gt;
+      "><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;...</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;<a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:<a title='Jump to "ADEOfWaterSurface" element declaration.' href="#element_ADEOfWaterSurface">ADEOfWaterSurface</a>&gt;</span> ... <span class="nt">&lt;/<a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:<a title='Jump to "ADEOfWaterSurface" element declaration.' href="#element_ADEOfWaterSurface">ADEOfWaterSurface</a>&gt;</span> <span class="cs">[1]</span>
+<span class="nt">&lt;/...&gt;</span>
+</pre></div><div class="bs-callout bs-callout-info"><h4>Schema Component Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The Schema Component Representation table below displays the underlying XML representation of the schema component. (Annotations are not shown.)"><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;complexType</span> <span class="na">name=</span><span class="s">"ADEOfWaterSurfacePropertyType"</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;sequence</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;element</span> <span class="na">ref=</span><span class="s">"<a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:<a title='Jump to "ADEOfWaterSurface" element declaration.' href="#element_ADEOfWaterSurface">ADEOfWaterSurface</a>"</span><span class="nt">/&gt;</span>
+   <span class="nt">&lt;/sequence&gt;</span>
+<span class="nt">&lt;/complexType&gt;</span>
+</pre></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr><h3 class="xs3p-subsection-heading">Complex Type: <a id="type_ADEOfWaterSurfaceType"></a><strong>ADEOfWaterSurfaceType</strong></h3><h4>Properties:</h4><dl class="dl-horizontal"><dt class="header"><a title="Look up 'Abstract' in glossary" href="#term_Abstract">Abstract</a></dt><dd class="">yes</dd></dl><div class="bs-callout bs-callout-info"><h4>XML Instance Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="right" data-html="true" data-content="The XML Instance Representation table shows the schema component's content as an XML instance.
+         &lt;ul&gt;
+         &lt;li&gt;The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].&lt;/li&gt;
+         &lt;li&gt;Model group information are shown in gray, e.g. Start Choice ... End Choice.&lt;/li&gt;
+         &lt;li&gt;For type derivations, the elements and attributes that have been added to or changed from the base type's content are shown in &lt;strong&gt;bold&lt;/strong&gt;&lt;/li&gt;
+         &lt;li&gt;If an element/attribute has a fixed value, the fixed value is shown in green.&lt;/li&gt;
+         &lt;li&gt;More stuff&lt;/li&gt;
+         &lt;li&gt;If a local element/attribute has documentation, it will be displayed in a window that pops up when the question mark inside the attribute or next to the element is clicked.&lt;/li&gt;
+         &lt;/ul&gt;
+      "><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;...</span><span class="nt">/&gt; </span>
+
+</pre></div><div class="bs-callout bs-callout-info"><h4>Schema Component Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The Schema Component Representation table below displays the underlying XML representation of the schema component. (Annotations are not shown.)"><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;complexType</span> <span class="na">name=</span><span class="s">"ADEOfWaterSurfaceType"</span> <span class="na">abstract=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;sequence</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/complexType&gt;</span>
+</pre></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr><h3 class="xs3p-subsection-heading">Complex Type: <a id="type_AbstractWaterBoundarySurfacePropertyType"></a><strong>AbstractWaterBoundarySurfacePropertyType</strong></h3><div class="bs-callout bs-callout-info"><h4>XML Instance Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="right" data-html="true" data-content="The XML Instance Representation table shows the schema component's content as an XML instance.
+         &lt;ul&gt;
+         &lt;li&gt;The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].&lt;/li&gt;
+         &lt;li&gt;Model group information are shown in gray, e.g. Start Choice ... End Choice.&lt;/li&gt;
+         &lt;li&gt;For type derivations, the elements and attributes that have been added to or changed from the base type's content are shown in &lt;strong&gt;bold&lt;/strong&gt;&lt;/li&gt;
+         &lt;li&gt;If an element/attribute has a fixed value, the fixed value is shown in green.&lt;/li&gt;
+         &lt;li&gt;More stuff&lt;/li&gt;
+         &lt;li&gt;If a local element/attribute has documentation, it will be displayed in a window that pops up when the question mark inside the attribute or next to the element is clicked.&lt;/li&gt;
+         &lt;/ul&gt;
+      "><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;...</span>
+<div class="other" style="margin-left: 1em">Attribute group reference (not shown): <a href="#ns_gml" title="Find out namespace of 'gml' prefix">gml</a>:<a title='"AssociationAttributeGroup" attribute group definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;AssociationAttributeGroup&quot; attribute group definition could not be found.');">AssociationAttributeGroup</a></div><div class="other" style="margin-left: 1em">Attribute group reference (not shown): <a href="#ns_gml" title="Find out namespace of 'gml' prefix">gml</a>:<a title='"OwnershipAttributeGroup" attribute group definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;OwnershipAttributeGroup&quot; attribute group definition could not be found.');">OwnershipAttributeGroup</a></div><span class="nt">&gt;</span>
+   <span class="group">Start <a title="Look up 'Sequence' in glossary" href="#term_Sequence">Sequence</a> <span class="cs">[0..1]</span></span>
+      <span class="nt">&lt;<a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:<a title='Jump to "AbstractWaterBoundarySurface" element declaration.' href="#element_AbstractWaterBoundarySurface">AbstractWaterBoundarySurface</a>&gt;</span> ... <span class="nt">&lt;/<a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:<a title='Jump to "AbstractWaterBoundarySurface" element declaration.' href="#element_AbstractWaterBoundarySurface">AbstractWaterBoundarySurface</a>&gt;</span> <span class="cs">[1]</span>
+   <span class="group">End Sequence</span>
+<span class="nt">&lt;/...&gt;</span>
+</pre></div><div class="bs-callout bs-callout-info"><h4>Schema Component Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The Schema Component Representation table below displays the underlying XML representation of the schema component. (Annotations are not shown.)"><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;complexType</span> <span class="na">name=</span><span class="s">"AbstractWaterBoundarySurfacePropertyType"</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;sequence</span> <span class="na">minOccurs=</span><span class="s">"0"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;element</span> <span class="na">ref=</span><span class="s">"<a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:<a title='Jump to "AbstractWaterBoundarySurface" element declaration.' href="#element_AbstractWaterBoundarySurface">AbstractWaterBoundarySurface</a>"</span><span class="nt">/&gt;</span>
+   <span class="nt">&lt;/sequence&gt;</span>
+   <span class="nt">&lt;attributeGroup</span> <span class="na">ref=</span><span class="s">"<a href="#ns_gml" title="Find out namespace of 'gml' prefix">gml</a>:<a title='"AssociationAttributeGroup" attribute group definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;AssociationAttributeGroup&quot; attribute group definition could not be found.');">AssociationAttributeGroup</a>"</span><span class="nt">/&gt;</span>
+   <span class="nt">&lt;attributeGroup</span> <span class="na">ref=</span><span class="s">"<a href="#ns_gml" title="Find out namespace of 'gml' prefix">gml</a>:<a title='"OwnershipAttributeGroup" attribute group definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;OwnershipAttributeGroup&quot; attribute group definition could not be found.');">OwnershipAttributeGroup</a>"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/complexType&gt;</span>
+</pre></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr><h3 class="xs3p-subsection-heading">Complex Type: <a id="type_AbstractWaterBoundarySurfaceType"></a><strong>AbstractWaterBoundarySurfaceType</strong></h3><h4>Type hierarchy:</h4><dl class="dl-horizontal"><dt class="header">Super-types:</dt><dd class=""><span class="type"><a href="#ns_core" title="Find out namespace of 'core' prefix">core</a>:<a title='"AbstractThematicSurfaceType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;AbstractThematicSurfaceType&quot; type definition could not be found.');">AbstractThematicSurfaceType</a></span> &lt; <strong>AbstractWaterBoundarySurfaceType</strong> (by extension)</dd><dt class="header">Sub-types:</dt><dd class=""><ul><li><span class="type"><a title='Jump to "WaterGroundSurfaceType" type definition.' href="#type_WaterGroundSurfaceType">WaterGroundSurfaceType</a></span> (by extension)</li><li><span class="type"><a title='Jump to "WaterSurfaceType" type definition.' href="#type_WaterSurfaceType">WaterSurfaceType</a></span> (by extension)</li></ul></dd></dl><h4>Properties:</h4><dl class="dl-horizontal"><dt class="header"><a title="Look up 'Abstract' in glossary" href="#term_Abstract">Abstract</a></dt><dd class="">yes</dd></dl><div class="bs-callout bs-callout-info"><h4>XML Instance Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="right" data-html="true" data-content="The XML Instance Representation table shows the schema component's content as an XML instance.
+         &lt;ul&gt;
+         &lt;li&gt;The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].&lt;/li&gt;
+         &lt;li&gt;Model group information are shown in gray, e.g. Start Choice ... End Choice.&lt;/li&gt;
+         &lt;li&gt;For type derivations, the elements and attributes that have been added to or changed from the base type's content are shown in &lt;strong&gt;bold&lt;/strong&gt;&lt;/li&gt;
+         &lt;li&gt;If an element/attribute has a fixed value, the fixed value is shown in green.&lt;/li&gt;
+         &lt;li&gt;More stuff&lt;/li&gt;
+         &lt;li&gt;If a local element/attribute has documentation, it will be displayed in a window that pops up when the question mark inside the attribute or next to the element is clicked.&lt;/li&gt;
+         &lt;/ul&gt;
+      "><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;...</span><span class="nt">&gt;</span>
+   <span class="c">&lt;!-- '<span class="type"><a href="#ns_core" title="Find out namespace of 'core' prefix">core</a>:<a title='"AbstractThematicSurfaceType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;AbstractThematicSurfaceType&quot; type definition could not be found.');">AbstractThematicSurfaceType</a></span>' super type was not found in this schema. Some elements and attributes may be missing. --&gt;</span>
+   <span class="nt">&lt;<a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:adeOfAbstractWaterBoundarySurface&gt;</span> <span class="type"><a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:<a title='Jump to "ADEOfAbstractWaterBoundarySurfacePropertyType" type definition.' href="#type_ADEOfAbstractWaterBoundarySurfacePropertyType">ADEOfAbstractWaterBoundarySurfacePropertyType</a></span> <span class="nt">&lt;/<a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:adeOfAbstractWaterBoundarySurface&gt;</span> <span class="cs">[0..*]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#idm3116928-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+<span class="nt">&lt;/...&gt;</span>
+</pre></div><div class="bs-callout bs-callout-info"><h4>Schema Component Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The Schema Component Representation table below displays the underlying XML representation of the schema component. (Annotations are not shown.)"><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;complexType</span> <span class="na">name=</span><span class="s">"AbstractWaterBoundarySurfaceType"</span> <span class="na">abstract=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;complexContent</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;extension</span> <span class="na">base=</span><span class="s">"<span class="type"><a href="#ns_core" title="Find out namespace of 'core' prefix">core</a>:<a title='"AbstractThematicSurfaceType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;AbstractThematicSurfaceType&quot; type definition could not be found.');">AbstractThematicSurfaceType</a></span>"</span><span class="nt">&gt;</span>
+         <span class="nt">&lt;sequence</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;element</span> <span class="na">name=</span><span class="s">"adeOfAbstractWaterBoundarySurface"</span> <span class="na">type=</span><span class="s">"<span class="type"><a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:<a title='Jump to "ADEOfAbstractWaterBoundarySurfacePropertyType" type definition.' href="#type_ADEOfAbstractWaterBoundarySurfacePropertyType">ADEOfAbstractWaterBoundarySurfacePropertyType</a></span>"</span> <span class="na">maxOccurs=</span><span class="s">"unbounded"</span> <span class="na">minOccurs=</span><span class="s">"0"</span><span class="nt">/&gt;</span>
+         <span class="nt">&lt;/sequence&gt;</span>
+      <span class="nt">&lt;/extension&gt;</span>
+   <span class="nt">&lt;/complexContent&gt;</span>
+<span class="nt">&lt;/complexType&gt;</span>
+</pre></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr><h3 class="xs3p-subsection-heading">Complex Type: <a id="type_WaterBodyPropertyType"></a><strong>WaterBodyPropertyType</strong></h3><div class="bs-callout bs-callout-info"><h4>XML Instance Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="right" data-html="true" data-content="The XML Instance Representation table shows the schema component's content as an XML instance.
+         &lt;ul&gt;
+         &lt;li&gt;The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].&lt;/li&gt;
+         &lt;li&gt;Model group information are shown in gray, e.g. Start Choice ... End Choice.&lt;/li&gt;
+         &lt;li&gt;For type derivations, the elements and attributes that have been added to or changed from the base type's content are shown in &lt;strong&gt;bold&lt;/strong&gt;&lt;/li&gt;
+         &lt;li&gt;If an element/attribute has a fixed value, the fixed value is shown in green.&lt;/li&gt;
+         &lt;li&gt;More stuff&lt;/li&gt;
+         &lt;li&gt;If a local element/attribute has documentation, it will be displayed in a window that pops up when the question mark inside the attribute or next to the element is clicked.&lt;/li&gt;
+         &lt;/ul&gt;
+      "><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;...</span>
+<div class="other" style="margin-left: 1em">Attribute group reference (not shown): <a href="#ns_gml" title="Find out namespace of 'gml' prefix">gml</a>:<a title='"AssociationAttributeGroup" attribute group definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;AssociationAttributeGroup&quot; attribute group definition could not be found.');">AssociationAttributeGroup</a></div><div class="other" style="margin-left: 1em">Attribute group reference (not shown): <a href="#ns_gml" title="Find out namespace of 'gml' prefix">gml</a>:<a title='"OwnershipAttributeGroup" attribute group definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;OwnershipAttributeGroup&quot; attribute group definition could not be found.');">OwnershipAttributeGroup</a></div><span class="nt">&gt;</span>
+   <span class="group">Start <a title="Look up 'Sequence' in glossary" href="#term_Sequence">Sequence</a> <span class="cs">[0..1]</span></span>
+      <span class="nt">&lt;<a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:<a title='Jump to "WaterBody" element declaration.' href="#element_WaterBody">WaterBody</a>&gt;</span> ... <span class="nt">&lt;/<a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:<a title='Jump to "WaterBody" element declaration.' href="#element_WaterBody">WaterBody</a>&gt;</span> <span class="cs">[1]</span>
+   <span class="group">End Sequence</span>
+<span class="nt">&lt;/...&gt;</span>
+</pre></div><div class="bs-callout bs-callout-info"><h4>Schema Component Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The Schema Component Representation table below displays the underlying XML representation of the schema component. (Annotations are not shown.)"><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;complexType</span> <span class="na">name=</span><span class="s">"WaterBodyPropertyType"</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;sequence</span> <span class="na">minOccurs=</span><span class="s">"0"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;element</span> <span class="na">ref=</span><span class="s">"<a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:<a title='Jump to "WaterBody" element declaration.' href="#element_WaterBody">WaterBody</a>"</span><span class="nt">/&gt;</span>
+   <span class="nt">&lt;/sequence&gt;</span>
+   <span class="nt">&lt;attributeGroup</span> <span class="na">ref=</span><span class="s">"<a href="#ns_gml" title="Find out namespace of 'gml' prefix">gml</a>:<a title='"AssociationAttributeGroup" attribute group definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;AssociationAttributeGroup&quot; attribute group definition could not be found.');">AssociationAttributeGroup</a>"</span><span class="nt">/&gt;</span>
+   <span class="nt">&lt;attributeGroup</span> <span class="na">ref=</span><span class="s">"<a href="#ns_gml" title="Find out namespace of 'gml' prefix">gml</a>:<a title='"OwnershipAttributeGroup" attribute group definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;OwnershipAttributeGroup&quot; attribute group definition could not be found.');">OwnershipAttributeGroup</a>"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/complexType&gt;</span>
+</pre></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr><h3 class="xs3p-subsection-heading">Complex Type: <a id="type_WaterBodyType"></a><strong>WaterBodyType</strong></h3><h4>Type hierarchy:</h4><dl class="dl-horizontal"><dt class="header">Super-types:</dt><dd class=""><span class="type"><a href="#ns_core" title="Find out namespace of 'core' prefix">core</a>:<a title='"AbstractOccupiedSpaceType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;AbstractOccupiedSpaceType&quot; type definition could not be found.');">AbstractOccupiedSpaceType</a></span> &lt; <strong>WaterBodyType</strong> (by extension)</dd></dl><div class="bs-callout bs-callout-info"><h4>XML Instance Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="right" data-html="true" data-content="The XML Instance Representation table shows the schema component's content as an XML instance.
+         &lt;ul&gt;
+         &lt;li&gt;The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].&lt;/li&gt;
+         &lt;li&gt;Model group information are shown in gray, e.g. Start Choice ... End Choice.&lt;/li&gt;
+         &lt;li&gt;For type derivations, the elements and attributes that have been added to or changed from the base type's content are shown in &lt;strong&gt;bold&lt;/strong&gt;&lt;/li&gt;
+         &lt;li&gt;If an element/attribute has a fixed value, the fixed value is shown in green.&lt;/li&gt;
+         &lt;li&gt;More stuff&lt;/li&gt;
+         &lt;li&gt;If a local element/attribute has documentation, it will be displayed in a window that pops up when the question mark inside the attribute or next to the element is clicked.&lt;/li&gt;
+         &lt;/ul&gt;
+      "><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;...</span><span class="nt">&gt;</span>
+   <span class="c">&lt;!-- '<span class="type"><a href="#ns_core" title="Find out namespace of 'core' prefix">core</a>:<a title='"AbstractOccupiedSpaceType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;AbstractOccupiedSpaceType&quot; type definition could not be found.');">AbstractOccupiedSpaceType</a></span>' super type was not found in this schema. Some elements and attributes may be missing. --&gt;</span>
+   <span class="nt">&lt;<a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:class&gt;</span> <span class="type"><a href="#ns_gml" title="Find out namespace of 'gml' prefix">gml</a>:<a title='"CodeType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;CodeType&quot; type definition could not be found.');">CodeType</a></span> <span class="nt">&lt;/<a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:class&gt;</span> <span class="cs">[0..1]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#idm3309440-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+   <span class="nt">&lt;<a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:function&gt;</span> <span class="type"><a href="#ns_gml" title="Find out namespace of 'gml' prefix">gml</a>:<a title='"CodeType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;CodeType&quot; type definition could not be found.');">CodeType</a></span> <span class="nt">&lt;/<a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:function&gt;</span> <span class="cs">[0..*]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#idm3313152-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+   <span class="nt">&lt;<a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:usage&gt;</span> <span class="type"><a href="#ns_gml" title="Find out namespace of 'gml' prefix">gml</a>:<a title='"CodeType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;CodeType&quot; type definition could not be found.');">CodeType</a></span> <span class="nt">&lt;/<a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:usage&gt;</span> <span class="cs">[0..*]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#idm3325184-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+   <span class="nt">&lt;<a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:adeOfWaterBody&gt;</span> <span class="type"><a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:<a title='Jump to "ADEOfWaterBodyPropertyType" type definition.' href="#type_ADEOfWaterBodyPropertyType">ADEOfWaterBodyPropertyType</a></span> <span class="nt">&lt;/<a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:adeOfWaterBody&gt;</span> <span class="cs">[0..*]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#idm3328640-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+<span class="nt">&lt;/...&gt;</span>
+</pre></div><div class="bs-callout bs-callout-info"><h4>Schema Component Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The Schema Component Representation table below displays the underlying XML representation of the schema component. (Annotations are not shown.)"><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;complexType</span> <span class="na">name=</span><span class="s">"WaterBodyType"</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;complexContent</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;extension</span> <span class="na">base=</span><span class="s">"<span class="type"><a href="#ns_core" title="Find out namespace of 'core' prefix">core</a>:<a title='"AbstractOccupiedSpaceType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;AbstractOccupiedSpaceType&quot; type definition could not be found.');">AbstractOccupiedSpaceType</a></span>"</span><span class="nt">&gt;</span>
+         <span class="nt">&lt;sequence</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;element</span> <span class="na">name=</span><span class="s">"class"</span> <span class="na">type=</span><span class="s">"<span class="type"><a href="#ns_gml" title="Find out namespace of 'gml' prefix">gml</a>:<a title='"CodeType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;CodeType&quot; type definition could not be found.');">CodeType</a></span>"</span> <span class="na">minOccurs=</span><span class="s">"0"</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;element</span> <span class="na">name=</span><span class="s">"function"</span> <span class="na">type=</span><span class="s">"<span class="type"><a href="#ns_gml" title="Find out namespace of 'gml' prefix">gml</a>:<a title='"CodeType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;CodeType&quot; type definition could not be found.');">CodeType</a></span>"</span> <span class="na">maxOccurs=</span><span class="s">"unbounded"</span> <span class="na">minOccurs=</span><span class="s">"0"</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;element</span> <span class="na">name=</span><span class="s">"usage"</span> <span class="na">type=</span><span class="s">"<span class="type"><a href="#ns_gml" title="Find out namespace of 'gml' prefix">gml</a>:<a title='"CodeType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;CodeType&quot; type definition could not be found.');">CodeType</a></span>"</span> <span class="na">maxOccurs=</span><span class="s">"unbounded"</span> <span class="na">minOccurs=</span><span class="s">"0"</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;element</span> <span class="na">name=</span><span class="s">"adeOfWaterBody"</span> <span class="na">type=</span><span class="s">"<span class="type"><a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:<a title='Jump to "ADEOfWaterBodyPropertyType" type definition.' href="#type_ADEOfWaterBodyPropertyType">ADEOfWaterBodyPropertyType</a></span>"</span> <span class="na">maxOccurs=</span><span class="s">"unbounded"</span> <span class="na">minOccurs=</span><span class="s">"0"</span><span class="nt">/&gt;</span>
+         <span class="nt">&lt;/sequence&gt;</span>
+      <span class="nt">&lt;/extension&gt;</span>
+   <span class="nt">&lt;/complexContent&gt;</span>
+<span class="nt">&lt;/complexType&gt;</span>
+</pre></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr><h3 class="xs3p-subsection-heading">Complex Type: <a id="type_WaterGroundSurfacePropertyType"></a><strong>WaterGroundSurfacePropertyType</strong></h3><div class="bs-callout bs-callout-info"><h4>XML Instance Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="right" data-html="true" data-content="The XML Instance Representation table shows the schema component's content as an XML instance.
+         &lt;ul&gt;
+         &lt;li&gt;The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].&lt;/li&gt;
+         &lt;li&gt;Model group information are shown in gray, e.g. Start Choice ... End Choice.&lt;/li&gt;
+         &lt;li&gt;For type derivations, the elements and attributes that have been added to or changed from the base type's content are shown in &lt;strong&gt;bold&lt;/strong&gt;&lt;/li&gt;
+         &lt;li&gt;If an element/attribute has a fixed value, the fixed value is shown in green.&lt;/li&gt;
+         &lt;li&gt;More stuff&lt;/li&gt;
+         &lt;li&gt;If a local element/attribute has documentation, it will be displayed in a window that pops up when the question mark inside the attribute or next to the element is clicked.&lt;/li&gt;
+         &lt;/ul&gt;
+      "><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;...</span>
+<div class="other" style="margin-left: 1em">Attribute group reference (not shown): <a href="#ns_gml" title="Find out namespace of 'gml' prefix">gml</a>:<a title='"AssociationAttributeGroup" attribute group definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;AssociationAttributeGroup&quot; attribute group definition could not be found.');">AssociationAttributeGroup</a></div><div class="other" style="margin-left: 1em">Attribute group reference (not shown): <a href="#ns_gml" title="Find out namespace of 'gml' prefix">gml</a>:<a title='"OwnershipAttributeGroup" attribute group definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;OwnershipAttributeGroup&quot; attribute group definition could not be found.');">OwnershipAttributeGroup</a></div><span class="nt">&gt;</span>
+   <span class="group">Start <a title="Look up 'Sequence' in glossary" href="#term_Sequence">Sequence</a> <span class="cs">[0..1]</span></span>
+      <span class="nt">&lt;<a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:<a title='Jump to "WaterGroundSurface" element declaration.' href="#element_WaterGroundSurface">WaterGroundSurface</a>&gt;</span> ... <span class="nt">&lt;/<a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:<a title='Jump to "WaterGroundSurface" element declaration.' href="#element_WaterGroundSurface">WaterGroundSurface</a>&gt;</span> <span class="cs">[1]</span>
+   <span class="group">End Sequence</span>
+<span class="nt">&lt;/...&gt;</span>
+</pre></div><div class="bs-callout bs-callout-info"><h4>Schema Component Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The Schema Component Representation table below displays the underlying XML representation of the schema component. (Annotations are not shown.)"><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;complexType</span> <span class="na">name=</span><span class="s">"WaterGroundSurfacePropertyType"</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;sequence</span> <span class="na">minOccurs=</span><span class="s">"0"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;element</span> <span class="na">ref=</span><span class="s">"<a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:<a title='Jump to "WaterGroundSurface" element declaration.' href="#element_WaterGroundSurface">WaterGroundSurface</a>"</span><span class="nt">/&gt;</span>
+   <span class="nt">&lt;/sequence&gt;</span>
+   <span class="nt">&lt;attributeGroup</span> <span class="na">ref=</span><span class="s">"<a href="#ns_gml" title="Find out namespace of 'gml' prefix">gml</a>:<a title='"AssociationAttributeGroup" attribute group definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;AssociationAttributeGroup&quot; attribute group definition could not be found.');">AssociationAttributeGroup</a>"</span><span class="nt">/&gt;</span>
+   <span class="nt">&lt;attributeGroup</span> <span class="na">ref=</span><span class="s">"<a href="#ns_gml" title="Find out namespace of 'gml' prefix">gml</a>:<a title='"OwnershipAttributeGroup" attribute group definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;OwnershipAttributeGroup&quot; attribute group definition could not be found.');">OwnershipAttributeGroup</a>"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/complexType&gt;</span>
+</pre></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr><h3 class="xs3p-subsection-heading">Complex Type: <a id="type_WaterGroundSurfaceType"></a><strong>WaterGroundSurfaceType</strong></h3><h4>Type hierarchy:</h4><dl class="dl-horizontal"><dt class="header">Super-types:</dt><dd class=""><span class="type"><a href="#ns_core" title="Find out namespace of 'core' prefix">core</a>:<a title='"AbstractThematicSurfaceType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;AbstractThematicSurfaceType&quot; type definition could not be found.');">AbstractThematicSurfaceType</a></span> &lt; <span class="type"><a title='Jump to "AbstractWaterBoundarySurfaceType" type definition.' href="#type_AbstractWaterBoundarySurfaceType">AbstractWaterBoundarySurfaceType</a></span> (by extension) &lt; <strong>WaterGroundSurfaceType</strong> (by extension)</dd></dl><div class="bs-callout bs-callout-info"><h4>XML Instance Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="right" data-html="true" data-content="The XML Instance Representation table shows the schema component's content as an XML instance.
+         &lt;ul&gt;
+         &lt;li&gt;The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].&lt;/li&gt;
+         &lt;li&gt;Model group information are shown in gray, e.g. Start Choice ... End Choice.&lt;/li&gt;
+         &lt;li&gt;For type derivations, the elements and attributes that have been added to or changed from the base type's content are shown in &lt;strong&gt;bold&lt;/strong&gt;&lt;/li&gt;
+         &lt;li&gt;If an element/attribute has a fixed value, the fixed value is shown in green.&lt;/li&gt;
+         &lt;li&gt;More stuff&lt;/li&gt;
+         &lt;li&gt;If a local element/attribute has documentation, it will be displayed in a window that pops up when the question mark inside the attribute or next to the element is clicked.&lt;/li&gt;
+         &lt;/ul&gt;
+      "><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;...</span><span class="nt">&gt;</span>
+   <span class="c">&lt;!-- '<span class="type"><a href="#ns_core" title="Find out namespace of 'core' prefix">core</a>:<a title='"AbstractThematicSurfaceType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;AbstractThematicSurfaceType&quot; type definition could not be found.');">AbstractThematicSurfaceType</a></span>' super type was not found in this schema. Some elements and attributes may be missing. --&gt;</span>
+   <span class="nt">&lt;<a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:adeOfAbstractWaterBoundarySurface&gt;</span> <span class="type"><a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:<a title='Jump to "ADEOfAbstractWaterBoundarySurfacePropertyType" type definition.' href="#type_ADEOfAbstractWaterBoundarySurfacePropertyType">ADEOfAbstractWaterBoundarySurfacePropertyType</a></span> <span class="nt">&lt;/<a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:adeOfAbstractWaterBoundarySurface&gt;</span> <span class="cs">[0..*]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#idm3116928-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+   <span class="nt">&lt;<a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:adeOfWaterGroundSurface&gt;</span> <span class="type"><a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:<a title='Jump to "ADEOfWaterGroundSurfacePropertyType" type definition.' href="#type_ADEOfWaterGroundSurfacePropertyType">ADEOfWaterGroundSurfacePropertyType</a></span> <span class="nt">&lt;/<a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:adeOfWaterGroundSurface&gt;</span> <span class="cs">[0..*]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#idm3368320-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+<span class="nt">&lt;/...&gt;</span>
+</pre></div><div class="bs-callout bs-callout-info"><h4>Schema Component Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The Schema Component Representation table below displays the underlying XML representation of the schema component. (Annotations are not shown.)"><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;complexType</span> <span class="na">name=</span><span class="s">"WaterGroundSurfaceType"</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;complexContent</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;extension</span> <span class="na">base=</span><span class="s">"<span class="type"><a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:<a title='Jump to "AbstractWaterBoundarySurfaceType" type definition.' href="#type_AbstractWaterBoundarySurfaceType">AbstractWaterBoundarySurfaceType</a></span>"</span><span class="nt">&gt;</span>
+         <span class="nt">&lt;sequence</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;element</span> <span class="na">name=</span><span class="s">"adeOfWaterGroundSurface"</span> <span class="na">type=</span><span class="s">"<span class="type"><a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:<a title='Jump to "ADEOfWaterGroundSurfacePropertyType" type definition.' href="#type_ADEOfWaterGroundSurfacePropertyType">ADEOfWaterGroundSurfacePropertyType</a></span>"</span> <span class="na">maxOccurs=</span><span class="s">"unbounded"</span> <span class="na">minOccurs=</span><span class="s">"0"</span><span class="nt">/&gt;</span>
+         <span class="nt">&lt;/sequence&gt;</span>
+      <span class="nt">&lt;/extension&gt;</span>
+   <span class="nt">&lt;/complexContent&gt;</span>
+<span class="nt">&lt;/complexType&gt;</span>
+</pre></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr><h3 class="xs3p-subsection-heading">Complex Type: <a id="type_WaterSurfacePropertyType"></a><strong>WaterSurfacePropertyType</strong></h3><div class="bs-callout bs-callout-info"><h4>XML Instance Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="right" data-html="true" data-content="The XML Instance Representation table shows the schema component's content as an XML instance.
+         &lt;ul&gt;
+         &lt;li&gt;The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].&lt;/li&gt;
+         &lt;li&gt;Model group information are shown in gray, e.g. Start Choice ... End Choice.&lt;/li&gt;
+         &lt;li&gt;For type derivations, the elements and attributes that have been added to or changed from the base type's content are shown in &lt;strong&gt;bold&lt;/strong&gt;&lt;/li&gt;
+         &lt;li&gt;If an element/attribute has a fixed value, the fixed value is shown in green.&lt;/li&gt;
+         &lt;li&gt;More stuff&lt;/li&gt;
+         &lt;li&gt;If a local element/attribute has documentation, it will be displayed in a window that pops up when the question mark inside the attribute or next to the element is clicked.&lt;/li&gt;
+         &lt;/ul&gt;
+      "><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;...</span>
+<div class="other" style="margin-left: 1em">Attribute group reference (not shown): <a href="#ns_gml" title="Find out namespace of 'gml' prefix">gml</a>:<a title='"AssociationAttributeGroup" attribute group definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;AssociationAttributeGroup&quot; attribute group definition could not be found.');">AssociationAttributeGroup</a></div><div class="other" style="margin-left: 1em">Attribute group reference (not shown): <a href="#ns_gml" title="Find out namespace of 'gml' prefix">gml</a>:<a title='"OwnershipAttributeGroup" attribute group definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;OwnershipAttributeGroup&quot; attribute group definition could not be found.');">OwnershipAttributeGroup</a></div><span class="nt">&gt;</span>
+   <span class="group">Start <a title="Look up 'Sequence' in glossary" href="#term_Sequence">Sequence</a> <span class="cs">[0..1]</span></span>
+      <span class="nt">&lt;<a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:<a title='Jump to "WaterSurface" element declaration.' href="#element_WaterSurface">WaterSurface</a>&gt;</span> ... <span class="nt">&lt;/<a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:<a title='Jump to "WaterSurface" element declaration.' href="#element_WaterSurface">WaterSurface</a>&gt;</span> <span class="cs">[1]</span>
+   <span class="group">End Sequence</span>
+<span class="nt">&lt;/...&gt;</span>
+</pre></div><div class="bs-callout bs-callout-info"><h4>Schema Component Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The Schema Component Representation table below displays the underlying XML representation of the schema component. (Annotations are not shown.)"><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;complexType</span> <span class="na">name=</span><span class="s">"WaterSurfacePropertyType"</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;sequence</span> <span class="na">minOccurs=</span><span class="s">"0"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;element</span> <span class="na">ref=</span><span class="s">"<a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:<a title='Jump to "WaterSurface" element declaration.' href="#element_WaterSurface">WaterSurface</a>"</span><span class="nt">/&gt;</span>
+   <span class="nt">&lt;/sequence&gt;</span>
+   <span class="nt">&lt;attributeGroup</span> <span class="na">ref=</span><span class="s">"<a href="#ns_gml" title="Find out namespace of 'gml' prefix">gml</a>:<a title='"AssociationAttributeGroup" attribute group definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;AssociationAttributeGroup&quot; attribute group definition could not be found.');">AssociationAttributeGroup</a>"</span><span class="nt">/&gt;</span>
+   <span class="nt">&lt;attributeGroup</span> <span class="na">ref=</span><span class="s">"<a href="#ns_gml" title="Find out namespace of 'gml' prefix">gml</a>:<a title='"OwnershipAttributeGroup" attribute group definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;OwnershipAttributeGroup&quot; attribute group definition could not be found.');">OwnershipAttributeGroup</a>"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/complexType&gt;</span>
+</pre></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr><h3 class="xs3p-subsection-heading">Complex Type: <a id="type_WaterSurfaceType"></a><strong>WaterSurfaceType</strong></h3><h4>Type hierarchy:</h4><dl class="dl-horizontal"><dt class="header">Super-types:</dt><dd class=""><span class="type"><a href="#ns_core" title="Find out namespace of 'core' prefix">core</a>:<a title='"AbstractThematicSurfaceType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;AbstractThematicSurfaceType&quot; type definition could not be found.');">AbstractThematicSurfaceType</a></span> &lt; <span class="type"><a title='Jump to "AbstractWaterBoundarySurfaceType" type definition.' href="#type_AbstractWaterBoundarySurfaceType">AbstractWaterBoundarySurfaceType</a></span> (by extension) &lt; <strong>WaterSurfaceType</strong> (by extension)</dd></dl><div class="bs-callout bs-callout-info"><h4>XML Instance Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="right" data-html="true" data-content="The XML Instance Representation table shows the schema component's content as an XML instance.
+         &lt;ul&gt;
+         &lt;li&gt;The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].&lt;/li&gt;
+         &lt;li&gt;Model group information are shown in gray, e.g. Start Choice ... End Choice.&lt;/li&gt;
+         &lt;li&gt;For type derivations, the elements and attributes that have been added to or changed from the base type's content are shown in &lt;strong&gt;bold&lt;/strong&gt;&lt;/li&gt;
+         &lt;li&gt;If an element/attribute has a fixed value, the fixed value is shown in green.&lt;/li&gt;
+         &lt;li&gt;More stuff&lt;/li&gt;
+         &lt;li&gt;If a local element/attribute has documentation, it will be displayed in a window that pops up when the question mark inside the attribute or next to the element is clicked.&lt;/li&gt;
+         &lt;/ul&gt;
+      "><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;...</span><span class="nt">&gt;</span>
+   <span class="c">&lt;!-- '<span class="type"><a href="#ns_core" title="Find out namespace of 'core' prefix">core</a>:<a title='"AbstractThematicSurfaceType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;AbstractThematicSurfaceType&quot; type definition could not be found.');">AbstractThematicSurfaceType</a></span>' super type was not found in this schema. Some elements and attributes may be missing. --&gt;</span>
+   <span class="nt">&lt;<a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:adeOfAbstractWaterBoundarySurface&gt;</span> <span class="type"><a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:<a title='Jump to "ADEOfAbstractWaterBoundarySurfacePropertyType" type definition.' href="#type_ADEOfAbstractWaterBoundarySurfacePropertyType">ADEOfAbstractWaterBoundarySurfacePropertyType</a></span> <span class="nt">&lt;/<a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:adeOfAbstractWaterBoundarySurface&gt;</span> <span class="cs">[0..*]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#idm3116928-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+   <span class="nt">&lt;<a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:waterLevel&gt;</span> <span class="type"><a href="#ns_gml" title="Find out namespace of 'gml' prefix">gml</a>:<a title='"CodeType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;CodeType&quot; type definition could not be found.');">CodeType</a></span> <span class="nt">&lt;/<a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:waterLevel&gt;</span> <span class="cs">[0..1]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#idm3378944-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+   <span class="nt">&lt;<a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:adeOfWaterSurface&gt;</span> <span class="type"><a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:<a title='Jump to "ADEOfWaterSurfacePropertyType" type definition.' href="#type_ADEOfWaterSurfacePropertyType">ADEOfWaterSurfacePropertyType</a></span> <span class="nt">&lt;/<a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:adeOfWaterSurface&gt;</span> <span class="cs">[0..*]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#idm3383040-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+<span class="nt">&lt;/...&gt;</span>
+</pre></div><div class="bs-callout bs-callout-info"><h4>Schema Component Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The Schema Component Representation table below displays the underlying XML representation of the schema component. (Annotations are not shown.)"><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;complexType</span> <span class="na">name=</span><span class="s">"WaterSurfaceType"</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;complexContent</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;extension</span> <span class="na">base=</span><span class="s">"<span class="type"><a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:<a title='Jump to "AbstractWaterBoundarySurfaceType" type definition.' href="#type_AbstractWaterBoundarySurfaceType">AbstractWaterBoundarySurfaceType</a></span>"</span><span class="nt">&gt;</span>
+         <span class="nt">&lt;sequence</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;element</span> <span class="na">name=</span><span class="s">"waterLevel"</span> <span class="na">type=</span><span class="s">"<span class="type"><a href="#ns_gml" title="Find out namespace of 'gml' prefix">gml</a>:<a title='"CodeType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;CodeType&quot; type definition could not be found.');">CodeType</a></span>"</span> <span class="na">minOccurs=</span><span class="s">"0"</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;element</span> <span class="na">name=</span><span class="s">"adeOfWaterSurface"</span> <span class="na">type=</span><span class="s">"<span class="type"><a href="#ns_wtr" title="Find out namespace of 'wtr' prefix">wtr</a>:<a title='Jump to "ADEOfWaterSurfacePropertyType" type definition.' href="#type_ADEOfWaterSurfacePropertyType">ADEOfWaterSurfacePropertyType</a></span>"</span> <span class="na">maxOccurs=</span><span class="s">"unbounded"</span> <span class="na">minOccurs=</span><span class="s">"0"</span><span class="nt">/&gt;</span>
+         <span class="nt">&lt;/sequence&gt;</span>
+      <span class="nt">&lt;/extension&gt;</span>
+   <span class="nt">&lt;/complexContent&gt;</span>
+<span class="nt">&lt;/complexType&gt;</span>
+</pre></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr></section><div id="glossary"><h2><a id="Glossary">Glossary</a></h2><p><span class="glossaryTerm"><a id="term_Abstract">Abstract</a> </span>(Applies to complex type definitions and element declarations). An abstract element or complex type cannot used to validate an element instance. If there is a reference to an abstract element, only element declarations that can substitute the abstract element can be used to validate the instance. For references to abstract type definitions, only derived types can be used.</p><p><span class="glossaryTerm"><a id="term_All">All Model Group</a> </span>Child elements can be provided <em>in any order</em> in instances. See: <a title="http://www.w3.org/TR/xmlschema-1/#element-all" href="http://www.w3.org/TR/xmlschema-1/#element-all">http://www.w3.org/TR/xmlschema-1/#element-all</a>.</p><p><span class="glossaryTerm"><a id="term_Choice">Choice Model Group</a> </span><em>Only one</em> from the list of child elements and model groups can be provided in instances. See: <a title="http://www.w3.org/TR/xmlschema-1/#element-choice" href="http://www.w3.org/TR/xmlschema-1/#element-choice">http://www.w3.org/TR/xmlschema-1/#element-choice</a>.</p><p><span class="glossaryTerm"><a id="term_CollapseWS">Collapse Whitespace Policy</a> </span>Replace tab, line feed, and carriage return characters with space character (Unicode character 32). Then, collapse contiguous sequences of space characters into single space character, and remove leading and trailing space characters.</p><p><span class="glossaryTerm"><a id="term_ElemBlock">Disallowed Substitutions</a> </span>(Applies to element declarations). If <em>substitution</em> is specified, then <a title="Look up 'substitution group' in glossary" href="#term_SubGroup">substitution group</a> members cannot be used in place of the given element declaration to validate element instances. If <em>derivation methods</em>, e.g. extension, restriction, are specified, then the given element declaration will not validate element instances that have types derived from the element declaration's type using the specified derivation methods. Normally, element instances can override their declaration's type by specifying an <code>xsi:type</code> attribute.</p><p><span class="glossaryTerm"><a id="term_Key">Key Constraint</a> </span>Like <a title="Look up 'Uniqueness Constraint' in glossary" href="#term_Unique">Uniqueness Constraint</a>, but additionally requires that the specified value(s) must be provided. See: <a title="http://www.w3.org/TR/xmlschema-1/#cIdentity-constraint_Definitions" href="http://www.w3.org/TR/xmlschema-1/#cIdentity-constraint_Definitions">http://www.w3.org/TR/xmlschema-1/#cIdentity-constraint_Definitions</a>.</p><p><span class="glossaryTerm"><a id="term_KeyRef">Key Reference Constraint</a> </span>Ensures that the specified value(s) must match value(s) from a <a title="Look up 'Key Constraint' in glossary" href="#term_Key">Key Constraint</a> or <a title="Look up 'Uniqueness Constraint' in glossary" href="#term_Unique">Uniqueness Constraint</a>. See: <a title="http://www.w3.org/TR/xmlschema-1/#cIdentity-constraint_Definitions" href="http://www.w3.org/TR/xmlschema-1/#cIdentity-constraint_Definitions">http://www.w3.org/TR/xmlschema-1/#cIdentity-constraint_Definitions</a>.</p><p><span class="glossaryTerm"><a id="term_ModelGroup">Model Group</a> </span>Groups together element content, specifying the order in which the element content can occur and the number of times the group of element content may be repeated. See: <a title="http://www.w3.org/TR/xmlschema-1/#Model_Groups" href="http://www.w3.org/TR/xmlschema-1/#Model_Groups">http://www.w3.org/TR/xmlschema-1/#Model_Groups</a>.</p><p><span class="glossaryTerm"><a id="term_Nillable">Nillable</a> </span>(Applies to element declarations). If an element declaration is nillable, instances can use the <code>xsi:nil</code> attribute. The <code>xsi:nil</code> attribute is the boolean attribute, <em>nil</em>, from the <em>http://www.w3.org/2001/XMLSchema-instance</em> namespace. If an element instance has an <code>xsi:nil</code> attribute set to true, it can be left empty, even though its element declaration may have required content.</p><p><span class="glossaryTerm"><a id="term_Notation">Notation</a> </span>A notation is used to identify the format of a piece of data. Values of elements and attributes that are of type, NOTATION, must come from the names of declared notations. See: <a title="http://www.w3.org/TR/xmlschema-1/#cNotation_Declarations" href="http://www.w3.org/TR/xmlschema-1/#cNotation_Declarations">http://www.w3.org/TR/xmlschema-1/#cNotation_Declarations</a>.</p><p><span class="glossaryTerm"><a id="term_PreserveWS">Preserve Whitespace Policy</a> </span>Preserve whitespaces exactly as they appear in instances.</p><p><span class="glossaryTerm"><a id="term_TypeFinal">Prohibited Derivations</a> </span>(Applies to type definitions). Derivation methods that cannot be used to create sub-types from a given type definition.</p><p><span class="glossaryTerm"><a id="term_TypeBlock">Prohibited Substitutions</a> </span>(Applies to complex type definitions). Prevents sub-types that have been derived using the specified derivation methods from validating element instances in place of the given type definition.</p><p><span class="glossaryTerm"><a id="term_ReplaceWS">Replace Whitespace Policy</a> </span>Replace tab, line feed, and carriage return characters with space character (Unicode character 32).</p><p><span class="glossaryTerm"><a id="term_Sequence">Sequence Model Group</a> </span>Child elements and model groups must be provided <em>in the specified order</em> in instances. See: <a title="http://www.w3.org/TR/xmlschema-1/#element-sequence" href="http://www.w3.org/TR/xmlschema-1/#element-sequence">http://www.w3.org/TR/xmlschema-1/#element-sequence</a>.</p><p><span class="glossaryTerm"><a id="term_SubGroup">Substitution Group</a> </span>Elements that are <em>members</em> of a substitution group can be used wherever the <em>head</em> element of the substitution group is referenced.</p><p><span class="glossaryTerm"><a id="term_ElemFinal">Substitution Group Exclusions</a> </span>(Applies to element declarations). Prohibits element declarations from nominating themselves as being able to substitute a given element declaration, if they have types that are derived from the original element's type using the specified derivation methods.</p><p><span class="glossaryTerm"><a id="term_TargetNS">Target Namespace</a> </span>The target namespace identifies the namespace that components in this schema belongs to. If no target namespace is provided, then the schema components do not belong to any namespace.</p><p><span class="glossaryTerm"><a id="term_Unique">Uniqueness Constraint</a> </span>Ensures uniqueness of an element/attribute value, or a combination of values, within a specified scope. See: <a title="http://www.w3.org/TR/xmlschema-1/#cIdentity-constraint_Definitions" href="http://www.w3.org/TR/xmlschema-1/#cIdentity-constraint_Definitions">http://www.w3.org/TR/xmlschema-1/#cIdentity-constraint_Definitions</a>.</p><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr></div><p class="footer">Generated by <a href="https://github.com/unitsml/schemas/blob/master/xsl/xs3p.xsl">xs3p</a> (fork of <a href="http://github.com/bitfehler/xs3p">xs3p</a>)
+                  . Last Modified: <script type="text/javascript">
+<!--
+document.write(document.lastModified);
+// -->
+</script></p></div><br></br><nav><div id="toc"><ul class="nav nav-list xs3p-sidenav"><li><strong><a href="#SchemaProperties">Schema Document Properties</a></strong></li><ul class="nav nav-list nav-list-elements"><li><strong><a href="#SchemaElements">Elements </a></strong></li><li class="nav-sub-item"><a href="#element_ADEOfAbstractWaterBoundarySurface"><strong>ADEOfAbstractWaterBoundarySurface</strong></a></li><li class="nav-sub-item"><a href="#element_ADEOfWaterBody"><strong>ADEOfWaterBody</strong></a></li><li class="nav-sub-item"><a href="#element_ADEOfWaterGroundSurface"><strong>ADEOfWaterGroundSurface</strong></a></li><li class="nav-sub-item"><a href="#element_ADEOfWaterSurface"><strong>ADEOfWaterSurface</strong></a></li><li class="nav-sub-item"><a href="#element_AbstractWaterBoundarySurface"><strong>AbstractWaterBoundarySurface</strong></a></li><li class="nav-sub-item"><a href="#element_WaterBody"><strong>WaterBody</strong></a></li><li class="nav-sub-item"><a href="#element_WaterGroundSurface"><strong>WaterGroundSurface</strong></a></li><li class="nav-sub-item"><a href="#element_WaterSurface"><strong>WaterSurface</strong></a></li></ul><li><strong><a href="#SchemaComplexTypes">Complex Types </a></strong></li><li class="nav-sub-item"><a href="#type_ADEOfAbstractWaterBoundarySurfacePropertyType"><strong>ADEOfAbstractWaterBoundarySurfacePropertyType</strong></a></li><li class="nav-sub-item"><a href="#type_ADEOfAbstractWaterBoundarySurfaceType"><strong>ADEOfAbstractWaterBoundarySurfaceType</strong></a></li><li class="nav-sub-item"><a href="#type_ADEOfWaterBodyPropertyType"><strong>ADEOfWaterBodyPropertyType</strong></a></li><li class="nav-sub-item"><a href="#type_ADEOfWaterBodyType"><strong>ADEOfWaterBodyType</strong></a></li><li class="nav-sub-item"><a href="#type_ADEOfWaterGroundSurfacePropertyType"><strong>ADEOfWaterGroundSurfacePropertyType</strong></a></li><li class="nav-sub-item"><a href="#type_ADEOfWaterGroundSurfaceType"><strong>ADEOfWaterGroundSurfaceType</strong></a></li><li class="nav-sub-item"><a href="#type_ADEOfWaterSurfacePropertyType"><strong>ADEOfWaterSurfacePropertyType</strong></a></li><li class="nav-sub-item"><a href="#type_ADEOfWaterSurfaceType"><strong>ADEOfWaterSurfaceType</strong></a></li><li class="nav-sub-item"><a href="#type_AbstractWaterBoundarySurfacePropertyType"><strong>AbstractWaterBoundarySurfacePropertyType</strong></a></li><li class="nav-sub-item"><a href="#type_AbstractWaterBoundarySurfaceType"><strong>AbstractWaterBoundarySurfaceType</strong></a></li><li class="nav-sub-item"><a href="#type_WaterBodyPropertyType"><strong>WaterBodyPropertyType</strong></a></li><li class="nav-sub-item"><a href="#type_WaterBodyType"><strong>WaterBodyType</strong></a></li><li class="nav-sub-item"><a href="#type_WaterGroundSurfacePropertyType"><strong>WaterGroundSurfacePropertyType</strong></a></li><li class="nav-sub-item"><a href="#type_WaterGroundSurfaceType"><strong>WaterGroundSurfaceType</strong></a></li><li class="nav-sub-item"><a href="#type_WaterSurfacePropertyType"><strong>WaterSurfacePropertyType</strong></a></li><li class="nav-sub-item"><a href="#type_WaterSurfaceType"><strong>WaterSurfaceType</strong></a></li><li><strong><a href="#Glossary">Glossary</a></strong></li></ul></div></nav><script>
+               //TOC toggle animation
+               $('#toggle').on('click', function(){
+                  var duration = 400;
+                  if( $('nav').is(':visible') ) {
+                     $('nav').animate({ 'left': '-353px' }, duration, function(){
+                        $('nav').hide();
+                     });
+                     $('body').animate({ 'margin-left': '0' }, duration);
+                     $('#toggle > span').text('>');
+                  }
+                  else {
+                     $('nav').show();
+                     $('nav').animate({ 'left': '0px' }, duration);
+                     $('body').animate({ 'margin-left': '270px' }, duration);
+                     $('#toggle > span').text('<');
+                  }
+               });
+            </script><script>
+
+                  $(function () { $("[data-toggle='tooltip']").tooltip(); });
+                  $(function () { $("[data-toggle='popover']").popover({ trigger: "hover" }); });
+                  
+                  $(function () { $("[data-toggle='modal']").click(function() { return false; })});
+                  
+                  $(function () { $("[data-toggle='modal']").popover({ trigger: "hover", html: true,
+    content: function () {
+        var targetId = $(this).attr('data-target');
+        return $(targetId).html();
+    }}); });
+                  
+    
+                  
+                  var c = new Markdown.Converter();
+                  $('.xs3p-doc').each(function(i, obj) {
+                     var rawDocID = '#' + $(this).attr('id') + '-raw';
+                     var indent = $(rawDocID).html().match("^\\n[\\t ]*");
+                     if (!(indent === null)) {
+                        normalized = $(rawDocID).html().replace(new RegExp(indent[0], "gm"), "\n");
+                     } else {
+                        normalized = $(rawDocID).html();
+                     }
+                     $(this).html(c.makeHtml(normalized));
+                     $(this).find('code,pre').each(function(i, block) {
+                        $(this).html($(this).text());
+                     });
+                  });
+
+                  $(window).scroll(function() {
+                     if ($(".xs3p-sidebar").css("position") == "fixed" && $(window).height() < $(".xs3p-sidebar").height()) {
+                        var perc = $(window).scrollTop() / $("#xs3p-content").height();
+                        var overflow = $(".xs3p-sidebar").height() + 105 - $(window).height();
+                        $(".xs3p-sidebar").css("top", (65 - Math.round(overflow * perc)) + "px");
+                     }
+                  });
+                  $(window).resize(function() {
+                     if ($(".xs3p-sidebar").css("position") == "fixed") {
+                        $(".xs3p-sidebar").css("top", "65px");
+                     }
+                  });
+                  </script></body></html>
