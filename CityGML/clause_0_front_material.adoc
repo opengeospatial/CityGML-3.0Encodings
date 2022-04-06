@@ -45,8 +45,7 @@ The CityGML 3.0 Conceptual Model standard is available under https://docs.ogc.or
 
 As an OGC standard, CityGML follows the OGC modular specification standard, OGC 08-131r3. To be able to verify the correctness of a CityGML implementation, requirements have been defined specifying which properties can be violated. These requirements can be checked in a formalized way. Because of the breadth of CityGML, its conceptual model was divided into separate Requirements Classes, one for each subject area such as Building, Tunnel, Transportation, Vegetation, and City Furniture. This CityGML encoding similarly is divided into Requirements Classes which are then grouped into Parts. A Part may address multiple CityGML Requirements Classes but each Requirements Class is addressed in a single part. Because Requirements Classes may depend on other Requirements Classes the reader of this CityGML Part may need to conform to Requirements Classes in other Parts as well.
 
-Note that this CityGML encoding standard is a standardization target of the CityGML 3.0 Conceptual Model Standard. Therefore, this standard conforms to the Conformance Classes in that standard. Evidence of that conformance is provided in <<annex-cm-conformance>>. On the other hand, an application claiming conformance to this CityGML encoding standard must conform to
-the Requirements Classes contained in this standard.
+Note that this CityGML encoding standard is a standardization target of the CityGML 3.0 Conceptual Model Standard. Therefore, this standard conforms to the Conformance Classes in that standard. Evidence of that conformance is provided in <<annex-cm-conformance>>. On the other hand, an application claiming conformance to this CityGML encoding standard must conform to the Requirements Classes contained in this standard.
 
 
 Attention is drawn to the possibility that some of the elements of this document may be the subject of patent rights. The Open Geospatial Consortium shall not be held responsible for identifying any or all such patent rights.
@@ -55,28 +54,33 @@ Recipients of this document are requested to submit, with their comments, notifi
 
 [big]*iv.    Submitting organizations*
 
-The following organizations submitted this Document to the Open Geospatial Consortium (OGC):
+The following organizations submitted this document to the Open Geospatial Consortium (OGC):
 
 [#submitting_organizations,reftext='{table-caption} {counter:table-num}']
-.Submitting Organizations
-[width="100%",cols="5,10",options="header"]
-|===
-|Organization |Points of Contact
-|Heazeltech LLC |Charles Heazel
-|===
+* Heazeltech LLC
+* HFT Stuttgart
+* OpenSitePlan
+* Ordnance Survey
+* Technical University of Munich
+* Virtual City Systems
+
 
 [big]*v.     Submitters*
 
-All questions regarding this submission should be directed to the editor or the submitters:
+All questions regarding this submission should be directed to the editors or the submitters:
 
 [#submission_contact_points,reftext='{table-caption} {counter:table-num}']
-.Submission Contact Points
 [width="100%",cols="5,10",options="header"]
 |===
-|Name |Institution
-|Charles Heazel |Heazeltech LLC
+|Name |Affiliation
+|Volker Coors |HFT Stuttgart, Germany
+|Charles Heazel |Heazeltech LLC, USA
+|Thomas H. Kolbe |Chair of Geoinformatics, Technical University of Munich, Germany
+|Tatjana Kutzner |Chair of Geoinformatics, Technical University of Munich, Germany
+|Claus Nagel |Virtual City Systems, Germany
+|Carl Stephen Smyth |OpenSitePlan, USA
 |===
 
-[big]*v.     Participants in development*
+[big]*vi.     Participants in development*
 
 To be added
