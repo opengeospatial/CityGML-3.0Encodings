@@ -109,3 +109,81 @@ image::images/VersionManagement_Example1.png[align="center"]
     </core:cityObjectMember>
 </core:CityModel>
 ----
+
+*Example: Successive version management with Versions and VersionTransitions*
+
+The example in <<figure-version-management-example2>> illustrates 4 Building features (b1, b2-1, b2-2, and b3) represented across 2 Versions (v1 and v2). A _historicalSuccession_ type VersionTransition (vt1) stores the changes between each Building through 3 Transactions (t1, t2, and t3). t1 shows that Building b1 is _deleted_ from v1, t2 shows that Building b2-1 is _replaced_ by Building b2-2 in v2, and t3 shows that Building b3 is _inserted_ into v2. <<listing-gml-version-management-example2>> represents this example in GML.
+
+[[figure-version-management-example2]]
+.Successive version management using Versions and VersionTransitions.
+image::images/VersionManagement_Example2.png[align="center"]
+
+[[listing-gml-version-management-example2]]
+.GML instance document for the example on successive version management using Versions and VersionTransitions illustrated in <<figure-version-management-example2>>.
+[source,XML]
+----
+<?xml version="1.0" encoding="UTF-8"?>
+<core:CityModel ... Namespaces and Schema location ... >
+    <core:versionMember>
+        <vers:Version gml:id="v1">
+            <vers:tag>v1.0</vers:tag>
+            <vers:versionMember xlink:href="#b1"/>
+            <vers:versionMember xlink:href="#b2-1"/>
+        </vers:Version>
+    </core:versionMember>
+    <core:versionMember>
+        <vers:Version gml:id="v2">
+            <vers:tag>v2.0</vers:tag>
+            <vers:versionMember xlink:href="#b2-2"/>
+            <vers:versionMember xlink:href="#b3"/>
+        </vers:Version>
+    </core:versionMember>
+    <core:versionTransitionMember>
+        <vers:VersionTransition>
+            <vers:reason>To exemplify a version transition between two city snapshots</vers:reason>
+            <vers:type>historicalSuccession</vers:type>
+            <vers:from xlink:href="#v1"/>
+            <vers:to   xlink:href="#v2"/>
+            <vers:transaction>
+                <vers:Transaction>
+                    <vers:type>delete</vers:type>
+                    <vers:oldFeature xlink:href="#b1"/>
+                </vers:Transaction>
+            </vers:transaction>
+            <vers:transaction>
+                <vers:Transaction>
+                    <vers:type>replace</vers:type>
+                    <vers:oldFeature xlink:href="#b2-1"/>
+                    <vers:newFeature xlink:href="#b2-2"/>
+                </vers:Transaction>
+            </vers:transaction>
+            <vers:transaction>
+                <vers:Transaction>
+                    <vers:type>insert</vers:type>
+                    <vers:newFeature xlink:href="#b3"/>
+                </vers:Transaction>
+            </vers:transaction>
+        </vers:VersionTransition>
+    </core:versionTransitionMember>
+    <core:cityObjectMember>
+        <bldg:Building gml:id="b1">
+            <gml:identifier codeSpace="http://example.org">b1</gml:identifier>
+        </bldg:Building>
+    </core:cityObjectMember>
+    <core:cityObjectMember>
+        <bldg:Building gml:id="b2-1">
+            <gml:identifier codeSpace="http://example.org">b2</gml:identifier>
+        </bldg:Building>
+    </core:cityObjectMember>
+    <core:cityObjectMember>
+        <bldg:Building gml:id="b2-2">
+            <gml:identifier codeSpace="http://example.org">b2</gml:identifier>
+        </bldg:Building>
+    </core:cityObjectMember>
+    <core:cityObjectMember>
+        <bldg:Building gml:id="b3">
+            <gml:identifier codeSpace="http://example.org">b3</gml:identifier>
+        </bldg:Building>
+    </core:cityObjectMember>
+</core:CityModel>
+----
