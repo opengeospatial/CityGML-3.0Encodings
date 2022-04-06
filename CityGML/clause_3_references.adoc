@@ -13,12 +13,16 @@ The following normative documents contain provisions that, through reference in 
 * [[iso19109,ISO 19109:2015]] ISO: ISO 19109:2015, Geographic Information – Rules for Application Schemas
 * [[iso19111,ISO 19111:2019]] ISO: ISO 19111:2019, Geographic information – Referencing by coordinates
 * [[iso19123,ISO 19123:2005]] ISO: ISO 19123:2005, Geographic information — Schema for coverage geometry and functions
+* [[iso19136-1, 19136-1:2020]] ISO: ISO 19136-1:2020, Geographic information — Geography Markup Language (GML) —
+Part 1: Fundamentals
+* [[iso19136-2, 19136-2:2015]] ISO: ISO 19136-2:2015, Geographic information — Geography Markup Language (GML) — Part 2: Extended schemas and encoding rules
 * [[iso19156,ISO 19156:2011]] ISO: ISO 19156:2011, Geographic information – Observations and measurements
 * [[iso19505,ISO/IEC 19505-2:2012]] ISO: ISO/IEC 19505-2:2012, Information technology — Object Management Group Unified Modeling Language (OMG UML) — Part 2: Superstructure
 * [[iso19507,ISO/IEC 19507:2012]] ISO/IEC 19507:2012, Information technology — Object Management Group Object Constraint Language (OCL)
 * [[iso19775,ISO/IEC 19775-1:2013]] ISO: ISO/IEC 19775-1:2013 Information technology — Computer graphics, image processing and environmental data representation — Extensible 3D (X3D) — Part 1: Architecture and base components
 * [[collada,COLLADA]] Khronos Group Inc.: COLLADA – Digital Asset Schema Release 1.5.0
-* [[xal2]] OASIS: Customer Information Quality Specifications - extensible Address Language (xAL), Version v3.0
+* [[xal3]] OASIS: Customer Information Quality Specifications - extensible Address Language (xAL), Version v3.0
 * [[topic5,OGC Topic 5]] OGC: The OpenGIS® Abstract Specification Topic 5: Features, OGC document 08-126
 * [[topic8,OGC Topic 8]] OGC: The OpenGIS™ Abstract Specification Topic 8: Relationships Between Features, OGC document 99-108r2
 * [[topic10,OGC Topic 10]] OGC: The OpenGIS™ Abstract Specification Topic 10: Feature Collections, OGC document 99-110
+* [[ogc20-010, OGC 20-010]] OGC: OGC 20-010, OGC City Geography Markup Language (CityGML) Part 1: Conceptual Model Standard, v3.0, 2021.
