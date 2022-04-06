@@ -12,16 +12,17 @@ For both ADEs, UML models have been created based on the rules described in Chap
 
 ==== Example 1: Test ADE
 
-The Test ADE is a light-weight artificial ADE, which was designed for demonstrating the most frequent scenarios in practical ADEs.
+The Test ADE is a light-weight artificial ADE, which was designed for demonstrating the most frequent scenarios in practical ADEs. In particular,
+the both methods ('hook' mechanism and subclassing) for augmenting predefined CityGML feature classes with additional ADE Properties are presented.
 The UML Conceptual Model of the Test ADE is shown in <<figure-test-ade-uml>>. All ADE classes can be categorized into the following groups:
 
 . The _BuildingUndergroundClassValue_, _BuildingUndergroundFunctionValue_, and _BuildingUndergroundUsageValue_ show how to define ADE class attributes using code list.
 . The _EnergyPerformanceCertification_ is an example of how to define an ADE data type, which can comprise a set of simple attributes.
-. The _BuildingProperties_ is a subclass of the ADE data type _ADEOfAbstractBuilding_ for augmenting the CityGML class _AbstractBuilding_ with additional ADE properties.
+. The _BuildingProperties_ is a subclass of the 'hook' data type _ADEOfAbstractBuilding_ for augmenting the predefined CityGML class _AbstractBuilding_ with additional properties.
 . The _Facility_ and its subclasses _ElectricalAppliance_ and _LightingFacility_ are object types, which are not derived from any predefined CityGML classes.
 . The _IndustrialBuilding_ and _MovingConstruction_ are two top-level classes derived from the predefined CityGML top-level classes _Building_ and _OtherConstruction_ respectively.
 . The _IndustrialBuildingPart_ and _SolarRoofSurface_ are two example non-top-level classes, which are also derived from the CityGML thematic modules _Building_ and _Construction_.
-. The _AbstractBuildingUnderground_ and its subclasses _BuildingUnderground_ and _BuildingUndergroundPart_ are directly derived from the CityGML Core Module, and comprise a couple of new thematic and spatial properties in addition to the superclass _AbstractOccupiedSpace_.
+. The _AbstractBuildingUnderground_ and its subclasses _BuildingUnderground_ and _BuildingUndergroundPart_ are derived from the CityGML Core Module, and comprise a couple of new thematic and spatial properties in addition to the superclass _AbstractOccupiedSpace_.
 
 A corresponding XML schema derived from the UML Conceptual Model is shown in <<listing-test-ade-xml-schema>>. An example ADE dataset is represented in <<listing-test-ade-example-dataset>>.
 
