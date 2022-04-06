@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ShapeChangeConfiguration xmlns:xi="http://www.w3.org/2001/XInclude" 
+    xmlns="http://www.interactive-instruments.de/ShapeChange/Configuration/1.1" 
+    xmlns:sc="http://www.interactive-instruments.de/ShapeChange/Configuration/1.1"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:schemaLocation="http://www.interactive-instruments.de/ShapeChange/Configuration/1.1 http://shapechange.net/resources/schema/ShapeChangeConfiguration.xsd">
+    
+  <input>
+    <parameter name="inputModelType" value="EA7"/>
+    <parameter name="inputFile" value="CityGML-TestADE.eap"/>
+    <parameter name="appSchemaName" value="TestADE"/>
+    <parameter name="checkingConstraints" value="disabled"/>
+    <parameter name="addTaggedValues" value="itemType"/>
+    <xi:include href="http://shapechange.net/resources/config/StandardAliases.xml"/>
+    <stereotypeAliases>
+      <StereotypeAlias wellknown="property" alias="Property"/>
+      <StereotypeAlias wellknown="version" alias="Version"/>
+      <StereotypeAlias wellknown="FeatureType" alias="TopLevelFeatureType"/>
+    </stereotypeAliases>
+  </input>
+  
+  <log>
+    <parameter name="reportLevel" value="INFO"/>
+    <parameter name="logFile" value="Log_CityGML_3.0_TestADE.xml"/>
+  </log>
+  
+  <targets>
+    <TargetXmlSchema class="de.interactive_instruments.ShapeChange.Target.XmlSchema.XmlSchema" mode="enabled">
+      <targetParameter name="outputDirectory" value="xsds"/>
+      <targetParameter name="defaultEncodingRule" value="citygml"/>
+      <rules>
+        <EncodingRule name="citygml" extends="iso19136_2007">
+          <rule name="rule-xsd-rel-association-classes"/>
+          <rule name="rule-xsd-cls-basictype"/>
+          <rule name="rule-xsd-prop-initialValue"/>
+          <rule name="rule-xsd-prop-att-map-entry"/>
+          <rule name="rule-xsd-prop-constrainingFacets"/>
+          <rule name="rule-xsd-all-notEncoded"/>
+          <rule name="rule-xsd-cls-union-asGroup"/>
+        </EncodingRule>
+      </rules>
+      <xi:include href="http://shapechange.net/resources/config/StandardRules.xml"/>
+      <xi:include href="http://shapechange.net/resources/config/StandardNamespaces.xml"/>
+      <xmlNamespaces>
+       <XmlNamespace nsabr="app" ns="http://www.opengis.net/citygml/appearance/3.0" location="../../../Schema/appearance.xsd"/>
+       <XmlNamespace nsabr="brid" ns="http://www.opengis.net/citygml/bridge/3.0" location="../../../Schema/bridge.xsd"/>
+       <XmlNamespace nsabr="bldg" ns="http://www.opengis.net/citygml/building/3.0" location="../../../Schema/building.xsd"/>
+       <XmlNamespace nsabr="pcl" ns="http://www.opengis.net/citygml/pointcloud/3.0" location="../../../Schema/pointCloud.xsd"/>
+       <XmlNamespace nsabr="frn" ns="http://www.opengis.net/citygml/cityfurniture/3.0" location="../../../Schema/cityFurniture.xsd"/>
+       <XmlNamespace nsabr="grp" ns="http://www.opengis.net/citygml/cityobjectgroup/3.0" location="../../../Schema/cityObjectGroup.xsd"/>
+       <XmlNamespace nsabr="con" ns="http://www.opengis.net/citygml/construction/3.0" location="../../../Schema/construction.xsd"/>
+       <XmlNamespace nsabr="core" ns="http://www.opengis.net/citygml/3.0" location="../../../Schema/core.xsd"/>
+       <XmlNamespace nsabr="dyn" ns="http://www.opengis.net/citygml/dynamizer/3.0" location="../../../Schema/dynamizer.xsd"/>
+       <XmlNamespace nsabr="gen" ns="http://www.opengis.net/citygml/generics/3.0" location="../../../Schema/generics.xsd"/>
+       <XmlNamespace nsabr="luse" ns="http://www.opengis.net/citygml/landuse/3.0" location="../../../Schema/landUse.xsd"/>
+       <XmlNamespace nsabr="dem" ns="http://www.opengis.net/citygml/relief/3.0" location="../../../Schema/relief.xsd"/>
+       <XmlNamespace nsabr="tran" ns="http://www.opengis.net/citygml/transportation/3.0" location="../../../Schema/transportation.xsd"/>
+       <XmlNamespace nsabr="tun" ns="http://www.opengis.net/citygml/tunnel/3.0" location="../../../Schema/tunnel.xsd"/>
+       <XmlNamespace nsabr="veg" ns="http://www.opengis.net/citygml/vegetation/3.0" location="../../../Schema/vegetation.xsd"/>
+       <XmlNamespace nsabr="vers" ns="http://www.opengis.net/citygml/versioning/3.0" location="../../../Schema/versioning.xsd"/>
+       <XmlNamespace nsabr="wtr" ns="http://www.opengis.net/citygml/waterbody/3.0" location="../../../Schema/waterBody.xsd"/>
+       <XmlNamespace nsabr="xAL" ns="urn:oasis:names:tc:ciq:xal:3" location="http://docs.oasis-open.org/ciq/v3.0/cs02/xsd/default/xsd/xAL.xsd"/> 
+      </xmlNamespaces>
+      <xi:include href="http://shapechange.net/resources/config/StandardMapEntries.xml"/>
+      <xsdMapEntries>
+        <XsdMapEntry type="URI" xsdEncodingRules="iso19136_2007 gml33" xmlPropertyType="anyURI" xmlType="anyURI" xmlTypeType="simple" xmlTypeContent="simple"/>
+      </xsdMapEntries>
+    </TargetXmlSchema>
+    <Target class="de.interactive_instruments.ShapeChange.Target.Codelists.CodelistDictionaries" mode="disabled">
+      <targetParameter name="outputDirectory" value="codelists"/>
+    </Target>
+  </targets>
+</ShapeChangeConfiguration>
+
+
+
+
+
+
