@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:bldg="http://www.opengis.net/citygml/building/3.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:grp="http://www.opengis.net/citygml/cityobjectgroup/3.0" xmlns:luse="http://www.opengis.net/citygml/landuse/3.0" xmlns:tran="http://www.opengis.net/citygml/transportation/3.0" xmlns:uro="http://www.kantei.go.jp/jp/singi/tiiki/toshisaisei/itoshisaisei/iur/uro/1.4" elementFormDefault="qualified" targetNamespace="http://www.kantei.go.jp/jp/singi/tiiki/toshisaisei/itoshisaisei/iur/uro/1.4" version="1.4.1">
+  <import namespace="http://www.opengis.net/citygml/building/3.0" schemaLocation="../schema/building.xsd"/>
+  <import namespace="http://www.opengis.net/citygml/cityobjectgroup/3.0" schemaLocation="../schema/cityObjectGroup.xsd"/>
+  <import namespace="http://www.opengis.net/citygml/landuse/3.0" schemaLocation="../schema/landUse.xsd"/>
+  <import namespace="http://www.opengis.net/citygml/transportation/3.0" schemaLocation="../schema/transportation.xsd"/>
+  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <element name="BuildingDetails" substitutionGroup="gml:AbstractObject" type="uro:BuildingDetailsType"/>
+  <complexType name="BuildingDetailsType">
+    <sequence>
+      <element minOccurs="0" name="serialNumberOfBuildingCertification" type="string"/>
+      <element minOccurs="0" name="siteArea" type="gml:MeasureType"/>
+      <element minOccurs="0" name="buildingFootprintArea" type="gml:MeasureType"/>
+      <element minOccurs="0" name="buildingRoofEdgeArea" type="gml:MeasureType"/>
+      <element minOccurs="0" name="developmentArea" type="gml:MeasureType"/>
+      <element minOccurs="0" name="totalFloorArea" type="gml:MeasureType"/>
+      <element minOccurs="0" name="buildingStructureType" type="gml:CodeType"/>
+      <element minOccurs="0" name="fireproofStructureType" type="gml:CodeType"/>
+      <element minOccurs="0" name="implementingBody" type="string"/>
+      <element minOccurs="0" name="urbanPlanType" type="gml:CodeType"/>
+      <element minOccurs="0" name="districtsAndZonesType" type="gml:CodeType"/>
+      <element minOccurs="0" name="landUsePlanType" type="gml:CodeType"/>
+      <element minOccurs="0" name="areaClassificationType" type="gml:CodeType"/>
+      <element minOccurs="0" name="prefecture" type="gml:CodeType"/>
+      <element minOccurs="0" name="city" type="gml:CodeType"/>
+      <element minOccurs="0" name="reference" type="string"/>
+      <element minOccurs="0" name="note" type="string"/>
+      <element minOccurs="0" name="surveyYear" type="gYear"/>
+    </sequence>
+  </complexType>
+  <complexType name="BuildingDetailsPropertyType">
+    <sequence>
+      <element ref="uro:BuildingDetails"/>
+    </sequence>
+  </complexType>
+  <element name="BuildingProperties" substitutionGroup="bldg:ADEOfAbstractBuilding" type="uro:BuildingPropertiesType"/>
+  <complexType name="BuildingPropertiesType">
+    <complexContent>
+      <extension base="bldg:ADEOfAbstractBuildingType">
+        <sequence>
+          <element minOccurs="0" name="buildingDetails" type="uro:BuildingDetailsPropertyType"/>
+          <element minOccurs="0" name="largeCustomerFacilities" type="uro:LargeCustomerFacilitiesPropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="extendedAttribute" type="uro:KeyValuePairPropertyType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="BuildingPropertiesPropertyType">
+    <sequence>
+      <element ref="uro:BuildingProperties"/>
+    </sequence>
+  </complexType>
+  <element name="CityObjectGroupProperties" substitutionGroup="grp:ADEOfCityObjectGroup" type="uro:CityObjectGroupPropertiesType"/>
+  <complexType name="CityObjectGroupPropertiesType">
+    <complexContent>
+      <extension base="grp:ADEOfCityObjectGroupType">
+        <sequence>
+          <element minOccurs="0" name="fiscalYearOfPublication" type="gYear"/>
+          <element minOccurs="0" name="language" type="gml:CodeType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="CityObjectGroupPropertiesPropertyType">
+    <sequence>
+      <element ref="uro:CityObjectGroupProperties"/>
+    </sequence>
+  </complexType>
+  <element name="KeyValuePair" substitutionGroup="gml:AbstractObject" type="uro:KeyValuePairType"/>
+  <complexType name="KeyValuePairType">
+    <sequence>
+      <element name="key" type="gml:CodeType"/>
+      <group ref="uro:ValueTypeGroup"/>
+    </sequence>
+  </complexType>
+  <complexType name="KeyValuePairPropertyType">
+    <sequence>
+      <element ref="uro:KeyValuePair"/>
+    </sequence>
+  </complexType>
+  <element name="LandUseProperties" substitutionGroup="luse:ADEOfLandUse" type="uro:LandUsePropertiesType"/>
+  <complexType name="LandUsePropertiesType">
+    <complexContent>
+      <extension base="luse:ADEOfLandUseType">
+        <sequence>
+          <element minOccurs="0" name="nominalArea" type="gml:MeasureType"/>
+          <element minOccurs="0" name="ownerType" type="gml:CodeType"/>
+          <element minOccurs="0" name="owner" type="string"/>
+          <element minOccurs="0" name="areaInSquareMeter" type="gml:MeasureType"/>
+          <element minOccurs="0" name="areaInHa" type="gml:MeasureType"/>
+          <element minOccurs="0" name="urbanPlanType" type="gml:CodeType"/>
+          <element minOccurs="0" name="districtsAndZonesType" type="gml:CodeType"/>
+          <element minOccurs="0" name="landUsePlanType" type="gml:CodeType"/>
+          <element minOccurs="0" name="areaClassificationType" type="gml:CodeType"/>
+          <element minOccurs="0" name="prefecture" type="gml:CodeType"/>
+          <element minOccurs="0" name="city" type="gml:CodeType"/>
+          <element minOccurs="0" name="reference" type="string"/>
+          <element minOccurs="0" name="note" type="string"/>
+          <element minOccurs="0" name="surveyYear" type="gYear"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="LandUsePropertiesPropertyType">
+    <sequence>
+      <element ref="uro:LandUseProperties"/>
+    </sequence>
+  </complexType>
+  <element name="LargeCustomerFacilities" substitutionGroup="gml:AbstractObject" type="uro:LargeCustomerFacilitiesType"/>
+  <complexType name="LargeCustomerFacilitiesType">
+    <sequence>
+      <element minOccurs="0" name="class" type="gml:CodeType"/>
+      <element minOccurs="0" name="name" type="string"/>
+      <element minOccurs="0" name="capacity" type="integer"/>
+      <element minOccurs="0" name="owner" type="string"/>
+      <element minOccurs="0" name="totalFloorArea" type="gml:MeasureType"/>
+      <element minOccurs="0" name="totalStoreFloorArea" type="gml:MeasureType"/>
+      <element minOccurs="0" name="inauguralDate" type="date"/>
+      <element minOccurs="0" name="keyTenants" type="string"/>
+      <element minOccurs="0" name="availability" type="boolean"/>
+      <element minOccurs="0" name="urbanPlanType" type="gml:CodeType"/>
+      <element minOccurs="0" name="districtsAndZonesType" type="gml:CodeType"/>
+      <element minOccurs="0" name="landUsePlanType" type="gml:CodeType"/>
+      <element minOccurs="0" name="areaClassificationType" type="gml:CodeType"/>
+      <element minOccurs="0" name="prefecture" type="gml:CodeType"/>
+      <element minOccurs="0" name="city" type="gml:CodeType"/>
+      <element minOccurs="0" name="reference" type="string"/>
+      <element minOccurs="0" name="note" type="string"/>
+      <element minOccurs="0" name="surveyYear" type="gYear"/>
+    </sequence>
+  </complexType>
+  <complexType name="LargeCustomerFacilitiesPropertyType">
+    <sequence>
+      <element ref="uro:LargeCustomerFacilities"/>
+    </sequence>
+  </complexType>
+  <element name="RoadProperties" substitutionGroup="tran:ADEOfRoad" type="uro:RoadPropertiesType"/>
+  <complexType name="RoadPropertiesType">
+    <complexContent>
+      <extension base="tran:ADEOfRoadType">
+        <sequence>
+          <element minOccurs="0" name="width" type="gml:LengthType"/>
+          <element minOccurs="0" name="widthType" type="gml:CodeType"/>
+          <element minOccurs="0" name="trafficVolume" type="uro:TrafficVolumePropertyType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="RoadPropertiesPropertyType">
+    <sequence>
+      <element ref="uro:RoadProperties"/>
+    </sequence>
+  </complexType>
+  <element name="TrafficVolume" substitutionGroup="gml:AbstractObject" type="uro:TrafficVolumeType"/>
+  <complexType name="TrafficVolumeType">
+    <sequence>
+      <element minOccurs="0" name="weekday12hourTrafficVolume" type="integer"/>
+      <element minOccurs="0" name="weekday24hourTrafficVolume" type="integer"/>
+      <element minOccurs="0" name="largeVehicleRate" type="double"/>
+      <element minOccurs="0" name="congestionRate" type="double"/>
+      <element minOccurs="0" name="averageTravelSpeedInCongestion" type="double"/>
+      <element minOccurs="0" name="observationPointName" type="string"/>
+      <element minOccurs="0" name="urbanPlanType" type="gml:CodeType"/>
+      <element minOccurs="0" name="areaClassificationType" type="gml:CodeType"/>
+      <element minOccurs="0" name="prefecture" type="gml:CodeType"/>
+      <element minOccurs="0" name="city" type="gml:CodeType"/>
+      <element minOccurs="0" name="reference" type="string"/>
+      <element minOccurs="0" name="note" type="string"/>
+      <element minOccurs="0" name="surveyYear" type="gYear"/>
+    </sequence>
+  </complexType>
+  <complexType name="TrafficVolumePropertyType">
+    <sequence>
+      <element ref="uro:TrafficVolume"/>
+    </sequence>
+  </complexType>
+  <group name="ValueTypeGroup">
+    <choice>
+      <element name="stringValue" type="string"/>
+      <element name="intValue" type="integer"/>
+      <element name="doubleValue" type="double"/>
+      <element name="codeValue" type="gml:CodeType"/>
+      <element name="measuredValue" type="gml:MeasureType"/>
+      <element name="dateValue" type="date"/>
+      <element name="uriValue" type="anyURI"/>
+    </choice>
+  </group>
+</schema>
