@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:bldg="http://www.opengis.net/citygml/building/3.0" xmlns:con="http://www.opengis.net/citygml/construction/3.0" xmlns:core="http://www.opengis.net/citygml/3.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:test="http://www.citygml.org/ade/TestADE/2.0" elementFormDefault="qualified" targetNamespace="http://www.citygml.org/ade/TestADE/2.0" version="2.0">
-  <import namespace="http://www.opengis.net/citygml/3.0" schemaLocation="../schema/core.xsd"/>
-  <import namespace="http://www.opengis.net/citygml/building/3.0" schemaLocation="../schema/building.xsd"/>
-  <import namespace="http://www.opengis.net/citygml/construction/3.0" schemaLocation="../schema/construction.xsd"/>
+  <import namespace="http://www.opengis.net/citygml/3.0" schemaLocation="../../../Schema/core.xsd"/>
+  <import namespace="http://www.opengis.net/citygml/building/3.0" schemaLocation="../../../Schema/building.xsd"/>
+  <import namespace="http://www.opengis.net/citygml/construction/3.0" schemaLocation="../../../Schema/construction.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
   <element abstract="true" name="AbstractBuildingUnderground" substitutionGroup="core:AbstractOccupiedSpace" type="test:AbstractBuildingUndergroundType"/>
