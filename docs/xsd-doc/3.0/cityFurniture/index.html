@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:exslt="http://exslt.org/common"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Schema documentation cityFurniture</title><meta charset="UTF-8"></meta><link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet"></link><style type="text/css">
+
+
+nav, section {
+  display: block; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+
+/*dl {
+  display: grid;
+  grid-template-columns: max-content auto; }
+  dl dt p, dl dd p {
+    margin-top: 0; }
+  dl dt {
+    grid-column-start: 1; }
+  dl dd {
+    grid-column-start: 2; }
+*/
+
+body {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.4em;
+  color: -internal-root-color;
+  background-color: #ffffff; }
+  body main {
+    margin: 0 3em 0 6em; }
+  body main {
+    margin: 0; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1.3; }
+
+
+body {
+  margin-left: 270px;
+  margin-right: 2em; }
+
+main {
+  padding-left: 4em;
+  padding-right: 2em; }
+
+.title-section{
+  padding-left: 4em;
+  padding-top: 2em; }
+
+
+
+
+
+h2 p {
+  display: inline; }
+
+
+
+/* Navigation*/
+#toc {
+  font-weight: 400; }
+  #toc a {
+   color: black;
+   text-decoration-color: black; }
+  #toc ul {
+    margin: 0;
+    padding: 0;
+    list-style: none; }
+    #toc ul li a {
+      padding: 5px 10px; }
+    #toc ul a {
+      text-decoration: none;
+      display: block; }
+      #toc ul a:hover {
+        box-shadow: none;
+        color: black; }
+  #toc .h2 {
+    padding-left: 30px; }
+  #toc .h3 {
+    padding-left: 50px; }
+  #toc .toc-active, #toc li:hover {
+    background: #f7f7f7;
+    box-shadow: inset -5px 0px 10px -5px #f7f7f7 !important; }
+    #toc .toc-active a, #toc li:hover a {
+      color: black; }
+  @media print {
+    #toc .toc-active, #toc li:hover {
+      background: white;
+      box-shadow: none !important; }
+    #toc li:hover a {
+      color: black; } }
+  @media screen and (max-width: 768px) {
+    #toc {
+      padding: 0 1.5em;
+      overflow: visible; } }
+  #toc .toc-active,
+  #toc li:hover {
+    box-shadow: 0px 1px 0px 0px black !important;
+    background: none; }
+  #toc li:before {
+    content: " ";
+    display: none; }
+
+nav {
+  line-height: 1.2em; }
+  @media screen and (min-width: 768px) {
+    nav {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 270px;
+      font-size: 0.9em;
+      overflow: auto;
+      padding: 0 0 0 0px;
+      background-color: #fefefe; } }
+  @media print {
+    nav {
+      position: relative;
+      width: auto;
+      font-size: 0.9em;
+      overflow: auto;
+      padding: 0;
+      margin-right: 0;
+      background-color: white; } }
+#toggle {
+  margin-left: -4em;
+  margin-top: -2em; }
+  @media screen and (min-width: 768px) {
+    #toggle {
+      position: fixed;
+      height: 100%;
+      width: 20px;
+      font-weight: bold;
+      background-color: #d8e4ff;
+      color: black !important;
+      cursor: pointer;
+      z-index: 100; }
+      #toggle span {
+        text-align: center;
+        width: 100%;
+        position: absolute;
+        top: 50%;
+        transform: translate(0, -50%); } }
+  @media screen and (max-width: 768px) {
+    #toggle {
+      display: none; } }
+  @media print {
+    #toggle {
+      display: none; } }
+@media screen and (min-width: 768px) {
+  .container {
+    padding-left: 360px; }
+  .rule.toc {
+    display: none; }
+  h1.toc-contents {
+    margin-top: 1em; }
+  ul#toc-list {
+    padding: 0;
+    margin: 0; } }
+
+
+ul, ol {
+  margin-left: 2em; }
+
+#toc-list ul {
+  margin-bottom: 0.25em; }
+
+#toc-list ol li {
+  list-style-type: none; }
+
+
+/* XS3P specific CSS */
+body {
+    background-color: #FFF;
+    
+}
+
+.nav > li.active {
+    background-color: #FFF;
+}
+.nav > li > a:hover {
+   
+    background-color: rgb(0,0,0, 0.05);
+}
+
+.nav-sub-item > a {
+    padding-left: 30px !important;
+}
+
+
+.nav-sub-item strong {
+      font-weight: normal; }
+
+//.nav-list-elements
+.nav {
+   //background-color: #efe;
+   background-color: #e4ecff;
+}
+
+.xs3p-sidenav {
+    //background-color: #efe;
+    background-color: #e4ecff;
+}
+
+code {
+    color: #333;
+}
+
+a.name {
+    padding-top: 65px;
+}
+
+a:not([href]) {
+   color:#1c476c;
+}
+
+a:not([href]):hover {
+  text-decoration: none;
+}
+
+
+h3.xs3p-subsection-heading {
+    margin-bottom: 30px;
+}
+
+section, #top {
+    margin-top: -65px;
+    padding-top: 65px;
+}
+
+pre {
+    padding: 5px;
+}
+
+.xs3p-in-panel-table {
+    margin-bottom: 0px;
+}
+
+.xs3p-collapse-button {
+    font-size: 8pt;
+}
+.panel-heading .xs3p-panel-title:after {
+    font-family: 'Glyphicons Halflings';
+    content: "\e114";
+    float: left;
+    color: grey;
+    margin-right: 10px;
+}
+.panel-heading .xs3p-panel-title.collapsed:after {
+    content: "\e080";
+}
+.panel-info > .panel-heading .xs3p-panel-title:after {
+    color: white;
+}
+.xs3p-panel-help {
+    color: #888888;
+    cursor: pointer;
+}
+
+.panel-group {
+    margin-bottom: 20px;
+}
+
+.btn-doc {
+    padding: 0px;
+    border: 0px none;
+    background: none repeat scroll 0% 0% transparent;
+    line-height: 1;
+    font-size: 12px;
+}
+
+.unpre {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    white-space: normal;
+    word-break: normal;
+    word-wrap: normal;
+}
+
+.popover {
+    max-width: 400px;
+}
+
+// Syntax highlighting
+.codehilite .err {color: #FFF; background-color: #D2322D; font-weight: bold;} /* Error */
+.codehilite .c   {color: #999;}
+.codehilite .cs  {color: #999; font-style: italic;}
+.codehilite .nt  {color: #2F6F9F;}
+.codehilite .nn  {color: #39B3D7;}
+.codehilite .na  {color: #47A447;}
+.codehilite .s   {color: #D2322D;}
+.codehilite a       {color: inherit !important; text-decoration: underline !important;}
+.codehilite a:hover {opacity: 0.7 !important;}
+
+dl {
+  margin-bottom: 10px;
+}
+
+dt {
+	font-weight: normal;
+
+	margin-bottom: 10px;
+}
+
+dt.header{
+	font-weight: 700;
+}
+
+.dl-horizontal dt {
+	white-space: normal;
+}
+
+dd.header{
+	font-weight: 700;
+}
+
+dd ul {
+	margin-left: 0em;
+}
+
+.bs-callout {
+   padding: 20px;
+   padding-top: 10px;
+   padding-bottom: 5px;
+   margin: 20px 0;
+   border: 1px solid #eee;
+   border-left-width: 5px;
+   border-radius: 3px;
+}
+.bs-callout-danger {
+   border-left-color: #d9534f;
+}
+.bs-callout-warning {
+   border-left-color: #f0ad4e;
+}
+.bs-callout-info {
+   border-left-color: #5bc0de;
+}
+.bs-callout h4 {
+   margin-top: 0;
+   margin-bottom: 5px;
+}
+.bs-callout-danger h4 {
+   color: #d9534f;
+}
+.bs-callout-warning h4 {
+   color: #f0ad4e;
+}
+.bs-callout-info h4 {
+   color: black;
+   font-size: 11pt;
+}
+
+
+      </style><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js">
+               //Import JQuery, required for Bootstrap
+            </script><script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js">
+               // Import Bootstrap JS code
+            </script><script src="https://cdnjs.cloudflare.com/ajax/libs/pagedown/1.0/Markdown.Converter.js">
+              // Import Markdown converter for comments processing
+            </script></head><body lang="en" xml:lang="en"><div class="title-section"><div id="toggle"><span>&lt;</span></div><div class="modal fade ADEOfCityFurniture" id="idm3212928-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="idm3212928-label">Element ADEOfCityFurniture</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-idm3212928-hidden"><div class="hidden" id="idm3212928-hidden-doc-raw">ADEOfCityFurniture acts as a hook to define properties within an ADE that are to be added to a CityFurniture.</div><div class="xs3p-doc" id="idm3212928-hidden-doc"> </div></div></div></div><div class="modal fade CityFurniture" id="idm3221376-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="idm3221376-label">Element CityFurniture</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-idm3221376-hidden"><div class="hidden" id="idm3221376-hidden-doc-raw">CityFurniture is an object or piece of equipment installed in the outdoor environment for various purposes. Examples include street signs, traffic signals, street lamps, benches, fountains.</div><div class="xs3p-doc" id="idm3221376-hidden-doc"> </div></div></div></div><div class="modal fade class" id="idm3244288-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="idm3244288-label">Element class</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-idm3244288-hidden"><div class="hidden" id="idm3244288-hidden-doc-raw">Indicates the specific type of the CityFurniture.</div><div class="xs3p-doc" id="idm3244288-hidden-doc"> </div></div></div></div><div class="modal fade function" id="idm3249152-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="idm3249152-label">Element function</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-idm3249152-hidden"><div class="hidden" id="idm3249152-hidden-doc-raw">Specifies the intended purposes of the CityFurniture.</div><div class="xs3p-doc" id="idm3249152-hidden-doc"> </div></div></div></div><div class="modal fade usage" id="idm3245952-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="idm3245952-label">Element usage</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-idm3245952-hidden"><div class="hidden" id="idm3245952-hidden-doc-raw">Specifies the actual uses of the CityFurniture.</div><div class="xs3p-doc" id="idm3245952-hidden-doc"> </div></div></div></div><div class="modal fade adeOfCityFurniture" id="idm3254784-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="idm3254784-label">Element adeOfCityFurniture</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-idm3254784-hidden"><div class="hidden" id="idm3254784-hidden-doc-raw">Augments the CityFurniture with properties defined in an ADE.</div><div class="xs3p-doc" id="idm3254784-hidden-doc"> </div></div></div></div><h1><a id="top">Schema documentation cityFurniture</a></h1><section id="SectionSchemaProperties"><h2><a id="SchemaProperties">Schema Document Properties</a></h2><dl class="dl-horizontal"><dt class="header"><a title="Look up 'Target Namespace' in glossary" href="#term_TargetNS">Target Namespace</a></dt><dd class=""><span class="targetNS">http://www.opengis.net/citygml/cityfurniture/3.0</span></dd><dt class="header">Version</dt><dd class="">3.0.0</dd><dt class="header">Element and Attribute Namespaces</dt><dd class=""><ul><li>Global element and attribute declarations belong to this schema's target namespace.</li><li>By default, local element declarations belong to this schema's target namespace.</li><li>By default, local attribute declarations have no namespace.</li></ul></dd><dt class="header">Schema Composition</dt><dd class=""><ul><li>This schema imports schema(s) from the following namespace(s):<ul><li><em>http://www.opengis.net/citygml/3.0</em> (at ./core.xsd)</li><li><em>http://www.opengis.net/gml/3.2</em> (at http://schemas.opengis.net/gml/3.2.1/gml.xsd)</li></ul></li></ul></dd></dl><dl class="dl-horizontal"><dt>Documentation</dt><dd><div class="annotation documentation" id="wdoc-idm3212016"><div class="hidden" id="idm3212016-doc-raw">The CityFurniture module supports representation of city furniture objects. City furniture objects are immovable objects like lanterns, traffic signs, advertising columns, benches, or bus stops that can be found in traffic areas, residential areas, on squares, or in built-up areas.</div><div class="xs3p-doc" id="idm3212016-doc"> </div></div></dd></dl><h4>Declared Namespaces:</h4><dl class="dl-horizontal"><dt class="header">Prefix</dt><dd class="header">Namespace</dd><dt class=""><a id="ns_">Default namespace</a></dt><dd class="">http://www.w3.org/2001/XMLSchema</dd><dt class=""><a id="ns_xml">xml</a></dt><dd class="">http://www.w3.org/XML/1998/namespace</dd><dt class=""><a id="ns_gml">gml</a></dt><dd class="">http://www.opengis.net/gml/3.2</dd><dt class=""><a id="ns_frn">frn</a></dt><dd class=""><span class="targetNS">http://www.opengis.net/citygml/cityfurniture/3.0</span></dd><dt class=""><a id="ns_core">core</a></dt><dd class="">http://www.opengis.net/citygml/3.0</dd></dl><div class="bs-callout bs-callout-info"><h4>Schema Component Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The Schema Component Representation table below displays the underlying XML representation of the schema component. (Annotations are not shown.)"><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;schema</span> <span class="na">elementFormDefault=</span><span class="s">"qualified"</span> <span class="na">targetNamespace=</span><span class="s">"http://www.opengis.net/citygml/cityfurniture/3.0"</span> <span class="na">version=</span><span class="s">"3.0.0"</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;import</span> <span class="na">namespace=</span><span class="s">"http://www.opengis.net/citygml/3.0"</span> <span class="na">schemaLocation=</span><span class="s">"./core.xsd"</span><span class="nt">/&gt;</span>
+   <span class="nt">&lt;import</span> <span class="na">namespace=</span><span class="s">"http://www.opengis.net/gml/3.2"</span> <span class="na">schemaLocation=</span><span class="s">"http://schemas.opengis.net/gml/3.2.1/gml.xsd"</span><span class="nt">/&gt;</span>
+<span class="scContent">...</span>
+<span class="nt">&lt;/schema&gt;</span>
+</pre></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr></section><section id="SectionSchemaElements"><h2><a id="SchemaElements">Elements</a></h2><h3 class="xs3p-subsection-heading">Element: <a id="element_ADEOfCityFurniture"></a><strong>ADEOfCityFurniture</strong></h3><object data="diagrams/ADEOfCityFurniture.svg" type="image/svg+xml"></object><h4>Type hierarchy:</h4><table class="table table-striped xs3p-in-panel-table"><tbody><tr><td><ul><li><em>This element can be used wherever the following element is referenced:</em><ul><li><a href="#ns_gml" title="Find out namespace of 'gml' prefix">gml</a>:<a title='"AbstractObject" element declaration could not be found.' href="javascript:void(0)" onclick="alert('&quot;AbstractObject&quot; element declaration could not be found.');">AbstractObject</a></li></ul></li></ul></td></tr></tbody></table><dl class="dl-horizontal"><dt class="header">Type</dt><dd class=""><span class="type"><a href="#ns_frn" title="Find out namespace of 'frn' prefix">frn</a>:<a title='Jump to "ADEOfCityFurnitureType" type definition.' href="#type_ADEOfCityFurnitureType">ADEOfCityFurnitureType</a></span></dd><dt class="header"><a title="Look up 'Abstract' in glossary" href="#term_Abstract">Abstract</a></dt><dd class="">yes</dd></dl><dl class="dl-horizontal"><dt>Documentation</dt><dd><div class="annotation documentation" id="wdoc-idm3212928"><div class="hidden" id="idm3212928-doc-raw">ADEOfCityFurniture acts as a hook to define properties within an ADE that are to be added to a CityFurniture.</div><div class="xs3p-doc" id="idm3212928-doc"> </div></div></dd></dl><div class="bs-callout bs-callout-info"><h4>XML Instance Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="right" data-html="true" data-content="The XML Instance Representation table shows the schema component's content as an XML instance.
+         &lt;ul&gt;
+         &lt;li&gt;The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].&lt;/li&gt;
+         &lt;li&gt;Model group information are shown in gray, e.g. Start Choice ... End Choice.&lt;/li&gt;
+         &lt;li&gt;For type derivations, the elements and attributes that have been added to or changed from the base type's content are shown in &lt;strong&gt;bold&lt;/strong&gt;&lt;/li&gt;
+         &lt;li&gt;If an element/attribute has a fixed value, the fixed value is shown in green.&lt;/li&gt;
+         &lt;li&gt;More stuff&lt;/li&gt;
+         &lt;li&gt;If a local element/attribute has documentation, it will be displayed in a window that pops up when the question mark inside the attribute or next to the element is clicked.&lt;/li&gt;
+         &lt;/ul&gt;
+      "><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;<a href="#ns_frn" title="Find out namespace of 'frn' prefix">frn</a>:ADEOfCityFurniture</span><span class="nt">/&gt; </span>
+
+</pre></div><div class="bs-callout bs-callout-info"><h4>Schema Component Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The Schema Component Representation table below displays the underlying XML representation of the schema component. (Annotations are not shown.)"><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;element</span> <span class="na">name=</span><span class="s">"ADEOfCityFurniture"</span> <span class="na">type=</span><span class="s">"<span class="type"><a href="#ns_frn" title="Find out namespace of 'frn' prefix">frn</a>:<a title='Jump to "ADEOfCityFurnitureType" type definition.' href="#type_ADEOfCityFurnitureType">ADEOfCityFurnitureType</a></span>"</span> <span class="na">abstract=</span><span class="s">"true"</span> <span class="na">substitutionGroup=</span><span class="s">"gml:AbstractObject"</span><span class="nt">/&gt;</span>
+</pre></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr><h3 class="xs3p-subsection-heading">Element: <a id="element_CityFurniture"></a><strong>CityFurniture</strong></h3><object data="diagrams/CityFurniture.svg" type="image/svg+xml"></object><h4>Type hierarchy:</h4><table class="table table-striped xs3p-in-panel-table"><tbody><tr><td><ul><li><em>This element can be used wherever the following element is referenced:</em><ul><li><a href="#ns_core" title="Find out namespace of 'core' prefix">core</a>:<a title='"AbstractOccupiedSpace" element declaration could not be found.' href="javascript:void(0)" onclick="alert('&quot;AbstractOccupiedSpace&quot; element declaration could not be found.');">AbstractOccupiedSpace</a></li></ul></li></ul></td></tr></tbody></table><dl class="dl-horizontal"><dt class="header">Type</dt><dd class=""><span class="type"><a href="#ns_frn" title="Find out namespace of 'frn' prefix">frn</a>:<a title='Jump to "CityFurnitureType" type definition.' href="#type_CityFurnitureType">CityFurnitureType</a></span></dd></dl><dl class="dl-horizontal"><dt>Documentation</dt><dd><div class="annotation documentation" id="wdoc-idm3221376"><div class="hidden" id="idm3221376-doc-raw">CityFurniture is an object or piece of equipment installed in the outdoor environment for various purposes. Examples include street signs, traffic signals, street lamps, benches, fountains.</div><div class="xs3p-doc" id="idm3221376-doc"> </div></div></dd></dl><div class="bs-callout bs-callout-info"><h4>XML Instance Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="right" data-html="true" data-content="The XML Instance Representation table shows the schema component's content as an XML instance.
+         &lt;ul&gt;
+         &lt;li&gt;The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].&lt;/li&gt;
+         &lt;li&gt;Model group information are shown in gray, e.g. Start Choice ... End Choice.&lt;/li&gt;
+         &lt;li&gt;For type derivations, the elements and attributes that have been added to or changed from the base type's content are shown in &lt;strong&gt;bold&lt;/strong&gt;&lt;/li&gt;
+         &lt;li&gt;If an element/attribute has a fixed value, the fixed value is shown in green.&lt;/li&gt;
+         &lt;li&gt;More stuff&lt;/li&gt;
+         &lt;li&gt;If a local element/attribute has documentation, it will be displayed in a window that pops up when the question mark inside the attribute or next to the element is clicked.&lt;/li&gt;
+         &lt;/ul&gt;
+      "><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;<a href="#ns_frn" title="Find out namespace of 'frn' prefix">frn</a>:CityFurniture</span><span class="nt">&gt;</span>
+   <span class="c">&lt;!-- '<span class="type"><a href="#ns_core" title="Find out namespace of 'core' prefix">core</a>:<a title='"AbstractOccupiedSpaceType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;AbstractOccupiedSpaceType&quot; type definition could not be found.');">AbstractOccupiedSpaceType</a></span>' super type was not found in this schema. Some elements and attributes may be missing. --&gt;</span>
+   <span class="nt">&lt;<a href="#ns_frn" title="Find out namespace of 'frn' prefix">frn</a>:class&gt;</span> <span class="type"><a href="#ns_gml" title="Find out namespace of 'gml' prefix">gml</a>:<a title='"CodeType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;CodeType&quot; type definition could not be found.');">CodeType</a></span> <span class="nt">&lt;/<a href="#ns_frn" title="Find out namespace of 'frn' prefix">frn</a>:class&gt;</span> <span class="cs">[0..1]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#idm3244288-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+   <span class="nt">&lt;<a href="#ns_frn" title="Find out namespace of 'frn' prefix">frn</a>:function&gt;</span> <span class="type"><a href="#ns_gml" title="Find out namespace of 'gml' prefix">gml</a>:<a title='"CodeType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;CodeType&quot; type definition could not be found.');">CodeType</a></span> <span class="nt">&lt;/<a href="#ns_frn" title="Find out namespace of 'frn' prefix">frn</a>:function&gt;</span> <span class="cs">[0..*]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#idm3249152-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+   <span class="nt">&lt;<a href="#ns_frn" title="Find out namespace of 'frn' prefix">frn</a>:usage&gt;</span> <span class="type"><a href="#ns_gml" title="Find out namespace of 'gml' prefix">gml</a>:<a title='"CodeType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;CodeType&quot; type definition could not be found.');">CodeType</a></span> <span class="nt">&lt;/<a href="#ns_frn" title="Find out namespace of 'frn' prefix">frn</a>:usage&gt;</span> <span class="cs">[0..*]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#idm3245952-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+   <span class="nt">&lt;<a href="#ns_frn" title="Find out namespace of 'frn' prefix">frn</a>:adeOfCityFurniture&gt;</span> <span class="type"><a href="#ns_frn" title="Find out namespace of 'frn' prefix">frn</a>:<a title='Jump to "ADEOfCityFurniturePropertyType" type definition.' href="#type_ADEOfCityFurniturePropertyType">ADEOfCityFurniturePropertyType</a></span> <span class="nt">&lt;/<a href="#ns_frn" title="Find out namespace of 'frn' prefix">frn</a>:adeOfCityFurniture&gt;</span> <span class="cs">[0..*]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#idm3254784-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+<span class="nt">&lt;/<a href="#ns_frn" title="Find out namespace of 'frn' prefix">frn</a>:CityFurniture&gt;</span>
+</pre></div><div class="bs-callout bs-callout-info"><h4>Schema Component Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The Schema Component Representation table below displays the underlying XML representation of the schema component. (Annotations are not shown.)"><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;element</span> <span class="na">name=</span><span class="s">"CityFurniture"</span> <span class="na">type=</span><span class="s">"<span class="type"><a href="#ns_frn" title="Find out namespace of 'frn' prefix">frn</a>:<a title='Jump to "CityFurnitureType" type definition.' href="#type_CityFurnitureType">CityFurnitureType</a></span>"</span> <span class="na">substitutionGroup=</span><span class="s">"core:AbstractOccupiedSpace"</span><span class="nt">/&gt;</span>
+</pre></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr></section><section id="SectionSchemaComplexTypes"><h2><a id="SchemaComplexTypes">Complex Types</a></h2><h3 class="xs3p-subsection-heading">Complex Type: <a id="type_ADEOfCityFurniturePropertyType"></a><strong>ADEOfCityFurniturePropertyType</strong></h3><div class="bs-callout bs-callout-info"><h4>XML Instance Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="right" data-html="true" data-content="The XML Instance Representation table shows the schema component's content as an XML instance.
+         &lt;ul&gt;
+         &lt;li&gt;The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].&lt;/li&gt;
+         &lt;li&gt;Model group information are shown in gray, e.g. Start Choice ... End Choice.&lt;/li&gt;
+         &lt;li&gt;For type derivations, the elements and attributes that have been added to or changed from the base type's content are shown in &lt;strong&gt;bold&lt;/strong&gt;&lt;/li&gt;
+         &lt;li&gt;If an element/attribute has a fixed value, the fixed value is shown in green.&lt;/li&gt;
+         &lt;li&gt;More stuff&lt;/li&gt;
+         &lt;li&gt;If a local element/attribute has documentation, it will be displayed in a window that pops up when the question mark inside the attribute or next to the element is clicked.&lt;/li&gt;
+         &lt;/ul&gt;
+      "><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;...</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;<a href="#ns_frn" title="Find out namespace of 'frn' prefix">frn</a>:<a title='Jump to "ADEOfCityFurniture" element declaration.' href="#element_ADEOfCityFurniture">ADEOfCityFurniture</a>&gt;</span> ... <span class="nt">&lt;/<a href="#ns_frn" title="Find out namespace of 'frn' prefix">frn</a>:<a title='Jump to "ADEOfCityFurniture" element declaration.' href="#element_ADEOfCityFurniture">ADEOfCityFurniture</a>&gt;</span> <span class="cs">[1]</span>
+<span class="nt">&lt;/...&gt;</span>
+</pre></div><div class="bs-callout bs-callout-info"><h4>Schema Component Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The Schema Component Representation table below displays the underlying XML representation of the schema component. (Annotations are not shown.)"><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;complexType</span> <span class="na">name=</span><span class="s">"ADEOfCityFurniturePropertyType"</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;sequence</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;element</span> <span class="na">ref=</span><span class="s">"<a href="#ns_frn" title="Find out namespace of 'frn' prefix">frn</a>:<a title='Jump to "ADEOfCityFurniture" element declaration.' href="#element_ADEOfCityFurniture">ADEOfCityFurniture</a>"</span><span class="nt">/&gt;</span>
+   <span class="nt">&lt;/sequence&gt;</span>
+<span class="nt">&lt;/complexType&gt;</span>
+</pre></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr><h3 class="xs3p-subsection-heading">Complex Type: <a id="type_ADEOfCityFurnitureType"></a><strong>ADEOfCityFurnitureType</strong></h3><h4>Properties:</h4><dl class="dl-horizontal"><dt class="header"><a title="Look up 'Abstract' in glossary" href="#term_Abstract">Abstract</a></dt><dd class="">yes</dd></dl><div class="bs-callout bs-callout-info"><h4>XML Instance Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="right" data-html="true" data-content="The XML Instance Representation table shows the schema component's content as an XML instance.
+         &lt;ul&gt;
+         &lt;li&gt;The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].&lt;/li&gt;
+         &lt;li&gt;Model group information are shown in gray, e.g. Start Choice ... End Choice.&lt;/li&gt;
+         &lt;li&gt;For type derivations, the elements and attributes that have been added to or changed from the base type's content are shown in &lt;strong&gt;bold&lt;/strong&gt;&lt;/li&gt;
+         &lt;li&gt;If an element/attribute has a fixed value, the fixed value is shown in green.&lt;/li&gt;
+         &lt;li&gt;More stuff&lt;/li&gt;
+         &lt;li&gt;If a local element/attribute has documentation, it will be displayed in a window that pops up when the question mark inside the attribute or next to the element is clicked.&lt;/li&gt;
+         &lt;/ul&gt;
+      "><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;...</span><span class="nt">/&gt; </span>
+
+</pre></div><div class="bs-callout bs-callout-info"><h4>Schema Component Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The Schema Component Representation table below displays the underlying XML representation of the schema component. (Annotations are not shown.)"><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;complexType</span> <span class="na">name=</span><span class="s">"ADEOfCityFurnitureType"</span> <span class="na">abstract=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;sequence</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/complexType&gt;</span>
+</pre></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr><h3 class="xs3p-subsection-heading">Complex Type: <a id="type_CityFurniturePropertyType"></a><strong>CityFurniturePropertyType</strong></h3><div class="bs-callout bs-callout-info"><h4>XML Instance Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="right" data-html="true" data-content="The XML Instance Representation table shows the schema component's content as an XML instance.
+         &lt;ul&gt;
+         &lt;li&gt;The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].&lt;/li&gt;
+         &lt;li&gt;Model group information are shown in gray, e.g. Start Choice ... End Choice.&lt;/li&gt;
+         &lt;li&gt;For type derivations, the elements and attributes that have been added to or changed from the base type's content are shown in &lt;strong&gt;bold&lt;/strong&gt;&lt;/li&gt;
+         &lt;li&gt;If an element/attribute has a fixed value, the fixed value is shown in green.&lt;/li&gt;
+         &lt;li&gt;More stuff&lt;/li&gt;
+         &lt;li&gt;If a local element/attribute has documentation, it will be displayed in a window that pops up when the question mark inside the attribute or next to the element is clicked.&lt;/li&gt;
+         &lt;/ul&gt;
+      "><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;...</span>
+<div class="other" style="margin-left: 1em">Attribute group reference (not shown): <a href="#ns_gml" title="Find out namespace of 'gml' prefix">gml</a>:<a title='"AssociationAttributeGroup" attribute group definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;AssociationAttributeGroup&quot; attribute group definition could not be found.');">AssociationAttributeGroup</a></div><div class="other" style="margin-left: 1em">Attribute group reference (not shown): <a href="#ns_gml" title="Find out namespace of 'gml' prefix">gml</a>:<a title='"OwnershipAttributeGroup" attribute group definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;OwnershipAttributeGroup&quot; attribute group definition could not be found.');">OwnershipAttributeGroup</a></div><span class="nt">&gt;</span>
+   <span class="group">Start <a title="Look up 'Sequence' in glossary" href="#term_Sequence">Sequence</a> <span class="cs">[0..1]</span></span>
+      <span class="nt">&lt;<a href="#ns_frn" title="Find out namespace of 'frn' prefix">frn</a>:<a title='Jump to "CityFurniture" element declaration.' href="#element_CityFurniture">CityFurniture</a>&gt;</span> ... <span class="nt">&lt;/<a href="#ns_frn" title="Find out namespace of 'frn' prefix">frn</a>:<a title='Jump to "CityFurniture" element declaration.' href="#element_CityFurniture">CityFurniture</a>&gt;</span> <span class="cs">[1]</span>
+   <span class="group">End Sequence</span>
+<span class="nt">&lt;/...&gt;</span>
+</pre></div><div class="bs-callout bs-callout-info"><h4>Schema Component Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The Schema Component Representation table below displays the underlying XML representation of the schema component. (Annotations are not shown.)"><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;complexType</span> <span class="na">name=</span><span class="s">"CityFurniturePropertyType"</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;sequence</span> <span class="na">minOccurs=</span><span class="s">"0"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;element</span> <span class="na">ref=</span><span class="s">"<a href="#ns_frn" title="Find out namespace of 'frn' prefix">frn</a>:<a title='Jump to "CityFurniture" element declaration.' href="#element_CityFurniture">CityFurniture</a>"</span><span class="nt">/&gt;</span>
+   <span class="nt">&lt;/sequence&gt;</span>
+   <span class="nt">&lt;attributeGroup</span> <span class="na">ref=</span><span class="s">"<a href="#ns_gml" title="Find out namespace of 'gml' prefix">gml</a>:<a title='"AssociationAttributeGroup" attribute group definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;AssociationAttributeGroup&quot; attribute group definition could not be found.');">AssociationAttributeGroup</a>"</span><span class="nt">/&gt;</span>
+   <span class="nt">&lt;attributeGroup</span> <span class="na">ref=</span><span class="s">"<a href="#ns_gml" title="Find out namespace of 'gml' prefix">gml</a>:<a title='"OwnershipAttributeGroup" attribute group definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;OwnershipAttributeGroup&quot; attribute group definition could not be found.');">OwnershipAttributeGroup</a>"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/complexType&gt;</span>
+</pre></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr><h3 class="xs3p-subsection-heading">Complex Type: <a id="type_CityFurnitureType"></a><strong>CityFurnitureType</strong></h3><h4>Type hierarchy:</h4><dl class="dl-horizontal"><dt class="header">Super-types:</dt><dd class=""><span class="type"><a href="#ns_core" title="Find out namespace of 'core' prefix">core</a>:<a title='"AbstractOccupiedSpaceType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;AbstractOccupiedSpaceType&quot; type definition could not be found.');">AbstractOccupiedSpaceType</a></span> &lt; <strong>CityFurnitureType</strong> (by extension)</dd></dl><div class="bs-callout bs-callout-info"><h4>XML Instance Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="right" data-html="true" data-content="The XML Instance Representation table shows the schema component's content as an XML instance.
+         &lt;ul&gt;
+         &lt;li&gt;The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].&lt;/li&gt;
+         &lt;li&gt;Model group information are shown in gray, e.g. Start Choice ... End Choice.&lt;/li&gt;
+         &lt;li&gt;For type derivations, the elements and attributes that have been added to or changed from the base type's content are shown in &lt;strong&gt;bold&lt;/strong&gt;&lt;/li&gt;
+         &lt;li&gt;If an element/attribute has a fixed value, the fixed value is shown in green.&lt;/li&gt;
+         &lt;li&gt;More stuff&lt;/li&gt;
+         &lt;li&gt;If a local element/attribute has documentation, it will be displayed in a window that pops up when the question mark inside the attribute or next to the element is clicked.&lt;/li&gt;
+         &lt;/ul&gt;
+      "><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;...</span><span class="nt">&gt;</span>
+   <span class="c">&lt;!-- '<span class="type"><a href="#ns_core" title="Find out namespace of 'core' prefix">core</a>:<a title='"AbstractOccupiedSpaceType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;AbstractOccupiedSpaceType&quot; type definition could not be found.');">AbstractOccupiedSpaceType</a></span>' super type was not found in this schema. Some elements and attributes may be missing. --&gt;</span>
+   <span class="nt">&lt;<a href="#ns_frn" title="Find out namespace of 'frn' prefix">frn</a>:class&gt;</span> <span class="type"><a href="#ns_gml" title="Find out namespace of 'gml' prefix">gml</a>:<a title='"CodeType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;CodeType&quot; type definition could not be found.');">CodeType</a></span> <span class="nt">&lt;/<a href="#ns_frn" title="Find out namespace of 'frn' prefix">frn</a>:class&gt;</span> <span class="cs">[0..1]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#idm3244288-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+   <span class="nt">&lt;<a href="#ns_frn" title="Find out namespace of 'frn' prefix">frn</a>:function&gt;</span> <span class="type"><a href="#ns_gml" title="Find out namespace of 'gml' prefix">gml</a>:<a title='"CodeType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;CodeType&quot; type definition could not be found.');">CodeType</a></span> <span class="nt">&lt;/<a href="#ns_frn" title="Find out namespace of 'frn' prefix">frn</a>:function&gt;</span> <span class="cs">[0..*]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#idm3249152-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+   <span class="nt">&lt;<a href="#ns_frn" title="Find out namespace of 'frn' prefix">frn</a>:usage&gt;</span> <span class="type"><a href="#ns_gml" title="Find out namespace of 'gml' prefix">gml</a>:<a title='"CodeType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;CodeType&quot; type definition could not be found.');">CodeType</a></span> <span class="nt">&lt;/<a href="#ns_frn" title="Find out namespace of 'frn' prefix">frn</a>:usage&gt;</span> <span class="cs">[0..*]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#idm3245952-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+   <span class="nt">&lt;<a href="#ns_frn" title="Find out namespace of 'frn' prefix">frn</a>:adeOfCityFurniture&gt;</span> <span class="type"><a href="#ns_frn" title="Find out namespace of 'frn' prefix">frn</a>:<a title='Jump to "ADEOfCityFurniturePropertyType" type definition.' href="#type_ADEOfCityFurniturePropertyType">ADEOfCityFurniturePropertyType</a></span> <span class="nt">&lt;/<a href="#ns_frn" title="Find out namespace of 'frn' prefix">frn</a>:adeOfCityFurniture&gt;</span> <span class="cs">[0..*]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#idm3254784-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+<span class="nt">&lt;/...&gt;</span>
+</pre></div><div class="bs-callout bs-callout-info"><h4>Schema Component Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The Schema Component Representation table below displays the underlying XML representation of the schema component. (Annotations are not shown.)"><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;complexType</span> <span class="na">name=</span><span class="s">"CityFurnitureType"</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;complexContent</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;extension</span> <span class="na">base=</span><span class="s">"<span class="type"><a href="#ns_core" title="Find out namespace of 'core' prefix">core</a>:<a title='"AbstractOccupiedSpaceType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;AbstractOccupiedSpaceType&quot; type definition could not be found.');">AbstractOccupiedSpaceType</a></span>"</span><span class="nt">&gt;</span>
+         <span class="nt">&lt;sequence</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;element</span> <span class="na">name=</span><span class="s">"class"</span> <span class="na">type=</span><span class="s">"<span class="type"><a href="#ns_gml" title="Find out namespace of 'gml' prefix">gml</a>:<a title='"CodeType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;CodeType&quot; type definition could not be found.');">CodeType</a></span>"</span> <span class="na">minOccurs=</span><span class="s">"0"</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;element</span> <span class="na">name=</span><span class="s">"function"</span> <span class="na">type=</span><span class="s">"<span class="type"><a href="#ns_gml" title="Find out namespace of 'gml' prefix">gml</a>:<a title='"CodeType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;CodeType&quot; type definition could not be found.');">CodeType</a></span>"</span> <span class="na">maxOccurs=</span><span class="s">"unbounded"</span> <span class="na">minOccurs=</span><span class="s">"0"</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;element</span> <span class="na">name=</span><span class="s">"usage"</span> <span class="na">type=</span><span class="s">"<span class="type"><a href="#ns_gml" title="Find out namespace of 'gml' prefix">gml</a>:<a title='"CodeType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;CodeType&quot; type definition could not be found.');">CodeType</a></span>"</span> <span class="na">maxOccurs=</span><span class="s">"unbounded"</span> <span class="na">minOccurs=</span><span class="s">"0"</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;element</span> <span class="na">name=</span><span class="s">"adeOfCityFurniture"</span> <span class="na">type=</span><span class="s">"<span class="type"><a href="#ns_frn" title="Find out namespace of 'frn' prefix">frn</a>:<a title='Jump to "ADEOfCityFurniturePropertyType" type definition.' href="#type_ADEOfCityFurniturePropertyType">ADEOfCityFurniturePropertyType</a></span>"</span> <span class="na">maxOccurs=</span><span class="s">"unbounded"</span> <span class="na">minOccurs=</span><span class="s">"0"</span><span class="nt">/&gt;</span>
+         <span class="nt">&lt;/sequence&gt;</span>
+      <span class="nt">&lt;/extension&gt;</span>
+   <span class="nt">&lt;/complexContent&gt;</span>
+<span class="nt">&lt;/complexType&gt;</span>
+</pre></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr></section><div id="glossary"><h2><a id="Glossary">Glossary</a></h2><p><span class="glossaryTerm"><a id="term_Abstract">Abstract</a> </span>(Applies to complex type definitions and element declarations). An abstract element or complex type cannot used to validate an element instance. If there is a reference to an abstract element, only element declarations that can substitute the abstract element can be used to validate the instance. For references to abstract type definitions, only derived types can be used.</p><p><span class="glossaryTerm"><a id="term_All">All Model Group</a> </span>Child elements can be provided <em>in any order</em> in instances. See: <a title="http://www.w3.org/TR/xmlschema-1/#element-all" href="http://www.w3.org/TR/xmlschema-1/#element-all">http://www.w3.org/TR/xmlschema-1/#element-all</a>.</p><p><span class="glossaryTerm"><a id="term_Choice">Choice Model Group</a> </span><em>Only one</em> from the list of child elements and model groups can be provided in instances. See: <a title="http://www.w3.org/TR/xmlschema-1/#element-choice" href="http://www.w3.org/TR/xmlschema-1/#element-choice">http://www.w3.org/TR/xmlschema-1/#element-choice</a>.</p><p><span class="glossaryTerm"><a id="term_CollapseWS">Collapse Whitespace Policy</a> </span>Replace tab, line feed, and carriage return characters with space character (Unicode character 32). Then, collapse contiguous sequences of space characters into single space character, and remove leading and trailing space characters.</p><p><span class="glossaryTerm"><a id="term_ElemBlock">Disallowed Substitutions</a> </span>(Applies to element declarations). If <em>substitution</em> is specified, then <a title="Look up 'substitution group' in glossary" href="#term_SubGroup">substitution group</a> members cannot be used in place of the given element declaration to validate element instances. If <em>derivation methods</em>, e.g. extension, restriction, are specified, then the given element declaration will not validate element instances that have types derived from the element declaration's type using the specified derivation methods. Normally, element instances can override their declaration's type by specifying an <code>xsi:type</code> attribute.</p><p><span class="glossaryTerm"><a id="term_Key">Key Constraint</a> </span>Like <a title="Look up 'Uniqueness Constraint' in glossary" href="#term_Unique">Uniqueness Constraint</a>, but additionally requires that the specified value(s) must be provided. See: <a title="http://www.w3.org/TR/xmlschema-1/#cIdentity-constraint_Definitions" href="http://www.w3.org/TR/xmlschema-1/#cIdentity-constraint_Definitions">http://www.w3.org/TR/xmlschema-1/#cIdentity-constraint_Definitions</a>.</p><p><span class="glossaryTerm"><a id="term_KeyRef">Key Reference Constraint</a> </span>Ensures that the specified value(s) must match value(s) from a <a title="Look up 'Key Constraint' in glossary" href="#term_Key">Key Constraint</a> or <a title="Look up 'Uniqueness Constraint' in glossary" href="#term_Unique">Uniqueness Constraint</a>. See: <a title="http://www.w3.org/TR/xmlschema-1/#cIdentity-constraint_Definitions" href="http://www.w3.org/TR/xmlschema-1/#cIdentity-constraint_Definitions">http://www.w3.org/TR/xmlschema-1/#cIdentity-constraint_Definitions</a>.</p><p><span class="glossaryTerm"><a id="term_ModelGroup">Model Group</a> </span>Groups together element content, specifying the order in which the element content can occur and the number of times the group of element content may be repeated. See: <a title="http://www.w3.org/TR/xmlschema-1/#Model_Groups" href="http://www.w3.org/TR/xmlschema-1/#Model_Groups">http://www.w3.org/TR/xmlschema-1/#Model_Groups</a>.</p><p><span class="glossaryTerm"><a id="term_Nillable">Nillable</a> </span>(Applies to element declarations). If an element declaration is nillable, instances can use the <code>xsi:nil</code> attribute. The <code>xsi:nil</code> attribute is the boolean attribute, <em>nil</em>, from the <em>http://www.w3.org/2001/XMLSchema-instance</em> namespace. If an element instance has an <code>xsi:nil</code> attribute set to true, it can be left empty, even though its element declaration may have required content.</p><p><span class="glossaryTerm"><a id="term_Notation">Notation</a> </span>A notation is used to identify the format of a piece of data. Values of elements and attributes that are of type, NOTATION, must come from the names of declared notations. See: <a title="http://www.w3.org/TR/xmlschema-1/#cNotation_Declarations" href="http://www.w3.org/TR/xmlschema-1/#cNotation_Declarations">http://www.w3.org/TR/xmlschema-1/#cNotation_Declarations</a>.</p><p><span class="glossaryTerm"><a id="term_PreserveWS">Preserve Whitespace Policy</a> </span>Preserve whitespaces exactly as they appear in instances.</p><p><span class="glossaryTerm"><a id="term_TypeFinal">Prohibited Derivations</a> </span>(Applies to type definitions). Derivation methods that cannot be used to create sub-types from a given type definition.</p><p><span class="glossaryTerm"><a id="term_TypeBlock">Prohibited Substitutions</a> </span>(Applies to complex type definitions). Prevents sub-types that have been derived using the specified derivation methods from validating element instances in place of the given type definition.</p><p><span class="glossaryTerm"><a id="term_ReplaceWS">Replace Whitespace Policy</a> </span>Replace tab, line feed, and carriage return characters with space character (Unicode character 32).</p><p><span class="glossaryTerm"><a id="term_Sequence">Sequence Model Group</a> </span>Child elements and model groups must be provided <em>in the specified order</em> in instances. See: <a title="http://www.w3.org/TR/xmlschema-1/#element-sequence" href="http://www.w3.org/TR/xmlschema-1/#element-sequence">http://www.w3.org/TR/xmlschema-1/#element-sequence</a>.</p><p><span class="glossaryTerm"><a id="term_SubGroup">Substitution Group</a> </span>Elements that are <em>members</em> of a substitution group can be used wherever the <em>head</em> element of the substitution group is referenced.</p><p><span class="glossaryTerm"><a id="term_ElemFinal">Substitution Group Exclusions</a> </span>(Applies to element declarations). Prohibits element declarations from nominating themselves as being able to substitute a given element declaration, if they have types that are derived from the original element's type using the specified derivation methods.</p><p><span class="glossaryTerm"><a id="term_TargetNS">Target Namespace</a> </span>The target namespace identifies the namespace that components in this schema belongs to. If no target namespace is provided, then the schema components do not belong to any namespace.</p><p><span class="glossaryTerm"><a id="term_Unique">Uniqueness Constraint</a> </span>Ensures uniqueness of an element/attribute value, or a combination of values, within a specified scope. See: <a title="http://www.w3.org/TR/xmlschema-1/#cIdentity-constraint_Definitions" href="http://www.w3.org/TR/xmlschema-1/#cIdentity-constraint_Definitions">http://www.w3.org/TR/xmlschema-1/#cIdentity-constraint_Definitions</a>.</p><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr></div><p class="footer">Generated by <a href="https://github.com/unitsml/schemas/blob/master/xsl/xs3p.xsl">xs3p</a> (fork of <a href="http://github.com/bitfehler/xs3p">xs3p</a>)
+                  . Last Modified: <script type="text/javascript">
+<!--
+document.write(document.lastModified);
+// -->
+</script></p></div><br></br><nav><div id="toc"><ul class="nav nav-list xs3p-sidenav"><li><strong><a href="#SchemaProperties">Schema Document Properties</a></strong></li><ul class="nav nav-list nav-list-elements"><li><strong><a href="#SchemaElements">Elements </a></strong></li><li class="nav-sub-item"><a href="#element_ADEOfCityFurniture"><strong>ADEOfCityFurniture</strong></a></li><li class="nav-sub-item"><a href="#element_CityFurniture"><strong>CityFurniture</strong></a></li></ul><li><strong><a href="#SchemaComplexTypes">Complex Types </a></strong></li><li class="nav-sub-item"><a href="#type_ADEOfCityFurniturePropertyType"><strong>ADEOfCityFurniturePropertyType</strong></a></li><li class="nav-sub-item"><a href="#type_ADEOfCityFurnitureType"><strong>ADEOfCityFurnitureType</strong></a></li><li class="nav-sub-item"><a href="#type_CityFurniturePropertyType"><strong>CityFurniturePropertyType</strong></a></li><li class="nav-sub-item"><a href="#type_CityFurnitureType"><strong>CityFurnitureType</strong></a></li><li><strong><a href="#Glossary">Glossary</a></strong></li></ul></div></nav><script>
+               //TOC toggle animation
+               $('#toggle').on('click', function(){
+                  var duration = 400;
+                  if( $('nav').is(':visible') ) {
+                     $('nav').animate({ 'left': '-353px' }, duration, function(){
+                        $('nav').hide();
+                     });
+                     $('body').animate({ 'margin-left': '0' }, duration);
+                     $('#toggle > span').text('>');
+                  }
+                  else {
+                     $('nav').show();
+                     $('nav').animate({ 'left': '0px' }, duration);
+                     $('body').animate({ 'margin-left': '270px' }, duration);
+                     $('#toggle > span').text('<');
+                  }
+               });
+            </script><script>
+
+                  $(function () { $("[data-toggle='tooltip']").tooltip(); });
+                  $(function () { $("[data-toggle='popover']").popover({ trigger: "hover" }); });
+                  
+                  $(function () { $("[data-toggle='modal']").click(function() { return false; })});
+                  
+                  $(function () { $("[data-toggle='modal']").popover({ trigger: "hover", html: true,
+    content: function () {
+        var targetId = $(this).attr('data-target');
+        return $(targetId).html();
+    }}); });
+                  
+    
+                  
+                  var c = new Markdown.Converter();
+                  $('.xs3p-doc').each(function(i, obj) {
+                     var rawDocID = '#' + $(this).attr('id') + '-raw';
+                     var indent = $(rawDocID).html().match("^\\n[\\t ]*");
+                     if (!(indent === null)) {
+                        normalized = $(rawDocID).html().replace(new RegExp(indent[0], "gm"), "\n");
+                     } else {
+                        normalized = $(rawDocID).html();
+                     }
+                     $(this).html(c.makeHtml(normalized));
+                     $(this).find('code,pre').each(function(i, block) {
+                        $(this).html($(this).text());
+                     });
+                  });
+
+                  $(window).scroll(function() {
+                     if ($(".xs3p-sidebar").css("position") == "fixed" && $(window).height() < $(".xs3p-sidebar").height()) {
+                        var perc = $(window).scrollTop() / $("#xs3p-content").height();
+                        var overflow = $(".xs3p-sidebar").height() + 105 - $(window).height();
+                        $(".xs3p-sidebar").css("top", (65 - Math.round(overflow * perc)) + "px");
+                     }
+                  });
+                  $(window).resize(function() {
+                     if ($(".xs3p-sidebar").css("position") == "fixed") {
+                        $(".xs3p-sidebar").css("top", "65px");
+                     }
+                  });
+                  </script></body></html>

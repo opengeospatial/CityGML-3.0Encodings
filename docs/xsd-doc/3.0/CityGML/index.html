@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:exslt="http://exslt.org/common"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Schema documentation CityGML</title><meta charset="UTF-8"></meta><link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet"></link><style type="text/css">
+
+
+nav, section {
+  display: block; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+
+/*dl {
+  display: grid;
+  grid-template-columns: max-content auto; }
+  dl dt p, dl dd p {
+    margin-top: 0; }
+  dl dt {
+    grid-column-start: 1; }
+  dl dd {
+    grid-column-start: 2; }
+*/
+
+body {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.4em;
+  color: -internal-root-color;
+  background-color: #ffffff; }
+  body main {
+    margin: 0 3em 0 6em; }
+  body main {
+    margin: 0; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1.3; }
+
+
+body {
+  margin-left: 270px;
+  margin-right: 2em; }
+
+main {
+  padding-left: 4em;
+  padding-right: 2em; }
+
+.title-section{
+  padding-left: 4em;
+  padding-top: 2em; }
+
+
+
+
+
+h2 p {
+  display: inline; }
+
+
+
+/* Navigation*/
+#toc {
+  font-weight: 400; }
+  #toc a {
+   color: black;
+   text-decoration-color: black; }
+  #toc ul {
+    margin: 0;
+    padding: 0;
+    list-style: none; }
+    #toc ul li a {
+      padding: 5px 10px; }
+    #toc ul a {
+      text-decoration: none;
+      display: block; }
+      #toc ul a:hover {
+        box-shadow: none;
+        color: black; }
+  #toc .h2 {
+    padding-left: 30px; }
+  #toc .h3 {
+    padding-left: 50px; }
+  #toc .toc-active, #toc li:hover {
+    background: #f7f7f7;
+    box-shadow: inset -5px 0px 10px -5px #f7f7f7 !important; }
+    #toc .toc-active a, #toc li:hover a {
+      color: black; }
+  @media print {
+    #toc .toc-active, #toc li:hover {
+      background: white;
+      box-shadow: none !important; }
+    #toc li:hover a {
+      color: black; } }
+  @media screen and (max-width: 768px) {
+    #toc {
+      padding: 0 1.5em;
+      overflow: visible; } }
+  #toc .toc-active,
+  #toc li:hover {
+    box-shadow: 0px 1px 0px 0px black !important;
+    background: none; }
+  #toc li:before {
+    content: " ";
+    display: none; }
+
+nav {
+  line-height: 1.2em; }
+  @media screen and (min-width: 768px) {
+    nav {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 270px;
+      font-size: 0.9em;
+      overflow: auto;
+      padding: 0 0 0 0px;
+      background-color: #fefefe; } }
+  @media print {
+    nav {
+      position: relative;
+      width: auto;
+      font-size: 0.9em;
+      overflow: auto;
+      padding: 0;
+      margin-right: 0;
+      background-color: white; } }
+#toggle {
+  margin-left: -4em;
+  margin-top: -2em; }
+  @media screen and (min-width: 768px) {
+    #toggle {
+      position: fixed;
+      height: 100%;
+      width: 20px;
+      font-weight: bold;
+      background-color: #d8e4ff;
+      color: black !important;
+      cursor: pointer;
+      z-index: 100; }
+      #toggle span {
+        text-align: center;
+        width: 100%;
+        position: absolute;
+        top: 50%;
+        transform: translate(0, -50%); } }
+  @media screen and (max-width: 768px) {
+    #toggle {
+      display: none; } }
+  @media print {
+    #toggle {
+      display: none; } }
+@media screen and (min-width: 768px) {
+  .container {
+    padding-left: 360px; }
+  .rule.toc {
+    display: none; }
+  h1.toc-contents {
+    margin-top: 1em; }
+  ul#toc-list {
+    padding: 0;
+    margin: 0; } }
+
+
+ul, ol {
+  margin-left: 2em; }
+
+#toc-list ul {
+  margin-bottom: 0.25em; }
+
+#toc-list ol li {
+  list-style-type: none; }
+
+
+/* XS3P specific CSS */
+body {
+    background-color: #FFF;
+    
+}
+
+.nav > li.active {
+    background-color: #FFF;
+}
+.nav > li > a:hover {
+   
+    background-color: rgb(0,0,0, 0.05);
+}
+
+.nav-sub-item > a {
+    padding-left: 30px !important;
+}
+
+
+.nav-sub-item strong {
+      font-weight: normal; }
+
+//.nav-list-elements
+.nav {
+   //background-color: #efe;
+   background-color: #e4ecff;
+}
+
+.xs3p-sidenav {
+    //background-color: #efe;
+    background-color: #e4ecff;
+}
+
+code {
+    color: #333;
+}
+
+a.name {
+    padding-top: 65px;
+}
+
+a:not([href]) {
+   color:#1c476c;
+}
+
+a:not([href]):hover {
+  text-decoration: none;
+}
+
+
+h3.xs3p-subsection-heading {
+    margin-bottom: 30px;
+}
+
+section, #top {
+    margin-top: -65px;
+    padding-top: 65px;
+}
+
+pre {
+    padding: 5px;
+}
+
+.xs3p-in-panel-table {
+    margin-bottom: 0px;
+}
+
+.xs3p-collapse-button {
+    font-size: 8pt;
+}
+.panel-heading .xs3p-panel-title:after {
+    font-family: 'Glyphicons Halflings';
+    content: "\e114";
+    float: left;
+    color: grey;
+    margin-right: 10px;
+}
+.panel-heading .xs3p-panel-title.collapsed:after {
+    content: "\e080";
+}
+.panel-info > .panel-heading .xs3p-panel-title:after {
+    color: white;
+}
+.xs3p-panel-help {
+    color: #888888;
+    cursor: pointer;
+}
+
+.panel-group {
+    margin-bottom: 20px;
+}
+
+.btn-doc {
+    padding: 0px;
+    border: 0px none;
+    background: none repeat scroll 0% 0% transparent;
+    line-height: 1;
+    font-size: 12px;
+}
+
+.unpre {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    white-space: normal;
+    word-break: normal;
+    word-wrap: normal;
+}
+
+.popover {
+    max-width: 400px;
+}
+
+// Syntax highlighting
+.codehilite .err {color: #FFF; background-color: #D2322D; font-weight: bold;} /* Error */
+.codehilite .c   {color: #999;}
+.codehilite .cs  {color: #999; font-style: italic;}
+.codehilite .nt  {color: #2F6F9F;}
+.codehilite .nn  {color: #39B3D7;}
+.codehilite .na  {color: #47A447;}
+.codehilite .s   {color: #D2322D;}
+.codehilite a       {color: inherit !important; text-decoration: underline !important;}
+.codehilite a:hover {opacity: 0.7 !important;}
+
+dl {
+  margin-bottom: 10px;
+}
+
+dt {
+	font-weight: normal;
+
+	margin-bottom: 10px;
+}
+
+dt.header{
+	font-weight: 700;
+}
+
+.dl-horizontal dt {
+	white-space: normal;
+}
+
+dd.header{
+	font-weight: 700;
+}
+
+dd ul {
+	margin-left: 0em;
+}
+
+.bs-callout {
+   padding: 20px;
+   padding-top: 10px;
+   padding-bottom: 5px;
+   margin: 20px 0;
+   border: 1px solid #eee;
+   border-left-width: 5px;
+   border-radius: 3px;
+}
+.bs-callout-danger {
+   border-left-color: #d9534f;
+}
+.bs-callout-warning {
+   border-left-color: #f0ad4e;
+}
+.bs-callout-info {
+   border-left-color: #5bc0de;
+}
+.bs-callout h4 {
+   margin-top: 0;
+   margin-bottom: 5px;
+}
+.bs-callout-danger h4 {
+   color: #d9534f;
+}
+.bs-callout-warning h4 {
+   color: #f0ad4e;
+}
+.bs-callout-info h4 {
+   color: black;
+   font-size: 11pt;
+}
+
+
+      </style><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js">
+               //Import JQuery, required for Bootstrap
+            </script><script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js">
+               // Import Bootstrap JS code
+            </script><script src="https://cdnjs.cloudflare.com/ajax/libs/pagedown/1.0/Markdown.Converter.js">
+              // Import Markdown converter for comments processing
+            </script></head><body lang="en" xml:lang="en"><div class="title-section"><div id="toggle"><span>&lt;</span></div><h1><a id="top">Schema documentation CityGML</a></h1><section id="SectionSchemaProperties"><h2><a id="SchemaProperties">Schema Document Properties</a></h2><dl class="dl-horizontal"><dt class="header"><a title="Look up 'Target Namespace' in glossary" href="#term_TargetNS">Target Namespace</a></dt><dd class=""><span class="targetNS">http://www.opengis.net/citygml/profiles/base/3.0</span></dd><dt class="header">Version</dt><dd class="">3.0.0</dd><dt class="header">Element and Attribute Namespaces</dt><dd class=""><ul><li>Global element and attribute declarations belong to this schema's target namespace.</li><li>By default, local element declarations belong to this schema's target namespace.</li><li>By default, local attribute declarations have no namespace.</li></ul></dd><dt class="header">Schema Composition</dt><dd class=""><ul><li>This schema imports schema(s) from the following namespace(s):<ul><li><em>http://www.opengis.net/citygml/appearance/3.0</em> (at ./appearance.xsd)</li><li><em>http://www.opengis.net/citygml/bridge/3.0</em> (at ./bridge.xsd)</li><li><em>http://www.opengis.net/citygml/building/3.0</em> (at ./building.xsd)</li><li><em>http://www.opengis.net/citygml/cityfurniture/3.0</em> (at ./cityFurniture.xsd)</li><li><em>http://www.opengis.net/citygml/cityobjectgroup/3.0</em> (at ./cityObjectGroup.xsd)</li><li><em>http://www.opengis.net/citygml/construction/3.0</em> (at ./construction.xsd)</li><li><em>http://www.opengis.net/citygml/dynamizer/3.0</em> (at ./dynamizer.xsd)</li><li><em>http://www.opengis.net/citygml/generics/3.0</em> (at ./generics.xsd)</li><li><em>http://www.opengis.net/citygml/landuse/3.0</em> (at ./landUse.xsd)</li><li><em>http://www.opengis.net/citygml/pointcloud/3.0</em> (at ./pointCloud.xsd)</li><li><em>http://www.opengis.net/citygml/relief/3.0</em> (at ./relief.xsd)</li><li><em>http://www.opengis.net/citygml/transportation/3.0</em> (at ./transportation.xsd)</li><li><em>http://www.opengis.net/citygml/tunnel/3.0</em> (at ./tunnel.xsd)</li><li><em>http://www.opengis.net/citygml/vegetation/3.0</em> (at ./vegetation.xsd)</li><li><em>http://www.opengis.net/citygml/versioning/3.0</em> (at ./versioning.xsd)</li><li><em>http://www.opengis.net/citygml/waterbody/3.0</em> (at ./waterBody.xsd)</li></ul></li></ul></dd></dl><dl class="dl-horizontal"><dt>Documentation</dt><dd><div class="annotation documentation" id="wdoc-idm3216256"><div class="hidden" id="idm3216256-doc-raw">
+                CityGML is an OGC Standard.
+                Copyright (c) 2021 Open Geospatial Consortium.
+                To obtain additional rights of use, visit https://www.ogc.org/ogc/legal.
+            </div><div class="xs3p-doc" id="idm3216256-doc"> </div></div></dd></dl><h4>Declared Namespaces:</h4><dl class="dl-horizontal"><dt class="header">Prefix</dt><dd class="header">Namespace</dd><dt class=""><a id="ns_">Default namespace</a></dt><dd class=""><span class="targetNS">http://www.opengis.net/citygml/profiles/base/3.0</span></dd><dt class=""><a id="ns_xml">xml</a></dt><dd class="">http://www.w3.org/XML/1998/namespace</dd><dt class=""><a id="ns_xs">xs</a></dt><dd class="">http://www.w3.org/2001/XMLSchema</dd></dl><div class="bs-callout bs-callout-info"><h4>Schema Component Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The Schema Component Representation table below displays the underlying XML representation of the schema component. (Annotations are not shown.)"><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;<a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:schema</span> <span class="na">targetNamespace=</span><span class="s">"http://www.opengis.net/citygml/profiles/base/3.0"</span> <span class="na">elementFormDefault=</span><span class="s">"qualified"</span> <span class="na">attributeFormDefault=</span><span class="s">"unqualified"</span> <span class="na">version=</span><span class="s">"3.0.0"</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;<a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:import</span> <span class="na">namespace=</span><span class="s">"http://www.opengis.net/citygml/appearance/3.0"</span> <span class="na">schemaLocation=</span><span class="s">"./appearance.xsd"</span><span class="nt">/&gt;</span>
+   <span class="nt">&lt;<a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:import</span> <span class="na">namespace=</span><span class="s">"http://www.opengis.net/citygml/bridge/3.0"</span> <span class="na">schemaLocation=</span><span class="s">"./bridge.xsd"</span><span class="nt">/&gt;</span>
+   <span class="nt">&lt;<a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:import</span> <span class="na">namespace=</span><span class="s">"http://www.opengis.net/citygml/building/3.0"</span> <span class="na">schemaLocation=</span><span class="s">"./building.xsd"</span><span class="nt">/&gt;</span>
+   <span class="nt">&lt;<a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:import</span> <span class="na">namespace=</span><span class="s">"http://www.opengis.net/citygml/cityfurniture/3.0"</span> <span class="na">schemaLocation=</span><span class="s">"./cityFurniture.xsd"</span><span class="nt">/&gt;</span>
+   <span class="nt">&lt;<a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:import</span> <span class="na">namespace=</span><span class="s">"http://www.opengis.net/citygml/cityobjectgroup/3.0"</span> <span class="na">schemaLocation=</span><span class="s">"./cityObjectGroup.xsd"</span><span class="nt">/&gt;</span>
+   <span class="nt">&lt;<a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:import</span> <span class="na">namespace=</span><span class="s">"http://www.opengis.net/citygml/construction/3.0"</span> <span class="na">schemaLocation=</span><span class="s">"./construction.xsd"</span><span class="nt">/&gt;</span>
+   <span class="nt">&lt;<a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:import</span> <span class="na">namespace=</span><span class="s">"http://www.opengis.net/citygml/dynamizer/3.0"</span> <span class="na">schemaLocation=</span><span class="s">"./dynamizer.xsd"</span><span class="nt">/&gt;</span>
+   <span class="nt">&lt;<a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:import</span> <span class="na">namespace=</span><span class="s">"http://www.opengis.net/citygml/generics/3.0"</span> <span class="na">schemaLocation=</span><span class="s">"./generics.xsd"</span><span class="nt">/&gt;</span>
+   <span class="nt">&lt;<a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:import</span> <span class="na">namespace=</span><span class="s">"http://www.opengis.net/citygml/landuse/3.0"</span> <span class="na">schemaLocation=</span><span class="s">"./landUse.xsd"</span><span class="nt">/&gt;</span>
+   <span class="nt">&lt;<a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:import</span> <span class="na">namespace=</span><span class="s">"http://www.opengis.net/citygml/pointcloud/3.0"</span> <span class="na">schemaLocation=</span><span class="s">"./pointCloud.xsd"</span><span class="nt">/&gt;</span>
+   <span class="nt">&lt;<a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:import</span> <span class="na">namespace=</span><span class="s">"http://www.opengis.net/citygml/relief/3.0"</span> <span class="na">schemaLocation=</span><span class="s">"./relief.xsd"</span><span class="nt">/&gt;</span>
+   <span class="nt">&lt;<a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:import</span> <span class="na">namespace=</span><span class="s">"http://www.opengis.net/citygml/transportation/3.0"</span> <span class="na">schemaLocation=</span><span class="s">"./transportation.xsd"</span><span class="nt">/&gt;</span>
+   <span class="nt">&lt;<a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:import</span> <span class="na">namespace=</span><span class="s">"http://www.opengis.net/citygml/tunnel/3.0"</span> <span class="na">schemaLocation=</span><span class="s">"./tunnel.xsd"</span><span class="nt">/&gt;</span>
+   <span class="nt">&lt;<a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:import</span> <span class="na">namespace=</span><span class="s">"http://www.opengis.net/citygml/vegetation/3.0"</span> <span class="na">schemaLocation=</span><span class="s">"./vegetation.xsd"</span><span class="nt">/&gt;</span>
+   <span class="nt">&lt;<a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:import</span> <span class="na">namespace=</span><span class="s">"http://www.opengis.net/citygml/versioning/3.0"</span> <span class="na">schemaLocation=</span><span class="s">"./versioning.xsd"</span><span class="nt">/&gt;</span>
+   <span class="nt">&lt;<a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:import</span> <span class="na">namespace=</span><span class="s">"http://www.opengis.net/citygml/waterbody/3.0"</span> <span class="na">schemaLocation=</span><span class="s">"./waterBody.xsd"</span><span class="nt">/&gt;</span>
+<span class="scContent">...</span>
+<span class="nt">&lt;/<a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:schema&gt;</span>
+</pre></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr></section><div id="glossary"><h2><a id="Glossary">Glossary</a></h2><p><span class="glossaryTerm"><a id="term_Abstract">Abstract</a> </span>(Applies to complex type definitions and element declarations). An abstract element or complex type cannot used to validate an element instance. If there is a reference to an abstract element, only element declarations that can substitute the abstract element can be used to validate the instance. For references to abstract type definitions, only derived types can be used.</p><p><span class="glossaryTerm"><a id="term_All">All Model Group</a> </span>Child elements can be provided <em>in any order</em> in instances. See: <a title="http://www.w3.org/TR/xmlschema-1/#element-all" href="http://www.w3.org/TR/xmlschema-1/#element-all">http://www.w3.org/TR/xmlschema-1/#element-all</a>.</p><p><span class="glossaryTerm"><a id="term_Choice">Choice Model Group</a> </span><em>Only one</em> from the list of child elements and model groups can be provided in instances. See: <a title="http://www.w3.org/TR/xmlschema-1/#element-choice" href="http://www.w3.org/TR/xmlschema-1/#element-choice">http://www.w3.org/TR/xmlschema-1/#element-choice</a>.</p><p><span class="glossaryTerm"><a id="term_CollapseWS">Collapse Whitespace Policy</a> </span>Replace tab, line feed, and carriage return characters with space character (Unicode character 32). Then, collapse contiguous sequences of space characters into single space character, and remove leading and trailing space characters.</p><p><span class="glossaryTerm"><a id="term_ElemBlock">Disallowed Substitutions</a> </span>(Applies to element declarations). If <em>substitution</em> is specified, then <a title="Look up 'substitution group' in glossary" href="#term_SubGroup">substitution group</a> members cannot be used in place of the given element declaration to validate element instances. If <em>derivation methods</em>, e.g. extension, restriction, are specified, then the given element declaration will not validate element instances that have types derived from the element declaration's type using the specified derivation methods. Normally, element instances can override their declaration's type by specifying an <code>xsi:type</code> attribute.</p><p><span class="glossaryTerm"><a id="term_Key">Key Constraint</a> </span>Like <a title="Look up 'Uniqueness Constraint' in glossary" href="#term_Unique">Uniqueness Constraint</a>, but additionally requires that the specified value(s) must be provided. See: <a title="http://www.w3.org/TR/xmlschema-1/#cIdentity-constraint_Definitions" href="http://www.w3.org/TR/xmlschema-1/#cIdentity-constraint_Definitions">http://www.w3.org/TR/xmlschema-1/#cIdentity-constraint_Definitions</a>.</p><p><span class="glossaryTerm"><a id="term_KeyRef">Key Reference Constraint</a> </span>Ensures that the specified value(s) must match value(s) from a <a title="Look up 'Key Constraint' in glossary" href="#term_Key">Key Constraint</a> or <a title="Look up 'Uniqueness Constraint' in glossary" href="#term_Unique">Uniqueness Constraint</a>. See: <a title="http://www.w3.org/TR/xmlschema-1/#cIdentity-constraint_Definitions" href="http://www.w3.org/TR/xmlschema-1/#cIdentity-constraint_Definitions">http://www.w3.org/TR/xmlschema-1/#cIdentity-constraint_Definitions</a>.</p><p><span class="glossaryTerm"><a id="term_ModelGroup">Model Group</a> </span>Groups together element content, specifying the order in which the element content can occur and the number of times the group of element content may be repeated. See: <a title="http://www.w3.org/TR/xmlschema-1/#Model_Groups" href="http://www.w3.org/TR/xmlschema-1/#Model_Groups">http://www.w3.org/TR/xmlschema-1/#Model_Groups</a>.</p><p><span class="glossaryTerm"><a id="term_Nillable">Nillable</a> </span>(Applies to element declarations). If an element declaration is nillable, instances can use the <code>xsi:nil</code> attribute. The <code>xsi:nil</code> attribute is the boolean attribute, <em>nil</em>, from the <em>http://www.w3.org/2001/XMLSchema-instance</em> namespace. If an element instance has an <code>xsi:nil</code> attribute set to true, it can be left empty, even though its element declaration may have required content.</p><p><span class="glossaryTerm"><a id="term_Notation">Notation</a> </span>A notation is used to identify the format of a piece of data. Values of elements and attributes that are of type, NOTATION, must come from the names of declared notations. See: <a title="http://www.w3.org/TR/xmlschema-1/#cNotation_Declarations" href="http://www.w3.org/TR/xmlschema-1/#cNotation_Declarations">http://www.w3.org/TR/xmlschema-1/#cNotation_Declarations</a>.</p><p><span class="glossaryTerm"><a id="term_PreserveWS">Preserve Whitespace Policy</a> </span>Preserve whitespaces exactly as they appear in instances.</p><p><span class="glossaryTerm"><a id="term_TypeFinal">Prohibited Derivations</a> </span>(Applies to type definitions). Derivation methods that cannot be used to create sub-types from a given type definition.</p><p><span class="glossaryTerm"><a id="term_TypeBlock">Prohibited Substitutions</a> </span>(Applies to complex type definitions). Prevents sub-types that have been derived using the specified derivation methods from validating element instances in place of the given type definition.</p><p><span class="glossaryTerm"><a id="term_ReplaceWS">Replace Whitespace Policy</a> </span>Replace tab, line feed, and carriage return characters with space character (Unicode character 32).</p><p><span class="glossaryTerm"><a id="term_Sequence">Sequence Model Group</a> </span>Child elements and model groups must be provided <em>in the specified order</em> in instances. See: <a title="http://www.w3.org/TR/xmlschema-1/#element-sequence" href="http://www.w3.org/TR/xmlschema-1/#element-sequence">http://www.w3.org/TR/xmlschema-1/#element-sequence</a>.</p><p><span class="glossaryTerm"><a id="term_SubGroup">Substitution Group</a> </span>Elements that are <em>members</em> of a substitution group can be used wherever the <em>head</em> element of the substitution group is referenced.</p><p><span class="glossaryTerm"><a id="term_ElemFinal">Substitution Group Exclusions</a> </span>(Applies to element declarations). Prohibits element declarations from nominating themselves as being able to substitute a given element declaration, if they have types that are derived from the original element's type using the specified derivation methods.</p><p><span class="glossaryTerm"><a id="term_TargetNS">Target Namespace</a> </span>The target namespace identifies the namespace that components in this schema belongs to. If no target namespace is provided, then the schema components do not belong to any namespace.</p><p><span class="glossaryTerm"><a id="term_Unique">Uniqueness Constraint</a> </span>Ensures uniqueness of an element/attribute value, or a combination of values, within a specified scope. See: <a title="http://www.w3.org/TR/xmlschema-1/#cIdentity-constraint_Definitions" href="http://www.w3.org/TR/xmlschema-1/#cIdentity-constraint_Definitions">http://www.w3.org/TR/xmlschema-1/#cIdentity-constraint_Definitions</a>.</p><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr></div><p class="footer">Generated by <a href="https://github.com/unitsml/schemas/blob/master/xsl/xs3p.xsl">xs3p</a> (fork of <a href="http://github.com/bitfehler/xs3p">xs3p</a>)
+                  . Last Modified: <script type="text/javascript">
+<!--
+document.write(document.lastModified);
+// -->
+</script></p></div><br></br><nav><div id="toc"><ul class="nav nav-list xs3p-sidenav"><li><strong><a href="#SchemaProperties">Schema Document Properties</a></strong></li><li><strong><a href="#Glossary">Glossary</a></strong></li></ul></div></nav><script>
+               //TOC toggle animation
+               $('#toggle').on('click', function(){
+                  var duration = 400;
+                  if( $('nav').is(':visible') ) {
+                     $('nav').animate({ 'left': '-353px' }, duration, function(){
+                        $('nav').hide();
+                     });
+                     $('body').animate({ 'margin-left': '0' }, duration);
+                     $('#toggle > span').text('>');
+                  }
+                  else {
+                     $('nav').show();
+                     $('nav').animate({ 'left': '0px' }, duration);
+                     $('body').animate({ 'margin-left': '270px' }, duration);
+                     $('#toggle > span').text('<');
+                  }
+               });
+            </script><script>
+
+                  $(function () { $("[data-toggle='tooltip']").tooltip(); });
+                  $(function () { $("[data-toggle='popover']").popover({ trigger: "hover" }); });
+                  
+                  $(function () { $("[data-toggle='modal']").click(function() { return false; })});
+                  
+                  $(function () { $("[data-toggle='modal']").popover({ trigger: "hover", html: true,
+    content: function () {
+        var targetId = $(this).attr('data-target');
+        return $(targetId).html();
+    }}); });
+                  
+    
+                  
+                  var c = new Markdown.Converter();
+                  $('.xs3p-doc').each(function(i, obj) {
+                     var rawDocID = '#' + $(this).attr('id') + '-raw';
+                     var indent = $(rawDocID).html().match("^\\n[\\t ]*");
+                     if (!(indent === null)) {
+                        normalized = $(rawDocID).html().replace(new RegExp(indent[0], "gm"), "\n");
+                     } else {
+                        normalized = $(rawDocID).html();
+                     }
+                     $(this).html(c.makeHtml(normalized));
+                     $(this).find('code,pre').each(function(i, block) {
+                        $(this).html($(this).text());
+                     });
+                  });
+
+                  $(window).scroll(function() {
+                     if ($(".xs3p-sidebar").css("position") == "fixed" && $(window).height() < $(".xs3p-sidebar").height()) {
+                        var perc = $(window).scrollTop() / $("#xs3p-content").height();
+                        var overflow = $(".xs3p-sidebar").height() + 105 - $(window).height();
+                        $(".xs3p-sidebar").css("top", (65 - Math.round(overflow * perc)) + "px");
+                     }
+                  });
+                  $(window).resize(function() {
+                     if ($(".xs3p-sidebar").css("position") == "fixed") {
+                        $(".xs3p-sidebar").css("top", "65px");
+                     }
+                  });
+                  </script></body></html>
