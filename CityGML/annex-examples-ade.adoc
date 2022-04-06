@@ -5,12 +5,332 @@ The CityGML 3.0 Conceptual Model introduces the concept of the https://docs.ogc.
 
 Since CityGML 3.0 applies the Model-Driven Architecture approach which separates the conceptual model and the encoding, the development of ADEs differs from CityGML 2.0. In a first step, ADEs shall be defined as UML conceptual models. Afterwards, XML schemas shall be derived automatically from the UML conceptual models using suitable software tools. This is identical to the creation of the CityGML 3.0 XML schemas which have been derived automatically from the CityGML 3.0 UML Conceptual Model.
 
-This chapter will illustrate the workflow of ADE generation using the example of two ADEs: 1) a so-called Test ADE, which is an artificial ADE that comprises all possible scenarios that can occur in an ADE, and 2) the Urban Planning ADE as real-world example.
+This chapter will illustrate the workflow of ADE generation using the example of two ADEs: 1) a so-called Test ADE, which is an artificial ADE that comprises most possible scenarios that can occur in an ADE, and 2) the Urban Planning ADE as real-world example.
 
 For both ADEs, UML models have been created based on the rules described in Chapter 9 of the CityGML 3.0 Conceptual Model standard for how to define UML models for ADEs. The UML models were created using the Enterprise Architect project file that already contains the CityGML 3.0 UML model. Afterwards, the software tool ShapeChange was applied to the UML models to derive the XML schemas. Finally, test data sets were implemented that validate against the XML schemas.
 
 
 ==== Example 1: Test ADE
 
+The Test ADE is a light-weight artificial ADE, which was designed for demonstrating the most frequent scenarios in practical ADEs.
+The UML Conceptual Model of the Test ADE is shown in <<figure-test-ade-uml>>. All ADE classes can be categorized into the following groups:
 
+. The _BuildingUndergroundClassValue_, _BuildingUndergroundFunctionValue_, and _BuildingUndergroundUsageValue_ show how to define ADE class attributes using code list.
+. The _EnergyPerformanceCertification_ is an example of how to define an ADE data type, which can comprise a set of simple attributes.
+. The _BuildingProperties_ is a subclass of the ADE data type _ADEOfAbstractBuilding_ for augmenting the CityGML class _AbstractBuilding_ with additional ADE properties.
+. The _Facility_ and its subclasses _ElectricalAppliance_ and _LightingFacility_ are object types, which are not derived from any predefined CityGML classes.
+. The _IndustrialBuilding_ and _MovingConstruction_ are two top-level classes derived from the standard CityGML top-level classes _Building_ and _OtherConstruction_ respectively.
+. The _IndustrialBuildingPart_ and _SolarRoofSurface_ are two example non-top-level classes, which are also derived from the CityGML thematic modules _Building_ and _Construction_.
+. The _AbstractBuildingUnderground_ and its subclasses _BuildingUnderground_ and _BuildingUndergroundPart_ are directly derived from the CityGML Core Module, and comprise a couple of new thematic and spatial properties in addition to the superclass _AbstractOccupiedSpace_.
+
+A corresponding XML schema derived from the UML Conceptual Model is shown in <<listing-test-ade-xml-schema>>. An example ADE dataset is represented in <<listing-test-ade-example-dataset>>
+
+[[figure-test-ade-uml]]
+.UML model of the Test ADE.
+image::images/TestADE_UML.png[align="center"]
+
+[[listing-test-ade-xml-schema]]
+.XML schema of the Test ADE model in <<figure-test-ade-uml>>.
+[source,XML]
+----
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:bldg="http://www.opengis.net/citygml/building/3.0" xmlns:con="http://www.opengis.net/citygml/construction/3.0" xmlns:core="http://www.opengis.net/citygml/3.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:test="http://www.citygml.org/ade/TestADE/2.0" elementFormDefault="qualified" targetNamespace="http://www.citygml.org/ade/TestADE/2.0" version="2.0">
+  <import namespace="http://www.opengis.net/citygml/3.0" schemaLocation="../schema/core.xsd"/>
+  <import namespace="http://www.opengis.net/citygml/building/3.0" schemaLocation="../schema/building.xsd"/>
+  <import namespace="http://www.opengis.net/citygml/construction/3.0" schemaLocation="../schema/construction.xsd"/>
+  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <element abstract="true" name="AbstractBuildingUnderground" substitutionGroup="core:AbstractOccupiedSpace" type="test:AbstractBuildingUndergroundType"/>
+  <complexType abstract="true" name="AbstractBuildingUndergroundType">
+    <complexContent>
+      <extension base="core:AbstractOccupiedSpaceType">
+        <sequence>
+          <element minOccurs="0" name="class" type="gml:CodeType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="usage" type="gml:CodeType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="energyPerformanceCertification" type="test:EnergyPerformanceCertificationPropertyType"/>
+          <element minOccurs="0" name="lod0GenericGeometry" type="gml:GeometryPropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="address" type="core:AddressPropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="equippedWith">
+            <complexType>
+              <complexContent>
+                <extension base="gml:AbstractMemberType">
+                  <sequence minOccurs="0">
+                    <element ref="test:Facility"/>
+                  </sequence>
+                  <attributeGroup ref="gml:AssociationAttributeGroup"/>
+                </extension>
+              </complexContent>
+            </complexType>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="function" type="gml:CodeType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="AbstractBuildingUndergroundPropertyType">
+    <sequence minOccurs="0">
+      <element ref="test:AbstractBuildingUnderground"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="BuildingProperties" substitutionGroup="bldg:ADEOfAbstractBuilding" type="test:BuildingPropertiesType"/>
+  <complexType name="BuildingPropertiesType">
+    <complexContent>
+      <extension base="bldg:ADEOfAbstractBuildingType">
+        <sequence>
+          <element minOccurs="0" name="ownerName" type="string"/>
+          <element name="energyPerformanceCertification" type="test:EnergyPerformanceCertificationPropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="buildingUnderground">
+            <complexType>
+              <complexContent>
+                <extension base="gml:AbstractFeatureMemberType">
+                  <sequence minOccurs="0">
+                    <element ref="test:BuildingUnderground"/>
+                  </sequence>
+                  <attributeGroup ref="gml:AssociationAttributeGroup"/>
+                </extension>
+              </complexContent>
+            </complexType>
+          </element>
+          <element minOccurs="0" name="floorArea" type="gml:AreaType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="BuildingPropertiesPropertyType">
+    <sequence>
+      <element ref="test:BuildingProperties"/>
+    </sequence>
+  </complexType>
+  <element name="BuildingUnderground" substitutionGroup="test:AbstractBuildingUnderground" type="test:BuildingUndergroundType"/>
+  <complexType name="BuildingUndergroundType">
+    <complexContent>
+      <extension base="test:AbstractBuildingUndergroundType">
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" name="consistsOf">
+            <complexType>
+              <complexContent>
+                <extension base="gml:AbstractFeatureMemberType">
+                  <sequence minOccurs="0">
+                    <element ref="test:BuildingUndergroundPart"/>
+                  </sequence>
+                  <attributeGroup ref="gml:AssociationAttributeGroup"/>
+                </extension>
+              </complexContent>
+            </complexType>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="BuildingUndergroundPropertyType">
+    <sequence minOccurs="0">
+      <element ref="test:BuildingUnderground"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="BuildingUndergroundPart" substitutionGroup="test:AbstractBuildingUnderground" type="test:BuildingUndergroundPartType"/>
+  <complexType name="BuildingUndergroundPartType">
+    <complexContent>
+      <extension base="test:AbstractBuildingUndergroundType">
+        <sequence/>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="BuildingUndergroundPartPropertyType">
+    <sequence minOccurs="0">
+      <element ref="test:BuildingUndergroundPart"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="ElectricalAppliance" substitutionGroup="test:Facility" type="test:ElectricalApplianceType"/>
+  <complexType name="ElectricalApplianceType">
+    <complexContent>
+      <extension base="test:FacilityType">
+        <sequence/>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="ElectricalAppliancePropertyType">
+    <sequence minOccurs="0">
+      <element ref="test:ElectricalAppliance"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="EnergyPerformanceCertification" substitutionGroup="gml:AbstractObject" type="test:EnergyPerformanceCertificationType"/>
+  <complexType name="EnergyPerformanceCertificationType">
+    <sequence>
+      <element maxOccurs="unbounded" name="certificationName" type="string"/>
+      <element name="certificationId" type="string"/>
+    </sequence>
+  </complexType>
+  <complexType name="EnergyPerformanceCertificationPropertyType">
+    <sequence>
+      <element ref="test:EnergyPerformanceCertification"/>
+    </sequence>
+  </complexType>
+  <element name="Facility" substitutionGroup="gml:AbstractGML" type="test:FacilityType"/>
+  <complexType name="FacilityType">
+    <complexContent>
+      <extension base="gml:AbstractGMLType">
+        <sequence>
+          <element name="electricalPower" type="gml:MeasureType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="FacilityPropertyType">
+    <sequence minOccurs="0">
+      <element ref="test:Facility"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IndustrialBuilding" substitutionGroup="bldg:Building" type="test:IndustrialBuildingType"/>
+  <complexType name="IndustrialBuildingType">
+    <complexContent>
+      <extension base="bldg:BuildingType">
+        <sequence>
+          <element minOccurs="0" name="remark" type="string"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IndustrialBuildingPropertyType">
+    <sequence minOccurs="0">
+      <element ref="test:IndustrialBuilding"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IndustrialBuildingPart" substitutionGroup="bldg:BuildingPart" type="test:IndustrialBuildingPartType"/>
+  <complexType name="IndustrialBuildingPartType">
+    <complexContent>
+      <extension base="bldg:BuildingPartType">
+        <sequence>
+          <element minOccurs="0" name="remark" type="string"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IndustrialBuildingPartPropertyType">
+    <sequence minOccurs="0">
+      <element ref="test:IndustrialBuildingPart"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="LightingFacility" substitutionGroup="test:Facility" type="test:LightingFacilityType"/>
+  <complexType name="LightingFacilityType">
+    <complexContent>
+      <extension base="test:FacilityType">
+        <sequence/>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="LightingFacilityPropertyType">
+    <sequence minOccurs="0">
+      <element ref="test:LightingFacility"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="MovingConstruction" substitutionGroup="con:OtherConstruction" type="test:MovingConstructionType"/>
+  <complexType name="MovingConstructionType">
+    <complexContent>
+      <extension base="con:OtherConstructionType">
+        <sequence>
+          <element minOccurs="0" name="remark" type="string"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="coveredBy">
+            <complexType>
+              <complexContent>
+                <extension base="gml:AbstractFeatureMemberType">
+                  <sequence minOccurs="0">
+                    <element ref="test:SolarRoofSurface"/>
+                  </sequence>
+                  <attributeGroup ref="gml:AssociationAttributeGroup"/>
+                </extension>
+              </complexContent>
+            </complexType>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="MovingConstructionPropertyType">
+    <sequence minOccurs="0">
+      <element ref="test:MovingConstruction"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="SolarRoofSurface" substitutionGroup="con:RoofSurface" type="test:SolarRoofSurfaceType"/>
+  <complexType name="SolarRoofSurfaceType">
+    <complexContent>
+      <extension base="con:RoofSurfaceType">
+        <sequence>
+          <element minOccurs="0" name="remark" type="string"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="SolarRoofSurfacePropertyType">
+    <sequence minOccurs="0">
+      <element ref="test:SolarRoofSurface"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+</schema>
+----
+
+[[listing-test-ade-example-dataset]]
+.Example CityGML dataset implementing the illustrated Test ADE schema.
+[source,XML]
+----
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<CityModel xmlns:con="http://www.opengis.net/citygml/construction/3.0" xmlns:tran="http://www.opengis.net/citygml/transportation/3.0" xmlns:wtr="http://www.opengis.net/citygml/waterbody/3.0" xmlns:veg="http://www.opengis.net/citygml/vegetation/3.0" xmlns="http://www.opengis.net/citygml/3.0" xmlns:dem="http://www.opengis.net/citygml/relief/3.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:bldg="http://www.opengis.net/citygml/building/3.0" xmlns:ct="urn:oasis:names:tc:ciq:ct:3" xmlns:grp="http://www.opengis.net/citygml/cityobjectgroup/3.0" xmlns:dyn="http://www.opengis.net/citygml/dynamizer/3.0" xmlns:pnt="http://www.opengis.net/citygml/pointcloud/3.0" xmlns:tun="http://www.opengis.net/citygml/tunnel/3.0" xmlns:frn="http://www.opengis.net/citygml/cityfurniture/3.0" xmlns:gen="http://www.opengis.net/citygml/generics/3.0" xmlns:xAL="urn:oasis:names:tc:ciq:xal:3" xmlns:app="http://www.opengis.net/citygml/appearance/3.0" xmlns:luse="http://www.opengis.net/citygml/landuse/3.0" xmlns:brid="http://www.opengis.net/citygml/bridge/3.0" xmlns:ver="http://www.opengis.net/citygml/versioning/3.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:test="http://www.citygml.org/ade/TestADE/2.0">
+  <cityObjectMember>
+    <test:IndustrialBuilding>
+      <gml:description>FZK/IAI test cases only</gml:description>
+      <gml:name>Testcase-0-0_LoD2</gml:name>
+      <bldg:class>1100</bldg:class>
+      <bldg:roofType>1030</bldg:roofType>
+      <bldg:storeysAboveGround>5</bldg:storeysAboveGround>
+      <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
+      <bldg:storeyHeightsAboveGround uom="#m">2.0</bldg:storeyHeightsAboveGround>
+      <bldg:storeyHeightsBelowGround uom="#m">0.0</bldg:storeyHeightsBelowGround>
+      <test:ownerName>Smith</test:ownerName>
+      <test:energyPerformanceCertification>
+        <test:EnergyPerformanceCertification>
+          <test:certificationName>certName</test:certificationName>
+          <test:certificationId>certId</test:certificationId>
+        </test:EnergyPerformanceCertification>
+      </test:energyPerformanceCertification>
+      <test:buildingUnderground>
+        <test:BuildingUnderground>
+          <test:lod0GenericGeometry>
+            <gml:Polygon>
+              <gml:exterior>
+                <gml:LinearRing>
+                  <gml:posList srsDimension="3">6.0 0.0 0.0 0.0 0.0 0.0 0.0 8.0 0.0 6.0 8.0 0.0 6.0 0.0 0.0</gml:posList>
+                </gml:LinearRing>
+              </gml:exterior>
+            </gml:Polygon>
+          </test:lod0GenericGeometry>
+          <test:equippedWith>
+            <test:LightingFacility>
+              <test:electricalPower uom="W">4000.0</test:electricalPower>
+            </test:LightingFacility>
+          </test:equippedWith>
+        </test:BuildingUnderground>
+      </test:buildingUnderground>
+      <test:remark>remark</test:remark>
+    </test:IndustrialBuilding>
+  </cityObjectMember>
+</CityModel>
+----
 ==== Example 2: Urban Planning ADE
