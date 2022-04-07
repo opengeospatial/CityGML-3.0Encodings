@@ -307,7 +307,7 @@ Volume is the measure of the physical space of any 3-D geometric object. +
 * ISO {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} International Organization for Standardisation
 * ISO/TC 211 {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} ISO Technical Committee 211
 * LOD {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} Level of Detail
-* MQTT  {nbsp}{nbsp}{nbsp}{nbsp}{nbsp}
+* MQTT {nbsp}{nbsp}{nbsp}{nbsp}{nbsp}
 * OASIS {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} Organisation for the Advancement of Structured Information Standards
 * OGC {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} Open Geospatial Consortium
 * SIG 3D {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} Special Interest Group 3D of the GDI-DE
