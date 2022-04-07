@@ -5,21 +5,14 @@ The following normative documents contain provisions that, through reference in 
 * [[rfc2045,RFC 2045]] IETF: RFC 2045 & 2046, Multipurpose Internet Mail Extensions (MIME). (November 1996),
 * [[rfc3986,RFC 3986]] IETF: RFC 3986, Uniform Resource Identifier (URI): Generic Syntax. (January 2005)
 * [[inspirebu,INSPIRE: D2.8.III.2]] INSPIRE: D2.8.III.2 Data Specification on Buildings – Technical Guidelines. European Commission Joint Research Centre.
-* [[iso19101,ISO 19101-1:2014]] ISO: ISO 19101-1:2014, Geographic information - Reference model - Part 1: Fundamentals
 * [[iso19103,ISO 19103:2015]] ISO: ISO 19103:2015, Geographic Information – Conceptual Schema Language
-* [[iso19105,ISO 19105:2000]] ISO: ISO 19105:2000, Geographic information – Conformance and testing
-* [[iso19107,ISO 19107:2003]] ISO: ISO 19107:2003, Geographic Information – Spatial Schema
-* [[iso19108,ISO 19108:2006]] ISO: ISO 19108:2002/Cor 1:2006, Geographic information – Temporal schema — Technical Corrigendum 1
 * [[iso19109,ISO 19109:2015]] ISO: ISO 19109:2015, Geographic Information – Rules for Application Schemas
 * [[iso19111,ISO 19111:2019]] ISO: ISO 19111:2019, Geographic information – Referencing by coordinates
-* [[iso19123,ISO 19123:2005]] ISO: ISO 19123:2005, Geographic information — Schema for coverage geometry and functions
 * [[iso19136-1, 19136-1:2020]] ISO: ISO 19136-1:2020, Geographic information — Geography Markup Language (GML) —
 Part 1: Fundamentals
 * [[iso19136-2, 19136-2:2015]] ISO: ISO 19136-2:2015, Geographic information — Geography Markup Language (GML) — Part 2: Extended schemas and encoding rules
-* [[iso19156,ISO 19156:2011]] ISO: ISO 19156:2011, Geographic information – Observations and measurements
 * [[iso19505,ISO/IEC 19505-2:2012]] ISO: ISO/IEC 19505-2:2012, Information technology — Object Management Group Unified Modeling Language (OMG UML) — Part 2: Superstructure
 * [[iso19507,ISO/IEC 19507:2012]] ISO/IEC 19507:2012, Information technology — Object Management Group Object Constraint Language (OCL)
-* [[iso19775,ISO/IEC 19775-1:2013]] ISO: ISO/IEC 19775-1:2013 Information technology — Computer graphics, image processing and environmental data representation — Extensible 3D (X3D) — Part 1: Architecture and base components
 * [[collada,COLLADA]] Khronos Group Inc.: COLLADA – Digital Asset Schema Release 1.5.0
 * [[xal3]] OASIS: Customer Information Quality Specifications - extensible Address Language (xAL), Version v3.0
 * [[topic5,OGC Topic 5]] OGC: The OpenGIS® Abstract Specification Topic 5: Features, OGC document 08-126
