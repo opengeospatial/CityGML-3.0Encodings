@@ -34,7 +34,7 @@ The following decisions have been made regarding implementation of the CityGML 3
 
 include::requirements/versioning/REQ_Versioning_Elements.adoc[]
 
-The CityGML Versioning XML elements and their corresponding CityGML UML classes are listed in <<versioning-xml-elements>>. In addition, the CityGML Versioning XML elements are documented in the GML schema http://schemas.opengis.net/citygml/versioning/3.0/versioning.xsd[versioning.xsd^] and in this link:XML-schema-documentation/versioning.xsd.html[XML Schema documentation^].
+The CityGML Versioning XML elements and their corresponding CityGML UML classes are listed in <<versioning-xml-elements>>. In addition, the CityGML Versioning XML elements are documented in the GML schema http://schemas.opengis.net/citygml/versioning/3.0/versioning.xsd[versioning.xsd^] and in this https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/versioning/[XML Schema documentation^].
 
 //[#versioning-xml-elements,reftext='{table-caption} {counter:table-num}']
 [[versioning-xml-elements]]
@@ -42,12 +42,12 @@ The CityGML Versioning XML elements and their corresponding CityGML UML classes 
 [width="100%",cols="10,10",options="header"]
 |===
 ^|XML Schema Element +
- (link:XML-schema-documentation/versioning.xsd.html[XML Schema documentation^])
+ (https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/versioning/[XML Schema documentation^])
 ^|Conceptual Model +
 (https://docs.ogc.org/is/20-010/20-010.html#versioning-uml[UML model^]; https://docs.ogc.org/is/20-010/20-010.html#toc60[Data Dictionary^])
-|Version |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#Version-section[Version^]
-|VersionTransition |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#VersionTransition-section[VersionTransition^]
-|ADEOfVersion |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfVersion-section[ADEOfVersion^]
-|ADEOfVersionTransition |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfVersionTransition-section[ADEOfVersionTransition^]
-|Transaction |«DataType» https://docs.ogc.org/is/20-010/20-010.html#Transaction-section[Transaction^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/versioning/#element_Version[Version^] |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#Version-section[Version^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/versioning/#element_VersionTransition[VersionTransition^] |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#VersionTransition-section[VersionTransition^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/versioning/#element_ADEOfVersion[ADEOfVersion^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfVersion-section[ADEOfVersion^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/versioning/#element_ADEOfVersionTransition[ADEOfVersionTransition^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfVersionTransition-section[ADEOfVersionTransition^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/versioning/#element_Transaction[Transaction^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#Transaction-section[Transaction^]
 |===

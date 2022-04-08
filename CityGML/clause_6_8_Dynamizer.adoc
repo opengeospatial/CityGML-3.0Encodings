@@ -30,7 +30,7 @@ The following decisions have been made regarding implementation of the CityGML 3
 
 include::requirements/dynamizer/REQ_Dynamizer_Elements.adoc[]
 
-The CityGML Dynamizer XML elements and their corresponding CityGML UML classes are listed in <<dynamizer-xml-elements>>. In addition, the CityGML Dynamizer XML elements are documented in the GML schema http://schemas.opengis.net/citygml/dynamizer/3.0/dynamizer.xsd[dynamizer.xsd^] and in this link:XML-schema-documentation/dynamizer.xsd.html[XML Schema documentation^].
+The CityGML Dynamizer XML elements and their corresponding CityGML UML classes are listed in <<dynamizer-xml-elements>>. In addition, the CityGML Dynamizer XML elements are documented in the GML schema http://schemas.opengis.net/citygml/dynamizer/3.0/dynamizer.xsd[dynamizer.xsd^] and in this https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/dynamizer/[XML Schema documentation^].
 
 //[#dynamizer-xml-elements,reftext='{table-caption} {counter:table-num}']
 [[dynamizer-xml-elements]]
@@ -38,24 +38,24 @@ The CityGML Dynamizer XML elements and their corresponding CityGML UML classes a
 [width="100%",cols="10,10",options="header"]
 |===
 ^|XML Schema Element +
- (link:XML-schema-documentation/dynamizer.xsd.html[XML Schema documentation^])
+ (https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/dynamizer/[XML Schema documentation^])
 ^|Conceptual Model +
 (https://docs.ogc.org/is/20-010/20-010.html#dynamizer-uml[UML model^]; https://docs.ogc.org/is/20-010/20-010.html#toc53[Data Dictionary^])
-|AbstractAtomicTimeseries |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#AbstractAtomicTimeseries-section[AbstractAtomicTimeseries^]
-|AbstractTimeseries |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#AbstractTimeseries-section[AbstractTimeseries^]
-|CompositeTimeseries |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#CompositeTimeseries-section[CompositeTimeseries^]
-|Dynamizer |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#Dynamizer-section[Dynamizer^]
-|GenericTimeseries |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#GenericTimeseries-section[GenericTimeseries^]
-|StandardFileTimeseries |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#StandardFileTimeseries-section[StandardFileTimeseries^]
-|TabulatedFileTimeseries |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#TabulatedFileTimeseries-section[TabulatedFileTimeseries^]
-|ADEOfAbstractAtomicTimeseries |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfAbstractAtomicTimeseries-section[ADEOfAbstractAtomicTimeseries^]
-|ADEOfAbstractTimeseries |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfAbstractTimeseries-section[ADEOfAbstractTimeseries^]
-|ADEOfCompositeTimeseries |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfCompositeTimeseries-section[ADEOfCompositeTimeseries^]
-|ADEOfDynamizer |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfDynamizer-section[ADEOfDynamizer^]
-|ADEOfGenericTimeseries |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfGenericTimeseries-section[ADEOfGenericTimeseries^]
-|ADEOfStandardFileTimeseries |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfStandardFileTimeseries-section[ADEOfStandardFileTimeseries^]
-|ADEOfTabulatedFileTimeseries |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfTabulatedFileTimeseries-section[ADEOfTabulatedFileTimeseries^]
-|SensorConnection |«DataType» https://docs.ogc.org/is/20-010/20-010.html#SensorConnection-section[SensorConnection^]
-|TimeseriesComponent |«DataType» https://docs.ogc.org/is/20-010/20-010.html#TimeseriesComponent-section[TimeseriesComponent^]
-|TimeValuePair |«DataType» https://docs.ogc.org/is/20-010/20-010.html#TimeValuePair-section[TimeValuePair^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/dynamizer/#element_AbstractAtomicTimeseries[AbstractAtomicTimeseries^] |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#AbstractAtomicTimeseries-section[AbstractAtomicTimeseries^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/dynamizer/#element_AbstractTimeseries[AbstractTimeseries^] |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#AbstractTimeseries-section[AbstractTimeseries^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/dynamizer/#element_CompositeTimeseries[CompositeTimeseries^] |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#CompositeTimeseries-section[CompositeTimeseries^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/dynamizer/#element_Dynamizer[Dynamizer^] |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#Dynamizer-section[Dynamizer^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/dynamizer/#element_GenericTimeseries[GenericTimeseries^] |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#GenericTimeseries-section[GenericTimeseries^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/dynamizer/#element_StandardFileTimeseries[StandardFileTimeseries^] |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#StandardFileTimeseries-section[StandardFileTimeseries^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/dynamizer/#element_TabulatedFileTimeseries[TabulatedFileTimeseries^] |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#TabulatedFileTimeseries-section[TabulatedFileTimeseries^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/dynamizer/#element_ADEOfAbstractAtomicTimeseries[ADEOfAbstractAtomicTimeseries^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfAbstractAtomicTimeseries-section[ADEOfAbstractAtomicTimeseries^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/dynamizer/#element_ADEOfAbstractTimeseries[ADEOfAbstractTimeseries^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfAbstractTimeseries-section[ADEOfAbstractTimeseries^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/dynamizer/#element_ADEOfCompositeTimeseries[ADEOfCompositeTimeseries^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfCompositeTimeseries-section[ADEOfCompositeTimeseries^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/dynamizer/#element_ADEOfDynamizer[ADEOfDynamizer^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfDynamizer-section[ADEOfDynamizer^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/dynamizer/#element_ADEOfGenericTimeseries[ADEOfGenericTimeseries^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfGenericTimeseries-section[ADEOfGenericTimeseries^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/dynamizer/#element_ADEOfStandardFileTimeseries[ADEOfStandardFileTimeseries^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfStandardFileTimeseries-section[ADEOfStandardFileTimeseries^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/dynamizer/#element_ADEOfTabulatedFileTimeseries[ADEOfTabulatedFileTimeseries^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfTabulatedFileTimeseries-section[ADEOfTabulatedFileTimeseries^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/dynamizer/#element_SensorConnection[SensorConnection^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#SensorConnection-section[SensorConnection^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/dynamizer/#element_TimeseriesComponent[TimeseriesComponent^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#TimeseriesComponent-section[TimeseriesComponent^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/dynamizer/#element_TimeValuePair[TimeValuePair^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#TimeValuePair-section[TimeValuePair^]
 |===

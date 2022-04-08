@@ -30,7 +30,7 @@ The following decisions have been made regarding implementation of the CityGML 3
 
 include::requirements/appearance/REQ_Appearance_Elements.adoc[]
 
-The CityGML Appearance XML elements and their corresponding CityGML UML classes are listed in <<appearance-xml-elements>>. In addition, the CityGML Appearance XML elements are documented in the GML schema http://schemas.opengis.net/citygml/appearance/3.0/appearance.xsd[appearance.xsd^] and in this link:XML-schema-documentation/appearance.xsd.html[XML Schema documentation^].
+The CityGML Appearance XML elements and their corresponding CityGML UML classes are listed in <<appearance-xml-elements>>. In addition, the CityGML Appearance XML elements are documented in the GML schema http://schemas.opengis.net/citygml/appearance/3.0/appearance.xsd[appearance.xsd^] and in this https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/appearance/[XML Schema documentation^].
 
 //[#appearance-xml-elements,reftext='{table-caption} {counter:table-num}']
 [[appearance-xml-elements]]
@@ -38,23 +38,23 @@ The CityGML Appearance XML elements and their corresponding CityGML UML classes 
 [width="100%",cols="10,10",options="header"]
 |===
 ^|XML Schema Element +
- (link:XML-schema-documentation/appearance.xsd.html[XML Schema documentation^])
+ (https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/appearance/[XML Schema documentation^])
 ^|Conceptual Model +
 (https://docs.ogc.org/is/20-010/20-010.html#appearance-uml[UML model^]; https://docs.ogc.org/is/20-010/20-010.html#toc50[Data Dictionary^])
-|link:XML-schema-documentation/appearance.xsd.html#element_AbstractSurfaceData[AbstractSurfaceData^] |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#AbstractSurfaceData-section[AbstractSurfaceData^]
-|link:XML-schema-documentation/appearance.xsd.html#element_AbstractTexture[AbstractTexture^] |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#AbstractTexture-section[AbstractTexture^]
-|link:XML-schema-documentation/appearance.xsd.html#element_Appearance[Appearance^] |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#Appearance-section[Appearance^]
-|link:XML-schema-documentation/appearance.xsd.html#element_GeoreferencedTexture[GeoreferencedTexture^] |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#GeoreferencedTexture-section[GeoreferencedTexture^]
-|link:XML-schema-documentation/appearance.xsd.html#element_ParameterizedTexture[ParameterizedTexture^] |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#ParameterizedTexture-section[ParameterizedTexture^]
-|link:XML-schema-documentation/appearance.xsd.html#element_TextureAssociation[TextureAssociation^] |«ObjectType» https://docs.ogc.org/is/20-010/20-010.html#TextureAssociation-section[TextureAssociation^]
-|link:XML-schema-documentation/appearance.xsd.html#element_X3DMaterial[X3DMaterial^] |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#X3DMaterial-section[X3DMaterial^]
-|link:XML-schema-documentation/appearance.xsd.html#element_AbstractTextureParameterization[AbstractTextureParameterization^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#AbstractTextureParameterization-section[AbstractTextureParameterization^]
-|link:XML-schema-documentation/appearance.xsd.html#element_ADEOfAbstractSurfaceData[ADEOfAbstractSurfaceData^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#AbstractTextureParameterization-section[ADEOfAbstractSurfaceData^]
-|link:XML-schema-documentation/appearance.xsd.html#element_ADEOfAbstractTexture[ADEOfAbstractTexture^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfAbstractTexture-section[ADEOfAbstractTexture^]
-|link:XML-schema-documentation/appearance.xsd.html#element_ADEOfAppearance[ADEOfAppearance^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfAppearance-section[ADEOfAppearance^]
-|link:XML-schema-documentation/appearance.xsd.html#element_ADEOfGeoreferencedTexture[ADEOfGeoreferencedTexture^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfGeoreferencedTexture-section[ADEOfGeoreferencedTexture^]
-|link:XML-schema-documentation/appearance.xsd.html#element_ADEOfParameterizedTexture[ADEOfParameterizedTexture^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfParameterizedTexture-section[ADEOfParameterizedTexture^]
-|link:XML-schema-documentation/appearance.xsd.html#element_ADEOfX3DMaterial[ADEOfX3DMaterial^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfX3DMaterial-section[ADEOfX3DMaterial^]
-|link:XML-schema-documentation/appearance.xsd.html#element_TexCoordGen[TexCoordGen^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#TexCoordGen-section[TexCoordGen^]
-|link:XML-schema-documentation/appearance.xsd.html#element_TexCoordList[TexCoordList^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#TexCoordList-section[TexCoordList^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/appearance/#element_AbstractSurfaceData[AbstractSurfaceData^] |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#AbstractSurfaceData-section[AbstractSurfaceData^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/appearance/#element_AbstractTexture[AbstractTexture^] |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#AbstractTexture-section[AbstractTexture^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/appearance/#element_Appearance[Appearance^] |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#Appearance-section[Appearance^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/appearance/#element_GeoreferencedTexture[GeoreferencedTexture^] |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#GeoreferencedTexture-section[GeoreferencedTexture^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/appearance/#element_ParameterizedTexture[ParameterizedTexture^] |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#ParameterizedTexture-section[ParameterizedTexture^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/appearance/#element_TextureAssociation[TextureAssociation^] |«ObjectType» https://docs.ogc.org/is/20-010/20-010.html#TextureAssociation-section[TextureAssociation^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/appearance/#element_X3DMaterial[X3DMaterial^] |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#X3DMaterial-section[X3DMaterial^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/appearance/#element_AbstractTextureParameterization[AbstractTextureParameterization^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#AbstractTextureParameterization-section[AbstractTextureParameterization^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/appearance/#element_ADEOfAbstractSurfaceData[ADEOfAbstractSurfaceData^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#AbstractTextureParameterization-section[ADEOfAbstractSurfaceData^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/appearance/#element_ADEOfAbstractTexture[ADEOfAbstractTexture^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfAbstractTexture-section[ADEOfAbstractTexture^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/appearance/#element_ADEOfAppearance[ADEOfAppearance^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfAppearance-section[ADEOfAppearance^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/appearance/#element_ADEOfGeoreferencedTexture[ADEOfGeoreferencedTexture^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfGeoreferencedTexture-section[ADEOfGeoreferencedTexture^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/appearance/#element_ADEOfParameterizedTexture[ADEOfParameterizedTexture^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfParameterizedTexture-section[ADEOfParameterizedTexture^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/appearance/#element_ADEOfX3DMaterial[ADEOfX3DMaterial^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfX3DMaterial-section[ADEOfX3DMaterial^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/appearance/#element_TexCoordGen[TexCoordGen^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#TexCoordGen-section[TexCoordGen^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/appearance/#element_TexCoordList[TexCoordList^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#TexCoordList-section[TexCoordList^]
 |===

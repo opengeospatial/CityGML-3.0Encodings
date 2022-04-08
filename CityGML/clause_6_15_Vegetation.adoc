@@ -29,7 +29,7 @@ The following decisions have been made regarding implementation of the CityGML 3
 
 include::requirements/vegetation/REQ_Vegetation_Elements.adoc[]
 
-The CityGML Vegetation XML elements and their corresponding CityGML UML classes are listed in <<vegetation-xml-elements>>. In addition, the CityGML Vegetation XML elements are documented in the GML schema http://schemas.opengis.net/citygml/vegetation/3.0/vegetation.xsd[vegetation.xsd^] and in this link:XML-schema-documentation/vegetation.xsd.html[XML Schema documentation^].
+The CityGML Vegetation XML elements and their corresponding CityGML UML classes are listed in <<vegetation-xml-elements>>. In addition, the CityGML Vegetation XML elements are documented in the GML schema http://schemas.opengis.net/citygml/vegetation/3.0/vegetation.xsd[vegetation.xsd^] and in this https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/vegetation/[XML Schema documentation^].
 
 //[#vegetation-xml-elements,reftext='{table-caption} {counter:table-num}']
 [[vegetation-xml-elements]]
@@ -37,13 +37,13 @@ The CityGML Vegetation XML elements and their corresponding CityGML UML classes 
 [width="100%",cols="10,10",options="header"]
 |===
 ^|XML Schema Element +
- (link:XML-schema-documentation/vegetation.xsd.html[XML Schema documentation^])
+ (https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/vegetation/[XML Schema documentation^])
 ^|Conceptual Model +
 (https://docs.ogc.org/is/20-010/20-010.html#vegetation-uml[UML model^]; https://docs.ogc.org/is/20-010/20-010.html#toc59[Data Dictionary^])
-|AbstractVegetationObject |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#AbstractVegetationObject-section[AbstractVegetationObject^]
-|PlantCover |«TopLevelFeatureType» https://docs.ogc.org/is/20-010/20-010.html#PlantCover-section[PlantCover^]
-|SolitaryVegetationObject |«TopLevelFeatureType» https://docs.ogc.org/is/20-010/20-010.html#SolitaryVegetationObject-section[SolitaryVegetationObject^]
-|ADEOfAbstractVegetationObject |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfAbstractVegetationObject-section[ADEOfAbstractVegetationObject^]
-|ADEOfPlantCover |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfPlantCover-section[ADEOfPlantCover^]
-|ADEOfSolitaryVegetationObject |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfSolitaryVegetationObject-section[ADEOfSolitaryVegetationObject^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/vegetation/#element_AbstractVegetationObject[AbstractVegetationObject^] |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#AbstractVegetationObject-section[AbstractVegetationObject^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/vegetation/#element_PlantCover[PlantCover^] |«TopLevelFeatureType» https://docs.ogc.org/is/20-010/20-010.html#PlantCover-section[PlantCover^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/vegetation/#element_SolitaryVegetationObject[SolitaryVegetationObject^] |«TopLevelFeatureType» https://docs.ogc.org/is/20-010/20-010.html#SolitaryVegetationObject-section[SolitaryVegetationObject^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/vegetation/#element_ADEOfAbstractVegetationObject[ADEOfAbstractVegetationObject^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfAbstractVegetationObject-section[ADEOfAbstractVegetationObject^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/vegetation/#element_ADEOfPlantCover[ADEOfPlantCover^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfPlantCover-section[ADEOfPlantCover^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/vegetation/#element_ADEOfSolitaryVegetationObject[ADEOfSolitaryVegetationObject^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfSolitaryVegetationObject-section[ADEOfSolitaryVegetationObject^]
 |===

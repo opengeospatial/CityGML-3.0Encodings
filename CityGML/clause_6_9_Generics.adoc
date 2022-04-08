@@ -29,7 +29,7 @@ The following decisions have been made regarding implementation of the CityGML 3
 
 include::requirements/generics/REQ_Generics_Elements.adoc[]
 
-The CityGML Generics XML elements and their corresponding CityGML UML classes are listed in <<generics-xml-elements>>. In addition, the CityGML Generics XML elements are documented in the GML schema http://schemas.opengis.net/citygml/generics/3.0/generics.xsd[generics.xsd^] and in this link:XML-schema-documentation/generics.xsd.html[XML Schema documentation^].
+The CityGML Generics XML elements and their corresponding CityGML UML classes are listed in <<generics-xml-elements>>. In addition, the CityGML Generics XML elements are documented in the GML schema http://schemas.opengis.net/citygml/generics/3.0/generics.xsd[generics.xsd^] and in this https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/generics/[XML Schema documentation^].
 
 //[#generics-xml-elements,reftext='{table-caption} {counter:table-num}']
 [[generics-xml-elements]]
@@ -37,23 +37,23 @@ The CityGML Generics XML elements and their corresponding CityGML UML classes ar
 [width="100%",cols="10,10",options="header"]
 |===
 ^|XML Schema Element +
- (link:XML-schema-documentation/generics.xsd.html[XML Schema documentation^])
+ (https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/generics/[XML Schema documentation^])
 ^|Conceptual Model +
 (https://docs.ogc.org/is/20-010/20-010.html#generics-uml[UML model^]; https://docs.ogc.org/is/20-010/20-010.html#toc54[Data Dictionary^])
-|GenericLogicalSpace |«TopLevelFeatureType» https://docs.ogc.org/is/20-010/20-010.html#GenericLogicalSpace-section[GenericLogicalSpace^]
-|GenericOccupiedSpace |«TopLevelFeatureType» https://docs.ogc.org/is/20-010/20-010.html#GenericOccupiedSpace-section[GenericOccupiedSpace^]
-|GenericThematicSurface |«TopLevelFeatureType» https://docs.ogc.org/is/20-010/20-010.html#GenericThematicSurface-section[GenericThematicSurface^]
-|GenericUnoccupiedSpace |«TopLevelFeatureType» https://docs.ogc.org/is/20-010/20-010.html#GenericUnoccupiedSpace-section[GenericUnoccupiedSpace^]
-|ADEOfGenericLogicalSpace |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfGenericLogicalSpace-section[ADEOfGenericLogicalSpace^]
-|ADEOfGenericOccupiedSpace |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfGenericOccupiedSpace-section[ADEOfGenericOccupiedSpace^]
-|ADEOfGenericThematicSurface |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfGenericThematicSurface-section[ADEOfGenericThematicSurface^]
-|ADEOfGenericUnoccupiedSpace |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfGenericUnoccupiedSpace-section[ADEOfGenericUnoccupiedSpace^]
-|CodeAttribute |«DataType» https://docs.ogc.org/is/20-010/20-010.html#CodeAttribute-section[CodeAttribute^]
-|DateAttribute |«DataType» https://docs.ogc.org/is/20-010/20-010.html#DateAttribute-section[DateAttribute^]
-|DoubleAttribute |«DataType» https://docs.ogc.org/is/20-010/20-010.html#DoubleAttribute-section[DoubleAttribute^]
-|GenericAttributeSet |«DataType» https://docs.ogc.org/is/20-010/20-010.html#GenericAttributeSet-section[GenericAttributeSet^]
-|IntAttribute |«DataType» https://docs.ogc.org/is/20-010/20-010.html#IntAttribute-section[IntAttribute^]
-|MeasureAttribute |«DataType» https://docs.ogc.org/is/20-010/20-010.html#MeasureAttribute-section[MeasureAttribute^]
-|StringAttribute |«DataType» https://docs.ogc.org/is/20-010/20-010.html#StringAttribute-section[StringAttribute^]
-|UriAttribute |«DataType» https://docs.ogc.org/is/20-010/20-010.html#UriAttribute-section[UriAttribute^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/generics/#element_GenericLogicalSpace[GenericLogicalSpace^] |«TopLevelFeatureType» https://docs.ogc.org/is/20-010/20-010.html#GenericLogicalSpace-section[GenericLogicalSpace^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/generics/#element_GenericOccupiedSpace[GenericOccupiedSpace^] |«TopLevelFeatureType» https://docs.ogc.org/is/20-010/20-010.html#GenericOccupiedSpace-section[GenericOccupiedSpace^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/generics/#element_GenericThematicSurface[GenericThematicSurface^] |«TopLevelFeatureType» https://docs.ogc.org/is/20-010/20-010.html#GenericThematicSurface-section[GenericThematicSurface^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/generics/#element_GenericUnoccupiedSpace[GenericUnoccupiedSpace^] |«TopLevelFeatureType» https://docs.ogc.org/is/20-010/20-010.html#GenericUnoccupiedSpace-section[GenericUnoccupiedSpace^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/generics/#element_ADEOfGenericLogicalSpace[ADEOfGenericLogicalSpace^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfGenericLogicalSpace-section[ADEOfGenericLogicalSpace^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/generics/#element_ADEOfGenericOccupiedSpace[ADEOfGenericOccupiedSpace^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfGenericOccupiedSpace-section[ADEOfGenericOccupiedSpace^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/generics/#element_ADEOfGenericThematicSurface[ADEOfGenericThematicSurface^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfGenericThematicSurface-section[ADEOfGenericThematicSurface^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/generics/#element_ADEOfGenericUnoccupiedSpace[ADEOfGenericUnoccupiedSpace^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfGenericUnoccupiedSpace-section[ADEOfGenericUnoccupiedSpace^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/generics/#element_CodeAttribute[CodeAttribute^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#CodeAttribute-section[CodeAttribute^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/generics/#element_DateAttribute[DateAttribute^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#DateAttribute-section[DateAttribute^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/generics/#element_DoubleAttribute[DoubleAttribute^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#DoubleAttribute-section[DoubleAttribute^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/generics/#element_GenericAttributeSet[GenericAttributeSet^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#GenericAttributeSet-section[GenericAttributeSet^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/generics/#element_IntAttribute[IntAttribute^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#IntAttribute-section[IntAttribute^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/generics/#element_MeasureAttribute[MeasureAttribute^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#MeasureAttribute-section[MeasureAttribute^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/generics/#element_StringAttribute[StringAttribute^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#StringAttribute-section[StringAttribute^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/generics/#element_UriAttribute[UriAttribute^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#UriAttribute-section[UriAttribute^]
 |===

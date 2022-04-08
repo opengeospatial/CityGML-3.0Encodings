@@ -33,7 +33,7 @@ The following decisions have been made regarding implementation of the CityGML 3
 
 include::requirements/pointcloud/REQ_PointCloud_Elements.adoc[]
 
-The CityGML PointCloud XML elements and their corresponding CityGML UML classes are listed in <<point-cloud-xml-elements>>. In addition, the CityGML PointCloud XML elements are documented in the GML schema http://schemas.opengis.net/citygml/pointcloud/3.0/pointCloud.xsd[pointCloud.xsd^] and in this link:XML-schema-documentation/pointCloud.xsd.html[XML Schema documentation^].
+The CityGML PointCloud XML elements and their corresponding CityGML UML classes are listed in <<point-cloud-xml-elements>>. In addition, the CityGML PointCloud XML elements are documented in the GML schema http://schemas.opengis.net/citygml/pointcloud/3.0/pointCloud.xsd[pointCloud.xsd^] and in this https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/pointCloud/[XML Schema documentation^].
 
 //[#point-cloud-xml-elements,reftext='{table-caption} {counter:table-num}']
 [[point-cloud-xml-elements]]
@@ -41,9 +41,9 @@ The CityGML PointCloud XML elements and their corresponding CityGML UML classes 
 [width="100%",cols="10,10",options="header"]
 |===
 ^|XML Schema Element +
- (link:XML-schema-documentation/pointCloud.xsd.html[XML Schema documentation^])
+ (https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/pointCloud/[XML Schema documentation^])
 ^|Conceptual Model +
 (https://docs.ogc.org/is/20-010/20-010.html#pointcloud-uml[UML model^]; https://docs.ogc.org/is/20-010/20-010.html#toc56[Data Dictionary^])
-|PointCloud |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#PointCloud-section[PointCloud^]
-|ADEOfPointCloud |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfPointCloud-section[ADEOfPointCloud^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/pointCloud/#element_PointCloud[PointCloud^] |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#PointCloud-section[PointCloud^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/pointCloud/#element_ADEOfPointCloud[ADEOfPointCloud^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfPointCloud-section[ADEOfPointCloud^]
 |===

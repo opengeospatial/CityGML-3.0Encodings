@@ -29,7 +29,7 @@ The following decisions have been made regarding implementation of the CityGML 3
 
 include::requirements/waterbody/REQ_WaterBody_Elements.adoc[]
 
-The CityGML WaterBody XML elements and their corresponding CityGML UML classes are listed in <<water-body-xml-elements>>. In addition, the CityGML WaterBody XML elements are documented in the GML schema http://schemas.opengis.net/citygml/waterbody/3.0/waterBody.xsd[waterBody.xsd^] and in this link:XML-schema-documentation/waterBody.xsd.html[XML Schema documentation^].
+The CityGML WaterBody XML elements and their corresponding CityGML UML classes are listed in <<water-body-xml-elements>>. In addition, the CityGML WaterBody XML elements are documented in the GML schema http://schemas.opengis.net/citygml/waterbody/3.0/waterBody.xsd[waterBody.xsd^] and in this https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/waterBody/[XML Schema documentation^].
 
 //[#water-body-xml-elements,reftext='{table-caption} {counter:table-num}']
 [[water-body-xml-elements]]
@@ -37,15 +37,15 @@ The CityGML WaterBody XML elements and their corresponding CityGML UML classes a
 [width="100%",cols="10,10",options="header"]
 |===
 ^|XML Schema Element +
- (link:XML-schema-documentation/waterBody.xsd.html[XML Schema documentation^])
+ (https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/waterBody/[XML Schema documentation^])
 ^|Conceptual Model +
 (https://docs.ogc.org/is/20-010/20-010.html#waterbody-uml[UML model^]; https://docs.ogc.org/is/20-010/20-010.html#toc61[Data Dictionary^])
-|AbstractWaterBoundarySurface |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#AbstractWaterBoundarySurface-section[AbstractWaterBoundarySurface^]
-|WaterBody |«TopLevelFeatureType» https://docs.ogc.org/is/20-010/20-010.html#WaterBody-section[WaterBody^]
-|WaterGroundSurface |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#WaterGroundSurface-section[WaterGroundSurface^]
-|WaterSurface |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#WaterSurface-section[WaterSurface^]
-|ADEOfAbstractWaterBoundarySurface |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfAbstractWaterBoundarySurface-section[ADEOfAbstractWaterBoundarySurface^]
-|ADEOfWaterBody |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfWaterBody-section[ADEOfWaterBody^]
-|ADEOfWaterGroundSurface |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfWaterGroundSurface-section[ADEOfWaterGroundSurface^]
-|ADEOfWaterSurface |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfWaterSurface-section[ADEOfWaterSurface^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/waterBody/#element_AbstractWaterBoundarySurface[AbstractWaterBoundarySurface^] |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#AbstractWaterBoundarySurface-section[AbstractWaterBoundarySurface^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/waterBody/#element_WaterBody[WaterBody^] |«TopLevelFeatureType» https://docs.ogc.org/is/20-010/20-010.html#WaterBody-section[WaterBody^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/waterBody/#element_WaterGroundSurface[WaterGroundSurface^] |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#WaterGroundSurface-section[WaterGroundSurface^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/waterBody/#element_WaterSurface[WaterSurface^] |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#WaterSurface-section[WaterSurface^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/waterBody/#element_ADEOfAbstractWaterBoundarySurface[ADEOfAbstractWaterBoundarySurface^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfAbstractWaterBoundarySurface-section[ADEOfAbstractWaterBoundarySurface^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/waterBody/#element_ADEOfWaterBody[ADEOfWaterBody^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfWaterBody-section[ADEOfWaterBody^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/waterBody/#element_ADEOfWaterGroundSurface[ADEOfWaterGroundSurface^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfWaterGroundSurface-section[ADEOfWaterGroundSurface^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/waterBody/#element_ADEOfWaterSurface[ADEOfWaterSurface^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfWaterSurface-section[ADEOfWaterSurface^]
 |===

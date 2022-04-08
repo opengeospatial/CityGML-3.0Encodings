@@ -29,7 +29,7 @@ The following decisions have been made regarding implementation of the CityGML 3
 
 include::requirements/tunnel/REQ_Tunnel_Elements.adoc[]
 
-The CityGML Tunnel XML elements and their corresponding CityGML UML classes are listed in <<tunnel-xml-elements>>. In addition, the CityGML Tunnel XML elements are documented in the GML schema http://schemas.opengis.net/citygml/tunnel/3.0/tunnel.xsd[tunnel.xsd^] and in this link:XML-schema-documentation/tunnel.xsd.html[XML Schema documentation^].
+The CityGML Tunnel XML elements and their corresponding CityGML UML classes are listed in <<tunnel-xml-elements>>. In addition, the CityGML Tunnel XML elements are documented in the GML schema http://schemas.opengis.net/citygml/tunnel/3.0/tunnel.xsd[tunnel.xsd^] and in this https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/tunnel/[XML Schema documentation^].
 
 //[#tunnel-xml-elements,reftext='{table-caption} {counter:table-num}']
 [[tunnel-xml-elements]]
@@ -37,21 +37,21 @@ The CityGML Tunnel XML elements and their corresponding CityGML UML classes are 
 [width="100%",cols="10,10",options="header"]
 |===
 ^|XML Schema Element +
- (link:XML-schema-documentation/tunnel.xsd.html[XML Schema documentation^])
+ (https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/tunnel/[XML Schema documentation^])
 ^|Conceptual Model +
 (https://docs.ogc.org/is/20-010/20-010.html#tunnel-uml[UML model^]; https://docs.ogc.org/is/20-010/20-010.html#toc65[Data Dictionary^])
-|AbstractTunnel |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#AbstractTunnel-section[AbstractTunnel^]
-|HollowSpace |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#HollowSpace-section[HollowSpace^]
-|Tunnel |«TopLevelFeatureType» https://docs.ogc.org/is/20-010/20-010.html#Tunnel-section[Tunnel^]
-|TunnelConstructiveElement |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#TunnelConstructiveElement-section[TunnelConstructiveElement^]
-|TunnelFurniture |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#TunnelFurniture-section[TunnelFurniture^]
-|TunnelInstallation |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#TunnelInstallation-section[TunnelInstallation^]
-|TunnelPart |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#TunnelPart-section[TunnelPart^]
-|ADEOfAbstractTunnel |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfAbstractTunnel-section[ADEOfAbstractTunnel^]
-|ADEOfHollowSpace |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfHollowSpace-section[ADEOfHollowSpace^]
-|ADEOfTunnel |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfTunnel-section[ADEOfTunnel^]
-|ADEOfTunnelConstructiveElement |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfTunnelConstructiveElement-section[ADEOfTunnelConstructiveElement^]
-|ADEOfTunnelFurniture |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfTunnelFurniture-section[ADEOfTunnelFurniture^]
-|ADEOfTunnelInstallation |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfTunnelInstallation-section[ADEOfTunnelInstallation^]
-|ADEOfTunnelPart |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfTunnelPart-section[ADEOfTunnelPart^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/tunnel/#element_AbstractTunnel[AbstractTunnel^] |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#AbstractTunnel-section[AbstractTunnel^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/tunnel/#element_HollowSpace[HollowSpace^] |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#HollowSpace-section[HollowSpace^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/tunnel/#element_Tunnel[Tunnel^] |«TopLevelFeatureType» https://docs.ogc.org/is/20-010/20-010.html#Tunnel-section[Tunnel^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/tunnel/#element_TunnelConstructiveElement[TunnelConstructiveElement^] |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#TunnelConstructiveElement-section[TunnelConstructiveElement^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/tunnel/#element_TunnelFurniture[TunnelFurniture^] |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#TunnelFurniture-section[TunnelFurniture^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/tunnel/#element_TunnelInstallation[TunnelInstallation^] |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#TunnelInstallation-section[TunnelInstallation^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/tunnel/#element_TunnelPart[TunnelPart^] |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#TunnelPart-section[TunnelPart^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/tunnel/#element_ADEOfAbstractTunnel[ADEOfAbstractTunnel^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfAbstractTunnel-section[ADEOfAbstractTunnel^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/tunnel/#element_ADEOfHollowSpace[ADEOfHollowSpace^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfHollowSpace-section[ADEOfHollowSpace^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/tunnel/#element_ADEOfTunnel[ADEOfTunnel^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfTunnel-section[ADEOfTunnel^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/tunnel/#element_ADEOfTunnelConstructiveElement[ADEOfTunnelConstructiveElement^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfTunnelConstructiveElement-section[ADEOfTunnelConstructiveElement^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/tunnel/#element_ADEOfTunnelFurniture[ADEOfTunnelFurniture^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfTunnelFurniture-section[ADEOfTunnelFurniture^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/tunnel/#element_ADEOfTunnelInstallation[ADEOfTunnelInstallation^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfTunnelInstallation-section[ADEOfTunnelInstallation^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/tunnel/#element_ADEOfTunnelPart[ADEOfTunnelPart^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfTunnelPart-section[ADEOfTunnelPart^]
 |===

@@ -31,7 +31,7 @@ The following decisions have been made regarding implementation of the CityGML 3
 
 include::requirements/cityobjectgroup/REQ_CityObjectGroup_Elements.adoc[]
 
-The CityGML CityObjectGroup XML elements and their corresponding CityGML UML classes are listed in <<city-object-group-xml-elements>>. In addition, the CityGML CityObjectGroup XML elements are documented in the GML schema http://schemas.opengis.net/citygml/cityobjectgroup/3.0/cityObjectGroup.xsd[cityObjectGroup.xsd^] and in this link:XML-schema-documentation/cityObjectGroup.xsd.html[XML Schema documentation^].
+The CityGML CityObjectGroup XML elements and their corresponding CityGML UML classes are listed in <<city-object-group-xml-elements>>. In addition, the CityGML CityObjectGroup XML elements are documented in the GML schema http://schemas.opengis.net/citygml/cityobjectgroup/3.0/cityObjectGroup.xsd[cityObjectGroup.xsd^] and in this https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/cityObjectGroup/[XML Schema documentation^].
 
 //[#city-object-group-xml-elements,reftext='{table-caption} {counter:table-num}']
 [[city-object-group-xml-elements]]
@@ -39,10 +39,10 @@ The CityGML CityObjectGroup XML elements and their corresponding CityGML UML cla
 [width="100%",cols="10,10",options="header"]
 |===
 ^|XML Schema Element +
- (link:XML-schema-documentation/cityObjectGroup.xsd.html[XML Schema documentation^])
+ (https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/cityObjectGroup/[XML Schema documentation^])
 ^|Conceptual Model +
 (https://docs.ogc.org/is/20-010/20-010.html#cityobject-uml[UML model^]; https://docs.ogc.org/is/20-010/20-010.html#toc52[Data Dictionary^])
-|CityObjectGroup |«TopLevelFeatureType» https://docs.ogc.org/is/20-010/20-010.html#CityObjectGroup-section[CityObjectGroup^]
-|Role |«ObjectType» https://docs.ogc.org/is/20-010/20-010.html#Role-section[Role^]
-|ADEOfCityObjectGroup |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfCityObjectGroup-section[ADEOfCityObjectGroup^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/cityObjectGroup/#element_CityObjectGroup[CityObjectGroup^] |«TopLevelFeatureType» https://docs.ogc.org/is/20-010/20-010.html#CityObjectGroup-section[CityObjectGroup^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/cityObjectGroup/#element_Role[Role^] |«ObjectType» https://docs.ogc.org/is/20-010/20-010.html#Role-section[Role^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/cityObjectGroup/#element_ADEOfCityObjectGroup[ADEOfCityObjectGroup^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfCityObjectGroup-section[ADEOfCityObjectGroup^]
 |===

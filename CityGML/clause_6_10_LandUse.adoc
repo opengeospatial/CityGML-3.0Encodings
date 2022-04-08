@@ -29,7 +29,7 @@ The following decisions have been made regarding implementation of the CityGML 3
 
 include::requirements/landuse/REQ_LandUse_Elements.adoc[]
 
-The CityGML LandUse XML elements and their corresponding CityGML UML classes are listed in <<land-use-xml-elements>>. In addition, the CityGML LandUse XML elements are documented in the GML schema http://schemas.opengis.net/citygml/landuse/3.0/landUse.xsd[landUse.xsd^] and in this link:XML-schema-documentation/landUse.xsd.html[XML Schema documentation^].
+The CityGML LandUse XML elements and their corresponding CityGML UML classes are listed in <<land-use-xml-elements>>. In addition, the CityGML LandUse XML elements are documented in the GML schema http://schemas.opengis.net/citygml/landuse/3.0/landUse.xsd[landUse.xsd^] and in this https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/landUse/[XML Schema documentation^].
 
 //[#land-use-xml-elements,reftext='{table-caption} {counter:table-num}']
 [[land-use-xml-elements]]
@@ -37,9 +37,9 @@ The CityGML LandUse XML elements and their corresponding CityGML UML classes are
 [width="100%",cols="10,10",options="header"]
 |===
 ^|XML Schema Element +
- (link:XML-schema-documentation/landUse.xsd.html[XML Schema documentation^])
+ (https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/landUse/[XML Schema documentation^])
 ^|Conceptual Model +
 (https://docs.ogc.org/is/20-010/20-010.html#landuse-uml[UML model^]; https://docs.ogc.org/is/20-010/20-010.html#toc55[Data Dictionary^])
-|LandUse |«TopLevelFeatureType» https://docs.ogc.org/is/20-010/20-010.html#LandUse-section[LandUse^]
-|ADEOfLandUse |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfLandUse-section[ADEOfLandUse^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/landUse/#element_LandUse[LandUse^] |«TopLevelFeatureType» https://docs.ogc.org/is/20-010/20-010.html#LandUse-section[LandUse^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/landUse/#element_ADEOfLandUse[ADEOfLandUse^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfLandUse-section[ADEOfLandUse^]
 |===

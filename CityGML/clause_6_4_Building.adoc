@@ -29,7 +29,7 @@ The following decisions have been made regarding implementation of the CityGML 3
 
 include::requirements/building/REQ_Building_Elements.adoc[]
 
-The CityGML Building XML elements and their corresponding CityGML UML classes are listed in <<building-xml-elements>>. In addition, the CityGML Building XML elements are documented in the GML schema http://schemas.opengis.net/citygml/building/3.0/building.xsd[building.xsd^] and in this link:XML-schema-documentation/building.xsd.html[XML Schema documentation^].
+The CityGML Building XML elements and their corresponding CityGML UML classes are listed in <<building-xml-elements>>. In addition, the CityGML Building XML elements are documented in the GML schema http://schemas.opengis.net/citygml/building/3.0/building.xsd[building.xsd^] and in this https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/building/[XML Schema documentation^].
 
 //[#building-xml-elements,reftext='{table-caption} {counter:table-num}']
 [[building-xml-elements]]
@@ -37,28 +37,28 @@ The CityGML Building XML elements and their corresponding CityGML UML classes ar
 [width="100%",cols="10,10",options="header"]
 |===
 ^|XML Schema Element +
- (link:XML-schema-documentation/building.xsd.html[XML Schema documentation^])
+ (https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/building/[XML Schema documentation^])
 ^|Conceptual Model +
 (https://docs.ogc.org/is/20-010/20-010.html#building-uml[UML model^]; https://docs.ogc.org/is/20-010/20-010.html#toc64[Data Dictionary^])
-|AbstractBuilding |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#AbstractBuilding-section[AbstractBuilding^]
-|AbstractBuildingSubdivision |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#AbstractBuildingSubdivision-section[AbstractBuildingSubdivision^]
-|Building |«TopLevelFeatureType» https://docs.ogc.org/is/20-010/20-010.html#Building-section[Building^]
-|BuildingConstructiveElement |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#BuildingConstructiveElement-section[BuildingConstructiveElement^]
-|BuildingFurniture |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#BuildingFurniture-section[BuildingFurniture^]
-|BuildingInstallation |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#BuildingInstallation-section[BuildingInstallation^]
-|BuildingPart |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#BuildingPart-section[BuildingPart^]
-|BuildingRoom |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#BuildingRoom-section[BuildingRoom^]
-|BuildingUnit |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#BuildingUnit-section[BuildingUnit^]
-|Storey |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#Storey-section[Storey^]
-|ADEOfAbstractBuilding |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfAbstractBuilding-section[ADEOfAbstractBuilding^]
-|ADEOfAbstractBuildingSubdivision |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfAbstractBuildingSubdivision-section[ADEOfAbstractBuildingSubdivision^]
-|ADEOfBuilding |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfBuilding-section[ADEOfBuilding^]
-|ADEOfBuildingConstructiveElement |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfBuildingConstructiveElement-section[ADEOfBuildingConstructiveElement^]
-|ADEOfBuildingFurniture |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfBuildingFurniture-section[ADEOfBuildingFurniture^]
-|ADEOfBuildingInstallation |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfBuildingInstallation-section[ADEOfBuildingInstallation^]
-|ADEOfBuildingPart |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfBuildingPart-section[ADEOfBuildingPart^]
-|ADEOfBuildingRoom |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfBuildingRoom-section[ADEOfBuildingRoom^]
-|ADEOfBuildingUnit |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfBuildingUnit-section[ADEOfBuildingUnit^]
-|ADEOfStorey |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfStorey-section[ADEOfStorey^]
-|RoomHeight |«DataType» https://docs.ogc.org/is/20-010/20-010.html#RoomHeight-section[RoomHeight^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/building/#element_AbstractBuilding[AbstractBuilding^] |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#AbstractBuilding-section[AbstractBuilding^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/building/#element_AbstractBuildingSubdivision[AbstractBuildingSubdivision^] |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#AbstractBuildingSubdivision-section[AbstractBuildingSubdivision^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/building/#element_Building[Building^] |«TopLevelFeatureType» https://docs.ogc.org/is/20-010/20-010.html#Building-section[Building^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/building/#element_BuildingConstructiveElement[BuildingConstructiveElement^] |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#BuildingConstructiveElement-section[BuildingConstructiveElement^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/building/#element_BuildingFurniture[BuildingFurniture^] |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#BuildingFurniture-section[BuildingFurniture^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/building/#element_BuildingInstallation[BuildingInstallation^] |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#BuildingInstallation-section[BuildingInstallation^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/building/#element_BuildingPart[BuildingPart^] |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#BuildingPart-section[BuildingPart^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/building/#element_BuildingRoom[BuildingRoom^] |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#BuildingRoom-section[BuildingRoom^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/building/#element_BuildingUnit[BuildingUnit^] |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#BuildingUnit-section[BuildingUnit^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/building/#element_Storey[Storey^] |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#Storey-section[Storey^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/building/#element_ADEOfAbstractBuilding[ADEOfAbstractBuilding^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfAbstractBuilding-section[ADEOfAbstractBuilding^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/building/#element_ADEOfAbstractBuildingSubdivision[ADEOfAbstractBuildingSubdivision^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfAbstractBuildingSubdivision-section[ADEOfAbstractBuildingSubdivision^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/building/#element_ADEOfBuilding[ADEOfBuilding^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfBuilding-section[ADEOfBuilding^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/building/#element_ADEOfBuildingConstructiveElement[ADEOfBuildingConstructiveElement^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfBuildingConstructiveElement-section[ADEOfBuildingConstructiveElement^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/building/#element_ADEOfBuildingFurniture[ADEOfBuildingFurniture^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfBuildingFurniture-section[ADEOfBuildingFurniture^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/building/#element_ADEOfBuildingInstallation[ADEOfBuildingInstallation^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfBuildingInstallation-section[ADEOfBuildingInstallation^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/building/#element_ADEOfBuildingPart[ADEOfBuildingPart^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfBuildingPart-section[ADEOfBuildingPart^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/building/#element_ADEOfBuildingRoom[ADEOfBuildingRoom^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfBuildingRoom-section[ADEOfBuildingRoom^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/building/#element_ADEOfBuildingUnit[ADEOfBuildingUnit^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfBuildingUnit-section[ADEOfBuildingUnit^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/building/#element_ADEOfStorey[ADEOfStorey^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfStorey-section[ADEOfStorey^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/building/#element_RoomHeight[RoomHeight^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#RoomHeight-section[RoomHeight^]
 |===

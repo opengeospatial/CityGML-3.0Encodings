@@ -29,7 +29,7 @@ The following decisions have been made regarding implementation of the CityGML 3
 
 include::requirements/bridge/REQ_Bridge_Elements.adoc[]
 
-The CityGML Bridge XML elements and their corresponding CityGML UML classes are listed in <<bridge-xml-elements>>. In addition, the CityGML Bridge XML elements are documented in the GML schema http://schemas.opengis.net/citygml/bridge/3.0/bridge.xsd[bridge.xsd^] and in this link:XML-schema-documentation/bridge.xsd.html[XML Schema documentation^].
+The CityGML Bridge XML elements and their corresponding CityGML UML classes are listed in <<bridge-xml-elements>>. In addition, the CityGML Bridge XML elements are documented in the GML schema http://schemas.opengis.net/citygml/bridge/3.0/bridge.xsd[bridge.xsd^] and in this https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/bridge/[XML Schema documentation^].
 
 //[#bridge-xml-elements,reftext='{table-caption} {counter:table-num}']
 [[bridge-xml-elements]]
@@ -37,21 +37,21 @@ The CityGML Bridge XML elements and their corresponding CityGML UML classes are 
 [width="100%",cols="10,10",options="header"]
 |===
 ^|XML Schema Element +
- (link:XML-schema-documentation/bridge.xsd.html[XML Schema documentation^])
+ (https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/bridge/[XML Schema documentation^])
 ^|Conceptual Model +
 (https://docs.ogc.org/is/20-010/20-010.html#bridge-uml[UML model^]; https://docs.ogc.org/is/20-010/20-010.html#toc63[Data Dictionary^])
-| AbstractBridge |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#AbstractBridge-section[AbstractBridge^]
-| Bridge |«TopLevelFeatureType» https://docs.ogc.org/is/20-010/20-010.html#Bridge-section[Bridge^]
-| BridgeConstructiveElement |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#BridgeConstructiveElement-section[BridgeConstructiveElement^]
-| BridgeFurniture |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#BridgeFurniture-section[BridgeFurniture^]
-| BridgeInstallation |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#BridgeInstallation-section[BridgeInstallation^]
-| BridgePart |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#BridgePart-section[BridgePart^]
-| BridgeRoom |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#BridgeRoom-section[BridgeRoom^]
-| ADEOfAbstractBridge |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfAbstractBridge-section[ADEOfAbstractBridge^]
-| ADEOfBridge |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfBridge-section[ADEOfBridge^]
-| ADEOfBridgeConstructiveElement |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfBridgeConstructiveElement-section[ADEOfBridgeConstructiveElement^]
-| ADEOfBridgeFurniture |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfBridgeFurniture-section[ADEOfBridgeFurniture^]
-| ADEOfBridgeInstallation |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfBridgeInstallation-section[ADEOfBridgeInstallation^]
-| ADEOfBridgePart |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfBridgePart-section[ADEOfBridgePart^]
-| ADEOfBridgeRoom |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfBridgeRoom-section[ADEOfBridgeRoom^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/bridge/#element_AbstractBridge[AbstractBridge^] |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#AbstractBridge-section[AbstractBridge^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/bridge/#element_Bridge[Bridge^] |«TopLevelFeatureType» https://docs.ogc.org/is/20-010/20-010.html#Bridge-section[Bridge^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/bridge/#element_BridgeConstructiveElement[BridgeConstructiveElement^] |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#BridgeConstructiveElement-section[BridgeConstructiveElement^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/bridge/#element_BridgeFurniture[BridgeFurniture^] |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#BridgeFurniture-section[BridgeFurniture^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/bridge/#element_BridgeInstallation[BridgeInstallation^] |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#BridgeInstallation-section[BridgeInstallation^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/bridge/#element_BridgePart[BridgePart^] |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#BridgePart-section[BridgePart^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/bridge/#element_BridgeRoom[BridgeRoom^] |«FeatureType» https://docs.ogc.org/is/20-010/20-010.html#BridgeRoom-section[BridgeRoom^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/bridge/#element_ADEOfAbstractBridge[ADEOfAbstractBridge^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfAbstractBridge-section[ADEOfAbstractBridge^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/bridge/#element_ADEOfBridge[ADEOfBridge^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfBridge-section[ADEOfBridge^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/bridge/#element_ADEOfBridgeConstructiveElement[ADEOfBridgeConstructiveElement^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfBridgeConstructiveElement-section[ADEOfBridgeConstructiveElement^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/bridge/#element_ADEOfBridgeFurniture[ADEOfBridgeFurniture^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfBridgeFurniture-section[ADEOfBridgeFurniture^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/bridge/#element_ADEOfBridgeInstallation[ADEOfBridgeInstallation^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfBridgeInstallation-section[ADEOfBridgeInstallation^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/bridge/#element_ADEOfBridgePart[ADEOfBridgePart^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfBridgePart-section[ADEOfBridgePart^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/bridge/#element_ADEOfBridgeRoom[ADEOfBridgeRoom^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfBridgeRoom-section[ADEOfBridgeRoom^]
 |===

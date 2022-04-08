@@ -29,7 +29,7 @@ The following decisions have been made regarding implementation of the CityGML 3
 
 include::requirements/cityfurniture/REQ_CityFurniture_Elements.adoc[]
 
-The CityGML CityFurniture XML elements and their corresponding CityGML UML classes are listed in <<city-furniture-xml-elements>>. In addition, the CityGML CityFurniture XML elements are documented in the GML schema http://schemas.opengis.net/citygml/cityfurniture/3.0/cityFurniture.xsd[cityFurniture.xsd^] and in this link:XML-schema-documentation/cityFurniture.xsd.html[XML Schema documentation^].
+The CityGML CityFurniture XML elements and their corresponding CityGML UML classes are listed in <<city-furniture-xml-elements>>. In addition, the CityGML CityFurniture XML elements are documented in the GML schema http://schemas.opengis.net/citygml/cityfurniture/3.0/cityFurniture.xsd[cityFurniture.xsd^] and in this https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/cityFurniture/[XML Schema documentation^].
 
 //[#city-furniture-xml-elements,reftext='{table-caption} {counter:table-num}']
 [[city-furniture-xml-elements]]
@@ -37,9 +37,9 @@ The CityGML CityFurniture XML elements and their corresponding CityGML UML class
 [width="100%",cols="10,10",options="header"]
 |===
 ^|XML Schema Element +
- (link:XML-schema-documentation/cityFurniture.xsd.html[XML Schema documentation^])
+ (https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/cityFurniture/[XML Schema documentation^])
 ^|Conceptual Model +
 (https://docs.ogc.org/is/20-010/20-010.html#cityfurniture-uml[UML model^]; https://docs.ogc.org/is/20-010/20-010.html#toc51[Data Dictionary^])
-|CityFurniture |«TopLevelFeatureType» https://docs.ogc.org/is/20-010/20-010.html#CityFurniture-section[CityFurniture^]
-|ADEOfCityFurniture |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfCityFurniture-section[ADEOfCityFurniture^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/cityFurniture/#element_CityFurniture[CityFurniture^] |«TopLevelFeatureType» https://docs.ogc.org/is/20-010/20-010.html#CityFurniture-section[CityFurniture^]
+|https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/cityFurniture/#element_ADEOfCityFurniture[ADEOfCityFurniture^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfCityFurniture-section[ADEOfCityFurniture^]
 |===
