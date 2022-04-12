@@ -294,45 +294,28 @@ Volume is the measure of the physical space of any 3-D geometric object. +
 
 * 2D {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} Two Dimensional
 * 3D {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} Three Dimensional
-* AEC {nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp} Architecture, Engineering, Construction
 * ALKIS {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} German National Standard for Cadastral Information
 * ATKIS {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} German National Standard for Topographic and Cartographic Information
 * BIM {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} Building Information Modeling
-* B-Rep {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} Boundary Representation
-* bSI {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} buildingSMART International
-* CAD {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} Computer Aided Design
 * COLLADA {nbsp} Collaborative Design Activity
-* CSG {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} Constructive Solid Geometry
-* DTM {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} Digital Terrain Model
-* DXF {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} Drawing Exchange Format
-* EuroSDR {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} European Spatial Data Research Organisation
-* ESRI {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} Environmental Systems Research Institute
-* FM {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} Facility Management
-* GDF {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} Geographic Data Files
 * GDI-DE {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} Spatial Data Infrastructure Germany (Geodateninfrastruktur Deutschland)
 * GDI {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} NRW Geodata Infrastructure North-Rhine Westphalia
 * GML {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} Geography Markup Language
 * IAI {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} International Alliance for Interoperability (now buildingSMART International (bSI))
 * IETF {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} Internet Engineering Task Force
 * IFC {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} Industry Foundation Classes
-* IoT  {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} Internet of Things
 * ISO {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} International Organization for Standardisation
-* ISO/TC211 {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} ISO Technical Committee 211
-* LOD {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} Levels of Detail
-* MQTT  {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} 
-* NBIMS {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} National Building Information Model Standard
+* ISO/TC 211 {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} ISO Technical Committee 211
+* LOD {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} Level of Detail
+* MQTT {nbsp}{nbsp}{nbsp}{nbsp}{nbsp}
 * OASIS {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} Organisation for the Advancement of Structured Information Standards
 * OGC {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} Open Geospatial Consortium
-* OSCRE {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} Open Standards Consortium for Real Estate
 * SIG 3D {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} Special Interest Group 3D of the GDI-DE
 * TIC {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} Terrain Intersection Curve
 * TIN {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} Triangulated Irregular Network
 * UML {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} Unified Modeling Language
 * URI {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} Uniform Resource Identifier
-* VRML {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} Virtual Reality Modeling Language
 * W3C {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} World Wide Web Consortium
-* W3DS {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} OGC Web 3D Service
-* WFS {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} OGC Web Feature Service
 * X3D {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} Open Standards XML-enabled 3D file format of the Web 3D Consortium
 * XML {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} Extensible Markup Language
 * xAL {nbsp}{nbsp}{nbsp}{nbsp}{nbsp} OASIS extensible Address Language
