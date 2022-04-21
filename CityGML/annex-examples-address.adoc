@@ -1,2 +1,97 @@
 [[annex-examples-address]]
 === Address Examples
+
+The CityGML 3.0 CM provides the ability to declare addresses of real-world features. Using the CityGML 3.0 Core module's _Address_ feature type as a container for storing address information, addresses can be declared for _AbstractBridge_, _AbstractBuilding_, _BuildingUnit_, _Door_, and _DoorSurface_ feature types using their respective _address_ properties.
+
+An _Address_ is modeled using two properties:
+
+- An optional _multiPoint_ property containing a _gml:MultiPoint_ for specifying the 2D or 3D position of the address. 
+- A _xalAddress_ property containing an OASIS CIQ TC extensible Address Language (xAL) _xAL:Address_ 
+
+For example, a building address could be modeled in GML using a free text xAL address as follows:
+
+[[listing-address-example1]]
+.A GML example of a free text xAL building address based on the National Opera of Lyon, France.
+[source,XML]
+----
+<?xml version="1.0" encoding="UTF-8"?>
+<core:CityModel ... Namespaces and Schema location ... >
+  <core:cityObjectMember>
+    <bldg:Building gml:id="OPERA_LYON_45">
+      <bldg:address>
+        <core:Address>
+          <!-- 
+          Opéra National de Lyon      additional geographical information
+          1 Place de la Comédie       street number and name
+          69001 Lyon                  postcode and locality
+          France                      country
+          -->
+          <core:xalAddress>
+            <xAL:Address>
+              <xAL:FreeTextAddress>
+                <xAL:AddressLine>Opéra National de Lyon</xAL:AddressLine>
+                <xAL:AddressLine>1 Place de la Comédie</xAL:AddressLine>
+                <xAL:AddressLine>69001 Lyon</xAL:AddressLine>
+                <xAL:AddressLine>France</xAL:AddressLine>
+              </xAL:FreeTextAddress>
+            </xAL:Address>
+          </core:xalAddress>
+        </core:Address>
+      </bldg:address>
+    </bldg:Building>
+  </core:cityObjectMember>
+</core:CityModel>
+----
+
+In addition, the same building address could be modeled using a structured xAL address and a GML multipoint as follows:
+
+[[listing-address-example2]]
+.A GML example of a structured xAL building address with a GML point based on the National Opera of Lyon, France.
+[source,XML]
+----
+<?xml version="1.0" encoding="UTF-8"?>
+<core:CityModel ... Namespaces and Schema location ... >
+  <core:cityObjectMember>
+    <bldg:Building gml:id="OPERA_LYON_45">
+      <bldg:address>
+        <core:Address>
+          <!-- 
+          Opéra National de Lyon      additional geographical information
+          1 Place de la Comédie       street number and name
+          69001 Lyon                  postcode and locality
+          France                      country
+          -->
+          <core:xalAddress>
+            <xAL:Address>
+              <xAL:Country>
+                <xAL:NameElement>France</xAL:NameElement>
+              </xAL:Country>
+              <xAL:Locality>
+                <xAL:NameElement>Lyon</xAL:NameElement>
+              </xAL:Locality>
+              <xAL:Thoroughfare>
+                <xAL:NameElement xAL:NameType="ReferenceLocation">Opéra National de Lyon</xAL:NameElement>
+                <xAL:Number>1</xAL:Number>
+                <xAL:NameElement xAL:NameType="NameOnly">Place de la Comédie</xAL:NameElement>
+              </xAL:Thoroughfare>
+              <xAL:PostCode>
+                <xAL:Identifier>69001</xAL:Identifier>
+              </xAL:PostCode>
+            </xAL:Address>
+          </core:xalAddress>
+          <!-- WGS84 45.767813, 4.836598 -->
+          <core:multiPoint>
+            <gml:MultiPoint srsName="urn:ogc:def:crs:EPSG::4326">
+              <gml:pointMember>
+                <gml:Point>
+                  <gml:pos>45.767813 4.836598</gml:pos>
+                </gml:Point>
+              </gml:pointMember>
+            </gml:MultiPoint>
+          </core:multiPoint>
+        </core:Address>
+      </bldg:address>
+    </bldg:Building>
+  </core:cityObjectMember>
+</core:CityModel>
+----
