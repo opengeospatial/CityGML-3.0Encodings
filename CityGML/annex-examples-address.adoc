@@ -6,7 +6,7 @@ The CityGML 3.0 CM provides the ability to declare addresses of real-world featu
 An _Address_ is modeled using two properties:
 
 - An optional _multiPoint_ property containing a _gml:MultiPoint_ for specifying the 2D or 3D position of the address. 
-- A _xalAddress_ property containing an OASIS CIQ TC extensible Address Language (xAL) _xAL:Address_ 
+- A _xalAddress_ property containing an OASIS CIQ TC extensible Address Language (xAL) _xAL:Address_ type.
 
 The CityGML datasets presented here are available under https://github.com/DiegoVinasco/CityGML-3.0Encodings/tree/master/CityGML/Examples/Building, additional examples are also available on the OASIS documentation repository http://docs.oasis-open.org/ciq/v3.0/cs02/xsd/default/examples/xAL/.
 
@@ -67,7 +67,7 @@ The xAL standard provides a rich vocabulary for structuring addresses in GML. <<
 
 More freeform addresses can also be defined using FreeTextAddresses as shown in <<listing-address-example2>>:
 
-<<listing-address-example2>>
+[[listing-address-example2]]
 .A GML example of a free text xAL building address based on the National Opera of Lyon, France.
 [source,XML]
 ----

@@ -4935,15 +4935,75 @@ Ensure that there is a conformance class for each requirements class and a test 
 <p>An optional <em>multiPoint</em> property containing a <em>gml:MultiPoint</em> for specifying the 2D or 3D position of the address.</p>
 </li>
 <li>
-<p>A <em>xalAddress</em> property containing an OASIS CIQ TC extensible Address Language (xAL) <em>xAL:Address</em></p>
+<p>A <em>xalAddress</em> property containing an OASIS CIQ TC extensible Address Language (xAL) <em>xAL:Address</em> type.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>For example, a building address could be modeled in GML using a free text xAL address as follows:</p>
+<p>The CityGML datasets presented here are available under <a href="https://github.com/DiegoVinasco/CityGML-3.0Encodings/tree/master/CityGML/Examples/Building" class="bare">https://github.com/DiegoVinasco/CityGML-3.0Encodings/tree/master/CityGML/Examples/Building</a>, additional examples are also available on the OASIS documentation repository <a href="http://docs.oasis-open.org/ciq/v3.0/cs02/xsd/default/examples/xAL/" class="bare">http://docs.oasis-open.org/ciq/v3.0/cs02/xsd/default/examples/xAL/</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Example 1: Structured address and multipoint</strong></p>
+</div>
+<div class="paragraph">
+<p>The xAL standard provides a rich vocabulary for structuring addresses in GML. <a href="#listing-address-example1">Listing 4</a> shows how an address in Germany can be modeled using xAL and a multipoint:</p>
 </div>
 <div id="listing-address-example1" class="listingblock">
-<div class="title">Listing 4. A GML example of a free text xAL building address based on the National Opera of Lyon, France.</div>
+<div class="title">Listing 4. A GML example of a structured German xAL building address with a GML MultiPoint.</div>
+<div class="content">
+<pre class="highlight"><code class="language-XML" data-lang="XML">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;core:CityModel ... Namespaces and Schema location ... &gt;
+  &lt;core:cityObjectMember&gt;
+    &lt;bldg:Building gml:id="DEBY_LOD2_5744682"&gt;
+      &lt;bldg:address&gt;
+        &lt;core:Address&gt;
+          &lt;!--
+          Am Hang 15      street number and name
+          85665 Moosach   postcode and locality
+          Germany         country
+          --&gt;
+          &lt;core:xalAddress&gt;
+            &lt;xAL:Address&gt;
+              &lt;xAL:Country&gt;
+                &lt;xAL:NameElement xAL:NameType="Name"&gt;Germany&lt;/xAL:NameElement&gt;
+              &lt;/xAL:Country&gt;
+              &lt;xAL:Locality xAL:Type="Town"&gt;
+                &lt;xAL:NameElement xAL:NameType="Name"&gt;Moosach&lt;/xAL:NameElement&gt;
+              &lt;/xAL:Locality&gt;
+              &lt;xAL:Thoroughfare xAL:Type="Street"&gt;
+                &lt;xAL:NameElement xAL:NameType="NameAndType"&gt;Am Hang&lt;/xAL:NameElement&gt;
+                &lt;xAL:Number xAL:Type="Number"&gt;15&lt;/xAL:Number&gt;
+              &lt;/xAL:Thoroughfare&gt;
+              &lt;xAL:PostCode&gt;
+                &lt;xAL:Identifier&gt;85665&lt;/xAL:Identifier&gt;
+              &lt;/xAL:PostCode&gt;
+            &lt;/xAL:Address&gt;
+          &lt;/core:xalAddress&gt;
+          &lt;!-- WGS84 48.03616458630443, 11.873209628265858 --&gt;
+          &lt;core:multiPoint&gt;
+            &lt;gml:MultiPoint srsName="urn:ogc:def:crs:EPSG::4326"&gt;
+              &lt;gml:pointMember&gt;
+                &lt;gml:Point&gt;
+                  &lt;gml:pos&gt;48.03616458630443 11.873209628265858&lt;/gml:pos&gt;
+                &lt;/gml:Point&gt;
+              &lt;/gml:pointMember&gt;
+            &lt;/gml:MultiPoint&gt;
+          &lt;/core:multiPoint&gt;
+        &lt;/core:Address&gt;
+      &lt;/bldg:address&gt;
+    &lt;/bldg:Building&gt;
+  &lt;/core:cityObjectMember&gt;
+&lt;/core:CityModel&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Example 2: Free text address</strong></p>
+</div>
+<div class="paragraph">
+<p>More freeform addresses can also be defined using FreeTextAddresses as shown in <a href="#listing-address-example2">Listing 5</a>:</p>
+</div>
+<div id="listing-address-example2" class="listingblock">
+<div class="title">Listing 5. A GML example of a free text xAL building address based on the National Opera of Lyon, France.</div>
 <div class="content">
 <pre class="highlight"><code class="language-XML" data-lang="XML">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
 &lt;core:CityModel ... Namespaces and Schema location ... &gt;
@@ -4967,59 +5027,6 @@ Ensure that there is a conformance class for each requirements class and a test 
               &lt;/xAL:FreeTextAddress&gt;
             &lt;/xAL:Address&gt;
           &lt;/core:xalAddress&gt;
-        &lt;/core:Address&gt;
-      &lt;/bldg:address&gt;
-    &lt;/bldg:Building&gt;
-  &lt;/core:cityObjectMember&gt;
-&lt;/core:CityModel&gt;</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>In addition, the same building address could be modeled using a structured xAL address and a GML multipoint as follows:</p>
-</div>
-<div id="listing-address-example2" class="listingblock">
-<div class="title">Listing 5. A GML example of a structured xAL building address with a GML point based on the National Opera of Lyon, France.</div>
-<div class="content">
-<pre class="highlight"><code class="language-XML" data-lang="XML">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;core:CityModel ... Namespaces and Schema location ... &gt;
-  &lt;core:cityObjectMember&gt;
-    &lt;bldg:Building gml:id="OPERA_LYON_45"&gt;
-      &lt;bldg:address&gt;
-        &lt;core:Address&gt;
-          &lt;!--
-          Opéra National de Lyon      additional geographical information
-          1 Place de la Comédie       street number and name
-          69001 Lyon                  postcode and locality
-          France                      country
-          --&gt;
-          &lt;core:xalAddress&gt;
-            &lt;xAL:Address&gt;
-              &lt;xAL:Country&gt;
-                &lt;xAL:NameElement&gt;France&lt;/xAL:NameElement&gt;
-              &lt;/xAL:Country&gt;
-              &lt;xAL:Locality&gt;
-                &lt;xAL:NameElement&gt;Lyon&lt;/xAL:NameElement&gt;
-              &lt;/xAL:Locality&gt;
-              &lt;xAL:Thoroughfare&gt;
-                &lt;xAL:NameElement xAL:NameType="ReferenceLocation"&gt;Opéra National de Lyon&lt;/xAL:NameElement&gt;
-                &lt;xAL:Number&gt;1&lt;/xAL:Number&gt;
-                &lt;xAL:NameElement xAL:NameType="NameOnly"&gt;Place de la Comédie&lt;/xAL:NameElement&gt;
-              &lt;/xAL:Thoroughfare&gt;
-              &lt;xAL:PostCode&gt;
-                &lt;xAL:Identifier&gt;69001&lt;/xAL:Identifier&gt;
-              &lt;/xAL:PostCode&gt;
-            &lt;/xAL:Address&gt;
-          &lt;/core:xalAddress&gt;
-          &lt;!-- WGS84 45.767813, 4.836598 --&gt;
-          &lt;core:multiPoint&gt;
-            &lt;gml:MultiPoint srsName="urn:ogc:def:crs:EPSG::4326"&gt;
-              &lt;gml:pointMember&gt;
-                &lt;gml:Point&gt;
-                  &lt;gml:pos&gt;45.767813 4.836598&lt;/gml:pos&gt;
-                &lt;/gml:Point&gt;
-              &lt;/gml:pointMember&gt;
-            &lt;/gml:MultiPoint&gt;
-          &lt;/core:multiPoint&gt;
         &lt;/core:Address&gt;
       &lt;/bldg:address&gt;
     &lt;/bldg:Building&gt;
