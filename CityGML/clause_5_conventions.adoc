@@ -11,7 +11,7 @@ All requirements and conformance tests that appear in this document are denoted 
 [[uml_notation_section]]
 === UML Notation
 
-This standard is an implementation of the CityGML Conceptual Model (CM) Standard. The CityGML conceptual model was constructed using the Unified Modeling Language (UML). The UML diagrams defined in the CityGML CM standard are not repeated here; instead, the reader is directed to https://docs.ogc.org/is/20-010/20-010.html#toc28[Chapter^] of the CityGML CM standard.
+This standard is an implementation of the CityGML Conceptual Model (CM) Standard. The CityGML conceptual model was constructed using the Unified Modeling Language (UML). The UML diagrams defined in the CityGML CM standard are not repeated here; instead, the reader is directed to https://docs.ogc.org/is/20-010/20-010.html#toc28[Chapter 7^] of the CityGML CM standard.
 
 This standard provides several UML class diagrams for illustration purposes. The UML notations used are described in the CityGML CM standard in https://docs.ogc.org/is/20-010/20-010.html#toc19[Chapter 5.2^].
 
