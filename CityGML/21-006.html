@@ -4924,10 +4924,10 @@ Ensure that there is a conformance class for each requirements class and a test 
 <div class="sect2">
 <h3 id="annex-examples-address"><a class="anchor" href="#annex-examples-address"></a>B.2. Address Examples</h3>
 <div class="paragraph">
-<p>The CityGML 3.0 CM provides the ability to declare addresses of real-world features. Using the CityGML 3.0 Core module&#8217;s <em>Address</em> feature type as a container for storing address information, addresses can be declared for <em>AbstractBridge</em>, <em>AbstractBuilding</em>, <em>BuildingUnit</em>, <em>Door</em>, and <em>DoorSurface</em> feature types using their respective <em>address</em> properties.</p>
+<p>The CityGML 3.0 CM provides the ability to represent address information of real-world features. Addresses can be declared for <em>AbstractBridge</em>, <em>AbstractBuilding</em>, <em>BuildingUnit</em>, <em>Door</em>, and <em>DoorSurface</em> feature types using their respective <em>address</em> properties and the <em>Address</em> feature type of the core module. An <em>Address</em> can be declared inline or by an XLink reference.</p>
 </div>
 <div class="paragraph">
-<p>An <em>Address</em> is modeled using two properties:</p>
+<p>An <em>Address</em> is modeled with two properties:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -4935,18 +4935,18 @@ Ensure that there is a conformance class for each requirements class and a test 
 <p>An optional <em>multiPoint</em> property containing a <em>gml:MultiPoint</em> for specifying the 2D or 3D position of the address.</p>
 </li>
 <li>
-<p>A <em>xalAddress</em> property containing an OASIS CIQ TC extensible Address Language (xAL) <em>xAL:Address</em> type.</p>
+<p>A <em>xalAddress</em> property containing a <em>xAL:Address</em> type from the OASIS CIQ TC extensible Address Language standard (xAL).</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>The CityGML datasets presented here are available under <a href="https://github.com/DiegoVinasco/CityGML-3.0Encodings/tree/master/CityGML/Examples/Building" class="bare">https://github.com/DiegoVinasco/CityGML-3.0Encodings/tree/master/CityGML/Examples/Building</a>, additional examples are also available on the OASIS documentation repository <a href="http://docs.oasis-open.org/ciq/v3.0/cs02/xsd/default/examples/xAL/" class="bare">http://docs.oasis-open.org/ciq/v3.0/cs02/xsd/default/examples/xAL/</a>.</p>
+<p>The CityGML datasets presented here are available under <a href="https://github.com/opengeospatial/CityGML-3.0Encodings/tree/master/CityGML/Examples/Building" class="bare">https://github.com/opengeospatial/CityGML-3.0Encodings/tree/master/CityGML/Examples/Building</a>, additional examples are also available on the OASIS documentation repository <a href="http://docs.oasis-open.org/ciq/v3.0/cs02/xsd/default/examples/xAL/" class="bare">http://docs.oasis-open.org/ciq/v3.0/cs02/xsd/default/examples/xAL/</a>.</p>
 </div>
 <div class="paragraph">
 <p><strong>Example 1: Structured address and multipoint</strong></p>
 </div>
 <div class="paragraph">
-<p>The xAL standard provides a rich vocabulary for structuring addresses in GML. <a href="#listing-address-example1">Listing 4</a> shows how an address in Germany can be modeled using xAL and a multipoint:</p>
+<p>xAL provides a rich vocabulary for structuring addresses in GML. <a href="#listing-address-example1">Listing 4</a> shows how an address in Germany can be modeled using xAL and a multipoint:</p>
 </div>
 <div id="listing-address-example1" class="listingblock">
 <div class="title">Listing 4. A GML example of a structured German xAL building address with a GML MultiPoint.</div>
@@ -5000,7 +5000,7 @@ Ensure that there is a conformance class for each requirements class and a test 
 <p><strong>Example 2: Free text address</strong></p>
 </div>
 <div class="paragraph">
-<p>More freeform addresses can also be defined using FreeTextAddresses as shown in <a href="#listing-address-example2">Listing 5</a>:</p>
+<p>More freeform addresses can also be declared using FreeTextAddresses as shown in <a href="#listing-address-example2">Listing 5</a>:</p>
 </div>
 <div id="listing-address-example2" class="listingblock">
 <div class="title">Listing 5. A GML example of a free text xAL building address based on the National Opera of Lyon, France.</div>

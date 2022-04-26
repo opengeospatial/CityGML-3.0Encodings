@@ -1,18 +1,18 @@
 [[annex-examples-address]]
 === Address Examples
 
-The CityGML 3.0 CM provides the ability to declare addresses of real-world features. Using the CityGML 3.0 Core module's _Address_ feature type as a container for storing address information, addresses can be declared for _AbstractBridge_, _AbstractBuilding_, _BuildingUnit_, _Door_, and _DoorSurface_ feature types using their respective _address_ properties.
+The CityGML 3.0 CM provides the ability to represent address information of real-world features. Addresses can be declared for _AbstractBridge_, _AbstractBuilding_, _BuildingUnit_, _Door_, and _DoorSurface_ feature types using their respective _address_ properties and the _Address_ feature type of the core module. An _Address_ can be declared inline or by an XLink reference.
 
-An _Address_ is modeled using two properties:
+An _Address_ is modeled with two properties:
 
 - An optional _multiPoint_ property containing a _gml:MultiPoint_ for specifying the 2D or 3D position of the address. 
-- A _xalAddress_ property containing an OASIS CIQ TC extensible Address Language (xAL) _xAL:Address_ type.
+- A _xalAddress_ property containing a _xAL:Address_ type from the OASIS CIQ TC extensible Address Language standard (xAL).
 
-The CityGML datasets presented here are available under https://github.com/DiegoVinasco/CityGML-3.0Encodings/tree/master/CityGML/Examples/Building, additional examples are also available on the OASIS documentation repository http://docs.oasis-open.org/ciq/v3.0/cs02/xsd/default/examples/xAL/.
+The CityGML datasets presented here are available under https://github.com/opengeospatial/CityGML-3.0Encodings/tree/master/CityGML/Examples/Building, additional examples are also available on the OASIS documentation repository http://docs.oasis-open.org/ciq/v3.0/cs02/xsd/default/examples/xAL/.
 
 *Example 1: Structured address and multipoint*
 
-The xAL standard provides a rich vocabulary for structuring addresses in GML. <<listing-address-example1>> shows how an address in Germany can be modeled using xAL and a multipoint:
+xAL provides a rich vocabulary for structuring addresses in GML. <<listing-address-example1>> shows how an address in Germany can be modeled using xAL and a multipoint:
 
 [[listing-address-example1]]
 .A GML example of a structured German xAL building address with a GML MultiPoint.
@@ -65,7 +65,7 @@ The xAL standard provides a rich vocabulary for structuring addresses in GML. <<
 
 *Example 2: Free text address*
 
-More freeform addresses can also be defined using FreeTextAddresses as shown in <<listing-address-example2>>:
+More freeform addresses can also be declared using FreeTextAddresses as shown in <<listing-address-example2>>:
 
 [[listing-address-example2]]
 .A GML example of a free text xAL building address based on the National Opera of Lyon, France.
