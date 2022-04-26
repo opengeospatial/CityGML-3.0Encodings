@@ -1,7 +1,7 @@
 [[annex-examples-address]]
 === Address Examples
 
-The CityGML 3.0 CM provides the ability to represent address information of real-world features. Addresses can be declared for _AbstractBridge_, _AbstractBuilding_, _BuildingUnit_, _Door_, and _DoorSurface_ feature types using their respective _address_ properties and the _Address_ feature type of the core module. An _Address_ can be declared inline or by an XLink reference.
+The CityGML 3.0 CM provides the ability to represent address information of real-world features. Addresses can be declared for _AbstractBridge_, _AbstractBuilding_, _BuildingUnit_, _Door_, and _DoorSurface_ feature types using their respective _address_ properties and the _Address_ feature type of the Core module. An _Address_ can be declared inline or by an XLink reference.
 
 An _Address_ is modeled with two properties:
 
