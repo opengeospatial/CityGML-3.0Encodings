@@ -33,6 +33,8 @@
 
 * [[Gröger2012b,Gröger et al. 2012]]Gröger, G., Kolbe, T. H., Nagel, C., Häfele, K.-H., 2012: *OGC City Geography Markup Language (CityGML) Encoding Standard, Version 2.0.0*, Open Geospatial Consortium. https://portal.opengeospatial.org/files/?artifact_id=47842[OGC Doc. 12-019]
 
+* [[iso19107,ISO 19107:2003]] ISO: ISO 19107:2003, Geographic Information – Spatial Schema
+
 * [[Jensen1998,Jensen & Dyreson 1998]]Jensen, Christian S. and Dyreson, Curtis E.: *The Consensus Glossary of Temporal Database Concepts*. February 1998 Version. In: Temporal Databases: Research and Practice [online]. Springer Berlin Heidelberg, 1998. p. 367–405. Lecture Notes in Computer Science. Available from: 10.1007/BFb0053710
 
 * [[Jensen2008,Jensen & Snodgrass 2008]]Jensen, Christian S. and Snodgrass, Richard T., eds.: *TR-90, Temporal Database Entries for the Springer Encyclopedia of Database Systems*. Technical Report. TimeCenter, 22 May 2008. Available from: http://timecenter.cs.aau.dk/TimeCenterPublications/TR-90.pdf[http://timecenter.cs.aau.dk/TimeCenterPublications/TR-90.pdf]
@@ -58,6 +60,8 @@
 * [[Löwner2016,Löwner et al. 2016]]Löwner, M.-O., Gröger, G., Benner, J., Biljecki, F., Nagel, C., 2016: *Proposal for a new LOD and multi-representation concept for CityGML*. In: Proceedings of the 11th 3D Geoinfo Conference 2016, ISPRS Annals of the Photogrammetry, Remote Sensing and Spatial Information Sciences, Vol. IV-2/W1, 3–12. https://doi.org/10.5194/isprs-annals-IV-2-W1-3-2016
 
 * [[Nouvel2015,Nouvel et al. 2015]]Nouvel, R., Bahu, J. M., Kaden, R., Kaempf, J., Cipriano, P., Lauster, M., Haefele, K.-H., Munoz, E., Tournaire, O, Casper, E., 2015: *Development of the CityGML Application Domain Extension Energy for Urban Energy Simulation*. In: Proceedings of Building Simulation 2015 - 14th Conference of the International Building Performance Simulation Association, IBPSA, 559-564. http://www.ibpsa.org/proceedings/BS2015/p2863.pdf
+
+* [[ogc10-129r1, OGC 10-129r1]] OGC: OGC 10-129r1, OGC® Geography Markup Language (GML) — Extended schemas and encoding rules, v3.3, 2012.
 
 * [[Smith2000,Smith & Varzi 2000]]Smith, B., Varzi, A. C., 2000: *Fiat and Bona Fide Boundaries*. Philosophy and Phenomenological Research, Vol. 60, No. 2, 401-420. https://doi.org/10.2307/2653492
 

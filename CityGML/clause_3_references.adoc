@@ -8,9 +8,6 @@ The following normative documents contain provisions that, through reference in 
 * [[iso19103,ISO 19103:2015]] ISO: ISO 19103:2015, Geographic Information – Conceptual Schema Language
 * [[iso19109,ISO 19109:2015]] ISO: ISO 19109:2015, Geographic Information – Rules for Application Schemas
 * [[iso19111,ISO 19111:2019]] ISO: ISO 19111:2019, Geographic information – Referencing by coordinates
-* [[iso19136-1, 19136-1:2020]] ISO: ISO 19136-1:2020, Geographic information — Geography Markup Language (GML) —
-Part 1: Fundamentals
-* [[iso19136-2, 19136-2:2015]] ISO: ISO 19136-2:2015, Geographic information — Geography Markup Language (GML) — Part 2: Extended schemas and encoding rules
 * [[iso19505,ISO/IEC 19505-2:2012]] ISO: ISO/IEC 19505-2:2012, Information technology — Object Management Group Unified Modeling Language (OMG UML) — Part 2: Superstructure
 * [[iso19507,ISO/IEC 19507:2012]] ISO/IEC 19507:2012, Information technology — Object Management Group Object Constraint Language (OCL)
 * [[collada,COLLADA]] Khronos Group Inc.: COLLADA – Digital Asset Schema Release 1.5.0
@@ -19,3 +16,4 @@ Part 1: Fundamentals
 * [[topic8,OGC Topic 8]] OGC: The OpenGIS™ Abstract Specification Topic 8: Relationships Between Features, OGC document 99-108r2
 * [[topic10,OGC Topic 10]] OGC: The OpenGIS™ Abstract Specification Topic 10: Feature Collections, OGC document 99-110
 * [[ogc20-010, OGC 20-010]] OGC: OGC 20-010, OGC City Geography Markup Language (CityGML) Part 1: Conceptual Model Standard, v3.0, 2021.
+* [[ogc07-036, OGC 07-036]] OGC: OGC 07-036, OpenGIS® Geography Markup Language (GML) Encoding Standard, v3.2.1, 2007.
