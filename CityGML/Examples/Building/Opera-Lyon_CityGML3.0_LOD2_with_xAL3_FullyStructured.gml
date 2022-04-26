@@ -20557,9 +20557,9 @@
                 </con:WallSurface>
             </boundary>
             <!--
-            Opéra National de Lyon  	additional geographical information
-            1 Place de la Comédie		    street number and name
-            69001 Lyon             		postcode and locality
+            Opéra National de Lyon      additional geographical information
+            1 Place de la Comédie       street number and name
+            69001 Lyon                  postcode and locality
             France                      country
             -->
             <bldg:address>

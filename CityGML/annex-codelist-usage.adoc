@@ -16,7 +16,7 @@ There is no standardized model for CityGML codelists. The following is a suggest
 
 [[codelist_uml]]
 .Suggested Codelist UML Class Diagram
-image::images/codelist_uml.png[codelist UML diagram,align="center"]
+image::images/Codelist_UML.PNG[codelist UML diagram,align="center"]
 
 
 === Examples

@@ -1,2 +1,101 @@
 [[annex-examples-address]]
 === Address Examples
+
+The CityGML 3.0 CM provides the ability to represent address information of real-world features. Addresses can be declared for _AbstractBridge_, _AbstractBuilding_, _BuildingUnit_, _Door_, and _DoorSurface_ feature types using their respective _address_ properties and the _Address_ feature type of the Core module. An _Address_ can be declared inline or by an XLink reference.
+
+An _Address_ is modeled with two properties:
+
+- An optional _multiPoint_ property containing a _gml:MultiPoint_ for specifying the 2D or 3D position of the address. 
+- A _xalAddress_ property containing a _xAL:Address_ type from the OASIS CIQ TC extensible Address Language standard (xAL).
+
+The CityGML datasets presented here are available under https://github.com/opengeospatial/CityGML-3.0Encodings/tree/master/CityGML/Examples/Building, additional examples are also available on the OASIS documentation repository http://docs.oasis-open.org/ciq/v3.0/cs02/xsd/default/examples/xAL/.
+
+*Example 1: Structured address and multipoint*
+
+xAL provides a rich vocabulary for structuring addresses in GML. <<listing-address-example1>> shows how an address in Germany can be modeled using xAL and a multipoint:
+
+[[listing-address-example1]]
+.A GML example of a structured German xAL building address with a GML MultiPoint.
+[source,XML]
+----
+<?xml version="1.0" encoding="UTF-8"?>
+<core:CityModel ... Namespaces and Schema location ... >
+  <core:cityObjectMember>
+    <bldg:Building gml:id="DEBY_LOD2_5744682">
+      <bldg:address>
+        <core:Address>
+          <!-- 
+          Am Hang 15      street number and name
+          85665 Moosach   postcode and locality
+          Germany         country
+          -->
+          <core:xalAddress>
+            <xAL:Address>
+              <xAL:Country>
+                <xAL:NameElement xAL:NameType="Name">Germany</xAL:NameElement>
+              </xAL:Country>
+              <xAL:Locality xAL:Type="Town">
+                <xAL:NameElement xAL:NameType="Name">Moosach</xAL:NameElement>
+              </xAL:Locality>
+              <xAL:Thoroughfare xAL:Type="Street">
+                <xAL:NameElement xAL:NameType="NameAndType">Am Hang</xAL:NameElement>
+                <xAL:Number xAL:Type="Number">15</xAL:Number>
+              </xAL:Thoroughfare>
+              <xAL:PostCode>
+                <xAL:Identifier>85665</xAL:Identifier>
+              </xAL:PostCode>
+            </xAL:Address>
+          </core:xalAddress>
+          <!-- WGS84 48.03616458630443, 11.873209628265858 -->
+          <core:multiPoint>
+            <gml:MultiPoint srsName="urn:ogc:def:crs:EPSG::4326">
+              <gml:pointMember>
+                <gml:Point>
+                  <gml:pos>48.03616458630443 11.873209628265858</gml:pos>
+                </gml:Point>
+              </gml:pointMember>
+            </gml:MultiPoint>
+          </core:multiPoint>
+        </core:Address>
+      </bldg:address>
+    </bldg:Building>
+  </core:cityObjectMember>
+</core:CityModel>
+----
+
+*Example 2: Free text address*
+
+More freeform addresses can also be declared using FreeTextAddresses as shown in <<listing-address-example2>>:
+
+[[listing-address-example2]]
+.A GML example of a free text xAL building address based on the National Opera of Lyon, France.
+[source,XML]
+----
+<?xml version="1.0" encoding="UTF-8"?>
+<core:CityModel ... Namespaces and Schema location ... >
+  <core:cityObjectMember>
+    <bldg:Building gml:id="OPERA_LYON_45">
+      <bldg:address>
+        <core:Address>
+          <!-- 
+          Opéra National de Lyon      additional geographical information
+          1 Place de la Comédie       street number and name
+          69001 Lyon                  postcode and locality
+          France                      country
+          -->
+          <core:xalAddress>
+            <xAL:Address>
+              <xAL:FreeTextAddress>
+                <xAL:AddressLine>Opéra National de Lyon</xAL:AddressLine>
+                <xAL:AddressLine>1 Place de la Comédie</xAL:AddressLine>
+                <xAL:AddressLine>69001 Lyon</xAL:AddressLine>
+                <xAL:AddressLine>France</xAL:AddressLine>
+              </xAL:FreeTextAddress>
+            </xAL:Address>
+          </core:xalAddress>
+        </core:Address>
+      </bldg:address>
+    </bldg:Building>
+  </core:cityObjectMember>
+</core:CityModel>
+----
