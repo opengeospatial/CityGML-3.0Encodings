@@ -4,23 +4,25 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 2.0.17">
+<meta name="generator" content="Asciidoctor 2.0.10">
 <title>OGC City Geography Markup Language (CityGML) Part 2: GML Encoding Standard</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
-/*! Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
-/* Uncomment the following line when using as a custom stylesheet */
-/* @import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700"; */
-html{font-family:sans-serif;-webkit-text-size-adjust:100%}
+/* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
+/* Uncomment @import statement to use as custom stylesheet */
+/*@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700";*/
+article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section{display:block}
+audio,video{display:inline-block}
+audio:not([controls]){display:none;height:0}
+html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}
 a{background:none}
 a:focus{outline:thin dotted}
 a:active,a:hover{outline:0}
 h1{font-size:2em;margin:.67em 0}
+abbr[title]{border-bottom:1px dotted}
 b,strong{font-weight:bold}
-abbr{font-size:.9em}
-abbr[title]{cursor:help;border-bottom:1px dotted #dddddf;text-decoration:none}
 dfn{font-style:italic}
-hr{height:0}
+hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}
 mark{background:#ff0;color:#000}
 code,kbd,pre,samp{font-family:monospace;font-size:1em}
 pre{white-space:pre-wrap}
@@ -32,22 +34,20 @@ sub{bottom:-.25em}
 img{border:0}
 svg:not(:root){overflow:hidden}
 figure{margin:0}
-audio,video{display:inline-block}
-audio:not([controls]){display:none;height:0}
 fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}
 legend{border:0;padding:0}
 button,input,select,textarea{font-family:inherit;font-size:100%;margin:0}
 button,input{line-height:normal}
 button,select{text-transform:none}
-button,html input[type=button],input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer}
+button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer}
 button[disabled],html input[disabled]{cursor:default}
-input[type=checkbox],input[type=radio]{padding:0}
+input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0}
 button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}
 textarea{overflow:auto;vertical-align:top}
 table{border-collapse:collapse;border-spacing:0}
-*,::before,::after{box-sizing:border-box}
+*,*::before,*::after{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box}
 html,body{font-size:100%}
-body{background:#fff;color:rgba(0,0,0,.8);padding:0;margin:0;font-family:"Noto Serif","DejaVu Serif",serif;line-height:1;position:relative;cursor:auto;-moz-tab-size:4;-o-tab-size:4;tab-size:4;word-wrap:anywhere;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased}
+body{background:#fff;color:rgba(0,0,0,.8);padding:0;margin:0;font-family:"Noto Serif","DejaVu Serif",serif;font-weight:400;font-style:normal;line-height:1;position:relative;cursor:auto;tab-size:4;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased}
 a:hover{cursor:pointer}
 img,object,embed{max-width:100%;height:auto}
 object,embed{height:100%}
@@ -62,12 +62,14 @@ img{-ms-interpolation-mode:bicubic}
 img,object,svg{display:inline-block;vertical-align:middle}
 textarea{height:auto;min-height:50px}
 select{width:100%}
+.center{margin-left:auto;margin-right:auto}
+.stretch{width:100%}
 .subheader,.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{line-height:1.45;color:#7a2518;font-weight:400;margin-top:0;margin-bottom:.25em}
-div,dl,dt,dd,ul,ol,li,h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6,pre,form,p,blockquote,th,td{margin:0;padding:0}
+div,dl,dt,dd,ul,ol,li,h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6,pre,form,p,blockquote,th,td{margin:0;padding:0;direction:ltr}
 a{color:#2156a5;text-decoration:underline;line-height:inherit}
 a:hover,a:focus{color:#1d4b8f}
 a img{border:0}
-p{line-height:1.6;margin-bottom:1.25em;text-rendering:optimizeLegibility}
+p{font-family:inherit;font-weight:400;font-size:1em;line-height:1.6;margin-bottom:1.25em;text-rendering:optimizeLegibility}
 p aside{font-size:.875em;line-height:1.35;font-style:italic}
 h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{font-family:"Open Sans","DejaVu Sans",sans-serif;font-weight:300;font-style:normal;color:#ba3925;text-rendering:optimizeLegibility;margin-top:1em;margin-bottom:.5em;line-height:1.0125em}
 h1 small,h2 small,h3 small,#toctitle small,.sidebarblock>.content>.title small,h4 small,h5 small,h6 small{font-size:60%;color:#e99b8f;line-height:0}
@@ -76,14 +78,14 @@ h2{font-size:1.6875em}
 h3,#toctitle,.sidebarblock>.content>.title{font-size:1.375em}
 h4,h5{font-size:1.125em}
 h6{font-size:1em}
-hr{border:solid #dddddf;border-width:1px 0 0;clear:both;margin:1.25em 0 1.1875em}
+hr{border:solid #dddddf;border-width:1px 0 0;clear:both;margin:1.25em 0 1.1875em;height:0}
 em,i{font-style:italic;line-height:inherit}
 strong,b{font-weight:bold;line-height:inherit}
 small{font-size:60%;line-height:inherit}
 code{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;font-weight:400;color:rgba(0,0,0,.9)}
-ul,ol,dl{line-height:1.6;margin-bottom:1.25em;list-style-position:outside;font-family:inherit}
+ul,ol,dl{font-size:1em;line-height:1.6;margin-bottom:1.25em;list-style-position:outside;font-family:inherit}
 ul,ol{margin-left:1.5em}
-ul li ul,ul li ol{margin-left:1.25em;margin-bottom:0}
+ul li ul,ul li ol{margin-left:1.25em;margin-bottom:0;font-size:1em}
 ul.square li ul,ul.circle li ul,ul.disc li ul{list-style:inherit}
 ul.square{list-style-type:square}
 ul.circle{list-style-type:circle}
@@ -91,29 +93,31 @@ ul.disc{list-style-type:disc}
 ol li ul,ol li ol{margin-left:1.25em;margin-bottom:0}
 dl dt{margin-bottom:.3125em;font-weight:bold}
 dl dd{margin-bottom:1.25em}
+abbr,acronym{text-transform:uppercase;font-size:90%;color:rgba(0,0,0,.8);border-bottom:1px dotted #ddd;cursor:help}
+abbr{text-transform:none}
 blockquote{margin:0 0 1.25em;padding:.5625em 1.25em 0 1.1875em;border-left:1px solid #ddd}
+blockquote cite{display:block;font-size:.9375em;color:rgba(0,0,0,.6)}
+blockquote cite::before{content:"\2014 \0020"}
+blockquote cite a,blockquote cite a:visited{color:rgba(0,0,0,.6)}
 blockquote,blockquote p{line-height:1.6;color:rgba(0,0,0,.85)}
 @media screen and (min-width:768px){h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2}
 h1{font-size:2.75em}
 h2{font-size:2.3125em}
 h3,#toctitle,.sidebarblock>.content>.title{font-size:1.6875em}
 h4{font-size:1.4375em}}
-table{background:#fff;margin-bottom:1.25em;border:1px solid #dedede;word-wrap:normal}
+table{background:#fff;margin-bottom:1.25em;border:solid 1px #dedede}
 table thead,table tfoot{background:#f7f8f7}
 table thead tr th,table thead tr td,table tfoot tr th,table tfoot tr td{padding:.5em .625em .625em;font-size:inherit;color:rgba(0,0,0,.8);text-align:left}
 table tr th,table tr td{padding:.5625em .625em;font-size:inherit;color:rgba(0,0,0,.8)}
 table tr.even,table tr.alt{background:#f8f8f7}
-table thead tr th,table tfoot tr th,table tbody tr td,table tr td,table tfoot tr td{line-height:1.6}
+table thead tr th,table tfoot tr th,table tbody tr td,table tr td,table tfoot tr td{display:table-cell;line-height:1.6}
 h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2;word-spacing:-.05em}
 h1 strong,h2 strong,h3 strong,#toctitle strong,.sidebarblock>.content>.title strong,h4 strong,h5 strong,h6 strong{font-weight:400}
-.center{margin-left:auto;margin-right:auto}
-.stretch{width:100%}
 .clearfix::before,.clearfix::after,.float-group::before,.float-group::after{content:" ";display:table}
 .clearfix::after,.float-group::after{clear:both}
-:not(pre).nobreak{word-wrap:normal}
-:not(pre).nowrap{white-space:nowrap}
-:not(pre).pre-wrap{white-space:pre-wrap}
-:not(pre):not([class^=L])>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background:#f7f7f8;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed}
+:not(pre):not([class^=L])>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background:#f7f7f8;-webkit-border-radius:4px;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed;word-wrap:break-word}
+:not(pre)>code.nobreak{word-wrap:normal}
+:not(pre)>code.nowrap{white-space:nowrap}
 pre{color:rgba(0,0,0,.9);font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;line-height:1.45;text-rendering:optimizeSpeed}
 pre code,pre pre{color:inherit;font-size:inherit;line-height:inherit}
 pre>code{display:block}
@@ -121,7 +125,7 @@ pre.nowrap,pre.nowrap pre{white-space:pre;word-wrap:normal}
 em em{font-style:normal}
 strong strong{font-weight:400}
 .keyseq{color:rgba(51,51,51,.8)}
-kbd{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;display:inline-block;color:rgba(0,0,0,.8);font-size:.65em;line-height:1.45;background:#f7f7f7;border:1px solid #ccc;border-radius:3px;box-shadow:0 1px 0 rgba(0,0,0,.2),inset 0 0 0 .1em #fff;margin:0 .15em;padding:.2em .5em;vertical-align:middle;position:relative;top:-.1em;white-space:nowrap}
+kbd{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;display:inline-block;color:rgba(0,0,0,.8);font-size:.65em;line-height:1.45;background:#f7f7f7;border:1px solid #ccc;-webkit-border-radius:3px;border-radius:3px;-webkit-box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em white inset;box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em #fff inset;margin:0 .15em;padding:.2em .5em;vertical-align:middle;position:relative;top:-.1em;white-space:nowrap}
 .keyseq kbd:first-child{margin-left:0}
 .keyseq kbd:last-child{margin-right:0}
 .menuseq,.menuref{color:#000}
@@ -133,7 +137,7 @@ b.button::before,b.button::after{position:relative;top:-1px;font-weight:400}
 b.button::before{content:"[";padding:0 3px 0 2px}
 b.button::after{content:"]";padding:0 2px 0 3px}
 p a>code:hover{color:rgba(0,0,0,.9)}
-#header,#content,#footnotes,#footer{width:100%;margin:0 auto;max-width:62.5em;*zoom:1;position:relative;padding-left:.9375em;padding-right:.9375em}
+#header,#content,#footnotes,#footer{width:100%;margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0;max-width:62.5em;*zoom:1;position:relative;padding-left:.9375em;padding-right:.9375em}
 #header::before,#header::after,#content::before,#content::after,#footnotes::before,#footnotes::after,#footer::before,#footer::after{content:" ";display:table}
 #header::after,#content::after,#footnotes::after,#footer::after{clear:both}
 #content{margin-top:1.25em}
@@ -141,7 +145,7 @@ p a>code:hover{color:rgba(0,0,0,.9)}
 #header>h1:first-child{color:rgba(0,0,0,.85);margin-top:2.25rem;margin-bottom:0}
 #header>h1:first-child+#toc{margin-top:8px;border-top:1px solid #dddddf}
 #header>h1:only-child,body.toc2 #header>h1:nth-last-child(2){border-bottom:1px solid #dddddf;padding-bottom:8px}
-#header .details{border-bottom:1px solid #dddddf;line-height:1.45;padding-top:.25em;padding-bottom:.25em;padding-left:.25em;color:rgba(0,0,0,.6);display:flex;flex-flow:row wrap}
+#header .details{border-bottom:1px solid #dddddf;line-height:1.45;padding-top:.25em;padding-bottom:.25em;padding-left:.25em;color:rgba(0,0,0,.6);display:-ms-flexbox;display:-webkit-flex;display:flex;-ms-flex-flow:row wrap;-webkit-flex-flow:row wrap;flex-flow:row wrap}
 #header .details span:first-child{margin-left:-.125em}
 #header .details span.email a{color:rgba(0,0,0,.85)}
 #header .details br{display:none}
@@ -175,11 +179,11 @@ body.toc2.toc-right #toc.toc2{border-right-width:0;border-left:1px solid #e7e7e9
 #toc.toc2>ul{font-size:.95em}
 #toc.toc2 ul ul{padding-left:1.25em}
 body.toc2.toc-right{padding-left:0;padding-right:20em}}
-#content #toc{border:1px solid #e0e0dc;margin-bottom:1.25em;padding:1.25em;background:#f8f8f7;border-radius:4px}
+#content #toc{border-style:solid;border-width:1px;border-color:#e0e0dc;margin-bottom:1.25em;padding:1.25em;background:#f8f8f7;-webkit-border-radius:4px;border-radius:4px}
 #content #toc>:first-child{margin-top:0}
 #content #toc>:last-child{margin-bottom:0}
-#footer{max-width:none;background:rgba(0,0,0,.8);padding:1.25em}
-#footer-text{color:hsla(0,0%,100%,.8);line-height:1.44}
+#footer{max-width:100%;background:rgba(0,0,0,.8);padding:1.25em}
+#footer-text{color:rgba(255,255,255,.8);line-height:1.44}
 #content{margin-bottom:.625em}
 .sect1{padding-bottom:.625em}
 @media screen and (min-width:768px){#content{margin-bottom:1.25em}
@@ -192,33 +196,29 @@ body.toc2.toc-right{padding-left:0;padding-right:20em}}
 #content h1>a.link,h2>a.link,h3>a.link,#toctitle>a.link,.sidebarblock>.content>.title>a.link,h4>a.link,h5>a.link,h6>a.link{color:#ba3925;text-decoration:none}
 #content h1>a.link:hover,h2>a.link:hover,h3>a.link:hover,#toctitle>a.link:hover,.sidebarblock>.content>.title>a.link:hover,h4>a.link:hover,h5>a.link:hover,h6>a.link:hover{color:#a53221}
 details,.audioblock,.imageblock,.literalblock,.listingblock,.stemblock,.videoblock{margin-bottom:1.25em}
-details{margin-left:1.25rem}
-details>summary{cursor:pointer;display:block;position:relative;line-height:1.6;margin-bottom:.625rem;outline:none;-webkit-tap-highlight-color:transparent}
-details>summary::-webkit-details-marker{display:none}
-details>summary::before{content:"";border:solid transparent;border-left:solid;border-width:.3em 0 .3em .5em;position:absolute;top:.5em;left:-1.25rem;transform:translateX(15%)}
-details[open]>summary::before{border:solid transparent;border-top:solid;border-width:.5em .3em 0;transform:translateY(15%)}
-details>summary::after{content:"";width:1.25rem;height:1em;position:absolute;top:.3em;left:-1.25rem}
+details>summary:first-of-type{cursor:pointer;display:list-item;outline:none;margin-bottom:.75em}
 .admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{text-rendering:optimizeLegibility;text-align:left;font-family:"Noto Serif","DejaVu Serif",serif;font-size:1rem;font-style:italic}
 table.tableblock.fit-content>caption.title{white-space:nowrap;width:0}
-.paragraph.lead>p,#preamble>.sectionbody>[class=paragraph]:first-of-type p{font-size:1.21875em;line-height:1.6;color:rgba(0,0,0,.85)}
+.paragraph.lead>p,#preamble>.sectionbody>[class="paragraph"]:first-of-type p{font-size:1.21875em;line-height:1.6;color:rgba(0,0,0,.85)}
+table.tableblock #preamble>.sectionbody>[class="paragraph"]:first-of-type p{font-size:inherit}
 .admonitionblock>table{border-collapse:separate;border:0;background:none;width:100%}
 .admonitionblock>table td.icon{text-align:center;width:80px}
 .admonitionblock>table td.icon img{max-width:none}
 .admonitionblock>table td.icon .title{font-weight:bold;font-family:"Open Sans","DejaVu Sans",sans-serif;text-transform:uppercase}
-.admonitionblock>table td.content{padding-left:1.125em;padding-right:1.25em;border-left:1px solid #dddddf;color:rgba(0,0,0,.6);word-wrap:anywhere}
+.admonitionblock>table td.content{padding-left:1.125em;padding-right:1.25em;border-left:1px solid #dddddf;color:rgba(0,0,0,.6)}
 .admonitionblock>table td.content>:last-child>:last-child{margin-bottom:0}
-.exampleblock>.content{border:1px solid #e6e6e6;margin-bottom:1.25em;padding:1.25em;background:#fff;border-radius:4px}
+.exampleblock>.content{border-style:solid;border-width:1px;border-color:#e6e6e6;margin-bottom:1.25em;padding:1.25em;background:#fff;-webkit-border-radius:4px;border-radius:4px}
 .exampleblock>.content>:first-child{margin-top:0}
 .exampleblock>.content>:last-child{margin-bottom:0}
-.sidebarblock{border:1px solid #dbdbd6;margin-bottom:1.25em;padding:1.25em;background:#f3f3f2;border-radius:4px}
+.sidebarblock{border-style:solid;border-width:1px;border-color:#dbdbd6;margin-bottom:1.25em;padding:1.25em;background:#f3f3f2;-webkit-border-radius:4px;border-radius:4px}
 .sidebarblock>:first-child{margin-top:0}
 .sidebarblock>:last-child{margin-bottom:0}
 .sidebarblock>.content>.title{color:#7a2518;margin-top:0;text-align:center}
 .exampleblock>.content>:last-child>:last-child,.exampleblock>.content .olist>ol>li:last-child>:last-child,.exampleblock>.content .ulist>ul>li:last-child>:last-child,.exampleblock>.content .qlist>ol>li:last-child>:last-child,.sidebarblock>.content>:last-child>:last-child,.sidebarblock>.content .olist>ol>li:last-child>:last-child,.sidebarblock>.content .ulist>ul>li:last-child>:last-child,.sidebarblock>.content .qlist>ol>li:last-child>:last-child{margin-bottom:0}
-.literalblock pre,.listingblock>.content>pre{border-radius:4px;overflow-x:auto;padding:1em;font-size:.8125em}
+.literalblock pre,.listingblock>.content>pre{-webkit-border-radius:4px;border-radius:4px;word-wrap:break-word;overflow-x:auto;padding:1em;font-size:.8125em}
 @media screen and (min-width:768px){.literalblock pre,.listingblock>.content>pre{font-size:.90625em}}
 @media screen and (min-width:1280px){.literalblock pre,.listingblock>.content>pre{font-size:1em}}
-.literalblock pre,.listingblock>.content>pre:not(.highlight),.listingblock>.content>pre[class=highlight],.listingblock>.content>pre[class^="highlight "]{background:#f7f7f8}
+.literalblock pre,.listingblock>.content>pre:not(.highlight),.listingblock>.content>pre[class="highlight"],.listingblock>.content>pre[class^="highlight "]{background:#f7f7f8}
 .literalblock.output pre{color:#f7f7f8;background:rgba(0,0,0,.9)}
 .listingblock>.content{position:relative}
 .listingblock code[data-lang]::before{display:none;content:attr(data-lang);position:absolute;font-size:.75em;top:.425rem;right:.5rem;line-height:1;text-transform:uppercase;color:inherit;opacity:.5}
@@ -226,7 +226,7 @@ table.tableblock.fit-content>caption.title{white-space:nowrap;width:0}
 .listingblock.terminal pre .command::before{content:attr(data-prompt);padding-right:.5em;color:inherit;opacity:.5}
 .listingblock.terminal pre .command:not([data-prompt])::before{content:"$"}
 .listingblock pre.highlightjs{padding:0}
-.listingblock pre.highlightjs>code{padding:1em;border-radius:4px}
+.listingblock pre.highlightjs>code{padding:1em;-webkit-border-radius:4px;border-radius:4px}
 .listingblock pre.prettyprint{border-width:0}
 .prettyprint{background:#f7f7f8}
 pre.prettyprint .linenums{line-height:1.45;margin-left:2em}
@@ -236,8 +236,9 @@ pre.prettyprint li:not(:first-child) code[data-lang]::before{display:none}
 table.linenotable{border-collapse:separate;border:0;margin-bottom:0;background:none}
 table.linenotable td[class]{color:inherit;vertical-align:top;padding:0;line-height:inherit;white-space:normal}
 table.linenotable td.code{padding-left:.75em}
-table.linenotable td.linenos,pre.pygments .linenos{border-right:1px solid;opacity:.35;padding-right:.5em;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}
-pre.pygments span.linenos{display:inline-block;margin-right:.75em}
+table.linenotable td.linenos{border-right:1px solid currentColor;opacity:.35;padding-right:.5em}
+pre.pygments .lineno{border-right:1px solid currentColor;opacity:.35;display:inline-block;margin-right:.75em}
+pre.pygments .lineno::before{content:"";margin-right:-.125em}
 .quoteblock{margin:0 1em 1.25em 1.5em;display:table}
 .quoteblock:not(.excerpt)>.title{margin-left:-1.5em;margin-bottom:.75em}
 .quoteblock blockquote,.quoteblock p{color:rgba(0,0,0,.85);font-size:1.15rem;line-height:1.75;word-spacing:.1em;letter-spacing:0;font-style:italic;text-align:justify}
@@ -246,7 +247,7 @@ pre.pygments span.linenos{display:inline-block;margin-right:.75em}
 .quoteblock blockquote>.paragraph:last-child p{margin-bottom:0}
 .quoteblock .attribution{margin-top:.75em;margin-right:.5ex;text-align:right}
 .verseblock{margin:0 1em 1.25em}
-.verseblock pre{font-family:"Open Sans","DejaVu Sans",sans-serif;font-size:1.15rem;color:rgba(0,0,0,.85);font-weight:300;text-rendering:optimizeLegibility}
+.verseblock pre{font-family:"Open Sans","DejaVu Sans",sans;font-size:1.15rem;color:rgba(0,0,0,.85);font-weight:300;text-rendering:optimizeLegibility}
 .verseblock pre strong{font-weight:400}
 .verseblock .attribution{margin-top:1.25rem;margin-left:.5ex}
 .quoteblock .attribution,.verseblock .attribution{font-size:.9375em;line-height:1.45;font-style:italic}
@@ -259,22 +260,23 @@ pre.pygments span.linenos{display:inline-block;margin-right:.75em}
 .quoteblock.excerpt>blockquote,.quoteblock .quoteblock{padding:0 0 .25em 1em;border-left:.25em solid #dddddf}
 .quoteblock.excerpt,.quoteblock .quoteblock{margin-left:0}
 .quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{color:inherit;font-size:1.0625rem}
-.quoteblock.excerpt .attribution,.quoteblock .quoteblock .attribution{color:inherit;font-size:.85rem;text-align:left;margin-right:0}
+.quoteblock.excerpt .attribution,.quoteblock .quoteblock .attribution{color:inherit;text-align:left;margin-right:0}
+table.tableblock{max-width:100%;border-collapse:separate}
 p.tableblock:last-child{margin-bottom:0}
-td.tableblock>.content{margin-bottom:1.25em;word-wrap:anywhere}
 td.tableblock>.content>:last-child{margin-bottom:-1.25em}
+td.tableblock>.content>:last-child.sidebarblock{margin-bottom:0}
 table.tableblock,th.tableblock,td.tableblock{border:0 solid #dedede}
-table.grid-all>*>tr>*{border-width:1px}
-table.grid-cols>*>tr>*{border-width:0 1px}
-table.grid-rows>*>tr>*{border-width:1px 0}
+table.grid-all>thead>tr>.tableblock,table.grid-all>tbody>tr>.tableblock{border-width:0 1px 1px 0}
+table.grid-all>tfoot>tr>.tableblock{border-width:1px 1px 0 0}
+table.grid-cols>*>tr>.tableblock{border-width:0 1px 0 0}
+table.grid-rows>thead>tr>.tableblock,table.grid-rows>tbody>tr>.tableblock{border-width:0 0 1px}
+table.grid-rows>tfoot>tr>.tableblock{border-width:1px 0 0}
+table.grid-all>*>tr>.tableblock:last-child,table.grid-cols>*>tr>.tableblock:last-child{border-right-width:0}
+table.grid-all>tbody>tr:last-child>.tableblock,table.grid-all>thead:last-child>tr>.tableblock,table.grid-rows>tbody>tr:last-child>.tableblock,table.grid-rows>thead:last-child>tr>.tableblock{border-bottom-width:0}
 table.frame-all{border-width:1px}
-table.frame-ends{border-width:1px 0}
 table.frame-sides{border-width:0 1px}
-table.frame-none>colgroup+*>:first-child>*,table.frame-sides>colgroup+*>:first-child>*{border-top-width:0}
-table.frame-none>:last-child>:last-child>*,table.frame-sides>:last-child>:last-child>*{border-bottom-width:0}
-table.frame-none>*>tr>:first-child,table.frame-ends>*>tr>:first-child{border-left-width:0}
-table.frame-none>*>tr>:last-child,table.frame-ends>*>tr>:last-child{border-right-width:0}
-table.stripes-all>*>tr,table.stripes-odd>*>tr:nth-of-type(odd),table.stripes-even>*>tr:nth-of-type(even),table.stripes-hover>*>tr:hover{background:#f8f8f7}
+table.frame-topbot,table.frame-ends{border-width:1px 0}
+table.stripes-all tr,table.stripes-odd tr:nth-of-type(odd),table.stripes-even tr:nth-of-type(even),table.stripes-hover tr:hover{background:#f8f8f7}
 th.halign-left,td.halign-left{text-align:left}
 th.halign-right,td.halign-right{text-align:right}
 th.halign-center,td.halign-center{text-align:center}
@@ -282,7 +284,7 @@ th.valign-top,td.valign-top{vertical-align:top}
 th.valign-bottom,td.valign-bottom{vertical-align:bottom}
 th.valign-middle,td.valign-middle{vertical-align:middle}
 table thead th,table tfoot th{font-weight:bold}
-tbody tr th{background:#f7f8f7}
+tbody tr th{display:table-cell;line-height:1.6;background:#f7f8f7}
 tbody tr th,tbody tr th p,tfoot tr th,tfoot tr th p{color:rgba(0,0,0,.8);font-weight:bold}
 p.tableblock>code:only-child{background:none;padding:0}
 p.tableblock{font-size:1em}
@@ -290,15 +292,14 @@ ol{margin-left:1.75em}
 ul li ol{margin-left:1.5em}
 dl dd{margin-left:1.125em}
 dl dd:last-child,dl dd:last-child>:last-child{margin-bottom:0}
-li p,ul dd,ol dd,.olist .olist,.ulist .ulist,.ulist .olist,.olist .ulist{margin-bottom:.625em}
+ol>li p,ul>li p,ul dd,ol dd,.olist .olist,.ulist .ulist,.ulist .olist,.olist .ulist{margin-bottom:.625em}
 ul.checklist,ul.none,ol.none,ul.no-bullet,ol.no-bullet,ol.unnumbered,ul.unstyled,ol.unstyled{list-style-type:none}
 ul.no-bullet,ol.no-bullet,ol.unnumbered{margin-left:.625em}
 ul.unstyled,ol.unstyled{margin-left:0}
-li>p:empty:only-child::before{content:"";display:inline-block}
-ul.checklist>li>p:first-child{margin-left:-1em}
-ul.checklist>li>p:first-child>.fa-square-o:first-child,ul.checklist>li>p:first-child>.fa-check-square-o:first-child{width:1.25em;font-size:.8em;position:relative;bottom:.125em}
-ul.checklist>li>p:first-child>input[type=checkbox]:first-child{margin-right:.25em}
-ul.inline{display:flex;flex-flow:row wrap;list-style:none;margin:0 0 .625em -1.25em}
+ul.checklist{margin-left:.625em}
+ul.checklist li>p:first-child>.fa-square-o:first-child,ul.checklist li>p:first-child>.fa-check-square-o:first-child{width:1.25em;font-size:.8em;position:relative;bottom:.125em}
+ul.checklist li>p:first-child>input[type="checkbox"]:first-child{margin-right:.25em}
+ul.inline{display:-ms-flexbox;display:-webkit-box;display:flex;-ms-flex-flow:row wrap;-webkit-flex-flow:row wrap;flex-flow:row wrap;list-style:none;margin:0 0 .625em -1.25em}
 ul.inline>li{margin-left:1.25em}
 .unstyled dl dt{font-weight:400;font-style:normal}
 ol.arabic{list-style-type:decimal}
@@ -312,12 +313,11 @@ ol.lowergreek{list-style-type:lower-greek}
 .hdlist>table>tbody>tr,.colist>table>tbody>tr{background:none}
 td.hdlist1,td.hdlist2{vertical-align:top;padding:0 .625em}
 td.hdlist1{font-weight:bold;padding-bottom:1.25em}
-td.hdlist2{word-wrap:anywhere}
 .literalblock+.colist,.listingblock+.colist{margin-top:-.5em}
 .colist td:not([class]):first-child{padding:.4em .75em 0;line-height:1;vertical-align:top}
 .colist td:not([class]):first-child img{max-width:none}
 .colist td:not([class]):last-child{padding:.25em 0}
-.thumb,.th{line-height:0;display:inline-block;border:4px solid #fff;box-shadow:0 0 0 1px #ddd}
+.thumb,.th{line-height:0;display:inline-block;border:solid 4px #fff;-webkit-box-shadow:0 0 0 1px #ddd;box-shadow:0 0 0 1px #ddd}
 .imageblock.left{margin:.25em .625em 1.25em 0}
 .imageblock.right{margin:.25em 0 1.25em .625em}
 .imageblock>.title{margin-bottom:0}
@@ -337,6 +337,8 @@ sup.footnote a:active,sup.footnoteref a:active{text-decoration:underline}
 #footnotes .footnote a:first-of-type{font-weight:bold;text-decoration:none;margin-left:-1.05em}
 #footnotes .footnote:last-of-type{margin-bottom:0}
 #content #footnotes{margin-top:-.625em;margin-bottom:0;padding:.75em 0}
+.gist .file-data>table{border:0;background:#fff;width:100%;margin-bottom:0}
+.gist .file-data>table td.line-data{width:99%}
 div.unbreakable{page-break-inside:avoid}
 .big{font-size:larger}
 .small{font-size:smaller}
@@ -383,7 +385,7 @@ a span.icon>.fa{cursor:inherit}
 .admonitionblock td.icon .icon-warning::before{content:"\f071";color:#bf6900}
 .admonitionblock td.icon .icon-caution::before{content:"\f06d";color:#bf3400}
 .admonitionblock td.icon .icon-important::before{content:"\f06a";color:#bf0000}
-.conum[data-value]{display:inline-block;color:#fff!important;background:rgba(0,0,0,.8);border-radius:50%;text-align:center;font-size:.75em;width:1.67em;height:1.67em;line-height:1.67em;font-family:"Open Sans","DejaVu Sans",sans-serif;font-style:normal;font-weight:bold}
+.conum[data-value]{display:inline-block;color:#fff!important;background:rgba(0,0,0,.8);-webkit-border-radius:100px;border-radius:100px;text-align:center;font-size:.75em;width:1.67em;height:1.67em;line-height:1.67em;font-family:"Open Sans","DejaVu Sans",sans-serif;font-style:normal;font-weight:bold}
 .conum[data-value] *{color:#fff!important}
 .conum[data-value]+b{display:none}
 .conum[data-value]::after{content:attr(data-value)}
@@ -391,27 +393,25 @@ pre .conum[data-value]{position:relative;top:-.125em}
 b.conum *{color:inherit!important}
 .conum:not([data-value]):empty{display:none}
 dt,th.tableblock,td.content,div.footnote{text-rendering:optimizeLegibility}
-h1,h2,p,td.content,span.alt,summary{letter-spacing:-.01em}
+h1,h2,p,td.content,span.alt{letter-spacing:-.01em}
 p strong,td.content strong,div.footnote strong{letter-spacing:-.005em}
-p,blockquote,dt,td.content,span.alt,summary{font-size:1.0625rem}
+p,blockquote,dt,td.content,span.alt{font-size:1.0625rem}
 p{margin-bottom:1.25rem}
 .sidebarblock p,.sidebarblock dt,.sidebarblock td.content,p.tableblock{font-size:1em}
-.exampleblock>.content{background:#fffef7;border-color:#e0e0dc;box-shadow:0 1px 4px #e0e0dc}
+.exampleblock>.content{background:#fffef7;border-color:#e0e0dc;-webkit-box-shadow:0 1px 4px #e0e0dc;box-shadow:0 1px 4px #e0e0dc}
 .print-only{display:none!important}
 @page{margin:1.25cm .75cm}
-@media print{*{box-shadow:none!important;text-shadow:none!important}
+@media print{*{-webkit-box-shadow:none!important;box-shadow:none!important;text-shadow:none!important}
 html{font-size:80%}
 a{color:inherit!important;text-decoration:underline!important}
 a.bare,a[href^="#"],a[href^="mailto:"]{text-decoration:none!important}
 a[href^="http:"]:not(.bare)::after,a[href^="https:"]:not(.bare)::after{content:"(" attr(href) ")";display:inline-block;font-size:.875em;padding-left:.25em}
-abbr[title]{border-bottom:1px dotted}
 abbr[title]::after{content:" (" attr(title) ")"}
 pre,blockquote,tr,img,object,svg{page-break-inside:avoid}
 thead{display:table-header-group}
 svg{max-width:100%}
 p,blockquote,dt,td.content{font-size:1em;orphans:3;widows:3}
 h2,h3,#toctitle,.sidebarblock>.content>.title{page-break-after:avoid}
-#header,#content,#footnotes,#footer{max-width:none}
 #toc,.sidebarblock,.exampleblock>.content{background:none!important}
 #toc{border-bottom:1px solid #dddddf!important;padding-bottom:0!important}
 body.book #header{text-align:center}
@@ -428,7 +428,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 .print-only{display:block!important}
 .hide-for-print{display:none!important}
 .show-for-print{display:inherit!important}}
-@media amzn-kf8,print{#header>h1:first-child{margin-top:1.25rem}
+@media print,amzn-kf8{#header>h1:first-child{margin-top:1.25rem}
 .sect1{padding:0!important}
 .sect1+.sect1{border:0}
 #footer{background:none}
@@ -613,13 +613,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 <li><a href="#annex-examples">Annex B: Examples (Informative)</a>
 <ul class="sectlevel2">
-<li><a href="#annex-examples-building">B.1. Building Examples</a></li>
-<li><a href="#annex-examples-address">B.2. Address Examples</a></li>
-<li><a href="#annex-examples-pointcloud">B.3. Point Cloud Examples</a></li>
-<li><a href="#annex-examples-dynamizer">B.4. Dynamizer Examples</a></li>
-<li><a href="#annex-examples-versioning">B.5. Versioning Examples</a></li>
-<li><a href="#annex-examples-localcrs">B.6. Local Engineering Coordinate Reference System Example</a></li>
-<li><a href="#annex-examples-ade">B.7. Application Domain Extension (ADE) Examples</a></li>
+<li><a href="#annex-examples-address">B.1. Address Examples</a></li>
+<li><a href="#annex-examples-pointcloud">B.2. Point Cloud Examples</a></li>
+<li><a href="#annex-examples-dynamizer">B.3. Dynamizer Examples</a></li>
+<li><a href="#annex-examples-versioning">B.4. Versioning Examples</a></li>
+<li><a href="#annex-examples-ade">B.5. Application Domain Extension (ADE) Examples</a></li>
 </ul>
 </li>
 <li><a href="#annex-schema">Annex C: XML Schema (Normative)</a>
@@ -950,19 +948,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p><a id="inspirebu"></a> INSPIRE: D2.8.III.2 Data Specification on Buildings – Technical Guidelines. European Commission Joint Research Centre.</p>
 </li>
 <li>
-<p><a id="iso19101"></a> ISO: ISO 19101-1:2014, Geographic information - Reference model - Part 1: Fundamentals</p>
-</li>
-<li>
 <p><a id="iso19103"></a> ISO: ISO 19103:2015, Geographic Information – Conceptual Schema Language</p>
-</li>
-<li>
-<p><a id="iso19105"></a> ISO: ISO 19105:2000, Geographic information – Conformance and testing</p>
-</li>
-<li>
-<p><a id="iso19107"></a> ISO: ISO 19107:2003, Geographic Information – Spatial Schema</p>
-</li>
-<li>
-<p><a id="iso19108"></a> ISO: ISO 19108:2002/Cor 1:2006, Geographic information – Temporal schema — Technical Corrigendum 1</p>
 </li>
 <li>
 <p><a id="iso19109"></a> ISO: ISO 19109:2015, Geographic Information – Rules for Application Schemas</p>
@@ -971,26 +957,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p><a id="iso19111"></a> ISO: ISO 19111:2019, Geographic information – Referencing by coordinates</p>
 </li>
 <li>
-<p><a id="iso19123"></a> ISO: ISO 19123:2005, Geographic information — Schema for coverage geometry and functions</p>
-</li>
-<li>
-<p><a id="iso19136-1"></a> ISO: ISO 19136-1:2020, Geographic information — Geography Markup Language (GML) —
-Part 1: Fundamentals</p>
-</li>
-<li>
-<p><a id="iso19136-2"></a> ISO: ISO 19136-2:2015, Geographic information — Geography Markup Language (GML) — Part 2: Extended schemas and encoding rules</p>
-</li>
-<li>
-<p><a id="iso19156"></a> ISO: ISO 19156:2011, Geographic information – Observations and measurements</p>
-</li>
-<li>
 <p><a id="iso19505"></a> ISO: ISO/IEC 19505-2:2012, Information technology — Object Management Group Unified Modeling Language (OMG UML) — Part 2: Superstructure</p>
 </li>
 <li>
 <p><a id="iso19507"></a> ISO/IEC 19507:2012, Information technology — Object Management Group Object Constraint Language (OCL)</p>
-</li>
-<li>
-<p><a id="iso19775"></a> ISO: ISO/IEC 19775-1:2013 Information technology — Computer graphics, image processing and environmental data representation — Extensible 3D (X3D) — Part 1: Architecture and base components</p>
 </li>
 <li>
 <p><a id="collada"></a> Khronos Group Inc.: COLLADA – Digital Asset Schema Release 1.5.0</p>
@@ -1009,6 +979,9 @@ Part 1: Fundamentals</p>
 </li>
 <li>
 <p><a id="ogc20-010"></a> OGC: OGC 20-010, OGC City Geography Markup Language (CityGML) Part 1: Conceptual Model Standard, v3.0, 2021.</p>
+</li>
+<li>
+<p><a id="ogc07-036"></a> OGC: OGC 07-036, OpenGIS® Geography Markup Language (GML) Encoding Standard, v3.2.1, 2007.</p>
 </li>
 </ul>
 </div>
@@ -1160,107 +1133,19 @@ a model of a system that is defined in terms of a specific platform<br>
 <div class="sect2">
 <h3 id="uml_notation_section"><a class="anchor" href="#uml_notation_section"></a>5.2. UML Notation</h3>
 <div class="paragraph">
-<p>This standard is an implementation of the CityGML Conceptual Model (CM) Standard. The CityGML conceptual model was constructed using the Unified Modeling Language (UML). Exerpts from that model appear in this standard. The UML notations used are described in the diagram in <a href="#figure-1">Figure 1</a>.</p>
-</div>
-<div id="figure-1" class="imageblock text-center">
-<div class="content">
-<img src="images/UML_Notation.png" alt="UML Notation">
-</div>
-<div class="title">Figure 1. UML notation (see ISO TS 19103, Geographic information - Conceptual schema language).</div>
+<p>This standard is an implementation of the CityGML Conceptual Model (CM) Standard. The CityGML conceptual model was constructed using the Unified Modeling Language (UML). The UML diagrams defined in the CityGML CM standard are not repeated here; instead, the reader is directed to <a href="https://docs.ogc.org/is/20-010/20-010.html#toc28" target="_blank" rel="noopener">Chapter 7</a> of the CityGML CM standard.</p>
 </div>
 <div class="paragraph">
-<p>All associations between model elements in the CityGML Conceptual Model are uni-directional. Thus, associations in the model are navigable in only one direction. The direction of navigation is depicted by an arrowhead. In general, the context an element takes within the association is indicated by its role. The role is displayed near the target of the association. If the graphical representation is ambiguous though, the position of the role has to be drawn to the element the association points to.</p>
+<p>This standard provides several UML class diagrams for illustration purposes. The UML notations used are described in the CityGML CM standard in <a href="https://docs.ogc.org/is/20-010/20-010.html#toc19" target="_blank" rel="noopener">Chapter 5.2</a>.</p>
 </div>
 <div class="paragraph">
-<p>The following stereotypes are used in the model:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>&#171;ApplicationSchema&#187; denotes a conceptual schema for data required by one  or more applications. In the CityGML Conceptual Model, every module is defined as a separate application schema to allow for modularization.</p>
-</li>
-<li>
-<p>&#171;FeatureType&#187; represents features that are similar and exhibit common characteristics. Features are abstractions of real-world phenomena and have an identity.</p>
-</li>
-<li>
-<p>&#171;TopLevelFeatureType&#187; denotes features that represent the main components of the conceptual model. Top-level features may be further semantically and spatially decomposed and substructured into parts.</p>
-</li>
-<li>
-<p>&#171;Type&#187; denotes classes that are not directly instantiable, but are used as an abstract collection of operation, attribute and relation signatures. The stereotype is used in the CityGML Conceptual Model only for classes that are imported from the ISO standards 19107, 19109, 19111, and 19123.</p>
-</li>
-<li>
-<p>&#171;ObjectType&#187; represents objects that have an identity, but are not features.</p>
-</li>
-<li>
-<p>&#171;DataType&#187; defines a set of properties that lack identity. A data type is a classifier with no operations, whose primary purpose is to hold information.</p>
-</li>
-<li>
-<p>&#171;Enumeration&#187; enumerates the valid attribute values in a fixed list of named literal values. Enumerations are specified in the CityGML Conceptual Model.</p>
-</li>
-<li>
-<p>&#171;BasicType&#187; defines a basic data type.</p>
-</li>
-<li>
-<p>&#171;CodeList&#187; enumerates the valid attribute values. In contrast to Enumeration, the list of values is open and, thus, not given inline in the CityGML UML Model. The allowed values can be provided within an external code list.</p>
-</li>
-<li>
-<p>&#171;Union&#187; is a list of attributes. The semantics are that only one of the attributes can be present at any time.</p>
-</li>
-<li>
-<p>&#171;Property&#187; denotes attributes and association roles. This stereotype does not add further semantics to the conceptual model, but is required to be able to add tagged values to the attributes and association roles that are relevant for the encoding.</p>
-</li>
-<li>
-<p>&#171;Version&#187; denotes that the value of an association role that ends at a feature type is a specific version of the feature, not the feature in general.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>In order to enhance the readability of the CityGML UML diagrams, classes are depicted in different colors. The following coloring scheme is applied:</p>
-</div>
-<div class="paragraph">
-<p><span class="image"><img src="images/ColorScheme_yellow.png" alt="ColorScheme yellow"></span></p>
-</div>
-<div class="paragraph">
-<p>Classes painted in yellow belong to the Requirements Class which is subject of discussion in that clause of the standard in which the UML diagram is given. For example, in the context of <a href="#core-section">Section 6.2</a>, which introduces the <em>CityGML Core</em> module, the yellow color is used to denote classes that are defined in the <em>CityGML Core</em> Requirements Class. Likewise, the yellow classes shown in the UML diagram in <a href="#building-section">Section 6.5</a> are associated with the <em>Building</em> Requirements Class that is subject of discussion in that chapter.</p>
-</div>
-<div class="paragraph">
-<p><span class="image"><img src="images/ColorScheme_blue.png" alt="ColorScheme blue"></span></p>
-</div>
-<div class="paragraph">
-<p>Classes painted in blue belong to a Requirements Class different to that associated with the yellow color. In order to explicitly denote to which Requirements Class these classes belong, their class names are preceded by the UML package name of that Requirements Class. For example, in the context of the <em>Building</em> Requirements Class, classes from the <em>CityGML Core</em> and the <em>Construction</em> Requirements Classes are painted in blue and their class names are preceded by <em>Core</em> and <em>Construction</em>, respectively.</p>
-</div>
-<div class="paragraph">
-<p><span class="image"><img src="images/ColorScheme_green.png" alt="ColorScheme green"></span></p>
-</div>
-<div class="paragraph">
-<p>Classes painted in green are defined in the ISO standards 19107, 19111, or 19123. Their class names are preceded by the UML package name, in which the classes are defined.</p>
-</div>
-<div class="paragraph">
-<p><span class="image"><img src="images/ColorScheme_grey.png" alt="ColorScheme grey"></span></p>
-</div>
-<div class="paragraph">
-<p>Classes painted in grey are defined in the ISO standard 19109. In the context of this standard, this only applies to the class <em>AnyFeature</em>. <em>AnyFeature</em> is an instance of the metaclass <em>FeatureType</em> and acts as super class of all classes in the CityGML UML model with the stereotype &#171;FeatureType&#187;. A metaclass is a class whose instances are classes.</p>
-</div>
-<div class="paragraph">
-<p><span class="image"><img src="images/ColorScheme_white.png" alt="ColorScheme white"></span></p>
-</div>
-<div class="paragraph">
-<p>The color white is used for notes and <a href="#iso19507">Object Constraint Language</a> (OCL) constraints that are provided in the UML diagrams.</p>
-</div>
-<div class="paragraph">
-<p>The example UML diagram in <a href="#figure-2">Figure 2</a> demonstrates the UML notation and coloring scheme used throughout this standard. In this example, the yellow classes are associated with the <em>CityGML Building</em> module, the blue classes are from the <em>CityGML Core</em> and <em>Construction</em> modules, and the green class depicts a geometry element defined by ISO 19107.</p>
-</div>
-<div id="figure-2" class="imageblock text-center">
-<div class="content">
-<img src="images/UML_Notation_Example.png" alt="UML Notation Example">
-</div>
-<div class="title">Figure 2. Example UML diagram demonstrating the UML notation and coloring scheme used throughout the CityGML Standard.</div>
+<p>In addition, this standard provides several UML object diagrams as illustrations for CityGML instance documents. In order to enhance the readability of the UML object diagrams, objects are depicted in different colors. Objects painted in orange and yellow represent features as defined in the CityGML CM standard. The orange-colored objects represent the top-most features in the feature hierarchy of the CityGML instance document, the yellow-colored objects their subordinate features. Objects painted in green represent geometries as defined in <a href="#iso19107">ISO 19107:2003</a>.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="XML_notation_section"><a class="anchor" href="#XML_notation_section"></a>5.3. XML Notation</h3>
 <div class="paragraph">
-<p>TBD</p>
+<p>The CityGML XML schemas derived from the CityGML CM follow the rules in <a href="#ogc07-036">OGC 07-036</a>, GML, Annex E, UML-to-GML application schema encoding rules.</p>
 </div>
 </div>
 </div>
@@ -1433,6 +1318,59 @@ Add requirement in tabular form
 <div class="paragraph">
 <p>For these cases, different requirements are provided for how to encode the references in CityGML. Although these requirements impose restrictions, they facilitate at the same time reading, storing, processing, and generating of CityGML documents, because they reduce the multiple possibilities of how to represent and link features and geometries in CityGML documents to the most appropriate ones. Furthermore, top-level features can now completely be loaded in the main memory, because links to shared geometries that are part of different top-level features represented further down in the GML document do not need to be resolved any more. This also facilitates querying features and geometries using web services, as up to now queries cannot address specific parts of a geometry. Maintenance at the level of the top-level features becomes easier as well, because links between feature geometries do not need to be maintained and updated any more when a feature changes its geometry or when the feature does not exist anymore.</p>
 </div>
+<div class="paragraph">
+<p>Table <a href="#table-global-requirements">Table 3</a> provides an overview of the different requirements, the link types used to encode the references and whether the link references geometries or features.</p>
+</div>
+<table id="table-global-requirements" class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 3. Overview of linking rules.</caption>
+<colgroup>
+<col style="width: 60%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Link type</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Link level</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement &#8230;&#8203;</strong><br>
+Referencing geometries from another top-level feature<br>
+(* except for ImplicitGeometry objects)</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><br>
+-<br>
+(* XLink)</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><br>
+-<br>
+(* Geometry link)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement &#8230;&#8203;</strong><br>
+Referencing geometries within the same top-level feature</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><br>
+XLink</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><br>
+Geometry link</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement …</strong><br>
+Referencing geometries shared between different top-level features</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><br>
+CityObjectRelation</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><br>
+Feature link</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement …</strong><br>
+Referencing features from alternative aggregations</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><br>
+XLink</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><br>
+Feature link</p></td>
+</tr>
+</tbody>
+</table>
 <div class="sect4">
 <h5 id="linking-rules-1-section"><a class="anchor" href="#linking-rules-1-section"></a>Rule 1: Referencing geometries using XLinks within the same and from different top-level features</h5>
 <div class="olist arabic">
@@ -1480,23 +1418,23 @@ Add requirement in tabular form
 <div class="content">
 <img src="images/Example_SimpleBuilding.png" alt="Example SimpleBuilding" width="25%">
 </div>
-<div class="title">Figure 3. Simple building with solid geometry and boundary surfaces.</div>
+<div class="title">Figure 1. Simple building with solid geometry and boundary surfaces.</div>
 </div>
 <div class="paragraph">
-<p>The building (=space) in <a href="#figure-example-simple-building">Figure 3</a> is modelled in LOD2 as Solid geometry and is bounded by four WallSurfaces, one RoofSurface, and one GroundSurface (=space boundaries). All space boundaries are modelled as Polygon geometries. The Solid geometry of the building references the Polygon geometries using XLink.</p>
+<p>The building (=space) in <a href="#figure-example-simple-building">Figure 1</a> is modelled in LOD2 as Solid geometry and is bounded by four WallSurfaces, one RoofSurface, and one GroundSurface (=space boundaries). All space boundaries are modelled as Polygon geometries. The Solid geometry of the building references the Polygon geometries using XLink.</p>
 </div>
 <div class="paragraph">
 <p>The GML file is available here:
 <a href="https://github.com/opengeospatial/CityGML-3.0Encodings/tree/xlinks-discussion/CityGML/Examples/Building/XLink_examples/1_SimpleBuilding" class="bare">https://github.com/opengeospatial/CityGML-3.0Encodings/tree/xlinks-discussion/CityGML/Examples/Building/XLink_examples/1_SimpleBuilding</a></p>
 </div>
 <div class="paragraph">
-<p>The Building from the GML file is illustrated in the object diagram in <a href="#figure-uml-simple-building">Figure 4</a>. The XLink references between the Solid geometry and the Polygon geometries are highlighted in red.</p>
+<p>The Building from the GML file is illustrated in the object diagram in <a href="#figure-uml-simple-building">Figure 2</a>. The XLink references between the Solid geometry and the Polygon geometries are highlighted in red.</p>
 </div>
 <div id="figure-uml-simple-building" class="imageblock text-center">
 <div class="content">
 <img src="images/UML_SimpleBuilding.png" alt="UML SimpleBuilding">
 </div>
-<div class="title">Figure 4. UML object diagram for the building in <a href="#figure-example-simple-building">Figure 3</a>.</div>
+<div class="title">Figure 2. UML object diagram for the building in <a href="#figure-example-simple-building">Figure 1</a>.</div>
 </div>
 <div class="paragraph">
 <p><strong>Example 2: Building with roof overhangs</strong></p>
@@ -1505,10 +1443,10 @@ Add requirement in tabular form
 <div class="content">
 <img src="images/Example_BuildingWithRoofOverhangs.png" alt="Example BuildingWithRoofOverhangs" width="25%">
 </div>
-<div class="title">Figure 5. Building with roof overhangs.</div>
+<div class="title">Figure 3. Building with roof overhangs.</div>
 </div>
 <div class="paragraph">
-<p>The building (=space) in <a href="#figure-example-building-with-roof-overhangs">Figure 5</a> is modelled in LOD2 as Solid geometry and is bounded by four WallSurfaces, one RoofSurface, and one GroundSurface (=space boundaries). All space boundaries are modelled as Polygon geometries. The Solid geometry of the building references the Polygon geometries using XLink.</p>
+<p>The building (=space) in <a href="#figure-example-building-with-roof-overhangs">Figure 3</a> is modelled in LOD2 as Solid geometry and is bounded by four WallSurfaces, one RoofSurface, and one GroundSurface (=space boundaries). All space boundaries are modelled as Polygon geometries. The Solid geometry of the building references the Polygon geometries using XLink.</p>
 </div>
 <div class="paragraph">
 <p>The RoofSurface contains four Polygon geometries. Two of these Polygons are roof overhangs (i.e. dangling surfaces), and, thus, are not referenced by the Solid geometry of the building, as they would render the solid invalid if referenced. For this reason, an additional MultiSurface geometry is added to the building that references the dangling surfaces. In accordance with Rule 2 this MultiSurface geometry is optional. It is added to the building to provide additional information, but it is not mandatory to add this geometry.</p>
@@ -1518,13 +1456,13 @@ Add requirement in tabular form
 <a href="https://github.com/opengeospatial/CityGML-3.0Encodings/tree/xlinks-discussion/CityGML/Examples/Building/XLink_examples/2_SimpleBuilding_Roof_Overhangs" class="bare">https://github.com/opengeospatial/CityGML-3.0Encodings/tree/xlinks-discussion/CityGML/Examples/Building/XLink_examples/2_SimpleBuilding_Roof_Overhangs</a></p>
 </div>
 <div class="paragraph">
-<p>The Building from the GML file is illustrated in the object diagram in <a href="#figure-uml-building-with-roof-overhangs">Figure 6</a>. The XLink references between the Solid geometry and the Polygon geometries are highlighted in red, the XLink references between the MultiSurface geometry and the dangling surfaces in blue.</p>
+<p>The Building from the GML file is illustrated in the object diagram in <a href="#figure-uml-building-with-roof-overhangs">Figure 4</a>. The XLink references between the Solid geometry and the Polygon geometries are highlighted in red, the XLink references between the MultiSurface geometry and the dangling surfaces in blue.</p>
 </div>
 <div id="figure-uml-building-with-roof-overhangs" class="imageblock text-center">
 <div class="content">
 <img src="images/UML_BuildingWithRoofOverhangs.png" alt="UML BuildingWithRoofOverhangs">
 </div>
-<div class="title">Figure 6. UML object diagram for the building in <a href="#figure-example-building-with-roof-overhangs">Figure 5</a>.</div>
+<div class="title">Figure 4. UML object diagram for the building in <a href="#figure-example-building-with-roof-overhangs">Figure 3</a>.</div>
 </div>
 <div class="paragraph">
 <p><strong>Example 3: Building with BuildingInstallation</strong></p>
@@ -1533,10 +1471,10 @@ Add requirement in tabular form
 <div class="content">
 <img src="images/Example_BuildingWithBuildingInstallation.png" alt="Example BuildingWithBuildingInstallation" width="25%">
 </div>
-<div class="title">Figure 7. Building with building installation.</div>
+<div class="title">Figure 5. Building with building installation.</div>
 </div>
 <div class="paragraph">
-<p>The building (=space) in <a href="#figure-example-building-with-building-installation">Figure 7</a> is modelled in LOD2 as Solid geometry and is bounded by eight WallSurfaces, four RoofSurfaces, and one GroundSurface (=space boundaries). In addition, the building has a dormer that is modelled as BuildingInstallation (=space). The building installation is modelled as MultiSurface geometry and is bounded by one RoofSurface and three WallSurfaces (=space boundaries).</p>
+<p>The building (=space) in <a href="#figure-example-building-with-building-installation">Figure 5</a> is modelled in LOD2 as Solid geometry and is bounded by eight WallSurfaces, four RoofSurfaces, and one GroundSurface (=space boundaries). In addition, the building has a dormer that is modelled as BuildingInstallation (=space). The building installation is modelled as MultiSurface geometry and is bounded by one RoofSurface and three WallSurfaces (=space boundaries).</p>
 </div>
 <div class="paragraph">
 <p>The space boundaries of the building and of the building installation are all modelled as Polygon geometries. The Solid geometry of the building references those Polygon geometries that represent the space boundaries of the building space using XLink. The MultiSurface geometry of the building installation references those Polygon geometries that represent the space boundaries of the building installation using XLink. In addition, the Solid geometry may also reference the Polygon geometries that represent the space boundaries of the building installation using XLink. These references to the geometries of a nested space are optional, in accordance with Rule 2 it is also allowed to not reference these geometries.</p>
@@ -1546,13 +1484,13 @@ Add requirement in tabular form
 <a href="https://github.com/opengeospatial/CityGML-3.0Encodings/tree/xlinks-discussion/CityGML/Examples/Building/XLink_examples/3_Building_With_Nested_Features" class="bare">https://github.com/opengeospatial/CityGML-3.0Encodings/tree/xlinks-discussion/CityGML/Examples/Building/XLink_examples/3_Building_With_Nested_Features</a></p>
 </div>
 <div class="paragraph">
-<p>The Building from the GML file is illustrated in the object diagram in <a href="#figure-uml-building-with-building-installation">Figure 8</a>. The XLink references are highlighted in red.</p>
+<p>The Building from the GML file is illustrated in the object diagram in <a href="#figure-uml-building-with-building-installation">Figure 6</a>. The XLink references from the building to the space boundaries of the building are highlighted in red, whereas those to the space boundaries of the building installation are highlighted in blue.</p>
 </div>
 <div id="figure-uml-building-with-building-installation" class="imageblock text-center">
 <div class="content">
 <img src="images/UML_BuildingWithBuildingInstallation.png" alt="UML BuildingWithBuildingInstallation">
 </div>
-<div class="title">Figure 8. UML object diagram for the building in <a href="#figure-example-building-with-building-installation">Figure 7</a>.</div>
+<div class="title">Figure 6. UML object diagram for the building in <a href="#figure-example-building-with-building-installation">Figure 5</a>.</div>
 </div>
 </div>
 <div class="sect4">
@@ -1583,10 +1521,10 @@ Add requirement in tabular form
 <div class="content">
 <img src="images/Example_TwoBuildings.png" alt="Example TwoBuildings" width="25%">
 </div>
-<div class="title">Figure 9. Two buildings with shared boundary surface.</div>
+<div class="title">Figure 7. Two buildings with shared boundary surface.</div>
 </div>
 <div class="paragraph">
-<p>The two buildings (=top-level features) in <a href="#figure-example-two-buildings">Figure 9</a> are modelled in LOD2 as Solid geometry and are bounded by Wall-, Roof-, and GroundSurfaces that are modelled as Polygon geometries. One of the WallSurfaces of the first Building shares the Polygon geometry with one of the WallSurfaces of the second Building. Both WallSurfaces might appear identical, however, the surface normals of the Polygon geometries of the WallSurfaces are pointing in opposite directions.</p>
+<p>The two buildings (=top-level features) in <a href="#figure-example-two-buildings">Figure 7</a> are modelled in LOD2 as Solid geometry and are bounded by Wall-, Roof-, and GroundSurfaces that are modelled as Polygon geometries. One of the WallSurfaces of the first Building shares the Polygon geometry with one of the WallSurfaces of the second Building. Both WallSurfaces might appear identical, however, the surface normals of the Polygon geometries of the WallSurfaces are pointing in opposite directions.</p>
 </div>
 <div class="paragraph">
 <p>To express that the WallSurfaces of the two buildings share the Polygon geometry, the WallSurfaces reference each other using a CityObjectRelation with the relation type “shared”. Both WallSurfaces contain the Polygon geometry themselves, the second WallSurface, however, in reverse order.</p>
@@ -1596,13 +1534,13 @@ Add requirement in tabular form
 <a href="https://github.com/opengeospatial/CityGML-3.0Encodings/tree/xlinks-discussion/CityGML/Examples/Building/XLink_examples/4_Cross-Top-Level-XLink" class="bare">https://github.com/opengeospatial/CityGML-3.0Encodings/tree/xlinks-discussion/CityGML/Examples/Building/XLink_examples/4_Cross-Top-Level-XLink</a></p>
 </div>
 <div class="paragraph">
-<p>The Buildings from the GML file are illustrated in the object diagram in <a href="#figure-uml-two-buildings">Figure 10</a>. The CityObjectRelation is highlighted in red.</p>
+<p>The Buildings from the GML file are illustrated in the object diagram in <a href="#figure-uml-two-buildings">Figure 8</a>. The CityObjectRelation is highlighted in red.</p>
 </div>
 <div id="figure-uml-two-buildings" class="imageblock text-center">
 <div class="content">
 <img src="images/UML_TwoBuildings.png" alt="UML TwoBuildings">
 </div>
-<div class="title">Figure 10. UML object diagram for the building in <a href="#figure-example-two-buildings">Figure 9</a>.</div>
+<div class="title">Figure 8. UML object diagram for the building in <a href="#figure-example-two-buildings">Figure 7</a>.</div>
 </div>
 <div class="paragraph">
 <p><strong>Example 2: Road crossing a Bridge</strong></p>
@@ -1611,10 +1549,10 @@ Add requirement in tabular form
 <div class="content">
 <img src="images/Example_RoadOverBridge.png" alt="Example RoadOverBridge" width="70%">
 </div>
-<div class="title">Figure 11. Shared surfaces between a road and a bridge.</div>
+<div class="title">Figure 9. Shared surfaces between a road and a bridge.</div>
 </div>
 <div class="paragraph">
-<p>A Road and a Bridge (=top-level features) are modelled in LOD2, as is shown in <a href="#figure-example-road-over-bridge">Figure 11</a>. The Bridge is bounded by Ground-, Roof-, and WallSurfaces that are modelled as MultiSurface geometries. The Road consists of three sections; each section is bounded by two TrafficAreas that are modelled as MultiSurface geometries as well. The RoofSurfaces of the Bridge share MultiSurface geometries with two TrafficAreas of the Road. The RoofSurfaces and the TrafficAreas are geometrically identical, but they differ semantically.</p>
+<p>A Road and a Bridge (=top-level features) are modelled in LOD2, as is shown in <a href="#figure-example-road-over-bridge">Figure 9</a>. The Bridge is bounded by Ground-, Roof-, and WallSurfaces that are modelled as MultiSurface geometries. The Road consists of three sections; each section is bounded by two TrafficAreas that are modelled as MultiSurface geometries as well. The RoofSurfaces of the Bridge share MultiSurface geometries with two TrafficAreas of the Road. The RoofSurfaces and the TrafficAreas are geometrically identical, but they differ semantically.</p>
 </div>
 <div class="paragraph">
 <p>To express that the RoofSurfaces share MultiSurface geometries with two TrafficAreas, they reference each other using CityObjectRelations with the relation type “shared”.</p>
@@ -1624,13 +1562,13 @@ Add requirement in tabular form
 <a href="https://github.com/opengeospatial/CityGML-3.0Encodings/blob/master/CityGML/Examples/Transportation/Basic%20examples/Road_over_Bridge_CityGML3.0_LOD2_with_CityObjectRelations.gml" class="bare">https://github.com/opengeospatial/CityGML-3.0Encodings/blob/master/CityGML/Examples/Transportation/Basic%20examples/Road_over_Bridge_CityGML3.0_LOD2_with_CityObjectRelations.gml</a></p>
 </div>
 <div class="paragraph">
-<p>The Road and Bridge from the GML file are illustrated in the object diagram in <a href="#figure-uml-road-over-bridge">Figure 12</a>. The CityObjectRelations are highlighted in red.</p>
+<p>The Road and Bridge from the GML file are illustrated in the object diagram in <a href="#figure-uml-road-over-bridge">Figure 10</a>. The CityObjectRelations are highlighted in red.</p>
 </div>
 <div id="figure-uml-road-over-bridge" class="imageblock text-center">
 <div class="content">
 <img src="images/UML_RoadOverBridge.png" alt="UML RoadOverBridge">
 </div>
-<div class="title">Figure 12. UML object diagram for the building in <a href="#figure-example-road-over-bridge">Figure 11</a>.</div>
+<div class="title">Figure 10. UML object diagram for the building in <a href="#figure-example-road-over-bridge">Figure 9</a>.</div>
 </div>
 <div class="paragraph">
 <p><strong>Example 3: Parking garage</strong></p>
@@ -1639,10 +1577,10 @@ Add requirement in tabular form
 <div class="content">
 <img src="images/Example_ParkingGarage.png" alt="Example ParkingGarage" width="70%">
 </div>
-<div class="title">Figure 13. Shared surfaces in a parking garage.</div>
+<div class="title">Figure 11. Shared surfaces in a parking garage.</div>
 </div>
 <div class="paragraph">
-<p>The parking garage in <a href="#figure-example-parking-garage">Figure 13</a> is modelled in LOD2 as a building (=top-level feature) with Floor-, Roof-, and WallSurfaces that are modelled as MultiSurface geometries. The parking garage contains a Road with Sections and TrafficAreas that are modelled as MultiSurface geometries as well. The Floor- and RoofSurface of the Building share MultiSurface geometries with the Sections and TrafficAreas of the Road.</p>
+<p>The parking garage in <a href="#figure-example-parking-garage">Figure 11</a> is modelled in LOD2 as a building (=top-level feature) with Floor-, Roof-, and WallSurfaces that are modelled as MultiSurface geometries. The parking garage contains a Road with Sections and TrafficAreas that are modelled as MultiSurface geometries as well. The Floor- and RoofSurface of the Building share MultiSurface geometries with the Sections and TrafficAreas of the Road.</p>
 </div>
 <div class="paragraph">
 <p>To express the sharing of MultiSurface geometries between the Roof-/WallSurfaces and the Sections/TrafficAreas, they reference each other using CityObjectRelations with the relation type “shared”.</p>
@@ -1650,6 +1588,31 @@ Add requirement in tabular form
 <div class="paragraph">
 <p>The GML file is available here:
 <a href="https://github.com/opengeospatial/CityGML-3.0Encodings/blob/master/CityGML/Examples/Transportation/Basic%20examples/Road_over_Bridge_CityGML3.0_LOD2_with_CityObjectRelations.gml" class="bare">https://github.com/opengeospatial/CityGML-3.0Encodings/blob/master/CityGML/Examples/Transportation/Basic%20examples/Road_over_Bridge_CityGML3.0_LOD2_with_CityObjectRelations.gml</a></p>
+</div>
+<div class="paragraph">
+<p><strong>Exception: Intersection as part of two Roads</strong></p>
+</div>
+<div id="figure-example-intersection" class="imageblock text-center">
+<div class="content">
+<img src="images/Example_Intersection.png" alt="Example Intersection" width="70%">
+</div>
+<div class="title">Figure 12. Intersection shared by two roads.</div>
+</div>
+<div class="paragraph">
+<p>In <a href="#figure-example-intersection">Figure 12</a>, two Roads (=top-level features) are shown that each have two Sections and one Intersection. The two Roads cross each other at the Intersection. Although the Intersection and, thus, also its geometry is shared by both Roads, it exists in reality only once; i.e., the Intersection is integral part of both Roads. In contrast to the examples above, this should not be expressed by duplicating the Intersection to represent it inline of both Roads and link the duplicates using CityObjectRelations. Instead, the Intersection should be represented inline as part of one Road (here: Road 2) and be referenced by the other Road (here: Road 3) using an XLink that references the ID of the Intersection feature. This type of feature link is similar to Rule 4, where XLinks are used to relate features to alternative aggregations, with the difference that Road 3 cannot semantically be considered an alternative aggregation of the Intersection.</p>
+</div>
+<div class="paragraph">
+<p>The GML file is available here:
+<a href="https://github.com/opengeospatial/CityGML-3.0Encodings/blob/master/CityGML/Examples/Transportation/Basic%20examples/ParkingGarage_CityGML3.0_LOD2_with_CityObjectRelations_and_XLinks.gml" class="bare">https://github.com/opengeospatial/CityGML-3.0Encodings/blob/master/CityGML/Examples/Transportation/Basic%20examples/ParkingGarage_CityGML3.0_LOD2_with_CityObjectRelations_and_XLinks.gml</a></p>
+</div>
+<div class="paragraph">
+<p>The two Roads and the Intersection from the GML file are illustrated in the object diagram in <a href="#figure-uml-intersection">Figure 13</a>. The XLink reference is highlighted in red.</p>
+</div>
+<div id="figure-uml-intersection" class="imageblock text-center">
+<div class="content">
+<img src="images/UML_Intersection.png" alt="UML Intersection">
+</div>
+<div class="title">Figure 13. UML object diagram for the building in <a href="#figure-example-intersection">Figure 12</a>.</div>
 </div>
 </div>
 <div class="sect4">
@@ -1668,44 +1631,19 @@ Add requirement in tabular form
 <p>Here, XLink represents a link at the feature level (“feature link”), i.e., a reference to the ID of the feature being part of the natural aggregation. All features are part of a natural aggregation, i.e., features are typically represented in a data set once in physical form, either directly as part of the city model when they are top-level features (e.g. a Building), or inline as part of other (top-level) features (e.g. a BuildingRoom represented inline as part of the top-level feature Building). At the same time, the features can also occur in alternative aggregations.</p>
 </div>
 <div class="paragraph">
-<p><strong>Example 1: Intersection as part of two Roads</strong></p>
-</div>
-<div id="figure-example-intersection" class="imageblock text-center">
-<div class="content">
-<img src="images/Example_Intersection.png" alt="Example Intersection" width="70%">
-</div>
-<div class="title">Figure 14. Intersection shared by two roads.</div>
-</div>
-<div class="paragraph">
-<p>In <a href="#figure-example-intersection">Figure 14</a>, two roads are shown that each have two Sections and one Intersection. The two roads cross each other at the Intersection. Although the Intersection is shared by the Roads, it exists in reality only once. This is reflected by specifying that the natural aggregation of the Intersection feature is Road 2, whereas Road 3 represents an alternative aggregation of the Intersection. Thus, the Intersection feature is represented inline as part of Road 2, whereas it is referenced by Road 3 using an XLink that references the ID of the Intersection feature.</p>
-</div>
-<div class="paragraph">
-<p>The GML file is available here:
-<a href="https://github.com/opengeospatial/CityGML-3.0Encodings/blob/master/CityGML/Examples/Transportation/Basic%20examples/ParkingGarage_CityGML3.0_LOD2_with_CityObjectRelations_and_XLinks.gml" class="bare">https://github.com/opengeospatial/CityGML-3.0Encodings/blob/master/CityGML/Examples/Transportation/Basic%20examples/ParkingGarage_CityGML3.0_LOD2_with_CityObjectRelations_and_XLinks.gml</a></p>
-</div>
-<div class="paragraph">
-<p>The two Roads and the Intersection from the GML file are illustrated in the object diagram in <a href="#figure-uml-intersection">Figure 15</a>. The XLink reference is highlighted in red.</p>
-</div>
-<div id="figure-uml-intersection" class="imageblock text-center">
-<div class="content">
-<img src="images/UML_Intersection.png" alt="UML Intersection">
-</div>
-<div class="title">Figure 15. UML object diagram for the building in <a href="#figure-example-intersection">Figure 14</a>.</div>
-</div>
-<div class="paragraph">
-<p><strong>Example 2: A specific version of a city model</strong></p>
+<p><strong>Example 1: A specific version of a city model</strong></p>
 </div>
 <div class="paragraph">
 <p>A Version features groups, for instance, versions of city objects that are valid within a specific time period. The city model represents the natural aggregation of these versioned city objects, whereas the Version feature represents the alternative aggregation. Thus, the versioned city objects are represented inline as part of the city model, whereas they are referenced by the Version feature using XLink references.</p>
 </div>
 <div class="paragraph">
-<p><strong>Example 3: Building rooms belonging to a Storey</strong></p>
+<p><strong>Example 2: Building rooms belonging to a Storey</strong></p>
 </div>
 <div class="paragraph">
 <p>BuildingRooms are usually represented inline as part of the Building they belong to, thus, the Building represents the natural aggregation. In addition, Storeys can group BuildingRooms to indicate which BuildingRoom belongs to which Storey. In this case, when the BuildingRooms are already part of the Building, the grouping into Storeys would represent an alternative aggregation, thus, the Storeys would reference the BuildingRooms using XLink relations.</p>
 </div>
 <div class="paragraph">
-<p><strong>Example 4: A Building installation spanning across several Building Parts</strong></p>
+<p><strong>Example 3: A Building installation spanning across several Building Parts</strong></p>
 </div>
 <div class="paragraph">
 <p>Installations that are spanning across several building parts are to be physically modelled as part of one building part, all other building parts reference the installation using XLinks, expressing in this way, that the installation does not exclusively belong to one building part only.</p>
@@ -1714,7 +1652,7 @@ Add requirement in tabular form
 <p>This means, that one of the BuildingParts represents the natural aggregation of the BuildingInstallation (i.e. inline representation), whereas the other BuildingParts represent alternative aggregations (i.e. XLink reference).</p>
 </div>
 <div class="paragraph">
-<p><strong>Example 5: CityObjectGroups</strong></p>
+<p><strong>Example 4: CityObjectGroups</strong></p>
 </div>
 <div class="paragraph">
 <p>A CityObjectGroup groups existing city objects that are usually represented inline somewhere else in the data set. Thus, CityObjectGroups represent alternative aggregations and have to use XLink to reference the city objects they are grouping.</p>
@@ -1847,10 +1785,10 @@ Add requirement in tabular form
 </tbody>
 </table>
 <div class="paragraph">
-<p>The CityGML Core XML elements and their corresponding CityGML UML classes are listed in <a href="#core-xml-elements">Table 3</a>. In addition, the CityGML Core XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/3.0/core.xsd" target="_blank" rel="noopener">core.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/core/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
+<p>The CityGML Core XML elements and their corresponding CityGML UML classes are listed in <a href="#core-xml-elements">Table 4</a>. In addition, the CityGML Core XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/3.0/core.xsd" target="_blank" rel="noopener">core.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/core/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
 </div>
 <table id="core-xml-elements" class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 3. Core XML Elements</caption>
+<caption class="title">Table 4. Core XML Elements</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -2150,10 +2088,10 @@ Add requirement in tabular form
 </tbody>
 </table>
 <div class="paragraph">
-<p>The CityGML Appearance XML elements and their corresponding CityGML UML classes are listed in <a href="#appearance-xml-elements">Table 4</a>. In addition, the CityGML Appearance XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/appearance/3.0/appearance.xsd" target="_blank" rel="noopener">appearance.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/appearance/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
+<p>The CityGML Appearance XML elements and their corresponding CityGML UML classes are listed in <a href="#appearance-xml-elements">Table 5</a>. In addition, the CityGML Appearance XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/appearance/3.0/appearance.xsd" target="_blank" rel="noopener">appearance.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/appearance/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
 </div>
 <table id="appearance-xml-elements" class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 4. Appearance XML Elements</caption>
+<caption class="title">Table 5. Appearance XML Elements</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -2330,10 +2268,10 @@ Add requirement in tabular form
 </tbody>
 </table>
 <div class="paragraph">
-<p>The CityGML Bridge XML elements and their corresponding CityGML UML classes are listed in <a href="#bridge-xml-elements">Table 5</a>. In addition, the CityGML Bridge XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/bridge/3.0/bridge.xsd" target="_blank" rel="noopener">bridge.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/bridge/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
+<p>The CityGML Bridge XML elements and their corresponding CityGML UML classes are listed in <a href="#bridge-xml-elements">Table 6</a>. In addition, the CityGML Bridge XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/bridge/3.0/bridge.xsd" target="_blank" rel="noopener">bridge.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/bridge/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
 </div>
 <table id="bridge-xml-elements" class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 5. Bridge XML Elements</caption>
+<caption class="title">Table 6. Bridge XML Elements</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -2502,10 +2440,10 @@ Add requirement in tabular form
 </tbody>
 </table>
 <div class="paragraph">
-<p>The CityGML Building XML elements and their corresponding CityGML UML classes are listed in <a href="#building-xml-elements">Table 6</a>. In addition, the CityGML Building XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/building/3.0/building.xsd" target="_blank" rel="noopener">building.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/building/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
+<p>The CityGML Building XML elements and their corresponding CityGML UML classes are listed in <a href="#building-xml-elements">Table 7</a>. In addition, the CityGML Building XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/building/3.0/building.xsd" target="_blank" rel="noopener">building.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/building/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
 </div>
 <table id="building-xml-elements" class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 6. Building XML Elements</caption>
+<caption class="title">Table 7. Building XML Elements</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -2702,10 +2640,10 @@ Add requirement in tabular form
 </tbody>
 </table>
 <div class="paragraph">
-<p>The CityGML CityFurniture XML elements and their corresponding CityGML UML classes are listed in <a href="#city-furniture-xml-elements">Table 7</a>. In addition, the CityGML CityFurniture XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/cityfurniture/3.0/cityFurniture.xsd" target="_blank" rel="noopener">cityFurniture.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/cityFurniture/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
+<p>The CityGML CityFurniture XML elements and their corresponding CityGML UML classes are listed in <a href="#city-furniture-xml-elements">Table 8</a>. In addition, the CityGML CityFurniture XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/cityfurniture/3.0/cityFurniture.xsd" target="_blank" rel="noopener">cityFurniture.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/cityFurniture/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
 </div>
 <table id="city-furniture-xml-elements" class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 7. CityFurniture XML Elements</caption>
+<caption class="title">Table 8. CityFurniture XML Elements</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -2836,10 +2774,10 @@ Add requirement in tabular form
 </tbody>
 </table>
 <div class="paragraph">
-<p>The CityGML CityObjectGroup XML elements and their corresponding CityGML UML classes are listed in <a href="#city-object-group-xml-elements">Table 8</a>. In addition, the CityGML CityObjectGroup XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/cityobjectgroup/3.0/cityObjectGroup.xsd" target="_blank" rel="noopener">cityObjectGroup.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/cityObjectGroup/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
+<p>The CityGML CityObjectGroup XML elements and their corresponding CityGML UML classes are listed in <a href="#city-object-group-xml-elements">Table 9</a>. In addition, the CityGML CityObjectGroup XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/cityobjectgroup/3.0/cityObjectGroup.xsd" target="_blank" rel="noopener">cityObjectGroup.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/cityObjectGroup/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
 </div>
 <table id="city-object-group-xml-elements" class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 8. CityObjectGroup XML Elements</caption>
+<caption class="title">Table 9. CityObjectGroup XML Elements</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -2964,10 +2902,10 @@ Add requirement in tabular form
 </tbody>
 </table>
 <div class="paragraph">
-<p>The CityGML Construction XML elements and their corresponding CityGML UML classes are listed in <a href="#construction-xml-elements">Table 9</a>. In addition, the CityGML Construction XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/construction/3.0/construction.xsd" target="_blank" rel="noopener">construction.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/construction/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
+<p>The CityGML Construction XML elements and their corresponding CityGML UML classes are listed in <a href="#construction-xml-elements">Table 10</a>. In addition, the CityGML Construction XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/construction/3.0/construction.xsd" target="_blank" rel="noopener">construction.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/construction/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
 </div>
 <table id="construction-xml-elements" class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 9. Construction XML Elements</caption>
+<caption class="title">Table 10. Construction XML Elements</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -3259,10 +3197,10 @@ Add requirement in tabular form
 </tbody>
 </table>
 <div class="paragraph">
-<p>The CityGML Dynamizer XML elements and their corresponding CityGML UML classes are listed in <a href="#dynamizer-xml-elements">Table 10</a>. In addition, the CityGML Dynamizer XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/dynamizer/3.0/dynamizer.xsd" target="_blank" rel="noopener">dynamizer.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/dynamizer/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
+<p>The CityGML Dynamizer XML elements and their corresponding CityGML UML classes are listed in <a href="#dynamizer-xml-elements">Table 11</a>. In addition, the CityGML Dynamizer XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/dynamizer/3.0/dynamizer.xsd" target="_blank" rel="noopener">dynamizer.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/dynamizer/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
 </div>
 <table id="dynamizer-xml-elements" class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 10. Dynamizer XML Elements</caption>
+<caption class="title">Table 11. Dynamizer XML Elements</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -3443,10 +3381,10 @@ Add requirement in tabular form
 </tbody>
 </table>
 <div class="paragraph">
-<p>The CityGML Generics XML elements and their corresponding CityGML UML classes are listed in <a href="#generics-xml-elements">Table 11</a>. In addition, the CityGML Generics XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/generics/3.0/generics.xsd" target="_blank" rel="noopener">generics.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/generics/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
+<p>The CityGML Generics XML elements and their corresponding CityGML UML classes are listed in <a href="#generics-xml-elements">Table 12</a>. In addition, the CityGML Generics XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/generics/3.0/generics.xsd" target="_blank" rel="noopener">generics.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/generics/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
 </div>
 <table id="generics-xml-elements" class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 11. Generics XML Elements</caption>
+<caption class="title">Table 12. Generics XML Elements</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -3623,10 +3561,10 @@ Add requirement in tabular form
 </tbody>
 </table>
 <div class="paragraph">
-<p>The CityGML LandUse XML elements and their corresponding CityGML UML classes are listed in <a href="#land-use-xml-elements">Table 12</a>. In addition, the CityGML LandUse XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/landuse/3.0/landUse.xsd" target="_blank" rel="noopener">landUse.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/landUse/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
+<p>The CityGML LandUse XML elements and their corresponding CityGML UML classes are listed in <a href="#land-use-xml-elements">Table 13</a>. In addition, the CityGML LandUse XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/landuse/3.0/landUse.xsd" target="_blank" rel="noopener">landUse.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/landUse/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
 </div>
 <table id="land-use-xml-elements" class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 12. LandUse XML Elements</caption>
+<caption class="title">Table 13. LandUse XML Elements</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -3727,7 +3665,7 @@ Add requirement in tabular form
 <p>All associations allow by default that the referenced features can be provided inline or by reference.</p>
 </li>
 <li>
-<p>The PointCloud module allows for representing the geometries of city objects by 3D point clouds in three ways. Examples for each representation option are provided in <a href="#annex-examples-pointcloud">Section B.3</a>:</p>
+<p>The PointCloud module allows for representing the geometries of city objects by 3D point clouds in three ways. Examples for each representation option are provided in <a href="#annex-examples-pointcloud">Section B.2</a>:</p>
 <div class="ulist">
 <ul>
 <li>
@@ -3763,10 +3701,10 @@ Add requirement in tabular form
 </tbody>
 </table>
 <div class="paragraph">
-<p>The CityGML PointCloud XML elements and their corresponding CityGML UML classes are listed in <a href="#point-cloud-xml-elements">Table 13</a>. In addition, the CityGML PointCloud XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/pointcloud/3.0/pointCloud.xsd" target="_blank" rel="noopener">pointCloud.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/pointCloud/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
+<p>The CityGML PointCloud XML elements and their corresponding CityGML UML classes are listed in <a href="#point-cloud-xml-elements">Table 14</a>. In addition, the CityGML PointCloud XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/pointcloud/3.0/pointCloud.xsd" target="_blank" rel="noopener">pointCloud.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/pointCloud/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
 </div>
 <table id="point-cloud-xml-elements" class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 13. PointCloud XML Elements</caption>
+<caption class="title">Table 14. PointCloud XML Elements</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -3887,10 +3825,10 @@ Add requirement in tabular form
 </tbody>
 </table>
 <div class="paragraph">
-<p>The CityGML Relief XML elements and their corresponding CityGML UML classes are listed in <a href="#relief-xml-elements">Table 14</a>. In addition, the CityGML Relief XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/relief/3.0/relief.xsd" target="_blank" rel="noopener">relief.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/relief/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
+<p>The CityGML Relief XML elements and their corresponding CityGML UML classes are listed in <a href="#relief-xml-elements">Table 15</a>. In addition, the CityGML Relief XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/relief/3.0/relief.xsd" target="_blank" rel="noopener">relief.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/relief/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
 </div>
 <table id="relief-xml-elements" class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 14. Relief XML Elements</caption>
+<caption class="title">Table 15. Relief XML Elements</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -4061,10 +3999,10 @@ Add requirement in tabular form
 </tbody>
 </table>
 <div class="paragraph">
-<p>The CityGML Transportation XML elements and their corresponding CityGML UML classes are listed in <a href="#transportation-xml-elements">Table 15</a>. In addition, the CityGML Transportation XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/transportation/3.0/transportation.xsd" target="_blank" rel="noopener">transportation.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/transportation/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
+<p>The CityGML Transportation XML elements and their corresponding CityGML UML classes are listed in <a href="#transportation-xml-elements">Table 16</a>. In addition, the CityGML Transportation XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/transportation/3.0/transportation.xsd" target="_blank" rel="noopener">transportation.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/transportation/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
 </div>
 <table id="transportation-xml-elements" class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 15. Transportation XML Elements</caption>
+<caption class="title">Table 16. Transportation XML Elements</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -4305,10 +4243,10 @@ Add requirement in tabular form
 </tbody>
 </table>
 <div class="paragraph">
-<p>The CityGML Tunnel XML elements and their corresponding CityGML UML classes are listed in <a href="#tunnel-xml-elements">Table 16</a>. In addition, the CityGML Tunnel XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/tunnel/3.0/tunnel.xsd" target="_blank" rel="noopener">tunnel.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/tunnel/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
+<p>The CityGML Tunnel XML elements and their corresponding CityGML UML classes are listed in <a href="#tunnel-xml-elements">Table 17</a>. In addition, the CityGML Tunnel XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/tunnel/3.0/tunnel.xsd" target="_blank" rel="noopener">tunnel.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/tunnel/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
 </div>
 <table id="tunnel-xml-elements" class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 16. Tunnel XML Elements</caption>
+<caption class="title">Table 17. Tunnel XML Elements</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -4477,10 +4415,10 @@ Add requirement in tabular form
 </tbody>
 </table>
 <div class="paragraph">
-<p>The CityGML Vegetation XML elements and their corresponding CityGML UML classes are listed in <a href="#vegetation-xml-elements">Table 17</a>. In addition, the CityGML Vegetation XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/vegetation/3.0/vegetation.xsd" target="_blank" rel="noopener">vegetation.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/vegetation/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
+<p>The CityGML Vegetation XML elements and their corresponding CityGML UML classes are listed in <a href="#vegetation-xml-elements">Table 18</a>. In addition, the CityGML Vegetation XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/vegetation/3.0/vegetation.xsd" target="_blank" rel="noopener">vegetation.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/vegetation/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
 </div>
 <table id="vegetation-xml-elements" class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 17. Vegetation XML Elements</caption>
+<caption class="title">Table 18. Vegetation XML Elements</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -4636,10 +4574,10 @@ Add requirement in tabular form
 </tbody>
 </table>
 <div class="paragraph">
-<p>The CityGML Versioning XML elements and their corresponding CityGML UML classes are listed in <a href="#versioning-xml-elements">Table 18</a>. In addition, the CityGML Versioning XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/versioning/3.0/versioning.xsd" target="_blank" rel="noopener">versioning.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/versioning/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
+<p>The CityGML Versioning XML elements and their corresponding CityGML UML classes are listed in <a href="#versioning-xml-elements">Table 19</a>. In addition, the CityGML Versioning XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/versioning/3.0/versioning.xsd" target="_blank" rel="noopener">versioning.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/versioning/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
 </div>
 <table id="versioning-xml-elements" class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 18. Versioning XML Elements</caption>
+<caption class="title">Table 19. Versioning XML Elements</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -4772,10 +4710,10 @@ Add requirement in tabular form
 </tbody>
 </table>
 <div class="paragraph">
-<p>The CityGML WaterBody XML elements and their corresponding CityGML UML classes are listed in <a href="#water-body-xml-elements">Table 19</a>. In addition, the CityGML WaterBody XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/waterbody/3.0/waterBody.xsd" target="_blank" rel="noopener">waterBody.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/waterBody/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
+<p>The CityGML WaterBody XML elements and their corresponding CityGML UML classes are listed in <a href="#water-body-xml-elements">Table 20</a>. In addition, the CityGML WaterBody XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/waterbody/3.0/waterBody.xsd" target="_blank" rel="noopener">waterBody.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/waterBody/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
 </div>
 <table id="water-body-xml-elements" class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 19. WaterBody XML Elements</caption>
+<caption class="title">Table 20. WaterBody XML Elements</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -4897,34 +4835,9 @@ Ensure that there is a conformance class for each requirements class and a test 
 <p>Various CityGML 3.0 test data sets are available on GitHub for each CityGML module, including those test data sets presented in this chapter: <a href="https://github.com/opengeospatial/CityGML-3.0Encodings/tree/master/CityGML/Examples" class="bare">https://github.com/opengeospatial/CityGML-3.0Encodings/tree/master/CityGML/Examples</a>.</p>
 </div>
 <div class="sect2">
-<h3 id="annex-examples-building"><a class="anchor" href="#annex-examples-building"></a>B.1. Building Examples</h3>
-<div class="sect3">
-<h4 id="_buildings_units_for_representing_ownership"><a class="anchor" href="#_buildings_units_for_representing_ownership"></a>B.1.1. Buildings Units for representing ownership</h4>
-<div class="ulist">
-<ul>
-<li>
-<p>Building in LOD0</p>
-</li>
-<li>
-<p>Building in LOD1</p>
-</li>
-<li>
-<p>Building in LOD2</p>
-</li>
-<li>
-<p>Building in LOD3</p>
-</li>
-<li>
-<p>One example with three top-level features, e.g. Building, Tree (maybe with implicit geometry), and Street + CityObjectGroup which groups theses features using XLinks</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="annex-examples-address"><a class="anchor" href="#annex-examples-address"></a>B.2. Address Examples</h3>
+<h3 id="annex-examples-address"><a class="anchor" href="#annex-examples-address"></a>B.1. Address Examples</h3>
 <div class="paragraph">
-<p>The CityGML 3.0 CM provides the ability to represent address information of real-world features. Addresses can be declared for <em>AbstractBridge</em>, <em>AbstractBuilding</em>, <em>BuildingUnit</em>, <em>Door</em>, and <em>DoorSurface</em> feature types using their respective <em>address</em> properties and the <em>Address</em> feature type of the core module. An <em>Address</em> can be declared inline or by an XLink reference.</p>
+<p>The CityGML 3.0 CM provides the ability to represent address information of real-world features. Addresses can be declared for <em>AbstractBridge</em>, <em>AbstractBuilding</em>, <em>BuildingUnit</em>, <em>Door</em>, and <em>DoorSurface</em> feature types using their respective <em>address</em> properties and the <em>Address</em> feature type of the Core module. An <em>Address</em> can be declared inline or by an XLink reference.</p>
 </div>
 <div class="paragraph">
 <p>An <em>Address</em> is modeled with two properties:</p>
@@ -5036,7 +4949,7 @@ Ensure that there is a conformance class for each requirements class and a test 
 </div>
 </div>
 <div class="sect2">
-<h3 id="annex-examples-pointcloud"><a class="anchor" href="#annex-examples-pointcloud"></a>B.3. Point Cloud Examples</h3>
+<h3 id="annex-examples-pointcloud"><a class="anchor" href="#annex-examples-pointcloud"></a>B.2. Point Cloud Examples</h3>
 <div class="paragraph">
 <p>The PointCloud module allows for representing the geometries of city objects by 3D point clouds in three different options, which are illustrated in the following.</p>
 </div>
@@ -5050,13 +4963,13 @@ Ensure that there is a conformance class for each requirements class and a test 
 <p>A MultiPoint geometry is provided inline with the CityGML file, i.e., the point cloud of a specific feature is embedded directly within the feature represented by the point cloud. <a href="#listing-gml-pointcloud-inline">Listing 6</a> shows an example for a point cloud of a building represented inline the Building feature.</p>
 </div>
 <div class="paragraph">
-<p><a href="#figure-example-pointcloud-inline">Figure 16</a> shows different visualisations of the GML file. The left image displays the building features themselves, the middle image shows the point clouds of the buildings, and the right image is a combination of the building features and the point clouds.</p>
+<p><a href="#figure-example-pointcloud-inline">Figure 14</a> shows different visualisations of the GML file. The left image displays the building features themselves, the middle image shows the point clouds of the buildings, and the right image is a combination of the building features and the point clouds.</p>
 </div>
 <div id="figure-example-pointcloud-inline" class="imageblock text-center">
 <div class="content">
 <img src="images/Example_PointCloud_inline.png" alt="Example PointCloud inline">
 </div>
-<div class="title">Figure 16. Visualization of the inline representation of points clouds.</div>
+<div class="title">Figure 14. Visualization of the inline representation of points clouds.</div>
 </div>
 <div id="listing-gml-pointcloud-inline" class="listingblock">
 <div class="title">Listing 6. The point cloud of a building is embedded in the Building feature.</div>
@@ -5114,7 +5027,7 @@ Ensure that there is a conformance class for each requirements class and a test 
 <p><strong>Option 2: External representation in multiple files</strong></p>
 </div>
 <div class="paragraph">
-<p>A separate point cloud file is provided for every feature. Each feature in the CityGML file references the corresponding point cloud file. This is shown in <a href="#listing-gml-pointcloud-external-multiple-files">Listing 7</a>, where the building feature references the LAZ file DEBY_LOD2_4903217.laz that contains the points for this building (illustrated in <a href="#figure-example-pointcloud-external-multiple-files">Figure 17</a>).</p>
+<p>A separate point cloud file is provided for every feature. Each feature in the CityGML file references the corresponding point cloud file. This is shown in <a href="#listing-gml-pointcloud-external-multiple-files">Listing 7</a>, where the building feature references the LAZ file DEBY_LOD2_4903217.laz that contains the points for this building (illustrated in <a href="#figure-example-pointcloud-external-multiple-files">Figure 15</a>).</p>
 </div>
 <div id="listing-gml-pointcloud-external-multiple-files" class="listingblock">
 <div class="title">Listing 7. The point cloud of a building is referenced in an external file.</div>
@@ -5151,13 +5064,13 @@ Ensure that there is a conformance class for each requirements class and a test 
 <div class="content">
 <img src="images/Example_PointCloud_external_multiple_files.png" alt="Example PointCloud external multiple files" width="50%">
 </div>
-<div class="title">Figure 17. Visualization of the externally referenced LAZ file containing the point cloud of one building.</div>
+<div class="title">Figure 15. Visualization of the externally referenced LAZ file containing the point cloud of one building.</div>
 </div>
 <div class="paragraph">
 <p><strong>Option 3: External representation in a single file</strong></p>
 </div>
 <div class="paragraph">
-<p>One point cloud file is provided that contains all points from all features in a specific area. In the point cloud file, all points belonging to a specific feature have the same value set in the attribute “point_source_id”. Each feature in the CityGML instance document references the point cloud file and all points with the corresponding value in the attribute “point_source_id”. In <a href="#listing-gml-pointcloud-external-single-file">Listing 8</a>, the building feature references all points with the “point_source_id” value 132 in the LAZ file 4467_5331_40_bDOM_classified.laz. The LAZ file itself is shown in <a href="#figure-example-pointcloud-external-single-file">Figure 18</a>. Highlighted are those points with the “point_source_id” value 132.</p>
+<p>One point cloud file is provided that contains all points from all features in a specific area. In the point cloud file, all points belonging to a specific feature have the same value set in the attribute “point_source_id”. Each feature in the CityGML instance document references the point cloud file and all points with the corresponding value in the attribute “point_source_id”. In <a href="#listing-gml-pointcloud-external-single-file">Listing 8</a>, the building feature references all points with the “point_source_id” value 132 in the LAZ file 4467_5331_40_bDOM_classified.laz. The LAZ file itself is shown in <a href="#figure-example-pointcloud-external-single-file">Figure 16</a>. Highlighted are those points with the “point_source_id” value 132.</p>
 </div>
 <div id="listing-gml-pointcloud-external-single-file" class="listingblock">
 <div class="title">Listing 8. The point cloud of a building is referenced in an external file.</div>
@@ -5194,15 +5107,15 @@ Ensure that there is a conformance class for each requirements class and a test 
 <div class="content">
 <img src="images/Example_PointCloud_external_single_file.png" alt="Example PointCloud external single file">
 </div>
-<div class="title">Figure 18. Visualization of an external LAZ file containing amongst others the referenced points of a specific building.</div>
+<div class="title">Figure 16. Visualization of an external LAZ file containing amongst others the referenced points of a specific building.</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="annex-examples-dynamizer"><a class="anchor" href="#annex-examples-dynamizer"></a>B.4. Dynamizer Examples</h3>
+<h3 id="annex-examples-dynamizer"><a class="anchor" href="#annex-examples-dynamizer"></a>B.3. Dynamizer Examples</h3>
 
 </div>
 <div class="sect2">
-<h3 id="annex-examples-versioning"><a class="anchor" href="#annex-examples-versioning"></a>B.5. Versioning Examples</h3>
+<h3 id="annex-examples-versioning"><a class="anchor" href="#annex-examples-versioning"></a>B.4. Versioning Examples</h3>
 <div class="paragraph">
 <p><strong>Version Management using XLinks</strong></p>
 </div>
@@ -5230,14 +5143,14 @@ The rules clearly define when to create new versions of features and when to ref
 <p>With this rule, the subordinate features can remain in their current state and do not need to be copied as new versions for every change within in a top-level feature.</p>
 </div>
 <div class="paragraph">
-<p>The use of Rule 1 is illustrated in <a href="#figure-version-management-rule1">Figure 19</a>.
+<p>The use of Rule 1 is illustrated in <a href="#figure-version-management-rule1">Figure 17</a>.
 The <em>function</em> attribute of the top-level feature Building changes from <em>Living</em> to <em>Office</em>; thus, a new version of the Building feature is created with a new gml:id. Since the subordinate feature BuildingPart remains unchanged, the new Building version references the unchanged BuildingPart feature.</p>
 </div>
 <div id="figure-version-management-rule1" class="imageblock text-center">
 <div class="content">
 <img src="images/VersionManagement_Rule1.png" alt="VersionManagement Rule1">
 </div>
-<div class="title">Figure 19. Version management when only the top-level feature changes.</div>
+<div class="title">Figure 17. Version management when only the top-level feature changes.</div>
 </div>
 <div class="paragraph">
 <p><strong>Rule 2: Only a subordinate feature changes</strong></p>
@@ -5262,22 +5175,22 @@ The <em>function</em> attribute of the top-level feature Building changes from <
 <p>For aggregation hierarchies this means that whenever a subordinate feature changes, also new versions of all corresponding superordinate features up to the top-level feature need to be created.</p>
 </div>
 <div class="paragraph">
-<p>The use of rule 2 is illustrated in <a href="#figure-version-management-rule2">Figure 20</a>. Here the roof type of the subordinate feature BuildingPart changes from <em>Flat</em> to <em>Saddle</em> which results in a new version of the BuildingPart feature with a new gml:id. The feature is referenced from a superordinate feature, i.e., the top-level feature Building. This means that also a new version needs to be created for the Building feature with a new gml:id and a reference to the new BuildingPart feature.</p>
+<p>The use of rule 2 is illustrated in <a href="#figure-version-management-rule2">Figure 18</a>. Here the roof type of the subordinate feature BuildingPart changes from <em>Flat</em> to <em>Saddle</em> which results in a new version of the BuildingPart feature with a new gml:id. The feature is referenced from a superordinate feature, i.e., the top-level feature Building. This means that also a new version needs to be created for the Building feature with a new gml:id and a reference to the new BuildingPart feature.</p>
 </div>
 <div id="figure-version-management-rule2" class="imageblock text-center">
 <div class="content">
 <img src="images/VersionManagement_Rule2.png" alt="VersionManagement Rule2">
 </div>
-<div class="title">Figure 20. Version management when only a subordinate feature changes that is directly referenced from the top-level feature.</div>
+<div class="title">Figure 18. Version management when only a subordinate feature changes that is directly referenced from the top-level feature.</div>
 </div>
 <div class="paragraph">
-<p><a href="#figure-version-management-rule2-aggregation">Figure 21</a> illustrates rule 2 for an aggregation hierarchy. Here, the BuildingPart feature has two subordinate features BuildingRoom. The function of one BuildingRoom changes from <em>Bedroom</em> to <em>Home Office</em>, whereas the other BuildingRoom feature remains unchanged. This means that a new version is created for the changed BuildingRoom feature and also for the superordinate BuildingPart feature. The new BuildingPart feature references then the changed BuildingRoom feature and the unchanged BuildingRoom feature. Since BuildingPart, in turn, is subordinate to the top-level feature Building, also a new version of the Building feature is created.</p>
+<p><a href="#figure-version-management-rule2-aggregation">Figure 19</a> illustrates rule 2 for an aggregation hierarchy. Here, the BuildingPart feature has two subordinate features BuildingRoom. The function of one BuildingRoom changes from <em>Bedroom</em> to <em>Home Office</em>, whereas the other BuildingRoom feature remains unchanged. This means that a new version is created for the changed BuildingRoom feature and also for the superordinate BuildingPart feature. The new BuildingPart feature references then the changed BuildingRoom feature and the unchanged BuildingRoom feature. Since BuildingPart, in turn, is subordinate to the top-level feature Building, also a new version of the Building feature is created.</p>
 </div>
 <div id="figure-version-management-rule2-aggregation" class="imageblock text-center">
 <div class="content">
 <img src="images/VersionManagement_Rule2_Aggregation.png" alt="VersionManagement Rule2 Aggregation">
 </div>
-<div class="title">Figure 21. Version management when only a subordinate feature changes that is part of an aggregation hierarchy.</div>
+<div class="title">Figure 19. Version management when only a subordinate feature changes that is part of an aggregation hierarchy.</div>
 </div>
 <div class="paragraph">
 <p><strong>Rule 3: Top-level and subordinate features change</strong></p>
@@ -5293,25 +5206,25 @@ The <em>function</em> attribute of the top-level feature Building changes from <
 <div class="content">
 <img src="images/VersionManagement_Rule3.png" alt="VersionManagement Rule3">
 </div>
-<div class="title">Figure 22. Use of Rule3 in case a top-level feature and a corresponding subordinate feature changes.</div>
+<div class="title">Figure 20. Use of Rule3 in case a top-level feature and a corresponding subordinate feature changes.</div>
 </div>
 <div class="paragraph">
-<p>The use of rule 3 is illustrated in <a href="#figure-version-management-rule2">Figure 20</a>. Here, the top-level feature Building and its subordinate feature BuildingPart change. Thus, new versions are created for both features with new gml:ids, new attribute values and a reference from the new Building feature to the new BuildingPart feature.</p>
+<p>The use of rule 3 is illustrated in <a href="#figure-version-management-rule2">Figure 18</a>. Here, the top-level feature Building and its subordinate feature BuildingPart change. Thus, new versions are created for both features with new gml:ids, new attribute values and a reference from the new Building feature to the new BuildingPart feature.</p>
 </div>
 <div class="paragraph">
 <p><strong>Example: Successive version management over a period of time</strong></p>
 </div>
 <div class="paragraph">
-<p>The example in <a href="#figure-version-management-example1">Figure 23</a> illustrates different versions of a building at three points in time. The original Building including its BuildingPart exists at time t1. At time t2, the top-level feature Building changes its function which results in the application of Rule 1. Afterwards at time t3, the subordinate feature BuildingPart changes its roof type, thus, Rule 2 is applied in this case. <a href="#listing-gml-version-management-example1">Listing 9</a> represents this example in GML.</p>
+<p>The example in <a href="#figure-version-management-example1">Figure 21</a> illustrates different versions of a building at three points in time. The original Building including its BuildingPart exists at time t1. At time t2, the top-level feature Building changes its function which results in the application of Rule 1. Afterwards at time t3, the subordinate feature BuildingPart changes its roof type, thus, Rule 2 is applied in this case. <a href="#listing-gml-version-management-example1">Listing 9</a> represents this example in GML.</p>
 </div>
 <div id="figure-version-management-example1" class="imageblock text-center">
 <div class="content">
 <img src="images/VersionManagement_Example1.png" alt="VersionManagement Example1">
 </div>
-<div class="title">Figure 23. Successive version management over a period of time.</div>
+<div class="title">Figure 21. Successive version management over a period of time.</div>
 </div>
 <div id="listing-gml-version-management-example1" class="listingblock">
-<div class="title">Listing 9. GML instance document for the example on successive version management over a period of time illustrated in <a href="#figure-version-management-example1">Figure 23</a>.</div>
+<div class="title">Listing 9. GML instance document for the example on successive version management over a period of time illustrated in <a href="#figure-version-management-example1">Figure 21</a>.</div>
 <div class="content">
 <pre class="highlight"><code class="language-XML" data-lang="XML">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
 &lt;core:CityModel ... Namespaces and Schema location ... &gt;
@@ -5360,16 +5273,16 @@ The <em>function</em> attribute of the top-level feature Building changes from <
 <p><strong>Example: Successive version management with Versions and VersionTransitions</strong></p>
 </div>
 <div class="paragraph">
-<p>The example in <a href="#figure-version-management-example2">Figure 24</a> illustrates 4 Building features (b1, b2-1, b2-2, and b3) represented across 2 Versions (v1 and v2). A <em>historicalSuccession</em> type VersionTransition (vt1) stores the changes between each Building through 3 Transactions (t1, t2, and t3). t1 shows that Building b1 is <em>deleted</em> from v1, t2 shows that Building b2-1 is <em>replaced</em> by Building b2-2 in v2, and t3 shows that Building b3 is <em>inserted</em> into v2. <a href="#listing-gml-version-management-example2">Listing 10</a> represents this example in GML.</p>
+<p>The example in <a href="#figure-version-management-example2">Figure 22</a> illustrates 4 Building features (b1, b2-1, b2-2, and b3) represented across 2 Versions (v1 and v2). A <em>historicalSuccession</em> type VersionTransition (vt1) stores the changes between each Building through 3 Transactions (t1, t2, and t3). t1 shows that Building b1 is <em>deleted</em> from v1, t2 shows that Building b2-1 is <em>replaced</em> by Building b2-2 in v2, and t3 shows that Building b3 is <em>inserted</em> into v2. <a href="#listing-gml-version-management-example2">Listing 10</a> represents this example in GML.</p>
 </div>
 <div id="figure-version-management-example2" class="imageblock text-center">
 <div class="content">
 <img src="images/VersionManagement_Example2.png" alt="VersionManagement Example2">
 </div>
-<div class="title">Figure 24. Successive version management using Versions and VersionTransitions.</div>
+<div class="title">Figure 22. Successive version management using Versions and VersionTransitions.</div>
 </div>
 <div id="listing-gml-version-management-example2" class="listingblock">
-<div class="title">Listing 10. GML instance document for the example on successive version management using Versions and VersionTransitions illustrated in <a href="#figure-version-management-example2">Figure 24</a>.</div>
+<div class="title">Listing 10. GML instance document for the example on successive version management using Versions and VersionTransitions illustrated in <a href="#figure-version-management-example2">Figure 22</a>.</div>
 <div class="content">
 <pre class="highlight"><code class="language-XML" data-lang="XML">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
 &lt;core:CityModel ... Namespaces and Schema location ... &gt;
@@ -5439,11 +5352,7 @@ The <em>function</em> attribute of the top-level feature Building changes from <
 </div>
 </div>
 <div class="sect2">
-<h3 id="annex-examples-localcrs"><a class="anchor" href="#annex-examples-localcrs"></a>B.6. Local Engineering Coordinate Reference System Example</h3>
-
-</div>
-<div class="sect2">
-<h3 id="annex-examples-ade"><a class="anchor" href="#annex-examples-ade"></a>B.7. Application Domain Extension (ADE) Examples</h3>
+<h3 id="annex-examples-ade"><a class="anchor" href="#annex-examples-ade"></a>B.5. Application Domain Extension (ADE) Examples</h3>
 <div class="paragraph">
 <p>The CityGML 3.0 Conceptual Model introduces the concept of the <a href="https://docs.ogc.org/is/20-010/20-010.html#toc66">Application Domain Extension (ADE)</a> to ensure extensibility of the CityGML data model as in the previous version CityGML 2.0. The ADE mechanism allows to add new application-specific feature types, to inject additional properties to the predefined CityGML feature types, to associate application data with predefined CityGML content, or to define value domains for attributes.</p>
 </div>
@@ -5457,11 +5366,11 @@ The <em>function</em> attribute of the top-level feature Building changes from <
 <p>For both ADEs, UML models have been created based on the rules described in Chapter 9 of the CityGML 3.0 Conceptual Model standard for how to define UML models for ADEs. The UML models were created using the Enterprise Architect project file that already contains the CityGML 3.0 UML model. Afterwards, the software tool ShapeChange was applied to the UML models to derive the XML schemas. Finally, test data sets were implemented that validate against the XML schemas.</p>
 </div>
 <div class="sect3">
-<h4 id="_example_1_test_ade"><a class="anchor" href="#_example_1_test_ade"></a>B.7.1. Example 1: Test ADE</h4>
+<h4 id="_example_1_test_ade"><a class="anchor" href="#_example_1_test_ade"></a>B.5.1. Example 1: Test ADE</h4>
 <div class="paragraph">
 <p>The Test ADE is a light-weight artificial ADE, which was designed for demonstrating the most frequent scenarios in practical ADEs. In particular,
 the both methods ('hook' mechanism and subclassing) for augmenting predefined CityGML feature classes with additional ADE Properties are presented.
-The UML Conceptual Model of the Test ADE is shown in <a href="#figure-test-ade-uml">Figure 25</a>. All ADE classes can be categorized into the following groups:</p>
+The UML Conceptual Model of the Test ADE is shown in <a href="#figure-test-ade-uml">Figure 23</a>. All ADE classes can be categorized into the following groups:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -5495,10 +5404,10 @@ The UML Conceptual Model of the Test ADE is shown in <a href="#figure-test-ade-u
 <div class="content">
 <img src="images/TestADE_UML.png" alt="TestADE UML">
 </div>
-<div class="title">Figure 25. UML model of the Test ADE.</div>
+<div class="title">Figure 23. UML model of the Test ADE.</div>
 </div>
 <div id="listing-test-ade-xml-schema" class="listingblock">
-<div class="title">Listing 11. XML schema of the Test ADE model in <a href="#figure-test-ade-uml">Figure 25</a>.</div>
+<div class="title">Listing 11. XML schema of the Test ADE model in <a href="#figure-test-ade-uml">Figure 23</a>.</div>
 <div class="content">
 <pre class="highlight"><code class="language-XML" data-lang="XML">&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:bldg="http://www.opengis.net/citygml/building/3.0" xmlns:con="http://www.opengis.net/citygml/construction/3.0" xmlns:core="http://www.opengis.net/citygml/3.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:test="http://www.citygml.org/ade/TestADE/2.0" elementFormDefault="qualified" targetNamespace="http://www.citygml.org/ade/TestADE/2.0" version="2.0"&gt;
   &lt;import namespace="http://www.opengis.net/citygml/3.0" schemaLocation="../schema/core.xsd"/&gt;
@@ -5802,7 +5711,7 @@ The UML Conceptual Model of the Test ADE is shown in <a href="#figure-test-ade-u
 </div>
 </div>
 <div class="sect3">
-<h4 id="_example_2_urban_planning_ade"><a class="anchor" href="#_example_2_urban_planning_ade"></a>B.7.2. Example 2: Urban Planning ADE</h4>
+<h4 id="_example_2_urban_planning_ade"><a class="anchor" href="#_example_2_urban_planning_ade"></a>B.5.2. Example 2: Urban Planning ADE</h4>
 <div class="paragraph">
 <p>In this example, ADE generation and data implementation of the Urban Planning ADE for CityGML 3.0 are explained. This is based on actual ADE schemas and data of the Urban Planning ADE with exist already for CityGML 2.0 and are published as Open Standard <a href="https://www.chisou.go.jp/tiiki/toshisaisei/itoshisaisei/iur/">"Data Encoding Specification of i-Urban Revitalization -Urban Planning ADE-"</a> and Open Data from <a href="https://www.mlit.go.jp/plateau/opendata/">the Project PLATEAU</a> in Japan.</p>
 </div>
@@ -5820,14 +5729,14 @@ The UML Conceptual Model of the Test ADE is shown in <a href="#figure-test-ade-u
 The UML models for the Urban Object module has been implemented as described in the Requirement 50 in  <a href="https://docs.ogc.org/is/20-010/20-010.html#toc71">section 9.5 in CityGML 3.0 Conceptual Model</a>. The UML model has been defined using the software tool <a href="https://sparxsystems.com/">Enterprise Architect</a> and is available <a href="Examples/ADE-examples/Urban-Planning-ADE/CityGML_3.0_UrbanPlanningADE.eap">here</a> as .eap file.</p>
 </div>
 <div class="paragraph">
-<p>The UML conceptual model is illustrated in <a href="#figure-ADE-realworld-uml1">Figure 26</a>.
+<p>The UML conceptual model is illustrated in <a href="#figure-ADE-realworld-uml1">Figure 24</a>.
 The DataType <em>BuildingProperties</em> is modelled as subclass of the "hook" data type <em>ADEOfAbstractBuilding</em> and defines the additional properties that are added to the CityGML <em>AbstractBuilding</em> class. Additionally, a DataType <em>KeyValuePair</em> and a Union <em>ValueType</em> are defined. By using the <em>BuildingProperties</em> that includes two sets of properties, <em>BuildingDetails</em> and <em>LargeCustomerFacilities</em>, 3D city models can systematically be extended with the detailed properties for urban planning.</p>
 </div>
 <div id="figure-ADE-realworld-uml1" class="imageblock text-center">
 <div class="content">
 <img src="images/UML_ADE_RealworldExample.png" alt="UML ADE RealworldExample">
 </div>
-<div class="title">Figure 26. UML model of the Urban Object module from the Urban Planning ADE.</div>
+<div class="title">Figure 24. UML model of the Urban Object module from the Urban Planning ADE.</div>
 </div>
 <div class="paragraph">
 <p><strong>Step 2: Deriving the XML schema from the UML model</strong></p>
@@ -6121,13 +6030,13 @@ The DataType <em>BuildingProperties</em> is modelled as subclass of the "hook" d
 <p><a href="https://www.mlit.go.jp/plateau/">The Project PLATEAU</a> was launched by MLIT (Ministry of Land, Infrastructure, Transport and Tourism) Japan in 2020, and developed 3D city models for more than 10 million buildings of 56 cities, over 10,000km<sup>2</sup> in Japan. The 3D city models were implemented using the Urban Planning ADE and were published as Open Data (CC BY 4.0/ODbL).</p>
 </div>
 <div class="paragraph">
-<p><a href="#figure-ADE-realworld-step2">Figure 27</a> illustrates sample building data, and the <a href="#listing-ADE-realworld-gml1">Listing 15</a> shows an example of <a href="Examples/ADE-examples/Urban-Planning-ADE/53394517_bldg_6697_op2_CityGML3.gml">the GML instance document</a> that was converted from CityGML 2.0 building model to CityGML 3.0. Note that this conversion was operated manually by checking the ADE XML schema carefully and validating the instance document against the XML schema afterwards. Though there are converters for converting CityGML 2.0 data to CityGML 3.0 such as <a href="https://github.com/citygml4j">citygml4j</a>, data conversion for ADEs is not yet supported by these converters.</p>
+<p><a href="#figure-ADE-realworld-step2">Figure 25</a> illustrates sample building data, and the <a href="#listing-ADE-realworld-gml1">Listing 15</a> shows an example of <a href="Examples/ADE-examples/Urban-Planning-ADE/53394517_bldg_6697_op2_CityGML3.gml">the GML instance document</a> that was converted from CityGML 2.0 building model to CityGML 3.0. Note that this conversion was operated manually by checking the ADE XML schema carefully and validating the instance document against the XML schema afterwards. Though there are converters for converting CityGML 2.0 data to CityGML 3.0 such as <a href="https://github.com/citygml4j">citygml4j</a>, data conversion for ADEs is not yet supported by these converters.</p>
 </div>
 <div id="figure-ADE-realworld-step2" class="imageblock text-center">
 <div class="content">
 <img src="images/Example_ADE_Realworld.png" alt="Example ADE Realworld">
 </div>
-<div class="title">Figure 27. Meiji Memorial Picture Gallery (Mesh ID: 53394517, Building ID: 13104-bldg-53) from <a href="https://www.geospatial.jp/ckan/dataset/plateau-tokyo23ku">the Project PLATEAU</a>.</div>
+<div class="title">Figure 25. Meiji Memorial Picture Gallery (Mesh ID: 53394517, Building ID: 13104-bldg-53) from <a href="https://www.geospatial.jp/ckan/dataset/plateau-tokyo23ku">the Project PLATEAU</a>.</div>
 </div>
 <div id="listing-ADE-realworld-gml1" class="listingblock">
 <div class="title">Listing 15. Example of a CityGML 3.0 GML instance document based on the converted ADE XML schema.</div>
@@ -14404,7 +14313,7 @@ This is where conformance with CityGML 3.0 Conceptual Model is documented.
 <div class="content">
 <img src="images/Codelist_UML.PNG" alt="codelist UML diagram">
 </div>
-<div class="title">Figure 28. Suggested Codelist UML Class Diagram</div>
+<div class="title">Figure 26. Suggested Codelist UML Class Diagram</div>
 </div>
 </div>
 <div class="sect2">
@@ -14808,16 +14717,16 @@ Please note that software compliant to this standard might not be able to read t
 <div class="sect3">
 <h4 id="_gml_encoding_of_association_classes_according_to_iso_19136_2"><a class="anchor" href="#_gml_encoding_of_association_classes_according_to_iso_19136_2"></a>G.1.1. GML encoding of association classes according to ISO 19136-2</h4>
 <div class="paragraph">
-<p>ISO 19136-2 defines an encoding rule for association classes. The encoding rule comprises several steps for deriving a GML encoding from association classes which will be explained in the following based on the UML model provided in <a href="#figure-uml-association-class">Figure 29</a>.</p>
+<p>ISO 19136-2 defines an encoding rule for association classes. The encoding rule comprises several steps for deriving a GML encoding from association classes which will be explained in the following based on the UML model provided in <a href="#figure-uml-association-class">Figure 27</a>.</p>
 </div>
 <div id="figure-uml-association-class" class="imageblock text-center">
 <div class="content">
 <img src="images/UML_AssociationClass.png" alt="UML AssociationClass" width="70%">
 </div>
-<div class="title">Figure 29. UML object diagram for the building in <a href="#figure-example-intersection">Figure 14</a>.</div>
+<div class="title">Figure 27. UML object diagram for the building in <a href="#figure-example-intersection">Figure 12</a>.</div>
 </div>
 <div class="paragraph">
-<p>The UML model in <a href="#figure-uml-association-class">Figure 29</a> defines association class X with an association between source class A and target class B. The following steps are defined by the encoding rule, resulting in the UML model shown in <a href="#figure-uml-intermediate-class">Figure 30</a>:</p>
+<p>The UML model in <a href="#figure-uml-association-class">Figure 27</a> defines association class X with an association between source class A and target class B. The following steps are defined by the encoding rule, resulting in the UML model shown in <a href="#figure-uml-intermediate-class">Figure 28</a>:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -14839,7 +14748,7 @@ Please note that software compliant to this standard might not be able to read t
 <div class="content">
 <img src="images/UML_IntermediateClass.png" alt="UML IntermediateClass">
 </div>
-<div class="title">Figure 30. UML model resulting from applying the encoding rule.</div>
+<div class="title">Figure 28. UML model resulting from applying the encoding rule.</div>
 </div>
 <div class="paragraph">
 <p>The encoding rule can be applied to association classes that are defined with unidirectional, bidirectional or unspecified navigability. Correspondingly, the UML model that results from the encoding rule will also have the associations defined unidirectional, bidirectional or unspecified. The examples here focus on unidirectional associations, since all associations in the CityGML 3.0 Conceptual Model are defined with unidirectional navigability.</p>
@@ -14864,19 +14773,19 @@ Please note that software compliant to this standard might not be able to read t
 </ul>
 </div>
 <div class="paragraph">
-<p>When making use of this tagged value in association classes, the encoding rule described above will add this tagged value to the corresponding association ends of association 1 and 2 after having created the intermediate class. <a href="#figure-uml-association-class-inline">Figure 31</a> and <a href="#figure-uml-intermediate-class-inline">Figure 32</a> illustrate this. <a href="#figure-uml-association-class-inline">Figure 31</a> assumes that for the association end at class B the tagged value “inlineOrByReference” is set to the value “inline”. After applying the encoding rule, both the association ends at class X and at class B, will exhibit the value “inline” as is shown in <a href="#figure-uml-intermediate-class-inline">Figure 32</a>. Similarly, when the association in <a href="#figure-uml-association-class-inline">Figure 31</a> will have the value “byReference” or “inlineOrByReference”, both associations in Figure 4 will exhibit the value “byReference” or “inlineOrByReference”, respectively.</p>
+<p>When making use of this tagged value in association classes, the encoding rule described above will add this tagged value to the corresponding association ends of association 1 and 2 after having created the intermediate class. <a href="#figure-uml-association-class-inline">Figure 29</a> and <a href="#figure-uml-intermediate-class-inline">Figure 30</a> illustrate this. <a href="#figure-uml-association-class-inline">Figure 29</a> assumes that for the association end at class B the tagged value “inlineOrByReference” is set to the value “inline”. After applying the encoding rule, both the association ends at class X and at class B, will exhibit the value “inline” as is shown in <a href="#figure-uml-intermediate-class-inline">Figure 30</a>. Similarly, when the association in <a href="#figure-uml-association-class-inline">Figure 29</a> will have the value “byReference” or “inlineOrByReference”, both associations in Figure 4 will exhibit the value “byReference” or “inlineOrByReference”, respectively.</p>
 </div>
 <div id="figure-uml-association-class-inline" class="imageblock text-center">
 <div class="content">
 <img src="images/UML_AssociationClass_Inline.png" alt="UML AssociationClass Inline" width="70%">
 </div>
-<div class="title">Figure 31. Association class with the tagged value “inlineOrByReference” set to “inline”.</div>
+<div class="title">Figure 29. Association class with the tagged value “inlineOrByReference” set to “inline”.</div>
 </div>
 <div id="figure-uml-intermediate-class-inline" class="imageblock text-center">
 <div class="content">
 <img src="images/UML_IntermediateClass_Inline.png" alt="UML IntermediateClass Inline">
 </div>
-<div class="title">Figure 32. “inlineOrByReference” settings after applying the encoding rule.</div>
+<div class="title">Figure 30. “inlineOrByReference” settings after applying the encoding rule.</div>
 </div>
 <div class="paragraph">
 <p>Using this tagged value means that three different encodings can be obtained depending on which of the three values is set. These different encodings are illustrated in the following by three different GML instance documents. The source class A, the target class B, and the intermediate class X are represented by corresponding XML elements &lt;A&gt;, &lt;B&gt;, and &lt;X&gt;. The associations between the classes A and X and between X and B are both represented by the property element &lt;role&gt;. For illustration purposes, the GML instance documents do not contain root elements and namespaces.</p>
@@ -14939,34 +14848,34 @@ Please note that software compliant to this standard might not be able to read t
 <p>As described above, four different instance representations are possible in the case of the “inlineOrByReference” value. This behaviour is not desired in the GML encoding of the CityGML 3.0 Conceptual Model, as it allows for too many possibilities of how to reference features and, thus, needs to be restricted.</p>
 </div>
 <div class="paragraph">
-<p>In the CityGML 3.0 Conceptual Model, this setting affects two association classes, <em>CityObjectRelation</em> in the Core module and <em>Role</em> in the CityObjectGroup module. For both, the only desired way of representing them in GML instance documents is the structure shown in <a href="#listing-gml-inlineorbyreference">Listing 36</a>. This structure can be specified in a UML model as shown in <a href="#figure-uml-intermediate-class-byreference">Figure 33</a>. After converting the association class into an intermediate class, the tagged value of association 1 nneds to receive the value “inline” and the tagged value of association 2 the value “byReference”. (Please note: The CityGML 3.0 Conceptual Model also defines the association class <em>TextureAssociation</em> in the Appearance module. This association class, however, is not affected here, because it makes use of the value “inline” for which the encoding is correct.)</p>
+<p>In the CityGML 3.0 Conceptual Model, this setting affects two association classes, <em>CityObjectRelation</em> in the Core module and <em>Role</em> in the CityObjectGroup module. For both, the only desired way of representing them in GML instance documents is the structure shown in <a href="#listing-gml-inlineorbyreference">Listing 36</a>. This structure can be specified in a UML model as shown in <a href="#figure-uml-intermediate-class-byreference">Figure 31</a>. After converting the association class into an intermediate class, the tagged value of association 1 nneds to receive the value “inline” and the tagged value of association 2 the value “byReference”. (Please note: The CityGML 3.0 Conceptual Model also defines the association class <em>TextureAssociation</em> in the Appearance module. This association class, however, is not affected here, because it makes use of the value “inline” for which the encoding is correct.)</p>
 </div>
 <div id="figure-uml-intermediate-class-byreference" class="imageblock text-center">
 <div class="content">
 <img src="images/UML_IntermediateClass_Byreference.png" alt="UML IntermediateClass Byreference">
 </div>
-<div class="title">Figure 33. Desired settings for the value “inlineOrByReference” after applying the encoding rule.</div>
+<div class="title">Figure 31. Desired settings for the value “inlineOrByReference” after applying the encoding rule.</div>
 </div>
 <div class="paragraph">
-<p>In order to obtain the restricted structure in GML instance documents, an Implementation Model is created prior to the GML encoding of the CityGML 3.0 Conceptual Model. Within the Implementation Model, the association classes are manually converted into intermediate classes and the tagged values of the associations are set as shown in <a href="#figure-uml-intermediate-class-byreference">Figure 33</a>. This means that the encoding will directly be performed on the Implementation Model. This solution guarantees for representing references between features according to <a href="#listing-gml-inlineorbyreference">Listing 36</a> in GML instance documents and it can be applied directly without any changes to the conversion tools.</p>
+<p>In order to obtain the restricted structure in GML instance documents, an Implementation Model is created prior to the GML encoding of the CityGML 3.0 Conceptual Model. Within the Implementation Model, the association classes are manually converted into intermediate classes and the tagged values of the associations are set as shown in <a href="#figure-uml-intermediate-class-byreference">Figure 31</a>. This means that the encoding will directly be performed on the Implementation Model. This solution guarantees for representing references between features according to <a href="#listing-gml-inlineorbyreference">Listing 36</a> in GML instance documents and it can be applied directly without any changes to the conversion tools.</p>
 </div>
 <div class="paragraph">
-<p>In the following, the solution will be exemplified based on the association class CityObjectRelation. This association class can be used to specify relationships between different features, e.g. it can be expressed that the WallSurface of one building shares the Polygon geometry with the WallSurface of a second Building. The association class is illustrated in <a href="#figure-uml-cityobjectrelation-associationclass">Figure 34</a>, the tagged value is set to “inlineOrByReference”.</p>
+<p>In the following, the solution will be exemplified based on the association class CityObjectRelation. This association class can be used to specify relationships between different features, e.g. it can be expressed that the WallSurface of one building shares the Polygon geometry with the WallSurface of a second Building. The association class is illustrated in <a href="#figure-uml-cityobjectrelation-associationclass">Figure 32</a>, the tagged value is set to “inlineOrByReference”.</p>
 </div>
 <div id="figure-uml-cityobjectrelation-associationclass" class="imageblock text-center">
 <div class="content">
 <img src="images/UML_CityObjectRelation_AssociationClass.png" alt="UML CityObjectRelation AssociationClass" width="70%">
 </div>
-<div class="title">Figure 34. Association class CityObjectRelation.</div>
+<div class="title">Figure 32. Association class CityObjectRelation.</div>
 </div>
 <div class="paragraph">
-<p>Within the Implementation Model, this association class is manually converted into an intermediate class and the tagged values of the associations are set as illustrated in <a href="#figure-uml-cityobjectrelation-intermediateclass">Figure 35</a>. Afterwards, the XML schemas are derived from the Implementation Model.</p>
+<p>Within the Implementation Model, this association class is manually converted into an intermediate class and the tagged values of the associations are set as illustrated in <a href="#figure-uml-cityobjectrelation-intermediateclass">Figure 33</a>. Afterwards, the XML schemas are derived from the Implementation Model.</p>
 </div>
 <div id="figure-uml-cityobjectrelation-intermediateclass" class="imageblock text-center">
 <div class="content">
 <img src="images/UML_CityObjectRelation_IntermediateClass.png" alt="UML CityObjectRelation IntermediateClass" width="70%">
 </div>
-<div class="title">Figure 35. Association class CityObjectRelation represented as intermediate class.</div>
+<div class="title">Figure 33. Association class CityObjectRelation represented as intermediate class.</div>
 </div>
 <div class="paragraph">
 <p>Within a GML instance document, specifying that the WallSurfaces of two buildings share the same geometry is then restricted to the structure as shown in <a href="#listing-gml-inlineorbyreference-cityobjectrelation">Listing 37</a>. The source and target classes are represented by two XML elements &lt;WallSurface&gt; and the intermediate class by the element &lt;CityObjectRelation&gt;. The element WallSurface of building 1 provides the element CityObjectRelation inline, whereas the element CityObjectRelation references the WallSurface element of building 2 using XLink. In the same way, building 2 provides the element CityObjectRelation inline its WallSurface, and the CityObjectRelation references the WallSurface of building 1 using Xlink.</p>
@@ -15174,24 +15083,24 @@ Coordinate reference system which is usually single but may be compound.<br>
 <div id="CV_DiscreteCoverage-section" class="paragraph">
 <p><strong>CV_DiscreteCoverage</strong><br>
 A subclass of CV_Coverage that returns a single record of values for any direct position within a single geometric object in  its spatiotemporal domain.<br>
-[<a href="#iso19123">ISO 19123:2005</a>]</p>
+[<a href="#iso19123">[iso19123]</a>]</p>
 </div>
 <div id="CV_DomainObject-section" class="paragraph">
 <p><strong>CV_DomainObject</strong><br>
-[<a href="#iso19123">ISO 19123:2005</a>]</p>
+[<a href="#iso19123">[iso19123]</a>]</p>
 </div>
 <div id="CV_GridPointValuePair-section" class="paragraph">
 <p><strong>CV_GridPointValuePair</strong><br>
-[<a href="#iso19123">ISO 19123:2005</a>]</p>
+[<a href="#iso19123">[iso19123]</a>]</p>
 </div>
 <div id="CV_GridValuesMatrix-section" class="paragraph">
 <p><strong>CV_GridValuesMatrix</strong><br>
 The geometry represented by the various offset vectors is in the image plane of the grid.<br>
-[<a href="#iso19123">ISO 19123:2005</a>]</p>
+[<a href="#iso19123">[iso19123]</a>]</p>
 </div>
 <div id="CV_ReferenceableGrid-section" class="paragraph">
 <p><strong>CV_ReferenceableGrid</strong><br>
-[<a href="#iso19123">ISO 19123:2005</a>]</p>
+[<a href="#iso19123">[iso19123]</a>]</p>
 </div>
 <div id="Date-section" class="paragraph">
 <p><strong>Date</strong><br>
@@ -15336,12 +15245,12 @@ Time is the designation of an instant on a selected time scale, astronomical or 
 </div>
 <div id="TM_Duration-section" class="paragraph">
 <p><strong>TM_Duration</strong><br>
-[<a href="#iso19108">ISO 19108:2006</a>]</p>
+[<a href="#iso19108">[iso19108]</a>]</p>
 </div>
 <div id="TM_TemporalPosition-section" class="paragraph">
 <p><strong>TM_TemporalPosition</strong><br>
 The position of a TM_Instant relative to a TM_ReferenceSystem.<br>
-[<a href="#iso19108">ISO 19108:2006</a>]</p>
+[<a href="#iso19108">[iso19108]</a>]</p>
 </div>
 <div id="UnitOfMeasure-section" class="paragraph">
 <p><strong>Unit of Measure</strong><br>
@@ -15500,6 +15409,9 @@ Volume is the measure of the physical space of any 3-D geometric object.<br>
 <p><a id="Gröger2012b"></a>Gröger, G., Kolbe, T. H., Nagel, C., Häfele, K.-H., 2012: <strong>OGC City Geography Markup Language (CityGML) Encoding Standard, Version 2.0.0</strong>, Open Geospatial Consortium. <a href="https://portal.opengeospatial.org/files/?artifact_id=47842">OGC Doc. 12-019</a></p>
 </li>
 <li>
+<p><a id="iso19107"></a> ISO: ISO 19107:2003, Geographic Information – Spatial Schema</p>
+</li>
+<li>
 <p><a id="Jensen1998"></a>Jensen, Christian S. and Dyreson, Curtis E.: <strong>The Consensus Glossary of Temporal Database Concepts</strong>. February 1998 Version. In: Temporal Databases: Research and Practice [online]. Springer Berlin Heidelberg, 1998. p. 367–405. Lecture Notes in Computer Science. Available from: 10.1007/BFb0053710</p>
 </li>
 <li>
@@ -15537,6 +15449,9 @@ Volume is the measure of the physical space of any 3-D geometric object.<br>
 </li>
 <li>
 <p><a id="Nouvel2015"></a>Nouvel, R., Bahu, J. M., Kaden, R., Kaempf, J., Cipriano, P., Lauster, M., Haefele, K.-H., Munoz, E., Tournaire, O, Casper, E., 2015: <strong>Development of the CityGML Application Domain Extension Energy for Urban Energy Simulation</strong>. In: Proceedings of Building Simulation 2015 - 14th Conference of the International Building Performance Simulation Association, IBPSA, 559-564. <a href="http://www.ibpsa.org/proceedings/BS2015/p2863.pdf" class="bare">http://www.ibpsa.org/proceedings/BS2015/p2863.pdf</a></p>
+</li>
+<li>
+<p><a id="ogc10-129r1"></a> OGC: OGC 10-129r1, OGC® Geography Markup Language (GML) — Extended schemas and encoding rules, v3.3, 2012.</p>
 </li>
 <li>
 <p><a id="Smith2000"></a>Smith, B., Varzi, A. C., 2000: <strong>Fiat and Bona Fide Boundaries</strong>. Philosophy and Phenomenological Research, Vol. 60, No. 2, 401-420. <a href="https://doi.org/10.2307/2653492" class="bare">https://doi.org/10.2307/2653492</a></p>
@@ -15582,7 +15497,7 @@ Volume is the measure of the physical space of any 3-D geometric object.<br>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-04-21 14:53:50 UTC
+Last updated 2022-03-17 18:58:04 +0100
 </div>
 </div>
 </body>
