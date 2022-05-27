@@ -6,8 +6,6 @@
 
 Various CityGML 3.0 test data sets are available on GitHub for each CityGML module, including those test data sets presented in this chapter: https://github.com/opengeospatial/CityGML-3.0Encodings/tree/master/CityGML/Examples.
 
-include::annex-examples-building.adoc[]
-
 include::annex-examples-address.adoc[]
 
 include::annex-examples-pointcloud.adoc[]
@@ -15,7 +13,5 @@ include::annex-examples-pointcloud.adoc[]
 include::annex-examples-dynamizer.adoc[]
 
 include::annex-examples-versioning.adoc[]
-
-include::annex-examples-localcrs.adoc[]
 
 include::annex-examples-ade.adoc[]
