@@ -613,10 +613,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 <li><a href="#annex-examples">Annex B: Examples (Informative)</a>
 <ul class="sectlevel2">
-<li><a href="#annex-examples-address">B.1. Address Examples</a></li>
+<li><a href="#annex-examples-dynamizer">B.1. Dynamizer Examples</a></li>
 <li><a href="#annex-examples-pointcloud">B.2. Point Cloud Examples</a></li>
-<li><a href="#annex-examples-dynamizer">B.3. Dynamizer Examples</a></li>
-<li><a href="#annex-examples-versioning">B.4. Versioning Examples</a></li>
+<li><a href="#annex-examples-versioning">B.3. Versioning Examples</a></li>
+<li><a href="#annex-examples-address">B.4. Address Examples</a></li>
 <li><a href="#annex-examples-ade">B.5. Application Domain Extension (ADE) Examples</a></li>
 </ul>
 </li>
@@ -657,8 +657,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_revision_history">Annex H: Revision History</a></li>
 <li><a href="#glossary">Annex I: Glossary</a>
 <ul class="sectlevel2">
-<li><a href="#_iso_concepts">I.1. ISO Concepts</a></li>
-<li><a href="#_abbreviated_terms">I.2. Abbreviated Terms</a></li>
+<li><a href="#_abbreviated_terms">I.1. Abbreviated Terms</a></li>
 </ul>
 </li>
 <li><a href="#Bibliography">Annex J: Bibliography</a></li>
@@ -996,47 +995,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="paragraph">
 <p>For the purposes of this document, the following additional terms and definitions apply.</p>
 </div>
-<div id="feature-definition" class="paragraph">
-<p><strong>feature</strong><br>
-abstraction of real world phenomena<br>
-NOTE Features are objects that have an identity that allows for distinguishing features from each other. Features can have spatial and non-spatial properties that describe the features in more detail. Spatial properties are properties that have a geometry from ISO 19107 as data type.<br>
-NOTE Features are denoted by the stereotype «FeatureType» in the CityGML 3.0 Conceptual Model.<br>
-[ISO 19101‑1:2014, 4.1.11]</p>
-</div>
-<div id="geometry-definition" class="paragraph">
-<p><strong>geometry</strong><br>
-an ordered set of n-dimensional points in a given coordinate reference system; can be used to model the spatial extent or shape of a feature <br>
-NOTE Geometries are objects that can have an identity that allows for distinguishing geometries from each other. Geometries define the data types of spatial properties of features.<br>
-[OGC 15-107, modified]</p>
-</div>
-<div id="top-level-feature-definition" class="paragraph">
-<p><strong>top-level feature</strong><br>
-a feature that represents one of the main components of 3D city models; can be further semantically and spatially decomposed and substructured into parts<br>
-NOTE Top-level features are denoted by the stereotype «TopLevelFeatureType» in the CityGML 3.0 Conceptual Model.<br>
-[CityGML Conceptual Model]</p>
-</div>
-<div id="space-definition" class="paragraph">
-<p><strong>space</strong><br>
-an entity of volumetric extent in the real world<br>
-NOTE Spaces can be spatially represented in different LODs and by different types of geometric objects.<br>
-NOTE Spaces are represented in the CityGML 3.0 Conceptual Model by those classes that are derived from the class AbstractSpace.<br>
-[CityGML Conceptual Model]</p>
-</div>
-<div id="space-boundary-definition" class="paragraph">
-<p><strong>space boundary</strong><br>
-an entity with areal extent in the real world. Space boundaries are objects that bound a Space. They also realize the contact between adjacent spaces.<br>
-NOTE Space boundaries can be spatially represented in different LODs and by different types of geometric objects.<br>
-NOTE Space boundaries are represented in the CityGML 3.0 Conceptual Model by those classes that are derived from the class AbstractSpaceBoundary.<br>
-[CityGML Conceptual Model]</p>
-</div>
-<div id="city-object-relation-definition" class="paragraph">
-<p><strong>city-object relation</strong><br>
-a specific relation from the city object in which the relation is included to another city object<br>
-[CityGML Conceptual Model]</p>
-</div>
-<div class="paragraph">
-<p><strong>The following definitions were copied from the Conceptual Model specification. We need to decide which of them to keep also in this specification.</strong></p>
-</div>
 <div id="d2d-data-definition" class="paragraph">
 <p><strong>2D data</strong><br>
 geometry of features is represented in a two-dimensional space<br>
@@ -1058,6 +1016,11 @@ NOTE In other words, the geometry of 2D data is given using (X,Y,Z) coordinates 
 <p><strong>application schema</strong><br>
 A set of <a href="#conceptual-schema-definition">conceptual schema</a> for data required by one or more applications. An application schema contains selected parts of the base schemas presented in the ORM Information Viewpoint. Designers of application schemas may extend or restrict the types defined in the base schemas to define appropriate types for an application domain. Application schemas are information models for a specific information community.<br>
 OGC Definitions Register at <a href="http://www.opengis.net/def/glossary/term/ApplicationSchema" class="bare">http://www.opengis.net/def/glossary/term/ApplicationSchema</a></p>
+</div>
+<div id="city-object-relation-definition" class="paragraph">
+<p><strong>city-object relation</strong><br>
+a specific relation from the city object in which the relation is included to another city object<br>
+[CityGML Conceptual Model]</p>
 </div>
 <div id="codelist-definition" class="paragraph">
 <p><strong>codelist</strong><br>
@@ -1082,6 +1045,19 @@ model that defines concepts of a universe of discourse<br>
 OGC Definitions Register at <a href="http://www.opengis.net/def/glossary/term/ConceptualSchema" class="bare">http://www.opengis.net/def/glossary/term/ConceptualSchema</a></p>
 </li>
 </ol>
+</div>
+<div id="feature-definition" class="paragraph">
+<p><strong>feature</strong><br>
+abstraction of real world phenomena<br>
+NOTE Features are objects that have an identity that allows for distinguishing features from each other. Features can have spatial and non-spatial properties that describe the features in more detail. Spatial properties are properties that have a geometry from ISO 19107 as data type.<br>
+NOTE Features are denoted by the stereotype «FeatureType» in the CityGML 3.0 Conceptual Model.<br>
+[ISO 19101‑1:2014, 4.1.11]</p>
+</div>
+<div id="geometry-definition" class="paragraph">
+<p><strong>geometry</strong><br>
+an ordered set of n-dimensional points in a given coordinate reference system; can be used to model the spatial extent or shape of a feature <br>
+NOTE Geometries are objects that can have an identity that allows for distinguishing geometries from each other. Geometries define the data types of spatial properties of features.<br>
+[OGC 15-107, modified]</p>
 </div>
 <div id="implementation-specification-definition" class="paragraph">
 <p><strong>Implementation Specification</strong><br>
@@ -1112,6 +1088,26 @@ a model that is independent of a spacific platform<br>
 <p><strong>Platform Specific Model</strong><br>
 a model of a system that is defined in terms of a specific platform<br>
 [Object Management Group, Model Driven Architecture Guide rev. 2.0]</p>
+</div>
+<div id="space-definition" class="paragraph">
+<p><strong>space</strong><br>
+an entity of volumetric extent in the real world<br>
+NOTE Spaces can be spatially represented in different LODs and by different types of geometric objects.<br>
+NOTE Spaces are represented in the CityGML 3.0 Conceptual Model by those classes that are derived from the class AbstractSpace.<br>
+[CityGML Conceptual Model]</p>
+</div>
+<div id="space-boundary-definition" class="paragraph">
+<p><strong>space boundary</strong><br>
+an entity with areal extent in the real world. Space boundaries are objects that bound a Space. They also realize the contact between adjacent spaces.<br>
+NOTE Space boundaries can be spatially represented in different LODs and by different types of geometric objects.<br>
+NOTE Space boundaries are represented in the CityGML 3.0 Conceptual Model by those classes that are derived from the class AbstractSpaceBoundary.<br>
+[CityGML Conceptual Model]</p>
+</div>
+<div id="top-level-feature-definition" class="paragraph">
+<p><strong>top-level feature</strong><br>
+a feature that represents one of the main components of 3D city models; can be further semantically and spatially decomposed and substructured into parts<br>
+NOTE Top-level features are denoted by the stereotype «TopLevelFeatureType» in the CityGML 3.0 Conceptual Model.<br>
+[CityGML Conceptual Model]</p>
 </div>
 </div>
 </div>
@@ -1710,15 +1706,12 @@ Feature link</p></td>
 <div class="sect3">
 <h4 id="_dependencies"><a class="anchor" href="#_dependencies"></a>6.2.1. Dependencies</h4>
 <div class="paragraph">
-<p>The Core Requirements Class is dependent on the following external OGC and ISO standards:</p>
+<p>The Core Requirements Class is dependent on the following external OGC and ISO standard:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
 <p><a href="#ogc07-036">GML 3.2</a> provides most of the geometry types (e.g., Point, LineString, Polygon) used for spatial representations in this standard, defines Coordinate Reference Systems, and supports the General Feature Model upon which this standard is based.</p>
-</li>
-<li>
-<p><a href="#ogc10-129r1">GML 3.3</a> defines compact encodings of geometry types, linear referencing concepts (e.g., linear element, distance along, Linear Referencing Methods), TINs, and encoding rules for association classes.</p>
 </li>
 </ul>
 </div>
@@ -4834,117 +4827,901 @@ Ensure that there is a conformance class for each requirements class and a test 
 <div class="paragraph">
 <p>Various CityGML 3.0 test data sets are available on GitHub for each CityGML module, including those test data sets presented in this chapter: <a href="https://github.com/opengeospatial/CityGML-3.0Encodings/tree/master/CityGML/Examples" class="bare">https://github.com/opengeospatial/CityGML-3.0Encodings/tree/master/CityGML/Examples</a>.</p>
 </div>
-<div class="sect2">
-<h3 id="annex-examples-address"><a class="anchor" href="#annex-examples-address"></a>B.1. Address Examples</h3>
 <div class="paragraph">
-<p>The CityGML 3.0 CM provides the ability to represent address information of real-world features. Addresses can be declared for <em>AbstractBridge</em>, <em>AbstractBuilding</em>, <em>BuildingUnit</em>, <em>Door</em>, and <em>DoorSurface</em> feature types using their respective <em>address</em> properties and the <em>Address</em> feature type of the Core module. An <em>Address</em> can be declared inline or by an XLink reference.</p>
+<p>The examples and information provided in this chapter focus on the new CityGML 3.0 modules Dynamizer, PointCloud, and Versioning. In addition, some examples for the description of addresses using xAL 3 are provided (this is a change from CityGML 2.0, where xAL 2 was used). Since the ADE mechanism has been improved in CityGML 3.0, examples for the use of the revised ADE mechanism are provided as well.</p>
+</div>
+<div class="sect2">
+<h3 id="annex-examples-dynamizer"><a class="anchor" href="#annex-examples-dynamizer"></a>B.1. Dynamizer Examples</h3>
+<div class="paragraph">
+<p>This chapter provides examples on the use of the Dynamizer concept to integrate dynamic data coming from sensors or being stored in files with city models. A Dynamizer is a feature that can be included in any CityGML thematic feature (e.g. Building, WallSurface, Section of a road) and that provides a pointer to a specific property of the respective thematic feature, whose static value shall be overridden by timeseries data. See <a href="https://docs.ogc.org/is/20-010/20-010.html#toc26" target="_blank" rel="noopener">Chapter 6.6 of the CityGML Conceptual Model Standard</a> and <a href="#Chaturvedi2019">Chaturvedi &amp; Kolbe 2019</a> for more information. The examples provided here have been taken from <a href="#Chaturvedi2021">Chaturvedi 2021</a>.</p>
 </div>
 <div class="paragraph">
-<p>An <em>Address</em> is modeled with two properties:</p>
+<p>A Dynamizer can provide the timeseries data in different ways:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>An optional <em>multiPoint</em> property containing a <em>gml:MultiPoint</em> for specifying the 2D or 3D position of the address.</p>
+<p>As a link to a specific datastream provided by a sensor data service like OGC SensorThings API, OGC Sensor Observation Service, or other sensor data platforms (incl. MQTT). For this purpose the Dynamizer makes use of a <em>SensorConnection</em> object;</p>
 </li>
 <li>
-<p>A <em>xalAddress</em> property containing a <em>xAL:Address</em> type from the OASIS CIQ TC extensible Address Language standard (xAL).</p>
+<p>As a reference to an external file with tabulated data (e.g. CSV, MS Excel, Google Spreadsheet) for which the Dynamizer uses a <em>TabulatedFileTimeseries</em> object;</p>
+</li>
+<li>
+<p>As a reference to an external file formatted according to OGC TimeseriesML or Observations &amp; Measurements standards using a <em>StandardFileTimeseries</em> object;</p>
+</li>
+<li>
+<p>Inline within the Dynamizer feature using a <em>GenericTimeseries</em> object;</p>
+</li>
+<li>
+<p>By defining <em>CompositeTimeseries</em> objects which consist of a combination of various GenericTimeseries objects, TabulatedFileTimeseries objects, and/or StandardFileTimeseries objects.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>The CityGML datasets presented here are available under <a href="https://github.com/opengeospatial/CityGML-3.0Encodings/tree/master/CityGML/Examples/Building" class="bare">https://github.com/opengeospatial/CityGML-3.0Encodings/tree/master/CityGML/Examples/Building</a>, additional examples are also available on the OASIS documentation repository <a href="http://docs.oasis-open.org/ciq/v3.0/cs02/xsd/default/examples/xAL/" class="bare">http://docs.oasis-open.org/ciq/v3.0/cs02/xsd/default/examples/xAL/</a>.</p>
+<p>For each of these possibilities, examples are provided in the following.</p>
+</div>
+<div class="sect3">
+<h4 id="_examples_for_integrating_city_objects_with_real_time_sensors"><a class="anchor" href="#_examples_for_integrating_city_objects_with_real_time_sensors"></a>B.1.1. Examples for integrating city objects with real-time sensors</h4>
+<div class="paragraph">
+<p>The following examples refer to a Building feature shown in <a href="#listing-gml-building-with-temperature">Listing 4</a>. The building has a roof with the ID <em>roof1</em> and a room with the ID <em>room1</em>. The building defines two generic attributes that provide a) a static value for the temperature on the roof (generic attribute <em>outside_temperature</em>) and b) a static value for the temperatue in the room (generic attribute <em>temperature</em>). In addition, the building might also have other static attributes such as building function, roof type, and address which are not shown here.</p>
 </div>
 <div class="paragraph">
-<p><strong>Example 1: Structured address and multipoint</strong></p>
+<p>The room has an indoor sensor installed which measures the air temperature and humidity in the room. The observations from this sensor can be used to override the static value of the generic attribute <em>temperature</em> with dynamic values coming from the sensor.</p>
 </div>
 <div class="paragraph">
-<p>xAL provides a rich vocabulary for structuring addresses in GML. <a href="#listing-address-example1">Listing 4</a> shows how an address in Germany can be modeled using xAL and a multipoint:</p>
+<p>In addition, a personal weather station is installed on the roof which measures weather-related properties such as outside temperature, relative humidity, and wind speed.</p>
 </div>
-<div id="listing-address-example1" class="listingblock">
-<div class="title">Listing 4. A GML example of a structured German xAL building address with a GML MultiPoint.</div>
+<div id="listing-gml-building-with-temperature" class="listingblock">
+<div class="title">Listing 4. A Building with a RoofSurface containing a generic attribute '<em>outside_temperature</em>' and a BuildingRoom containing a generic attribute '<em>temperature</em>'.</div>
 <div class="content">
-<pre class="highlight"><code class="language-XML" data-lang="XML">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;core:CityModel ... Namespaces and Schema location ... &gt;
-  &lt;core:cityObjectMember&gt;
-    &lt;bldg:Building gml:id="DEBY_LOD2_5744682"&gt;
-      &lt;bldg:address&gt;
-        &lt;core:Address&gt;
-          &lt;!--
-          Am Hang 15      street number and name
-          85665 Moosach   postcode and locality
-          Germany         country
-          --&gt;
-          &lt;core:xalAddress&gt;
-            &lt;xAL:Address&gt;
-              &lt;xAL:Country&gt;
-                &lt;xAL:NameElement xAL:NameType="Name"&gt;Germany&lt;/xAL:NameElement&gt;
-              &lt;/xAL:Country&gt;
-              &lt;xAL:Locality xAL:Type="Town"&gt;
-                &lt;xAL:NameElement xAL:NameType="Name"&gt;Moosach&lt;/xAL:NameElement&gt;
-              &lt;/xAL:Locality&gt;
-              &lt;xAL:Thoroughfare xAL:Type="Street"&gt;
-                &lt;xAL:NameElement xAL:NameType="NameAndType"&gt;Am Hang&lt;/xAL:NameElement&gt;
-                &lt;xAL:Number xAL:Type="Number"&gt;15&lt;/xAL:Number&gt;
-              &lt;/xAL:Thoroughfare&gt;
-              &lt;xAL:PostCode&gt;
-                &lt;xAL:Identifier&gt;85665&lt;/xAL:Identifier&gt;
-              &lt;/xAL:PostCode&gt;
-            &lt;/xAL:Address&gt;
-          &lt;/core:xalAddress&gt;
-          &lt;!-- WGS84 48.03616458630443, 11.873209628265858 --&gt;
-          &lt;core:multiPoint&gt;
-            &lt;gml:MultiPoint srsName="urn:ogc:def:crs:EPSG::4326"&gt;
-              &lt;gml:pointMember&gt;
-                &lt;gml:Point&gt;
-                  &lt;gml:pos&gt;48.03616458630443 11.873209628265858&lt;/gml:pos&gt;
-                &lt;/gml:Point&gt;
-              &lt;/gml:pointMember&gt;
-            &lt;/gml:MultiPoint&gt;
-          &lt;/core:multiPoint&gt;
-        &lt;/core:Address&gt;
-      &lt;/bldg:address&gt;
-    &lt;/bldg:Building&gt;
-  &lt;/core:cityObjectMember&gt;
-&lt;/core:CityModel&gt;</code></pre>
+<pre class="highlight"><code class="language-XML" data-lang="XML">&lt;core:cityObjectMember&gt;
+  &lt;bldg:Building gml:id="building1"&gt;
+    &lt;core:boundary&gt;
+      &lt;con:RoofSurface gml:id="roof1"&gt;
+        &lt;core:genericAttribute&gt;
+          &lt;gen:DoubleAttribute&gt;
+            &lt;gen:name&gt;outside_temperature&lt;/gen:name&gt;
+            &lt;gen:value&gt;23.3&lt;/gen:value&gt;
+          &lt;/gen:DoubleAttribute&gt;
+        &lt;/core:genericAttribute&gt;
+      &lt;/con:RoofSurface&gt;
+    &lt;/core:boundary&gt;
+    &lt;bldg:buildingRoom&gt;
+      &lt;bldg:BuildingRoom gml:id="room1"&gt;
+        &lt;core:genericAttribute&gt;
+          &lt;gen:DoubleAttribute&gt;
+            &lt;gen:name&gt;temperature&lt;/gen:name&gt;
+            &lt;gen:value&gt;20.2&lt;/gen:value&gt;
+          &lt;/gen:DoubleAttribute&gt;
+        &lt;/core:genericAttribute&gt;
+      &lt;/bldg:BuildingRoom&gt;
+    &lt;/bldg:buildingRoom&gt;
+  &lt;/bldg:Building&gt;
+&lt;/core:cityObjectMember&gt;</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p><strong>Example 2: Free text address</strong></p>
+<p>In general, real-time sensor data streams are available from numerous platforms. In the following, examples are provided for the use of the ThingSpeak platform, the OGC SensorThings API, and the MQTT protocol to retrieve the room temperature from the indoor sensor, as well as the WeatherUnderground Network and the OGC Sensor Observation Service to retrieve the outside temperature data from the weather station.</p>
 </div>
+<div class="sect4">
+<h5 id="_example_1_thingspeak_platform"><a class="anchor" href="#_example_1_thingspeak_platform"></a>Example 1: ThingSpeak platform</h5>
 <div class="paragraph">
-<p>More freeform addresses can also be declared using FreeTextAddresses as shown in <a href="#listing-address-example2">Listing 5</a>:</p>
+<p>The following is an example query to request sensor data from the ThingSpeak platform (the request is a single line without linebreaks and spaces). The request retrieves all observations between '2019-10-08T00:00:00Z' and '2019-10-09T00:00:00Z' for the field ID 1. ThingSpeak manages each registered sensor using a unique channel ID (here: 64242). A query to the channel ID delivers details on the sensor device and on the available datastreams. In this example, the datastreams available are temperature and humidity registered with the field IDs 1 and 2, respectively:</p>
 </div>
-<div id="listing-address-example2" class="listingblock">
-<div class="title">Listing 5. A GML example of a free text xAL building address based on the National Opera of Lyon, France.</div>
+<div id="listing-query-thingspeak" class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-XML" data-lang="XML">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;core:CityModel ... Namespaces and Schema location ... &gt;
-  &lt;core:cityObjectMember&gt;
-    &lt;bldg:Building gml:id="OPERA_LYON_45"&gt;
-      &lt;bldg:address&gt;
-        &lt;core:Address&gt;
-          &lt;!--
-          Opéra National de Lyon      additional geographical information
-          1 Place de la Comédie       street number and name
-          69001 Lyon                  postcode and locality
-          France                      country
-          --&gt;
-          &lt;core:xalAddress&gt;
-            &lt;xAL:Address&gt;
-              &lt;xAL:FreeTextAddress&gt;
-                &lt;xAL:AddressLine&gt;Opéra National de Lyon&lt;/xAL:AddressLine&gt;
-                &lt;xAL:AddressLine&gt;1 Place de la Comédie&lt;/xAL:AddressLine&gt;
-                &lt;xAL:AddressLine&gt;69001 Lyon&lt;/xAL:AddressLine&gt;
-                &lt;xAL:AddressLine&gt;France&lt;/xAL:AddressLine&gt;
-              &lt;/xAL:FreeTextAddress&gt;
-            &lt;/xAL:Address&gt;
-          &lt;/core:xalAddress&gt;
-        &lt;/core:Address&gt;
-      &lt;/bldg:address&gt;
-    &lt;/bldg:Building&gt;
-  &lt;/core:cityObjectMember&gt;
-&lt;/core:CityModel&gt;</code></pre>
+<pre>https://thingspeak.com/channels/64242/fields/1.json?start=2019-10-08T00:00:00Z&amp;end=2019-10-09T00:00:00Z</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><a href="#listing-gml-thingspeak">Listing 5</a> shows, how the Dynamizer makes use of this query to link the generic attribute <em>temperature</em> to the temperature observation of the ThingSpeak datastream with field ID 1.</p>
+</div>
+<div id="listing-gml-thingspeak" class="listingblock">
+<div class="title">Listing 5. Dynamizer defining a sensor connection to the ThingSpeak platform.</div>
+<div class="content">
+<pre class="highlight"><code class="language-XML" data-lang="XML">&lt;bldg:Building gml:id="building1"&gt;
+  &lt;core:dynamizer&gt;
+    &lt;dyn:Dynamizer gml:id="dynamizer1"&gt;
+      &lt;dyn:attributeRef&gt;
+        &lt;!--Single line without linebreaks and spaces--&gt;
+        //bldg:BuildingRoom[@gml:id='room1']/core:genericAttribute/
+        gen:DoubleAttribute[gen:name='temperature']/gen:value
+      &lt;/dyn:attributeRef&gt;
+      &lt;dyn:startTime&gt;2019-10-08T00:00:00Z&lt;/dyn:startTime&gt;
+      &lt;dyn:endTime&gt;2019-10-09T00:00:00Z&lt;/dyn:endTime&gt;
+      &lt;dyn:sensorConnection&gt;
+        &lt;dyn:SensorConnection&gt;
+          &lt;dyn:connectionType&gt;thingspeak_1.0&lt;/dyn:connectionType&gt;
+          &lt;dyn:observationProperty&gt;Temperature&lt;/dyn:observationProperty&gt;
+          &lt;dyn:uom&gt;Celsius&lt;/dyn:uom&gt;
+          &lt;dyn:sensorID&gt;64242&lt;/dyn:sensorID&gt;
+          &lt;dyn:sensorName&gt;DHT22&lt;/dyn:sensorName&gt;
+          &lt;dyn:datastreamID&gt;1&lt;/dyn:datastreamID&gt;
+          &lt;dyn:baseURL&gt;
+            <a href="https://thingspeak.com" class="bare">https://thingspeak.com</a>
+          &lt;/dyn:baseURL&gt;
+          &lt;dyn:authType&gt;none&lt;/dyn:authType&gt;
+          &lt;dyn:linkToObservation&gt;
+            &lt;!--Single line without linebreaks and spaces--&gt;
+            %baseURL%/channels/%sensorID%/fields/
+            %datastreamID%.json?start=%startTime%&amp;amp;end=%endTime%
+          &lt;/dyn:linkToObservation&gt;
+          &lt;dyn:sensorLocation xlink:href="#room1"/&gt;
+        &lt;/dyn:SensorConnection&gt;
+      &lt;/dyn:sensorConnection&gt;
+    &lt;/dyn:Dynamizer&gt;
+  &lt;/core:dynamizer&gt;
+  &lt;!-- The roof surface and building room from {<a href="#listing-gml-building-with-temperature">Listing 4</a>} come here --&gt;
+&lt;/bldg:Building&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The Dynamizer specifies the following parameters:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>attributeRef</em> defines an XPath expression which refers to the generic attribute <em>temperature</em> of the BuildingRoom feature with the ID <em>room1</em> that is to be overridden by sensor data from the specific ThingSpeak channel.</p>
+</li>
+<li>
+<p><em>startTime</em> and <em>endTime</em> represent the entire temporal extent for the sensor data to be retrieved.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The actual connection parameters to the ThingSpeak platform are specified by the Dynamizer using a SensorConnection object:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>connectionType</em> indicates the type of the connection, which is <em>thingspeak_1.0</em> in this example.</p>
+</li>
+<li>
+<p><em>observationProperty</em> indicates the observed property for which sensor data is retrieved.</p>
+</li>
+<li>
+<p><em>uom</em> specifies the unit of measurement of the observed property.</p>
+</li>
+<li>
+<p><em>datastreamID</em> contains the field ID of the datastream to be retrieved.</p>
+</li>
+<li>
+<p><em>baseURL</em> specifies the base URL for all channels available on the ThingSpeak platform. The value is always <a href="https://thingspeak.com" class="bare">https://thingspeak.com</a>.</p>
+</li>
+<li>
+<p><em>sensorID</em> provides the ID of the sensor.</p>
+</li>
+<li>
+<p><em>sensorName</em> provides the name of the sensor, in this example it is a DHT22 sensor.</p>
+</li>
+<li>
+<p><em>authType</em> specifies the authentication required to connect to the sensor. In this example, the parameter value is <em>none</em>, since the sensor is publicly available and requires no authentication.</p>
+</li>
+<li>
+<p><em>linkToObservation</em> allows for encoding the URL to establish a direct link to the observations of the specific datastream. The URL is a combination of static content and placeholders. In this example the following placeholders are defined: %baseURL%, %sensorID%, %datastreamID%, %startTime%, and %endTime%. The complete URL is generated by substituting the placeholders with the values from the corresponding parameters defined by the Dynamizer and the SensorConnection. In this example the resulting URL is: <a href="https://thingspeak.com/channels/64242/fields/1?start=2019-10-08T00:00:00Z&amp;end=2019-10-09T00:00:00Z" class="bare">https://thingspeak.com/channels/64242/fields/1?start=2019-10-08T00:00:00Z&amp;end=2019-10-09T00:00:00Z</a>.</p>
+</li>
+<li>
+<p><em>sensorLocation</em> indicates where the sensor is located, which is the BuildingRoom with the ID <em>room1</em> in this example.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_example_2_ogc_sensorthings_api"><a class="anchor" href="#_example_2_ogc_sensorthings_api"></a>Example 2: OGC SensorThings API</h5>
+<div class="paragraph">
+<p>In this example, the same room temperature from sensor DHT22 is to be retrieved, but now the sensor observations are stored in a FROST Server and, thus, need to be queried using the OGC SensorThings API. The following is an example query to request sensor data from the FROST Server (the request is a single line without linebreaks and spaces). The request retrieves all observations between '2019-04-12T10:00:00.000Z' and '2019-04-12T10:30:00.000Z' for the Datastream ID 1 which is the temperature. According to the SensorThings API, observations are always aligned with datastreams:</p>
+</div>
+<div id="listing-query-sensorthingsapi" class="listingblock">
+<div class="content">
+<pre>http://127.0.0.1:8080/FROST-Server/v1.0/Datastreams(1)/Observations?$filter=during(phenomenonTime,2019-04-12T10:00:00.000Z/2019-04-12T10:30:00.000Z)</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><a href="#listing-gml-frost-server">Listing 6</a> shows, how the Dynamizer needs to be defined to retrieve observations from the FROST Server and link them to the generic attribute <em>temperature</em>.</p>
+</div>
+<div id="listing-gml-frost-server" class="listingblock">
+<div class="title">Listing 6. Dynamizer defining a sensor connection to the FROST Server.</div>
+<div class="content">
+<pre class="highlight"><code class="language-XML" data-lang="XML">&lt;bldg:Building gml:id="building1"&gt;
+  &lt;core:dynamizer&gt;
+    &lt;dyn:Dynamizer gml:id="dynamizer2"&gt;
+      &lt;dyn:attributeRef&gt;
+        &lt;!--Single line without linebreaks and spaces--&gt;
+        //bldg:BuildingRoom[@gml:id='room1']/core:genericAttribute/
+        gen:DoubleAttribute[gen:name='temperature']/gen:value
+      &lt;/dyn:attributeRef&gt;
+      &lt;dyn:startTime&gt;2019-04-12T10:00:00.000Z&lt;/dyn:startTime&gt;
+      &lt;dyn:endTime&gt;2019-04-12T10:30:00.000Z&lt;/dyn:endTime&gt;
+      &lt;dyn:sensorConnection&gt;
+        &lt;dyn:SensorConnection&gt;
+          &lt;dyn:connectionType&gt;ogc_sta_1.0&lt;/dyn:connectionType&gt;
+          &lt;dyn:observationProperty&gt;Temperature&lt;/dyn:observationProperty&gt;
+          &lt;dyn:uom&gt;Celsius&lt;/dyn:uom&gt;
+          &lt;dyn:datastreamID&gt;1&lt;/dyn:datastreamID&gt;
+          &lt;dyn:baseURL&gt;
+            <a href="http://127.0.0.1:8080/FROST-Server/v1.0" class="bare">http://127.0.0.1:8080/FROST-Server/v1.0</a>
+          &lt;/dyn:baseURL&gt;
+          &lt;dyn:authType&gt;none&lt;/dyn:authType&gt;
+          &lt;dyn:linkToObservation&gt;
+            &lt;!--Single line without linebreaks and spaces--&gt;
+            %baseURL%/Datastreams(%datastreamID%)/
+            Observations?$filter=during(phenomenonTime,%startTime%/%endTime%)
+          &lt;/dyn:linkToObservation&gt;
+          &lt;dyn:linkToSensorDescription&gt;
+            %baseURL%/Datastreams(%datastreamID%)/Sensor
+          &lt;/dyn:linkToSensorDescription&gt;
+          &lt;dyn:sensorLocation xlink:href="#room1"/&gt;
+        &lt;/dyn:SensorConnection&gt;
+      &lt;/dyn:sensorConnection&gt;
+    &lt;/dyn:Dynamizer&gt;
+  &lt;/core:dynamizer&gt;
+  &lt;!-- The roof surface and building room from {<a href="#listing-gml-building-with-temperature">Listing 4</a>} come here --&gt;
+&lt;/bldg:Building&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The parameters defined by the Dynamizer itself are identical to those shown in the example for the ThingSpeak platform.</p>
+</div>
+<div class="paragraph">
+<p>However, the following parameters provided within the SensorConenction object differ, since the Dynamizer defines now a connection to the FROST Server:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>connectionType</em> is set to <em>ogc_sta_1.0</em>, which represents the OGC SensorThings API version 1.0.</p>
+</li>
+<li>
+<p><em>baseURL</em> is set to the URL for accessing a specific FROST Server. The base URL may differ for FROST Servers running on different machines or cloud environments.</p>
+</li>
+<li>
+<p><em>linkToObservation</em> makes use again of the combination of static content and placeholders to define the URL for retrieving the observations. The following placeholders are defined: %baseURL%, %datastreamID%, %startTime%, and %endTime%. Attribute substitution results in the following URL: <a href="http://127.0.0.1:8080/FROSTServer/v1.0/Datastreams(1)/Observations?$filter=during(phenomenonTime,2019-04-12T10:00:00.000Z/2019-04-12T10:30:00.000Z" class="bare">http://127.0.0.1:8080/FROSTServer/v1.0/Datastreams(1)/Observations?$filter=during(phenomenonTime,2019-04-12T10:00:00.000Z/2019-04-12T10:30:00.000Z</a>).</p>
+</li>
+<li>
+<p><em>linkToSensorDescription</em> allows to retrieve the sensor details corresponding to the specified datastream. Also here attribute substitution is used to obtain the URL <a href="http://127.0.0.1:8080/FROSTServer/v1.0/Datastreams(1)/Sensor" class="bare">http://127.0.0.1:8080/FROSTServer/v1.0/Datastreams(1)/Sensor</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The parameters <em>observationProperty</em>, <em>uom</em>, <em>datastreamID</em>, <em>authType</em>, and <em>sensorLocation</em> remain unchanged, as they specify the same values as in the example for the ThingSpeak platform. In contrast to connecting to the ThingSpeak platform, the parameter <em>sensorID</em> is not required for SensorThings API connections; the datastream ID is sufficient for this purpose.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_example_3_subscribing_to_real_time_datatreams_using_the_mqtt_protocol"><a class="anchor" href="#_example_3_subscribing_to_real_time_datatreams_using_the_mqtt_protocol"></a>Example 3: Subscribing to real-time datatreams using the MQTT protocol</h5>
+<div class="paragraph">
+<p>In this example, the room temperature from sensor DHT22 is to be retrieved again, but this time, the observations are available on the Things Network platform. The Things Network supports the MQTT protocol and allows users to subscribe to its data streams. The following is an example request to connect to the Things Network via MQTT. Server represents the URL of the machine where the server is deployed. Topic connects to the individual datastream. The authentication details are provided as username and password. These details are required as separate attributes by an MQTT broker; they cannot be provided within a single URL:</p>
+</div>
+<div id="listing-query-mqtt" class="listingblock">
+<div class="content">
+<pre>Server: eu.thethings.network
+Topic: +/devices/tumgis-dragino-shield-with-gps/up/temperature
+Username: **********
+Password:**********</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><a href="#listing-gml-mqtt">Listing 7</a> shows, how the Dynamizer is defined to link the generic attribute <em>temperature</em> to the temperature observations using MQTT.</p>
+</div>
+<div id="listing-gml-mqtt" class="listingblock">
+<div class="title">Listing 7. Dynamizer subscribing to a sensor data stream using the MQTT protocol.</div>
+<div class="content">
+<pre class="highlight"><code class="language-XML" data-lang="XML">&lt;bldg:Building gml:id="building1"&gt;
+  &lt;core:dynamizer&gt;
+    &lt;dyn:Dynamizer gml:id="dynamizer3"&gt;
+      &lt;dyn:attributeRef&gt;
+        &lt;!--Single line without linebreaks and spaces--&gt;
+        //bldg:BuildingRoom[@gml:id='room1']/core:genericAttribute/
+        gen:DoubleAttribute[gen:name='temperature']/gen:value
+      &lt;/dyn:attributeRef&gt;
+      &lt;dyn:startTime&gt;2019-01-01T00:00:00.000Z&lt;/dyn:startTime&gt;
+      &lt;dyn:endTime&gt;2020-01-01T00:00:00.000Z&lt;/dyn:endTime&gt;
+      &lt;dyn:sensorConnection&gt;
+        &lt;dyn:SensorConnection&gt;
+          &lt;dyn:connectionType&gt;mqtt_3.1.1&lt;/dyn:connectionType&gt;
+          &lt;dyn:observationProperty&gt;Temperature&lt;/dyn:observationProperty&gt;
+          &lt;dyn:uom&gt;Celsius&lt;/dyn:uom&gt;
+          &lt;dyn:authType&gt;basic&lt;/dyn:authType&gt;
+          &lt;dyn:mqttServer&gt;eu.thethings.network&lt;/dyn:mqttServer&gt;
+          &lt;dyn:mqttTopic&gt;
+            +/devices/tumgis-dragino-shield-with-gps/up/temperature
+          &lt;/dyn:mqttTopic&gt;
+          &lt;dyn:sensorLocation xlink:href="#room1"/&gt;
+        &lt;/dyn:SensorConnection&gt;
+      &lt;/dyn:sensorConnection&gt;
+    &lt;/dyn:Dynamizer&gt;
+  &lt;/core:dynamizer&gt;
+  &lt;!-- The roof surface and building room from {<a href="#listing-gml-building-with-temperature">Listing 4</a>} come here --&gt;
+&lt;/bldg:Building&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following parameters and parameter values of the SensorConnection object are specific to the MQTT protocol:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>connectionType</em> in this case is <em>mqtt_3.1.1</em>. It shows the version of the MQTT protocol as 3.1.1.</p>
+</li>
+<li>
+<p><em>authType</em> is indicated as <em>basic</em>, which means that a basic authentication (with username and password) is required to establish the connection.</p>
+</li>
+<li>
+<p><em>mqttServer</em> provides the name of the MQTT server.</p>
+</li>
+<li>
+<p><em>mqttTopic</em> provides the specific datastream that is to be retrieved.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_example_4_weather_underground_api_with_authentication"><a class="anchor" href="#_example_4_weather_underground_api_with_authentication"></a>Example 4: Weather Underground API with authentication</h5>
+<div class="paragraph">
+<p>In this example, the outside temperature measured by the weather station on the roof of the building is to be retrieved. The weather station is registered on the Weather Underground platform with the identifier 'MyPWS1'. The following is an example query to request sensor data from the Weather Underground API. The Weather Underground API requires a unique API Key for every user allowing to authenticate to a running sensor ID:</p>
+</div>
+<div id="listing-query-weatherunderground" class="listingblock">
+<div class="content">
+<pre>http://api.wunderground.com/api/******/conditions/q/pws:MyPWS1.json</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><a href="#listing-gml-weather-underground-api">Listing 8</a> shows the Dynamizer definition requiered to connect the generic attribute <em>outside_temperature</em> to the weather station registered on the Weather Underground platform.</p>
+</div>
+<div id="listing-gml-weather-underground-api" class="listingblock">
+<div class="title">Listing 8. Dynamizer defining a sensor connection to the Weather Underground platform.</div>
+<div class="content">
+<pre class="highlight"><code class="language-XML" data-lang="XML">&lt;bldg:Building gml:id="building1"&gt;
+  &lt;core:dynamizer&gt;
+    &lt;dyn:Dynamizer gml:id="dynamizer4"&gt;
+      &lt;dyn:attributeRef&gt;
+        &lt;!--Single line without linebreaks and spaces--&gt;
+        //con:RoofSurface[@gml:id='roof1']/core:genericAttribute/
+        gen:DoubleAttribute[gen:name='outside_temperature']/gen:value
+      &lt;/dyn:attributeRef&gt;
+      &lt;dyn:startTime&gt;2019-01-01T10:00:00.000Z&lt;/dyn:startTime&gt;
+      &lt;dyn:endTime&gt;2019-02-01T00:00:00.000Z&lt;/dyn:endTime&gt;
+      &lt;dyn:sensorConnection&gt;
+        &lt;dyn:SensorConnection&gt;
+          &lt;dyn:connectionType&gt;wunderground_1.0&lt;/dyn:connectionType&gt;
+          &lt;dyn:observationProperty&gt;Temperature&lt;/dyn:observationProperty&gt;
+          &lt;dyn:uom&gt;Celsius&lt;/dyn:uom&gt;
+          &lt;dyn:sensorID&gt;MyPWS1&lt;/dyn:sensorID&gt;
+          &lt;dyn:baseURL&gt;
+            <a href="http://api.wunderground.com/api" class="bare">http://api.wunderground.com/api</a>
+          &lt;/dyn:baseURL&gt;
+          &lt;dyn:authType&gt;apiKey&lt;/dyn:authType&gt;
+          &lt;dyn:linkToObservation&gt;
+            %baseUrl%/%authType%/conditions/q/pws:%sensorID%.json
+          &lt;/dyn:linkToObservation&gt;
+          &lt;dyn:sensorLocation xlink:href="#roof1"/&gt;
+        &lt;/dyn:SensorConnection&gt;
+      &lt;/dyn:sensorConnection&gt;
+    &lt;/dyn:Dynamizer&gt;
+  &lt;/core:dynamizer&gt;
+  &lt;!-- The roof surface and building room from {<a href="#listing-gml-building-with-temperature">Listing 4</a>} come here --&gt;
+&lt;/bldg:Building&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following parameters of the Dynamizer and the SensorConnection object differ from the examples above:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>attributeRef</em> defines now an XPath expression to refer to the value of the generic attribute <em>outside_temperature</em> of the RoofSurface with the ID <em>roof1</em>.</p>
+</li>
+<li>
+<p><em>connectionType</em> is set to <em>wunderground_1.0</em>.</p>
+</li>
+<li>
+<p><em>sensorID</em> is set to <em>MyPWS1</em> .</p>
+</li>
+<li>
+<p><em>baseURL</em> is <a href="http://api.wunderground.com/api" class="bare">http://api.wunderground.com/api</a>; the value is the same for all requests to the WeatherUnderground API.</p>
+</li>
+<li>
+<p><em>authType</em> has the value <em>apiKey</em>, because the API requires a unique API Key to connect to the server.</p>
+</li>
+<li>
+<p><em>linkToObservation</em> uses now the following placeholders: %baseUrl%, %authType%, and %sensorID%.</p>
+</li>
+<li>
+<p><em>sensorLocation</em> indicates that the sensor is located on the roof of the building.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_example_5_ogc_sensor_observation_service"><a class="anchor" href="#_example_5_ogc_sensor_observation_service"></a>Example 5: OGC Sensor Observation Service</h5>
+<div class="paragraph">
+<p>In this example, the same outside temperature from the weather station is to be retrieved, but now the sensor observations are stored in an OGC Sensor Observation Service (SOS). The observations can then be retrieved using the standardised SOS operation <em>GetObservation</em>. The following is an example <em>GetObservation</em> request (the request is a single line without linebreaks and spaces). The request retrieves all temperature observations between '2019-10-12T10:00:00.000Z' and '2019-10-09T00:00:00Z':</p>
+</div>
+<div id="listing-query-sos" class="listingblock">
+<div class="content">
+<pre>http://127.0.0.1:8080/weather-sensors-sos-webapp/service?SERVICE=SOS&amp;VERSION=2.0.0&amp;
+REQUEST=GetObservation&amp;PROCEDURE=MyPWS1&amp;OBSERVEDPOPERTY=Temp&amp;
+TEMPORALFILTER=om:phenomenonTime,2019-10-08T00:00:00Z/2019-10-09T00:00:00Z</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><a href="#listing-gml-sos">Listing 9</a> shows, how the Dynamizer needs to be defined to retrieve observations from the OGC SOS and link them to the generic attribute outside_temperature.</p>
+</div>
+<div id="listing-gml-sos" class="listingblock">
+<div class="title">Listing 9. Dynamizer defining a sensor connection to an OGC Sensor Observation Service.</div>
+<div class="content">
+<pre class="highlight"><code class="language-XML" data-lang="XML">&lt;bldg:Building gml:id="building1"&gt;
+  &lt;core:dynamizer&gt;
+    &lt;dyn:Dynamizer gml:id="dynamizer5"&gt;
+      &lt;dyn:attributeRef&gt;
+        &lt;!--Single line without linebreaks and spaces--&gt;
+        //con:RoofSurface[@gml:id='roof1']/core:genericAttribute/
+        gen:DoubleAttribute[gen:name='outside_temperature']/gen:value
+      &lt;/dyn:attributeRef&gt;
+      &lt;dyn:startTime&gt;2019-01-01T00:00:00Z&lt;/dyn:startTime&gt;
+      &lt;dyn:endTime&gt;2020-01-01T00:00:00Z&lt;/dyn:endTime&gt;
+      &lt;dyn:sensorConnection&gt;
+        &lt;dyn:SensorConnection&gt;
+          &lt;dyn:connectionType&gt;ogc_sos_2.0&lt;/dyn:connectionType&gt;
+          &lt;dyn:observationProperty&gt;Temperature&lt;/dyn:observationProperty&gt;
+          &lt;dyn:uom&gt;Celsius&lt;/dyn:uom&gt;
+          &lt;dyn:sensorID&gt;MyPWS1&lt;/dyn:sensorID&gt;
+          &lt;dyn:baseURL&gt;
+            <a href="http://127.0.0.1:8080/weather-sensors-sos-webapp/service" class="bare">http://127.0.0.1:8080/weather-sensors-sos-webapp/service</a>
+          &lt;/dyn:baseURL&gt;
+          &lt;dyn:authType&gt;none&lt;/dyn:authType&gt;
+          &lt;dyn:linkToObservation&gt;
+            &lt;!-- Single line without linebreaks and spaces --&gt;
+            %baseURL%?request=GetObservation&amp;amp;service=SOS&amp;amp;version=2.0.0
+            &amp;amp;procedure=%sensorID%&amp;amp;observedProperty=%observationProperty%
+            &amp;amp;temporalFilter=om:phenomenonTime,%startTime%/%endTime%
+          &lt;/dyn:linkToObservation&gt;
+          &lt;dyn:linkToSensorDescription&gt;
+            &lt;!-- Single line without linebreaks and spaces --&gt;
+            %baseURL%?REQUEST=DescribeSensor&amp;amp;SERVICE=SOS&amp;amp;VERSION=2.0.0
+            &amp;amp;PROCEDURE=%sensorID%
+            &amp;amp;procedureDescriptionFormat=http://www.opengis.net/sensorML/1.0.1
+          &lt;/dyn:linkToSensorDescription&gt;
+          &lt;dyn:sensorLocation xlink:href="#roof1"/&gt;
+        &lt;/dyn:SensorConnection&gt;
+      &lt;/dyn:sensorConnection&gt;
+    &lt;/dyn:Dynamizer&gt;
+  &lt;/core:dynamizer&gt;
+  &lt;!-- The roof surface and building room from {<a href="#listing-gml-building-with-temperature">Listing 4</a>} come here --&gt;
+&lt;/bldg:Building&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following parameters of the Dynamizer and the SensorConnection object differ from the example above:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>connectionType</em> is set to <em>ogc_sos_2.0</em>.</p>
+</li>
+<li>
+<p><em>baseURL</em> is set to the URL for accessing a specific SOS instance. The base URL may differ for SOS instances running on different machines.</p>
+</li>
+<li>
+<p><em>linkToObservation</em> uses now the following placeholders: %baseUrl%, %sensorID%, %observationProperty%, %startTime%, and %endTime%.</p>
+</li>
+<li>
+<p><em>linkToSensorDescription</em> allows to retrieve the sensor details. Here, attribute substitution is used to obtain the URL <a href="http://127.0.0.1:8080/weather-sensors-sos-webapp/service?REQUEST=DescribeSensor&amp;SERVICE=SOS&amp;VERSION=2.0.0&amp;PROCEDURE=ILONDON577&amp;procedureDescriptionFormat=http://www.opengis.net/sensorML/1.0.1" class="bare">http://127.0.0.1:8080/weather-sensors-sos-webapp/service?REQUEST=DescribeSensor&amp;SERVICE=SOS&amp;VERSION=2.0.0&amp;PROCEDURE=ILONDON577&amp;procedureDescriptionFormat=http://www.opengis.net/sensorML/1.0.1</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_examples_for_representing_timeseries_data_inline_with_city_objects_or_in_external_files"><a class="anchor" href="#_examples_for_representing_timeseries_data_inline_with_city_objects_or_in_external_files"></a>B.1.2. Examples for representing timeseries data inline with city objects or in external files</h4>
+<div class="paragraph">
+<p>The following examples show how timeseries data resulting from a solar potential simulation can be stored in tabulated files such as external CSV files or be represented inline with a city object.</p>
+</div>
+<div class="paragraph">
+<p>The examples refer to a building wall surface with ID <em>wall1</em> that has a generic attribute <em>globalRadMonth</em>, see <a href="#listing-gml-wallsurface">Listing 10</a>. The attribute represents the global irradiation value on the wall surface for different months which is calculated by a solar potential simulation. This means that the attribute is dynamic in nature and changes its value every month based on the simulation results.</p>
+</div>
+<div id="listing-gml-wallsurface" class="listingblock">
+<div class="title">Listing 10. A Building with a WallSurface containing a generic attribute 'globalRadMonth' to record monthly solar irradiation values.</div>
+<div class="content">
+<pre class="highlight"><code class="language-XML" data-lang="XML">&lt;con:WallSurface gml:id="wall1"&gt;
+  &lt;core:genericAttribute&gt;
+    &lt;gen:DoubleAttribute&gt;
+      &lt;gen:name&gt;globalRadMonth&lt;/gen:name&gt;
+      &lt;gen:value&gt;4293.446&lt;/gen:value&gt;
+    &lt;/gen:DoubleAttribute&gt;
+  &lt;/core:genericAttribute&gt;
+&lt;/con:WallSurface&gt;</code></pre>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_example_1_representation_of_timeseries_data_in_tabulated_files"><a class="anchor" href="#_example_1_representation_of_timeseries_data_in_tabulated_files"></a>Example 1: Representation of timeseries data in tabulated files</h5>
+<div class="paragraph">
+<p>In this example, the Dynamizer makes use of the TabulatedFileTimeseries object to link the dynamic data in tabulated files with the attribute of the city object.</p>
+</div>
+<div class="paragraph">
+<p><a href="#listing-csv-simulation-results">Listing 11</a> shows the CSV file named <em>results.csv</em> that stores the monthly simulation results for the building wall surface. The CSV file has a header line defining the column names. The first column <em>Surface_ID</em> contains the gml:id of the building surfaces. The second column <em>Time</em> contains the timestamp for each irradiation value in the form YYYY-MM. For example, 2015-01 represents the irradiation value computed for January 2015. The next column <em>Uom</em> represents the unit of measurement, which is kilowatt-hour (kWh) in this example. The last three columns <em>Diffuse</em>, <em>Direct</em>, and <em>Global</em> represent the computed diffuse, direct, and global irradiation values for the individual building surfaces. In the given CSV file, the field separator character is the comma (,) and the decimal symbol is the dot (.).</p>
+</div>
+<div id="listing-csv-simulation-results" class="listingblock">
+<div class="title">Listing 11. CSV file 'results.csv' that stores the monthly solar irradiation values for different building surfaces.</div>
+<div class="content">
+<pre>Surface_ID,Time,Uom,Diffuse,Direct,Global
+wall1,2015-01,kWh,1454.653,3315.214,4293.446
+wall1,2015-02,kWh,1866.883,4002.232,5563.502
+.......................................
+.......................................
+wall1,2015-12,kWh,1341.543,3001.412,4010.239
+wall2,2015-01,kWh,1313.344,3112.122,4109.742
+.......................................
+.......................................</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><a href="#listing-gml-tabulated1">Listing 12</a> shows how the Dynamizer makes use of a TabulatedFileTimeseries object to relate the CSV file <em>results.csv</em> and the individual columns within the file to the generic attribute <em>globalRadMonth</em>.</p>
+</div>
+<div id="listing-gml-tabulated1" class="listingblock">
+<div class="title">Listing 12. Dynamizer using a TabulatedFileTimeseries object for referring to timeseries stored in an external CSV file using the column ids.</div>
+<div class="content">
+<pre class="highlight"><code class="language-XML" data-lang="XML">&lt;dyn:Dynamizer gml:id="global_irradiation_Dynamizer"&gt;
+  &lt;dyn:attributeRef&gt;
+    &lt;!--Single line without linebreaks and spaces--&gt;
+    //con:RoofSurface[@gml:id='wall1']/core:genericAttribute
+    /gen:DoubleAttribute[gen:name='globalRadMonth']/gen:value
+  &lt;/dyn:attributeRef&gt;
+  &lt;dyn:startTime&gt;2015-01-01T00:00:00Z&lt;/dyn:startTime&gt;
+  &lt;dyn:endTime&gt;2016-01-01T00:00:00Z&lt;/dyn:endTime&gt;
+  &lt;dyn:dynamicData&gt;
+    &lt;dyn:TabulatedFileTimeseries&gt;
+      &lt;dyn:firstTimestamp&gt;2015-01-01T00:00:00Z&lt;/dyn:firstTimestamp&gt;
+      &lt;dyn:lastTimestamp&gt;2016-01-01T00:00:00Z&lt;/dyn:lastTimestamp&gt;
+      &lt;dyn:observationProperty&gt;GlobalIrradiationPerMonth&lt;/dyn:observationProperty&gt;
+      &lt;dyn:uom&gt;kWh&lt;/dyn:uom&gt;
+      &lt;dyn:fileLocation&gt;
+        <a href="file:///C:/Folder1/results.csv" class="bare">file:///C:/Folder1/results.csv</a>
+      &lt;/dyn:fileLocation&gt;
+      &lt;dyn:fileType&gt;csv&lt;/dyn:fileType&gt;
+      &lt;dyn:mimeType&gt;application/csv&lt;/dyn:mimeType&gt;
+      &lt;dyn:valueType&gt;double&lt;/dyn:valueType&gt;
+      &lt;dyn:numberOfHeaderLines&gt;1&lt;/dyn:numberOfHeaderLines&gt;
+      &lt;dyn:fieldSeparator&gt;,&lt;/dyn:fieldSeparator&gt;
+      &lt;dyn:decimalSymbol&gt;.&lt;/dyn:decimalSymbol&gt;
+      &lt;dyn:idColumnNo&gt;1&lt;/dyn:idColumnNo&gt;
+      &lt;dyn:idValue&gt;wall1&lt;/dyn:idValue&gt;
+      &lt;dyn:timeColumnNo&gt;2&lt;/dyn:timeColumnNo&gt;
+      &lt;dyn:valueColumnNo&gt;6&lt;/dyn:valueColumnNo&gt;
+    &lt;/dyn:TabulatedFileTimeseries&gt;
+  &lt;/dyn:dynamicData&gt;
+&lt;/dyn:Dynamizer&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The Dynamizer defines the following parameters:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>attributeRef</em> refers to the generic attribute <em>globalRadMonth</em> of the RoofSurface with the gml:id <em>wall1</em>.</p>
+</li>
+<li>
+<p><em>startTime</em> and <em>endTime</em> represent the entire temporal extent for the dynamic values.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The actual parameters with details on the CSV file are specified by the Dynamizer using a TabulatedFileTimeseries object:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>firstTimestamp</em> and <em>lastTimestamp</em> represent the temporal extent specified within the CSV file.</p>
+</li>
+<li>
+<p><em>observationProperty</em> indicates the observed property (here: <em>GlobalIrradiationPerMonth</em>).</p>
+</li>
+<li>
+<p><em>uom</em> specifies the unit of measurement of the observed property (here: <em>kWh</em>).</p>
+</li>
+<li>
+<p><em>fileLocation</em> specifies the location where the file is stored.</p>
+</li>
+<li>
+<p><em>fileType</em> indicates the file type (here: <em>csv</em>).</p>
+</li>
+<li>
+<p><em>mimeType</em> specifies the MIME type associated with the file type (here: <em>application/csv</em>).</p>
+</li>
+<li>
+<p><em>valueType</em> specifies the type of the values stored in the CSV file. The simulation results recorded in the CSV file are of type <em>double</em>.</p>
+</li>
+<li>
+<p><em>numberOfHeaderLines</em> indicates the number of header lines in the CSV file (here: 1). In case there is no header line in the CSV file, it can be shown as 0.</p>
+</li>
+<li>
+<p><em>fieldSeparator</em> represents the type of field separator used in the file (here: ',').</p>
+</li>
+<li>
+<p><em>decimalSymbol</em> represents the decimal symbol used in the file (here: '.').</p>
+</li>
+<li>
+<p><em>idColumnNo</em> indicates the column number that contains the IDs of the building surfaces.</p>
+</li>
+<li>
+<p><em>timeColumnNo</em> indicates the column number that contains the timestamps of the irradiation values.</p>
+</li>
+<li>
+<p><em>valueColumnNo</em> indicates the column number that contains the irradiation values.</p>
+</li>
+<li>
+<p><em>idValue</em> indicates the value of the id used for querying. In this example, the simulation results are stored for different building surfaces such as <em>wall1</em>, <em>wall2</em>, <em>wall3</em>, etc. Since the <em>attributeRef</em> parameter refers to the RoofSurface <em>wall1</em>, the <em>idValue</em> parameter is set to <em>wall1</em>. It allows to define that only surfaces with the ID <em>wall1</em> are used from this TabulatedFileTimeseries object.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>By specifying these parameters, the Dynamizer only retrieves irradiation values from the column <em>Global</em> where the timestamp provided in column <em>Time</em> is within the startTime and endTime defined by the Dynamizer, and where the ids in column <em>Surface_ID</em> are equal to the value <em>wall1</em>.</p>
+</div>
+<div class="paragraph">
+<p>Instead of providing the column ids, it is also possible to specify the column names. This is illustrated in <a href="#listing-gml-tabulated2">Listing 13</a>.</p>
+</div>
+<div id="listing-gml-tabulated2" class="listingblock">
+<div class="title">Listing 13. Dynamizer using a TabulatedFileTimeseries object for referring to timeseries stored in an external CSV file using the column names.</div>
+<div class="content">
+<pre class="highlight"><code class="language-XML" data-lang="XML">&lt;dyn:Dynamizer gml:id="global_irradiation_Dynamizer"&gt;
+  &lt;!-- attribute reference, start time and end time as in {<a href="#listing-gml-tabulated1">Listing 12</a>} --&gt;
+  &lt;dyn:dynamicData&gt;
+    &lt;dyn:TabulatedFileTimeseries&gt;
+      &lt;dyn:firstTimestamp&gt;2015-01-01T00:00:00Z&lt;/dyn:firstTimestamp&gt;
+      &lt;dyn:lastTimestamp&gt;2016-01-01T00:00:00Z&lt;/dyn:lastTimestamp&gt;
+      &lt;dyn:observationProperty&gt;GlobalIrradiationPerMonth&lt;/dyn:observationProperty&gt;
+      &lt;dyn:uom&gt;kWh&lt;/dyn:uom&gt;
+      &lt;dyn:fileLocation&gt;
+        <a href="file:///C:/Folder1/results.csv" class="bare">file:///C:/Folder1/results.csv</a>
+      &lt;/dyn:fileLocation&gt;
+      &lt;dyn:fileType&gt;csv&lt;/dyn:fileType&gt;
+      &lt;dyn:mimeType&gt;application/csv&lt;/dyn:mimeType&gt;
+      &lt;dyn:valueType&gt;double&lt;/dyn:valueType&gt;
+      &lt;dyn:numberOfHeaderLines&gt;1&lt;/dyn:numberOfHeaderLines&gt;
+      &lt;dyn:fieldSeparator&gt;,&lt;/dyn:fieldSeparator&gt;
+      &lt;dyn:decimalSymbol&gt;.&lt;/dyn:decimalSymbol&gt;
+      &lt;dyn:idColumnName&gt;Surface_ID&lt;/dyn:idColumnName&gt;
+      &lt;dyn:idValue&gt;wall1&lt;/dyn:idValue&gt;
+      &lt;dyn:timeColumnName&gt;Time&lt;/dyn:timeColumnName&gt;
+      &lt;dyn:valueColumnName&gt;Global&lt;/dyn:valueColumnName&gt;
+    &lt;/dyn:TabulatedFileTimeseries&gt;
+  &lt;/dyn:dynamicData&gt;
+&lt;/dyn:Dynamizer&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_example_2_representation_of_timeseries_data_in_files_based_on_international_standards"><a class="anchor" href="#_example_2_representation_of_timeseries_data_in_files_based_on_international_standards"></a>Example 2: Representation of timeseries data in files based on international standards</h5>
+<div class="paragraph">
+<p>It is also possible to represent the timeseries values according to international standards such as OGC TimeseriesML 1.0 using the StandardFileTimeseries object.</p>
+</div>
+<div class="paragraph">
+<p>An example is shown in <a href="#listing-gml-standard-file-timeseries">Listing 14</a>. The parameters used are identical to those described above for the TabulatedFileTimeseries object, except that the parameters referring to individual columns in the file are not required here. The monthly simulation results for the building wall surface are represented in a file results.xml according to the OGC TimeseriesML 1.0 standard; thus, the StandardFileTimeseries object references this file in the parameter <em>fileLocation</em> and <em>timeseriesml_1.0</em> is specified as file type and <em>application/xml</em> as MIME type.</p>
+</div>
+<div id="listing-gml-standard-file-timeseries" class="listingblock">
+<div class="title">Listing 14. Dynamizer using a GenericTimeseries object to represent timeseries inline.</div>
+<div class="content">
+<pre class="highlight"><code class="language-XML" data-lang="XML">&lt;dyn:Dynamizer gml:id="global_irradiation_Dynamizer"&gt;
+  &lt;dyn:attributeRef&gt;
+    &lt;!-- Single line without linebreak and space --&gt;
+    //con:WallSurface[@gml:id=’wall1’]/core:genericAttribute
+    /gen:DoubleAttribute[gen:name=’globalRadMonth’]/gen:value
+  &lt;/dyn:attributeRef&gt;
+  &lt;dyn:startTime frame="#ISO-8601"&gt;2015-01-01T00:00:00Z&lt;/dyn:startTime&gt;
+  &lt;dyn:endTime frame="#ISO-8601"&gt;2016-01-01T00:00:00Z&lt;/dyn:endTime&gt;
+  &lt;dyn:dynamicData&gt;
+    &lt;dyn:StandardFileTimeseries&gt;
+      &lt;dyn:firstTimestamp&gt;2015-01-01T00:00:00Z&lt;/dyn:firstTimestamp&gt;
+      &lt;dyn:lastTimestamp&gt;2016-01-01T00:00:00Z&lt;/dyn:lastTimestamp&gt;
+      &lt;dyn:observationProperty&gt;GlobalIrradiationPerMonth&lt;/dyn:observationProperty&gt;
+      &lt;dyn:uom&gt;kWh&lt;/dyn:uom&gt;
+      &lt;dyn:fileLocation&gt;
+        <a href="file:///C:/Folder1/results.xml" class="bare">file:///C:/Folder1/results.xml</a>
+      &lt;/dyn:fileLocation&gt;
+      &lt;dyn:fileType&gt;timeseriesml_1.0&lt;/dyn:fileType&gt;
+      &lt;dyn:mimeType&gt;application/xml&lt;/dyn:mimeType&gt;
+    &lt;/dyn:StandardFileTimeseries&gt;
+  &lt;/dyn:dynamicData&gt;
+&lt;/dyn:Dynamizer&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_example_3_representation_of_timeseries_data_inline_with_the_city_object"><a class="anchor" href="#_example_3_representation_of_timeseries_data_inline_with_the_city_object"></a>Example 3: Representation of timeseries data inline with the city object</h5>
+<div class="paragraph">
+<p>The solar potential simulation results can also be represented inline using a GenericTimeseries object. It allows for defining the necessary metadata of the timeseries data as well as the timeseries data itself, as is shown in <a href="#listing-gml-generic-timeseries">Listing 15</a>.</p>
+</div>
+<div id="listing-gml-generic-timeseries" class="listingblock">
+<div class="title">Listing 15. Dynamizer using a GenericTimeseries object to represent timeseries inline.</div>
+<div class="content">
+<pre class="highlight"><code class="language-XML" data-lang="XML">&lt;dyn:Dynamizer gml:id="global_irradiation_Dynamizer"&gt;
+  &lt;!-- attribute reference, start time and end time as in {<a href="#listing-gml-tabulated1">Listing 12</a>} --&gt;
+  &lt;dyn:dynamicData&gt;
+    &lt;dyn:GenericTimeseries&gt;
+      &lt;dyn:firstTimestamp&gt;2015-01-01T00:00:00Z&lt;/dyn:firstTimestamp&gt;
+      &lt;dyn:lastTimestamp&gt;2016-01-01T00:00:00Z&lt;/dyn:lastTimestamp&gt;
+      &lt;dyn:observationProperty&gt;GlobalIrradiationPerMonth&lt;/dyn:observationProperty&gt;
+      &lt;dyn:uom&gt;kWh&lt;/dyn:uom&gt;
+      &lt;dyn:valueType&gt;double&lt;/dyn:valueType&gt;
+      &lt;dyn:timeValuePair&gt;
+        &lt;dyn:TimeValuePair&gt;
+          &lt;dyn:timestamp&gt;2015-01&lt;/dyn:timestamp&gt;
+          &lt;dyn:doubleValue&gt;4293.446&lt;/dyn:doubleValue&gt;
+        &lt;/dyn:TimeValuePair&gt;
+      &lt;/dyn:timeValuePair&gt;
+      &lt;dyn:timeValuePair&gt;
+        &lt;dyn:TimeValuePair&gt;
+          &lt;dyn:timestamp&gt;2015-02&lt;/dyn:timestamp&gt;
+          &lt;dyn:doubleValue&gt;5563.502&lt;/dyn:doubleValue&gt;
+        &lt;/dyn:TimeValuePair&gt;
+      &lt;/dyn:timeValuePair&gt;
+      &lt;!-- ... timeValuePair elements for the months March to December ... --&gt;
+    &lt;/dyn:GenericTimeseries&gt;
+  &lt;/dyn:dynamicData&gt;
+&lt;/dyn:Dynamizer&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_representing_complex_periodic_patterns_using_dynamizers"><a class="anchor" href="#_representing_complex_periodic_patterns_using_dynamizers"></a>Representing complex periodic patterns using Dynamizers</h5>
+<div class="paragraph">
+<p>Dynamizers also support the composition of atomic timeseries, i.e. of GenericTimeseries objects, TabulatedFileTimeseries objects, and/or StandardFileTimeseries objects, to form composite timeseries. One typical example illustrating such a scenario is the mapping of energy values of a building for every hour in a day as is shown in <a href="#figure-example-composite-timeseries">Figure 14</a>. The hourly consumption readings for a working day, a Saturday, and a Sunday are represented as individual atomic timeseries A, B, and C, respectively.</p>
+</div>
+<div id="figure-example-composite-timeseries" class="imageblock text-center">
+<div class="content">
+<img src="images/Example_CompositeTimeseries.png" alt="Example CompositeTimeseries">
+</div>
+<div class="title">Figure 14. Example of a energy consumption pattern composed of atomic timeseries.</div>
+</div>
+<div class="paragraph">
+<p>A CompositeTimeseries object may now contain five repetitions of timeseries A to reflect a pattern of energy consumption values for all weekdays, whereas the energy consumption for Saturday is represented by timeseries B and for Sunday by timeseries C. In this way, a weekly pattern can be defined containing the energy values for all seven days of a week (represented as 'AAAAABC'). This is illustrated in <a href="#listing-gml-composite-timeseries">[listing-gml-composite-timeseries]</a>.</p>
+</div>
+<div id="listing-gml-composite-timeseries" class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Dynamizer defining a CompositeTimeseries to represent a weekly pattern of energy consumption values.</p>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>&lt;!-- Only the Dynamizer feature is shown in this listing --&gt;
+&lt;dyn:Dynamizer gml:id="electricity_consumption"&gt;
+  &lt;dyn:attributeRef&gt;
+    &lt;!-- XPath expression to the city object property to be overriden--&gt;
+  &lt;/dyn:attributeRef&gt;
+  &lt;!-- ISO 8601 Week Date Representation showing absolute timestamps--&gt;
+  &lt;dyn:startTime&gt;2015-W01-01&lt;/dyn:startTime&gt;
+  &lt;dyn:endTime&gt;2015-W02-01&lt;/dyn:endTime&gt;
+  &lt;dyn:dynamicData&gt;
+    &lt;dyn:CompositeTimeseries&gt;
+      &lt;!-- Component for weekdays--&gt;
+      &lt;dyn:component&gt;
+        &lt;dyn:TimeseriesComponent&gt;
+          &lt;dyn:repetitions&gt;5&lt;/dyn:repetitions&gt;
+          &lt;dyn:timeseries&gt;
+            &lt;dyn:GenericTimeseries gml:id="Weekdays"&gt;
+              &lt;!-- ISO 8601 Time Representation showing relative timestamps--&gt;
+              &lt;dyn:firstTimestamp&gt;T00:00:00&lt;/dyn:firstTimestamp&gt;
+              &lt;dyn:lastTimestamp&gt;T24:00:00&lt;/dyn:lastTimestamp&gt;
+              &lt;dyn:observationProperty&gt;ElecConsump&lt;/dyn:observationProperty&gt;
+              &lt;dyn:uom&gt;kWh&lt;/dyn:uom&gt;
+              &lt;dyn:valueType&gt;double&lt;/dyn:valueType&gt;
+              &lt;dyn:timeValuePair&gt;
+                &lt;dyn:TimeValuePair&gt;
+                  &lt;dyn:timestamp&gt;T00:00:00&lt;/dyn:timestamp&gt;
+                  &lt;dyn:doubleValue&gt;1.32&lt;/dyn:doubleValue&gt;
+                &lt;/dyn:TimeValuePair&gt;
+              &lt;/dyn:timeValuePair&gt;
+              &lt;dyn:timeValuePair&gt;
+                &lt;dyn:TimeValuePair&gt;
+                  &lt;dyn:timestamp&gt;T01:00:00&lt;/dyn:timestamp&gt;
+                  &lt;dyn:doubleValue&gt;1.41&lt;/dyn:doubleValue&gt;
+                &lt;/dyn:TimeValuePair&gt;
+              &lt;/dyn:timeValuePair&gt;
+              &lt;dyn:timeValuePair&gt;
+                &lt;dyn:TimeValuePair&gt;
+                  &lt;dyn:timestamp&gt;T02:00:00&lt;/dyn:timestamp&gt;
+                  &lt;dyn:doubleValue&gt;1.53&lt;/dyn:doubleValue&gt;
+                &lt;/dyn:TimeValuePair&gt;
+              &lt;/dyn:timeValuePair&gt;
+              &lt;!-- ... values for all 24 hours in a weekday ... --&gt;
+            &lt;/dyn:GenericTimeseries&gt;
+          &lt;/dyn:timeseries&gt;
+        &lt;/dyn:TimeseriesComponent&gt;
+      &lt;/dyn:component&gt;
+      &lt;!-- Component for Saturday--&gt;
+      &lt;dyn:component&gt;
+        &lt;dyn:TimeseriesComponent&gt;
+          &lt;dyn:repetitions&gt;1&lt;/dyn:repetitions&gt;
+          &lt;dyn:timeseries&gt;
+            &lt;dyn:GenericTimeseries gml:id="Saturday"&gt;
+              &lt;!-- ISO 8601 Time Representation showing relative timestamps--&gt;
+              &lt;dyn:firstTimestamp&gt;T00:00:00&lt;/dyn:firstTimestamp&gt;
+              &lt;dyn:lastTimestamp&gt;T24:00:00&lt;/dyn:lastTimestamp&gt;
+              &lt;dyn:observationProperty&gt;ElecConsump&lt;/dyn:observationProperty&gt;
+              &lt;dyn:uom&gt;kWh&lt;/dyn:uom&gt;
+              &lt;dyn:valueType&gt;double&lt;/dyn:valueType&gt;
+              &lt;dyn:timeValuePair&gt;
+                &lt;dyn:TimeValuePair&gt;
+                  &lt;dyn:timestamp&gt;T00:00:00&lt;/dyn:timestamp&gt;
+                  &lt;dyn:doubleValue&gt;1.39&lt;/dyn:doubleValue&gt;
+                &lt;/dyn:TimeValuePair&gt;
+              &lt;/dyn:timeValuePair&gt;
+              &lt;dyn:timeValuePair&gt;
+                &lt;dyn:TimeValuePair&gt;
+                  &lt;dyn:timestamp&gt;T01:00:00&lt;/dyn:timestamp&gt;
+                  &lt;dyn:doubleValue&gt;1.44&lt;/dyn:doubleValue&gt;
+                &lt;/dyn:TimeValuePair&gt;
+              &lt;/dyn:timeValuePair&gt;
+              &lt;dyn:timeValuePair&gt;
+                &lt;dyn:TimeValuePair&gt;
+                  &lt;dyn:timestamp&gt;T02:00:00&lt;/dyn:timestamp&gt;
+                  &lt;dyn:doubleValue&gt;1.52&lt;/dyn:doubleValue&gt;
+                &lt;/dyn:TimeValuePair&gt;
+              &lt;/dyn:timeValuePair&gt;
+              &lt;!-- ... values for all 24 hours in a weekday ... --&gt;
+            &lt;/dyn:GenericTimeseries&gt;
+          &lt;/dyn:timeseries&gt;
+        &lt;/dyn:TimeseriesComponent&gt;
+      &lt;/dyn:component&gt;
+      &lt;!-- Component for Sunday--&gt;
+      &lt;dyn:component&gt;
+        &lt;dyn:TimeseriesComponent&gt;
+          &lt;dyn:repetitions&gt;1&lt;/dyn:repetitions&gt;
+          &lt;dyn:timeseries&gt;
+            &lt;dyn:GenericTimeseries gml:id="Sunday"&gt;
+              &lt;!-- ISO 8601 Time Representation showing relative timestamps--&gt;
+              &lt;dyn:firstTimestamp&gt;T00:00:00&lt;/dyn:firstTimestamp&gt;
+              &lt;dyn:lastTimestamp&gt;T24:00:00&lt;/dyn:lastTimestamp&gt;
+              &lt;dyn:observationProperty&gt;ElecConsump&lt;/dyn:observationProperty&gt;
+              &lt;dyn:uom&gt;kWh&lt;/dyn:uom&gt;
+              &lt;dyn:valueType&gt;double&lt;/dyn:valueType&gt;
+              &lt;dyn:timeValuePair&gt;
+                &lt;dyn:TimeValuePair&gt;
+                  &lt;dyn:timestamp&gt;T00:00:00&lt;/dyn:timestamp&gt;
+                  &lt;dyn:doubleValue&gt;1.30&lt;/dyn:doubleValue&gt;
+                &lt;/dyn:TimeValuePair&gt;
+              &lt;/dyn:timeValuePair&gt;
+              &lt;dyn:timeValuePair&gt;
+                &lt;dyn:TimeValuePair&gt;
+                  &lt;dyn:timestamp&gt;T01:00:00&lt;/dyn:timestamp&gt;
+                  &lt;dyn:doubleValue&gt;1.46&lt;/dyn:doubleValue&gt;
+                &lt;/dyn:TimeValuePair&gt;
+              &lt;/dyn:timeValuePair&gt;
+              &lt;dyn:timeValuePair&gt;
+                &lt;dyn:TimeValuePair&gt;
+                  &lt;dyn:timestamp&gt;T02:00:00&lt;/dyn:timestamp&gt;
+                  &lt;dyn:doubleValue&gt;1.59&lt;/dyn:doubleValue&gt;
+                &lt;/dyn:TimeValuePair&gt;
+              &lt;/dyn:timeValuePair&gt;
+              &lt;!-- ... values for all 24 hours in a weekday ... --&gt;
+            &lt;/dyn:GenericTimeseries&gt;
+          &lt;/dyn:timeseries&gt;
+        &lt;/dyn:TimeseriesComponent&gt;
+      &lt;/dyn:component&gt;
+    &lt;/dyn:CompositeTimeseries&gt;
+  &lt;/dyn:dynamicData&gt;
+&lt;/dyn:Dynamizer&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The property <em>attributeRef</em> refers to a specific city object property or generic attribute to be overridden by the dynamic energy consumption values.</p>
+</div>
+<div class="paragraph">
+<p>The properties <em>startTime</em> and <em>endTime</em> represent the overall temporal extent of the Dynamizer feature, which is one week in this example. The temporal extent is represented using the ISO 8601 Week Date Representation. This representation is defined using the string "YYYY-Www-D", where [YYYY] is the year, [Www] is the week number prefixed by the letter W, from W01 through W53, and [D] is the weekday number, from 1 through 7, beginning with Monday and ending with Sunday. Therefore, the string "2015-W01-01" in this listing indicates Monday of the week number 1 of the year 2015. Similarly, the string "2015-W01-07" indicates Sunday of the week number 1 of the year 2015. The startTime and endTime follow the Half-Open interval, which means the startTime is inclusive and the endTime is exclusive.</p>
+</div>
+<div class="paragraph">
+<p>The CompositeTimeseries object includes 3 components in this listing, representing weekdays, Saturdays, and Sundays, respectively. The component for weekdays includes a GenericTimeseries object indicating the electricity consumption values for every hour in a day. Within this GenericTimeseries object, the attributes <em>firstTimestamp</em> and <em>lastTimestamp</em> are relative timestamps and represent the temporal extent for each weekday, starting at 0 am and ending at 0 am the next day; thus, the duration of the GenericTimeseries object is 24 hours. By repeating the GenericTimeseries object five times, a total duration of five days is obtained. Each observation is represented using <em>TimeValuePair</em> elements where the timestamp is a time value relative to the absolute value defined within the temporal extent. For each iteration, the combination of this relative timestamp and the absolute timestamp give a complete timestamp including the date and time values. The property <em>repetitions</em> has the value 5 for this component to represent 5 iterations for all the weekdays in the week. In a similar way, the other components for Saturday and Sunday can be defined using the repetition value 1 for restriction to only 1 iteration.</p>
+</div>
+<div id="figure-example-complex-timeseries" class="imageblock text-center">
+<div class="content">
+<img src="images/Example_ComplexCompositeTimeseries.png" alt="Example ComplexCompositeTimeseries">
+</div>
+<div class="title">Figure 15. Example of a monthly pattern composed of individual CompositeTimeseries  defined by complex energy consumption pattern comosed of atomic timeseries.</div>
+</div>
+<div class="paragraph">
+<p><a href="#listing-gml-composite-timeseries">[listing-gml-composite-timeseries]</a> is an example for a CompositeTimeseries object representing periodic patterns of electricity consumption values for one week. Depending on the use case, more complex CompositeTimeseries objects can be defined based on individual CompositeTimeseries components, such as a monthly pattern consisting of 5 weekly patterns as is shown in <a href="#figure-example-complex-timeseries">Figure 15</a> or a yearly pattern which consists of 52 repetitions of the weekly pattern. Similarly, a CompositeTimeseries object could contain components for weekdays only to represent weekday patterns.</p>
+</div>
 </div>
 </div>
 </div>
@@ -4960,19 +5737,19 @@ Ensure that there is a conformance class for each requirements class and a test 
 <p><strong>Option 1: Inline representation</strong></p>
 </div>
 <div class="paragraph">
-<p>A MultiPoint geometry is provided inline with the CityGML file, i.e., the point cloud of a specific feature is embedded directly within the feature represented by the point cloud. <a href="#listing-gml-pointcloud-inline">Listing 6</a> shows an example for a point cloud of a building represented inline the Building feature.</p>
+<p>A MultiPoint geometry is provided inline with the CityGML file, i.e., the point cloud of a specific feature is embedded directly within the feature represented by the point cloud. <a href="#listing-gml-pointcloud-inline">Listing 16</a> shows an example for a point cloud of a building represented inline the Building feature.</p>
 </div>
 <div class="paragraph">
-<p><a href="#figure-example-pointcloud-inline">Figure 14</a> shows different visualisations of the GML file. The left image displays the building features themselves, the middle image shows the point clouds of the buildings, and the right image is a combination of the building features and the point clouds.</p>
+<p><a href="#figure-example-pointcloud-inline">Figure 16</a> shows different visualisations of the GML file. The left image displays the building features themselves, the middle image shows the point clouds of the buildings, and the right image is a combination of the building features and the point clouds.</p>
 </div>
 <div id="figure-example-pointcloud-inline" class="imageblock text-center">
 <div class="content">
 <img src="images/Example_PointCloud_inline.png" alt="Example PointCloud inline">
 </div>
-<div class="title">Figure 14. Visualization of the inline representation of points clouds.</div>
+<div class="title">Figure 16. Visualization of the inline representation of points clouds.</div>
 </div>
 <div id="listing-gml-pointcloud-inline" class="listingblock">
-<div class="title">Listing 6. The point cloud of a building is embedded in the Building feature.</div>
+<div class="title">Listing 16. The point cloud of a building is embedded in the Building feature.</div>
 <div class="content">
 <pre class="highlight"><code class="language-XML" data-lang="XML">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
 &lt;core:CityModel ... Namespaces and Schema location ... &gt;
@@ -5027,10 +5804,10 @@ Ensure that there is a conformance class for each requirements class and a test 
 <p><strong>Option 2: External representation in multiple files</strong></p>
 </div>
 <div class="paragraph">
-<p>A separate point cloud file is provided for every feature. Each feature in the CityGML file references the corresponding point cloud file. This is shown in <a href="#listing-gml-pointcloud-external-multiple-files">Listing 7</a>, where the building feature references the LAZ file DEBY_LOD2_4903217.laz that contains the points for this building (illustrated in <a href="#figure-example-pointcloud-external-multiple-files">Figure 15</a>).</p>
+<p>A separate point cloud file is provided for every feature. Each feature in the CityGML file references the corresponding point cloud file. This is shown in <a href="#listing-gml-pointcloud-external-multiple-files">Listing 17</a>, where the building feature references the LAZ file DEBY_LOD2_4903217.laz that contains the points for this building (illustrated in <a href="#figure-example-pointcloud-external-multiple-files">Figure 17</a>).</p>
 </div>
 <div id="listing-gml-pointcloud-external-multiple-files" class="listingblock">
-<div class="title">Listing 7. The point cloud of a building is referenced in an external file.</div>
+<div class="title">Listing 17. The point cloud of a building is referenced in an external file.</div>
 <div class="content">
 <pre class="highlight"><code class="language-XML" data-lang="XML">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
 &lt;core:CityModel ... Namespaces and Schema location ... &gt;
@@ -5064,16 +5841,16 @@ Ensure that there is a conformance class for each requirements class and a test 
 <div class="content">
 <img src="images/Example_PointCloud_external_multiple_files.png" alt="Example PointCloud external multiple files" width="50%">
 </div>
-<div class="title">Figure 15. Visualization of the externally referenced LAZ file containing the point cloud of one building.</div>
+<div class="title">Figure 17. Visualization of the externally referenced LAZ file containing the point cloud of one building.</div>
 </div>
 <div class="paragraph">
 <p><strong>Option 3: External representation in a single file</strong></p>
 </div>
 <div class="paragraph">
-<p>One point cloud file is provided that contains all points from all features in a specific area. In the point cloud file, all points belonging to a specific feature have the same value set in the attribute “point_source_id”. Each feature in the CityGML instance document references the point cloud file and all points with the corresponding value in the attribute “point_source_id”. In <a href="#listing-gml-pointcloud-external-single-file">Listing 8</a>, the building feature references all points with the “point_source_id” value 132 in the LAZ file 4467_5331_40_bDOM_classified.laz. The LAZ file itself is shown in <a href="#figure-example-pointcloud-external-single-file">Figure 16</a>. Highlighted are those points with the “point_source_id” value 132.</p>
+<p>One point cloud file is provided that contains all points from all features in a specific area. In the point cloud file, all points belonging to a specific feature have the same value set in the attribute “point_source_id”. Each feature in the CityGML instance document references the point cloud file and all points with the corresponding value in the attribute “point_source_id”. In <a href="#listing-gml-pointcloud-external-single-file">Listing 18</a>, the building feature references all points with the “point_source_id” value 132 in the LAZ file 4467_5331_40_bDOM_classified.laz. The LAZ file itself is shown in <a href="#figure-example-pointcloud-external-single-file">Figure 18</a>. Highlighted are those points with the “point_source_id” value 132.</p>
 </div>
 <div id="listing-gml-pointcloud-external-single-file" class="listingblock">
-<div class="title">Listing 8. The point cloud of a building is referenced in an external file.</div>
+<div class="title">Listing 18. The point cloud of a building is referenced in an external file.</div>
 <div class="content">
 <pre class="highlight"><code class="language-XML" data-lang="XML">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
 &lt;core:CityModel  ... Namespaces and Schema location ... &gt;
@@ -5107,15 +5884,11 @@ Ensure that there is a conformance class for each requirements class and a test 
 <div class="content">
 <img src="images/Example_PointCloud_external_single_file.png" alt="Example PointCloud external single file">
 </div>
-<div class="title">Figure 16. Visualization of an external LAZ file containing amongst others the referenced points of a specific building.</div>
+<div class="title">Figure 18. Visualization of an external LAZ file containing amongst others the referenced points of a specific building.</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="annex-examples-dynamizer"><a class="anchor" href="#annex-examples-dynamizer"></a>B.3. Dynamizer Examples</h3>
-
-</div>
-<div class="sect2">
-<h3 id="annex-examples-versioning"><a class="anchor" href="#annex-examples-versioning"></a>B.4. Versioning Examples</h3>
+<h3 id="annex-examples-versioning"><a class="anchor" href="#annex-examples-versioning"></a>B.3. Versioning Examples</h3>
 <div class="paragraph">
 <p><strong>Version Management using XLinks</strong></p>
 </div>
@@ -5143,14 +5916,14 @@ The rules clearly define when to create new versions of features and when to ref
 <p>With this rule, the subordinate features can remain in their current state and do not need to be copied as new versions for every change within in a top-level feature.</p>
 </div>
 <div class="paragraph">
-<p>The use of Rule 1 is illustrated in <a href="#figure-version-management-rule1">Figure 17</a>.
+<p>The use of Rule 1 is illustrated in <a href="#figure-version-management-rule1">Figure 19</a>.
 The <em>function</em> attribute of the top-level feature Building changes from <em>Living</em> to <em>Office</em>; thus, a new version of the Building feature is created with a new gml:id. Since the subordinate feature BuildingPart remains unchanged, the new Building version references the unchanged BuildingPart feature.</p>
 </div>
 <div id="figure-version-management-rule1" class="imageblock text-center">
 <div class="content">
 <img src="images/VersionManagement_Rule1.png" alt="VersionManagement Rule1">
 </div>
-<div class="title">Figure 17. Version management when only the top-level feature changes.</div>
+<div class="title">Figure 19. Version management when only the top-level feature changes.</div>
 </div>
 <div class="paragraph">
 <p><strong>Rule 2: Only a subordinate feature changes</strong></p>
@@ -5175,22 +5948,22 @@ The <em>function</em> attribute of the top-level feature Building changes from <
 <p>For aggregation hierarchies this means that whenever a subordinate feature changes, also new versions of all corresponding superordinate features up to the top-level feature need to be created.</p>
 </div>
 <div class="paragraph">
-<p>The use of rule 2 is illustrated in <a href="#figure-version-management-rule2">Figure 18</a>. Here the roof type of the subordinate feature BuildingPart changes from <em>Flat</em> to <em>Saddle</em> which results in a new version of the BuildingPart feature with a new gml:id. The feature is referenced from a superordinate feature, i.e., the top-level feature Building. This means that also a new version needs to be created for the Building feature with a new gml:id and a reference to the new BuildingPart feature.</p>
+<p>The use of rule 2 is illustrated in <a href="#figure-version-management-rule2">Figure 20</a>. Here the roof type of the subordinate feature BuildingPart changes from <em>Flat</em> to <em>Saddle</em> which results in a new version of the BuildingPart feature with a new gml:id. The feature is referenced from a superordinate feature, i.e., the top-level feature Building. This means that also a new version needs to be created for the Building feature with a new gml:id and a reference to the new BuildingPart feature.</p>
 </div>
 <div id="figure-version-management-rule2" class="imageblock text-center">
 <div class="content">
 <img src="images/VersionManagement_Rule2.png" alt="VersionManagement Rule2">
 </div>
-<div class="title">Figure 18. Version management when only a subordinate feature changes that is directly referenced from the top-level feature.</div>
+<div class="title">Figure 20. Version management when only a subordinate feature changes that is directly referenced from the top-level feature.</div>
 </div>
 <div class="paragraph">
-<p><a href="#figure-version-management-rule2-aggregation">Figure 19</a> illustrates rule 2 for an aggregation hierarchy. Here, the BuildingPart feature has two subordinate features BuildingRoom. The function of one BuildingRoom changes from <em>Bedroom</em> to <em>Home Office</em>, whereas the other BuildingRoom feature remains unchanged. This means that a new version is created for the changed BuildingRoom feature and also for the superordinate BuildingPart feature. The new BuildingPart feature references then the changed BuildingRoom feature and the unchanged BuildingRoom feature. Since BuildingPart, in turn, is subordinate to the top-level feature Building, also a new version of the Building feature is created.</p>
+<p><a href="#figure-version-management-rule2-aggregation">Figure 21</a> illustrates rule 2 for an aggregation hierarchy. Here, the BuildingPart feature has two subordinate features BuildingRoom. The function of one BuildingRoom changes from <em>Bedroom</em> to <em>Home Office</em>, whereas the other BuildingRoom feature remains unchanged. This means that a new version is created for the changed BuildingRoom feature and also for the superordinate BuildingPart feature. The new BuildingPart feature references then the changed BuildingRoom feature and the unchanged BuildingRoom feature. Since BuildingPart, in turn, is subordinate to the top-level feature Building, also a new version of the Building feature is created.</p>
 </div>
 <div id="figure-version-management-rule2-aggregation" class="imageblock text-center">
 <div class="content">
 <img src="images/VersionManagement_Rule2_Aggregation.png" alt="VersionManagement Rule2 Aggregation">
 </div>
-<div class="title">Figure 19. Version management when only a subordinate feature changes that is part of an aggregation hierarchy.</div>
+<div class="title">Figure 21. Version management when only a subordinate feature changes that is part of an aggregation hierarchy.</div>
 </div>
 <div class="paragraph">
 <p><strong>Rule 3: Top-level and subordinate features change</strong></p>
@@ -5206,25 +5979,25 @@ The <em>function</em> attribute of the top-level feature Building changes from <
 <div class="content">
 <img src="images/VersionManagement_Rule3.png" alt="VersionManagement Rule3">
 </div>
-<div class="title">Figure 20. Use of Rule3 in case a top-level feature and a corresponding subordinate feature changes.</div>
+<div class="title">Figure 22. Use of Rule3 in case a top-level feature and a corresponding subordinate feature changes.</div>
 </div>
 <div class="paragraph">
-<p>The use of rule 3 is illustrated in <a href="#figure-version-management-rule2">Figure 18</a>. Here, the top-level feature Building and its subordinate feature BuildingPart change. Thus, new versions are created for both features with new gml:ids, new attribute values and a reference from the new Building feature to the new BuildingPart feature.</p>
+<p>The use of rule 3 is illustrated in <a href="#figure-version-management-rule2">Figure 20</a>. Here, the top-level feature Building and its subordinate feature BuildingPart change. Thus, new versions are created for both features with new gml:ids, new attribute values and a reference from the new Building feature to the new BuildingPart feature.</p>
 </div>
 <div class="paragraph">
 <p><strong>Example: Successive version management over a period of time</strong></p>
 </div>
 <div class="paragraph">
-<p>The example in <a href="#figure-version-management-example1">Figure 21</a> illustrates different versions of a building at three points in time. The original Building including its BuildingPart exists at time t1. At time t2, the top-level feature Building changes its function which results in the application of Rule 1. Afterwards at time t3, the subordinate feature BuildingPart changes its roof type, thus, Rule 2 is applied in this case. <a href="#listing-gml-version-management-example1">Listing 9</a> represents this example in GML.</p>
+<p>The example in <a href="#figure-version-management-example1">Figure 23</a> illustrates different versions of a building at three points in time. The original Building including its BuildingPart exists at time t1. At time t2, the top-level feature Building changes its function which results in the application of Rule 1. Afterwards at time t3, the subordinate feature BuildingPart changes its roof type, thus, Rule 2 is applied in this case. <a href="#listing-gml-version-management-example1">Listing 19</a> represents this example in GML.</p>
 </div>
 <div id="figure-version-management-example1" class="imageblock text-center">
 <div class="content">
 <img src="images/VersionManagement_Example1.png" alt="VersionManagement Example1">
 </div>
-<div class="title">Figure 21. Successive version management over a period of time.</div>
+<div class="title">Figure 23. Successive version management over a period of time.</div>
 </div>
 <div id="listing-gml-version-management-example1" class="listingblock">
-<div class="title">Listing 9. GML instance document for the example on successive version management over a period of time illustrated in <a href="#figure-version-management-example1">Figure 21</a>.</div>
+<div class="title">Listing 19. GML instance document for the example on successive version management over a period of time illustrated in <a href="#figure-version-management-example1">Figure 23</a>.</div>
 <div class="content">
 <pre class="highlight"><code class="language-XML" data-lang="XML">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
 &lt;core:CityModel ... Namespaces and Schema location ... &gt;
@@ -5273,16 +6046,16 @@ The <em>function</em> attribute of the top-level feature Building changes from <
 <p><strong>Example: Successive version management with Versions and VersionTransitions</strong></p>
 </div>
 <div class="paragraph">
-<p>The example in <a href="#figure-version-management-example2">Figure 22</a> illustrates 4 Building features (b1, b2-1, b2-2, and b3) represented across 2 Versions (v1 and v2). A <em>historicalSuccession</em> type VersionTransition (vt1) stores the changes between each Building through 3 Transactions (t1, t2, and t3). t1 shows that Building b1 is <em>deleted</em> from v1, t2 shows that Building b2-1 is <em>replaced</em> by Building b2-2 in v2, and t3 shows that Building b3 is <em>inserted</em> into v2. <a href="#listing-gml-version-management-example2">Listing 10</a> represents this example in GML.</p>
+<p>The example in <a href="#figure-version-management-example2">Figure 24</a> illustrates 4 Building features (b1, b2-1, b2-2, and b3) represented across 2 Versions (v1 and v2). A <em>historicalSuccession</em> type VersionTransition (vt1) stores the changes between each Building through 3 Transactions (t1, t2, and t3). t1 shows that Building b1 is <em>deleted</em> from v1, t2 shows that Building b2-1 is <em>replaced</em> by Building b2-2 in v2, and t3 shows that Building b3 is <em>inserted</em> into v2. <a href="#listing-gml-version-management-example2">Listing 20</a> represents this example in GML.</p>
 </div>
 <div id="figure-version-management-example2" class="imageblock text-center">
 <div class="content">
 <img src="images/VersionManagement_Example2.png" alt="VersionManagement Example2">
 </div>
-<div class="title">Figure 22. Successive version management using Versions and VersionTransitions.</div>
+<div class="title">Figure 24. Successive version management using Versions and VersionTransitions.</div>
 </div>
 <div id="listing-gml-version-management-example2" class="listingblock">
-<div class="title">Listing 10. GML instance document for the example on successive version management using Versions and VersionTransitions illustrated in <a href="#figure-version-management-example2">Figure 22</a>.</div>
+<div class="title">Listing 20. GML instance document for the example on successive version management using Versions and VersionTransitions illustrated in <a href="#figure-version-management-example2">Figure 24</a>.</div>
 <div class="content">
 <pre class="highlight"><code class="language-XML" data-lang="XML">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
 &lt;core:CityModel ... Namespaces and Schema location ... &gt;
@@ -5352,6 +6125,120 @@ The <em>function</em> attribute of the top-level feature Building changes from <
 </div>
 </div>
 <div class="sect2">
+<h3 id="annex-examples-address"><a class="anchor" href="#annex-examples-address"></a>B.4. Address Examples</h3>
+<div class="paragraph">
+<p>The CityGML 3.0 CM provides the ability to represent address information of real-world features. Addresses can be declared for <em>AbstractBridge</em>, <em>AbstractBuilding</em>, <em>BuildingUnit</em>, <em>Door</em>, and <em>DoorSurface</em> feature types using their respective <em>address</em> properties and the <em>Address</em> feature type of the Core module. An <em>Address</em> can be declared inline or by an XLink reference.</p>
+</div>
+<div class="paragraph">
+<p>An <em>Address</em> is modeled with two properties:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>An optional <em>multiPoint</em> property containing a <em>gml:MultiPoint</em> for specifying the 2D or 3D position of the address.</p>
+</li>
+<li>
+<p>A <em>xalAddress</em> property containing a <em>xAL:Address</em> type from the OASIS CIQ TC extensible Address Language standard (xAL).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The CityGML datasets presented here are available under <a href="https://github.com/opengeospatial/CityGML-3.0Encodings/tree/master/CityGML/Examples/Building" class="bare">https://github.com/opengeospatial/CityGML-3.0Encodings/tree/master/CityGML/Examples/Building</a>, additional examples are also available on the OASIS documentation repository <a href="http://docs.oasis-open.org/ciq/v3.0/cs02/xsd/default/examples/xAL/" class="bare">http://docs.oasis-open.org/ciq/v3.0/cs02/xsd/default/examples/xAL/</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Example 1: Structured address and multipoint</strong></p>
+</div>
+<div class="paragraph">
+<p>xAL provides a rich vocabulary for structuring addresses in GML. <a href="#listing-address-example1">Listing 21</a> shows how an address in Germany can be modeled using xAL and a multipoint:</p>
+</div>
+<div id="listing-address-example1" class="listingblock">
+<div class="title">Listing 21. A GML example of a structured German xAL building address with a GML MultiPoint.</div>
+<div class="content">
+<pre class="highlight"><code class="language-XML" data-lang="XML">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;core:CityModel ... Namespaces and Schema location ... &gt;
+  &lt;core:cityObjectMember&gt;
+    &lt;bldg:Building gml:id="DEBY_LOD2_5744682"&gt;
+      &lt;bldg:address&gt;
+        &lt;core:Address&gt;
+          &lt;!--
+          Am Hang 15      street number and name
+          85665 Moosach   postcode and locality
+          Germany         country
+          --&gt;
+          &lt;core:xalAddress&gt;
+            &lt;xAL:Address&gt;
+              &lt;xAL:Country&gt;
+                &lt;xAL:NameElement xAL:NameType="Name"&gt;Germany&lt;/xAL:NameElement&gt;
+              &lt;/xAL:Country&gt;
+              &lt;xAL:Locality xAL:Type="Town"&gt;
+                &lt;xAL:NameElement xAL:NameType="Name"&gt;Moosach&lt;/xAL:NameElement&gt;
+              &lt;/xAL:Locality&gt;
+              &lt;xAL:Thoroughfare xAL:Type="Street"&gt;
+                &lt;xAL:NameElement xAL:NameType="NameAndType"&gt;Am Hang&lt;/xAL:NameElement&gt;
+                &lt;xAL:Number xAL:Type="Number"&gt;15&lt;/xAL:Number&gt;
+              &lt;/xAL:Thoroughfare&gt;
+              &lt;xAL:PostCode&gt;
+                &lt;xAL:Identifier&gt;85665&lt;/xAL:Identifier&gt;
+              &lt;/xAL:PostCode&gt;
+            &lt;/xAL:Address&gt;
+          &lt;/core:xalAddress&gt;
+          &lt;!-- WGS84 48.03616458630443, 11.873209628265858 --&gt;
+          &lt;core:multiPoint&gt;
+            &lt;gml:MultiPoint srsName="urn:ogc:def:crs:EPSG::4326"&gt;
+              &lt;gml:pointMember&gt;
+                &lt;gml:Point&gt;
+                  &lt;gml:pos&gt;48.03616458630443 11.873209628265858&lt;/gml:pos&gt;
+                &lt;/gml:Point&gt;
+              &lt;/gml:pointMember&gt;
+            &lt;/gml:MultiPoint&gt;
+          &lt;/core:multiPoint&gt;
+        &lt;/core:Address&gt;
+      &lt;/bldg:address&gt;
+    &lt;/bldg:Building&gt;
+  &lt;/core:cityObjectMember&gt;
+&lt;/core:CityModel&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Example 2: Free text address</strong></p>
+</div>
+<div class="paragraph">
+<p>More freeform addresses can also be declared using FreeTextAddresses as shown in <a href="#listing-address-example2">Listing 22</a>:</p>
+</div>
+<div id="listing-address-example2" class="listingblock">
+<div class="title">Listing 22. A GML example of a free text xAL building address based on the National Opera of Lyon, France.</div>
+<div class="content">
+<pre class="highlight"><code class="language-XML" data-lang="XML">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;core:CityModel ... Namespaces and Schema location ... &gt;
+  &lt;core:cityObjectMember&gt;
+    &lt;bldg:Building gml:id="OPERA_LYON_45"&gt;
+      &lt;bldg:address&gt;
+        &lt;core:Address&gt;
+          &lt;!--
+          Opéra National de Lyon      additional geographical information
+          1 Place de la Comédie       street number and name
+          69001 Lyon                  postcode and locality
+          France                      country
+          --&gt;
+          &lt;core:xalAddress&gt;
+            &lt;xAL:Address&gt;
+              &lt;xAL:FreeTextAddress&gt;
+                &lt;xAL:AddressLine&gt;Opéra National de Lyon&lt;/xAL:AddressLine&gt;
+                &lt;xAL:AddressLine&gt;1 Place de la Comédie&lt;/xAL:AddressLine&gt;
+                &lt;xAL:AddressLine&gt;69001 Lyon&lt;/xAL:AddressLine&gt;
+                &lt;xAL:AddressLine&gt;France&lt;/xAL:AddressLine&gt;
+              &lt;/xAL:FreeTextAddress&gt;
+            &lt;/xAL:Address&gt;
+          &lt;/core:xalAddress&gt;
+        &lt;/core:Address&gt;
+      &lt;/bldg:address&gt;
+    &lt;/bldg:Building&gt;
+  &lt;/core:cityObjectMember&gt;
+&lt;/core:CityModel&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
 <h3 id="annex-examples-ade"><a class="anchor" href="#annex-examples-ade"></a>B.5. Application Domain Extension (ADE) Examples</h3>
 <div class="paragraph">
 <p>The CityGML 3.0 Conceptual Model introduces the concept of the <a href="https://docs.ogc.org/is/20-010/20-010.html#toc66">Application Domain Extension (ADE)</a> to ensure extensibility of the CityGML data model as in the previous version CityGML 2.0. The ADE mechanism allows to add new application-specific feature types, to inject additional properties to the predefined CityGML feature types, to associate application data with predefined CityGML content, or to define value domains for attributes.</p>
@@ -5370,7 +6257,7 @@ The <em>function</em> attribute of the top-level feature Building changes from <
 <div class="paragraph">
 <p>The Test ADE is a light-weight artificial ADE, which was designed for demonstrating the most frequent scenarios in practical ADEs. In particular,
 the both methods ('hook' mechanism and subclassing) for augmenting predefined CityGML feature classes with additional ADE Properties are presented.
-The UML Conceptual Model of the Test ADE is shown in <a href="#figure-test-ade-uml">Figure 23</a>. All ADE classes can be categorized into the following groups:</p>
+The UML Conceptual Model of the Test ADE is shown in <a href="#figure-test-ade-uml">Figure 25</a>. All ADE classes can be categorized into the following groups:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -5398,16 +6285,16 @@ The UML Conceptual Model of the Test ADE is shown in <a href="#figure-test-ade-u
 </ol>
 </div>
 <div class="paragraph">
-<p>A corresponding XML schema derived from the UML Conceptual Model is shown in <a href="#listing-test-ade-xml-schema">Listing 11</a>. An example ADE dataset is represented in <a href="#listing-test-ade-example-dataset">Listing 12</a>.</p>
+<p>A corresponding XML schema derived from the UML Conceptual Model is shown in <a href="#listing-test-ade-xml-schema">Listing 23</a>. An example ADE dataset is represented in <a href="#listing-test-ade-example-dataset">Listing 24</a>.</p>
 </div>
 <div id="figure-test-ade-uml" class="imageblock text-center">
 <div class="content">
 <img src="images/TestADE_UML.png" alt="TestADE UML">
 </div>
-<div class="title">Figure 23. UML model of the Test ADE.</div>
+<div class="title">Figure 25. UML model of the Test ADE.</div>
 </div>
 <div id="listing-test-ade-xml-schema" class="listingblock">
-<div class="title">Listing 11. XML schema of the Test ADE model in <a href="#figure-test-ade-uml">Figure 23</a>.</div>
+<div class="title">Listing 23. XML schema of the Test ADE model in <a href="#figure-test-ade-uml">Figure 25</a>.</div>
 <div class="content">
 <pre class="highlight"><code class="language-XML" data-lang="XML">&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:bldg="http://www.opengis.net/citygml/building/3.0" xmlns:con="http://www.opengis.net/citygml/construction/3.0" xmlns:core="http://www.opengis.net/citygml/3.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:test="http://www.citygml.org/ade/TestADE/2.0" elementFormDefault="qualified" targetNamespace="http://www.citygml.org/ade/TestADE/2.0" version="2.0"&gt;
   &lt;import namespace="http://www.opengis.net/citygml/3.0" schemaLocation="../schema/core.xsd"/&gt;
@@ -5664,7 +6551,7 @@ The UML Conceptual Model of the Test ADE is shown in <a href="#figure-test-ade-u
 </div>
 </div>
 <div id="listing-test-ade-example-dataset" class="listingblock">
-<div class="title">Listing 12. Example dataset implementing the illustrated Test ADE schema.</div>
+<div class="title">Listing 24. Example dataset implementing the illustrated Test ADE schema.</div>
 <div class="content">
 <pre class="highlight"><code class="language-XML" data-lang="XML">&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;
 &lt;CityModel xmlns:con="http://www.opengis.net/citygml/construction/3.0" xmlns:tran="http://www.opengis.net/citygml/transportation/3.0" xmlns:wtr="http://www.opengis.net/citygml/waterbody/3.0" xmlns:veg="http://www.opengis.net/citygml/vegetation/3.0" xmlns="http://www.opengis.net/citygml/3.0" xmlns:dem="http://www.opengis.net/citygml/relief/3.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:bldg="http://www.opengis.net/citygml/building/3.0" xmlns:ct="urn:oasis:names:tc:ciq:ct:3" xmlns:grp="http://www.opengis.net/citygml/cityobjectgroup/3.0" xmlns:dyn="http://www.opengis.net/citygml/dynamizer/3.0" xmlns:pnt="http://www.opengis.net/citygml/pointcloud/3.0" xmlns:tun="http://www.opengis.net/citygml/tunnel/3.0" xmlns:frn="http://www.opengis.net/citygml/cityfurniture/3.0" xmlns:gen="http://www.opengis.net/citygml/generics/3.0" xmlns:xAL="urn:oasis:names:tc:ciq:xal:3" xmlns:app="http://www.opengis.net/citygml/appearance/3.0" xmlns:luse="http://www.opengis.net/citygml/landuse/3.0" xmlns:brid="http://www.opengis.net/citygml/bridge/3.0" xmlns:ver="http://www.opengis.net/citygml/versioning/3.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:test="http://www.citygml.org/ade/TestADE/2.0"&gt;
@@ -5729,14 +6616,14 @@ The UML Conceptual Model of the Test ADE is shown in <a href="#figure-test-ade-u
 The UML models for the Urban Object module has been implemented as described in the Requirement 50 in  <a href="https://docs.ogc.org/is/20-010/20-010.html#toc71">section 9.5 in CityGML 3.0 Conceptual Model</a>. The UML model has been defined using the software tool <a href="https://sparxsystems.com/">Enterprise Architect</a> and is available <a href="Examples/ADE-examples/Urban-Planning-ADE/CityGML_3.0_UrbanPlanningADE.eap">here</a> as .eap file.</p>
 </div>
 <div class="paragraph">
-<p>The UML conceptual model is illustrated in <a href="#figure-ADE-realworld-uml1">Figure 24</a>.
+<p>The UML conceptual model is illustrated in <a href="#figure-ADE-realworld-uml1">Figure 26</a>.
 The DataType <em>BuildingProperties</em> is modelled as subclass of the "hook" data type <em>ADEOfAbstractBuilding</em> and defines the additional properties that are added to the CityGML <em>AbstractBuilding</em> class. Additionally, a DataType <em>KeyValuePair</em> and a Union <em>ValueType</em> are defined. By using the <em>BuildingProperties</em> that includes two sets of properties, <em>BuildingDetails</em> and <em>LargeCustomerFacilities</em>, 3D city models can systematically be extended with the detailed properties for urban planning.</p>
 </div>
 <div id="figure-ADE-realworld-uml1" class="imageblock text-center">
 <div class="content">
 <img src="images/UML_ADE_RealworldExample.png" alt="UML ADE RealworldExample">
 </div>
-<div class="title">Figure 24. UML model of the Urban Object module from the Urban Planning ADE.</div>
+<div class="title">Figure 26. UML model of the Urban Object module from the Urban Planning ADE.</div>
 </div>
 <div class="paragraph">
 <p><strong>Step 2: Deriving the XML schema from the UML model</strong></p>
@@ -5753,10 +6640,10 @@ The DataType <em>BuildingProperties</em> is modelled as subclass of the "hook" d
 </div>
 </div>
 <div class="paragraph">
-<p><a href="Examples/ADE-examples/Urban-Planning-ADE/ShapeChangeConfigurationFile_CityGML_3.0_UrbanPlanningADE.xml">The ShapeChange configuration file</a> is illustrated in <a href="#listing-ADE-realworld-shapechange1">Listing 13</a> and <a href="Examples/ADE-examples/Urban-Planning-ADE/urbanObject_CityGML3.xsd">the derived XML schema</a> from <a href="https://github.com/nob140/CityGML3_ADE/blob/main/AutomaticConversion/UML/CityGML_3.0_UrbanPlanningADE.eap">the Enterprise Architect UML model</a> is illustrated in <a href="#listing-ADE-realworld-ADE1">Listing 14</a>.</p>
+<p><a href="Examples/ADE-examples/Urban-Planning-ADE/ShapeChangeConfigurationFile_CityGML_3.0_UrbanPlanningADE.xml">The ShapeChange configuration file</a> is illustrated in <a href="#listing-ADE-realworld-shapechange1">Listing 25</a> and <a href="Examples/ADE-examples/Urban-Planning-ADE/urbanObject_CityGML3.xsd">the derived XML schema</a> from <a href="https://github.com/nob140/CityGML3_ADE/blob/main/AutomaticConversion/UML/CityGML_3.0_UrbanPlanningADE.eap">the Enterprise Architect UML model</a> is illustrated in <a href="#listing-ADE-realworld-ADE1">Listing 26</a>.</p>
 </div>
 <div id="listing-ADE-realworld-shapechange1" class="listingblock">
-<div class="title">Listing 13. ShapeChange configuration file used for converting the ADE UML model to an XML schema.</div>
+<div class="title">Listing 25. ShapeChange configuration file used for converting the ADE UML model to an XML schema.</div>
 <div class="content">
 <pre class="highlight"><code class="language-XML" data-lang="XML">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
 &lt;ShapeChangeConfiguration xmlns:xi="http://www.w3.org/2001/XInclude"
@@ -5834,7 +6721,7 @@ The DataType <em>BuildingProperties</em> is modelled as subclass of the "hook" d
 </div>
 </div>
 <div id="listing-ADE-realworld-ADE1" class="listingblock">
-<div class="title">Listing 14. XML schema document of the ADE derived from UML model.</div>
+<div class="title">Listing 26. XML schema document of the ADE derived from UML model.</div>
 <div class="content">
 <pre class="highlight"><code class="language-XML" data-lang="XML">&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:bldg="http://www.opengis.net/citygml/building/3.0" ...  xmlns:uro="https://www.chisou.go.jp/tiiki/toshisaisei/itoshisaisei/iur/uro/1.5" elementFormDefault="qualified" targetNamespace="http://www.kantei.go.jp/jp/singi/tiiki/toshisaisei/itoshisaisei/iur/uro/1.4" version="1.4.1"&gt;
   &lt;import namespace="http://www.opengis.net/citygml/building/3.0" schemaLocation="../schema/building.xsd"/&gt;
@@ -6030,16 +6917,16 @@ The DataType <em>BuildingProperties</em> is modelled as subclass of the "hook" d
 <p><a href="https://www.mlit.go.jp/plateau/">The Project PLATEAU</a> was launched by MLIT (Ministry of Land, Infrastructure, Transport and Tourism) Japan in 2020, and developed 3D city models for more than 10 million buildings of 56 cities, over 10,000km<sup>2</sup> in Japan. The 3D city models were implemented using the Urban Planning ADE and were published as Open Data (CC BY 4.0/ODbL).</p>
 </div>
 <div class="paragraph">
-<p><a href="#figure-ADE-realworld-step2">Figure 25</a> illustrates sample building data, and the <a href="#listing-ADE-realworld-gml1">Listing 15</a> shows an example of <a href="Examples/ADE-examples/Urban-Planning-ADE/53394517_bldg_6697_op2_CityGML3.gml">the GML instance document</a> that was converted from CityGML 2.0 building model to CityGML 3.0. Note that this conversion was operated manually by checking the ADE XML schema carefully and validating the instance document against the XML schema afterwards. Though there are converters for converting CityGML 2.0 data to CityGML 3.0 such as <a href="https://github.com/citygml4j">citygml4j</a>, data conversion for ADEs is not yet supported by these converters.</p>
+<p><a href="#figure-ADE-realworld-step2">Figure 27</a> illustrates sample building data, and the <a href="#listing-ADE-realworld-gml1">Listing 27</a> shows an example of <a href="Examples/ADE-examples/Urban-Planning-ADE/53394517_bldg_6697_op2_CityGML3.gml">the GML instance document</a> that was converted from CityGML 2.0 building model to CityGML 3.0. Note that this conversion was operated manually by checking the ADE XML schema carefully and validating the instance document against the XML schema afterwards. Though there are converters for converting CityGML 2.0 data to CityGML 3.0 such as <a href="https://github.com/citygml4j">citygml4j</a>, data conversion for ADEs is not yet supported by these converters.</p>
 </div>
 <div id="figure-ADE-realworld-step2" class="imageblock text-center">
 <div class="content">
 <img src="images/Example_ADE_Realworld.png" alt="Example ADE Realworld">
 </div>
-<div class="title">Figure 25. Meiji Memorial Picture Gallery (Mesh ID: 53394517, Building ID: 13104-bldg-53) from <a href="https://www.geospatial.jp/ckan/dataset/plateau-tokyo23ku">the Project PLATEAU</a>.</div>
+<div class="title">Figure 27. Meiji Memorial Picture Gallery (Mesh ID: 53394517, Building ID: 13104-bldg-53) from <a href="https://www.geospatial.jp/ckan/dataset/plateau-tokyo23ku">the Project PLATEAU</a>.</div>
 </div>
 <div id="listing-ADE-realworld-gml1" class="listingblock">
-<div class="title">Listing 15. Example of a CityGML 3.0 GML instance document based on the converted ADE XML schema.</div>
+<div class="title">Listing 27. Example of a CityGML 3.0 GML instance document based on the converted ADE XML schema.</div>
 <div class="content">
 <pre class="highlight"><code class="language-XML" data-lang="XML">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
 &lt;core:CityModel xmlns:uro="http://www.kantei.go.jp/jp/singi/tiiki/toshisaisei/itoshisaisei/iur/uro/1.4" ...
@@ -6103,10 +6990,10 @@ xsi:schemaLocation="http://www.kantei.go.jp/jp/singi/tiiki/toshisaisei/itoshisai
 <div class="sect2">
 <h3 id="xml-core-module"><a class="anchor" href="#xml-core-module"></a>C.1. Core</h3>
 <div class="paragraph">
-<p>The CityGML Core module is defined in the XML Schema Definition file <em>core.xsd</em> (<a href="#listing-xml-core-module">Listing 16</a>). The target namespace <a href="http://www.opengis.net/citygml/3.0" class="bare">http://www.opengis.net/citygml/3.0</a> is associated with this module.</p>
+<p>The CityGML Core module is defined in the XML Schema Definition file <em>core.xsd</em> (<a href="#listing-xml-core-module">Listing 28</a>). The target namespace <a href="http://www.opengis.net/citygml/3.0" class="bare">http://www.opengis.net/citygml/3.0</a> is associated with this module.</p>
 </div>
 <div id="listing-xml-core-module" class="listingblock">
-<div class="title">Listing 16. core.xsd</div>
+<div class="title">Listing 28. core.xsd</div>
 <div class="content">
 <pre class="highlight"><code class="language-XML" data-lang="XML">&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:core="http://www.opengis.net/citygml/3.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xAL="urn:oasis:names:tc:ciq:xal:3" elementFormDefault="qualified" targetNamespace="http://www.opengis.net/citygml/3.0" version="3.0.0"&gt;
   &lt;annotation&gt;
@@ -7480,10 +8367,10 @@ xsi:schemaLocation="http://www.kantei.go.jp/jp/singi/tiiki/toshisaisei/itoshisai
 <div class="sect2">
 <h3 id="xml-appearance-module"><a class="anchor" href="#xml-appearance-module"></a>C.2. Appearance</h3>
 <div class="paragraph">
-<p>The CityGML Appearance module is defined in the XML Schema Definition file <em>appearance.xsd</em> (<a href="#listing-xml-appearance-module">Listing 17</a>). The target namespace <a href="http://www.opengis.net/citygml/appearance/3.0" class="bare">http://www.opengis.net/citygml/appearance/3.0</a> is associated with this module.</p>
+<p>The CityGML Appearance module is defined in the XML Schema Definition file <em>appearance.xsd</em> (<a href="#listing-xml-appearance-module">Listing 29</a>). The target namespace <a href="http://www.opengis.net/citygml/appearance/3.0" class="bare">http://www.opengis.net/citygml/appearance/3.0</a> is associated with this module.</p>
 </div>
 <div id="listing-xml-appearance-module" class="listingblock">
-<div class="title">Listing 17. appearance.xsd</div>
+<div class="title">Listing 29. appearance.xsd</div>
 <div class="content">
 <pre class="highlight"><code class="language-XML" data-lang="XML">&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:app="http://www.opengis.net/citygml/appearance/3.0" xmlns:core="http://www.opengis.net/citygml/3.0" xmlns:gml="http://www.opengis.net/gml/3.2" elementFormDefault="qualified" targetNamespace="http://www.opengis.net/citygml/appearance/3.0" version="3.0.0"&gt;
   &lt;annotation&gt;
@@ -8013,10 +8900,10 @@ xsi:schemaLocation="http://www.kantei.go.jp/jp/singi/tiiki/toshisaisei/itoshisai
 <div class="sect2">
 <h3 id="xml-bridge-module"><a class="anchor" href="#xml-bridge-module"></a>C.3. Bridge</h3>
 <div class="paragraph">
-<p>The CityGML Bridge module is defined in the XML Schema Definition file <em>bridge.xsd</em> (<a href="#listing-xml-bridge-module">Listing 18</a>). The target namespace <a href="http://www.opengis.net/citygml/bridge/3.0" class="bare">http://www.opengis.net/citygml/bridge/3.0</a> is associated with this module.</p>
+<p>The CityGML Bridge module is defined in the XML Schema Definition file <em>bridge.xsd</em> (<a href="#listing-xml-bridge-module">Listing 30</a>). The target namespace <a href="http://www.opengis.net/citygml/bridge/3.0" class="bare">http://www.opengis.net/citygml/bridge/3.0</a> is associated with this module.</p>
 </div>
 <div id="listing-xml-bridge-module" class="listingblock">
-<div class="title">Listing 18. bridge.xsd</div>
+<div class="title">Listing 30. bridge.xsd</div>
 <div class="content">
 <pre class="highlight"><code class="language-XML" data-lang="XML">&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:brid="http://www.opengis.net/citygml/bridge/3.0" xmlns:con="http://www.opengis.net/citygml/construction/3.0" xmlns:core="http://www.opengis.net/citygml/3.0" xmlns:gml="http://www.opengis.net/gml/3.2" elementFormDefault="qualified" targetNamespace="http://www.opengis.net/citygml/bridge/3.0" version="3.0.0"&gt;
   &lt;annotation&gt;
@@ -8489,10 +9376,10 @@ xsi:schemaLocation="http://www.kantei.go.jp/jp/singi/tiiki/toshisaisei/itoshisai
 <div class="sect2">
 <h3 id="xml-building-module"><a class="anchor" href="#xml-building-module"></a>C.4. Building</h3>
 <div class="paragraph">
-<p>The CityGML Building module is defined in the XML Schema Definition file <em>building.xsd</em> (<a href="#listing-xml-building-module">Listing 19</a>). The target namespace <a href="http://www.opengis.net/citygml/building/3.0" class="bare">http://www.opengis.net/citygml/building/3.0</a> is associated with this module.</p>
+<p>The CityGML Building module is defined in the XML Schema Definition file <em>building.xsd</em> (<a href="#listing-xml-building-module">Listing 31</a>). The target namespace <a href="http://www.opengis.net/citygml/building/3.0" class="bare">http://www.opengis.net/citygml/building/3.0</a> is associated with this module.</p>
 </div>
 <div id="listing-xml-building-module" class="listingblock">
-<div class="title">Listing 19. building.xsd</div>
+<div class="title">Listing 31. building.xsd</div>
 <div class="content">
 <pre class="highlight"><code class="language-XML" data-lang="XML">&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:bldg="http://www.opengis.net/citygml/building/3.0" xmlns:con="http://www.opengis.net/citygml/construction/3.0" xmlns:core="http://www.opengis.net/citygml/3.0" xmlns:gml="http://www.opengis.net/gml/3.2" elementFormDefault="qualified" targetNamespace="http://www.opengis.net/citygml/building/3.0" version="3.0.0"&gt;
   &lt;annotation&gt;
@@ -9233,10 +10120,10 @@ xsi:schemaLocation="http://www.kantei.go.jp/jp/singi/tiiki/toshisaisei/itoshisai
 <div class="sect2">
 <h3 id="xml-cityfurniture-module"><a class="anchor" href="#xml-cityfurniture-module"></a>C.5. City Furniture</h3>
 <div class="paragraph">
-<p>The CityGML City Furniture module is defined in the XML Schema Definition file <em>cityFurniture.xsd</em> (<a href="#listing-xml-cityfurniture-module">Listing 20</a>). The target namespace <a href="http://www.opengis.net/citygml/cityfurniture/3.0" class="bare">http://www.opengis.net/citygml/cityfurniture/3.0</a> is associated with this module.</p>
+<p>The CityGML City Furniture module is defined in the XML Schema Definition file <em>cityFurniture.xsd</em> (<a href="#listing-xml-cityfurniture-module">Listing 32</a>). The target namespace <a href="http://www.opengis.net/citygml/cityfurniture/3.0" class="bare">http://www.opengis.net/citygml/cityfurniture/3.0</a> is associated with this module.</p>
 </div>
 <div id="listing-xml-cityfurniture-module" class="listingblock">
-<div class="title">Listing 20. cityFurniture.xsd</div>
+<div class="title">Listing 32. cityFurniture.xsd</div>
 <div class="content">
 <pre class="highlight"><code class="language-XML" data-lang="XML">&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:core="http://www.opengis.net/citygml/3.0" xmlns:frn="http://www.opengis.net/citygml/cityfurniture/3.0" xmlns:gml="http://www.opengis.net/gml/3.2" elementFormDefault="qualified" targetNamespace="http://www.opengis.net/citygml/cityfurniture/3.0" version="3.0.0"&gt;
   &lt;annotation&gt;
@@ -9305,10 +10192,10 @@ xsi:schemaLocation="http://www.kantei.go.jp/jp/singi/tiiki/toshisaisei/itoshisai
 <div class="sect2">
 <h3 id="xml-cityobjectgroup-module"><a class="anchor" href="#xml-cityobjectgroup-module"></a>C.6. City Object Group</h3>
 <div class="paragraph">
-<p>The CityGML City Object Group module is defined in the XML Schema Definition file <em>cityObjectGroup.xsd</em> (<a href="#listing-xml-cityobjectgroup-module">Listing 21</a>). The target namespace <a href="http://www.opengis.net/citygml/cityobjectgroup/3.0" class="bare">http://www.opengis.net/citygml/cityobjectgroup/3.0</a> is associated with this module.</p>
+<p>The CityGML City Object Group module is defined in the XML Schema Definition file <em>cityObjectGroup.xsd</em> (<a href="#listing-xml-cityobjectgroup-module">Listing 33</a>). The target namespace <a href="http://www.opengis.net/citygml/cityobjectgroup/3.0" class="bare">http://www.opengis.net/citygml/cityobjectgroup/3.0</a> is associated with this module.</p>
 </div>
 <div id="listing-xml-cityobjectgroup-module" class="listingblock">
-<div class="title">Listing 21. cityObjectGroup.xsd</div>
+<div class="title">Listing 33. cityObjectGroup.xsd</div>
 <div class="content">
 <pre class="highlight"><code class="language-XML" data-lang="XML">&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:core="http://www.opengis.net/citygml/3.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:grp="http://www.opengis.net/citygml/cityobjectgroup/3.0" elementFormDefault="qualified" targetNamespace="http://www.opengis.net/citygml/cityobjectgroup/3.0" version="3.0.0"&gt;
   &lt;annotation&gt;
@@ -9432,10 +10319,10 @@ xsi:schemaLocation="http://www.kantei.go.jp/jp/singi/tiiki/toshisaisei/itoshisai
 <div class="sect2">
 <h3 id="xml-construction-module"><a class="anchor" href="#xml-construction-module"></a>C.7. Construction</h3>
 <div class="paragraph">
-<p>The CityGML Construction module is defined in the XML Schema Definition file <em>construction.xsd</em> (<a href="#listing-xml-construction-module">Listing 22</a>). The target namespace <a href="http://www.opengis.net/citygml/construction/3.0" class="bare">http://www.opengis.net/citygml/construction/3.0</a> is associated with this module.</p>
+<p>The CityGML Construction module is defined in the XML Schema Definition file <em>construction.xsd</em> (<a href="#listing-xml-construction-module">Listing 34</a>). The target namespace <a href="http://www.opengis.net/citygml/construction/3.0" class="bare">http://www.opengis.net/citygml/construction/3.0</a> is associated with this module.</p>
 </div>
 <div id="listing-xml-construction-module" class="listingblock">
-<div class="title">Listing 22. construction.xsd</div>
+<div class="title">Listing 34. construction.xsd</div>
 <div class="content">
 <pre class="highlight"><code class="language-XML" data-lang="XML">&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:con="http://www.opengis.net/citygml/construction/3.0" xmlns:core="http://www.opengis.net/citygml/3.0" xmlns:gml="http://www.opengis.net/gml/3.2" elementFormDefault="qualified" targetNamespace="http://www.opengis.net/citygml/construction/3.0" version="3.0.0"&gt;
   &lt;annotation&gt;
@@ -10484,10 +11371,10 @@ xsi:schemaLocation="http://www.kantei.go.jp/jp/singi/tiiki/toshisaisei/itoshisai
 <div class="sect2">
 <h3 id="xml-dynamizer-module"><a class="anchor" href="#xml-dynamizer-module"></a>C.8. Dynamizer</h3>
 <div class="paragraph">
-<p>The CityGML Dynamizer module is defined in the XML Schema Definition file <em>dynamizer.xsd</em> (<a href="#listing-xml-dynamizer-module">Listing 23</a>). The target namespace <a href="http://www.opengis.net/citygml/dynamizer/3.0" class="bare">http://www.opengis.net/citygml/dynamizer/3.0</a> is associated with this module.</p>
+<p>The CityGML Dynamizer module is defined in the XML Schema Definition file <em>dynamizer.xsd</em> (<a href="#listing-xml-dynamizer-module">Listing 35</a>). The target namespace <a href="http://www.opengis.net/citygml/dynamizer/3.0" class="bare">http://www.opengis.net/citygml/dynamizer/3.0</a> is associated with this module.</p>
 </div>
 <div id="listing-xml-dynamizer-module" class="listingblock">
-<div class="title">Listing 23. dynamizer.xsd</div>
+<div class="title">Listing 35. dynamizer.xsd</div>
 <div class="content">
 <pre class="highlight"><code class="language-XML" data-lang="XML">&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:core="http://www.opengis.net/citygml/3.0" xmlns:dyn="http://www.opengis.net/citygml/dynamizer/3.0" xmlns:gml="http://www.opengis.net/gml/3.2" elementFormDefault="qualified" targetNamespace="http://www.opengis.net/citygml/dynamizer/3.0" version="3.0.0"&gt;
   &lt;annotation&gt;
@@ -11166,10 +12053,10 @@ xsi:schemaLocation="http://www.kantei.go.jp/jp/singi/tiiki/toshisaisei/itoshisai
 <div class="sect2">
 <h3 id="xml-generics-module"><a class="anchor" href="#xml-generics-module"></a>C.9. Generics</h3>
 <div class="paragraph">
-<p>The CityGML Generics module is defined in the XML Schema Definition file <em>generics.xsd</em> (<a href="#listing-xml-generics-module">Listing 24</a>). The target namespace <a href="http://www.opengis.net/citygml/generics/3.0" class="bare">http://www.opengis.net/citygml/generics/3.0</a> is associated with this module.</p>
+<p>The CityGML Generics module is defined in the XML Schema Definition file <em>generics.xsd</em> (<a href="#listing-xml-generics-module">Listing 36</a>). The target namespace <a href="http://www.opengis.net/citygml/generics/3.0" class="bare">http://www.opengis.net/citygml/generics/3.0</a> is associated with this module.</p>
 </div>
 <div id="listing-xml-generics-module" class="listingblock">
-<div class="title">Listing 24. generics.xsd</div>
+<div class="title">Listing 36. generics.xsd</div>
 <div class="content">
 <pre class="highlight"><code class="language-XML" data-lang="XML">&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:core="http://www.opengis.net/citygml/3.0" xmlns:gen="http://www.opengis.net/citygml/generics/3.0" xmlns:gml="http://www.opengis.net/gml/3.2" elementFormDefault="qualified" targetNamespace="http://www.opengis.net/citygml/generics/3.0" version="3.0.0"&gt;
   &lt;annotation&gt;
@@ -11626,10 +12513,10 @@ xsi:schemaLocation="http://www.kantei.go.jp/jp/singi/tiiki/toshisaisei/itoshisai
 <div class="sect2">
 <h3 id="xml-landuse-module"><a class="anchor" href="#xml-landuse-module"></a>C.10. Land Use</h3>
 <div class="paragraph">
-<p>The CityGML Land Use module is defined in the XML Schema Definition file <em>landUse.xsd</em> (<a href="#listing-xml-landuse-module">Listing 25</a>). The target namespace <a href="http://www.opengis.net/citygml/landuse/3.0" class="bare">http://www.opengis.net/citygml/landuse/3.0</a> is associated with this module.</p>
+<p>The CityGML Land Use module is defined in the XML Schema Definition file <em>landUse.xsd</em> (<a href="#listing-xml-landuse-module">Listing 37</a>). The target namespace <a href="http://www.opengis.net/citygml/landuse/3.0" class="bare">http://www.opengis.net/citygml/landuse/3.0</a> is associated with this module.</p>
 </div>
 <div id="listing-xml-landuse-module" class="listingblock">
-<div class="title">Listing 25. landUse.xsd</div>
+<div class="title">Listing 37. landUse.xsd</div>
 <div class="content">
 <pre class="highlight"><code class="language-XML" data-lang="XML">&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:core="http://www.opengis.net/citygml/3.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:luse="http://www.opengis.net/citygml/landuse/3.0" elementFormDefault="qualified" targetNamespace="http://www.opengis.net/citygml/landuse/3.0" version="3.0.0"&gt;
   &lt;annotation&gt;
@@ -11698,10 +12585,10 @@ xsi:schemaLocation="http://www.kantei.go.jp/jp/singi/tiiki/toshisaisei/itoshisai
 <div class="sect2">
 <h3 id="xml-pointcloud-module"><a class="anchor" href="#xml-pointcloud-module"></a>C.11. Point Cloud</h3>
 <div class="paragraph">
-<p>The CityGML Point Cloud module is defined in the XML Schema Definition file <em>pointCloud.xsd</em> (<a href="#listing-xml-pointcloud-module">Listing 26</a>). The target namespace <a href="http://www.opengis.net/citygml/pointcloud/3.0" class="bare">http://www.opengis.net/citygml/pointcloud/3.0</a> is associated with this module.</p>
+<p>The CityGML Point Cloud module is defined in the XML Schema Definition file <em>pointCloud.xsd</em> (<a href="#listing-xml-pointcloud-module">Listing 38</a>). The target namespace <a href="http://www.opengis.net/citygml/pointcloud/3.0" class="bare">http://www.opengis.net/citygml/pointcloud/3.0</a> is associated with this module.</p>
 </div>
 <div id="listing-xml-pointcloud-module" class="listingblock">
-<div class="title">Listing 26. pointCloud.xsd</div>
+<div class="title">Listing 38. pointCloud.xsd</div>
 <div class="content">
 <pre class="highlight"><code class="language-XML" data-lang="XML">&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:core="http://www.opengis.net/citygml/3.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:pcl="http://www.opengis.net/citygml/pointcloud/3.0" elementFormDefault="qualified" targetNamespace="http://www.opengis.net/citygml/pointcloud/3.0" version="3.0.0"&gt;
   &lt;annotation&gt;
@@ -11775,10 +12662,10 @@ xsi:schemaLocation="http://www.kantei.go.jp/jp/singi/tiiki/toshisaisei/itoshisai
 <div class="sect2">
 <h3 id="xml-relief-module"><a class="anchor" href="#xml-relief-module"></a>C.12. Relief</h3>
 <div class="paragraph">
-<p>The CityGML Relief module is defined in the XML Schema Definition file <em>relief.xsd</em> (<a href="#listing-xml-relief-module">Listing 27</a>). The target namespace <a href="http://www.opengis.net/citygml/relief/3.0" class="bare">http://www.opengis.net/citygml/relief/3.0</a> is associated with this module.</p>
+<p>The CityGML Relief module is defined in the XML Schema Definition file <em>relief.xsd</em> (<a href="#listing-xml-relief-module">Listing 39</a>). The target namespace <a href="http://www.opengis.net/citygml/relief/3.0" class="bare">http://www.opengis.net/citygml/relief/3.0</a> is associated with this module.</p>
 </div>
 <div id="listing-xml-relief-module" class="listingblock">
-<div class="title">Listing 27. relief.xsd</div>
+<div class="title">Listing 39. relief.xsd</div>
 <div class="content">
 <pre class="highlight"><code class="language-XML" data-lang="XML">&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:core="http://www.opengis.net/citygml/3.0" xmlns:dem="http://www.opengis.net/citygml/relief/3.0" xmlns:gml="http://www.opengis.net/gml/3.2" elementFormDefault="qualified" targetNamespace="http://www.opengis.net/citygml/relief/3.0" version="3.0.0"&gt;
   &lt;annotation&gt;
@@ -12096,10 +12983,10 @@ xsi:schemaLocation="http://www.kantei.go.jp/jp/singi/tiiki/toshisaisei/itoshisai
 <div class="sect2">
 <h3 id="xml-transportation-module"><a class="anchor" href="#xml-transportation-module"></a>C.13. Transportation</h3>
 <div class="paragraph">
-<p>The CityGML Transportation module is defined in the XML Schema Definition file <em>transportation.xsd</em> (<a href="#listing-xml-transportation-module">Listing 28</a>). The target namespace <a href="http://www.opengis.net/citygml/transportation/3.0" class="bare">http://www.opengis.net/citygml/transportation/3.0</a> is associated with this module.</p>
+<p>The CityGML Transportation module is defined in the XML Schema Definition file <em>transportation.xsd</em> (<a href="#listing-xml-transportation-module">Listing 40</a>). The target namespace <a href="http://www.opengis.net/citygml/transportation/3.0" class="bare">http://www.opengis.net/citygml/transportation/3.0</a> is associated with this module.</p>
 </div>
 <div id="listing-xml-transportation-module" class="listingblock">
-<div class="title">Listing 28. transportation.xsd</div>
+<div class="title">Listing 40. transportation.xsd</div>
 <div class="content">
 <pre class="highlight"><code class="language-XML" data-lang="XML">&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:core="http://www.opengis.net/citygml/3.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:tran="http://www.opengis.net/citygml/transportation/3.0" elementFormDefault="qualified" targetNamespace="http://www.opengis.net/citygml/transportation/3.0" version="3.0.0"&gt;
   &lt;annotation&gt;
@@ -13173,10 +14060,10 @@ xsi:schemaLocation="http://www.kantei.go.jp/jp/singi/tiiki/toshisaisei/itoshisai
 <div class="sect2">
 <h3 id="xml-tunnel-module"><a class="anchor" href="#xml-tunnel-module"></a>C.14. Tunnel</h3>
 <div class="paragraph">
-<p>The CityGML Tunnel module is defined in the XML Schema Definition file <em>tunnel.xsd</em> (<a href="#listing-xml-tunnel-module">Listing 29</a>). The target namespace <a href="http://www.opengis.net/citygml/tunnel/3.0" class="bare">http://www.opengis.net/citygml/tunnel/3.0</a> is associated with this module.</p>
+<p>The CityGML Tunnel module is defined in the XML Schema Definition file <em>tunnel.xsd</em> (<a href="#listing-xml-tunnel-module">Listing 41</a>). The target namespace <a href="http://www.opengis.net/citygml/tunnel/3.0" class="bare">http://www.opengis.net/citygml/tunnel/3.0</a> is associated with this module.</p>
 </div>
 <div id="listing-xml-tunnel-module" class="listingblock">
-<div class="title">Listing 29. tunnel.xsd</div>
+<div class="title">Listing 41. tunnel.xsd</div>
 <div class="content">
 <pre class="highlight"><code class="language-XML" data-lang="XML">&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:con="http://www.opengis.net/citygml/construction/3.0" xmlns:core="http://www.opengis.net/citygml/3.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:tun="http://www.opengis.net/citygml/tunnel/3.0" elementFormDefault="qualified" targetNamespace="http://www.opengis.net/citygml/tunnel/3.0" version="3.0.0"&gt;
   &lt;annotation&gt;
@@ -13639,10 +14526,10 @@ xsi:schemaLocation="http://www.kantei.go.jp/jp/singi/tiiki/toshisaisei/itoshisai
 <div class="sect2">
 <h3 id="xml-vegetation-module"><a class="anchor" href="#xml-vegetation-module"></a>C.15. Vegetation</h3>
 <div class="paragraph">
-<p>The CityGML Vegetation module is defined in the XML Schema Definition file <em>vegetation.xsd</em> (<a href="#listing-xml-vegetation-module">Listing 30</a>). The target namespace <a href="http://www.opengis.net/citygml/vegetation/3.0" class="bare">http://www.opengis.net/citygml/vegetation/3.0</a> is associated with this module.</p>
+<p>The CityGML Vegetation module is defined in the XML Schema Definition file <em>vegetation.xsd</em> (<a href="#listing-xml-vegetation-module">Listing 42</a>). The target namespace <a href="http://www.opengis.net/citygml/vegetation/3.0" class="bare">http://www.opengis.net/citygml/vegetation/3.0</a> is associated with this module.</p>
 </div>
 <div id="listing-xml-vegetation-module" class="listingblock">
-<div class="title">Listing 30. vegetation.xsd</div>
+<div class="title">Listing 42. vegetation.xsd</div>
 <div class="content">
 <pre class="highlight"><code class="language-XML" data-lang="XML">&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:core="http://www.opengis.net/citygml/3.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:veg="http://www.opengis.net/citygml/vegetation/3.0" elementFormDefault="qualified" targetNamespace="http://www.opengis.net/citygml/vegetation/3.0" version="3.0.0"&gt;
   &lt;annotation&gt;
@@ -13847,10 +14734,10 @@ xsi:schemaLocation="http://www.kantei.go.jp/jp/singi/tiiki/toshisaisei/itoshisai
 <div class="sect2">
 <h3 id="xml-versioning-module"><a class="anchor" href="#xml-versioning-module"></a>C.16. Versioning</h3>
 <div class="paragraph">
-<p>The CityGML Versioning module is defined in the XML Schema Definition file <em>versioning.xsd</em> (<a href="#listing-xml-versioning-module">Listing 31</a>). The target namespace <a href="http://www.opengis.net/citygml/versioning/3.0" class="bare">http://www.opengis.net/citygml/versioning/3.0</a> is associated with this module.</p>
+<p>The CityGML Versioning module is defined in the XML Schema Definition file <em>versioning.xsd</em> (<a href="#listing-xml-versioning-module">Listing 43</a>). The target namespace <a href="http://www.opengis.net/citygml/versioning/3.0" class="bare">http://www.opengis.net/citygml/versioning/3.0</a> is associated with this module.</p>
 </div>
 <div id="listing-xml-versioning-module" class="listingblock">
-<div class="title">Listing 31. versioning.xsd</div>
+<div class="title">Listing 43. versioning.xsd</div>
 <div class="content">
 <pre class="highlight"><code class="language-XML" data-lang="XML">&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:core="http://www.opengis.net/citygml/3.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:vers="http://www.opengis.net/citygml/versioning/3.0" elementFormDefault="qualified" targetNamespace="http://www.opengis.net/citygml/versioning/3.0" version="3.0.0"&gt;
   &lt;annotation&gt;
@@ -14088,10 +14975,10 @@ xsi:schemaLocation="http://www.kantei.go.jp/jp/singi/tiiki/toshisaisei/itoshisai
 <div class="sect2">
 <h3 id="xml-waterbody-module"><a class="anchor" href="#xml-waterbody-module"></a>C.17. Water Body</h3>
 <div class="paragraph">
-<p>The CityGML Water Body module is defined in the XML Schema Definition file <em>waterBody.xsd</em> (<a href="#listing-xml-waterbody-module">Listing 32</a>). The target namespace <a href="http://www.opengis.net/citygml/waterbody/3.0" class="bare">http://www.opengis.net/citygml/waterbody/3.0</a> is associated with this module.</p>
+<p>The CityGML Water Body module is defined in the XML Schema Definition file <em>waterBody.xsd</em> (<a href="#listing-xml-waterbody-module">Listing 44</a>). The target namespace <a href="http://www.opengis.net/citygml/waterbody/3.0" class="bare">http://www.opengis.net/citygml/waterbody/3.0</a> is associated with this module.</p>
 </div>
 <div id="listing-xml-waterbody-module" class="listingblock">
-<div class="title">Listing 32. waterBody.xsd</div>
+<div class="title">Listing 44. waterBody.xsd</div>
 <div class="content">
 <pre class="highlight"><code class="language-XML" data-lang="XML">&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:core="http://www.opengis.net/citygml/3.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:wtr="http://www.opengis.net/citygml/waterbody/3.0" elementFormDefault="qualified" targetNamespace="http://www.opengis.net/citygml/waterbody/3.0" version="3.0.0"&gt;
   &lt;annotation&gt;
@@ -14313,7 +15200,7 @@ This is where conformance with CityGML 3.0 Conceptual Model is documented.
 <div class="content">
 <img src="images/Codelist_UML.PNG" alt="codelist UML diagram">
 </div>
-<div class="title">Figure 26. Suggested Codelist UML Class Diagram</div>
+<div class="title">Figure 28. Suggested Codelist UML Class Diagram</div>
 </div>
 </div>
 <div class="sect2">
@@ -14679,10 +15566,10 @@ def|name|saddle roof</pre>
 Please note that software compliant to this standard might not be able to read the additional GML 3.3 concepts. This depends on whether the software only supports GML 3.2.1 or also GML 3.3.</p>
 </div>
 <div class="paragraph">
-<p>To be able to create CityGML instance documents based on GML 3.3, those GML 3.3 XML schemas that define the required concepts need to be referenced in the XML root element &lt;CityModel&gt; of CityGML GML instance documents. This is illustrated in <a href="#listing-gml-3.3">Listing 33</a>. The RoofSurface of the building is to be represented by a SimplePolygon which is a compact encoding of a Polygon defined in the GML 3.3 XML schema <a href="http://www.opengis.net/gml/3.3/ce" class="bare">http://www.opengis.net/gml/3.3/ce</a>. Thus, this XML schema is referenced in the root element by indicating its namespace and schema location.</p>
+<p>To be able to create CityGML instance documents based on GML 3.3, those GML 3.3 XML schemas that define the required concepts need to be referenced in the XML root element &lt;CityModel&gt; of CityGML GML instance documents. This is illustrated in <a href="#listing-gml-3.3">Listing 45</a>. The RoofSurface of the building is to be represented by a SimplePolygon which is a compact encoding of a Polygon defined in the GML 3.3 XML schema <a href="http://www.opengis.net/gml/3.3/ce" class="bare">http://www.opengis.net/gml/3.3/ce</a>. Thus, this XML schema is referenced in the root element by indicating its namespace and schema location.</p>
 </div>
 <div id="listing-gml-3.3" class="listingblock">
-<div class="title">Listing 33. Use of GML 3.3 concepts in a CityGML GML instance document.</div>
+<div class="title">Listing 45. Use of GML 3.3 concepts in a CityGML GML instance document.</div>
 <div class="content">
 <pre class="highlight"><code class="language-XML" data-lang="XML">&lt;CityModel xmlns:gmlce="http://www.opengis.net/gml/3.3/ce" ... further Namespaces ... xsi:schemaLocation="http://www.opengis.net/gml/3.3/ce http://schemas.opengis.net/gml/3.3/geometryCompact.xsd ... further schema location entries ..."&gt;
   &lt;cityObjectMember&gt;
@@ -14717,16 +15604,16 @@ Please note that software compliant to this standard might not be able to read t
 <div class="sect3">
 <h4 id="_gml_encoding_of_association_classes_according_to_iso_19136_2"><a class="anchor" href="#_gml_encoding_of_association_classes_according_to_iso_19136_2"></a>G.1.1. GML encoding of association classes according to ISO 19136-2</h4>
 <div class="paragraph">
-<p>ISO 19136-2 defines an encoding rule for association classes. The encoding rule comprises several steps for deriving a GML encoding from association classes which will be explained in the following based on the UML model provided in <a href="#figure-uml-association-class">Figure 27</a>.</p>
+<p>ISO 19136-2 defines an encoding rule for association classes. The encoding rule comprises several steps for deriving a GML encoding from association classes which will be explained in the following based on the UML model provided in <a href="#figure-uml-association-class">Figure 29</a>.</p>
 </div>
 <div id="figure-uml-association-class" class="imageblock text-center">
 <div class="content">
 <img src="images/UML_AssociationClass.png" alt="UML AssociationClass" width="70%">
 </div>
-<div class="title">Figure 27. UML object diagram for the building in <a href="#figure-example-intersection">Figure 12</a>.</div>
+<div class="title">Figure 29. UML object diagram for the building in <a href="#figure-example-intersection">Figure 12</a>.</div>
 </div>
 <div class="paragraph">
-<p>The UML model in <a href="#figure-uml-association-class">Figure 27</a> defines association class X with an association between source class A and target class B. The following steps are defined by the encoding rule, resulting in the UML model shown in <a href="#figure-uml-intermediate-class">Figure 28</a>:</p>
+<p>The UML model in <a href="#figure-uml-association-class">Figure 29</a> defines association class X with an association between source class A and target class B. The following steps are defined by the encoding rule, resulting in the UML model shown in <a href="#figure-uml-intermediate-class">Figure 30</a>:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -14748,7 +15635,7 @@ Please note that software compliant to this standard might not be able to read t
 <div class="content">
 <img src="images/UML_IntermediateClass.png" alt="UML IntermediateClass">
 </div>
-<div class="title">Figure 28. UML model resulting from applying the encoding rule.</div>
+<div class="title">Figure 30. UML model resulting from applying the encoding rule.</div>
 </div>
 <div class="paragraph">
 <p>The encoding rule can be applied to association classes that are defined with unidirectional, bidirectional or unspecified navigability. Correspondingly, the UML model that results from the encoding rule will also have the associations defined unidirectional, bidirectional or unspecified. The examples here focus on unidirectional associations, since all associations in the CityGML 3.0 Conceptual Model are defined with unidirectional navigability.</p>
@@ -14773,28 +15660,28 @@ Please note that software compliant to this standard might not be able to read t
 </ul>
 </div>
 <div class="paragraph">
-<p>When making use of this tagged value in association classes, the encoding rule described above will add this tagged value to the corresponding association ends of association 1 and 2 after having created the intermediate class. <a href="#figure-uml-association-class-inline">Figure 29</a> and <a href="#figure-uml-intermediate-class-inline">Figure 30</a> illustrate this. <a href="#figure-uml-association-class-inline">Figure 29</a> assumes that for the association end at class B the tagged value “inlineOrByReference” is set to the value “inline”. After applying the encoding rule, both the association ends at class X and at class B, will exhibit the value “inline” as is shown in <a href="#figure-uml-intermediate-class-inline">Figure 30</a>. Similarly, when the association in <a href="#figure-uml-association-class-inline">Figure 29</a> will have the value “byReference” or “inlineOrByReference”, both associations in Figure 4 will exhibit the value “byReference” or “inlineOrByReference”, respectively.</p>
+<p>When making use of this tagged value in association classes, the encoding rule described above will add this tagged value to the corresponding association ends of association 1 and 2 after having created the intermediate class. <a href="#figure-uml-association-class-inline">Figure 31</a> and <a href="#figure-uml-intermediate-class-inline">Figure 32</a> illustrate this. <a href="#figure-uml-association-class-inline">Figure 31</a> assumes that for the association end at class B the tagged value “inlineOrByReference” is set to the value “inline”. After applying the encoding rule, both the association ends at class X and at class B, will exhibit the value “inline” as is shown in <a href="#figure-uml-intermediate-class-inline">Figure 32</a>. Similarly, when the association in <a href="#figure-uml-association-class-inline">Figure 31</a> will have the value “byReference” or “inlineOrByReference”, both associations in Figure 4 will exhibit the value “byReference” or “inlineOrByReference”, respectively.</p>
 </div>
 <div id="figure-uml-association-class-inline" class="imageblock text-center">
 <div class="content">
 <img src="images/UML_AssociationClass_Inline.png" alt="UML AssociationClass Inline" width="70%">
 </div>
-<div class="title">Figure 29. Association class with the tagged value “inlineOrByReference” set to “inline”.</div>
+<div class="title">Figure 31. Association class with the tagged value “inlineOrByReference” set to “inline”.</div>
 </div>
 <div id="figure-uml-intermediate-class-inline" class="imageblock text-center">
 <div class="content">
 <img src="images/UML_IntermediateClass_Inline.png" alt="UML IntermediateClass Inline">
 </div>
-<div class="title">Figure 30. “inlineOrByReference” settings after applying the encoding rule.</div>
+<div class="title">Figure 32. “inlineOrByReference” settings after applying the encoding rule.</div>
 </div>
 <div class="paragraph">
 <p>Using this tagged value means that three different encodings can be obtained depending on which of the three values is set. These different encodings are illustrated in the following by three different GML instance documents. The source class A, the target class B, and the intermediate class X are represented by corresponding XML elements &lt;A&gt;, &lt;B&gt;, and &lt;X&gt;. The associations between the classes A and X and between X and B are both represented by the property element &lt;role&gt;. For illustration purposes, the GML instance documents do not contain root elements and namespaces.</p>
 </div>
 <div class="paragraph">
-<p>The first GML instance document (<a href="#listing-gml-inline">Listing 34</a>) is obtained when setting the tagged value to “inline”. Here, element X needs to be provided inline element A and element B inline element X.</p>
+<p>The first GML instance document (<a href="#listing-gml-inline">Listing 46</a>) is obtained when setting the tagged value to “inline”. Here, element X needs to be provided inline element A and element B inline element X.</p>
 </div>
 <div id="listing-gml-inline" class="listingblock">
-<div class="title">Listing 34. GML instance document for the value “inline”.</div>
+<div class="title">Listing 46. GML instance document for the value “inline”.</div>
 <div class="content">
 <pre class="highlight"><code class="language-XML" data-lang="XML">&lt;A gml:id="f1"&gt;
   &lt;role&gt;
@@ -14809,10 +15696,10 @@ Please note that software compliant to this standard might not be able to read t
 </div>
 </div>
 <div class="paragraph">
-<p>The second GML instance document (<a href="#listing-gml-byreference">Listing 35</a>) results from setting the tagged value to “byReference”. Here, element A references element X and element X references element B using XLink.</p>
+<p>The second GML instance document (<a href="#listing-gml-byreference">Listing 47</a>) results from setting the tagged value to “byReference”. Here, element A references element X and element X references element B using XLink.</p>
 </div>
 <div id="listing-gml-byreference" class="listingblock">
-<div class="title">Listing 35. GML instance document for the value “byReference”.</div>
+<div class="title">Listing 47. GML instance document for the value “byReference”.</div>
 <div class="content">
 <pre class="highlight"><code class="language-XML" data-lang="XML">&lt;A gml:id="f1"&gt;
   &lt;role xlink:href="#f3"/&gt;
@@ -14825,10 +15712,10 @@ Please note that software compliant to this standard might not be able to read t
 </div>
 </div>
 <div class="paragraph">
-<p>The third GML instance document (<a href="#listing-gml-inlineorbyreference">Listing 36</a>) is obtained when the tagged value is set to “inlineOrByReference”. Here, the inline and byReference representations are combined, i.e., element X is provided inline element A and element B is referenced by element X using XLink. Alternatively, it is also possible that element X is referenced by element A and element B is provided inline element X. In addition, also the GML instances as shown above for “inline” and “byReference” can be represented with the value “inlineOrByReference”.</p>
+<p>The third GML instance document (<a href="#listing-gml-inlineorbyreference">Listing 48</a>) is obtained when the tagged value is set to “inlineOrByReference”. Here, the inline and byReference representations are combined, i.e., element X is provided inline element A and element B is referenced by element X using XLink. Alternatively, it is also possible that element X is referenced by element A and element B is provided inline element X. In addition, also the GML instances as shown above for “inline” and “byReference” can be represented with the value “inlineOrByReference”.</p>
 </div>
 <div id="listing-gml-inlineorbyreference" class="listingblock">
-<div class="title">Listing 36. GML instance document for the value “inlineOrByReference”.</div>
+<div class="title">Listing 48. GML instance document for the value “inlineOrByReference”.</div>
 <div class="content">
 <pre class="highlight"><code class="language-XML" data-lang="XML">&lt;A gml:id="f1"&gt;
   &lt;role&gt;
@@ -14848,40 +15735,40 @@ Please note that software compliant to this standard might not be able to read t
 <p>As described above, four different instance representations are possible in the case of the “inlineOrByReference” value. This behaviour is not desired in the GML encoding of the CityGML 3.0 Conceptual Model, as it allows for too many possibilities of how to reference features and, thus, needs to be restricted.</p>
 </div>
 <div class="paragraph">
-<p>In the CityGML 3.0 Conceptual Model, this setting affects two association classes, <em>CityObjectRelation</em> in the Core module and <em>Role</em> in the CityObjectGroup module. For both, the only desired way of representing them in GML instance documents is the structure shown in <a href="#listing-gml-inlineorbyreference">Listing 36</a>. This structure can be specified in a UML model as shown in <a href="#figure-uml-intermediate-class-byreference">Figure 31</a>. After converting the association class into an intermediate class, the tagged value of association 1 nneds to receive the value “inline” and the tagged value of association 2 the value “byReference”. (Please note: The CityGML 3.0 Conceptual Model also defines the association class <em>TextureAssociation</em> in the Appearance module. This association class, however, is not affected here, because it makes use of the value “inline” for which the encoding is correct.)</p>
+<p>In the CityGML 3.0 Conceptual Model, this setting affects two association classes, <em>CityObjectRelation</em> in the Core module and <em>Role</em> in the CityObjectGroup module. For both, the only desired way of representing them in GML instance documents is the structure shown in <a href="#listing-gml-inlineorbyreference">Listing 48</a>. This structure can be specified in a UML model as shown in <a href="#figure-uml-intermediate-class-byreference">Figure 33</a>. After converting the association class into an intermediate class, the tagged value of association 1 nneds to receive the value “inline” and the tagged value of association 2 the value “byReference”. (Please note: The CityGML 3.0 Conceptual Model also defines the association class <em>TextureAssociation</em> in the Appearance module. This association class, however, is not affected here, because it makes use of the value “inline” for which the encoding is correct.)</p>
 </div>
 <div id="figure-uml-intermediate-class-byreference" class="imageblock text-center">
 <div class="content">
 <img src="images/UML_IntermediateClass_Byreference.png" alt="UML IntermediateClass Byreference">
 </div>
-<div class="title">Figure 31. Desired settings for the value “inlineOrByReference” after applying the encoding rule.</div>
+<div class="title">Figure 33. Desired settings for the value “inlineOrByReference” after applying the encoding rule.</div>
 </div>
 <div class="paragraph">
-<p>In order to obtain the restricted structure in GML instance documents, an Implementation Model is created prior to the GML encoding of the CityGML 3.0 Conceptual Model. Within the Implementation Model, the association classes are manually converted into intermediate classes and the tagged values of the associations are set as shown in <a href="#figure-uml-intermediate-class-byreference">Figure 31</a>. This means that the encoding will directly be performed on the Implementation Model. This solution guarantees for representing references between features according to <a href="#listing-gml-inlineorbyreference">Listing 36</a> in GML instance documents and it can be applied directly without any changes to the conversion tools.</p>
+<p>In order to obtain the restricted structure in GML instance documents, an Implementation Model is created prior to the GML encoding of the CityGML 3.0 Conceptual Model. Within the Implementation Model, the association classes are manually converted into intermediate classes and the tagged values of the associations are set as shown in <a href="#figure-uml-intermediate-class-byreference">Figure 33</a>. This means that the encoding will directly be performed on the Implementation Model. This solution guarantees for representing references between features according to <a href="#listing-gml-inlineorbyreference">Listing 48</a> in GML instance documents and it can be applied directly without any changes to the conversion tools.</p>
 </div>
 <div class="paragraph">
-<p>In the following, the solution will be exemplified based on the association class CityObjectRelation. This association class can be used to specify relationships between different features, e.g. it can be expressed that the WallSurface of one building shares the Polygon geometry with the WallSurface of a second Building. The association class is illustrated in <a href="#figure-uml-cityobjectrelation-associationclass">Figure 32</a>, the tagged value is set to “inlineOrByReference”.</p>
+<p>In the following, the solution will be exemplified based on the association class CityObjectRelation. This association class can be used to specify relationships between different features, e.g. it can be expressed that the WallSurface of one building shares the Polygon geometry with the WallSurface of a second Building. The association class is illustrated in <a href="#figure-uml-cityobjectrelation-associationclass">Figure 34</a>, the tagged value is set to “inlineOrByReference”.</p>
 </div>
 <div id="figure-uml-cityobjectrelation-associationclass" class="imageblock text-center">
 <div class="content">
 <img src="images/UML_CityObjectRelation_AssociationClass.png" alt="UML CityObjectRelation AssociationClass" width="70%">
 </div>
-<div class="title">Figure 32. Association class CityObjectRelation.</div>
+<div class="title">Figure 34. Association class CityObjectRelation.</div>
 </div>
 <div class="paragraph">
-<p>Within the Implementation Model, this association class is manually converted into an intermediate class and the tagged values of the associations are set as illustrated in <a href="#figure-uml-cityobjectrelation-intermediateclass">Figure 33</a>. Afterwards, the XML schemas are derived from the Implementation Model.</p>
+<p>Within the Implementation Model, this association class is manually converted into an intermediate class and the tagged values of the associations are set as illustrated in <a href="#figure-uml-cityobjectrelation-intermediateclass">Figure 35</a>. Afterwards, the XML schemas are derived from the Implementation Model.</p>
 </div>
 <div id="figure-uml-cityobjectrelation-intermediateclass" class="imageblock text-center">
 <div class="content">
 <img src="images/UML_CityObjectRelation_IntermediateClass.png" alt="UML CityObjectRelation IntermediateClass" width="70%">
 </div>
-<div class="title">Figure 33. Association class CityObjectRelation represented as intermediate class.</div>
+<div class="title">Figure 35. Association class CityObjectRelation represented as intermediate class.</div>
 </div>
 <div class="paragraph">
-<p>Within a GML instance document, specifying that the WallSurfaces of two buildings share the same geometry is then restricted to the structure as shown in <a href="#listing-gml-inlineorbyreference-cityobjectrelation">Listing 37</a>. The source and target classes are represented by two XML elements &lt;WallSurface&gt; and the intermediate class by the element &lt;CityObjectRelation&gt;. The element WallSurface of building 1 provides the element CityObjectRelation inline, whereas the element CityObjectRelation references the WallSurface element of building 2 using XLink. In the same way, building 2 provides the element CityObjectRelation inline its WallSurface, and the CityObjectRelation references the WallSurface of building 1 using Xlink.</p>
+<p>Within a GML instance document, specifying that the WallSurfaces of two buildings share the same geometry is then restricted to the structure as shown in <a href="#listing-gml-inlineorbyreference-cityobjectrelation">Listing 49</a>. The source and target classes are represented by two XML elements &lt;WallSurface&gt; and the intermediate class by the element &lt;CityObjectRelation&gt;. The element WallSurface of building 1 provides the element CityObjectRelation inline, whereas the element CityObjectRelation references the WallSurface element of building 2 using XLink. In the same way, building 2 provides the element CityObjectRelation inline its WallSurface, and the CityObjectRelation references the WallSurface of building 1 using Xlink.</p>
 </div>
 <div id="listing-gml-inlineorbyreference-cityobjectrelation" class="listingblock">
-<div class="title">Listing 37. GML instance document for the association class CityObjectRelation.</div>
+<div class="title">Listing 49. GML instance document for the association class CityObjectRelation.</div>
 <div class="content">
 <pre class="highlight"><code class="language-XML" data-lang="XML">&lt;bldg:Building gml:id="bldg_1"&gt;
   &lt;boundary&gt;
@@ -14959,85 +15846,86 @@ Please note that software compliant to this standard might not be able to read t
 <div class="sectionbody">
 <div class="paragraph">
 <p><strong>conformance test class</strong><br>
-set of conformance test modules that must be applied to receive a single certificate of
+The set of conformance test modules that must be applied to receive a single certificate of
 conformance<br>
 [OGC 08-131r3, definition 4.4]</p>
 </div>
 <div class="paragraph">
 <p><strong>feature</strong><br>
-abstraction of real world phenomena<br>
+An abstraction of real world phenomena<br>
 [ISO 19101-1:2014, definition 4.1.11]</p>
 </div>
 <div class="paragraph">
 <p><strong>feature attribute</strong><br>
-characteristic of a feature<br>
+A characteristic of a feature<br>
 [ISO 19101-1:2014, definition 4.1.12]</p>
 </div>
 <div id="FeatureType-section" class="paragraph">
 <p><strong>feature type</strong><br>
-class of features having common characteristics<br>
+A class of features having common characteristics<br>
 [ISO 19156:2011, definition 4.7]</p>
 </div>
 <div class="paragraph">
 <p><strong>measurement</strong><br>
-set of operations having the object of determining the value of a quantity<br>
+A set of operations having the object of determining the value of a quantity<br>
 [ISO 19101-2:2018, definition 3.21] / [VIM:1993, 2.1]</p>
 </div>
 <div class="paragraph">
 <p><strong>model</strong><br>
-abstraction of some aspects of reality<br>
+An abstraction of some aspects of reality<br>
 [ISO 19109:2015, definition 4.15]</p>
 </div>
 <div class="paragraph">
 <p><strong>observation</strong><br>
-act of measuring or otherwise determining the value of a property<br>
+The act of measuring or otherwise determining the value of a property<br>
 [ISO 19156:2011, definition 4.11]</p>
 </div>
 <div class="paragraph">
 <p><strong>observation procedure</strong><br>
-method, algorithm or instrument, or system of these, which may be used in making an
+A method, algorithm or instrument, or system of these, which may be used in making an
 observation<br>
 [ISO 19156:2011, 4.12]</p>
 </div>
 <div class="paragraph">
 <p><strong>observation result</strong><br>
-estimate of the value of a property determined through a known observation procedure<br>
+An estimate of the value of a property determined through a known observation procedure<br>
 [ISO 19156:2011, 4.14]</p>
 </div>
 <div class="paragraph">
 <p><strong>property</strong><br>
-facet or attribute of an object referenced by a name.<br>
+A facet or attribute of an object referenced by a name.<br>
 [ISO 19143:2010, definition 4.21]</p>
 </div>
 <div class="paragraph">
 <p><strong>requirements class</strong><br>
-aggregate of all requirement modules that must all be satisfied to satisfy a conformance
+The aggregate of all requirement modules that must all be satisfied to satisfy a conformance
 test class<br>
 [OGC 08-131r3, definition 4.19]</p>
 </div>
 <div class="paragraph">
 <p><strong>schema</strong><br>
-formal description of a model<br>
+The formal description of a model<br>
 [ISO 19101-1:2014, definition 4.1.34]</p>
 </div>
 <div class="paragraph">
 <p><strong>sensor</strong><br>
-type of observation procedure that provides the estimated value of an observed
+A type of observation procedure that provides the estimated value of an observed
 property at its output<br>
 [OGC 08-094r1, definition 4.5]</p>
 </div>
 <div id="standardization-target-definition" class="paragraph">
 <p><strong>Standardization Target</strong><br>
-TBD</p>
+An entity to which some requirements of a standard apply<br>
+[OGC 08-131r3, definition 4.23]</p>
 </div>
 <div class="paragraph">
 <p><strong>timeseries</strong><br>
-sequence of data values which are ordered in time<br>
+A sequence of data values which are ordered in time<br>
 [OGC 15-043r3]</p>
 </div>
 <div class="paragraph">
 <p><strong>universe of discourse</strong><br>
-view of the real or hypothetical world that includes everything of interest<br>
+View of the real or hypothetical world that includes everything of interest<br>
 [ISO 19101-1:2014, definition 4.1.38]</p>
 </div>
 <div class="paragraph">
@@ -15046,230 +15934,7 @@ Particular variation of a spatial object<br>
 [INSPIRE Glossary]</p>
 </div>
 <div class="sect2">
-<h3 id="_iso_concepts"><a class="anchor" href="#_iso_concepts"></a>I.1. ISO Concepts</h3>
-<div class="paragraph">
-<p>The following concepts from the ISO TC211 Harmonized UML model are referenced by the CityGML Conceptual UML model but do not play a major role in its' definition. They are provided here to support a more complete understanding of the model.</p>
-</div>
-<div id="Area-section" class="paragraph">
-<p><strong>Area</strong><br>
-The measure of the physical extent of any topologically 2-D geometric object. Usually measured in "square" units of length.<br>
-[<a href="#iso19103">ISO 19103:2015</a>]</p>
-</div>
-<div id="Boolean-section" class="paragraph">
-<p><strong>Boolean</strong><br>
-boolean is the mathematical datatype associated with two-valued logic<br>
-[<a href="#iso19103">ISO 19103:2015</a>]</p>
-</div>
-<div id="CC_CoordinateOperation-section" class="paragraph">
-<p><strong>CC_CoordinateOperation</strong><br>
- mathematical operation on coordinates that transforms or converts coordinates to another coordinate reference system.<br>
-[<a href="#iso19111">ISO 19111:2019</a>]</p>
-</div>
-<div id="Character-section" class="paragraph">
-<p><strong>Character</strong><br>
-symbol  from a standard character-set.<br>
-[<a href="#iso19103">ISO 19103:2015</a>]</p>
-</div>
-<div id="CharacterString-section" class="paragraph">
-<p><strong>CharacterString</strong><br>
-Characterstring  is a family  of  datatypes which  represent strings of symbols  from  standard character-sets.<br>
-[<a href="#iso19103">ISO 19103:2015</a>]</p>
-</div>
-<div id="CRS-section" class="paragraph">
-<p><strong>CRS</strong><br>
-Coordinate reference system which is usually single but may be compound.<br>
-[<a href="#iso19111">ISO 19111:2019</a>]</p>
-</div>
-<div id="CV_DiscreteCoverage-section" class="paragraph">
-<p><strong>CV_DiscreteCoverage</strong><br>
-A subclass of CV_Coverage that returns a single record of values for any direct position within a single geometric object in  its spatiotemporal domain.<br>
-[<a href="#iso19123">[iso19123]</a>]</p>
-</div>
-<div id="CV_DomainObject-section" class="paragraph">
-<p><strong>CV_DomainObject</strong><br>
-[<a href="#iso19123">[iso19123]</a>]</p>
-</div>
-<div id="CV_GridPointValuePair-section" class="paragraph">
-<p><strong>CV_GridPointValuePair</strong><br>
-[<a href="#iso19123">[iso19123]</a>]</p>
-</div>
-<div id="CV_GridValuesMatrix-section" class="paragraph">
-<p><strong>CV_GridValuesMatrix</strong><br>
-The geometry represented by the various offset vectors is in the image plane of the grid.<br>
-[<a href="#iso19123">[iso19123]</a>]</p>
-</div>
-<div id="CV_ReferenceableGrid-section" class="paragraph">
-<p><strong>CV_ReferenceableGrid</strong><br>
-[<a href="#iso19123">[iso19123]</a>]</p>
-</div>
-<div id="Date-section" class="paragraph">
-<p><strong>Date</strong><br>
-Date gives values for year, month and day. Representation of Date is specified in ISO 8601. Principles for date and time are further discussed in ISO 19108.<br>
-[<a href="#iso19103">ISO 19103:2015</a>]</p>
-</div>
-<div id="DateTime-section" class="paragraph">
-<p><strong>DateTime</strong><br>
-A DateTime is a combination of a date and a time types. Representation of DateTime is specified in ISO 8601. Principles for date and time are further discussed in ISO 19108.<br>
-[<a href="#iso19103">ISO 19103:2015</a>]</p>
-</div>
-<div id="Distance-section" class="paragraph">
-<p><strong>Distance</strong><br>
-Used as a type for returning distances and possibly lengths.<br>
-[<a href="#iso19103">ISO 19103:2015</a>]</p>
-</div>
-<div id="EngineeringCRS-section" class="paragraph">
-<p><strong>Engineering CRS</strong><br>
-A contextually local coordinate reference system which can be divided into two broad categories:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>earth-fixed systems applied to engineering activities on or near the surface of the earth;</p>
-</li>
-<li>
-<p>CRSs on moving platforms such as road vehicles, vessels, aircraft or spacecraft.<br>
-[<a href="#iso19111">ISO 19111:2019</a>]</p>
-</li>
-</ol>
-</div>
-<div id="GenericName-section" class="paragraph">
-<p><strong>Generic Name</strong><br>
-Generic Name is the abstract class for all names in a NameSpace. Each instance of a GenericName is either a LocalName or a ScopedName.<br>
-[<a href="#iso19103">ISO 19103:2015</a>]</p>
-</div>
-<div id="Geometry-section" class="paragraph">
-<p><strong>Geometry</strong><br>
-[<a href="#iso19107">ISO 19107:2003</a>]</p>
-</div>
-<div id="GM_CompositePoint-section" class="paragraph">
-<p><strong>GM_CompositePoint</strong><br>
-[<a href="#iso19107">ISO 19107:2003</a>]</p>
-</div>
-<div id="GM_CompositeSolid-section" class="paragraph">
-<p><strong>GM_CompositeSolid</strong><br>
-set of geometric solids adjoining one another along common boundary geometric surfaces<br>
-[<a href="#iso19107">ISO 19107:2003</a>]</p>
-</div>
-<div id="GM_GenericSurface-section" class="paragraph">
-<p><strong>GM_GenericSurface</strong><br>
-GM_Surface and GM_SurfacePatch both represent sections of surface geometry, and therefore share a number of operation signatures. These are defined in the interface class GM_GenericSurface.<br>
-[<a href="#iso19107">ISO 19107:2003</a>]</p>
-</div>
-<div id="GM_LineString-section" class="paragraph">
-<p><strong>GM_LineString</strong><br>
-consists of sequence of line segments, each having a parameterization like the one for GM_LineSegment<br>
-[<a href="#iso19107">ISO 19107:2003</a>]</p>
-</div>
-<div id="GM_MultiPrimitive-section" class="paragraph">
-<p><strong>GM_MultiPrimitive</strong><br>
-[<a href="#iso19107">ISO 19107:2003</a>]</p>
-</div>
-<div id="GM_OrientableSurface-section" class="paragraph">
-<p><strong>GM_OrientableSurface</strong><br>
-a surface and an orientation inherited from GM_OrientablePrimitive. If the orientation is "+", then the GM_OrientableSurface is a GM_Surface. If the orientation is "-", then the GM_OrientableSurface is a reference to a GM_Surface with an upNormal that reverses the direction for this GM_OrientableSurface, the sense of "the top of the surface".<br>
-[<a href="#iso19107">ISO 19107:2003</a>]</p>
-</div>
-<div id="GM_PolyhedralSurface-section" class="paragraph">
-<p><strong>GM_PolyhedralSurface</strong><br>
- a GM_Surface composed of polygon surfaces (GM_Polygon) connected along their common boundary curves.<br>
-[<a href="#iso19107">ISO 19107:2003</a>]</p>
-</div>
-<div id="GM_Position-section" class="paragraph">
-<p><strong>GM_Position</strong><br>
-a union type consisting of either a DirectPosition or of a reference to a GM_Point from which a DirectPosition shall be obtained.<br>
-[<a href="#iso19107">ISO 19107:2003</a>]</p>
-</div>
-<div id="GM_Primitive-section" class="paragraph">
-<p><strong>GM_Primitive</strong><br>
-The abstract root class of the geometric primitives. Its main purpose is to define the basic "boundary" operation that ties the primitives in each dimension together.<br>
-[<a href="#iso19107">ISO 19107:2003</a>]</p>
-</div>
-<div id="Integer-section" class="paragraph">
-<p><strong>Integer</strong><br>
-An exact integer value, with no fractional part.<br>
-[<a href="#iso19103">ISO 19103:2015</a>]</p>
-</div>
-<div id="IoT_definition" class="paragraph">
-<p><strong>Internet of Things</strong><br>
-The network of physical objects--“things”--that are embedded with sensors, software, and other technologies for the purpose of connecting and exchanging data with other devices and systems over the Internet.<br>
-<a href="https://en.wikipedia.org/wiki/Internet_of_things">Wikipedia</a></p>
-</div>
-<div id="IO_IdentifiedObjectBase-section" class="paragraph">
-<p><strong>IO_IdentifiedObjectBase</strong><br>
-[<a href="#iso19103">ISO 19103:2015</a>]</p>
-</div>
-<div id="Length-section" class="paragraph">
-<p><strong>Length</strong><br>
-The measure of distance as an integral, i.e. the limit of an infinite sum of distances between points on a curve.<br>
-[<a href="#iso19103">ISO 19103:2015</a>]</p>
-</div>
-<div id="Measure-section" class="paragraph">
-<p><strong>Measure</strong><br>
-The result from performing the act or process of ascertaining the extent, dimensions, or quantity of some entity.<br>
-[<a href="#iso19103">ISO 19103:2015</a>]</p>
-</div>
-<div id="number-section" class="paragraph">
-<p><strong>Number</strong><br>
-The base type for all number data, giving the basic algebraic operations.<br>
-[<a href="#iso19103">ISO 19103:2015</a>]</p>
-</div>
-<div id="Point-section" class="paragraph">
-<p><strong>Point</strong><br>
-GM_Point is the basic data type for a geometric object consisting of one and only one point.<br>
-[<a href="#iso19107">ISO 19107:2003</a>]</p>
-</div>
-<div id="Real-section" class="paragraph">
-<p><strong>Real</strong><br>
-The common binary Real finite implementation using base 2.<br>
-[<a href="#iso19103">ISO 19103:2015</a>]</p>
-</div>
-<div id="RS_ReferenceSystem-section" class="paragraph">
-<p><strong>RS_ReferenceSystem</strong><br>
-Description of a spatial and temporal reference system used by a dataset.<br>
-[<a href="#iso19111">ISO 19111:2019</a>]</p>
-</div>
-<div id="ScopedName-section" class="paragraph">
-<p><strong>Scoped Name</strong><br>
-ScopedName is a composite of a LocalName for locating another NameSpace and a GenericName valid in that NameSpace. ScopedName contains a LocalName as head and a GenericName, which might be a LocalName or a ScopedName, as tail.<br>
-[<a href="#iso19103">ISO 19103:2015</a>]</p>
-</div>
-<div id="Solid-section" class="paragraph">
-<p><strong>Solid</strong><br>
-GM_Solid, a subclass of GM_Primitive, is the basis for 3-dimensional geometry. The extent of a solid is defined by the boundary surfaces.<br>
-[<a href="#iso19107">ISO 19107:2003</a>]</p>
-</div>
-<div id="Time-section" class="paragraph">
-<p><strong>Time</strong><br>
-Time is the designation of an instant on a selected time scale, astronomical or atomic.  It is used in the sense of time of day.<br>
-[<a href="#iso19103">ISO 19103:2015</a>]</p>
-</div>
-<div id="TM_Duration-section" class="paragraph">
-<p><strong>TM_Duration</strong><br>
-[<a href="#iso19108">[iso19108]</a>]</p>
-</div>
-<div id="TM_TemporalPosition-section" class="paragraph">
-<p><strong>TM_TemporalPosition</strong><br>
-The position of a TM_Instant relative to a TM_ReferenceSystem.<br>
-[<a href="#iso19108">[iso19108]</a>]</p>
-</div>
-<div id="UnitOfMeasure-section" class="paragraph">
-<p><strong>Unit of Measure</strong><br>
-Any of the systems devised to measure some physical quantity such distance or area or a system devised to measure such things as the passage of time.<br>
-[<a href="#iso19103">ISO 19103:2015</a>]</p>
-</div>
-<div id="URI-section" class="paragraph">
-<p><strong>URI</strong><br>
-Uniform Resource Identifier (URI), is a compact string of characters used to identify or name a resource<br>
-[<a href="#iso19103">ISO 19103:2015</a>]</p>
-</div>
-<div id="Volume-section" class="paragraph">
-<p><strong>Volume</strong><br>
-Volume is the measure of the physical space of any 3-D geometric object.<br>
-[<a href="#iso19103">ISO 19103:2015</a>]</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_abbreviated_terms"><a class="anchor" href="#_abbreviated_terms"></a>I.2. Abbreviated Terms</h3>
+<h3 id="_abbreviated_terms"><a class="anchor" href="#_abbreviated_terms"></a>I.1. Abbreviated Terms</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -15395,6 +16060,9 @@ Volume is the measure of the physical space of any 3-D geometric object.<br>
 </li>
 <li>
 <p><a id="Chaturvedi2019"></a>Chaturvedi, K., Kolbe, T. H., 2019: <strong>A Requirement Analysis on Extending Semantic 3D City Models for Supporting Time-dependent Properties</strong>. In: Proceedings of the 4th International Conference on Smart Data and Smart Cities, ISPRS Annals of the Photogrammetry, Remote Sensing and Spatial Information Sciences, Vol. IV-4/W9, ISPRS. <a href="https://doi.org/10.5194/isprs-annals-IV-4-W9-19-2019" class="bare">https://doi.org/10.5194/isprs-annals-IV-4-W9-19-2019</a></p>
+</li>
+<li>
+<p><a id="Chaturvedi2021"></a>Chaturvedi, K., 2021: <strong>Integration and Management of Time-dependent Properties with Semantic 3D City Models</strong>. Dissertation, Technical University of Munich. <a href="https://mediatum.ub.tum.de/node?id=1542959" class="bare">https://mediatum.ub.tum.de/node?id=1542959</a></p>
 </li>
 <li>
 <p><a id="Elfes1989"></a>Elfes, A., 1989: <strong>Using occupancy grids for mobile robot perception and navigation</strong>. Computer 22(6):46–57. <a href="https://doi.org/10.1109/2.30720" class="bare">https://doi.org/10.1109/2.30720</a></p>
