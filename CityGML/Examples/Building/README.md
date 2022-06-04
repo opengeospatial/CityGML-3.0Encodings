@@ -9,7 +9,7 @@ FZK-Haus_CityGML3.0_LOD3_<br>with_interior.gml | This file contains the famous b
 Opera-Lyon_CityGML3.0_LOD2_<br>with_xAL3_FreeText.gml | This file contains the Lyon National Opera House. The building is represented in LOD2 with a free text xAL v3.0 address. The file was generated from the CityGML 2.0 LOD2 file available here: https://data.grandlyon.com/jeux-de-donnees/maquettes-3d-texturees-2018-communes-metropole-lyon/donnees | 3.0.0-draft.2021.12.01.1
 Opera-Lyon_CityGML3.0_LOD2_<br>with_xAL3_FullyStructured.gml | This file contains the Lyon National Opera House. The building is represented in LOD2 with a fully structured xAL v3.0 address. The file was generated from the CityGML 2.0 LOD2 file available here: https://data.grandlyon.com/jeux-de-donnees/maquettes-3d-texturees-2018-communes-metropole-lyon/donnees | 3.0.0-draft.2021.12.01.1
 JeffersonBuilding_CityGML3.0_LOD1_<br>with_xAL3_CommonTypes.gml | This file contains the Thomas Jefferson Building in Washington, DC, USA. The building is represented in LOD1 with an xAL v3.0 address featuring CommonTypes. The file was generated from an extract of the CityGML 2.0 LOD1 datasets files available here: https://github.com/opencitymodel/opencitymodel | 3.0.0-draft.2021.12.01.1
-
+BuildingUnits_Storeys_xlink.gml | This file contains a single building with two Storeys and three BuildingUnits. The Storeys have partly their own geometry as one BuildingUnit represents the staircase and is only partially in a single storey. The building also has an attic that is not part of any Storey or BuildingUnit. Geometry is referenced where possible. | 3.0.0-draft.2021.12.01.1
 
 Additional test data is available in the following external repositories:
 

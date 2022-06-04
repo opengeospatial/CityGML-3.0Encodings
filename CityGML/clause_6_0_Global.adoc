@@ -137,6 +137,43 @@ Three different cases for non-redundant representation need to be differentiated
 
 For these cases, different requirements are provided for how to encode the references in CityGML. Although these requirements impose restrictions, they facilitate at the same time reading, storing, processing, and generating of CityGML documents, because they reduce the multiple possibilities of how to represent and link features and geometries in CityGML documents to the most appropriate ones. Furthermore, top-level features can now completely be loaded in the main memory, because links to shared geometries that are part of different top-level features represented further down in the GML document do not need to be resolved any more. This also facilitates querying features and geometries using web services, as up to now queries cannot address specific parts of a geometry. Maintenance at the level of the top-level features becomes easier as well, because links between feature geometries do not need to be maintained and updated any more when a feature changes its geometry or when the feature does not exist anymore.
 
+Table <<table-global-requirements>> provides an overview of the different requirements, the link types used to encode the references and whether the link references geometries or features.
+
+[[table-global-requirements]]
+.Overview of linking rules.
+[cols="60,20,20",options="headers"]
+|===
+^|*Requirement* ^|*Link type* ^|*Link level*
+|*Requirement ...* +
+Referencing geometries from another top-level feature +
+(* except for ImplicitGeometry objects)
+|{empty} +
+- +
+(* XLink)
+|{empty} +
+- +
+(* Geometry link)
+|*Requirement ...* +
+Referencing geometries within the same top-level feature
+|{empty} +
+XLink
+|{empty} +
+Geometry link
+|*Requirement …* +
+Referencing geometries shared between different top-level features
+|{empty} +
+CityObjectRelation
+|{empty} +
+Feature link
+|*Requirement …* +
+Referencing features from alternative aggregations
+|{empty} +
+XLink
+|{empty} +
+Feature link
+|===
+
+
 [[linking-rules-1-section]]
 =====  Rule 1: Referencing geometries using XLinks within the same and from different top-level features
 
@@ -205,7 +242,7 @@ The space boundaries of the building and of the building installation are all mo
 The GML file is available here:
 https://github.com/opengeospatial/CityGML-3.0Encodings/tree/xlinks-discussion/CityGML/Examples/Building/XLink_examples/3_Building_With_Nested_Features
 
-The Building from the GML file is illustrated in the object diagram in <<figure-uml-building-with-building-installation>>. The XLink references are highlighted in red.
+The Building from the GML file is illustrated in the object diagram in <<figure-uml-building-with-building-installation>>. The XLink references from the building to the space boundaries of the building are highlighted in red, whereas those to the space boundaries of the building installation are highlighted in blue.
 
 [[figure-uml-building-with-building-installation]]
 .UML object diagram for the building in <<figure-example-building-with-building-installation>>.
@@ -272,21 +309,13 @@ To express the sharing of MultiSurface geometries between the Roof-/WallSurfaces
 The GML file is available here:
 https://github.com/opengeospatial/CityGML-3.0Encodings/blob/master/CityGML/Examples/Transportation/Basic%20examples/Road_over_Bridge_CityGML3.0_LOD2_with_CityObjectRelations.gml
 
-[[linking-rules-4-section]]
-===== Rule 4: Referencing features from alternative aggregations
-
-. Each feature belongs to a natural aggregation hierarchy and shall be stored inline in this hierarchy.
-. Alternative aggregations may not contain the feature inline but must use an XLink to reference the feature.
-
-Here, XLink represents a link at the feature level (“feature link”), i.e., a reference to the ID of the feature being part of the natural aggregation. All features are part of a natural aggregation, i.e., features are typically represented in a data set once in physical form, either directly as part of the city model when they are top-level features (e.g. a Building), or inline as part of other (top-level) features (e.g. a BuildingRoom represented inline as part of the top-level feature Building). At the same time, the features can also occur in alternative aggregations.
-
-*Example 1: Intersection as part of two Roads*
+*Exception: Intersection as part of two Roads*
 
 [[figure-example-intersection]]
 .Intersection shared by two roads.
 image::images/Example_Intersection.png[align="center",width="70%"]
 
-In <<figure-example-intersection>>, two roads are shown that each have two Sections and one Intersection. The two roads cross each other at the Intersection. Although the Intersection is shared by the Roads, it exists in reality only once. This is reflected by specifying that the natural aggregation of the Intersection feature is Road 2, whereas Road 3 represents an alternative aggregation of the Intersection. Thus, the Intersection feature is represented inline as part of Road 2, whereas it is referenced by Road 3 using an XLink that references the ID of the Intersection feature.
+In <<figure-example-intersection>>, two Roads (=top-level features) are shown that each have two Sections and one Intersection. The two Roads cross each other at the Intersection. Although the Intersection and, thus, also its geometry is shared by both Roads, it exists in reality only once; i.e., the Intersection is integral part of both Roads. In contrast to the examples above, this should not be expressed by duplicating the Intersection to represent it inline of both Roads and link the duplicates using CityObjectRelations. Instead, the Intersection should be represented inline as part of one Road (here: Road 2) and be referenced by the other Road (here: Road 3) using an XLink that references the ID of the Intersection feature. This type of feature link is similar to Rule 4, where XLinks are used to relate features to alternative aggregations, with the difference that Road 3 cannot semantically be considered an alternative aggregation of the Intersection.
 
 The GML file is available here:
 https://github.com/opengeospatial/CityGML-3.0Encodings/blob/master/CityGML/Examples/Transportation/Basic%20examples/ParkingGarage_CityGML3.0_LOD2_with_CityObjectRelations_and_XLinks.gml
@@ -297,20 +326,29 @@ The two Roads and the Intersection from the GML file are illustrated in the obje
 .UML object diagram for the building in <<figure-example-intersection>>.
 image::images/UML_Intersection.png[align="center"]
 
-*Example 2: A specific version of a city model*
+
+[[linking-rules-4-section]]
+===== Rule 4: Referencing features from alternative aggregations
+
+. Each feature belongs to a natural aggregation hierarchy and shall be stored inline in this hierarchy.
+. Alternative aggregations may not contain the feature inline but must use an XLink to reference the feature.
+
+Here, XLink represents a link at the feature level (“feature link”), i.e., a reference to the ID of the feature being part of the natural aggregation. All features are part of a natural aggregation, i.e., features are typically represented in a data set once in physical form, either directly as part of the city model when they are top-level features (e.g. a Building), or inline as part of other (top-level) features (e.g. a BuildingRoom represented inline as part of the top-level feature Building). At the same time, the features can also occur in alternative aggregations.
+
+*Example 1: A specific version of a city model*
 
 A Version features groups, for instance, versions of city objects that are valid within a specific time period. The city model represents the natural aggregation of these versioned city objects, whereas the Version feature represents the alternative aggregation. Thus, the versioned city objects are represented inline as part of the city model, whereas they are referenced by the Version feature using XLink references.
 
-*Example 3: Building rooms belonging to a Storey*
+*Example 2: Building rooms belonging to a Storey*
 
 BuildingRooms are usually represented inline as part of the Building they belong to, thus, the Building represents the natural aggregation. In addition, Storeys can group BuildingRooms to indicate which BuildingRoom belongs to which Storey. In this case, when the BuildingRooms are already part of the Building, the grouping into Storeys would represent an alternative aggregation, thus, the Storeys would reference the BuildingRooms using XLink relations.
 
-*Example 4: A Building installation spanning across several Building Parts*
+*Example 3: A Building installation spanning across several Building Parts*
 
 Installations that are spanning across several building parts are to be physically modelled as part of one building part, all other building parts reference the installation using XLinks, expressing in this way, that the installation does not exclusively belong to one building part only.
 
 This means, that one of the BuildingParts represents the natural aggregation of the BuildingInstallation (i.e. inline representation), whereas the other BuildingParts represent alternative aggregations (i.e. XLink reference).
 
-*Example 5: CityObjectGroups*
+*Example 4: CityObjectGroups*
 
 A CityObjectGroup groups existing city objects that are usually represented inline somewhere else in the data set. Thus, CityObjectGroups represent alternative aggregations and have to use XLink to reference the city objects they are grouping.

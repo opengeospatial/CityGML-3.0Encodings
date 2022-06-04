@@ -16,11 +16,9 @@ The applicable GML schema is http://schemas.opengis.net/citygml/3.0/core.xsd[cor
 
 ==== Dependencies
 
-The Core Requirements Class is dependent on the following external OGC and ISO standards:
+The Core Requirements Class is dependent on the following external OGC and ISO standard:
 
 * <<ogc07-036,GML 3.2>> provides most of the geometry types (e.g., Point, LineString, Polygon) used for spatial representations in this standard, defines Coordinate Reference Systems, and supports the General Feature Model upon which this standard is based.
-
-* <<ogc10-129r1,GML 3.3>> defines compact encodings of geometry types, linear referencing concepts (e.g., linear element, distance along, Linear Referencing Methods), TINs, and encoding rules for association classes.
 
 [[core-section-implementation-decisions]]
 ==== Implementation Decisions

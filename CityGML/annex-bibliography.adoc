@@ -25,6 +25,8 @@
 
 * [[Chaturvedi2019,Chaturvedi & Kolbe 2019]]Chaturvedi, K., Kolbe, T. H., 2019: *A Requirement Analysis on Extending Semantic 3D City Models for Supporting Time-dependent Properties*. In: Proceedings of the 4th International Conference on Smart Data and Smart Cities, ISPRS Annals of the Photogrammetry, Remote Sensing and Spatial Information Sciences, Vol. IV-4/W9, ISPRS. https://doi.org/10.5194/isprs-annals-IV-4-W9-19-2019
 
+* [[Chaturvedi2021,Chaturvedi 2021]]Chaturvedi, K., 2021: *Integration and Management of Time-dependent Properties with Semantic 3D City Models*. Dissertation, Technical University of Munich. https://mediatum.ub.tum.de/node?id=1542959
+
 * [[Elfes1989,Elfes 1989]]Elfes, A., 1989: *Using occupancy grids for mobile robot perception and navigation*. Computer 22(6):46–57. https://doi.org/10.1109/2.30720
 
 * [[Foley2002,Foley et al. 2002]]Foley, J., van Dam, A., Feiner, S., Hughes, J., 2002: *Computer Graphics: Principles and Practice*. 2nd ed., Addison Wesley

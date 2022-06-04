@@ -1,2 +1,712 @@
 [[annex-examples-dynamizer]]
 === Dynamizer Examples
+
+This chapter provides examples on the use of the Dynamizer concept to integrate dynamic data coming from sensors or being stored in files with city models. A Dynamizer is a feature that can be included in any CityGML thematic feature (e.g. Building, WallSurface, Section of a road) and that provides a pointer to a specific property of the respective thematic feature, whose static value shall be overridden by timeseries data. See https://docs.ogc.org/is/20-010/20-010.html#toc26[Chapter 6.6 of the CityGML Conceptual Model Standard^] and <<Chaturvedi2019>> for more information. The examples provided here have been taken from <<Chaturvedi2021>>.
+
+A Dynamizer can provide the timeseries data in different ways:
+
+- As a link to a specific datastream provided by a sensor data service like OGC SensorThings API, OGC Sensor Observation Service, or other sensor data platforms (incl. MQTT). For this purpose the Dynamizer makes use of a _SensorConnection_ object;
+- As a reference to an external file with tabulated data (e.g. CSV, MS Excel, Google Spreadsheet) for which the Dynamizer uses a _TabulatedFileTimeseries_ object;
+- As a reference to an external file formatted according to OGC TimeseriesML or Observations & Measurements standards using a _StandardFileTimeseries_ object;
+- Inline within the Dynamizer feature using a _GenericTimeseries_ object;
+- By defining _CompositeTimeseries_ objects which consist of a combination of various GenericTimeseries objects, TabulatedFileTimeseries objects, and/or StandardFileTimeseries objects.
+
+For each of these possibilities, examples are provided in the following.
+
+==== Examples for integrating city objects with real-time sensors
+
+The following examples refer to a Building feature shown in <<listing-gml-building-with-temperature>>. The building has a roof with the ID _roof1_ and a room with the ID _room1_. The building defines two generic attributes that provide a) a static value for the temperature on the roof (generic attribute _outside_temperature_) and b) a static value for the temperatue in the room (generic attribute _temperature_). In addition, the building might also have other static attributes such as building function, roof type, and address which are not shown here.
+
+The room has an indoor sensor installed which measures the air temperature and humidity in the room. The observations from this sensor can be used to override the static value of the generic attribute _temperature_ with dynamic values coming from the sensor.
+
+In addition, a personal weather station is installed on the roof which measures weather-related properties such as outside temperature, relative humidity, and wind speed.
+
+[[listing-gml-building-with-temperature]]
+.A Building with a RoofSurface containing a generic attribute '_outside_temperature_' and a BuildingRoom containing a generic attribute '_temperature_'.
+[source,XML,highlight='1,2']
+----
+<core:cityObjectMember>
+  <bldg:Building gml:id="building1">
+    <core:boundary>
+      <con:RoofSurface gml:id="roof1">
+        <core:genericAttribute>
+          <gen:DoubleAttribute>
+            <gen:name>outside_temperature</gen:name>
+            <gen:value>23.3</gen:value>
+          </gen:DoubleAttribute>
+        </core:genericAttribute>
+      </con:RoofSurface>
+    </core:boundary>
+    <bldg:buildingRoom>
+      <bldg:BuildingRoom gml:id="room1">
+        <core:genericAttribute>
+          <gen:DoubleAttribute>
+            <gen:name>temperature</gen:name>
+            <gen:value>20.2</gen:value>
+          </gen:DoubleAttribute>
+        </core:genericAttribute>
+      </bldg:BuildingRoom>
+    </bldg:buildingRoom>
+  </bldg:Building>
+</core:cityObjectMember>
+----
+
+In general, real-time sensor data streams are available from numerous platforms. In the following, examples are provided for the use of the ThingSpeak platform, the OGC SensorThings API, and the MQTT protocol to retrieve the room temperature from the indoor sensor, as well as the WeatherUnderground Network and the OGC Sensor Observation Service to retrieve the outside temperature data from the weather station.
+
+===== Example 1: ThingSpeak platform
+
+The following is an example query to request sensor data from the ThingSpeak platform (the request is a single line without linebreaks and spaces). The request retrieves all observations between '2019-10-08T00:00:00Z' and '2019-10-09T00:00:00Z' for the field ID 1. ThingSpeak manages each registered sensor using a unique channel ID (here: 64242). A query to the channel ID delivers details on the sensor device and on the available datastreams. In this example, the datastreams available are temperature and humidity registered with the field IDs 1 and 2, respectively:
+
+[[listing-query-thingspeak]]
+----
+https://thingspeak.com/channels/64242/fields/1.json?start=2019-10-08T00:00:00Z&end=2019-10-09T00:00:00Z
+----
+
+<<listing-gml-thingspeak>> shows, how the Dynamizer makes use of this query to link the generic attribute _temperature_ to the temperature observation of the ThingSpeak datastream with field ID 1.
+
+[[listing-gml-thingspeak]]
+.Dynamizer defining a sensor connection to the ThingSpeak platform.
+[source,XML,highlight='1,2',subs="+normal,-replacements"]
+----
+<bldg:Building gml:id="building1">
+  <core:dynamizer>
+    <dyn:Dynamizer gml:id="dynamizer1">
+      <dyn:attributeRef>
+        <!--Single line without linebreaks and spaces-->
+        //bldg:BuildingRoom[@gml:id='room1']/core:genericAttribute/
+        gen:DoubleAttribute[gen:name='temperature']/gen:value
+      </dyn:attributeRef>
+      <dyn:startTime>2019-10-08T00:00:00Z</dyn:startTime>
+      <dyn:endTime>2019-10-09T00:00:00Z</dyn:endTime>
+      <dyn:sensorConnection>
+        <dyn:SensorConnection>
+          <dyn:connectionType>thingspeak_1.0</dyn:connectionType>
+          <dyn:observationProperty>Temperature</dyn:observationProperty>
+          <dyn:uom>Celsius</dyn:uom>
+          <dyn:sensorID>64242</dyn:sensorID>
+          <dyn:sensorName>DHT22</dyn:sensorName>
+          <dyn:datastreamID>1</dyn:datastreamID>
+          <dyn:baseURL>
+            https://thingspeak.com
+          </dyn:baseURL>
+          <dyn:authType>none</dyn:authType>
+          <dyn:linkToObservation>
+            <!--Single line without linebreaks and spaces-->
+            %baseURL%/channels/%sensorID%/fields/
+            %datastreamID%.json?start=%startTime%&amp;end=%endTime%
+          </dyn:linkToObservation>
+          <dyn:sensorLocation xlink:href="#room1"/>
+        </dyn:SensorConnection>
+      </dyn:sensorConnection>
+    </dyn:Dynamizer>
+  </core:dynamizer>
+  <!-- The roof surface and building room from {<<listing-gml-building-with-temperature>>} come here -->
+</bldg:Building>
+----
+
+The Dynamizer specifies the following parameters:
+
+- _attributeRef_ defines an XPath expression which refers to the generic attribute _temperature_ of the BuildingRoom feature with the ID _room1_ that is to be overridden by sensor data from the specific ThingSpeak channel.
+- _startTime_ and _endTime_ represent the entire temporal extent for the sensor data to be retrieved.
+
+The actual connection parameters to the ThingSpeak platform are specified by the Dynamizer using a SensorConnection object:
+
+- _connectionType_ indicates the type of the connection, which is _thingspeak_1.0_ in this example.
+- _observationProperty_ indicates the observed property for which sensor data is retrieved.
+- _uom_ specifies the unit of measurement of the observed property.
+- _datastreamID_ contains the field ID of the datastream to be retrieved.
+- _baseURL_ specifies the base URL for all channels available on the ThingSpeak platform. The value is always https://thingspeak.com.
+- _sensorID_ provides the ID of the sensor.
+- _sensorName_ provides the name of the sensor, in this example it is a DHT22 sensor.
+- _authType_ specifies the authentication required to connect to the sensor. In this example, the parameter value is _none_, since the sensor is publicly available and requires no authentication.
+- _linkToObservation_ allows for encoding the URL to establish a direct link to the observations of the specific datastream. The URL is a combination of static content and placeholders. In this example the following placeholders are defined: %baseURL%, %sensorID%, %datastreamID%, %startTime%, and %endTime%. The complete URL is generated by substituting the placeholders with the values from the corresponding parameters defined by the Dynamizer and the SensorConnection. In this example the resulting URL is: https://thingspeak.com/channels/64242/fields/1?start=2019-10-08T00:00:00Z&end=2019-10-09T00:00:00Z.
+- _sensorLocation_ indicates where the sensor is located, which is the BuildingRoom with the ID _room1_ in this example.
+
+===== Example 2: OGC SensorThings API
+
+In this example, the same room temperature from sensor DHT22 is to be retrieved, but now the sensor observations are stored in a FROST Server and, thus, need to be queried using the OGC SensorThings API. The following is an example query to request sensor data from the FROST Server (the request is a single line without linebreaks and spaces). The request retrieves all observations between '2019-04-12T10:00:00.000Z' and '2019-04-12T10:30:00.000Z' for the Datastream ID 1 which is the temperature. According to the SensorThings API, observations are always aligned with datastreams:
+
+[[listing-query-sensorthingsapi]]
+----
+http://127.0.0.1:8080/FROST-Server/v1.0/Datastreams(1)/Observations?$filter=during(phenomenonTime,2019-04-12T10:00:00.000Z/2019-04-12T10:30:00.000Z)
+----
+
+<<listing-gml-frost-server>> shows, how the Dynamizer needs to be defined to retrieve observations from the FROST Server and link them to the generic attribute _temperature_.
+
+[[listing-gml-frost-server]]
+.Dynamizer defining a sensor connection to the FROST Server.
+[source,XML,highlight='1,2',subs="+normal,-replacements"]
+----
+<bldg:Building gml:id="building1">
+  <core:dynamizer>
+    <dyn:Dynamizer gml:id="dynamizer2">
+      <dyn:attributeRef>
+        <!--Single line without linebreaks and spaces-->
+        //bldg:BuildingRoom[@gml:id='room1']/core:genericAttribute/
+        gen:DoubleAttribute[gen:name='temperature']/gen:value
+      </dyn:attributeRef>
+      <dyn:startTime>2019-04-12T10:00:00.000Z</dyn:startTime>
+      <dyn:endTime>2019-04-12T10:30:00.000Z</dyn:endTime>
+      <dyn:sensorConnection>
+        <dyn:SensorConnection>
+          <dyn:connectionType>ogc_sta_1.0</dyn:connectionType>
+          <dyn:observationProperty>Temperature</dyn:observationProperty>
+          <dyn:uom>Celsius</dyn:uom>
+          <dyn:datastreamID>1</dyn:datastreamID>
+          <dyn:baseURL>
+            http://127.0.0.1:8080/FROST-Server/v1.0
+          </dyn:baseURL>
+          <dyn:authType>none</dyn:authType>
+          <dyn:linkToObservation>
+            <!--Single line without linebreaks and spaces-->
+            %baseURL%/Datastreams(%datastreamID%)/
+            Observations?$filter=during(phenomenonTime,%startTime%/%endTime%)
+          </dyn:linkToObservation>
+          <dyn:linkToSensorDescription>
+            %baseURL%/Datastreams(%datastreamID%)/Sensor
+          </dyn:linkToSensorDescription>
+          <dyn:sensorLocation xlink:href="#room1"/>
+        </dyn:SensorConnection>
+      </dyn:sensorConnection>
+    </dyn:Dynamizer>
+  </core:dynamizer>
+  <!-- The roof surface and building room from {<<listing-gml-building-with-temperature>>} come here -->
+</bldg:Building>
+----
+
+The parameters defined by the Dynamizer itself are identical to those shown in the example for the ThingSpeak platform.
+
+However, the following parameters provided within the SensorConenction object differ, since the Dynamizer defines now a connection to the FROST Server:
+
+- _connectionType_ is set to _ogc_sta_1.0_, which represents the OGC SensorThings API version 1.0.
+- _baseURL_ is set to the URL for accessing a specific FROST Server. The base URL may differ for FROST Servers running on different machines or cloud environments.
+- _linkToObservation_ makes use again of the combination of static content and placeholders to define the URL for retrieving the observations. The following placeholders are defined: %baseURL%, %datastreamID%, %startTime%, and %endTime%. Attribute substitution results in the following URL: http://127.0.0.1:8080/FROSTServer/v1.0/Datastreams(1)/Observations?$filter=during(phenomenonTime,2019-04-12T10:00:00.000Z/2019-04-12T10:30:00.000Z).
+- _linkToSensorDescription_ allows to retrieve the sensor details corresponding to the specified datastream. Also here attribute substitution is used to obtain the URL http://127.0.0.1:8080/FROSTServer/v1.0/Datastreams(1)/Sensor.
+
+The parameters _observationProperty_, _uom_, _datastreamID_, _authType_, and _sensorLocation_ remain unchanged, as they specify the same values as in the example for the ThingSpeak platform. In contrast to connecting to the ThingSpeak platform, the parameter _sensorID_ is not required for SensorThings API connections; the datastream ID is sufficient for this purpose.
+
+===== Example 3: Subscribing to real-time datatreams using the MQTT protocol
+
+In this example, the room temperature from sensor DHT22 is to be retrieved again, but this time, the observations are available on the Things Network platform. The Things Network supports the MQTT protocol and allows users to subscribe to its data streams. The following is an example request to connect to the Things Network via MQTT. Server represents the URL of the machine where the server is deployed. Topic connects to the individual datastream. The authentication details are provided as username and password. These details are required as separate attributes by an MQTT broker; they cannot be provided within a single URL:
+
+[[listing-query-mqtt]]
+----
+Server: eu.thethings.network
+Topic: +/devices/tumgis-dragino-shield-with-gps/up/temperature
+Username: **********
+Password:**********
+----
+
+<<listing-gml-mqtt>> shows, how the Dynamizer is defined to link the generic attribute _temperature_ to the temperature observations using MQTT.
+
+[[listing-gml-mqtt]]
+.Dynamizer subscribing to a sensor data stream using the MQTT protocol.
+[source,XML,highlight='1,2',subs="+normal,-replacements"]
+----
+<bldg:Building gml:id="building1">
+  <core:dynamizer>
+    <dyn:Dynamizer gml:id="dynamizer3">
+      <dyn:attributeRef>
+        <!--Single line without linebreaks and spaces-->
+        //bldg:BuildingRoom[@gml:id='room1']/core:genericAttribute/
+        gen:DoubleAttribute[gen:name='temperature']/gen:value
+      </dyn:attributeRef>
+      <dyn:startTime>2019-01-01T00:00:00.000Z</dyn:startTime>
+      <dyn:endTime>2020-01-01T00:00:00.000Z</dyn:endTime>
+      <dyn:sensorConnection>
+        <dyn:SensorConnection>
+          <dyn:connectionType>mqtt_3.1.1</dyn:connectionType>
+          <dyn:observationProperty>Temperature</dyn:observationProperty>
+          <dyn:uom>Celsius</dyn:uom>
+          <dyn:authType>basic</dyn:authType>
+          <dyn:mqttServer>eu.thethings.network</dyn:mqttServer>
+          <dyn:mqttTopic>
+            +/devices/tumgis-dragino-shield-with-gps/up/temperature
+          </dyn:mqttTopic>
+          <dyn:sensorLocation xlink:href="#room1"/>
+        </dyn:SensorConnection>
+      </dyn:sensorConnection>
+    </dyn:Dynamizer>
+  </core:dynamizer>
+  <!-- The roof surface and building room from {<<listing-gml-building-with-temperature>>} come here -->
+</bldg:Building>
+----
+
+The following parameters and parameter values of the SensorConnection object are specific to the MQTT protocol:
+
+-  _connectionType_ in this case is _mqtt_3.1.1_. It shows the version of the MQTT protocol as 3.1.1.
+- _authType_ is indicated as _basic_, which means that a basic authentication (with username and password) is required to establish the connection.
+- _mqttServer_ provides the name of the MQTT server.
+- _mqttTopic_ provides the specific datastream that is to be retrieved.
+
+===== Example 4: Weather Underground API with authentication
+
+In this example, the outside temperature measured by the weather station on the roof of the building is to be retrieved. The weather station is registered on the Weather Underground platform with the identifier 'MyPWS1'. The following is an example query to request sensor data from the Weather Underground API. The Weather Underground API requires a unique API Key for every user allowing to authenticate to a running sensor ID:
+
+[[listing-query-weatherunderground]]
+----
+http://api.wunderground.com/api/******/conditions/q/pws:MyPWS1.json
+----
+
+<<listing-gml-weather-underground-api>> shows the Dynamizer definition requiered to connect the generic attribute _outside_temperature_ to the weather station registered on the Weather Underground platform.
+
+[[listing-gml-weather-underground-api]]
+.Dynamizer defining a sensor connection to the Weather Underground platform.
+[source,XML,highlight='1,2',subs="+normal,-replacements"]
+----
+<bldg:Building gml:id="building1">
+  <core:dynamizer>
+    <dyn:Dynamizer gml:id="dynamizer4">
+      <dyn:attributeRef>
+        <!--Single line without linebreaks and spaces-->
+        //con:RoofSurface[@gml:id='roof1']/core:genericAttribute/
+        gen:DoubleAttribute[gen:name='outside_temperature']/gen:value
+      </dyn:attributeRef>
+      <dyn:startTime>2019-01-01T10:00:00.000Z</dyn:startTime>
+      <dyn:endTime>2019-02-01T00:00:00.000Z</dyn:endTime>
+      <dyn:sensorConnection>
+        <dyn:SensorConnection>
+          <dyn:connectionType>wunderground_1.0</dyn:connectionType>
+          <dyn:observationProperty>Temperature</dyn:observationProperty>
+          <dyn:uom>Celsius</dyn:uom>
+          <dyn:sensorID>MyPWS1</dyn:sensorID>
+          <dyn:baseURL>
+            http://api.wunderground.com/api
+          </dyn:baseURL>
+          <dyn:authType>apiKey</dyn:authType>
+          <dyn:linkToObservation>
+            %baseUrl%/%authType%/conditions/q/pws:%sensorID%.json
+          </dyn:linkToObservation>
+          <dyn:sensorLocation xlink:href="#roof1"/>
+        </dyn:SensorConnection>
+      </dyn:sensorConnection>
+    </dyn:Dynamizer>
+  </core:dynamizer>
+  <!-- The roof surface and building room from {<<listing-gml-building-with-temperature>>} come here -->
+</bldg:Building>
+----
+
+The following parameters of the Dynamizer and the SensorConnection object differ from the examples above:
+
+- _attributeRef_ defines now an XPath expression to refer to the value of the generic attribute _outside_temperature_ of the RoofSurface with the ID _roof1_.
+- _connectionType_ is set to _wunderground_1.0_.
+- _sensorID_ is set to _MyPWS1_ .
+- _baseURL_ is http://api.wunderground.com/api; the value is the same for all requests to the WeatherUnderground API.
+- _authType_ has the value _apiKey_, because the API requires a unique API Key to connect to the server.
+- _linkToObservation_ uses now the following placeholders: %baseUrl%, %authType%, and %sensorID%.
+- _sensorLocation_ indicates that the sensor is located on the roof of the building.
+
+===== Example 5: OGC Sensor Observation Service
+
+In this example, the same outside temperature from the weather station is to be retrieved, but now the sensor observations are stored in an OGC Sensor Observation Service (SOS). The observations can then be retrieved using the standardised SOS operation _GetObservation_. The following is an example _GetObservation_ request (the request is a single line without linebreaks and spaces). The request retrieves all temperature observations between '2019-10-12T10:00:00.000Z' and '2019-10-09T00:00:00Z':
+[[listing-query-sos]]
+----
+http://127.0.0.1:8080/weather-sensors-sos-webapp/service?SERVICE=SOS&VERSION=2.0.0&
+REQUEST=GetObservation&PROCEDURE=MyPWS1&OBSERVEDPOPERTY=Temp&
+TEMPORALFILTER=om:phenomenonTime,2019-10-08T00:00:00Z/2019-10-09T00:00:00Z
+----
+
+<<listing-gml-sos>> shows, how the Dynamizer needs to be defined to retrieve observations from the OGC SOS and link them to the generic attribute outside_temperature.
+
+[[listing-gml-sos]]
+.Dynamizer defining a sensor connection to an OGC Sensor Observation Service.
+[source,XML,highlight='1,2',subs="+normal,-replacements"]
+----
+<bldg:Building gml:id="building1">
+  <core:dynamizer>
+    <dyn:Dynamizer gml:id="dynamizer5">
+      <dyn:attributeRef>
+        <!--Single line without linebreaks and spaces-->
+        //con:RoofSurface[@gml:id='roof1']/core:genericAttribute/
+        gen:DoubleAttribute[gen:name='outside_temperature']/gen:value
+      </dyn:attributeRef>
+      <dyn:startTime>2019-01-01T00:00:00Z</dyn:startTime>
+      <dyn:endTime>2020-01-01T00:00:00Z</dyn:endTime>
+      <dyn:sensorConnection>
+        <dyn:SensorConnection>
+          <dyn:connectionType>ogc_sos_2.0</dyn:connectionType>
+          <dyn:observationProperty>Temperature</dyn:observationProperty>
+          <dyn:uom>Celsius</dyn:uom>
+          <dyn:sensorID>MyPWS1</dyn:sensorID>
+          <dyn:baseURL>
+            http://127.0.0.1:8080/weather-sensors-sos-webapp/service
+          </dyn:baseURL>
+          <dyn:authType>none</dyn:authType>
+          <dyn:linkToObservation>
+            <!-- Single line without linebreaks and spaces -->
+            %baseURL%?request=GetObservation&amp;service=SOS&amp;version=2.0.0
+            &amp;procedure=%sensorID%&amp;observedProperty=%observationProperty%
+            &amp;temporalFilter=om:phenomenonTime,%startTime%/%endTime%
+          </dyn:linkToObservation>
+          <dyn:linkToSensorDescription>
+            <!-- Single line without linebreaks and spaces -->
+            %baseURL%?REQUEST=DescribeSensor&amp;SERVICE=SOS&amp;VERSION=2.0.0
+            &amp;PROCEDURE=%sensorID%
+            &amp;procedureDescriptionFormat=http://www.opengis.net/sensorML/1.0.1
+          </dyn:linkToSensorDescription>
+          <dyn:sensorLocation xlink:href="#roof1"/>
+        </dyn:SensorConnection>
+      </dyn:sensorConnection>
+    </dyn:Dynamizer>
+  </core:dynamizer>
+  <!-- The roof surface and building room from {<<listing-gml-building-with-temperature>>} come here -->
+</bldg:Building>
+----
+
+The following parameters of the Dynamizer and the SensorConnection object differ from the example above:
+
+- _connectionType_ is set to _ogc_sos_2.0_.
+- _baseURL_ is set to the URL for accessing a specific SOS instance. The base URL may differ for SOS instances running on different machines.
+- _linkToObservation_ uses now the following placeholders: %baseUrl%, %sensorID%, %observationProperty%, %startTime%, and %endTime%.
+- _linkToSensorDescription_ allows to retrieve the sensor details. Here, attribute substitution is used to obtain the URL http://127.0.0.1:8080/weather-sensors-sos-webapp/service?REQUEST=DescribeSensor&SERVICE=SOS&VERSION=2.0.0&PROCEDURE=ILONDON577&procedureDescriptionFormat=http://www.opengis.net/sensorML/1.0.1.
+
+==== Examples for representing timeseries data inline with city objects or in external files
+
+The following examples show how timeseries data resulting from a solar potential simulation can be stored in tabulated files such as external CSV files or be represented inline with a city object.
+
+The examples refer to a building wall surface with ID _wall1_ that has a generic attribute _globalRadMonth_, see <<listing-gml-wallsurface>>. The attribute represents the global irradiation value on the wall surface for different months which is calculated by a solar potential simulation. This means that the attribute is dynamic in nature and changes its value every month based on the simulation results.
+
+[[listing-gml-wallsurface]]
+.A Building with a WallSurface containing a generic attribute 'globalRadMonth' to record monthly solar irradiation values.
+[source,XML,highlight='1,2']
+----
+<con:WallSurface gml:id="wall1">
+  <core:genericAttribute>
+    <gen:DoubleAttribute>
+      <gen:name>globalRadMonth</gen:name>
+      <gen:value>4293.446</gen:value>
+    </gen:DoubleAttribute>
+  </core:genericAttribute>
+</con:WallSurface>
+----
+
+
+===== Example 1: Representation of timeseries data in tabulated files
+
+In this example, the Dynamizer makes use of the TabulatedFileTimeseries object to link the dynamic data in tabulated files with the attribute of the city object.
+
+<<listing-csv-simulation-results>> shows the CSV file named _results.csv_ that stores the monthly simulation results for the building wall surface. The CSV file has a header line defining the column names. The first column _Surface_ID_ contains the gml:id of the building surfaces. The second column _Time_ contains the timestamp for each irradiation value in the form YYYY-MM. For example, 2015-01 represents the irradiation value computed for January 2015. The next column _Uom_ represents the unit of measurement, which is kilowatt-hour (kWh) in this example. The last three columns _Diffuse_, _Direct_, and _Global_ represent the computed diffuse, direct, and global irradiation values for the individual building surfaces. In the given CSV file, the field separator character is the comma (,) and the decimal symbol is the dot (.).
+
+[[listing-csv-simulation-results]]
+.CSV file 'results.csv' that stores the monthly solar irradiation values for different building surfaces.
+----
+Surface_ID,Time,Uom,Diffuse,Direct,Global
+wall1,2015-01,kWh,1454.653,3315.214,4293.446
+wall1,2015-02,kWh,1866.883,4002.232,5563.502
+.......................................
+.......................................
+wall1,2015-12,kWh,1341.543,3001.412,4010.239
+wall2,2015-01,kWh,1313.344,3112.122,4109.742
+.......................................
+.......................................
+----
+
+<<listing-gml-tabulated1>> shows how the Dynamizer makes use of a TabulatedFileTimeseries object to relate the CSV file _results.csv_ and the individual columns within the file to the generic attribute _globalRadMonth_.
+
+[[listing-gml-tabulated1]]
+.Dynamizer using a TabulatedFileTimeseries object for referring to timeseries stored in an external CSV file using the column ids.
+[source,XML,highlight='1,2',subs="+normal,-replacements"]
+----
+<dyn:Dynamizer gml:id="global_irradiation_Dynamizer">
+  <dyn:attributeRef>
+    <!--Single line without linebreaks and spaces-->
+    //con:RoofSurface[@gml:id='wall1']/core:genericAttribute
+    /gen:DoubleAttribute[gen:name='globalRadMonth']/gen:value
+  </dyn:attributeRef>
+  <dyn:startTime>2015-01-01T00:00:00Z</dyn:startTime>
+  <dyn:endTime>2016-01-01T00:00:00Z</dyn:endTime>
+  <dyn:dynamicData>
+    <dyn:TabulatedFileTimeseries>
+      <dyn:firstTimestamp>2015-01-01T00:00:00Z</dyn:firstTimestamp>
+      <dyn:lastTimestamp>2016-01-01T00:00:00Z</dyn:lastTimestamp>
+      <dyn:observationProperty>GlobalIrradiationPerMonth</dyn:observationProperty>
+      <dyn:uom>kWh</dyn:uom>
+      <dyn:fileLocation>
+        file:///C:/Folder1/results.csv
+      </dyn:fileLocation>
+      <dyn:fileType>csv</dyn:fileType>
+      <dyn:mimeType>application/csv</dyn:mimeType>
+      <dyn:valueType>double</dyn:valueType>
+      <dyn:numberOfHeaderLines>1</dyn:numberOfHeaderLines>
+      <dyn:fieldSeparator>,</dyn:fieldSeparator>
+      <dyn:decimalSymbol>.</dyn:decimalSymbol>
+      <dyn:idColumnNo>1</dyn:idColumnNo>
+      <dyn:idValue>wall1</dyn:idValue>
+      <dyn:timeColumnNo>2</dyn:timeColumnNo>
+      <dyn:valueColumnNo>6</dyn:valueColumnNo>
+    </dyn:TabulatedFileTimeseries>
+  </dyn:dynamicData>
+</dyn:Dynamizer>
+----
+
+The Dynamizer defines the following parameters:
+
+- _attributeRef_ refers to the generic attribute _globalRadMonth_ of the RoofSurface with the gml:id _wall1_.
+- _startTime_ and _endTime_ represent the entire temporal extent for the dynamic values.
+
+The actual parameters with details on the CSV file are specified by the Dynamizer using a TabulatedFileTimeseries object:
+
+- _firstTimestamp_ and _lastTimestamp_ represent the temporal extent specified within the CSV file.
+- _observationProperty_ indicates the observed property (here: _GlobalIrradiationPerMonth_).
+- _uom_ specifies the unit of measurement of the observed property (here: _kWh_).
+- _fileLocation_ specifies the location where the file is stored.
+- _fileType_ indicates the file type (here: _csv_).
+- _mimeType_ specifies the MIME type associated with the file type (here: _application/csv_).
+- _valueType_ specifies the type of the values stored in the CSV file. The simulation results recorded in the CSV file are of type _double_.
+- _numberOfHeaderLines_ indicates the number of header lines in the CSV file (here: 1). In case there is no header line in the CSV file, it can be shown as 0.
+- _fieldSeparator_ represents the type of field separator used in the file (here: ',').
+- _decimalSymbol_ represents the decimal symbol used in the file (here: '.').
+- _idColumnNo_ indicates the column number that contains the IDs of the building surfaces.
+- _timeColumnNo_ indicates the column number that contains the timestamps of the irradiation values.
+- _valueColumnNo_ indicates the column number that contains the irradiation values.
+- _idValue_ indicates the value of the id used for querying. In this example, the simulation results are stored for different building surfaces such as _wall1_, _wall2_, _wall3_, etc. Since the _attributeRef_ parameter refers to the RoofSurface _wall1_, the _idValue_ parameter is set to _wall1_. It allows to define that only surfaces with the ID _wall1_ are used from this TabulatedFileTimeseries object.
+
+By specifying these parameters, the Dynamizer only retrieves irradiation values from the column _Global_ where the timestamp provided in column _Time_ is within the startTime and endTime defined by the Dynamizer, and where the ids in column _Surface_ID_ are equal to the value _wall1_.
+
+Instead of providing the column ids, it is also possible to specify the column names. This is illustrated in <<listing-gml-tabulated2>>.
+
+[[listing-gml-tabulated2]]
+.Dynamizer using a TabulatedFileTimeseries object for referring to timeseries stored in an external CSV file using the column names.
+[source,XML,highlight='1,2',subs="+normal,-replacements"]
+----
+<dyn:Dynamizer gml:id="global_irradiation_Dynamizer">
+  <!-- attribute reference, start time and end time as in {<<listing-gml-tabulated1>>} -->
+  <dyn:dynamicData>
+    <dyn:TabulatedFileTimeseries>
+      <dyn:firstTimestamp>2015-01-01T00:00:00Z</dyn:firstTimestamp>
+      <dyn:lastTimestamp>2016-01-01T00:00:00Z</dyn:lastTimestamp>
+      <dyn:observationProperty>GlobalIrradiationPerMonth</dyn:observationProperty>
+      <dyn:uom>kWh</dyn:uom>
+      <dyn:fileLocation>
+        file:///C:/Folder1/results.csv
+      </dyn:fileLocation>
+      <dyn:fileType>csv</dyn:fileType>
+      <dyn:mimeType>application/csv</dyn:mimeType>
+      <dyn:valueType>double</dyn:valueType>
+      <dyn:numberOfHeaderLines>1</dyn:numberOfHeaderLines>
+      <dyn:fieldSeparator>,</dyn:fieldSeparator>
+      <dyn:decimalSymbol>.</dyn:decimalSymbol>
+      <dyn:idColumnName>Surface_ID</dyn:idColumnName>
+      <dyn:idValue>wall1</dyn:idValue>
+      <dyn:timeColumnName>Time</dyn:timeColumnName>
+      <dyn:valueColumnName>Global</dyn:valueColumnName>
+    </dyn:TabulatedFileTimeseries>
+  </dyn:dynamicData>
+</dyn:Dynamizer>
+----
+
+===== Example 2: Representation of timeseries data in files based on international standards
+
+It is also possible to represent the timeseries values according to international standards such as OGC TimeseriesML 1.0 using the StandardFileTimeseries object.
+
+An example is shown in <<listing-gml-standard-file-timeseries>>. The parameters used are identical to those described above for the TabulatedFileTimeseries object, except that the parameters referring to individual columns in the file are not required here. The monthly simulation results for the building wall surface are represented in a file results.xml according to the OGC TimeseriesML 1.0 standard; thus, the StandardFileTimeseries object references this file in the parameter _fileLocation_ and _timeseriesml_1.0_ is specified as file type and _application/xml_ as MIME type.
+
+[[listing-gml-standard-file-timeseries]]
+.Dynamizer using a GenericTimeseries object to represent timeseries inline.
+[source,XML,highlight='1,2',subs="+normal,-replacements"]
+----
+<dyn:Dynamizer gml:id="global_irradiation_Dynamizer">
+  <dyn:attributeRef>
+    <!-- Single line without linebreak and space -->
+    //con:WallSurface[@gml:id=’wall1’]/core:genericAttribute
+    /gen:DoubleAttribute[gen:name=’globalRadMonth’]/gen:value
+  </dyn:attributeRef>
+  <dyn:startTime frame="#ISO-8601">2015-01-01T00:00:00Z</dyn:startTime>
+  <dyn:endTime frame="#ISO-8601">2016-01-01T00:00:00Z</dyn:endTime>
+  <dyn:dynamicData>
+    <dyn:StandardFileTimeseries>
+      <dyn:firstTimestamp>2015-01-01T00:00:00Z</dyn:firstTimestamp>
+      <dyn:lastTimestamp>2016-01-01T00:00:00Z</dyn:lastTimestamp>
+      <dyn:observationProperty>GlobalIrradiationPerMonth</dyn:observationProperty>
+      <dyn:uom>kWh</dyn:uom>
+      <dyn:fileLocation>
+        file:///C:/Folder1/results.xml
+      </dyn:fileLocation>
+      <dyn:fileType>timeseriesml_1.0</dyn:fileType>
+      <dyn:mimeType>application/xml</dyn:mimeType>
+    </dyn:StandardFileTimeseries>
+  </dyn:dynamicData>
+</dyn:Dynamizer>
+----
+
+===== Example 3: Representation of timeseries data inline with the city object
+
+The solar potential simulation results can also be represented inline using a GenericTimeseries object. It allows for defining the necessary metadata of the timeseries data as well as the timeseries data itself, as is shown in <<listing-gml-generic-timeseries>>.
+
+[[listing-gml-generic-timeseries]]
+.Dynamizer using a GenericTimeseries object to represent timeseries inline.
+[source,XML,highlight='1,2',subs="+normal,-replacements"]
+----
+<dyn:Dynamizer gml:id="global_irradiation_Dynamizer">
+  <!-- attribute reference, start time and end time as in {<<listing-gml-tabulated1>>} -->
+  <dyn:dynamicData>
+    <dyn:GenericTimeseries>
+      <dyn:firstTimestamp>2015-01-01T00:00:00Z</dyn:firstTimestamp>
+      <dyn:lastTimestamp>2016-01-01T00:00:00Z</dyn:lastTimestamp>
+      <dyn:observationProperty>GlobalIrradiationPerMonth</dyn:observationProperty>
+      <dyn:uom>kWh</dyn:uom>
+      <dyn:valueType>double</dyn:valueType>
+      <dyn:timeValuePair>
+        <dyn:TimeValuePair>
+          <dyn:timestamp>2015-01</dyn:timestamp>
+          <dyn:doubleValue>4293.446</dyn:doubleValue>
+        </dyn:TimeValuePair>
+      </dyn:timeValuePair>
+      <dyn:timeValuePair>
+        <dyn:TimeValuePair>
+          <dyn:timestamp>2015-02</dyn:timestamp>
+          <dyn:doubleValue>5563.502</dyn:doubleValue>
+        </dyn:TimeValuePair>
+      </dyn:timeValuePair>
+      <!-- ... timeValuePair elements for the months March to December ... -->
+    </dyn:GenericTimeseries>
+  </dyn:dynamicData>
+</dyn:Dynamizer>
+----
+
+
+===== Representing complex periodic patterns using Dynamizers
+
+Dynamizers also support the composition of atomic timeseries, i.e. of GenericTimeseries objects, TabulatedFileTimeseries objects, and/or StandardFileTimeseries objects, to form composite timeseries. One typical example illustrating such a scenario is the mapping of energy values of a building for every hour in a day as is shown in <<figure-example-composite-timeseries>>. The hourly consumption readings for a working day, a Saturday, and a Sunday are represented as individual atomic timeseries A, B, and C, respectively.
+
+[[figure-example-composite-timeseries]]
+.Example of a energy consumption pattern composed of atomic timeseries.
+image::images/Example_CompositeTimeseries.png[align="center"]
+
+A CompositeTimeseries object may now contain five repetitions of timeseries A to reflect a pattern of energy consumption values for all weekdays, whereas the energy consumption for Saturday is represented by timeseries B and for Sunday by timeseries C. In this way, a weekly pattern can be defined containing the energy values for all seven days of a week (represented as 'AAAAABC'). This is illustrated in <<listing-gml-composite-timeseries>>.
+
+[[listing-gml-composite-timeseries]]
+. Dynamizer defining a CompositeTimeseries to represent a weekly pattern of energy consumption values.
+[source,XML,highlight='1,2',subs="+normal,-replacements"]
+----
+<!-- Only the Dynamizer feature is shown in this listing -->
+<dyn:Dynamizer gml:id="electricity_consumption">
+  <dyn:attributeRef>
+    <!-- XPath expression to the city object property to be overriden-->
+  </dyn:attributeRef>
+  <!-- ISO 8601 Week Date Representation showing absolute timestamps-->
+  <dyn:startTime>2015-W01-01</dyn:startTime>
+  <dyn:endTime>2015-W02-01</dyn:endTime>
+  <dyn:dynamicData>
+    <dyn:CompositeTimeseries>
+      <!-- Component for weekdays-->
+      <dyn:component>
+        <dyn:TimeseriesComponent>
+          <dyn:repetitions>5</dyn:repetitions>
+          <dyn:timeseries>
+            <dyn:GenericTimeseries gml:id="Weekdays">
+              <!-- ISO 8601 Time Representation showing relative timestamps-->
+              <dyn:firstTimestamp>T00:00:00</dyn:firstTimestamp>
+              <dyn:lastTimestamp>T24:00:00</dyn:lastTimestamp>
+              <dyn:observationProperty>ElecConsump</dyn:observationProperty>
+              <dyn:uom>kWh</dyn:uom>
+              <dyn:valueType>double</dyn:valueType>
+              <dyn:timeValuePair>
+                <dyn:TimeValuePair>
+                  <dyn:timestamp>T00:00:00</dyn:timestamp>
+                  <dyn:doubleValue>1.32</dyn:doubleValue>
+                </dyn:TimeValuePair>
+              </dyn:timeValuePair>
+              <dyn:timeValuePair>
+                <dyn:TimeValuePair>
+                  <dyn:timestamp>T01:00:00</dyn:timestamp>
+                  <dyn:doubleValue>1.41</dyn:doubleValue>
+                </dyn:TimeValuePair>
+              </dyn:timeValuePair>
+              <dyn:timeValuePair>
+                <dyn:TimeValuePair>
+                  <dyn:timestamp>T02:00:00</dyn:timestamp>
+                  <dyn:doubleValue>1.53</dyn:doubleValue>
+                </dyn:TimeValuePair>
+              </dyn:timeValuePair>
+              <!-- ... values for all 24 hours in a weekday ... -->
+            </dyn:GenericTimeseries>
+          </dyn:timeseries>
+        </dyn:TimeseriesComponent>
+      </dyn:component>
+      <!-- Component for Saturday-->
+      <dyn:component>
+        <dyn:TimeseriesComponent>
+          <dyn:repetitions>1</dyn:repetitions>
+          <dyn:timeseries>
+            <dyn:GenericTimeseries gml:id="Saturday">
+              <!-- ISO 8601 Time Representation showing relative timestamps-->
+              <dyn:firstTimestamp>T00:00:00</dyn:firstTimestamp>
+              <dyn:lastTimestamp>T24:00:00</dyn:lastTimestamp>
+              <dyn:observationProperty>ElecConsump</dyn:observationProperty>
+              <dyn:uom>kWh</dyn:uom>
+              <dyn:valueType>double</dyn:valueType>
+              <dyn:timeValuePair>
+                <dyn:TimeValuePair>
+                  <dyn:timestamp>T00:00:00</dyn:timestamp>
+                  <dyn:doubleValue>1.39</dyn:doubleValue>
+                </dyn:TimeValuePair>
+              </dyn:timeValuePair>
+              <dyn:timeValuePair>
+                <dyn:TimeValuePair>
+                  <dyn:timestamp>T01:00:00</dyn:timestamp>
+                  <dyn:doubleValue>1.44</dyn:doubleValue>
+                </dyn:TimeValuePair>
+              </dyn:timeValuePair>
+              <dyn:timeValuePair>
+                <dyn:TimeValuePair>
+                  <dyn:timestamp>T02:00:00</dyn:timestamp>
+                  <dyn:doubleValue>1.52</dyn:doubleValue>
+                </dyn:TimeValuePair>
+              </dyn:timeValuePair>
+              <!-- ... values for all 24 hours in a weekday ... -->
+            </dyn:GenericTimeseries>
+          </dyn:timeseries>
+        </dyn:TimeseriesComponent>
+      </dyn:component>
+      <!-- Component for Sunday-->
+      <dyn:component>
+        <dyn:TimeseriesComponent>
+          <dyn:repetitions>1</dyn:repetitions>
+          <dyn:timeseries>
+            <dyn:GenericTimeseries gml:id="Sunday">
+              <!-- ISO 8601 Time Representation showing relative timestamps-->
+              <dyn:firstTimestamp>T00:00:00</dyn:firstTimestamp>
+              <dyn:lastTimestamp>T24:00:00</dyn:lastTimestamp>
+              <dyn:observationProperty>ElecConsump</dyn:observationProperty>
+              <dyn:uom>kWh</dyn:uom>
+              <dyn:valueType>double</dyn:valueType>
+              <dyn:timeValuePair>
+                <dyn:TimeValuePair>
+                  <dyn:timestamp>T00:00:00</dyn:timestamp>
+                  <dyn:doubleValue>1.30</dyn:doubleValue>
+                </dyn:TimeValuePair>
+              </dyn:timeValuePair>
+              <dyn:timeValuePair>
+                <dyn:TimeValuePair>
+                  <dyn:timestamp>T01:00:00</dyn:timestamp>
+                  <dyn:doubleValue>1.46</dyn:doubleValue>
+                </dyn:TimeValuePair>
+              </dyn:timeValuePair>
+              <dyn:timeValuePair>
+                <dyn:TimeValuePair>
+                  <dyn:timestamp>T02:00:00</dyn:timestamp>
+                  <dyn:doubleValue>1.59</dyn:doubleValue>
+                </dyn:TimeValuePair>
+              </dyn:timeValuePair>
+              <!-- ... values for all 24 hours in a weekday ... -->
+            </dyn:GenericTimeseries>
+          </dyn:timeseries>
+        </dyn:TimeseriesComponent>
+      </dyn:component>
+    </dyn:CompositeTimeseries>
+  </dyn:dynamicData>
+</dyn:Dynamizer>
+----
+
+The property _attributeRef_ refers to a specific city object property or generic attribute to be overridden by the dynamic energy consumption values.
+
+The properties _startTime_ and _endTime_ represent the overall temporal extent of the Dynamizer feature, which is one week in this example. The temporal extent is represented using the ISO 8601 Week Date Representation. This representation is defined using the string "YYYY-Www-D", where [YYYY] is the year, [Www] is the week number prefixed by the letter W, from W01 through W53, and [D] is the weekday number, from 1 through 7, beginning with Monday and ending with Sunday. Therefore, the string "2015-W01-01" in this listing indicates Monday of the week number 1 of the year 2015. Similarly, the string "2015-W01-07" indicates Sunday of the week number 1 of the year 2015. The startTime and endTime follow the Half-Open interval, which means the startTime is inclusive and the endTime is exclusive.
+
+The CompositeTimeseries object includes 3 components in this listing, representing weekdays, Saturdays, and Sundays, respectively. The component for weekdays includes a GenericTimeseries object indicating the electricity consumption values for every hour in a day. Within this GenericTimeseries object, the attributes _firstTimestamp_ and _lastTimestamp_ are relative timestamps and represent the temporal extent for each weekday, starting at 0 am and ending at 0 am the next day; thus, the duration of the GenericTimeseries object is 24 hours. By repeating the GenericTimeseries object five times, a total duration of five days is obtained. Each observation is represented using _TimeValuePair_ elements where the timestamp is a time value relative to the absolute value defined within the temporal extent. For each iteration, the combination of this relative timestamp and the absolute timestamp give a complete timestamp including the date and time values. The property _repetitions_ has the value 5 for this component to represent 5 iterations for all the weekdays in the week. In a similar way, the other components for Saturday and Sunday can be defined using the repetition value 1 for restriction to only 1 iteration.
+
+[[figure-example-complex-timeseries]]
+.Example of a monthly pattern composed of individual CompositeTimeseries  defined by complex energy consumption pattern comosed of atomic timeseries.
+image::images/Example_ComplexCompositeTimeseries.png[align="center"]
+
+<<listing-gml-composite-timeseries>> is an example for a CompositeTimeseries object representing periodic patterns of electricity consumption values for one week. Depending on the use case, more complex CompositeTimeseries objects can be defined based on individual CompositeTimeseries components, such as a monthly pattern consisting of 5 weekly patterns as is shown in <<figure-example-complex-timeseries>> or a yearly pattern which consists of 52 repetitions of the weekly pattern. Similarly, a CompositeTimeseries object could contain components for weekdays only to represent weekday patterns.
