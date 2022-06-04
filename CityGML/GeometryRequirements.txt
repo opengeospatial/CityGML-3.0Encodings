@@ -1,0 +1,136 @@
+GeoMetric Tolerance Metadata Requirements
+    1. A planarityToleranceDistance SHALL be equal to an application-specific length value of that name specified in metadata or, if not specified in metadata, the value 1/1000 of the suare root of the area of the geometry SHALL BE used as an estimate.
+	2. A pointResolutionToleranceDistance SHALL be equal to an application-specific length value of that name specified in metadata, or if not specified in metadata, a distance of 1 mm.
+	
+Solid Closure
+
+Multisurface Closure
+
+Planarity
+	1. A surface geometry element or point cloud SHALL have the planar property if no point in the geometry is located further than the planarityToleranceDistance from a best-fit plane defined by the points of the geometry.
+
+CoPlanarity
+	1. Multiple surface geometry elements or point clouds SHALL have the coplanar property if no point in any geometry is located further than the planarityToleranceDistance from a best-fit plane defined by all points of the geometries.
+
+Point Requirement
+    1. The coordinates SHALL be within the range of values appropriate to the coordinate axies and the coordinate reference system.
+	
+MultiPoint Requirement
+
+Curve Requirement
+    1. A Curve SHALL contain have more than one distinct point.
+	2. A Curve SHALL NOT contain any two successive points No two successive points can be the same
+	3. No edge intersects another edge except endpoints of successive edges
+	4. No edge has an endpoint lying on the edge between its endpoints
+
+MultiCurve Requirement
+    1. 
+
+LinearRing Requirement
+	1. The ring has at least 4 points.
+    2. First and last points arebidentical
+	3. Not self-intersecting
+	4. No sequential points are equal
+	R has at least four points: n ≥ 3
+II All points of the sequence besides frst and last point
+are diferent: Pi ≠ Pk, i = 0..n − 1, k = 0..n − 1, i ≠ k
+III The frst and last point P0 and the last point Pn are the
+same: P0 = Pn
+IV Two edges (Pi
+, Pi + 1) and(Pk, Pk + 1), i = 0, ...n − 1,
+k = 0, ..n − 1, i ≠ k do only intersect in one start-/
+endpoint. No other intersection is allowed.
+
+Planar LinearRIng
+    1. If no application-specific planarityToleranceDistance is available in metadata, the value 1/1000 of the square root of the area of the polygon SHALL BE used as an estimate.
+	2. Each individual point in a planar linearRing SHALL NOT be further than the planarityToleranceDistance from a best-fit plane defined by the points of the LinearRing, excluding the duplicated final point.
+
+Polygon Requirement
+    1. One outer LinearRing
+	2. 0-* Inner LinearRings
+	3. No point on any LinearRing lies on or is identical to point on a different LinearRing
+	4. No edge between two points on any LInearRing intersects and other LinearRing
+	
+	the exterior linear ring R0 and all interior linear rings
+R1, ..., Rn are co-planar.
+II The interior linear rings must be completely included
+in the area defned by the exterior linear ring. Interior linear rings must not overlap or be included in
+another interior linear ring.
+III Interior linear rings and the exterior linear ring touch
+each other in a fnite number of points.
+IV The inner of the polygon, as defned as the inner of
+the exterior ring excluding the inner of the interior
+rings, is connected.
+V The order of points of the exterior linear ring defnes
+the orientation of the polygon. The interior linear
+rings have to have the opposite orientation
+	
+Solid Requirements
+    1. a solid SHALL be defined by a set of at least four polygons.
+	2. Any pair of distinct polygons SHALL either be disjoint or intersect along a shared edge.
+	3. The normal vector for each polygon SHALL point outward from the center of the solid.
+	4. Every edge of the defining set of polygons SHALL be part of two polygons.
+	5. Every edge emanating from a vertex SHALL be part of two polygons.
+	6. The polygons SHALL be part of a single connected component.
+	7. 
+	
+	The intersection of two polygons Sa ∈ W defned as a
+set of planar linear rings Sa = {Ra
+0, Ra
+1, ..., Ra
+n}, Sa ≠ �
+and Sb ∈ W defned as a set of planar linear rings
+Sb = {Rb
+0, Rb
+1, ..., Rb
+m}, Sb ≠ � is either empty or contains only a set of points Q ≠ ∅ and a set of edges
+E ≠ ∅ that are part of both sets of linear rings:
+II e = (pi
+, pj
+) i s a n e d g e i n
+R1 ∈ Sj
+, j = 0...n ⟹ (e = (pj
+, pi
+) is an edge in
+R2 ∈ Sk, k = 0...n, k ≠ j ∧ e = (pi
+, pj
+) is not an edge
+in any other polygon R ∈ Sk, k = 0...n, k ≠ j.
+III All polygons R ∈ Sj
+, j = 0...n are oriented such that
+the normal vector of each polygon points to the outside of the solid.
+VI The dual graph GW = (VW , EW ) of W is connected. GW
+consists of a set of nodes VW and a set of edges EW .
+Every node v ∈ VW represents one polygon of S ∈ W.
+An edge e = (qi
+, qj
+) shared by two polygons Sa ∈ W
+and Sb ∈ W is represented by an edge eab in EW.
+V For every point P of a linear ring R of a polygon
+S ∈ W applies: The graph GP = (VP, EP), that is built
+by polygons and edges that touch P is connected.
+Each node v ∈ VP represents a polygon in which a
+linear ring contains P. Two nodes are connected by
+sa ∩ sb =
+⎧
+⎪
+⎪
+⎨
+⎪
+⎪
+⎩
+�
+Q ≠ �, ∀q ∈ Q ∶ q ∈ ⋃
+i=0...n Ra
+i ∧
+q ∈ ⋃
+j=0...m Rb
+j , and E ≠ �,
+∀e = (qi
+, qj
+) ∈ E ∶ qi ∈ Q, qj ∈ Q,
+∃i, j ∶ e is an edge in both Ra
+i and Rb
+j
+an edge e ∈ EP if the two polygons represented by the
+nodes have a common edge that touches P.

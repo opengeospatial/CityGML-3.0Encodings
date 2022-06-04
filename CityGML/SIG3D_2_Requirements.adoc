@@ -1,0 +1,1671 @@
+
+
+table
+[cols="2"]
+|===
+|Header
+|===
+[cols="1,1"]
+|===
+|Cell in column 1, row 1 
+|Cell in column 2, row 1 
+
+|Cell in column 1, row 2
+|Cell in column 2, row 2
+|Cell in column 1, row 3
+|Cell in column 2, row 3 
+|=== 
+
+----
+
+Parameter	Value
+Req Id	CO-core:CO-001
+Short Desc	(CityModel Containment)
+Citation	
+(A) The CityModel element (type
+CityModelType, substitutionGroup: gml:_FeatureCollection) shall only contain cityObjectMember elements (type: gml:FeaturePropertyType), app:appearanceMember elements (type: app:AppearancePropertyType), and gml:featureMember elements (type: gml:FeaturePropertyType) as feature members.
+Source	CityGML 2.0 10.1.6 (1), p. 56
+Interpretation	
+[I.1] (A): Each CityModel element may only have cityObjectMember, app:appearanceMember or gml:featureMember child elements. This is already covered by the schema. Note: why also a general gml:featureMember child is allowed? Why not just cityObjectmember and app:appearanceMember, the ones that are found in the UML diagrams of the standard?
+
+Definition	
+[D.1]
+
+Formalization	
+[F.1]
+
+Exceptions	--
+Precondition	--
+Expected Behavior	--
+OGC URN	--
+Return Code	
+Classification	Error
+CityGML Version	2.0
+Example	
+Comments	KIT (2013-05-14): For a valid CityGML model the rule is automatically fulfilled.
+Status	[D.1]: pending
+Comments:
+
+Navigationsmenü
+BBBBBBBBBB
+Parameter	Value
+Req Id	CO-core:CO-002
+Short Desc	(external References)
+Citation	
+(A) The type ExternalObjectReference introduces the two elements name (type
+xs:string) and uri (type: xs:anyURI). The external reference may be specified by either of them. However, if the informationSys-tem property element (type: xs:anyURI) of the type ExternalReferenceType is not provided, the uri ele-ment of ExternalObjectReference must be given.
+Source	CityGML 2.0 10.1.6 (2), p. 56
+Interpretation	
+[I.1] (A): If the informationSystem property of ExternalReference is empty, the externalObjectReference should specify the URI property
+
+Definition	
+[D.1] If the informationSystem property of ExternalReference is empty, the externalObjectReference should specify the URI property
+
+Formalization	
+[F.1]
+
+PseudoAlgorithm:
+
+if ( informationSystem == NULL ) then ( externalObject\uri != NULL )
+
+GML Toolbox:
+
+ <Rule class="core:ExternalReference">
+ <If>
+   <AttributeFilter attributeName="core:informationSystem" minOccurs="0" maxOccurs="0"/>
+ </If>
+ <Required>
+   <RelationFilter relationName="core:externalObject" attributNameInRelatedObject="core:uri" minOccurs="1" maxOccurs="1"/>
+ </Required>
+ </Rule>
+Exceptions	--
+Precondition	--
+Expected Behavior	--
+OGC URN	--
+Return Code	
+Classification	Error
+CityGML Version	2.0
+Example	
+Comments	
+Status	[D.1]: pending
+Comments:
+BBBBBBBBBB
+Parameter	Value
+Req Id	CO-core:CO-003
+Short Desc	(addresses)
+Citation	
+(A) In order to represent address information about a feature, the corresponding thematic class of the feature shall define a property of the type AddressPropertyType. Thus, for all CityGML extension modules only the type AddressPropertyType shall be used for elements providing address information.
+Source	CityGML 2.0 10.1.6 (3), p. 56
+Interpretation	
+[I.1] (A): If a CityGML extension module defines some thematic class for a feature which has an address, it shall always use the AddressPropertyType referencing the Address to specify address info. This is not really part of the core but should be checked for extensions.
+
+Definition	
+[D.1]
+
+Formalization	
+[F.1]
+
+Exceptions	--
+Precondition	--
+Expected Behavior	--
+OGC URN	--
+Return Code	
+Classification	Error
+CityGML Version	2.0
+Example	
+Comments	KIT (2013-05-14): This is no conformance requirement for instance documents, but a rule for the specification of ADEs.
+Status	[D.1]: pending
+[D.2]: pending
+BBBBBBBBBB
+Parameter	Value
+Req Id	CO-core:CO-004
+Short Desc	(implicit geometry part of Core module)
+Citation	
+(A) Since the concept of implicit geometries (cf. chapter 8.2) is part of the CityGML Core module, the conformance requirements introduced for implicit geometries (cf. chapter 8.3.3) are part of the conformance requirements of the core.
+Source	CityGML 2.0 10.1.6 (4), p. 56
+Interpretation	
+[I.1] (A): The requirements for implicit geometry are covered in the CORE. See conformance requirements underneath in the overview
+
+Definition	
+[D.1]
+
+Formalization	
+[F.1]
+
+Exceptions	--
+Precondition	--
+Expected Behavior	--
+OGC URN	--
+Return Code	
+Classification	Error
+CityGML Version	2.0
+Example	
+Comments	
+Status	[D.1]: pending
+BBBBBBBBBB
+Parameter	Value
+Req Id	CO-core:CO-005
+Short Desc	(Xlink for city objects)
+Citation	
+(A) The cityObjectMember element (type
+gml:FeaturePropertyType) may contain a _CityObject element, which typically is an object from a derived subclass like bldg:Building, inline or an XLink reference to a remote _CityObject element using the XLink concept of GML 3.1.1. In the latter case, the xlink:href attribute of the cityObjectMember element may only point to a remote _CityObject element (where remote _CityObject elements are located in another document or elsewhere in the same document).
+(B) Either the contained element or the reference must be given, but neither both nor none.
+
+Source	CityGML 2.0 10.1.6 (5), p. 56
+Interpretation	
+[I.1] (A): When the cityObjectMember property of a CityModel element is referencing an element with an Xlink, it should always reference a _CityObject element (in either the same or another document)
+
+[I.2] (B): The cityObjectMember property of a CityModel element may either reference an element, according to [I.1] XOR (either one but not both) contain explicitly a CityObject element.
+
+Definition	
+[D.1] from [I.1]: When the cityObjectMember property of a CityModel element is referencing an element with an Xlink, it should always reference a _CityObject element (in either the same or another document)
+
+[D.2] from [I.2]: The cityObjectMember property of a CityModel element may either reference an element, according to [I.1] XOR (either one but not both) contain explicitly a CityObject element.
+
+Formalization	
+[F.1] from [D.1]:
+
+PseudoAlgorithm: if ( cityObjectMember/attribute::xlink:href != NULL) then ( typeOf ( cityObjectMember/attribute::xlink:href ) == _CityObjectType )
+
+GML Toolbox:
+
+ <Rule class="core:CityObject" id="CR-Core-005">
+  <Required>
+     <RelationFilter relationName="core:cityObjectMember" minOccurs="0" maxOccurs="unbound">
+        <GmlSuperType>core:AbstractCityObjectType</GmlSuperType>
+     </RelationFilter>
+  </Required>
+ </Rule>
+
+[F.2] from [D.2]:
+
+PseudoAlgorithm: if ( cityObjectMember/attribute::xlink:href != NULL) then ( cityObjectMember/child::* == NULL ) if ( cityObjectMember/child::* != NULL ) then ( cityObjectMember/attribute::xlink:href == NULL)
+
+Schematron: http://schemas.opengis.net/citygml/schematron/referentialIntegrity.sch
+
+Exceptions	--
+Precondition	--
+Expected Behavior	--
+OGC URN	--
+Return Code	
+Classification	Error
+CityGML Version	2.0
+Example	
+Comments	
+Status	[D.1]: pending
+[D.2]: pending
+BBBBBBBBBB
+Parameter	Value
+Req Id	CO-core:CO-006
+Short Desc	(Xlink for addresses)
+Citation	
+(A) The type AddressPropertyType may contain an Address element inline or an XLink reference to a remote Address element using the XLink concept of GML 3.1.1. In the latter case, the xlink
+href attribute of the corresponding element of type AddressPropertyType may only point to a remote Address element (where remote Address elements are located in another document or elsewhere in the same document.
+(B) Either the contained element or the reference must be given, but neither both nor none.
+
+Source	CityGML 2.0 10.1.6 (6), p. 56
+Interpretation	
+[I.1] (A): When the AddressPropertyType is referencing an element with an Xlink, it should always reference a Address element (in either the same or another document)
+
+[I.2] (B): The AddressPropertyType may either reference an element, according to [I.1] XOR (either one but not both) contain explicitly a Address element.
+
+Definition	
+[D.1] from [I.1]: When the AddressPropertyType is referencing an element with an Xlink, it should always reference a Address element (in either the same or another document)
+
+[D.2] from [I.2]: The AddressPropertyType may either reference an element, according to [I.1] XOR (either one but not both) contain explicitly a Address element.
+
+Formalization	
+[F.1] from [D.1]:
+
+PseudoAlgorithm: if ( xalAddress/attribute::xlink:href != NULL) then ( typeOf ( xalAddress/attribute::xlink:href ) == AddressType )
+
+[F.2] from [D.2]:
+
+PseudoAlgorithm: if ( xalAddress/attribute::xlink:href != NULL) then ( xalAddress/child::* == NULL ) if ( xalAddress/child::* != NULL ) then ( xalAddress/attribute::xlink:href == NULL)
+
+Note: This is double, already being checked for each featuretype!
+
+Schematron: http://schemas.opengis.net/citygml/schematron/referentialIntegrity.sch
+
+Exceptions	--
+Precondition	--
+Expected Behavior	--
+OGC URN	--
+Return Code	
+Classification	Error
+CityGML Version	2.0
+Example	
+Comments	
+Status	[D.1]: pending
+[D.2]: pending
+BBBBBBBBBB
+Specification: In order to geometrically represent a feature using the concept of implicit geometries, the corresponding thematic class of the feature shall define a spatial property of the type ImplicitRepresentationPropertyType. Thus, for all CityGML extension modules only the type ImplicitRepresentationPropertyType shall be used for spatial properties providing implicit geometries.
+
+Rule:
+
+Code: CR-Core-007
+
+Classification:
+
+Obsolete
+
+Message:
+
+Example:
+
+Comments:
+
+KIT(2013-05-14): This is no conformance requirement for instance documents, but a rule for the specification of ADEs.
+BBBBBBBBBB
+CR-Core-008
+Zur Navigation springenZur Suche springen
+Specification: If the shape of an implicit geometry is referenced by an URI using the libraryObject property (type: xs:anyURI) of the element ImplicitGeometry, also the MIME type of the denoted object must be specified.
+
+Rule:
+
+if ( ImplcitGeometry\libraryObject != NULL ) then ( ImplcitGeometry\mimeType != NULL )
+
+Formalization
+
+<Rule class="core:ImplicitGeometry">
+ <If>
+   <AttributeFilter attributeName="core:libraryObject" minOccurs="1" maxOccurs="1"/>
+ </If>
+ <Required>
+   <AttributeFilter attributeName="core:mimeType" minOccurs="1" maxOccurs="1"/>
+ </Required>
+</Rule>
+
+Code: Error
+
+Classification: CR-Core-008
+
+Message:
+
+Example:
+
+Comments:
+BBBBBBBBBB
+CR-Core-009
+Zur Navigation springenZur Suche springen
+Specification: The type ImplicitRepresentationPropertyType may contain an ImplicitGeometry element inline or an XLink reference to a remote ImplicitGeometry element using the XLink concept of GML 3.1.1. In the latter case, the xlink:href attribute of the corresponding property of type ImplicitRepresentationPropertyType may only point to a remote ImplicitGeometry element (where remote ImplicitGeometry elements are located in another document or elsewhere in the same document). Either the contained element or the reference must be given, but neither both nor none.
+
+Rule:
+
+if ( typeOf ( property) == ImplicitRepresentationPropertyType and property/attribute::xlink:href != NULL) then ( typeOf ( property/attribute::xlink:href ) == ImplicitGeometryType )
+
+if ( typeOf ( property) == ImplicitRepresentationPropertyType and property/attribute::xlink:href != NULL) then ( property/child::* == NULL )
+
+if ( typeOf ( property) == ImplicitRepresentationPropertyType and property/child::* != NULL ) then ( property/attribute::xlink:href == NULL)
+
+Code: CR-Core-009
+
+Classification: Error
+
+Message:
+
+Example:
+
+Comments: Kann ersetzt werden durch Regeln für alle Feature Types, die diese Property verwenden (s. z.B. CR-Building-025 – CR-Building-028).
+BBBBBBBBBB
+Parameter	Value
+Req Id	CO-bldg:BU-001
+Short Desc	(Building --- BuildingPart)
+Citation	
+(A) If a building only consists of one (homogeneous) part, it shall be represented by the element Building.
+(B) However, if a building is composed of individual structural segments, it shall be modelled as a Building element having one or more additional BuildingPart elements.
+(C) Only the geometry and non-spatial properties of the main part of the building should be represented within the aggregating Building element.
+Source	CityGML 2.0 10.3.9 (1), p. 78
+Interpretation	[I.1] (A) + (B): How to model Building and BuildingPart? Currently the schema allows for a building to be modelled as Building with or without BuildingParts (containing in turn again BuildingParts..), but also a building to be modelled as a BuildingPart containing more BuildingParts and containing more BuildingParts and so on (so no Building super parent..). I think this second case is unwanted and could be resolved in schema by setting multiplicity of the aggregation of BuildingPart to _AbstractBuilding from "*" to "1..*". So that a BuildingPart ALWAYS needs to have a parent, is the parent again a BuildingPart then it in turn should also have AbstractBuilding parent.. this chain is only broken when a Building as top parent is met.
+[I.2] (A) + (B): Even if this is implemented it is still allowed (by the schema) to model a building as a Building containing BuildingParts which again contain BuildingParts which again contain BuildingParts etc.. Also this Conformance Requirement CO-bldg:BU-001 does not explicitly say that this should not be the case. But maybe this is unwanted and should be enforced.
+
+[I.3] (A) + (B): The Comment whether a building is one homogeneous part or composed of structural segments is not formalizable because "homogenous parts" and "structural elements" is unclear terminology which cannot be interpreted by a computer. Only possibility is perhaps by computing the convex hull of Buildings (that do not have BuildingParts) -> if the volume of the convex hull is much larger than the volume of the Building itself, could indicate that it should be modelled as a Building with BuildingParts, see image underneath. This building should be modelled with BuildingParts, the convexhull (or boundingvolume) is much larger than the volume of the building.
+
+[I.4] (C): When a Building element contains a BuildingPart element WITH geometry, THEN the building element itself should also have geometry. Geometry means in this case: lodxSolid OR lodXMultiSurface (direct property or over boundedBy).
+
+Definition	[D.1] from [I.1]: Each BuildingPart should have a Building ancestor (note: doesnt have to be direct parent)
+[D.2] from [I.2] : Each BuildingPart should have a Building parent
+
+[D.3] from [I.4] : When a Building element contains a BuildingPart element WITH geometry, THEN the building element itself should also have geometry. Geometry means in this case: lodxSolid OR lodXMultiSurface (direct property or over boundedBy).
+
+Formalization	
+[F.1] from [D.1]:
+
+Schema:
+
+Set the multiplicity of the aggregation of BuildingPart to _AbstractBuilding from "*" to "1..*" (Note that the multiplicities on the "not-arrow-side" of an association is not mapped in GML. So changing the UML model in this way would not have any schema effect. However, I understood that in cityGML 3.0 the UML diagram is going to be leading, so its something to take into account for the new version of cityGML).
+
+Schematron:
+
+ <schema xmlns="http://purl.oclc.org/dsdl/schematron" queryBinding="xslt2">
+   <ns uri="http://www.opengis.net/gml" prefix="gml"/>
+   <ns uri="http://www.opengis.net/citygml/building/2.0" prefix="bldg"/>
+   <pattern>
+       <rule context="bldg:BuildingPart">
+           <assert test="count(ancestor::bldg:Building) = 1">BuildingPart with id <value-of select="@gml:id"/> has no Building as ancestor</assert>
+       </rule>
+   </pattern>
+ </schema>
+[F.2] from [D.2]: PseudoAlgorithm:
+
+For all ( BuildingPart ) exist ( Building ) with ( Building\consistsOfBuildingPart == BuildingPart )
+
+Schematron:
+
+ <schema xmlns="http://purl.oclc.org/dsdl/schematron" queryBinding="xslt2">
+   <ns uri="http://www.opengis.net/gml" prefix="gml"/>
+   <ns uri="http://www.opengis.net/citygml/building/2.0" prefix="bldg"/>
+   <pattern>
+       <rule context="bldg:BuildingPart">
+           <assert test="count(../../self::bldg:Building) = 1">BuildingPart with id <value-of select="@gml:id"/> has no Building as parent</assert>
+       </rule>
+   </pattern>
+ </schema>
+[F.3] from [D.3]:
+
+
+
+Exceptions	--
+Precondition	--
+Expected Behavior	--
+OGC URN	--
+Return Code	RET_CO-bldg:BU-001
+Classification	Error
+CityGML Version	2.0
+Example	
+Comments	
+HFT (2013-06-04): Dies ist zum Teil eine Modellierungs-Vorschrift und zum Teil eine Konformitätsregel: Ein BuildingPart darf nicht ohne ein zugehöriges Objekt Building vorkommen, und ein Building-Objekt darf nicht ohne Geometrie auftreten.
+
+KIT (2014-09-08): Die notwendige Referenz Building -> BuildingPart ist derzeit mit der GML-Toolbox nicht formalisierbar.
+
+Status (pending, accepted, denied)	
+[D.1]: Accepted: mandatory.
+
+[D.2]: Accepted: optional.
+
+[D.3]: Accepted: mandatory.
+BBBBBBBBBB
+Parameter	Value
+Req Id	CO-bldg:BU-002
+Short Desc	(lod0FootPrint and lod0RoofEdge)
+Citation	
+(A) The gml:MultiSurface geometries that are associated using the lod0FootPrint and lod0RoofEdge properties must have 3D coordinates.
+(B) For each surface, the height values of the coordinate tuples belonging to the same surface shall be identical.
+Source	CityGML 2.0 10.3.9 (2), p. 78
+Interpretation	
+[I.1] (A): Each gml:posList child-element of lod0FootPrint/lod0RoofEdge should contain a number of coordinate entries that is a multiple of 3. Each gml:pos and gml:pointProperty childelement of lod0FootPrint/lod0RoofEdge should contain exactly 3 coordinate entries.
+
+Allowed:
+
+   <gml:posList>
+     1 2 3
+   </gml:posList>
+Not Allowed:
+
+   <gml:posList>
+     1 2 3 4
+   </gml:posList>
+Allowed:
+
+   <gml:posList>
+    1 2 3 4 5 6
+   </gml:posList>
+
+Note: I believe these are the only two ways of specifiying the coordinates for lod0FootPrint and lod0RoofEdge. Is that correct? EDIT: No.. there are more ways but because it is a heuristic anyway this is considered enough.
+
+[I.2] (A) if the gml:posList and gml:pos as child-elements of lod0FootPrint/lod0RoofEdge include the srsDimension attribute, it must be set to 3. So it remains an optional attribute but if it is used, it should indicate 3D geometry
+
+[I.3] (B): For each surface from [I.1], the height values of the coordinate tuples belonging to the same surface shall be identical within a certain (application dependent) threshold value. This requirements can only be verfied by geometry tests ( --> GE-ns:YY-ZZZZ, tbd). In schematron it is only formalizable that the height coordinates are all exactly identical.
+
+Definition	
+[D.1] from [I.1]: gml:posList child-elements of lod0FootPrint/lod0RoofEdge should contain a number of coordinate entries that is a multiple of 3. gml:pos child-elements of lod0FootPrint/lod0RoofEdge should contain exactly 3 coordinate entries.
+
+[D.2] from [I.2]: if the gml:posList and gml:pos as child-elements of lod0FootPrint/lod0RoofEdge include the srsDimension attribute, it must be set to 3. So it remains an optional attribute but if it is used, it should indicate 3D geometry
+
+[D.3] from [I.3] For each surface from [I.1], the height values of the coordinate tuples belonging to the same surface shall be identical within a certain (application dependent) threshold value. This requirements can only be verfied by geometry tests ( --> GE-ns:YY-ZZZZ, tbd). In schematron it is only formalizable that the height coordinates are all exactly identical.
+
+Formalization	
+[F.1]
+
+
+ <?xml version="1.0" encoding="UTF-8"?>
+ <schema xmlns="http://purl.oclc.org/dsdl/schematron" queryBinding="xslt2">
+   <ns uri="http://www.opengis.net/gml" prefix="gml"/>
+   <ns uri="http://www.opengis.net/citygml/building/2.0" prefix="bldg"/>
+   <pattern>
+       <rule context="bldg:Building | bldg:BuildingPart">
+           <assert test="if (child::bldg:lod0FootPrint/descendant::gml:posList) then
+               count(tokenize(child::bldg:lod0FootPrint/descendant::gml:posList/normalize-space(.),'\s+')) mod 3 = 0
+               else true()">
+               The Building with gml:id "<value-of select="@gml:id"/>" contains an lod0FootPrint with non-3D geometry (number of coordinates in gml:posList element is not a multiple of 3).
+           </assert>
+           <assert test="if (child::bldg:lod0FootPrint/descendant::gml:pos) then
+               count(tokenize(child::bldg:lod0FootPrint/descendant::gml:pos/normalize-space(.),'\s+')) = 3
+               else true()">
+               The Building with gml:id "<value-of select="@gml:id"/>" contains an lod0FootPrint with non-3D geometry (number of coordinates in gml:pos element is not 3).
+           </assert>
+       </rule>
+   </pattern>
+   <pattern>
+       <rule context="bldg:Building | bldg:BuildingPart">
+           <assert test="if (child::bldg:lod0RoofEdge/descendant::gml:posList) then
+               count(tokenize(child::bldg:lod0RoofEdge/descendant::gml:posList/normalize-space(.),'\s+')) mod 3 = 0
+               else true()">
+               The Building with gml:id "<value-of select="@gml:id"/>" contains an lod0RoofEdge with non-3D geometry (number of coordinates in gml:posList element is not a multiple of 3).
+           </assert>
+           <assert test="if (child::bldg:lod0RoofEdge/descendant::gml:pos) then
+               count(tokenize(child::bldg:lod0RoofEdge/descendant::gml:pos/normalize-space(.),'\s+')) = 3
+               else true()">
+               The Building with gml:id "<value-of select="@gml:id"/>" contains an lod0RoofEdge with non-3D geometry (number of coordinates in gml:pos element is not 3).
+           </assert>
+       </rule>
+   </pattern>
+ </schema>
+[F.2]
+
+
+ <?xml version="1.0" encoding="UTF-8"?>
+ <schema xmlns="http://purl.oclc.org/dsdl/schematron" queryBinding="xslt2">
+   <ns uri="http://www.opengis.net/gml" prefix="gml"/>
+   <ns uri="http://www.opengis.net/citygml/building/2.0" prefix="bldg"/>
+   <pattern>
+       <rule context="bldg:Building | bldg:BuildingPart">
+           <assert test="if (child::bldg:lod0FootPrint/descendant::gml:posList/@srsDimension) then
+               child::bldg:lod0FootPrint/descendant::gml:posList/@srsDimension = '3'
+               else true()">
+               The Building with gml:id "<value-of select="@gml:id"/>" contains an lod0FootPrint with non-3D geometry (srsDimension attribute does not equal 3).
+           </assert>
+           <assert test="if (child::bldg:lod0FootPrint/descendant::gml:pos/@srsDimension) then
+               child::bldg:lod0FootPrint/descendant::gml:pos/@srsDimension = '3'
+               else true()">
+               The Building with gml:id "<value-of select="@gml:id"/>" contains an lod0FootPrint with non-3D geometry (srsDimension attribute does not equal 3).
+           </assert>
+       </rule>
+   </pattern>
+   <pattern>
+       <rule context="bldg:Building | bldg:BuildingPart">
+           <assert test="if (child::bldg:lod0RoofEdge/descendant::gml:posList/@srsDimension) then
+               child::bldg:lod0RoofEdge/descendant::gml:posList/@srsDimension = '3'
+               else true()">
+               The Building with gml:id "<value-of select="@gml:id"/>" contains an lod0RoofEdge with non-3D geometry (srsDimension attribute does not equal 3).
+           </assert>
+           <assert test="if (child::bldg:lod0RoofEdge/descendant::gml:pos/@srsDimension) then
+               child::bldg:lod0RoofEdge/descendant::gml:pos/@srsDimension = '3'
+               else true()">
+               The Building with gml:id "<value-of select="@gml:id"/>" contains an lod0RoofEdge with non-3D geometry (srsDimension attribute does not equal 3).
+           </assert>
+       </rule>
+   </pattern>
+ </schema>
+[F.3]
+
+Note that the following schematron rule is very strict on the meaning of "identical". The values 0.0 and 0.00 are for example NOT identical..
+
+ <?xml version="1.0" encoding="UTF-8"?>
+ <schema xmlns="http://purl.oclc.org/dsdl/schematron" queryBinding="xslt2">
+   <ns uri="http://www.opengis.net/gml" prefix="gml"/>
+   <ns uri="http://www.opengis.net/citygml/building/2.0" prefix="bldg"/>
+   <pattern>
+       <rule context="bldg:Building | bldg:BuildingPart">
+           <assert test="if (child::bldg:lod0FootPrint/descendant::gml:posList) then
+               count(distinct-values(tokenize(child::bldg:lod0FootPrint/descendant::gml:posList/normalize-space(.),'\s+')[(position() mod 3) = 0])) = 1 
+               else true()">
+               The Building with gml:id "<value-of select="@gml:id"/>" contains an lod0FootPrint with non identical height values.
+           </assert>
+       </rule>
+   </pattern>
+ </schema>
+Exceptions	--
+Precondition	--
+Expected Behavior	--
+OGC URN	--
+Return Code	RET_CO-bldg:BU-002
+Classification	Error
+CityGML Version	2.0
+Example	
+Comments	HFT (2013-06-05): Wie bei LandUse auch hier expliziter Hinweis auf 3D-Koordinaten
+Status	[D.1]: accepted, mandatory
+[D.2]: accepted, mandatory
+
+[D.3]: accepted, mandatory
+BBBBBBBBBB
+Parameter	Value
+Req Id	CO-bldg:BU-003
+Short Desc	(lod0FootPrint and lod0RoofEdge)
+Citation	
+(A) The lodXSolid and lodXMultiSurface, X ∈ [1..4], properties (gml:SolidPropertyType resp. gml:MultiSurfacePropertyType) of _AbstractBuilding may be used to geometrically represent the exterior shell of a building (as volume or surface model) within each LOD.
+(B) For LOD1, either lod1Solid or lod1MultiSurface must be used, but not both.
+(C) Starting from LOD2, both properties may be modelled individually and complementary.
+Source	CityGML 2.0 10.3.9 (3), p. 78
+Interpretation	[I.1] (A): This is already part of the schema
+[I.2] (B): if lod1Solid is used, lod1MultiSurface cannot be used or vice versa
+
+[I.3] (C): For a given LoD, X ∈ [2..4]): Either one of the geometry representations (solid | multisurface) may be used or both, which is already part of the schema
+
+Definition	[D.1] from [I.2]: if lod1Solid is used, lod1MultiSurface cannot be used or vice versa
+Formalization	[F.1] from [D.1]:
+Schematron:
+
+ <schema xmlns="http://purl.oclc.org/dsdl/schematron" queryBinding="xslt2">
+   <ns uri="http://www.opengis.net/gml" prefix="gml"/>
+   <ns uri="http://www.opengis.net/citygml/building/2.0" prefix="bldg"/>
+   <pattern>
+       <rule context="bldg:BuildingPart | bldg:Building">
+           <report test="child::bldg:lod1Solid and child::bldg:lod1MultiSurface">
+               <name/> with id:<value-of select="@gml:id"/> consists of both Solid and MultiSurface LoD1 geometry, this is not allowed.
+           </report>
+       </rule>
+   </pattern>
+ </schema>
+Exceptions	--
+Precondition	--
+Expected Behavior	--
+OGC URN	--
+Return Code	RET_CO-bldg:BU-003
+Classification	Error
+CityGML Version	2.0
+Example	
+Comments	HFT Validated by CityDoctor SEM_LOD1_ASSOLID
+KIT (2014-09-08) Sentences (S1) and (S3) are not necessary
+
+Status	[D.1]: accepted, mandatory
+BBBBBBBBBB
+Parameter	Value
+Req Id	
+Short Desc	
+Citation	
+(A) Starting from LOD2, the exterior shell of an _AbstractBuilding may be semantically decomposed into _BoundarySurface elements using the boundedBy property (type: BoundarySurfacePropertyType) of _AbstractBuilding. Only RoofSurface, WallSurface, GroundSurface, OuterCeilingSurface, OuterFloorSurface and ClosureSurface as subclasses of _BoundarySurface are allowed.
+
+(B) The boundedBy property (not to be confused with the gml:boundedBy property) shall not be used if the building is only represented in LOD1.
+
+(C) If the exterior shell is represented by _BoundarySurface elements, an additional geometric representation as volume or surface model using the lodXSolid and lodXMultiSurface, X ∈ [2..4], properties shall not explicitly define the geometry, but has to reference the according components of the gml:MultiSurface element of _BoundarySurface within each LOD using the XLink concept of GML 3.1.1.
+
+Source	CityGML 2.0 10.3.9 (4), p. 78
+Interpretation	
+[I.1] (A) When using the boundedBy property of _AbstractBuilding only RoofSurface, WallSurface, GroundSurface, OuterCeilingSurface, OuterFloorSurface and ClosureSurface as subclasses of _BoundarySurface are allowed.
+
+[I.2] (B): DE: (B) ist logisch gesehen blödsinnig. Wenn ein Gebäude über die Relation boundedBy auf _BoundarySurface Objekte verweist, haben diese eine LOD2, LOD3 oder LOD4 Geometrie. Damit hat das Gebäude automatisch eine entsprechende Repräsentation. EN: B is trivial. When a building has a BoundarySurface over the boundedBy relation, they should have either an LoD2,LoD3 or LoD4 Geometry. This guarantees that the building has such a representation.
+
+[I.3] (C): if the boundedBy property is used to geometrically model the outer surface, The geometry representation of the building itself as volume or surface model should always reference existing geometry surface elements from the boundarySurface.
+
+Definition	
+[D.1] from [I.1] When using the boundedBy property of _AbstractBuilding only RoofSurface, WallSurface, GroundSurface, OuterCeilingSurface, OuterFloorSurface and ClosureSurface as subclasses of _BoundarySurface are allowed.
+
+[D.2] from [I.3]: if the boundedBy property is used to geometrically model the outer surface, The geometry representation of the building itself as volume or surface model should always reference existing geometry surface elements from the boundarySurface.
+
+Formalization	
+[F.1] PseudoAlgorithm:
+
+if ( _AbstractBuilding\boundedBy\BoundarySurface != NULL ) then (typeOf (BoundarySurface) != CeilingSurfaceType and typeOf (BoundarySurface) != FloorSurfaceType and typeOf (BoundarySurface) != InteriorWallSurfaceType )
+
+Schematron:
+
+ <schema xmlns="http://purl.oclc.org/dsdl/schematron" queryBinding="xslt2">
+   <ns uri="http://www.opengis.net/gml" prefix="gml"/>
+   <ns uri="http://www.opengis.net/citygml/building/2.0" prefix="bldg"/>
+   <pattern>
+       <rule context="bldg:BuildingPart | bldg:Building">
+           <report test="child::bldg:boundedBy/child::bldg:CeilingSurface">
+               <name/> with id:<value-of select="@gml:id"/> consists of a CeilingSurface element with id: <value-of select="child::bldg:boundedBy/child::bldg:CeilingSurface/@gml:id"/>, this is not allowed
+           </report>
+           <report test="child::bldg:boundedBy/child::bldg:InteriorWallSurface">
+               <name/> with id:<value-of select="@gml:id"/> consists of a InteriorWallSurface elementwith id: <value-of select="child::bldg:boundedBy/child::bldg:InteriorWallSurface/@gml:id"/>, this is not allowed
+           </report>
+           <report test="child::bldg:boundedBy/child::bldg:FloorSurface">
+               <name/> with id:<value-of select="@gml:id"/> consists of a FloorSurface elementwith id: <value-of select="child::bldg:boundedBy/child::bldg:FloorSurface/@gml:id"/>, this is not allowed
+           </report>
+       </rule>
+   </pattern>
+ </schema>
+[F.2]
+
+Difficult to check this with Schematron. We could check that IF the boundedBy property is used and IF there is Solid or MultiSurface (not under the boundedBy property) geometry that these geometries contain at least (say) ONE XLink. Its not possible with schematron to check if that XLink is then actually referencing a surface under the boundedBy property.. And its also not possible to test whether ALL the geometries specified under the boundedBy property are being referenced by the Solid or MultiSurface geometry.
+
+
+Exceptions	--
+Precondition	--
+Expected Behavior	--
+OGC URN	--
+Return Code	
+Classification	
+CityGML Version	2.0
+Example	
+Comments	
+Status (pending, accepted, denied)	
+[D.1]: accepted, mandatory
+
+[D.2]: pending
+BBBBBBBBBB
+CO-bldg:BU-005
+Zur Navigation springenZur Suche springen
+Parameter	Value
+Req Id	
+Short Desc	
+Citation	
+(A) Starting from LOD2, curve parts of the building shell may be represented using the lodXMultiCurve, X ∈ [2..4], property of _AbstractBuilding. This property shall not be used if the building is only represented in LOD1.
+
+Source	CityGML 2.0 10.3.9 (5), p. 78
+Interpretation	
+[I.1] (A): If a building has only LoD1 geometry (either Solid or MultiSurface but not both per CO-bldg:BU-003), the lodXMultiCurve, X ∈ [2..4] property shall not be used. (This rule is NOT being covered by schema conformity: it is perfectly valid by the schema to give a building only lod1 geometry and use a property lod2MultiCurve, lod3MultiCurve or lod4MultiCurve, or even all of them for that matter.)
+
+[I.2] (A): DE: Diese Regel ist überflüssig, da sie bereits mit der Schema-Konformität erfüllt ist. EN: this rule is redundant because it is covered by the schema.
+
+NOTE : [I.1] and [I.2] are incompatible. If we decide on [I.2], [D.1] should be removed since it is the definition following [I.1]
+
+Definition	
+[D.1] from [I.1]: If a building has only LoD1 geometry (either Solid or MultiSurface but not both per CO-bldg:BU-003), the lodXMultiCurve, X ∈ [2..4] property shall not be used.
+
+
+Formalization	
+[F.1] Schematron:
+
+
+<schema xmlns="http://purl.oclc.org/dsdl/schematron" queryBinding="xslt2">
+
+   <ns uri="http://www.opengis.net/gml" prefix="gml"/>
+   <ns uri="http://www.opengis.net/citygml/building/2.0" prefix="bldg"/>
+   <pattern>
+       <rule context="bldg:BuildingPart | bldg:Building">
+           <assert test="if (child::bldg:lod2MultiCurve or child::bldg:lod3MultiCurve or child::bldg:lod4MultiCurve )
+               then 
+               child::bldg:lod2Solid or 
+               child::bldg:lod2MultiSurface or
+               child::bldg:boundedBy/child::bldg:lod2MultiSurface or
+               child::bldg:lod3Solid or 
+               child::bldg:lod3MultiSurface or
+               child::bldg:boundedBy/child::bldg:lod3MultiSurface or
+               child::bldg:lod4Solid or 
+               child::bldg:lod4MultiSurface or
+               child::bldg:boundedBy/child::bldg:lod4MultiSurface
+               else true()">
+               <name/> with id:<value-of select="@gml:id"/>contains a lod2MultiCurve property without other geometry of LoD 2 or higher
+           </assert>
+           
+       </rule>
+   </pattern>
+ </schema>
+Restriktivere Formulierungen der Regel
+
+ <schema xmlns="http://purl.oclc.org/dsdl/schematron" queryBinding="xslt2">
+   <ns uri="http://www.opengis.net/gml" prefix="gml"/>
+   <ns uri="http://www.opengis.net/citygml/building/2.0" prefix="bldg"/>
+   <pattern>
+       <rule context="bldg:BuildingPart | bldg:Building">
+           <assert test="if (child::bldg:lod2MultiCurve)
+               then 
+               child::bldg:lod2Solid or 
+               child::bldg:lod2MultiSurface or
+               child::bldg:boundedBy/child::bldg:lod2MultiSurface
+               else true">
+               <name/> with id:<value-of select="@gml:id"/> does not comprise of geometry of LoD 2 or higher, this is required when the lodXMultiCurve property is used
+           </assert>
+       </rule>
+   </pattern>
+ </schema>
+ <schema xmlns="http://purl.oclc.org/dsdl/schematron" queryBinding="xslt2">
+   <ns uri="http://www.opengis.net/gml" prefix="gml"/>
+   <ns uri="http://www.opengis.net/citygml/building/2.0" prefix="bldg"/>
+   <pattern>
+       <rule context="bldg:BuildingPart | bldg:Building">
+           <assert test="if (child::bldg:lod3MultiCurve)
+               then 
+               child::bldg:lod3Solid or 
+               child::bldg:lod3MultiSurface or
+               child::bldg:boundedBy/child::bldg:lod3MultiSurface
+               else true">
+               <name/> with id:<value-of select="@gml:id"/> does not comprise of geometry of LoD 2 or higher, this is required when the lodXMultiCurve property is used
+           </assert>
+       </rule>
+   </pattern>
+ </schema>
+ <schema xmlns="http://purl.oclc.org/dsdl/schematron" queryBinding="xslt2">
+   <ns uri="http://www.opengis.net/gml" prefix="gml"/>
+   <ns uri="http://www.opengis.net/citygml/building/2.0" prefix="bldg"/>
+   <pattern>
+       <rule context="bldg:BuildingPart | bldg:Building">
+           <assert test="if (child::bldg:lod4MultiCurve)
+               then 
+               child::bldg:lod4Solid or 
+               child::bldg:lod4MultiSurface or
+               child::bldg:boundedBy/child::bldg:lod4MultiSurface
+               else true">
+               <name/> with id:<value-of select="@gml:id"/> does not comprise of geometry of LoD 2 or higher, this is required when the lodXMultiCurve property is used
+           </assert>
+       </rule>
+   </pattern>
+ </schema> 
+Combined:
+
+ <schema xmlns="http://purl.oclc.org/dsdl/schematron" queryBinding="xslt2">
+   <ns uri="http://www.opengis.net/gml" prefix="gml"/>
+   <ns uri="http://www.opengis.net/citygml/building/2.0" prefix="bldg"/>
+   <pattern>
+       <rule context="bldg:BuildingPart | bldg:Building">
+           <assert test="if (child::bldg:lod2MultiCurve)
+               then 
+               child::bldg:lod2Solid or 
+               child::bldg:lod2MultiSurface or
+               child::bldg:boundedBy/child::bldg:lod2MultiSurface
+               else true()">
+               <name/> with id:<value-of select="@gml:id"/> does not comprise of geometry of LoD 2 or higher, this is required when the lod2MultiCurve property is used
+           </assert>
+           <assert test="if (child::bldg:lod3MultiCurve)
+               then 
+               child::bldg:lod3Solid or 
+               child::bldg:lod3MultiSurface or
+               child::bldg:boundedBy/child::bldg:lod3MultiSurface
+               else true()">
+               <name/> with id:<value-of select="@gml:id"/> does not comprise of geometry of LoD 3 or higher, this is required when the lod3MultiCurve property is used
+           </assert>
+           <assert test="if (child::bldg:lod4MultiCurve)
+               then 
+               child::bldg:lod4Solid or 
+               child::bldg:lod4MultiSurface or
+               child::bldg:boundedBy/child::bldg:lod4MultiSurface
+               else true()">
+               <name/> with id:<value-of select="@gml:id"/> does not comprise of geometry of LoD 4 or higher, this is required when the lod4MultiCurve property is used
+           </assert>
+       </rule>
+   </pattern>
+ </schema>
+Exceptions	--
+Precondition	--
+Expected Behavior	--
+OGC URN	--
+Return Code	
+Classification	
+CityGML Version	2.0
+Example	
+Comments	
+Status (pending, accepted, denied)	
+[D.1]: accepted, optional
+BBBBBBBBBB
+CO-bldg:BU-006
+Zur Navigation springenZur Suche springen
+Parameter	Value
+Req Id	
+Short Desc	
+Citation	
+(A) Starting from LOD2, the outerBuildingInstallation property (type: BuildingInstallationPropertyType) of _AbstractBuilding may be used to model BuildingInstallation elements.
+
+(B) BuildingInstallation elements shall only be used to represent outer characteristics of a building which do not have the significance of building parts.
+
+(C) The outerBuildingInstallation property shall not be used if the building is only represented in LOD1.
+
+Source	CityGML 2.0 10.3.9 (6), p. 78
+Interpretation	
+[I.1] (A): if a building has only LoD 1 geometry (either lod1Solid or lod1Multisurface per CO-bldg:BU-003) it shall not have a outerBuildingInstallation property
+
+[I.2] (B): this is not formalizable
+
+[I.3] (C): coincides with interpretation [1]
+
+Definition	
+[D.1] from [I.1] and [I.3]: if a building has only LoD 1 geometry (either lod1Solid or lod1Multisurface per CO-bldg:BU-003) it shall not have a outerBuildingInstallation property
+
+Formalization	
+[F.1] from [D.1]: Schematron:
+
+ <schema xmlns="http://purl.oclc.org/dsdl/schematron" queryBinding="xslt2">
+   <ns uri="http://www.opengis.net/gml" prefix="gml"/>
+   <ns uri="http://www.opengis.net/citygml/building/2.0" prefix="bldg"/>
+   <pattern>
+       <rule context="bldg:BuildingPart | bldg:Building">
+           <assert test="if (child::bldg:outerBuildingInstallation/child::bldg::lod2Geometry or
+                            (child::bldg:outerBuildingInstallation/child::bldg::lod2ImplicitRepresentation )
+               then 
+               child::bldg:lod2Solid or 
+               child::bldg:lod2MultiSurface or
+               child::bldg:boundedBy/child::bldg:lod2MultiSurface
+               else true">
+               <name/> with id:<value-of select="@gml:id"/> does not comprise of geometry of LoD 2 or higher, this is required when the outerBuildingInstallation property is used
+           </assert>
+       </rule>
+   </pattern>
+ </schema>
+<schema xmlns="http://purl.oclc.org/dsdl/schematron" queryBinding="xslt2">
+
+   <ns uri="http://www.opengis.net/gml" prefix="gml"/>
+   <ns uri="http://www.opengis.net/citygml/building/2.0" prefix="bldg"/>
+   <pattern>
+       <rule context="bldg:BuildingPart | bldg:Building">
+           <assert test="if (child::bldg:outerBuildingInstallation/child::bldg::lod3Geometry or
+                            (child::bldg:outerBuildingInstallation/child::bldg::lod3ImplicitRepresentation )
+               then 
+               child::bldg:lod3Solid or 
+               child::bldg:lod3MultiSurface or
+               child::bldg:boundedBy/child::bldg:lod3MultiSurface
+               else true">
+               <name/> with id:<value-of select="@gml:id"/> does not comprise of geometry of LoD 2 or higher, this is required when the outerBuildingInstallation property is used
+           </assert>
+       </rule>
+   </pattern>
+ </schema>
+<schema xmlns="http://purl.oclc.org/dsdl/schematron" queryBinding="xslt2">
+
+   <ns uri="http://www.opengis.net/gml" prefix="gml"/>
+   <ns uri="http://www.opengis.net/citygml/building/2.0" prefix="bldg"/>
+   <pattern>
+       <rule context="bldg:BuildingPart | bldg:Building">
+           <assert test="if (child::bldg:outerBuildingInstallation/child::bldg::lod4Geometry or
+                            (child::bldg:outerBuildingInstallation/child::bldg::lod4ImplicitRepresentation )
+               then 
+               child::bldg:lod4Solid or 
+               child::bldg:lod4MultiSurface or
+               child::bldg:boundedBy/child::bldg:lod4MultiSurface
+               else true">
+               <name/> with id:<value-of select="@gml:id"/> does not comprise of geometry of LoD 2 or higher, this is required when the outerBuildingInstallation property is used
+           </assert>
+       </rule>
+   </pattern>
+ </schema>
+Combined:
+
+
+ <schema xmlns="http://purl.oclc.org/dsdl/schematron" queryBinding="xslt2">
+   <ns uri="http://www.opengis.net/gml" prefix="gml"/>
+   <ns uri="http://www.opengis.net/citygml/building/2.0" prefix="bldg"/>
+   <pattern>
+       <rule context="bldg:BuildingPart | bldg:Building">
+           <assert test="if (child::bldg:outerBuildingInstallation/child::bldg::lod2Geometry or
+                            (child::bldg:outerBuildingInstallation/child::bldg::lod2ImplicitRepresentation )
+               then 
+               child::bldg:lod2Solid or 
+               child::bldg:lod2MultiSurface or
+               child::bldg:boundedBy/child::bldg:lod2MultiSurface
+               else true()">
+               <name/> with id:<value-of select="@gml:id"/> does not comprise of geometry of LoD 2, this is required when the outerBuildingInstallation property uses LoD 2 geometry.
+           </assert>
+           <assert test="if (child::bldg:outerBuildingInstallation/child::bldg::lod3Geometry or
+                            (child::bldg:outerBuildingInstallation/child::bldg::lod3ImplicitRepresentation )
+               then 
+               child::bldg:lod3Solid or 
+               child::bldg:lod3MultiSurface or
+               child::bldg:boundedBy/child::bldg:lod3MultiSurface
+               else true()">
+               <name/> with id:<value-of select="@gml:id"/> does not comprise of geometry of LoD 3, this is required when the outerBuildingInstallation uses LoD 3 geometry.
+           </assert>
+           <assert test="if (child::bldg:outerBuildingInstallation/child::bldg::lod4Geometry or
+                            (child::bldg:outerBuildingInstallation/child::bldg::lod4ImplicitRepresentation )
+               then 
+               child::bldg:lod4Solid or 
+               child::bldg:lod4MultiSurface or
+               child::bldg:boundedBy/child::bldg:lod4MultiSurface
+               else true()">
+               <name/> with id:<value-of select="@gml:id"/> does not comprise of geometry of LoD 4, this is required when the outerBuildingInstallation uses LoD 4 geometry.
+           </assert>  
+       </rule>
+   </pattern>
+ </schema>
+
+Exceptions	--
+Precondition	--
+Expected Behavior	--
+OGC URN	--
+Return Code	
+Classification	
+CityGML Version	2.0
+Example	
+Comments	
+Status (pending, accepted, denied)	
+[D.1]: accepted, optional
+BBBBBBBBBB
+CO-bldg:BU-007
+Zur Navigation springenZur Suche springen
+Parameter	Value
+Req Id	
+Short Desc	
+Citation	
+(A) Starting from LOD2, the geometry of BuildingInstallation elements may be semantically classified by _BoundarySurface elements using the boundedBy property (type: BoundarySurfacePropertyType) of BuildingInstallation.
+
+(B) Only RoofSurface, WallSurface, GroundSurface, OuterCeilingSurface, Outer-FloorSurface and ClosureSurface as subclasses of _BoundarySurface are allowed.
+
+Source	CityGML 2.0 10.3.9 (7), p. 79
+Interpretation	
+[I.1] (A): "Starting from LoD2" coincides with CO-bldg:BU-006 [I.1]
+
+[I.2] (A): "the geometry of BuildingInstallation [..] of BuildingInstallation" is a natural language description of part of the schema
+
+[I.3] (B): If a BuildingInstallation is using the boundedBy property it shall only reference to Roof-, Wall-, Ground-, OuterCeiling-, OuterFloor- and ClosureSurfaces
+
+Definition	
+[D.1] from [I.3] If a BuildingInstallation is using the boundedBy property it shall only reference to Roof-, Wall-, Ground-, OuterCeiling-, OuterFloor- and ClosureSurfaces
+
+Formalization	
+[F.1] from [D.1]
+
+Schematron:
+
+ <schema xmlns="http://purl.oclc.org/dsdl/schematron" queryBinding="xslt2">
+   <ns uri="http://www.opengis.net/gml" prefix="gml"/>
+   <ns uri="http://www.opengis.net/citygml/building/2.0" prefix="bldg"/>
+   <pattern>
+       <rule context="bldg:BuildingInstallation">
+           <report test="child::bldg:boundedBy/child::bldg:CeilingSurface">
+               <name/> with id:<value-of select="@gml:id"/> consists of a CeilingSurface element with id: <value-of select="child::bldg:boundedBy/child::bldg:CeilingSurface/@gml:id"/>, this is not allowed
+           </report>
+           <report test="child::bldg:boundedBy/child::bldg:InteriorWallSurface">
+               <name/> with id:<value-of select="@gml:id"/> consists of a InteriorWallSurface elementwith id: <value-of select="child::bldg:boundedBy/child::bldg:InteriorWallSurface/@gml:id"/>, this is not allowed
+           </report>
+           <report test="child::bldg:boundedBy/child::bldg:FloorSurface">
+               <name/> with id:<value-of select="@gml:id"/> consists of a FloorSurface elementwith id: <value-of select="child::bldg:boundedBy/child::bldg:FloorSurface/@gml:id"/>, this is not allowed
+           </report>
+       </rule>
+   </pattern>
+ </schema>
+pseudoAlgorithm:
+
+For all ( BoundarySurface ) with ( BuildingInstallation\boundedBy\BoundarySurface\lod2MultiSurface != NULL ) :
+
+  typeOf (BoundarySurface) != CeilingSurfaceType and typeOf (BoundarySurface) != FloorSurfaceType and typeOf (BoundarySurface) != InteriorWallSurfaceType
+
+
+For all ( BoundarySurface ) with ( BuildingInstallation\boundedBy\BoundarySurface\lod3MultiSurface != NULL ) :
+
+  typeOf (BoundarySurface) != CeilingSurfaceType and typeOf (BoundarySurface) != FloorSurfaceType and typeOf (BoundarySurface) != InteriorWallSurfaceType
+
+
+For all ( BoundarySurface ) with ( BuildingInstallation\boundedBy\BoundarySurface\lod4MultiSurface != NULL ) :
+
+  typeOf (BoundarySurface) != CeilingSurfaceType and typeOf (BoundarySurface) != FloorSurfaceType and typeOf (BoundarySurface) != InteriorWallSurfaceType
+
+GML-Toolbox:
+
+<Rule class="bldg:BuildingInstallation">
+   <Required>
+      <RelationFilter relationName="bldg:boundedBy" minOccurs="0" maxOccurs="unbound">
+         <GmlType>bldg:WallSurface</GmlType>
+         <GmlType>bldg:RoofSurface</GmlType>
+         <GmlType>bldg:GroundSurface</GmlType>
+         <GmlType>bldg:OuterFloorSurface</GmlType>
+         <GmlType>bldg:OuterCeilingSurface</GmlType>
+         <GmlType>bldg:ClosureSurface</GmlType>
+      </RelationFilter>
+   </Required>
+</Rule>
+Both formalizations are equivalent
+
+Exceptions	--
+Precondition	--
+Expected Behavior	--
+OGC URN	--
+Return Code	
+Classification	Error
+CityGML Version	2.0
+Example	
+Comments	
+Status (pending, accepted, denied)	
+[D.1]: accepted, mandatory
+BBBBBBBBBB
+CO-bldg:BU-008
+Zur Navigation springenZur Suche springen
+Parameter	Value
+Req Id	
+Short Desc	
+Citation	
+(A) Starting from LOD3, openings of _BoundarySurface elements may be modelled using the opening property (type: OpeningPropertyType) of _BoundarySurface. This property shall not be used for _BoundarySurface elements only represented in LOD2.
+
+(B) Accordingly, the surface geometry representing a _BoundarySurface in LOD2 must be simply connected.
+
+(C) The opening property of _BoundarySurface may contain or reference _Opening elements. If the geometric location of an _Opening element topologically lies within a surface component of the _BoundarySurface, the opening must also be represented as inner hole of that surface.
+
+(D) The embrasure surface of an _Opening element shall belong to the relevant adjacent _BoundarySurface.
+
+Source	CityGML 2.0 10.3.9 (8), p. 79
+Interpretation	
+[I.1] (A): if a BoundarySurface element consists of lod3 geometry, it may contain an opening element which references lod3 geometry. If a BoundarySurface element consists of lod4 geometry, it may contain an opening element which references lod4 geometry.
+
+[I.2] (B): the surface geometry representing a _BoundarySurface in LOD2 must be simply connected. The term simply connected is a little problematic in this context since it is possible to form a BoundarySurface of four polygons which are individually all simply connected. However, by connecting them in a way similar to the image below, it becomes a donut-like object which is not simply connected in 3D anymore. Since we can make a "circle" following the long sides of each polygon and if we contract that to a single point we leave the object (we end in the middle). However what is probably meant here is that BoundarySurfaces should not contain a hole. So no innerRing allowed. But it is also possible to make a hole without explicitly modelling it, so restricting innerRings is also not sufficient. Furthermore, and perhaps more importantly: in LoD2 we can model dormers (outerBuildingInstallations) on the roofs which also require a hole in the roof. This conformance requirement is thus considered to be erroneous.
+
+[I.3] (C): If an opening property of a _BoundarySurface is used to model an opening, and that opening lies geometrically within any of the surfaces of that _BoundarySurface, that specific surface should model an inner hole at the place of the opening. This is a geometrical test and can not be tested for with Schematron.
+
+[I.4] (D): The embrasure (DE: Laibung) of an _Opening element shall belong to the relevant _BoundarySurface and not to the _Opening. This is a geometrical test and can not be tested for with Schematron. Even a geometric test can only heuristically solve this issue, it is a modelling guideline and not a conformance requirement.
+
+Definition	
+[D.1] from [I.1]: if a BoundarySurface is only modelled in LoD2 and not in higher LoDs, it shall not be having an opening property
+
+
+Formalization	
+[F.1]
+
+ <schema xmlns="http://purl.oclc.org/dsdl/schematron" queryBinding="xslt2">
+   <ns uri="http://www.opengis.net/gml" prefix="gml"/>
+   <ns uri="http://www.opengis.net/citygml/building/2.0" prefix="bldg"/>
+   <pattern>
+       <rule context="bldg:RoofSurface | 
+           bldg:WallSurface | 
+           bldg:GroundSurface | 
+           bldg:ClosureSurface | 
+           bldg:CeilingSurface |
+           bldg:InteriorWallSurface | 
+           bldg:FloorSurface | 
+           bldg:OuterCeilingSurface | 
+           bldg:OuterFloorSurface">
+           <assert test="if (child::bldg:Door/child::bldg:lod3MultiSurface |
+               child::bldg:Window/child::bldg:lod3MultiSurface |
+               child::bldg:Window/child::bldg:lod3ImplicitRepresentation |
+               child::bldg:Door/child::bldg:lod3ImplicitRepresentation) then
+                   child::bldg:lod3MultiSurface else 
+                   true()">
+               <name/> with id:<value-of select="@gml:id"/> does not comprise of LoD3 geometry, this is required when the opening property is used with LoD3.
+           </assert>
+       </rule>
+   </pattern>
+   <pattern>
+       <rule context="bldg:RoofSurface | 
+           bldg:WallSurface | 
+           bldg:GroundSurface | 
+           bldg:ClosureSurface | 
+           bldg:CeilingSurface |
+           bldg:InteriorWallSurface | 
+           bldg:FloorSurface | 
+           bldg:OuterCeilingSurface | 
+           bldg:OuterFloorSurface">
+           <assert test="if (child::bldg:Door/child::bldg:lod4MultiSurface |
+               child::bldg:Window/child::bldg:lod4MultiSurface |
+               child::bldg:Window/child::bldg:lod4ImplicitRepresentation |
+               child::bldg:Door/child::bldg:lod4ImplicitRepresentation) then
+               child::bldg:lod4MultiSurface else 
+               true()">
+               <name/> with id:<value-of select="@gml:id"/> does not comprise of LoD4 geometry, this is required when the opening property is used with LoD4.
+           </assert>
+       </rule>
+   </pattern>
+ </schema>
+
+
+Exceptions	--
+Precondition	--
+Expected Behavior	--
+OGC URN	--
+Return Code	
+Classification	
+CityGML Version	2.0
+Example	
+Comments	
+Status (pending, accepted, denied)	
+[D.1]: accepted, optional
+
+
+BBBBBBBBBB
+CO-bldg:BU-009
+Zur Navigation springenZur Suche springen
+Parameter	Value
+Req Id	
+Short Desc	
+Citation	
+(A) Starting from LOD4, the interiorRoom property (type: InteriorRoomPropertyType) of _AbstractBuilding may be used to semantically model the free space inside the building by Room elements. This property shall not be used if the building is only represented in LOD 1 – 3.
+
+(B) The Room element may be geometrically represented as a surface or volume model, using its lod4Solid or lod4MultiSurface property (gml:SolidPropertyType resp. gml:MultiSurfacePropertyType).
+
+(C) In addition, different parts of the visible surface of a room may be modelled by thematic _BoundarySurface elements. Only FloorSurface, CeilingSurface, InteriorWallSurface, and ClosureSurface as subclasses of _BoundarySurface are allowed.
+
+(D) If the visible surface of a room is represented by _BoundarySurface elements, an additional geometric representation as volume or surface model using the lod4Solid and 'lod4MultiSurface property shall not explicitly define the geometry, but has to reference the according components of the gml:MultiSurface element of _BoundarySurface using the XLink concept of GML 3.1.1.
+
+Source	CityGML 2.0 10.3.9 (9), p. 79
+Interpretation	
+[I.1] (A): Only if a building has Lod4Geometry (either LoD4Solid, Lod4MultiSurface, or both per CO-bldg:BU-003 [3]), it may have a interiorRoom property
+
+[I.2] (B): Room element may be represented as a surface, volume or both (covered by schema)
+
+[I.3] (C): If a Room is referencing _BoundarySurfaces, it may use only: FloorSurface, CeilingSurface, InteriorWallSurface, and ClosureSurface
+
+[I.4] (D): if the boundedBy property is used to geometrically model the outer surface, The geometry representation of the room itself should always reference existing geometry surface elements from the boundarySurface.
+
+[I.5] (A): The boundedBy property if Room should not contain lod2- or lod3MultiSurfaces
+
+Definition	
+[D.1] from [I.1]: Only if a building has Lod4Geometry (either LoD4Solid, Lod4MultiSurface, or both per CO-bldg:BU-003 [3]), it may have a interiorRoom property
+
+[D.2] from [I.3]: If a Room is referencing _BoundarySurfaces, it may use only: FloorSurface, CeilingSurface, InteriorWallSurface, and ClosureSurface
+
+[D.3] from [I.4]: if the boundedBy property is used to geometrically model the outer surface, The geometry representation of the room itself should always reference existing geometry surface elements from the boundarySurface.
+
+[D.4] from [I.5]: The boundedBy property if Room should not contain lod2- or lod3MultiSurfaces
+
+Formalization	
+[F.1] Schematron:
+
+ <schema xmlns="http://purl.oclc.org/dsdl/schematron" queryBinding="xslt2">
+   <ns uri="http://www.opengis.net/gml" prefix="gml"/>
+   <ns uri="http://www.opengis.net/citygml/building/2.0" prefix="bldg"/>
+   <pattern>
+       <rule context="bldg:BuildingPart | bldg:Building">
+           <assert test="if (child::bldg:interiorRoom)
+               then  
+               child::bldg:lod4Solid or
+               child::bldg:lod4MultiSurface or
+               child::bldg:boundedBy/child::bldg:Lod4MultiSurface
+               else true">
+               <name/> with id:<value-of select="@gml:id"/> does not comprise of LoD 4 geometry, this is required when the interiorRoom property is used.
+           </assert>
+       </rule>
+   </pattern>
+ </schema>
+GML Toolbox:
+
+  <Rule superclassType="blgd:AbstractBuildingType">
+  <If>
+     <RelationFilter relationName="bldg:interiorRoom" minOccurs="1" maxOccurs="unbound"/>
+  </If>
+  <Required combination = "OR">
+     <GeometryFilter geometryPropertyName="bldg:lod4MultiSurfaceProperty" minOccurs=1" maxOccurs="unbound" >
+     <GeometryFilter geometryPropertyName="bldg:lod4SolidProperty" minOccurs=1" maxOccurs="unbound" >
+     <RelationFilter relationName="bldg:boundedBy" minOccurs="3" maxOccurs="unbound"/>
+   </Required>
+   </Rule>
+
+[F.2] Schematron:
+
+ <schema xmlns="http://purl.oclc.org/dsdl/schematron" queryBinding="xslt2">
+   <ns uri="http://www.opengis.net/gml" prefix="gml"/>
+   <ns uri="http://www.opengis.net/citygml/building/2.0" prefix="bldg"/>
+   <pattern>
+       <rule context="bldg:Room">
+           <report test="child::bldg:boundedBy/child::bldg:RoofSurface">
+               <name/> with id:<value-of select="@gml:id"/> consists of a RoofSurface element with id: <value-of select="child::bldg:boundedBy/child::bldg:RoofSurface/@gml:id"/>, this is not allowed
+           </report>
+           <report test="child::bldg:boundedBy/child::bldg:WallSurface">
+               <name/> with id:<value-of select="@gml:id"/> consists of a WallSurface elementwith id: <value-of select="child::bldg:boundedBy/child::bldg:WallSurface/@gml:id"/>, this is not allowed
+           </report>
+           <report test="child::bldg:boundedBy/child::bldg:GroundSurface">
+               <name/> with id:<value-of select="@gml:id"/> consists of a GroundSurface elementwith id: <value-of select="child::bldg:boundedBy/child::bldg:GroundSurface/@gml:id"/>, this is not allowed
+           </report>
+           <report test="child::bldg:boundedBy/child::bldg:OuterCeilingSurface">
+               <name/> with id:<value-of select="@gml:id"/> consists of a OuterCeilingSurface element with id: <value-of select="child::bldg:boundedBy/child::bldg:OuterCeilingSurface/@gml:id"/>, this is not allowed
+           </report>
+           <report test="child::bldg:boundedBy/child::bldg:OuterFloorSurface">
+               <name/> with id:<value-of select="@gml:id"/> consists of a OuterFloorSurface elementwith id: <value-of select="child::bldg:boundedBy/child::bldg:OuterFloorSurface/@gml:id"/>, this is not allowed
+           </report>
+       </rule>
+   </pattern>
+ </schema>
+PseudoAlgorithm:
+
+if ( Room\boundedBy\BoundarySurface != NULL ) then ( typeOf ( BoundarySurface ) == InteriorWallType or typeOf ( BoundarySurface ) == FloorType or typeOf ( BoundarySurface ) == CeilingType or typeOf ( BoundarySurface ) == ClosureSurfaceType)
+
+GML Toolbox:
+
+  <Rule class="blgd:Room">
+  <Required>
+     <RelationFilter relationName="bldg:boundedBy" minOccurs="0" maxOccurs="unbound">
+        <GmlType>bldg:InteriorWallSurface</GmlType>
+        <GmlType>bldg:FloorSurface</GmlType>
+        <GmlType>bldg:CeilingSurface</GmlType>
+        <GmlType>bldg:ClosureSurface</GmlType>
+     </RelationFilter>
+  </Required>
+  </Rule>
+Both formalizations are equivalent
+
+[F.4] GML Toolbox:
+
+  <Rule class="blgd:Room">
+  <If>
+     <RelationFilter relationName="bldg:boundedBy" minOccurs="1" maxOccurs="unbound"/>
+  </If>
+  <Required combination="AND">
+     <RelationFilter relationName="bldg:boundedBy" geometryPropertyNameInRelatedObject="lod2MultiSurface" minOccurs="0" maxOccurs="0"/>
+     <RelationFilter relationName="bldg:boundedBy" geometryPropertyNameInRelatedObject="lod3MultiSurface" minOccurs="0" maxOccurs="0"/>
+  </Required>
+  </Rule>
+This is an important restriction and should also be formalized with Schematron
+
+Exceptions	--
+Precondition	--
+Expected Behavior	--
+OGC URN	--
+Return Code	
+Classification	
+CityGML Version	2.0
+Example	
+Comments	
+Status (pending, accepted, denied)	
+[D.1]: pending
+
+[D.2]: pending
+
+[D.3]: pending
+BBBBBBBBBB
+CO-bldg:BU-010
+Zur Navigation springenZur Suche springen
+Parameter	Value
+Req Id	
+Short Desc	
+Citation	
+(A) Starting from LOD4, the interiorBuildingInstallation property (type: IntBuildingInstallationPropertyType) of _AbstractBuilding may be used to represent immovable objects inside the building that are permamently attached to the building structure.
+
+(B) The interiorBuildingInstallation property shall not be used if the building is only represented in LOD 1 – 3.
+
+(C) Furthermore, the interiorBuildingInstallation property shall only be used if the object cannot be associated with a Room element. In the latter case, the roomInstallation property (type: IntBuildingInstallationPropertyType) of the corresponding Room element shall be used to represent the object.
+
+Source	CityGML 2.0 10.3.9 (10), p. 79
+Interpretation	
+[I.1] (A): interiorBuildingInstallation may be used to represent immovable objects inside the building: not formalizable because "immovable objects" is not something that can be checked
+
+[I.2] (A): If there is no LoD4 geometry (either LoD4Solid, Lod4MultiSurface, or both per CO-bldg:BU-003 [3]), there may not be a interiorBuildingInstallation. This is NOT part of the schema.
+
+[I.3] (B): Coincides with [2]
+
+[I.4] (C): If an "Installation" can be associated with a single room-> use roomInstallation. If the "Installation" cannot be associated with a single room -> use interiorBuildingInstallation (for example the sewer system, system of chimneys or ventilation or staircases)
+
+Definition	
+[D.1] from [I.2] and [I.3]: If there is no LoD4 geometry (either LoD4Solid, Lod4MultiSurface, or both per CO-bldg:BU-003 [3]), there may not be a interiorBuildingInstallation
+
+[D.2] from [I.4]: If an "Installation" can be associated with a single room-> use roomInstallation. If the "Installation" cannot be associated with a single room -> use interiorBuildingInstallation (for example the sewer system, system of chimneys or ventilation or staircases)
+
+Formalization	
+[F.1] Schematron:
+
+ <schema xmlns="http://purl.oclc.org/dsdl/schematron" queryBinding="xslt2">
+   <ns uri="http://www.opengis.net/gml" prefix="gml"/>
+   <ns uri="http://www.opengis.net/citygml/building/2.0" prefix="bldg"/>
+   <pattern>
+       <rule context="bldg:BuildingPart | bldg:Building">
+           <assert test="if (child::bldg:interiorBuildingInstallation)
+               then 
+               child::bldg:lod4Solid or
+               child::bldg:lod4MultiSurface or
+               child::bldg:boundedBy/child::bldg:Lod4MultiSurface
+               else true">
+               <name/> with id:<value-of select="@gml:id"/> does not comprise of LoD 4 geometry, this is required when the interiorBuildingInstallation property is used
+           </assert>
+       </rule>
+   </pattern>
+ </schema>
+same case as CO-bldg:BU-009 Suggestion
+
+[F.2]
+
+
+Exceptions	--
+Precondition	--
+Expected Behavior	--
+OGC URN	--
+Return Code	
+Classification	
+CityGML Version	2.0
+Example	
+Comments	
+Status (pending, accepted, denied)	
+[D.1]: pending
+
+[D.2]: pending
+BBBBBBBBBB
+CO-bldg:BU-011
+Zur Navigation springenZur Suche springen
+Parameter	Value
+Req Id	
+Short Desc	
+Citation	
+(A) Starting from LOD4, the geometry of IntBuildingInstallation elements may be semantically classified by _BoundarySurface elements using the boundedBy property (type: BoundarySurfacePropertyType) of IntBuildingInstallation.
+
+(B) Only FloorSurface, CeilingSurface, InteriorWallSurface, and ClosureSurface as subclasses of _BoundarySurface are allowed.
+
+Source	CityGML 2.0 10.3.9 (11), p. 79
+Interpretation	
+[I.1] (A): "Starting from LoD4" coincides with CO-bldg:BU-010 [2] and [3]
+
+[I.2] (A): "the geometry of IntBuildingInstallation [..] of IntBuildingInstallation" is a natural language description of part of the schema
+
+[I.3] (B): If an intBuildingInstallation is using the boundedBy property it shall only reference to Floor-, Ceiling-, InteriorWall and ClosureSurfaces
+
+Definition	
+[D.1] from [I.3]: If an intBuildingInstallation is using the boundedBy property it shall only reference to Floor-, Ceiling-, InteriorWall and ClosureSurfaces
+
+Formalization	
+[F.1] Schematron:
+
+ <schema xmlns="http://purl.oclc.org/dsdl/schematron" queryBinding="xslt2">
+   <ns uri="http://www.opengis.net/gml" prefix="gml"/>
+   <ns uri="http://www.opengis.net/citygml/building/2.0" prefix="bldg"/>
+   <pattern>
+       <rule context="bldg:intBuildingInstallation">
+           <report test="child::bldg:boundedBy/child::bldg:RoofSurface">
+               <name/> with id:<value-of select="@gml:id"/> consists of a RoofSurface element with id: <value-of select="child::bldg:boundedBy/child::bldg:RoofSurface/@gml:id"/>, this is not allowed
+           </report>
+           <report test="child::bldg:boundedBy/child::bldg:WallSurface">
+               <name/> with id:<value-of select="@gml:id"/> consists of a WallSurface elementwith id: <value-of select="child::bldg:boundedBy/child::bldg:WallSurface/@gml:id"/>, this is not allowed
+           </report>
+           <report test="child::bldg:boundedBy/child::bldg:GroundSurface">
+               <name/> with id:<value-of select="@gml:id"/> consists of a GroundSurface elementwith id: <value-of select="child::bldg:boundedBy/child::bldg:GroundSurface/@gml:id"/>, this is not allowed
+           </report>
+           <report test="child::bldg:boundedBy/child::bldg:OuterCeilingSurface">
+               <name/> with id:<value-of select="@gml:id"/> consists of a OuterCeilingSurface element with id: <value-of select="child::bldg:boundedBy/child::bldg:OuterCeilingSurface/@gml:id"/>, this is not allowed
+           </report>
+           <report test="child::bldg:boundedBy/child::bldg:OuterFloorSurface">
+               <name/> with id:<value-of select="@gml:id"/> consists of a OuterFloorSurface elementwith id: <value-of select="child::bldg:boundedBy/child::bldg:OuterFloorSurface/@gml:id"/>, this is not allowed
+           </report>
+       </rule>
+   </pattern>
+ </schema>  
+In CO-bldg:BU-011, this logically equivalent formalization with GML-Toolbox was added
+
+<Rule class="bldg:IntBuildingInstallation" id="CO-bldg:BU-011">     
+     <Required>
+        <RelationFilter relationName="bldg:boundedBy" minOccurs="0" maxOccurs="unbound">
+           <GmlType>bldg:InteriorWallSurfaceType</GmlType>
+           <GmlType>bldg:FloorSurfaceType</GmlType>
+           <GmlType>bldg:CeilingSurfaceType</GmlType>
+           <GmlType>bldg:ClosureSurfaceType</GmlType>
+        </RelationFilter>
+     </Required>
+</Rule>
+
+Exceptions	--
+Precondition	--
+Expected Behavior	--
+OGC URN	--
+Return Code	
+Classification	
+CityGML Version	2.0
+Example	
+Comments	
+Status (pending, accepted, denied)	
+[D.1]: pending
+BBBBBBBBBB
+CR-Building-012
+Zur Navigation springenZur Suche springen
+Parameter	Value
+Req Id	
+Short Desc	
+Citation	
+(A) The boundedBy property (type: BoundarySurfacePropertyType) of the element _AbstractBuilding may contain a _BoundarySurface element inline or an XLink reference to a remote _BoundarySurface element using the XLink concept of GML 3.1.1.
+
+(B) In the latter case, the xlink:href attribute of the boundedBy property may only point to a remote_BoundarySurface element (where remote _BoundarySurface elements are located in another document or elsewhere in the same document).
+
+(C) Either the contained element or the reference must be given, but neither both nor none.
+
+Source	CityGML 2.0 10.3.9 (12), p. 79
+Interpretation	
+[I.1] (A): This is already covered in the schema. All property elements that are the subject of the referential integrity requirements have a reference to gml:AssociationAttributeGroup which references in turn the simpleLink attribute group which defines the xlink:href attribute (among others)
+
+[I.2] (B): In case an XLink is used, it should be resolvable and checked on validity (is the right element referenced?). This can never be done with schematron or any other xml technology since the URI can point to anything. Some dedicated software will be needed for such purposes.
+
+[I.3] (C): This is covered by the Schematron schema given here: http://schemas.opengis.net/citygml/schematron/2.0/referentialIntegrity.sch
+
+Definition	
+Formalization	
+
+
+Exceptions	--
+Precondition	--
+Expected Behavior	--
+OGC URN	--
+Return Code	
+Classification	
+CityGML Version	2.0
+Example	
+Comments	
+Status (pending, accepted, denied)	
+BBBBBBBBBB
+CR-Building-013
+Zur Navigation springenZur Suche springen
+Specification: The outerBuildingInstallation property (type: BuildingInstallationPropertyType) of the element _AbstractBuilding may contain a BuildingInstallation element inline or an XLink reference to a remote BuildingInstallation element using the XLink concept of GML 3.1.1. In the latter case, the xlink:href attribute of the outerBuildingInstallation property may only point to a remote BuildingInstallation element (where remote BuildingInstallation elements are located in another document or elsewhere in the same document). Either the contained element or the reference must be given, but neither both nor none.
+
+
+Rule:
+
+Code: CR-Building-013
+
+Classification:
+
+Message:
+
+Example:
+
+Comments:
+BBBBBBBBBB
+CR-Building-014
+Zur Navigation springenZur Suche springen
+Specification: The interiorBuildingInstallation property (type: IntBuildingInstallationPropertyType) of the element _AbstractBuilding may contain an IntBuildingInstallation element inline or an XLink reference to a remote IntBuildingInstallation element using the XLink concept of GML 3.1.1. In the latter case, the xlink:href attribute of the interiorBuildingInstallation property may only point to a remote IntBuildingInstallation element (where remote IntBuildingInstallation elements are located in another document or elsewhere in the same document). Either the contained element or the reference must be given, but neither both nor none.
+
+
+Rule:
+
+Code: CR-Building-014
+
+Classification:
+
+Message:
+
+Example:
+
+Comments:
+BBBBBBBBBB
+Specification: The interiorRoom property (type: InteriorRoomPropertyType') of the element _AbstractBuilding may contain a Room element inline or an XLink reference to a remote Room element using the XLink concept of GML 3.1.1. In the latter case, the xlink:href attribute of the interiorRoom property may only point to a remote Room element (where remote Room elements are located in another document or elsewhere in the same document). Either the contained element or the reference must be given, but neither both nor none.
+
+
+Rule:
+
+Code: CR-Building-015
+
+Classification:
+
+Message:
+
+Example:
+BBBBBBBBBB
+Specification: The interiorRoom property (type: InteriorRoomPropertyType') of the element _AbstractBuilding may contain a Room element inline or an XLink reference to a remote Room element using the XLink concept of GML 3.1.1. In the latter case, the xlink:href attribute of the interiorRoom property may only point to a remote Room element (where remote Room elements are located in another document or elsewhere in the same document). Either the contained element or the reference must be given, but neither both nor none.
+
+
+Rule:
+
+Code: CR-Building-015
+
+Classification:
+
+Message:
+
+Example:
+
+Comments:
+BBBBBBBBBB
+Specification: The consistsOfBuildingPart property (type: BuildingPartPropertyType) of the element _AbstractBuilding may contain a BuildingPart element inline or an XLink reference to a remote BuildingPart element using the XLink concept of GML 3.1.1. In the latter case, the xlink:href attribute of the consistsOfBuildingPart property may only point to a remote BuildingPart element (where remote BuildingPart elements are located in another document or elsewhere in the same document). Either the contained element or the reference must be given, but neither both nor none.
+
+
+Rule:
+
+Code: CR-Building-016
+
+Classification:
+
+Message:
+
+Example:
+
+Comments:
+BBBBBBBBBB
+CR-Building-017
+Zur Navigation springenZur Suche springen
+Specification: The address property (type: core:AddressPropertyType) of the element _AbstractBuilding may contain an core:Address element inline or an XLink reference to a remote core:Address element using the XLink concept of GML 3.1.1. In the latter case, the xlink:href attribute of the address property may only point to a remote core:Address element (where remote core:Address elements are located in another document or elsewhere in the same document). Either the contained element or the reference must be given, but neither both nor none.
+
+
+Rule:
+
+Code: CR-Building-017
+
+Classification:
+
+Message:
+
+Example:
+
+Comments:
+BBBBBBBBBB
+Specification: The opening property (type: OpeningPropertyType) of the element _BoundarySurface may contain an _Opening element inline or an XLink reference to a remote _Opening element using the XLink concept of GML 3.1.1. In the latter case, the xlink:href attribute of the opening property may only point to a remote _Opening element (where remote _Opening elements are located in another document or elsewhere in the same document). Either the contained element or the reference must be given, but neither both nor none.
+
+
+Rule:
+
+Code: CR-Building-018
+
+Classification:
+
+Message:
+
+Example:
+
+Comments:
+BBBBBBBBBB
+Specification: The address property (type: core:AddressPropertyType) of the element Door may contain an core:Address element inline or an XLink reference to a remote core:Address element using the XLink concept of GML 3.1.1. In the latter case, the xlink:href attribute of the address property may only point to a remote core:Address element (where remote core:Address elements are located in another document or elsewhere in the same document). Either the contained element or the reference must be given, but neither both nor none.
+
+
+Rule:
+
+Code: CR-Building-019 Classification:
+
+Message:
+
+Example:
+
+Comments:
+BBBBBBBBBB
+Specification: The boundedBy property (type: BoundarySurfacePropertyType) of the element BuildingInstallation may contain a _BoundarySurface element inline or an XLink reference to a remote _BoundarySurface element using the XLink concept of GML 3.1.1. In the latter case, the xlink:href attribute of the boundedBy property may only point to a remote _BoundarySurface element (where remote _BoundarySurface elements are located in another document or elsewhere in the same document). Either the contained element or the reference must be given, but neither both nor none.
+
+Only RoofSurface, WallSurface, GroundSurface, OuterCeilingSurface, OuterFloorSurface and ClosureSurface elements are allowed to be encapsulated or referenced by the boundedBy property of BuildingInstallation.
+
+
+Rule:
+
+Code: CR-Building-020
+
+Classification:
+
+Message:
+
+Example:
+
+Comments:
+BBBBBBBBBB
+CR-Building-021
+Zur Navigation springenZur Suche springen
+Specification: The boundedBy property (type: BoundarySurfacePropertyType) of the element IntBuildingInstallation may contain a _BoundarySurface element inline or an XLink reference to a remote _BoundarySurface element using the XLink concept of GML 3.1.1. In the latter case, the xlink:href attribute of the boundedBy property may only point to a remote _BoundarySurface element (where remote _BoundarySurface elements are located in another document or elsewhere in the same document). Either the contained element or the reference must be given, but neither both nor none.
+
+Only FloorSurface, CeilingSurface, InteriorWallSurface, and ClosureSurface elements are allowed to be encapsulated or referenced by the boundedBy property of IntBuildingInstallation.
+
+Rule:
+
+Code: CR-Building-021
+
+Classification:
+
+Message:
+
+Example:
+
+Comments:
+BBBBBBBBBB
+CR-Building-022
+Zur Navigation springenZur Suche springen
+Specification: The boundedBy property (type: BoundarySurfacePropertyType) of the element Room may contain a _BoundarySurface element inline or an XLink reference to a remote _BoundarySurface element using the XLink concept of GML 3.1.1. In the latter case, the xlink:href attribute of the boundedBy property may only point to a remote _BoundarySurface element (where remote _BoundarySurface elements are located in another document or elsewhere in the same document). Either the contained element or the reference must be given, but neither both nor none.
+
+Only FloorSurface, CeilingSurface, InteriorWallSurface, and ClosureSurface elements are allowed to be encapsulated or referenced by the boundedBy property of Room.
+
+Rule:
+
+Code: CR-Building-022
+
+Classification:
+
+Message:
+
+Example:
+
+Comments:
+BBBBBBBBBB
+Specification: The interiorFurniture property (type: InteriorFurniturePropertyType) of the element Room may contain a BuildingFurniture element inline or an XLink reference to a remote BuildingFurniture element using the XLink concept of GML 3.1.1. In the latter case, the xlink:href attribute of the interiorFurniture property may only point to a remote BuildingFurniture element (where remote BuildingFurniture elements are located in another document or elsewhere in the same document). Either the contained element or the reference must be given, but neither both nor none.
+
+
+Rule:
+
+Code: CR-Building-023
+
+Classification:
+
+Message:
+
+Example:
+
+Comments:
+BBBBBBBBBB
+Specification: The roomInstallation property (type: IntBuildingInstallationPropertyType) of the element Room may contain an IntBuildingInstallation element inline or an XLink reference to a remote IntBuildingInstallation element using the XLink concept of GML 3.1.1. In the latter case, the xlink:href attribute of the roomInstallation property may only point to a remote IntBuildingInstallation element (where remote IntBuildingInstallation elements are located in another document or elsewhere in the same document). Either the contained element or the reference must be given, but neither both nor none.
+
+
+Rule:
+
+Code: CR-Building-024
+
+Classification:
+
+Message:
+
+Example:
+
+Comments:
+BBBBBBBBBB
+Specification: The lodXImplicitRepresentation, X ∈ [2..4], property (type: core:ImplicitRepresentationPropertyType) of the element BuildingInstallation may contain a core:ImplicitGeometry element inline or an XLink reference to a remote core:ImplicitGeometry element using the XLink concept of GML 3.1.1. In the latter case, the xlink:href attribute of the lodXImplicitRepresentation, X ∈ [2..4], property may only point to a remote core:ImplicitGeometry element (where remote core:ImplicitGeometry elements are located in another document or elsewhere in the same document). Either the contained element or the reference must be given, but neither both nor none.
+
+Rule:
+
+Code: CR-Building-025
+
+Classification:
+
+Message:
+
+Example:
+
+Comments:
+BBBBBBBBBB
+Specification: The lod4ImplicitRepresentation property (type: core:ImplicitRepresentationPropertyType) of the element IntBuildingInstallation may contain a core:ImplicitGeometry element inline or an XLink reference to a remote core:ImplicitGeometry element using the XLink concept of GML 3.1.1. In the latter case, the xlink:href attribute of the lod4ImplicitRepresentation property may only point to a remote core:ImplicitGeometry element (where remote core:ImplicitGeometry elements are located in another document or elsewhere in the same document). Either the contained element or the reference must be given, but neither both nor none.
+
+
+Rule:
+
+Code: CR-Building-026
+
+Classification:
+
+Message:
+
+Example:
+
+Comments:
+BBBBBBBBBB
+CR-Building-027
+Zur Navigation springenZur Suche springen
+Specification: The lodXImplicitRepresentation, X ∈ [3..4], property (type: core:ImplicitRepresentationPropertyType) of the element _Opening may contain a core:ImplicitGeometry element inline or an XLink reference to a remote core:ImplicitGeometry element using the XLink concept of GML 3.1.1. In the latter case, the xlink:href attribute of the lodXImplicitRepresentation, X ∈ [3..4], property may only point to a remote core:ImplicitGeometry element (where remote core:ImplicitGeometry elements are located in another document or elsewhere in the same document). Either the contained element or the reference must be given, but neither both nor none.
+
+
+Rule:
+
+Code: CR-Building-027
+
+Classification:
+
+Message:
+
+Example:
+
+Comments:
+BBBBBBBBBB
+CR-Building-028
+Zur Navigation springenZur Suche springen
+Specification: The lod4ImplicitRepresentation property (type: core:ImplicitRepresentationPropertyType) of the element BuildingFurniture may contain a core:ImplicitGeometry element inline or an XLink reference to a remote core:ImplicitGeometry element using the XLink concept of GML 3.1.1. In the latter case, the xlink:href attribute of the lod4ImplicitRepresentation property may only point to a remote core:ImplicitGeometry element (where remote core:ImplicitGeometry elements are located in another document or elsewhere in the same document). Either the contained element or the reference must be given, but neither both nor none.
+
+
+Rule:
+
+Code: CR-Building-028
+
+Classification:
+
+Message:
+
+Example:
+
+Comments:
+BBBBBBBBBB
+
+----
