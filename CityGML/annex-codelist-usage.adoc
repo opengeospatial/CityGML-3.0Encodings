@@ -12,7 +12,7 @@ The values for each of these 140 codelist attributes are interpreted in a specif
 
 === Logical Model
 
-There is no standardized model for CityGML codelists. The following is a suggested structure that meets requirements for documenting the source, currency, language, and other characteristics of the list of values. This *suggested* model is followed by the CityGML 3.0 codelist examples hosted by OGC. Note that many existing codelists, maintained by various organizations, are already in existence with different and permissible structures. These codelists remain valid.
+There is no standardized model for CityGML codelists. The following is a suggested structure based on the GML 3.2 Dictionary that meets requirements for documenting the source, currency, language, and other characteristics of the list of values. This *suggested* model is followed by the CityGML 3.0 codelist examples hosted by OGC. Note that many existing codelists, maintained by various organizations, are already in existence with different and permissible structures. These codelists remain valid.
 
 [[codelist_uml]]
 .Suggested Codelist UML Class Diagram
@@ -23,59 +23,7 @@ image::images/Codelist_UML.PNG[codelist UML diagram,align="center"]
 
 ==== GML
 
-This GML encoding of the example logical model for codelists, dictionary entry, and entry metadata have XML schema definitions as follows:
-
-----
-
-<?xml version="1.0" encoding="utf-8"?>
-<xs:schema targetNamespace="http://www.opengis.net/gml/3.2" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.opengis.net/gml/3.2" elementFormDefault="qualified">
-	<xs:element name="Codelist" type="cdl:Codelist"/>
-	<xs:complexType name="Codelist">
-		<xs:sequence>
-			<xs:element name="description" type="xs:string" minOccurs="1" maxOccurs="1"/>
-			<xs:element name="identifier" type="cdl:Identifier" minOccurs="1" maxOccurs="1"/>
-			<xs:element name="Definition" type="cdl:Definition" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="Metadata" type="cdl:Metadata" minOccurs="1" maxOccurs="1"/>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:element name="Definition" type="cdl:Definition"/>
-	<xs:complexType name="Definition">
-		<xs:sequence>
-			<xs:element name="description" type="xs:string" minOccurs="1" maxOccurs="1"/>
-			<xs:element name="identifier" type="identifier" minOccurs="1" maxOccurs="1"/>
-			<xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1"/>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:element name="gml::Dictionary" type="cdl:gml::Dictionary"/>
-	<xs:complexType name="gml::Dictionary">
-		<xs:complexContent>
-			<xs:extension base="cdl:Definition">
-				<xs:sequence>
-					<xs:element ref="gml:Dictionary" minOccurs="1" maxOccurs="1"/>
-				</xs:sequence>
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
-	<xs:element name="Metadata" type="cdl:Metadata"/>
-	<xs:complexType name="Metadata">
-		<xs:sequence>
-			<xs:element name="authority" type="xs:string" minOccurs="1" maxOccurs="1"/>
-			<xs:element name="dataType" type="xs:string" minOccurs="1" maxOccurs="1"/>
-			<xs:element name="language" type="xs:string" minOccurs="1" maxOccurs="1"/>
-			<xs:element name="namespace" type="xs:string" minOccurs="1" maxOccurs="1"/>
-			<xs:element name="version" type="xs:decimal" minOccurs="1" maxOccurs="1"/>
-		</xs:sequence>
-	</xs:complexType>
-  <xs:element name="identifier" type="cdl:Identifier">
-	<xs:complexType name="cdl:Identifier">
-		<xs:simpleContent>
-			<xs:extension base="xs:string">
-				<xs:attribute name="codeSpace" type="xs:string" use="required"/>
-			</xs:extension>
-		</xs:simpleContent>
-	</xs:complexType>
-</xs:schema>
-----
+GML encoding of codelists as gml:Dictionary elements containing gml:dictionaryEntry gml:Definition elements is the expected form for defining and exchanging codelists in a GML environment. Examples of each of the 140 CityGML 3.0 codelists are provided using this encoding. Note, however, that there is no rule preventing the use of codelists encoded in some other manner. This is a common situation when fixed multipurpose codelists are recommended or required by government or other official agencies.
 
 
 The following is an XML example:
@@ -119,19 +67,13 @@ The following is an XML example:
 A suggested CSV encoding of the example logical model is illustrated with the following example with the delimiter '|':
 
 ----
-cdl|description|Roof type values
-cdl|identifier|"https://ogc.org/citygml/3.0/codelists/gml/RoofTypeValues"
-cmd|authority|Some Organization
-cmd|dataType|RoofTypeValue
-cmd|language|en-UK
-cmd|namespace|"http://www.opengis.net/citygml/building/3.0"
-cmd|version|3.0
-def|description|roof primarily a single plane, not necessarily level
-def|identifier  |"https://ogc.org/citygml/3.0/codelists/gml/RoofTypeValues/1000"
-def|name|flat roof
-def|description|a roof that has a ridge and two gablesv
-def|identifier|"https://ogc.org/citygml/3.0/codelists/gml/RoofTypeValues/3100"
-def|name|saddle roof
+CodeType|Identifier|Description
+Meta|CityGML_DataType|Building|RoofTypeValue
+Meta|CityGML_Namespace|http://www.opengis.net/citygml/building/3.0		
+Meta|Language|en-UK
+Meta|CityGML_Version|3.0		
+Code|1000|flat roof
+Code|3100|saddle roof
 ----
 
 ==== JSON
