@@ -15186,15 +15186,18 @@ This is where conformance with CityGML 3.0 Conceptual Model is documented.
 <h2 id="annex-codelist-usage"><a class="anchor" href="#annex-codelist-usage"></a>Annex E: Codelists (Informative)</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Codelists are tables of attribute values and corresponding descriptions or definitions. Values in a specific table may be used for designated properties with the codelist stereotype in the UML Conceptual Model (CM). The CityGML 3.0 CM defines 140 such attributes.</p>
+<p>Codelists are tables of values and corresponding descriptions or definitions. Values in a specific codelist may be used for designated properties with the codelist stereotype and a gml:CodeValue datatype in the UML Conceptual Model (CM). The CityGML 3.0 CM defines 140 such values.</p>
 </div>
 <div class="paragraph">
-<p>The values for each of these 140 codelist attributes are interpreted in a specific application context. In particular, they may be required, recommended, or suggested by an authority within an organization or community. As a consequence, the lists and contained values are outside the scope of standardization of the CityGML CM or any of its encodings. Since only the values themselves, not the lists or tables, appear in CityGML GML-encoded documents, the structure of codelists also lies outside the scope of CityGML CM and Encoding standards. Nevertheless, it is helpful to have some example codelists available for inspection by developers working with a specific encoding. This Annex contains example structures for GML, comma-separated-value (CSV), and JSON codelists. Supplementing these structures, OGC maintains a CityGML 3.0 codelist repository with samples of each of the 140 CityGML 3.0 codelist attributes in GML, CSV, and JSON form at <a href="https://data.ogc.org/citygml-swg/3.0/" class="bare">https://data.ogc.org/citygml-swg/3.0/</a><em>codelist_name</em>.<em>extension</em>,  where <em>codelist_name</em> is the name of the attribute in the CityGML 3.0 CM UML diagram and <em>extension</em> is "xml", "csv", or "json" to indicate the encoding.</p>
+<p>A gml:CodeValue datatype may have an optional codeSpace attribute. The purpose of the codeSpace attribute is to identify the codelist from which the value has been taken. Providing the codeSpace, especially with a dereferenceable identifier, allows easy access to further information detailing rules governing the use and meaning of the codelist&#8217;s values and metadata. There may also be rules defining such things as the use and interpretation of values that do not appear in the codelist, the duplication of values, or any other characteristics of a codelist. All such properties and uses of a codelist or codelist value are outside the scope of this CityGML 3.0 Encoding Specification. This does not in any way restrict the ability of an authority sponsoring a codelist, as denoted by the use of a codeSpace attribute, to have application-specific codelist values, rules, interpretations, and uses in an independent specification.</p>
+</div>
+<div class="paragraph">
+<p>The values for each of these 140 codelists are interpreted in a specific application context. In particular, they may be required, recommended, or suggested by an authority within an organization or community. As a consequence, the lists and contained values are outside the scope of standardization of the CityGML CM or any of its encodings. Since only the values themselves, not the lists or tables, appear in CityGML GML-encoded documents, the structure of codelists also lies outside the scope of CityGML CM and Encoding standards. Nevertheless, it is helpful to have some example codelists available for inspection by developers working with a specific encoding. This Annex contains example structures for GML, comma-separated-value (CSV), and JSON codelists. Supplementing these structures, OGC maintains a CityGML 3.0 codelist repository with samples of each of the 140 CityGML 3.0 codelist attributes in GML, CSV, and JSON form at <a href="https://data.ogc.org/citygml-swg/3.0/" class="bare">https://data.ogc.org/citygml-swg/3.0/</a><em>codelist_name</em>.<em>extension</em>,  where <em>codelist_name</em> is the name of the attribute in the CityGML 3.0 CM UML diagram and <em>extension</em> is "xml", "csv", or "json" to indicate the encoding.</p>
 </div>
 <div class="sect2">
 <h3 id="_logical_model"><a class="anchor" href="#_logical_model"></a>E.1. Logical Model</h3>
 <div class="paragraph">
-<p>There is no standardized model for CityGML codelists. The following is a suggested structure that meets requirements for documenting the source, currency, language, and other characteristics of the list of values. This <strong>suggested</strong> model is followed by the CityGML 3.0 codelist examples hosted by OGC. Note that many existing codelists, maintained by various organizations, are already in existence with different and permissible structures. These codelists remain valid.</p>
+<p>There is no standardized model for CityGML codelists. The following is a suggested structure based on the GML 3.2 Dictionary that meets requirements for documenting the source, currency, language, and other characteristics of the list of values. This <strong>suggested</strong> model is followed by the CityGML 3.0 codelist examples hosted by OGC. Note that many existing codelists, maintained by various organizations, are already in existence with different and permissible structures. These codelists remain valid.</p>
 </div>
 <div id="codelist_uml" class="imageblock text-center">
 <div class="content">
@@ -15208,59 +15211,7 @@ This is where conformance with CityGML 3.0 Conceptual Model is documented.
 <div class="sect3">
 <h4 id="_gml"><a class="anchor" href="#_gml"></a>E.2.1. GML</h4>
 <div class="paragraph">
-<p>This GML encoding of the example logical model for codelists, dictionary entry, and entry metadata have XML schema definitions as follows:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>&lt;?xml version="1.0" encoding="utf-8"?&gt;
-&lt;xs:schema targetNamespace="http://www.opengis.net/gml/3.2" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.opengis.net/gml/3.2" elementFormDefault="qualified"&gt;
-	&lt;xs:element name="Codelist" type="cdl:Codelist"/&gt;
-	&lt;xs:complexType name="Codelist"&gt;
-		&lt;xs:sequence&gt;
-			&lt;xs:element name="description" type="xs:string" minOccurs="1" maxOccurs="1"/&gt;
-			&lt;xs:element name="identifier" type="cdl:Identifier" minOccurs="1" maxOccurs="1"/&gt;
-			&lt;xs:element name="Definition" type="cdl:Definition" minOccurs="0" maxOccurs="unbounded"/&gt;
-			&lt;xs:element name="Metadata" type="cdl:Metadata" minOccurs="1" maxOccurs="1"/&gt;
-		&lt;/xs:sequence&gt;
-	&lt;/xs:complexType&gt;
-	&lt;xs:element name="Definition" type="cdl:Definition"/&gt;
-	&lt;xs:complexType name="Definition"&gt;
-		&lt;xs:sequence&gt;
-			&lt;xs:element name="description" type="xs:string" minOccurs="1" maxOccurs="1"/&gt;
-			&lt;xs:element name="identifier" type="identifier" minOccurs="1" maxOccurs="1"/&gt;
-			&lt;xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1"/&gt;
-		&lt;/xs:sequence&gt;
-	&lt;/xs:complexType&gt;
-	&lt;xs:element name="gml::Dictionary" type="cdl:gml::Dictionary"/&gt;
-	&lt;xs:complexType name="gml::Dictionary"&gt;
-		&lt;xs:complexContent&gt;
-			&lt;xs:extension base="cdl:Definition"&gt;
-				&lt;xs:sequence&gt;
-					&lt;xs:element ref="gml:Dictionary" minOccurs="1" maxOccurs="1"/&gt;
-				&lt;/xs:sequence&gt;
-			&lt;/xs:extension&gt;
-		&lt;/xs:complexContent&gt;
-	&lt;/xs:complexType&gt;
-	&lt;xs:element name="Metadata" type="cdl:Metadata"/&gt;
-	&lt;xs:complexType name="Metadata"&gt;
-		&lt;xs:sequence&gt;
-			&lt;xs:element name="authority" type="xs:string" minOccurs="1" maxOccurs="1"/&gt;
-			&lt;xs:element name="dataType" type="xs:string" minOccurs="1" maxOccurs="1"/&gt;
-			&lt;xs:element name="language" type="xs:string" minOccurs="1" maxOccurs="1"/&gt;
-			&lt;xs:element name="namespace" type="xs:string" minOccurs="1" maxOccurs="1"/&gt;
-			&lt;xs:element name="version" type="xs:decimal" minOccurs="1" maxOccurs="1"/&gt;
-		&lt;/xs:sequence&gt;
-	&lt;/xs:complexType&gt;
-  &lt;xs:element name="identifier" type="cdl:Identifier"&gt;
-	&lt;xs:complexType name="cdl:Identifier"&gt;
-		&lt;xs:simpleContent&gt;
-			&lt;xs:extension base="xs:string"&gt;
-				&lt;xs:attribute name="codeSpace" type="xs:string" use="required"/&gt;
-			&lt;/xs:extension&gt;
-		&lt;/xs:simpleContent&gt;
-	&lt;/xs:complexType&gt;
-&lt;/xs:schema&gt;</pre>
-</div>
+<p>GML encoding of codelists as gml:Dictionary elements containing gml:dictionaryEntry gml:Definition elements is the expected form for defining and exchanging codelists in a GML environment. Examples of each of the 140 CityGML 3.0 codelists are provided using this encoding. Note, however, that there is no rule preventing the use of codelists encoded in some other manner. This is a common situation when fixed multipurpose codelists are recommended or required by government or other official agencies.</p>
 </div>
 <div class="paragraph">
 <p>The following is an XML example:</p>
@@ -15269,7 +15220,7 @@ This is where conformance with CityGML 3.0 Conceptual Model is documented.
 <div class="content">
 <pre>&lt;?xml version="1.0" encoding="utf-8"?&gt;
 &lt;codelist xmlns:gml="http://www.opengis.net/gml/3.2"
-          xmlns:cmd="http://www.something"&gt;
+          xmlns:cmd="http://www.opengis.net/citygml/codelist-metadata"&gt;
 	&lt;gml:Dictionary gml:id="roofTypes"&gt;
 		&lt;gml:metaDataProperty&gt;
 			&lt;cmd:CodeListMetaData&gt;
@@ -15308,19 +15259,13 @@ This is where conformance with CityGML 3.0 Conceptual Model is documented.
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>cdl|description|Roof type values
-cdl|identifier|"https://ogc.org/citygml/3.0/codelists/gml/RoofTypeValues"
-cmd|authority|Some Organization
-cmd|dataType|RoofTypeValue
-cmd|language|en-UK
-cmd|namespace|"http://www.opengis.net/citygml/building/3.0"
-cmd|version|3.0
-def|description|roof primarily a single plane, not necessarily level
-def|identifier  |"https://ogc.org/citygml/3.0/codelists/gml/RoofTypeValues/1000"
-def|name|flat roof
-def|description|a roof that has a ridge and two gablesv
-def|identifier|"https://ogc.org/citygml/3.0/codelists/gml/RoofTypeValues/3100"
-def|name|saddle roof</pre>
+<pre>CodeType|Identifier|Description
+Meta|CityGML_DataType|Building|RoofTypeValue
+Meta|CityGML_Namespace|http://www.opengis.net/citygml/building/3.0
+Meta|Language|en-UK
+Meta|CityGML_Version|3.0
+Code|1000|flat roof
+Code|3100|saddle roof</pre>
 </div>
 </div>
 </div>
