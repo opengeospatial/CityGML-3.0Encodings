@@ -32,7 +32,7 @@ The following is an XML example:
 <?xml version="1.0" encoding="utf-8"?>
 <codelist xmlns:gml="http://www.opengis.net/gml/3.2"
           xmlns:cmd="http://www.opengis.net/citygml/codelist-metadata">
-	<gml:Dictionary gml:id="roofTypes">
+	<gml:Dictionary gml:id="id0">
 		<gml:metaDataProperty>
 			<cmd:CodeListMetaData>
 				<cmd:dataType>RoofTypeValue</cmd:dataType>
