@@ -30,36 +30,34 @@ The following is an XML example:
 
 ----
 <?xml version="1.0" encoding="utf-8"?>
-<codelist xmlns:gml="http://www.opengis.net/gml/3.2"
-          xmlns:cmd="http://www.opengis.net/citygml/codelist-metadata">
-	<gml:Dictionary gml:id="id0">
-		<gml:metaDataProperty>
-			<cmd:CodeListMetaData>
-				<cmd:dataType>RoofTypeValue</cmd:dataType>
-				<cmd:namespace>http://www.opengis.net/citygml/building/3.0</cmd:namespace>
-				<cmd:language>en</cmd:language>
-				<cmd:authority>Some Organization</cmd:authority>
-				<cmd:version>3.0</cmd:version>
-			</cmd:CodeListMetaData>
-		</gml:metaDataProperty>
-		<gml:description>Roof type values</gml:description>
-		<gml:identifier codeSpace="https://ogc.org/citygml/3.0/codelists/gml/rooftypes">RoofTypeValue</gml:identifier>
-		<gml:dictionaryEntry>
-			<gml:Definition gml:id="id1">
-				<gml:description>roof primarily a single plane, not necessarily level</gml:description>
-				<gml:identifier codeSpace="https://ogc.org/citygml/3.0/codelists/gml/rooftypes">1000</gml:identifier>
-				<gml:name>flat roof</gml:name>
-			</gml:Definition>
-		</gml:dictionaryEntry>
-		<gml:dictionaryEntry>
-			<gml:Definition gml:id="id2">
-				<gml:description>a roof that has a ridge and two gables</gml:description>
-				<gml:identifier codeSpace="https://ogc.org/citygml/3.0/codelists/gml/rooftypes">3100</gml:identifier>
-				<gml:name>saddle roof</gml:name>
-			</gml:Definition>
-		</gml:dictionaryEntry>
-	</gml:Dictionary>
-</codelist>
+<gml:Dictionary gml:id="id0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:cmd="http://www.opengis.net/citygml/codelist-metadata">
+	<gml:metaDataProperty>
+		<cmd:CodeListMetaData>
+			<cmd:dataType>RoofTypeValue</cmd:dataType>
+			<cmd:namespace>http://www.opengis.net/citygml/building/3.0</cmd:namespace>
+			<cmd:language>en</cmd:language>
+			<cmd:authority>Some Organization</cmd:authority>
+			<cmd:version>3.0</cmd:version>
+		</cmd:CodeListMetaData>
+	</gml:metaDataProperty>
+	<gml:description>Roof type values</gml:description>
+	<gml:identifier codeSpace="https://ogc.org/citygml/3.0/codelists/gml/rooftypes">RoofTypeValue</gml:identifier>
+	<gml:dictionaryEntry>
+		<gml:Definition gml:id="id1">
+			<gml:description>roof primarily a single plane, not necessarily level</gml:description>
+			<gml:identifier codeSpace="https://ogc.org/citygml/3.0/codelists/gml/rooftypes">1000</gml:identifier>
+			<gml:name>flat roof</gml:name>
+		</gml:Definition>
+	</gml:dictionaryEntry>
+	<gml:dictionaryEntry>
+		<gml:Definition gml:id="id2">
+			<gml:description>a roof that has a ridge and two gables</gml:description>
+			<gml:identifier codeSpace="https://ogc.org/citygml/3.0/codelists/gml/rooftypes">3100</gml:identifier>
+			<gml:name>saddle roof</gml:name>
+		</gml:Definition>
+	</gml:dictionaryEntry>
+</gml:Dictionary>
+
 ----
 
 ==== Comma Separated Values (CSV) Structure
