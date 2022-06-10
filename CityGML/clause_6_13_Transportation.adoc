@@ -23,7 +23,7 @@ The Transportation Requirements Class is dependent on the following Requirements
 
 The following decisions have been made regarding implementation of the CityGML 3.0 Transportation conformance class in GML.
 
-. All associations allow by default that the referenced features can be provided inline or by reference. However, restrictions are defined for the following associations, since they represent alternative aggregations (see rule on referencing features from alternative aggregations in <<linking-rules-4-section>>):
+. All associations allow by default that the referenced features can be provided inline or by reference. However, restrictions are defined for the following associations, since they represent alternative aggregations (see Requirement <<req_global_alternativeaggregations,/req/global/alternativeaggregations>> on referencing features from alternative aggregations):
 * The reflexive association successor of TrafficSpace; here, a traffic space must reference its succeeding traffic space using XLink.
 * The reflexive association predecessor of TrafficSpace; here, a traffic space must reference its preceding traffic space using XLink.
 

@@ -1,0 +1,8 @@
+[[global-requirements-class]]
+[cols="1,4",width="100%"]
+|===
+2+|*Requirements Class* {set:cellbgcolor:#CACCCE}
+2+|http://www.opengis.net/spec/CityGML-2/3.0/req/req-class-global {set:cellbgcolor:#FFFFFF}
+|Target type |Implementation
+|Dependency |???
+|===

@@ -1,0 +1,9 @@
+[[req_global_referencinggeometries4]]
+[width="100%",cols="2,6"]
+|===
+^|*Requirement  {counter:req-id}* |*/req/global/referencinggeometries4*
+2+|Referencing shared geometries between top-level features using CityObjectRelations is subject to the following restrictions:
+^|A |If two top-level features share a common geometry, the shared geometry SHALL be stored for each top-level feature separately (follows from /req/global/referencinggeometries1).
+^|B |If CityObjectRelations are used to denote that a geometry is shared between two top-level features, then a CityObjectRelation SHALL be stored for each feature (might be the top-level feature itself or one of its nested features), and each CityObjectRelation SHALL be assigned the relation type “shared” and SHALL reference the other feature using an XLink. Thus, the reference SHALL be bi-directional.
+2+|Note: Using CityObjectRelations to link the features that share a common geometry is optional. Thus, requirement B only applies if CityObjectRelations are used.
+|===

@@ -1,0 +1,6 @@
+[[req_global_referencinggeometries3]]
+[width="100%",cols="2,6"]
+|===
+^|*Requirement  {counter:req-id}* |*/req/global/referencinggeometries3*
+2+|LoDs SHALL be self-contained: Geometries SHALL NOT be shared between different LoDs using XLinks.
+|===

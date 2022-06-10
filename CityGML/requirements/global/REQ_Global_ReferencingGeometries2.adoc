@@ -1,0 +1,11 @@
+[[req_global_referencinggeometries2]]
+[width="100%",cols="2,6"]
+|===
+^|*Requirement  {counter:req-id}* |*/req/global/referencinggeometries2*
+2+|Referencing geometries of spaces and space boundaries is subject to the following restrictions:
+^|A |Geometries stored inline a space boundary SHALL NOT be redundantly stored as geometry of a space. If the geometry shall be stored with the space in addition, it SHALL reference the geometry from the space boundary using XLinks.
+^|B |Space boundaries SHALL NOT reference geometries of a space using XLinks.
+^|C |Rules A and B apply for all spaces and space boundaries that are children of the same top-level feature.
+2+|Note 1: The rationale of requirement A is to avoid duplicate geometries. It does NOT imply that a space has to reference all geometries of its space boundaries using XLinks. For example, the geometry can also be stored only with the space boundaries. +
+Note 2: If the space does not have space boundaries, then the geometry is stored with the space and no XLinks are required.
+|===

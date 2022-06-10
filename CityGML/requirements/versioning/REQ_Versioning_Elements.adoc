@@ -1,5 +1,5 @@
-[[req_verioning_elements]]
-[width="90%",cols="2,6"]
+[[req_versioning_elements]]
+[width="100%",cols="2,6"]
 |===
 ^|*Requirement  {counter:req-id}* |*/req/versioning/elements*
 2+|CityGML XML elements implemented by a conforming instance document shall conform to the GML XML schema in http://schemas.opengis.net/citygml/versioning/3.0/versioning.xsd[versioning.xsd^].

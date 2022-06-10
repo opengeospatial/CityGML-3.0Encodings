@@ -23,7 +23,7 @@ The Versioning Requirements Class is dependent on the following Requirements Cla
 
 The following decisions have been made regarding implementation of the CityGML 3.0 Versioning conformance class in GML.
 
-. All associations allow by default that the referenced features can be provided inline or by reference. However, restrictions are defined for the following associations, since they represent alternative aggregations (see rule on referencing features from alternative aggregations in <<linking-rules-4-section>>):
+. All associations allow by default that the referenced features can be provided inline or by reference. However, restrictions are defined for the following associations, since they represent alternative aggregations (see Requirement <<req_global_alternativeaggregations,/req/global/alternativeaggregations>> on referencing features from alternative aggregations):
 * The association oldFeature which connects Transaction with AbstractFeatureWithLifespan; here, a transaction must reference the version of the city object prior to the transaction using XLink.
 * The association newFeature which connects Transaction with AbstractFeatureWithLifespan; here, a transaction must reference the version of the city object subsequent to the transaction using XLink.
 * The association from which connects VersionTransition with Version; here, a version transition must reference the predecessor version of the VersionTransition using XLink.

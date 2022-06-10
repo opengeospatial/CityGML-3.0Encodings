@@ -1,0 +1,7 @@
+[[req_global_gml]]
+[width="100%",cols="2,6"]
+|===
+^|*Requirement  {counter:req-id}* |*/req/global/gml*
+2+|XML instance documents claiming conformance to this specification shall validate with respect to the XML schema files.
+2+|Note: This means that they have to be valid GML 3.2 documents. They may use certain aspects of CityGML 3.3; see <<annex-gml-3.3>> for further information.
+|===

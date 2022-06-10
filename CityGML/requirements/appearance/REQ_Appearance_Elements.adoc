@@ -1,5 +1,5 @@
 [[req_appearance_elements]]
-[width="90%",cols="2,6"]
+[width="100%",cols="2,6"]
 |===
 ^|*Requirement  {counter:req-id}* |*/req/appearance/elements*
 2+|CityGML XML elements implemented by a conforming instance document shall conform to the GML XML schema in http://schemas.opengis.net/citygml/appearance/3.0/appearance.xsd[appearance.xsd^].

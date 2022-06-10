@@ -23,7 +23,7 @@ The Dynamizer Requirements Class is dependent on the following Requirements Clas
 
 The following decisions have been made regarding implementation of the CityGML 3.0 Dynamizer conformance class in GML.
 
-. All associations allow by default that the referenced features can be provided inline or by reference. However, a restriction is defined for the following association, since it represents an alternative aggregation (see rule on referencing features from alternative aggregations in <<linking-rules-4-section>>):
+. All associations allow by default that the referenced features can be provided inline or by reference. However, a restriction is defined for the following association, since it represents an alternative aggregation (see Requirement <<req_global_alternativeaggregations,/req/global/alternativeaggregations>> on referencing features from alternative aggregations):
 * The association sensorLocation which connects SensorConnection with AbstractCityObject; here, a sensor connection must reference the city object for which it provides sensor information using XLink.
 
 ==== Requirements

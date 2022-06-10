@@ -1,0 +1,8 @@
+[[req_global_referencinggeometries1]]
+[width="100%",cols="2,6"]
+|===
+^|*Requirement  {counter:req-id}* |*/req/global/referencinggeometries1*
+2+|XLinks SHALL NOT be used to reference geometries, except for geometries of ImplicitGeometry elements, from another top-level feature.
+2+|Note 1: XLinks MAY be used to reference geometries within the same top-level feature in accordance with <<req_global_referencinggeometries2,/req/global/referencinggeometries2>> and <<req_global_referencinggeometries3,/req/global/referencinggeometries3>>. +
+Note 2: ImplicitGeometry elements of different top-level features MAY reference the same geometry using XLinks. This is an exception to this requirement.
+|===

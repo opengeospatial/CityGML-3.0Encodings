@@ -6,6 +6,8 @@
 :toc:
 :toc-placement!:
 :toclevels: 2
+:sectnums:
+:sectnumlevels: 4
 :numbered:
 :sectanchors:
 :xrefstyle: short

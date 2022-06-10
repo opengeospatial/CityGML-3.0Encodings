@@ -1,0 +1,8 @@
+[[req_global_alternativeaggregations]]
+[width="100%",cols="2,6"]
+|===
+^|*Requirement  {counter:req-id}* |*/req/global/alternativeaggregations*
+2+|For referencing features from alternative aggregations:
+^|A |Each feature belongs to a natural aggregation hierarchy and SHALL be stored inline this hierarchy.
+^|B |Alternative aggregations SHALL NOT contain the feature inline but SHALL use an XLink to reference the feature.
+|===
