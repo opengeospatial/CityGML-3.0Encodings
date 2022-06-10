@@ -83,4 +83,15 @@ All questions regarding this submission should be directed to the editors or the
 
 [big]*vi.     Participants in development*
 
-To be added
+In addition to the Editors of the specification the following individuals contributed to this document:
+
+[#participants_in_development,reftext='{table-caption} {counter:table-num}']
+.Participants in Development
+[width="100%",cols="1,2",options="header"]
+|===
+|Name |Institution
+|Christof Beil |Chair of Geoinformatics, Technical University of Munich, Germany
+|Kanishk Chaturvedi |Chair of Geoinformatics, Technical University of Munich, Germany
+|Dean Hintz |Safe Software, Canada
+|Peter Parslow |Ordnance Survey, Great Britain
+|===
