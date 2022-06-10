@@ -884,8 +884,39 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p><strong class="big">vi.     Participants in development</strong></p>
 </div>
 <div class="paragraph">
-<p>To be added</p>
+<p>In addition to the Editors of the specification the following individuals contributed to this document:</p>
 </div>
+<table id="participants_in_development" class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 2. Participants in Development</caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 66.6667%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">Name</th>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">Institution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Christof Beil</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Chair of Geoinformatics, Technical University of Munich, Germany</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Kanishk Chaturvedi</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Chair of Geoinformatics, Technical University of Munich, Germany</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dean Hintz</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Safe Software, Canada</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Peter Parslow</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Ordnance Survey, Great Britain</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div class="sect1">
@@ -1154,22 +1185,50 @@ NOTE Top-level features are denoted by the stereotype «TopLevelFeatureType» in
 <div class="paragraph">
 <p>This chapter defines general requirements which are valid for all Conformance Classes and cannot be derived from the GML schemas.</p>
 </div>
-<div class="sect3">
-<h4 id="gml-section"><a class="anchor" href="#gml-section"></a>6.1.1. Use of GML 3.2.1</h4>
-<div class="paragraph">
-<p>The CityGML 3.0 GML schemas have been derived based on the OGC GML 3.2.1 standard. This means that CityGML GML instance documents must be created and exchanged in the GML version 3.2.1.</p>
-</div>
-<div class="admonitionblock note">
-<table>
+<table id="global-requirements-class" class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<tbody>
 <tr>
-<td class="icon">
-<div class="title">Note</div>
-</td>
-<td class="content">
-Add requirement in tabular form
-</td>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #CACCCE;"><p class="tableblock"><strong>Requirements Class</strong> </p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/CityGML-2/3.0/req/req-class-global" class="bare">http://www.opengis.net/spec/CityGML-2/3.0/req/req-class-global</a> </p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Target type</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Implementation</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">???</p></td>
+</tr>
+</tbody>
 </table>
+<div class="sect3">
+<h4 id="gml-section"><a class="anchor" href="#gml-section"></a>6.1.1. Use of GML 3.2</h4>
+<table id="req_global_gml" class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  1</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/global/gml</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock">XML instance documents claiming conformance to this specification shall validate with respect to the XML schema files.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock">Note: This means that they have to be valid GML 3.2 documents. They may use certain aspects of CityGML 3.3; see <a href="#annex-gml-3.3">Appendix F</a> for further information.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The CityGML 3.0 GML schemas have been derived based on the OGC GML 3.2 standard. This means that CityGML GML instance documents must be created and exchanged in the GML version 3.2.</p>
 </div>
 <div class="paragraph">
 <p>If for certain reasons the use of GML 3.3 is preferred, <a href="#annex-gml-3.3">Appendix F</a> provides an example for how to make use of GML 3.3 in CityGML instance documents. Please note, however, that software compliant to this standard might not be able to read the additional GML 3.3 content.</p>
@@ -1184,10 +1243,10 @@ Add requirement in tabular form
 <p>The CityGML 3.0 Conceptual Model introduces two attributes to provide all features and top-level features with a unique identity: 1) the mandatory <em>featureID</em> attribute to distinguish all (top-level) features and possible multiple versions of the same real-world object and 2) an optional <em>identifier</em> attribute to reference specific (top-level) features independent from their actual feature version. The featureID attribute value is unique within the same CityGML dataset and also for a specific version of a feature, whereas the identifier attribute has an identical value for all versions of the same real-world object. It is recommended to use globally unique identifiers like UUID values or identifiers maintained by an organization such as a mapping agency for both attributes: for the identifier attribute, as these identifiers should remain stable over the lifetime of the real-world object, and for the featureID attribute, as this ensures that 3D city models which are integrated from different sources into e.g. one GIS or database will not have colliding featureID values and also to be able to uniquely identify a specific version of a feature using these identifiers together with a timestamp and a version number.</p>
 </div>
 <div class="paragraph">
-<p>The two attributes are defined in the UML class <em>AbstractFeature</em> as part of the Core module of the CityGML 3.0 Conceptual Model. They are mapped to the predefined GML concepts <em>gml:id</em> and <em>gml:identifier</em> in the GML encoding. <a href="#table-gml-identifiers">Table 2</a> lists the two identity attributes together with their definition and GML encoding, and the GML code in <a href="#listing-gml-identifiers">Listing 1</a> illustrates the use of the identity attributes to represent the object identity in GML instance documents. Please note that, although the <em>featureID</em> attribute is defined mandatory in the CityGML 3.0 Conceptual Model, the <em>gml:id</em> attribute is optional according to the GML standard.</p>
+<p>The two attributes are defined in the UML class <em>AbstractFeature</em> as part of the Core module of the CityGML 3.0 Conceptual Model. They are mapped to the predefined GML concepts <em>gml:id</em> and <em>gml:identifier</em> in the GML encoding. <a href="#table-gml-identifiers">Table 3</a> lists the two identity attributes together with their definition and GML encoding, and the GML code in <a href="#listing-gml-identifiers">Listing 1</a> illustrates the use of the identity attributes to represent the object identity in GML instance documents. Please note that, although the <em>featureID</em> attribute is defined mandatory in the CityGML 3.0 Conceptual Model, the <em>gml:id</em> attribute is optional according to the GML standard.</p>
 </div>
 <table id="table-gml-identifiers" class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 2. Identity attributes used in CityGML 3.</caption>
+<caption class="title">Table 3. Identity attributes used in CityGML 3.</caption>
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 30%;">
@@ -1315,10 +1374,10 @@ Add requirement in tabular form
 <p>For these cases, different requirements are provided for how to encode the references in CityGML. Although these requirements impose restrictions, they facilitate at the same time reading, storing, processing, and generating of CityGML documents, because they reduce the multiple possibilities of how to represent and link features and geometries in CityGML documents to the most appropriate ones. Furthermore, top-level features can now completely be loaded in the main memory, because links to shared geometries that are part of different top-level features represented further down in the GML document do not need to be resolved any more. This also facilitates querying features and geometries using web services, as up to now queries cannot address specific parts of a geometry. Maintenance at the level of the top-level features becomes easier as well, because links between feature geometries do not need to be maintained and updated any more when a feature changes its geometry or when the feature does not exist anymore.</p>
 </div>
 <div class="paragraph">
-<p>Table <a href="#table-global-requirements">Table 3</a> provides an overview of the different requirements, the link types used to encode the references and whether the link references geometries or features.</p>
+<p><a href="#table-global-requirements">Table 4</a> provides an overview of the different requirements, the link types used to encode the references and whether the link references geometries or features.</p>
 </div>
 <table id="table-global-requirements" class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 3. Overview of linking rules.</caption>
+<caption class="title">Table 4. Overview of linking rules.</caption>
 <colgroup>
 <col style="width: 60%;">
 <col style="width: 20%;">
@@ -1331,81 +1390,119 @@ Add requirement in tabular form
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Link level</strong></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement &#8230;&#8203;</strong><br>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong><a href="#req_global_referencinggeometries1">/req/global/referencinggeometries1</a></strong><br>
 Referencing geometries from another top-level feature<br>
-(* except for ImplicitGeometry objects)</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><br>
+Exception for ImplicitGeometry objects</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><br>
 -<br>
-(* XLink)</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><br>
--<br>
-(* Geometry link)</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement &#8230;&#8203;</strong><br>
-Referencing geometries within the same top-level feature</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><br>
 XLink</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><br>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><br>
+-<br>
 Geometry link</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement …</strong><br>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong><a href="#req_global_referencinggeometries2">/req/global/referencinggeometries2</a></strong><br>
+Referencing geometries within the same top-level feature</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><br>
+XLink</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><br>
+Geometry link</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong><a href="#req_global_referencinggeometries3">/req/global/referencinggeometries3</a></strong><br>
+Referencing geometries between different LoDs</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><br>
+-</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><br>
+-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong><a href="#req_global_referencinggeometries4">/req/global/referencinggeometries4</a></strong><br>
 Referencing geometries shared between different top-level features</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><br>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><br>
 CityObjectRelation</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><br>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><br>
 Feature link</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement …</strong><br>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong><a href="#req_global_alternativeaggregations">/req/global/alternativeaggregations</a></strong><br>
 Referencing features from alternative aggregations</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><br>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><br>
 XLink</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><br>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><br>
 Feature link</p></td>
 </tr>
 </tbody>
 </table>
 <div class="sect4">
-<h5 id="linking-rules-1-section"><a class="anchor" href="#linking-rules-1-section"></a>Rule 1: Referencing geometries using XLinks within the same and from different top-level features</h5>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>XLinks may be used to reference geometries within the same top-level feature in accordance with Rule 2.</p>
-</li>
-<li>
-<p>XLinks shall not be used to reference geometries from another top-level feature.</p>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect4">
-<h5 id="linking-rules-2-section"><a class="anchor" href="#linking-rules-2-section"></a>Rule 2: Referencing geometries of spaces and space boundaries</h5>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>[The geometry describing a space shall be stored with the space or its space boundaries.]</p>
-</li>
-<li>
-<p>Geometries stored inline a space boundary must be referenced from the geometry of the space using XLinks.</p>
-</li>
-<li>
-<p>Space boundaries shall not reference geometries of the space using XLinks.</p>
-</li>
-<li>
-<p>The geometry of a space may contain the geometries of nested spaces.</p>
-</li>
-<li>
-<p>LoDs must be self-contained: Geometries shall not be shared between different LoDs using XLinks.</p>
-</li>
-</ol>
-</div>
+<h5 id="linking-rules-1-section"><a class="anchor" href="#linking-rules-1-section"></a>6.1.4.1. Requirements for referencing geometries using XLinks</h5>
+<table id="req_global_referencinggeometries1" class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  2</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/global/referencinggeometries1</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock">XLinks SHALL NOT be used to reference geometries, except for geometries of ImplicitGeometry elements, from another top-level feature.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock">Note 1: XLinks MAY be used to reference geometries within the same top-level feature in accordance with <a href="#req_global_referencinggeometries2">/req/global/referencinggeometries2</a> and <a href="#req_global_referencinggeometries3">/req/global/referencinggeometries3</a>.<br>
+Note 2: ImplicitGeometry elements of different top-level features MAY reference the same geometry using XLinks. This is an exception to this requirement.</p></td>
+</tr>
+</tbody>
+</table>
+<table id="req_global_referencinggeometries2" class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  3</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/global/referencinggeometries2</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock">Referencing geometries of spaces and space boundaries is subject to the following restrictions:</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Geometries stored inline a space boundary SHALL NOT be redundantly stored as geometry of a space. If the geometry shall be stored with the space in addition, it SHALL reference the geometry from the space boundary using XLinks.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Space boundaries SHALL NOT reference geometries of a space using XLinks.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">C</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Rules A and B apply for all spaces and space boundaries that are children of the same top-level feature.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock">Note 1: The rationale of requirement A is to avoid duplicate geometries. It does NOT imply that a space has to reference all geometries of its space boundaries using XLinks. For example, the geometry can also be stored only with the space boundaries.<br>
+Note 2: If the space does not have space boundaries, then the geometry is stored with the space and no XLinks are required.</p></td>
+</tr>
+</tbody>
+</table>
+<table id="req_global_referencinggeometries3" class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  4</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/global/referencinggeometries3</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock">LoDs SHALL be self-contained: Geometries SHALL NOT be shared between different LoDs using XLinks.</p></td>
+</tr>
+</tbody>
+</table>
 <div class="paragraph">
 <p>Here, XLink represents a link at the geometry level (“geometry link”), i.e., a reference to the ID of the geometry to be reused. The link direction is always from the geometry of the space to the geometries of the space boundaries (example 1).</p>
-</div>
-<div class="paragraph">
-<p>If the space is not bounded by space boundaries (e.g. WallSurface or RoofSurface), then the geometry is stored as a geometry property (e.g. lod2MultiSurface) of the space. No XLinks are required in this case.</p>
 </div>
 <div class="paragraph">
 <p><strong>Example 1: Building with Solid geometry and boundary surfaces</strong></p>
@@ -1445,7 +1542,7 @@ Feature link</p></td>
 <p>The building (=space) in <a href="#figure-example-building-with-roof-overhangs">Figure 3</a> is modelled in LOD2 as Solid geometry and is bounded by four WallSurfaces, one RoofSurface, and one GroundSurface (=space boundaries). All space boundaries are modelled as Polygon geometries. The Solid geometry of the building references the Polygon geometries using XLink.</p>
 </div>
 <div class="paragraph">
-<p>The RoofSurface contains four Polygon geometries. Two of these Polygons are roof overhangs (i.e. dangling surfaces), and, thus, are not referenced by the Solid geometry of the building, as they would render the solid invalid if referenced. For this reason, an additional MultiSurface geometry is added to the building that references the dangling surfaces. In accordance with Rule 2 this MultiSurface geometry is optional. It is added to the building to provide additional information, but it is not mandatory to add this geometry.</p>
+<p>The RoofSurface contains four Polygon geometries. Two of these Polygons are roof overhangs (i.e. dangling surfaces), and, thus, are not referenced by the Solid geometry of the building, as they would render the solid invalid if referenced. For this reason, an additional MultiSurface geometry is added to the building that references the dangling surfaces. In accordance with Requirement <a href="#req_global_referencinggeometries2">/req/global/referencinggeometries2</a> this MultiSurface geometry is optional. It is added to the building to provide additional information, but it is not mandatory to add this geometry.</p>
 </div>
 <div class="paragraph">
 <p>The GML file is available here:
@@ -1473,7 +1570,7 @@ Feature link</p></td>
 <p>The building (=space) in <a href="#figure-example-building-with-building-installation">Figure 5</a> is modelled in LOD2 as Solid geometry and is bounded by eight WallSurfaces, four RoofSurfaces, and one GroundSurface (=space boundaries). In addition, the building has a dormer that is modelled as BuildingInstallation (=space). The building installation is modelled as MultiSurface geometry and is bounded by one RoofSurface and three WallSurfaces (=space boundaries).</p>
 </div>
 <div class="paragraph">
-<p>The space boundaries of the building and of the building installation are all modelled as Polygon geometries. The Solid geometry of the building references those Polygon geometries that represent the space boundaries of the building space using XLink. The MultiSurface geometry of the building installation references those Polygon geometries that represent the space boundaries of the building installation using XLink. In addition, the Solid geometry may also reference the Polygon geometries that represent the space boundaries of the building installation using XLink. These references to the geometries of a nested space are optional, in accordance with Rule 2 it is also allowed to not reference these geometries.</p>
+<p>The space boundaries of the building and of the building installation are all modelled as Polygon geometries. The Solid geometry of the building references those Polygon geometries that represent the space boundaries of the building space using XLink. The MultiSurface geometry of the building installation references those Polygon geometries that represent the space boundaries of the building installation using XLink. In addition, the Solid geometry may also reference the Polygon geometries that represent the space boundaries of the building installation using XLink. These references to the geometries of a nested space are optional, in accordance with Requirement <a href="#req_global_referencinggeometries2">/req/global/referencinggeometries2</a> it is also allowed to not reference these geometries.</p>
 </div>
 <div class="paragraph">
 <p>The GML file is available here:
@@ -1490,23 +1587,33 @@ Feature link</p></td>
 </div>
 </div>
 <div class="sect4">
-<h5 id="linking-rules-3-section"><a class="anchor" href="#linking-rules-3-section"></a>Rule 3: Expressing shared geometries between top-level features using CityObjectRelations</h5>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>If two top-level features share a common geometry, the shared geometry must be stored for each top-level feature separately (follows from Rule 1).</p>
-</li>
-<li>
-<p>A CityObjectRelation may be modelled for the features where the shared geometries are stored (might be the top-level feature itself or one of its nested features).</p>
-</li>
-<li>
-<p>Each CityObjectRelation must be assigned the relation type “shared”.</p>
-</li>
-<li>
-<p>Each CityObjectRelation must reference the other feature using an XLink. Thus, the reference shall be bi-directional.</p>
-</li>
-</ol>
-</div>
+<h5 id="_requirements_for_referencing_geometries_using_cityobjectrelations"><a class="anchor" href="#_requirements_for_referencing_geometries_using_cityobjectrelations"></a>6.1.4.2. Requirements for referencing geometries using CityObjectRelations</h5>
+<table id="req_global_referencinggeometries4" class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  5</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/global/referencinggeometries4</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock">Referencing shared geometries between top-level features using CityObjectRelations is subject to the following restrictions:</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">If two top-level features share a common geometry, the shared geometry SHALL be stored for each top-level feature separately (follows from /req/global/referencinggeometries1).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">If CityObjectRelations are used to denote that a geometry is shared between two top-level features, then a CityObjectRelation SHALL be stored for each feature (might be the top-level feature itself or one of its nested features), and each CityObjectRelation SHALL be assigned the relation type “shared” and SHALL reference the other feature using an XLink. Thus, the reference SHALL be bi-directional.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock">Note: Using CityObjectRelations to link the features that share a common geometry is optional. Thus, requirement B only applies if CityObjectRelations are used.</p></td>
+</tr>
+</tbody>
+</table>
 <div class="paragraph">
 <p>CityObjectRelation represents a link at the feature level (“feature link”) referencing the ID of another feature that contains a shared geometry. The explicit representation of the relation between the features facilitates spatial analyses.</p>
 </div>
@@ -1595,7 +1702,7 @@ Feature link</p></td>
 <div class="title">Figure 12. Intersection shared by two roads.</div>
 </div>
 <div class="paragraph">
-<p>In <a href="#figure-example-intersection">Figure 12</a>, two Roads (=top-level features) are shown that each have two Sections and one Intersection. The two Roads cross each other at the Intersection. Although the Intersection and, thus, also its geometry is shared by both Roads, it exists in reality only once; i.e., the Intersection is integral part of both Roads. In contrast to the examples above, this should not be expressed by duplicating the Intersection to represent it inline of both Roads and link the duplicates using CityObjectRelations. Instead, the Intersection should be represented inline as part of one Road (here: Road 2) and be referenced by the other Road (here: Road 3) using an XLink that references the ID of the Intersection feature. This type of feature link is similar to Rule 4, where XLinks are used to relate features to alternative aggregations, with the difference that Road 3 cannot semantically be considered an alternative aggregation of the Intersection.</p>
+<p>In <a href="#figure-example-intersection">Figure 12</a>, two Roads (=top-level features) are shown that each have two Sections and one Intersection. The two Roads cross each other at the Intersection. Although the Intersection and, thus, also its geometry is shared by both Roads, it exists in reality only once; i.e., the Intersection is integral part of both Roads. In contrast to the examples above, this should not be expressed by duplicating the Intersection to represent it inline of both Roads and link the duplicates using CityObjectRelations. Instead, the Intersection should be represented inline as part of one Road (here: Road 2) and be referenced by the other Road (here: Road 3) using an XLink that references the ID of the Intersection feature. This type of feature link is similar to Requirement <a href="#req_global_alternativeaggregations">/req/global/alternativeaggregations</a>, where XLinks are used to relate features to alternative aggregations, with the difference that Road 3 cannot semantically be considered an alternative aggregation of the Intersection.</p>
 </div>
 <div class="paragraph">
 <p>The GML file is available here:
@@ -1612,17 +1719,30 @@ Feature link</p></td>
 </div>
 </div>
 <div class="sect4">
-<h5 id="linking-rules-4-section"><a class="anchor" href="#linking-rules-4-section"></a>Rule 4: Referencing features from alternative aggregations</h5>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Each feature belongs to a natural aggregation hierarchy and shall be stored inline in this hierarchy.</p>
-</li>
-<li>
-<p>Alternative aggregations may not contain the feature inline but must use an XLink to reference the feature.</p>
-</li>
-</ol>
-</div>
+<h5 id="linking-rules-3-section"><a class="anchor" href="#linking-rules-3-section"></a>6.1.4.3. Requirements for referencing features using XLinks</h5>
+<table id="req_global_alternativeaggregations" class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  6</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/global/alternativeaggregations</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock">For referencing features from alternative aggregations:</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Each feature belongs to a natural aggregation hierarchy and SHALL be stored inline this hierarchy.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Alternative aggregations SHALL NOT contain the feature inline but SHALL use an XLink to reference the feature.</p></td>
+</tr>
+</tbody>
+</table>
 <div class="paragraph">
 <p>Here, XLink represents a link at the feature level (“feature link”), i.e., a reference to the ID of the feature being part of the natural aggregation. All features are part of a natural aggregation, i.e., features are typically represented in a data set once in physical form, either directly as part of the city model when they are top-level features (e.g. a Building), or inline as part of other (top-level) features (e.g. a BuildingRoom represented inline as part of the top-level feature Building). At the same time, the features can also occur in alternative aggregations.</p>
 </div>
@@ -1664,7 +1784,7 @@ Feature link</p></td>
 <div class="paragraph">
 <p>The concepts of the Core module are defined in the OGC CityGML 3.0 Conceptual Model standard. The UML diagram for the Core module is available under <a href="https://docs.ogc.org/is/20-010/20-010.html#core-uml" class="bare" target="_blank" rel="noopener">https://docs.ogc.org/is/20-010/20-010.html#core-uml</a>, the Data Dictionary is available under <a href="https://docs.ogc.org/is/20-010/20-010.html#toc49" class="bare" target="_blank" rel="noopener">https://docs.ogc.org/is/20-010/20-010.html#toc49</a>.</p>
 </div>
-<table id="core-requirements-class" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="core-requirements-class" class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 80%;">
@@ -1733,13 +1853,13 @@ Feature link</p></td>
 <p>The UML class ImplicitGeometry is represented as an object type that defines the attribute objectID. This attribute was added to the UML model to guarantee that it is available in all possible CityGML encodings. This attribute represents the GML property gml:id which all object types automatically inherit in the GML encoding, thus, this attribute is suppressed from being encoded.</p>
 </li>
 <li>
-<p>Several UML classes were defined in the CityGML Conceptual Model to represent concepts from the GML 3.2.1 standard in a language-independent way. These classes are Code, DoubleList, MeasureOrNilReasonList, DoubleOrNilReasonList, DoubleOrNilReason, NilReason, and NilReasonEnumeration. Since these concepts already exist in GML, they are simply mapped to the corresponding representations in GML. Furthermore, the class ID, representing the corresponding XML type ID, was defined as data type for the attributes featureID and objectID (see design decisions above). Since these attributes are suppressed from being encoded, also the class ID is not encoded.</p>
+<p>Several UML classes were defined in the CityGML Conceptual Model to represent concepts from the GML 3.2 standard in a language-independent way. These classes are Code, DoubleList, MeasureOrNilReasonList, DoubleOrNilReasonList, DoubleOrNilReason, NilReason, and NilReasonEnumeration. Since these concepts already exist in GML, they are simply mapped to the corresponding representations in GML. Furthermore, the class ID, representing the corresponding XML type ID, was defined as data type for the attributes featureID and objectID (see design decisions above). Since these attributes are suppressed from being encoded, also the class ID is not encoded.</p>
 </li>
 <li>
-<p>As described in <a href="#association-classes-section">Section G.1</a>, the UML association class CityObjectRelation is modelled as an intermediate class in an Implementation Model before the GML encoding is applied. In this way, a relation between two features A and B can be represented in such a way that feature A provides the element CityObjectRelation inline, whereas the CityObjectRelation references feature B using XLink. This encoding also ensures that the rule on referencing features from alternative aggregations as described in <a href="#linking-rules-4-section">Section 6.1.4.4</a> is observed.</p>
+<p>As described in <a href="#association-classes-section">Section G.1</a>, the UML association class CityObjectRelation is modelled as an intermediate class in an Implementation Model before the GML encoding is applied. In this way, a relation between two features A and B can be represented in such a way that feature A provides the element CityObjectRelation inline, whereas the CityObjectRelation references feature B using XLink. This encoding also ensures that Requirement <a href="#req_global_alternativeaggregations">/req/global/alternativeaggregations</a> on referencing features from alternative aggregations is observed.</p>
 </li>
 <li>
-<p>All associations allow by default that the referenced features can be provided inline or by reference. However, a restriction is defined for the following association, since it represents an alternative aggregation (see rule on referencing features from alternative aggregations in <a href="#linking-rules-4-section">Section 6.1.4.4</a>):</p>
+<p>All associations allow by default that the referenced features can be provided inline or by reference. However, a restriction is defined for the following association, since it represents an alternative aggregation (see Requirement <a href="#req_global_alternativeaggregations">/req/global/alternativeaggregations</a> on referencing features from alternative aggregations):</p>
 <div class="ulist">
 <ul>
 <li>
@@ -1749,7 +1869,7 @@ Feature link</p></td>
 </div>
 </li>
 <li>
-<p>An exception to the rule that XLinks shall not be used to reference geometries from another top-level feature (Rule 2 in <a href="#linking-rules-1-section">Section 6.1.4.1</a>) is defined for the element ImplicitGeometry. The concept of ImplicitGeometry requires that different top-level features can reference the same geometry and appearance; thus, XLinks from different top-level features to the same geometry and appearance are allowed in this case.</p>
+<p>An exception to the rule that XLinks shall not be used to reference geometries from another top-level feature is defined for the element ImplicitGeometry by Requirement <a href="#req_global_referencinggeometries1">/req/global/referencinggeometries1</a>. The concept of ImplicitGeometry requires that different top-level features can reference the same geometry and appearance; thus, XLinks from different top-level features to the same geometry and appearance are allowed in this case.</p>
 </li>
 <li>
 <p>The UML class XALAddress is a placeholder for representing address details according to the OASIS xAL standard. The class is not encoded in the GML schema, but is simply mapped to xAL:Address, the root element for xAL-based address information.</p>
@@ -1762,14 +1882,14 @@ Feature link</p></td>
 </div>
 <div class="sect3">
 <h4 id="_requirements"><a class="anchor" href="#_requirements"></a>6.2.3. Requirements</h4>
-<table id="req_core_elements" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="req_core_elements" class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  1</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  7</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/core/elements</strong></p></td>
 </tr>
 <tr>
@@ -1778,10 +1898,10 @@ Feature link</p></td>
 </tbody>
 </table>
 <div class="paragraph">
-<p>The CityGML Core XML elements and their corresponding CityGML UML classes are listed in <a href="#core-xml-elements">Table 4</a>. In addition, the CityGML Core XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/3.0/core.xsd" target="_blank" rel="noopener">core.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/core/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
+<p>The CityGML Core XML elements and their corresponding CityGML UML classes are listed in <a href="#core-xml-elements">Table 5</a>. In addition, the CityGML Core XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/3.0/core.xsd" target="_blank" rel="noopener">core.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/core/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
 </div>
 <table id="core-xml-elements" class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 4. Core XML Elements</caption>
+<caption class="title">Table 5. Core XML Elements</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -1987,7 +2107,7 @@ Feature link</p></td>
 <div class="paragraph">
 <p>The concepts of the Appearance module are defined in the OGC CityGML 3.0 Conceptual Model standard. The UML diagram for the Appearance module is available under <a href="https://docs.ogc.org/is/20-010/20-010.html#appearance-uml" class="bare" target="_blank" rel="noopener">https://docs.ogc.org/is/20-010/20-010.html#appearance-uml</a>, the Data Dictionary is available under <a href="https://docs.ogc.org/is/20-010/20-010.html#toc50" class="bare" target="_blank" rel="noopener">https://docs.ogc.org/is/20-010/20-010.html#toc50</a>.</p>
 </div>
-<table id="appearance-requirements-class" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="appearance-requirements-class" class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 80%;">
@@ -2065,14 +2185,14 @@ Feature link</p></td>
 </div>
 <div class="sect3">
 <h4 id="_requirements_2"><a class="anchor" href="#_requirements_2"></a>6.3.3. Requirements</h4>
-<table id="req_appearance_elements" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="req_appearance_elements" class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  2</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  8</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/appearance/elements</strong></p></td>
 </tr>
 <tr>
@@ -2081,10 +2201,10 @@ Feature link</p></td>
 </tbody>
 </table>
 <div class="paragraph">
-<p>The CityGML Appearance XML elements and their corresponding CityGML UML classes are listed in <a href="#appearance-xml-elements">Table 5</a>. In addition, the CityGML Appearance XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/appearance/3.0/appearance.xsd" target="_blank" rel="noopener">appearance.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/appearance/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
+<p>The CityGML Appearance XML elements and their corresponding CityGML UML classes are listed in <a href="#appearance-xml-elements">Table 6</a>. In addition, the CityGML Appearance XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/appearance/3.0/appearance.xsd" target="_blank" rel="noopener">appearance.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/appearance/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
 </div>
 <table id="appearance-xml-elements" class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 5. Appearance XML Elements</caption>
+<caption class="title">Table 6. Appearance XML Elements</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -2174,7 +2294,7 @@ Feature link</p></td>
 <div class="paragraph">
 <p>The concepts of the Bridge module are defined in the OGC CityGML 3.0 Conceptual Model standard. The UML diagram for the Bridge module is available under <a href="https://docs.ogc.org/is/20-010/20-010.html#bridge-uml" class="bare" target="_blank" rel="noopener">https://docs.ogc.org/is/20-010/20-010.html#bridge-uml</a>, the Data Dictionary is available under <a href="https://docs.ogc.org/is/20-010/20-010.html#toc63" class="bare" target="_blank" rel="noopener">https://docs.ogc.org/is/20-010/20-010.html#toc63</a>.</p>
 </div>
-<table id="bridge-requirements-class" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="bridge-requirements-class" class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 80%;">
@@ -2245,14 +2365,14 @@ Feature link</p></td>
 </div>
 <div class="sect3">
 <h4 id="_requirements_3"><a class="anchor" href="#_requirements_3"></a>6.4.3. Requirements</h4>
-<table id="req_bridge_elements" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="req_bridge_elements" class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  3</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  9</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/bridge/elements</strong></p></td>
 </tr>
 <tr>
@@ -2261,10 +2381,10 @@ Feature link</p></td>
 </tbody>
 </table>
 <div class="paragraph">
-<p>The CityGML Bridge XML elements and their corresponding CityGML UML classes are listed in <a href="#bridge-xml-elements">Table 6</a>. In addition, the CityGML Bridge XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/bridge/3.0/bridge.xsd" target="_blank" rel="noopener">bridge.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/bridge/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
+<p>The CityGML Bridge XML elements and their corresponding CityGML UML classes are listed in <a href="#bridge-xml-elements">Table 7</a>. In addition, the CityGML Bridge XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/bridge/3.0/bridge.xsd" target="_blank" rel="noopener">bridge.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/bridge/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
 </div>
 <table id="bridge-xml-elements" class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 6. Bridge XML Elements</caption>
+<caption class="title">Table 7. Bridge XML Elements</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -2346,7 +2466,7 @@ Feature link</p></td>
 <div class="paragraph">
 <p>The concepts of the Building module are defined in the OGC CityGML 3.0 Conceptual Model standard. The UML diagram for the Building module is available under <a href="https://docs.ogc.org/is/20-010/20-010.html#building-uml" class="bare" target="_blank" rel="noopener">https://docs.ogc.org/is/20-010/20-010.html#building-uml</a>, the Data Dictionary is available under <a href="https://docs.ogc.org/is/20-010/20-010.html#toc64" class="bare" target="_blank" rel="noopener">https://docs.ogc.org/is/20-010/20-010.html#toc64</a>.</p>
 </div>
-<table id="building-requirements-class" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="building-requirements-class" class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 80%;">
@@ -2417,14 +2537,14 @@ Feature link</p></td>
 </div>
 <div class="sect3">
 <h4 id="_requirements_4"><a class="anchor" href="#_requirements_4"></a>6.5.3. Requirements</h4>
-<table id="req_building_elements" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="req_building_elements" class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  4</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  10</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/building/elements</strong></p></td>
 </tr>
 <tr>
@@ -2433,10 +2553,10 @@ Feature link</p></td>
 </tbody>
 </table>
 <div class="paragraph">
-<p>The CityGML Building XML elements and their corresponding CityGML UML classes are listed in <a href="#building-xml-elements">Table 7</a>. In addition, the CityGML Building XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/building/3.0/building.xsd" target="_blank" rel="noopener">building.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/building/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
+<p>The CityGML Building XML elements and their corresponding CityGML UML classes are listed in <a href="#building-xml-elements">Table 8</a>. In addition, the CityGML Building XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/building/3.0/building.xsd" target="_blank" rel="noopener">building.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/building/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
 </div>
 <table id="building-xml-elements" class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 7. Building XML Elements</caption>
+<caption class="title">Table 8. Building XML Elements</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -2546,7 +2666,7 @@ Feature link</p></td>
 <div class="paragraph">
 <p>The concepts of the CityFurniture module are defined in the OGC CityGML 3.0 Conceptual Model standard. The UML diagram for the City Furniture module is available under <a href="https://docs.ogc.org/is/20-010/20-010.html#cityfurniture-uml" class="bare" target="_blank" rel="noopener">https://docs.ogc.org/is/20-010/20-010.html#cityfurniture-uml</a>, the Data Dictionary is available under <a href="https://docs.ogc.org/is/20-010/20-010.html#toc51" class="bare" target="_blank" rel="noopener">https://docs.ogc.org/is/20-010/20-010.html#toc51</a>.</p>
 </div>
-<table id="city-furniture-requirements-class" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="city-furniture-requirements-class" class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 80%;">
@@ -2617,14 +2737,14 @@ Feature link</p></td>
 </div>
 <div class="sect3">
 <h4 id="_requirements_5"><a class="anchor" href="#_requirements_5"></a>6.6.3. Requirements</h4>
-<table id="req_city_furniture_elements" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="req_city_furniture_elements" class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  5</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  11</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/cityfurniture/elements</strong></p></td>
 </tr>
 <tr>
@@ -2633,10 +2753,10 @@ Feature link</p></td>
 </tbody>
 </table>
 <div class="paragraph">
-<p>The CityGML CityFurniture XML elements and their corresponding CityGML UML classes are listed in <a href="#city-furniture-xml-elements">Table 8</a>. In addition, the CityGML CityFurniture XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/cityfurniture/3.0/cityFurniture.xsd" target="_blank" rel="noopener">cityFurniture.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/cityFurniture/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
+<p>The CityGML CityFurniture XML elements and their corresponding CityGML UML classes are listed in <a href="#city-furniture-xml-elements">Table 9</a>. In addition, the CityGML CityFurniture XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/cityfurniture/3.0/cityFurniture.xsd" target="_blank" rel="noopener">cityFurniture.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/cityFurniture/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
 </div>
 <table id="city-furniture-xml-elements" class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 8. CityFurniture XML Elements</caption>
+<caption class="title">Table 9. CityFurniture XML Elements</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -2670,7 +2790,7 @@ Feature link</p></td>
 <div class="paragraph">
 <p>The concepts of the CityObjectGroup module are defined in the OGC CityGML 3.0 Conceptual Model standard. The UML diagram for the CityObjectGroup module is available under <a href="https://docs.ogc.org/is/20-010/20-010.html#cityobject-uml" class="bare" target="_blank" rel="noopener">https://docs.ogc.org/is/20-010/20-010.html#cityobject-uml</a>, the Data Dictionary is available under <a href="https://docs.ogc.org/is/20-010/20-010.html#toc52" class="bare" target="_blank" rel="noopener">https://docs.ogc.org/is/20-010/20-010.html#toc52</a>.</p>
 </div>
-<table id="city-object-group-requirements-class" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="city-object-group-requirements-class" class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 80%;">
@@ -2734,10 +2854,10 @@ Feature link</p></td>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>As described in <a href="#association-classes-section">Section G.1</a>, the UML association class Role is modelled as an intermediate class in an Implementation Model before the GML encoding is applied. In this way, a relation between a city object group and the features it groups can be represented in such a way that the city object group provides the Role element inline, whereas the Role element references the features that belong to the city object group using XLink. This encoding also ensures that the rule on referencing features from alternative aggregations as described in <a href="#linking-rules-4-section">Section 6.1.4.4</a> is observed.</p>
+<p>As described in <a href="#association-classes-section">Section G.1</a>, the UML association class Role is modelled as an intermediate class in an Implementation Model before the GML encoding is applied. In this way, a relation between a city object group and the features it groups can be represented in such a way that the city object group provides the Role element inline, whereas the Role element references the features that belong to the city object group using XLink. This encoding also ensures that Requirement <a href="#req_global_alternativeaggregations">/req/global/alternativeaggregations</a> on referencing features from alternative aggregations is observed.</p>
 </li>
 <li>
-<p>All associations allow by default that the referenced features can be provided inline or by reference. However, a restriction is defined for the following association, since it represents an alternative aggregation (see rule on referencing features from alternative aggregations in <a href="#linking-rules-4-section">Section 6.1.4.4</a>):</p>
+<p>All associations allow by default that the referenced features can be provided inline or by reference. However, a restriction is defined for the following association, since it represents an alternative aggregation (see Requirement <a href="#req_global_alternativeaggregations">/req/global/alternativeaggregations</a> on referencing features from alternative aggregations):</p>
 <div class="ulist">
 <ul>
 <li>
@@ -2751,14 +2871,14 @@ Feature link</p></td>
 </div>
 <div class="sect3">
 <h4 id="_requirements_6"><a class="anchor" href="#_requirements_6"></a>6.7.3. Requirements</h4>
-<table id="req_city_object_group_elements" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="req_city_object_group_elements" class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  6</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  12</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/cityobjectgroup/elements</strong></p></td>
 </tr>
 <tr>
@@ -2767,10 +2887,10 @@ Feature link</p></td>
 </tbody>
 </table>
 <div class="paragraph">
-<p>The CityGML CityObjectGroup XML elements and their corresponding CityGML UML classes are listed in <a href="#city-object-group-xml-elements">Table 9</a>. In addition, the CityGML CityObjectGroup XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/cityobjectgroup/3.0/cityObjectGroup.xsd" target="_blank" rel="noopener">cityObjectGroup.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/cityObjectGroup/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
+<p>The CityGML CityObjectGroup XML elements and their corresponding CityGML UML classes are listed in <a href="#city-object-group-xml-elements">Table 10</a>. In addition, the CityGML CityObjectGroup XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/cityobjectgroup/3.0/cityObjectGroup.xsd" target="_blank" rel="noopener">cityObjectGroup.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/cityObjectGroup/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
 </div>
 <table id="city-object-group-xml-elements" class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 9. CityObjectGroup XML Elements</caption>
+<caption class="title">Table 10. CityObjectGroup XML Elements</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -2808,7 +2928,7 @@ Feature link</p></td>
 <div class="paragraph">
 <p>The concepts of the Construction module are defined in the OGC CityGML 3.0 Conceptual Model standard. The UML diagram for the Construction module is available under <a href="https://docs.ogc.org/is/20-010/20-010.html#construction-uml" class="bare" target="_blank" rel="noopener">https://docs.ogc.org/is/20-010/20-010.html#construction-uml</a>, the Data Dictionary is available under <a href="https://docs.ogc.org/is/20-010/20-010.html#toc62" class="bare" target="_blank" rel="noopener">https://docs.ogc.org/is/20-010/20-010.html#toc62</a>.</p>
 </div>
-<table id="construction-requirements-class" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="construction-requirements-class" class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 80%;">
@@ -2879,14 +2999,14 @@ Feature link</p></td>
 </div>
 <div class="sect3">
 <h4 id="_requirements_7"><a class="anchor" href="#_requirements_7"></a>6.8.3. Requirements</h4>
-<table id="req_construction_elements" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="req_construction_elements" class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  7</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  13</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/construction/elements</strong></p></td>
 </tr>
 <tr>
@@ -2895,10 +3015,10 @@ Feature link</p></td>
 </tbody>
 </table>
 <div class="paragraph">
-<p>The CityGML Construction XML elements and their corresponding CityGML UML classes are listed in <a href="#construction-xml-elements">Table 10</a>. In addition, the CityGML Construction XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/construction/3.0/construction.xsd" target="_blank" rel="noopener">construction.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/construction/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
+<p>The CityGML Construction XML elements and their corresponding CityGML UML classes are listed in <a href="#construction-xml-elements">Table 11</a>. In addition, the CityGML Construction XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/construction/3.0/construction.xsd" target="_blank" rel="noopener">construction.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/construction/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
 </div>
 <table id="construction-xml-elements" class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 10. Construction XML Elements</caption>
+<caption class="title">Table 11. Construction XML Elements</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -3096,7 +3216,7 @@ Feature link</p></td>
 <div class="paragraph">
 <p>The concepts of the Dynamizer module are defined in the OGC CityGML 3.0 Conceptual Model standard. The UML diagram for the Dynamizer module is available under <a href="https://docs.ogc.org/is/20-010/20-010.html#dynamizer-uml" class="bare" target="_blank" rel="noopener">https://docs.ogc.org/is/20-010/20-010.html#dynamizer-uml</a>, the Data Dictionary is available under <a href="https://docs.ogc.org/is/20-010/20-010.html#toc53" class="bare" target="_blank" rel="noopener">https://docs.ogc.org/is/20-010/20-010.html#toc53</a>.</p>
 </div>
-<table id="dynamizer-requirements-class" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="dynamizer-requirements-class" class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 80%;">
@@ -3160,7 +3280,7 @@ Feature link</p></td>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>All associations allow by default that the referenced features can be provided inline or by reference. However, a restriction is defined for the following association, since it represents an alternative aggregation (see rule on referencing features from alternative aggregations in <a href="#linking-rules-4-section">Section 6.1.4.4</a>):</p>
+<p>All associations allow by default that the referenced features can be provided inline or by reference. However, a restriction is defined for the following association, since it represents an alternative aggregation (see Requirement <a href="#req_global_alternativeaggregations">/req/global/alternativeaggregations</a> on referencing features from alternative aggregations):</p>
 <div class="ulist">
 <ul>
 <li>
@@ -3174,14 +3294,14 @@ Feature link</p></td>
 </div>
 <div class="sect3">
 <h4 id="_requirements_8"><a class="anchor" href="#_requirements_8"></a>6.9.3. Requirements</h4>
-<table id="req_dynamizer_elements" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="req_dynamizer_elements" class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  8</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  14</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/dynamizer/elements</strong></p></td>
 </tr>
 <tr>
@@ -3190,10 +3310,10 @@ Feature link</p></td>
 </tbody>
 </table>
 <div class="paragraph">
-<p>The CityGML Dynamizer XML elements and their corresponding CityGML UML classes are listed in <a href="#dynamizer-xml-elements">Table 11</a>. In addition, the CityGML Dynamizer XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/dynamizer/3.0/dynamizer.xsd" target="_blank" rel="noopener">dynamizer.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/dynamizer/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
+<p>The CityGML Dynamizer XML elements and their corresponding CityGML UML classes are listed in <a href="#dynamizer-xml-elements">Table 12</a>. In addition, the CityGML Dynamizer XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/dynamizer/3.0/dynamizer.xsd" target="_blank" rel="noopener">dynamizer.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/dynamizer/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
 </div>
 <table id="dynamizer-xml-elements" class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 11. Dynamizer XML Elements</caption>
+<caption class="title">Table 12. Dynamizer XML Elements</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -3287,7 +3407,7 @@ Feature link</p></td>
 <div class="paragraph">
 <p>The concepts of the Generics module are defined in the OGC CityGML 3.0 Conceptual Model standard. The UML diagram for the Generics module is available under <a href="https://docs.ogc.org/is/20-010/20-010.html#generics-uml" class="bare" target="_blank" rel="noopener">https://docs.ogc.org/is/20-010/20-010.html#generics-uml</a>, the Data Dictionary is available under <a href="https://docs.ogc.org/is/20-010/20-010.html#toc54" class="bare" target="_blank" rel="noopener">https://docs.ogc.org/is/20-010/20-010.html#toc54</a>.</p>
 </div>
-<table id="generics-requirements-class" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="generics-requirements-class" class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 80%;">
@@ -3358,14 +3478,14 @@ Feature link</p></td>
 </div>
 <div class="sect3">
 <h4 id="_requirements_9"><a class="anchor" href="#_requirements_9"></a>6.10.3. Requirements</h4>
-<table id="req_generics_elements" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="req_generics_elements" class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  9</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  15</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/generics/elements</strong></p></td>
 </tr>
 <tr>
@@ -3374,10 +3494,10 @@ Feature link</p></td>
 </tbody>
 </table>
 <div class="paragraph">
-<p>The CityGML Generics XML elements and their corresponding CityGML UML classes are listed in <a href="#generics-xml-elements">Table 12</a>. In addition, the CityGML Generics XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/generics/3.0/generics.xsd" target="_blank" rel="noopener">generics.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/generics/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
+<p>The CityGML Generics XML elements and their corresponding CityGML UML classes are listed in <a href="#generics-xml-elements">Table 13</a>. In addition, the CityGML Generics XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/generics/3.0/generics.xsd" target="_blank" rel="noopener">generics.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/generics/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
 </div>
 <table id="generics-xml-elements" class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 12. Generics XML Elements</caption>
+<caption class="title">Table 13. Generics XML Elements</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -3467,7 +3587,7 @@ Feature link</p></td>
 <div class="paragraph">
 <p>The concepts of the LandUse module are defined in the OGC CityGML 3.0 Conceptual Model standard. The UML diagram for the LandUse module is available under <a href="https://docs.ogc.org/is/20-010/20-010.html#landuse-uml" class="bare" target="_blank" rel="noopener">https://docs.ogc.org/is/20-010/20-010.html#landuse-uml</a>, the Data Dictionary is available under <a href="https://docs.ogc.org/is/20-010/20-010.html#toc55" class="bare" target="_blank" rel="noopener">https://docs.ogc.org/is/20-010/20-010.html#toc55</a>.</p>
 </div>
-<table id="land-use-requirements-class" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="land-use-requirements-class" class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 80%;">
@@ -3538,14 +3658,14 @@ Feature link</p></td>
 </div>
 <div class="sect3">
 <h4 id="_requirements_10"><a class="anchor" href="#_requirements_10"></a>6.11.3. Requirements</h4>
-<table id="req_land_use_elements" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="req_land_use_elements" class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  10</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  16</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/landuse/elements</strong></p></td>
 </tr>
 <tr>
@@ -3554,10 +3674,10 @@ Feature link</p></td>
 </tbody>
 </table>
 <div class="paragraph">
-<p>The CityGML LandUse XML elements and their corresponding CityGML UML classes are listed in <a href="#land-use-xml-elements">Table 13</a>. In addition, the CityGML LandUse XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/landuse/3.0/landUse.xsd" target="_blank" rel="noopener">landUse.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/landUse/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
+<p>The CityGML LandUse XML elements and their corresponding CityGML UML classes are listed in <a href="#land-use-xml-elements">Table 14</a>. In addition, the CityGML LandUse XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/landuse/3.0/landUse.xsd" target="_blank" rel="noopener">landUse.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/landUse/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
 </div>
 <table id="land-use-xml-elements" class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 13. LandUse XML Elements</caption>
+<caption class="title">Table 14. LandUse XML Elements</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -3591,7 +3711,7 @@ Feature link</p></td>
 <div class="paragraph">
 <p>The concepts of the PointCloud module are defined in the OGC CityGML 3.0 Conceptual Model standard. The UML diagram for the PointCloud module is available under <a href="https://docs.ogc.org/is/20-010/20-010.html#pointcloud-uml" class="bare" target="_blank" rel="noopener">https://docs.ogc.org/is/20-010/20-010.html#pointcloud-uml</a>, the Data Dictionary is available under <a href="https://docs.ogc.org/is/20-010/20-010.html#toc56" class="bare" target="_blank" rel="noopener">https://docs.ogc.org/is/20-010/20-010.html#toc56</a>.</p>
 </div>
-<table id="point-cloud-requirements-class" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="point-cloud-requirements-class" class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 80%;">
@@ -3678,14 +3798,14 @@ Feature link</p></td>
 </div>
 <div class="sect3">
 <h4 id="_requirements_11"><a class="anchor" href="#_requirements_11"></a>6.12.3. Requirements</h4>
-<table id="req_point_cloud_elements" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="req_point_cloud_elements" class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  11</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  17</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/pointcloud/elements</strong></p></td>
 </tr>
 <tr>
@@ -3694,10 +3814,10 @@ Feature link</p></td>
 </tbody>
 </table>
 <div class="paragraph">
-<p>The CityGML PointCloud XML elements and their corresponding CityGML UML classes are listed in <a href="#point-cloud-xml-elements">Table 14</a>. In addition, the CityGML PointCloud XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/pointcloud/3.0/pointCloud.xsd" target="_blank" rel="noopener">pointCloud.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/pointCloud/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
+<p>The CityGML PointCloud XML elements and their corresponding CityGML UML classes are listed in <a href="#point-cloud-xml-elements">Table 15</a>. In addition, the CityGML PointCloud XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/pointcloud/3.0/pointCloud.xsd" target="_blank" rel="noopener">pointCloud.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/pointCloud/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
 </div>
 <table id="point-cloud-xml-elements" class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 14. PointCloud XML Elements</caption>
+<caption class="title">Table 15. PointCloud XML Elements</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -3731,7 +3851,7 @@ Feature link</p></td>
 <div class="paragraph">
 <p>The concepts of the Relief module are defined in the OGC CityGML 3.0 Conceptual Model standard. The UML diagram for the Relief module is available under <a href="https://docs.ogc.org/is/20-010/20-010.html#relief-uml" class="bare" target="_blank" rel="noopener">https://docs.ogc.org/is/20-010/20-010.html#relief-uml</a>, the Data Dictionary is available under <a href="https://docs.ogc.org/is/20-010/20-010.html#toc57" class="bare" target="_blank" rel="noopener">https://docs.ogc.org/is/20-010/20-010.html#toc57</a>.</p>
 </div>
-<table id="relief-requirements-class" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="relief-requirements-class" class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 80%;">
@@ -3802,14 +3922,14 @@ Feature link</p></td>
 </div>
 <div class="sect3">
 <h4 id="_requirements_12"><a class="anchor" href="#_requirements_12"></a>6.13.3. Requirements</h4>
-<table id="req_reliefe_elements" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="req_reliefe_elements" class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  12</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  18</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/relief/elements</strong></p></td>
 </tr>
 <tr>
@@ -3818,10 +3938,10 @@ Feature link</p></td>
 </tbody>
 </table>
 <div class="paragraph">
-<p>The CityGML Relief XML elements and their corresponding CityGML UML classes are listed in <a href="#relief-xml-elements">Table 15</a>. In addition, the CityGML Relief XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/relief/3.0/relief.xsd" target="_blank" rel="noopener">relief.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/relief/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
+<p>The CityGML Relief XML elements and their corresponding CityGML UML classes are listed in <a href="#relief-xml-elements">Table 16</a>. In addition, the CityGML Relief XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/relief/3.0/relief.xsd" target="_blank" rel="noopener">relief.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/relief/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
 </div>
 <table id="relief-xml-elements" class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 15. Relief XML Elements</caption>
+<caption class="title">Table 16. Relief XML Elements</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -3895,7 +4015,7 @@ Feature link</p></td>
 <div class="paragraph">
 <p>The concepts of the Transportation module are defined in the OGC CityGML 3.0 Conceptual Model standard. The UML diagram for the Transportation module is available under <a href="https://docs.ogc.org/is/20-010/20-010.html#transportation-uml" class="bare" target="_blank" rel="noopener">https://docs.ogc.org/is/20-010/20-010.html#transportation-uml</a>, the Data Dictionary is available under <a href="https://docs.ogc.org/is/20-010/20-010.html#toc58" class="bare" target="_blank" rel="noopener">https://docs.ogc.org/is/20-010/20-010.html#toc58</a>.</p>
 </div>
-<table id="transportation-requirements-class" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="transportation-requirements-class" class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 80%;">
@@ -3959,7 +4079,7 @@ Feature link</p></td>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>All associations allow by default that the referenced features can be provided inline or by reference. However, restrictions are defined for the following associations, since they represent alternative aggregations (see rule on referencing features from alternative aggregations in <a href="#linking-rules-4-section">Section 6.1.4.4</a>):</p>
+<p>All associations allow by default that the referenced features can be provided inline or by reference. However, restrictions are defined for the following associations, since they represent alternative aggregations (see Requirement <a href="#req_global_alternativeaggregations">/req/global/alternativeaggregations</a> on referencing features from alternative aggregations):</p>
 <div class="ulist">
 <ul>
 <li>
@@ -3976,14 +4096,14 @@ Feature link</p></td>
 </div>
 <div class="sect3">
 <h4 id="_requirements_13"><a class="anchor" href="#_requirements_13"></a>6.14.3. Requirements</h4>
-<table id="req_transportation_elements" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="req_transportation_elements" class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  13</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  19</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/transportation/elements</strong></p></td>
 </tr>
 <tr>
@@ -3992,10 +4112,10 @@ Feature link</p></td>
 </tbody>
 </table>
 <div class="paragraph">
-<p>The CityGML Transportation XML elements and their corresponding CityGML UML classes are listed in <a href="#transportation-xml-elements">Table 16</a>. In addition, the CityGML Transportation XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/transportation/3.0/transportation.xsd" target="_blank" rel="noopener">transportation.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/transportation/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
+<p>The CityGML Transportation XML elements and their corresponding CityGML UML classes are listed in <a href="#transportation-xml-elements">Table 17</a>. In addition, the CityGML Transportation XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/transportation/3.0/transportation.xsd" target="_blank" rel="noopener">transportation.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/transportation/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
 </div>
 <table id="transportation-xml-elements" class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 16. Transportation XML Elements</caption>
+<caption class="title">Table 17. Transportation XML Elements</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -4149,7 +4269,7 @@ Feature link</p></td>
 <div class="paragraph">
 <p>The concepts of the Tunnel module are defined in the OGC CityGML 3.0 Conceptual Model standard. The UML diagram for the Tunnel module is available under <a href="https://docs.ogc.org/is/20-010/20-010.html#tunnel-uml" class="bare" target="_blank" rel="noopener">https://docs.ogc.org/is/20-010/20-010.html#tunnel-uml</a>, the Data Dictionary is available under <a href="https://docs.ogc.org/is/20-010/20-010.html#toc65" class="bare" target="_blank" rel="noopener">https://docs.ogc.org/is/20-010/20-010.html#toc65</a>.</p>
 </div>
-<table id="tunnel-requirements-class" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="tunnel-requirements-class" class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 80%;">
@@ -4220,14 +4340,14 @@ Feature link</p></td>
 </div>
 <div class="sect3">
 <h4 id="_requirements_14"><a class="anchor" href="#_requirements_14"></a>6.15.3. Requirements</h4>
-<table id="req_tunnel_elements" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="req_tunnel_elements" class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  14</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  20</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/tunnel/elements</strong></p></td>
 </tr>
 <tr>
@@ -4236,10 +4356,10 @@ Feature link</p></td>
 </tbody>
 </table>
 <div class="paragraph">
-<p>The CityGML Tunnel XML elements and their corresponding CityGML UML classes are listed in <a href="#tunnel-xml-elements">Table 17</a>. In addition, the CityGML Tunnel XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/tunnel/3.0/tunnel.xsd" target="_blank" rel="noopener">tunnel.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/tunnel/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
+<p>The CityGML Tunnel XML elements and their corresponding CityGML UML classes are listed in <a href="#tunnel-xml-elements">Table 18</a>. In addition, the CityGML Tunnel XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/tunnel/3.0/tunnel.xsd" target="_blank" rel="noopener">tunnel.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/tunnel/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
 </div>
 <table id="tunnel-xml-elements" class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 17. Tunnel XML Elements</caption>
+<caption class="title">Table 18. Tunnel XML Elements</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -4321,7 +4441,7 @@ Feature link</p></td>
 <div class="paragraph">
 <p>The concepts of the Vegetation module are defined in the OGC CityGML 3.0 Conceptual Model standard. The UML diagram for the Vegetation module is available under <a href="https://docs.ogc.org/is/20-010/20-010.html#vegetation-uml" class="bare" target="_blank" rel="noopener">https://docs.ogc.org/is/20-010/20-010.html#vegetation-uml</a>, the Data Dictionary is available under <a href="https://docs.ogc.org/is/20-010/20-010.html#toc59" class="bare" target="_blank" rel="noopener">https://docs.ogc.org/is/20-010/20-010.html#toc59</a>.</p>
 </div>
-<table id="vegetation-requirements-class" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="vegetation-requirements-class" class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 80%;">
@@ -4392,14 +4512,14 @@ Feature link</p></td>
 </div>
 <div class="sect3">
 <h4 id="_requirements_15"><a class="anchor" href="#_requirements_15"></a>6.16.3. Requirements</h4>
-<table id="req_vegetation_elements" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="req_vegetation_elements" class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  15</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  21</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/vegetation/elements</strong></p></td>
 </tr>
 <tr>
@@ -4408,10 +4528,10 @@ Feature link</p></td>
 </tbody>
 </table>
 <div class="paragraph">
-<p>The CityGML Vegetation XML elements and their corresponding CityGML UML classes are listed in <a href="#vegetation-xml-elements">Table 18</a>. In addition, the CityGML Vegetation XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/vegetation/3.0/vegetation.xsd" target="_blank" rel="noopener">vegetation.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/vegetation/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
+<p>The CityGML Vegetation XML elements and their corresponding CityGML UML classes are listed in <a href="#vegetation-xml-elements">Table 19</a>. In addition, the CityGML Vegetation XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/vegetation/3.0/vegetation.xsd" target="_blank" rel="noopener">vegetation.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/vegetation/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
 </div>
 <table id="vegetation-xml-elements" class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 18. Vegetation XML Elements</caption>
+<caption class="title">Table 19. Vegetation XML Elements</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -4461,7 +4581,7 @@ Feature link</p></td>
 <div class="paragraph">
 <p>The concepts of the Versioning module are defined in the OGC CityGML 3.0 Conceptual Model standard. The UML diagram for the Versioning module is available under <a href="https://docs.ogc.org/is/20-010/20-010.html#versioning-uml" class="bare" target="_blank" rel="noopener">https://docs.ogc.org/is/20-010/20-010.html#versioning-uml</a>, the Data Dictionary is available under <a href="https://docs.ogc.org/is/20-010/20-010.html#toc60" class="bare" target="_blank" rel="noopener">https://docs.ogc.org/is/20-010/20-010.html#toc60</a>.</p>
 </div>
-<table id="versioning-requirements-class" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="versioning-requirements-class" class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 80%;">
@@ -4525,7 +4645,7 @@ Feature link</p></td>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>All associations allow by default that the referenced features can be provided inline or by reference. However, restrictions are defined for the following associations, since they represent alternative aggregations (see rule on referencing features from alternative aggregations in <a href="#linking-rules-4-section">Section 6.1.4.4</a>):</p>
+<p>All associations allow by default that the referenced features can be provided inline or by reference. However, restrictions are defined for the following associations, since they represent alternative aggregations (see Requirement <a href="#req_global_alternativeaggregations">/req/global/alternativeaggregations</a> on referencing features from alternative aggregations):</p>
 <div class="ulist">
 <ul>
 <li>
@@ -4551,14 +4671,14 @@ Feature link</p></td>
 </div>
 <div class="sect3">
 <h4 id="_requirements_16"><a class="anchor" href="#_requirements_16"></a>6.17.3. Requirements</h4>
-<table id="req_verioning_elements" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="req_versioning_elements" class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  16</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  22</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/versioning/elements</strong></p></td>
 </tr>
 <tr>
@@ -4567,10 +4687,10 @@ Feature link</p></td>
 </tbody>
 </table>
 <div class="paragraph">
-<p>The CityGML Versioning XML elements and their corresponding CityGML UML classes are listed in <a href="#versioning-xml-elements">Table 19</a>. In addition, the CityGML Versioning XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/versioning/3.0/versioning.xsd" target="_blank" rel="noopener">versioning.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/versioning/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
+<p>The CityGML Versioning XML elements and their corresponding CityGML UML classes are listed in <a href="#versioning-xml-elements">Table 20</a>. In addition, the CityGML Versioning XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/versioning/3.0/versioning.xsd" target="_blank" rel="noopener">versioning.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/versioning/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
 </div>
 <table id="versioning-xml-elements" class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 19. Versioning XML Elements</caption>
+<caption class="title">Table 20. Versioning XML Elements</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -4616,7 +4736,7 @@ Feature link</p></td>
 <div class="paragraph">
 <p>The concepts of the WaterBody module are defined in the OGC CityGML 3.0 Conceptual Model standard. The UML diagram for the WaterBody module is available under <a href="https://docs.ogc.org/is/20-010/20-010.html#waterbody-uml" class="bare" target="_blank" rel="noopener">https://docs.ogc.org/is/20-010/20-010.html#waterbody-uml</a>, the Data Dictionary is available under <a href="https://docs.ogc.org/is/20-010/20-010.html#toc61" class="bare" target="_blank" rel="noopener">https://docs.ogc.org/is/20-010/20-010.html#toc61</a>.</p>
 </div>
-<table id="water-body-requirements-class" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="water-body-requirements-class" class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 80%;">
@@ -4687,14 +4807,14 @@ Feature link</p></td>
 </div>
 <div class="sect3">
 <h4 id="_requirements_17"><a class="anchor" href="#_requirements_17"></a>6.18.3. Requirements</h4>
-<table id="req_water_body_elements" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="req_water_body_elements" class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  17</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  23</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/waterbody/elements</strong></p></td>
 </tr>
 <tr>
@@ -4703,10 +4823,10 @@ Feature link</p></td>
 </tbody>
 </table>
 <div class="paragraph">
-<p>The CityGML WaterBody XML elements and their corresponding CityGML UML classes are listed in <a href="#water-body-xml-elements">Table 20</a>. In addition, the CityGML WaterBody XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/waterbody/3.0/waterBody.xsd" target="_blank" rel="noopener">waterBody.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/waterBody/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
+<p>The CityGML WaterBody XML elements and their corresponding CityGML UML classes are listed in <a href="#water-body-xml-elements">Table 21</a>. In addition, the CityGML WaterBody XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/waterbody/3.0/waterBody.xsd" target="_blank" rel="noopener">waterBody.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/waterBody/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
 </div>
 <table id="water-body-xml-elements" class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 20. WaterBody XML Elements</caption>
+<caption class="title">Table 21. WaterBody XML Elements</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -4904,7 +5024,7 @@ Ensure that there is a conformance class for each requirements class and a test 
 <p>In general, real-time sensor data streams are available from numerous platforms. In the following, examples are provided for the use of the ThingSpeak platform, the OGC SensorThings API, and the MQTT protocol to retrieve the room temperature from the indoor sensor, as well as the WeatherUnderground Network and the OGC Sensor Observation Service to retrieve the outside temperature data from the weather station.</p>
 </div>
 <div class="sect4">
-<h5 id="_example_1_thingspeak_platform"><a class="anchor" href="#_example_1_thingspeak_platform"></a>Example 1: ThingSpeak platform</h5>
+<h5 id="_example_1_thingspeak_platform"><a class="anchor" href="#_example_1_thingspeak_platform"></a>B.1.1.1. Example 1: ThingSpeak platform</h5>
 <div class="paragraph">
 <p>The following is an example query to request sensor data from the ThingSpeak platform (the request is a single line without linebreaks and spaces). The request retrieves all observations between '2019-10-08T00:00:00Z' and '2019-10-09T00:00:00Z' for the field ID 1. ThingSpeak manages each registered sensor using a unique channel ID (here: 64242). A query to the channel ID delivers details on the sensor device and on the available datastreams. In this example, the datastreams available are temperature and humidity registered with the field IDs 1 and 2, respectively:</p>
 </div>
@@ -5007,7 +5127,7 @@ Ensure that there is a conformance class for each requirements class and a test 
 </div>
 </div>
 <div class="sect4">
-<h5 id="_example_2_ogc_sensorthings_api"><a class="anchor" href="#_example_2_ogc_sensorthings_api"></a>Example 2: OGC SensorThings API</h5>
+<h5 id="_example_2_ogc_sensorthings_api"><a class="anchor" href="#_example_2_ogc_sensorthings_api"></a>B.1.1.2. Example 2: OGC SensorThings API</h5>
 <div class="paragraph">
 <p>In this example, the same room temperature from sensor DHT22 is to be retrieved, but now the sensor observations are stored in a FROST Server and, thus, need to be queried using the OGC SensorThings API. The following is an example query to request sensor data from the FROST Server (the request is a single line without linebreaks and spaces). The request retrieves all observations between '2019-04-12T10:00:00.000Z' and '2019-04-12T10:30:00.000Z' for the Datastream ID 1 which is the temperature. According to the SensorThings API, observations are always aligned with datastreams:</p>
 </div>
@@ -5086,7 +5206,7 @@ Ensure that there is a conformance class for each requirements class and a test 
 </div>
 </div>
 <div class="sect4">
-<h5 id="_example_3_subscribing_to_real_time_datatreams_using_the_mqtt_protocol"><a class="anchor" href="#_example_3_subscribing_to_real_time_datatreams_using_the_mqtt_protocol"></a>Example 3: Subscribing to real-time datatreams using the MQTT protocol</h5>
+<h5 id="_example_3_subscribing_to_real_time_datatreams_using_the_mqtt_protocol"><a class="anchor" href="#_example_3_subscribing_to_real_time_datatreams_using_the_mqtt_protocol"></a>B.1.1.3. Example 3: Subscribing to real-time datatreams using the MQTT protocol</h5>
 <div class="paragraph">
 <p>In this example, the room temperature from sensor DHT22 is to be retrieved again, but this time, the observations are available on the Things Network platform. The Things Network supports the MQTT protocol and allows users to subscribe to its data streams. The following is an example request to connect to the Things Network via MQTT. Server represents the URL of the machine where the server is deployed. Topic connects to the individual datastream. The authentication details are provided as username and password. These details are required as separate attributes by an MQTT broker; they cannot be provided within a single URL:</p>
 </div>
@@ -5154,7 +5274,7 @@ Password:**********</pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_example_4_weather_underground_api_with_authentication"><a class="anchor" href="#_example_4_weather_underground_api_with_authentication"></a>Example 4: Weather Underground API with authentication</h5>
+<h5 id="_example_4_weather_underground_api_with_authentication"><a class="anchor" href="#_example_4_weather_underground_api_with_authentication"></a>B.1.1.4. Example 4: Weather Underground API with authentication</h5>
 <div class="paragraph">
 <p>In this example, the outside temperature measured by the weather station on the roof of the building is to be retrieved. The weather station is registered on the Weather Underground platform with the identifier 'MyPWS1'. The following is an example query to request sensor data from the Weather Underground API. The Weather Underground API requires a unique API Key for every user allowing to authenticate to a running sensor ID:</p>
 </div>
@@ -5231,7 +5351,7 @@ Password:**********</pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_example_5_ogc_sensor_observation_service"><a class="anchor" href="#_example_5_ogc_sensor_observation_service"></a>Example 5: OGC Sensor Observation Service</h5>
+<h5 id="_example_5_ogc_sensor_observation_service"><a class="anchor" href="#_example_5_ogc_sensor_observation_service"></a>B.1.1.5. Example 5: OGC Sensor Observation Service</h5>
 <div class="paragraph">
 <p>In this example, the same outside temperature from the weather station is to be retrieved, but now the sensor observations are stored in an OGC Sensor Observation Service (SOS). The observations can then be retrieved using the standardised SOS operation <em>GetObservation</em>. The following is an example <em>GetObservation</em> request (the request is a single line without linebreaks and spaces). The request retrieves all temperature observations between '2019-10-12T10:00:00.000Z' and '2019-10-09T00:00:00Z':</p>
 </div>
@@ -5332,7 +5452,7 @@ TEMPORALFILTER=om:phenomenonTime,2019-10-08T00:00:00Z/2019-10-09T00:00:00Z</pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_example_1_representation_of_timeseries_data_in_tabulated_files"><a class="anchor" href="#_example_1_representation_of_timeseries_data_in_tabulated_files"></a>Example 1: Representation of timeseries data in tabulated files</h5>
+<h5 id="_example_1_representation_of_timeseries_data_in_tabulated_files"><a class="anchor" href="#_example_1_representation_of_timeseries_data_in_tabulated_files"></a>B.1.2.1. Example 1: Representation of timeseries data in tabulated files</h5>
 <div class="paragraph">
 <p>In this example, the Dynamizer makes use of the TabulatedFileTimeseries object to link the dynamic data in tabulated files with the attribute of the city object.</p>
 </div>
@@ -5490,7 +5610,7 @@ wall2,2015-01,kWh,1313.344,3112.122,4109.742
 </div>
 </div>
 <div class="sect4">
-<h5 id="_example_2_representation_of_timeseries_data_in_files_based_on_international_standards"><a class="anchor" href="#_example_2_representation_of_timeseries_data_in_files_based_on_international_standards"></a>Example 2: Representation of timeseries data in files based on international standards</h5>
+<h5 id="_example_2_representation_of_timeseries_data_in_files_based_on_international_standards"><a class="anchor" href="#_example_2_representation_of_timeseries_data_in_files_based_on_international_standards"></a>B.1.2.2. Example 2: Representation of timeseries data in files based on international standards</h5>
 <div class="paragraph">
 <p>It is also possible to represent the timeseries values according to international standards such as OGC TimeseriesML 1.0 using the StandardFileTimeseries object.</p>
 </div>
@@ -5526,7 +5646,7 @@ wall2,2015-01,kWh,1313.344,3112.122,4109.742
 </div>
 </div>
 <div class="sect4">
-<h5 id="_example_3_representation_of_timeseries_data_inline_with_the_city_object"><a class="anchor" href="#_example_3_representation_of_timeseries_data_inline_with_the_city_object"></a>Example 3: Representation of timeseries data inline with the city object</h5>
+<h5 id="_example_3_representation_of_timeseries_data_inline_with_the_city_object"><a class="anchor" href="#_example_3_representation_of_timeseries_data_inline_with_the_city_object"></a>B.1.2.3. Example 3: Representation of timeseries data inline with the city object</h5>
 <div class="paragraph">
 <p>The solar potential simulation results can also be represented inline using a GenericTimeseries object. It allows for defining the necessary metadata of the timeseries data as well as the timeseries data itself, as is shown in <a href="#listing-gml-generic-timeseries">Listing 15</a>.</p>
 </div>
@@ -5562,7 +5682,7 @@ wall2,2015-01,kWh,1313.344,3112.122,4109.742
 </div>
 </div>
 <div class="sect4">
-<h5 id="_representing_complex_periodic_patterns_using_dynamizers"><a class="anchor" href="#_representing_complex_periodic_patterns_using_dynamizers"></a>Representing complex periodic patterns using Dynamizers</h5>
+<h5 id="_representing_complex_periodic_patterns_using_dynamizers"><a class="anchor" href="#_representing_complex_periodic_patterns_using_dynamizers"></a>B.1.2.4. Representing complex periodic patterns using Dynamizers</h5>
 <div class="paragraph">
 <p>Dynamizers also support the composition of atomic timeseries, i.e. of GenericTimeseries objects, TabulatedFileTimeseries objects, and/or StandardFileTimeseries objects, to form composite timeseries. One typical example illustrating such a scenario is the mapping of energy values of a building for every hour in a day as is shown in <a href="#figure-example-composite-timeseries">Figure 14</a>. The hourly consumption readings for a working day, a Saturday, and a Sunday are represented as individual atomic timeseries A, B, and C, respectively.</p>
 </div>
@@ -15192,7 +15312,7 @@ This is where conformance with CityGML 3.0 Conceptual Model is documented.
 <p>A gml:CodeValue datatype may have an optional codeSpace attribute. The purpose of the codeSpace attribute is to identify the codelist from which the value has been taken. Providing the codeSpace, especially with a dereferenceable identifier, allows easy access to further information detailing rules governing the use and meaning of the codelist&#8217;s values and metadata. There may also be rules defining such things as the use and interpretation of values that do not appear in the codelist, the duplication of values, or any other characteristics of a codelist. All such properties and uses of a codelist or codelist value are outside the scope of this CityGML 3.0 Encoding Specification. This does not in any way restrict the ability of an authority sponsoring a codelist, as denoted by the use of a codeSpace attribute, to have application-specific codelist values, rules, interpretations, and uses in an independent specification.</p>
 </div>
 <div class="paragraph">
-<p>The values for each of these 140 codelists are interpreted in a specific application context. In particular, they may be required, recommended, or suggested by an authority within an organization or community. As a consequence, the lists and contained values are outside the scope of standardization of the CityGML CM or any of its encodings. Since only the values themselves, not the lists or tables, appear in CityGML GML-encoded documents, the structure of codelists also lies outside the scope of CityGML CM and Encoding standards. Nevertheless, it is helpful to have some example codelists available for inspection by developers working with a specific encoding. This Annex contains example structures for GML, comma-separated-value (CSV), and JSON codelists. Supplementing these structures, OGC maintains a CityGML 3.0 codelist repository with samples of each of the 140 CityGML 3.0 codelist attributes in GML, CSV, and JSON form at <a href="https://data.ogc.org/citygml-swg/3.0/" class="bare">https://data.ogc.org/citygml-swg/3.0/</a><em>codelist_name</em>.<em>extension</em>,  where <em>codelist_name</em> is the name of the attribute in the CityGML 3.0 CM UML diagram and <em>extension</em> is "xml", "csv", or "json" to indicate the encoding.</p>
+<p>The values for each of these 140 codelists are interpreted in a specific application context. In particular, they may be required, recommended, or suggested by an authority within an organization or community. As a consequence, the lists and contained values are outside the scope of standardization of the CityGML CM or any of its encodings. Since only the values themselves, not the lists or tables, appear in CityGML GML-encoded documents, the structure of codelists also lies outside the scope of CityGML CM and Encoding standards. Nevertheless, it is helpful to have some example codelists available for inspection by developers working with a specific encoding. This Annex contains example structures for GML, comma-separated-value (CSV), and JSON codelists. Supplementing these structures, OGC maintains a CityGML 3.0 codelist repository with samples of each of the 140 CityGML 3.0 codelist attributes in GML, CSV, and JSON form at <a href="https://data.ogc.org/citygml-swg/3.0.0/" class="bare">https://data.ogc.org/citygml-swg/3.0.0/</a><em>&lt;Module_Name&gt;</em>.<em>&lt;Codelist_Name&gt;</em>.<em>&lt;Extension&gt;</em>,  where <em>&lt;Module_Name&gt;</em> is the name of the Module,  <em>&lt;Codelist_Name&gt;</em> is the name of the attribute in the CityGML 3.0 CM UML diagram, and <em>Extension</em> is "xml", "csv", or "json" to indicate the encoding. For example, to retrieve a sample codelist for the Vegetation Module PlantCoverClassValue, encoded as a GML 3.2 Dictionary, use the URL <a href="https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Vegetation.PlantCoverClassValue.xml" class="bare">https://data.ogc.org/citygml-swg/CodeList_Examples_3.0.0/Vegetation.PlantCoverClassValue.xml</a> . Note that the version number 3.0.0 is a codelist version number, not a standard version number. Once a sample codelist is published with a given version number, it will not change.</p>
 </div>
 <div class="sect2">
 <h3 id="_logical_model"><a class="anchor" href="#_logical_model"></a>E.1. Logical Model</h3>
@@ -15219,36 +15339,33 @@ This is where conformance with CityGML 3.0 Conceptual Model is documented.
 <div class="listingblock">
 <div class="content">
 <pre>&lt;?xml version="1.0" encoding="utf-8"?&gt;
-&lt;codelist xmlns:gml="http://www.opengis.net/gml/3.2"
-          xmlns:cmd="http://www.opengis.net/citygml/codelist-metadata"&gt;
-	&lt;gml:Dictionary gml:id="roofTypes"&gt;
-		&lt;gml:metaDataProperty&gt;
-			&lt;cmd:CodeListMetaData&gt;
-				&lt;cmd:dataType&gt;RoofTypeValue&lt;/cmd:dataType&gt;
-				&lt;cmd:namespace&gt;http://www.opengis.net/citygml/building/3.0&lt;/cmd:namespace&gt;
-				&lt;cmd:language&gt;en&lt;/cmd:language&gt;
-				&lt;cmd:authority&gt;Some Organization&lt;/cmd:authority&gt;
-				&lt;cmd:version&gt;3.0&lt;/cmd:version&gt;
-			&lt;/cmd:CodeListMetaData&gt;
-		&lt;/gml:metaDataProperty&gt;
-		&lt;gml:description&gt;Roof type values&lt;/gml:description&gt;
-		&lt;gml:identifier codeSpace="https://ogc.org/citygml/3.0/codelists/gml/rooftypes"&gt;RoofTypeValue&lt;/gml:identifier&gt;
-		&lt;gml:dictionaryEntry&gt;
-			&lt;gml:Definition gml:id="id1"&gt;
-				&lt;gml:description&gt;roof primarily a single plane, not necessarily level&lt;/gml:description&gt;
-				&lt;gml:identifier codeSpace="https://ogc.org/citygml/3.0/codelists/gml/rooftypes"&gt;1000&lt;/gml:identifier&gt;
-				&lt;gml:name&gt;flat roof&lt;/gml:name&gt;
-			&lt;/gml:Definition&gt;
-		&lt;/gml:dictionaryEntry&gt;
-		&lt;gml:dictionaryEntry&gt;
-			&lt;gml:Definition gml:id="id2"&gt;
-				&lt;gml:description&gt;a roof that has a ridge and two gables&lt;/gml:description&gt;
-				&lt;gml:identifier codeSpace="https://ogc.org/citygml/3.0/codelists/gml/rooftypes"&gt;3100&lt;/gml:identifier&gt;
-				&lt;gml:name&gt;saddle roof&lt;/gml:name&gt;
-			&lt;/gml:Definition&gt;
-		&lt;/gml:dictionaryEntry&gt;
-	&lt;/gml:Dictionary&gt;
-&lt;/codelist&gt;</pre>
+&lt;gml:Dictionary gml:id="id0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:cmd="http://www.opengis.net/citygml/codelist-metadata"&gt;
+	&lt;gml:metaDataProperty&gt;
+		&lt;cmd:CodeListMetaData&gt;
+			&lt;cmd:dataType&gt;RoofTypeValue&lt;/cmd:dataType&gt;
+			&lt;cmd:namespace&gt;http://www.opengis.net/citygml/building/3.0&lt;/cmd:namespace&gt;
+			&lt;cmd:language&gt;en&lt;/cmd:language&gt;
+			&lt;cmd:authority&gt;Some Organization&lt;/cmd:authority&gt;
+			&lt;cmd:version&gt;3.0&lt;/cmd:version&gt;
+		&lt;/cmd:CodeListMetaData&gt;
+	&lt;/gml:metaDataProperty&gt;
+	&lt;gml:description&gt;Roof type values&lt;/gml:description&gt;
+	&lt;gml:identifier codeSpace="https://ogc.org/citygml/3.0/codelists/gml/rooftypes"&gt;RoofTypeValue&lt;/gml:identifier&gt;
+	&lt;gml:dictionaryEntry&gt;
+		&lt;gml:Definition gml:id="id1"&gt;
+			&lt;gml:description&gt;roof primarily a single plane, not necessarily level&lt;/gml:description&gt;
+			&lt;gml:identifier codeSpace="https://ogc.org/citygml/3.0/codelists/gml/rooftypes"&gt;1000&lt;/gml:identifier&gt;
+			&lt;gml:name&gt;flat roof&lt;/gml:name&gt;
+		&lt;/gml:Definition&gt;
+	&lt;/gml:dictionaryEntry&gt;
+	&lt;gml:dictionaryEntry&gt;
+		&lt;gml:Definition gml:id="id2"&gt;
+			&lt;gml:description&gt;a roof that has a ridge and two gables&lt;/gml:description&gt;
+			&lt;gml:identifier codeSpace="https://ogc.org/citygml/3.0/codelists/gml/rooftypes"&gt;3100&lt;/gml:identifier&gt;
+			&lt;gml:name&gt;saddle roof&lt;/gml:name&gt;
+		&lt;/gml:Definition&gt;
+	&lt;/gml:dictionaryEntry&gt;
+&lt;/gml:Dictionary&gt;</pre>
 </div>
 </div>
 </div>
@@ -16110,7 +16227,7 @@ Particular variation of a spatial object<br>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-03-17 18:58:04 +0100
+Last updated 2022-06-10 16:48:02 +0200
 </div>
 </div>
 </body>
