@@ -1,0 +1,9 @@
+[[rec_appearance_parameterizedtexture_gml_3.3]]
+[width="100%",cols="2,6"]
+|===
+^|*Recommendation  {counter:rec-id}* |*/rec/appearance/parameterizedtexture-gml-3.3*
+2+|Assigning texture coordinates to a compact surface geometry of GML 3.3 using ParameterizedTexture elements should adhere to the following recommendations:
+^|A |The _textureCoordinates_ property SHOULD be used in the same way as for a normal surface geometry and as defined by <<req_appearance_parameterizedtexture,/req/appearance/parameterizedtexture>>. The number of 2D points in the _textureCoordinates_ element therefore must be identical with the number of 3D points of the simplified geometry.
+^|B |In contrast to a _gml:LinearRing_, the last point of a compact geometry does not have to repeat the first point. If it is repeated though, it SHOULD also be repeated for the texture coordinates.
+^|C |The _ring_ property SHOULD be an empty element.
+|===
