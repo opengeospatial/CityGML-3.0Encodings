@@ -1,0 +1,13 @@
+[[req_appearance_parameterizedtexture]]
+[width="100%",cols="2,6"]
+|===
+^|*Requirement  {counter:req-id}* |*/req/appearance/parameterizedtexture*
+2+|Assigning texture coordinates to a surface geometry using ParameterizedTexture elements is subject to the following restrictions:
+^|A |Texture coordinates given by the _textureCoordinates_ property of the _TexCoordList_ element define an explicit mapping of a surface’s boundary points to points in texture space. A point in texture space SHALL be given as a coordinate pair consisting of two doubles.
+^|B |The _textureCoordinates_ and _ring_ properties of a _TexCoordList_ element form pairs and their order is decisive. The first _textureCoordinates_ property in the sequence forms a pair with the first _ring_ property in the sequence, the second _textureCoordinates_ property forms a pair with the second _ring_ property, and so on. As a consequence, the number of _textureCoordinates_ and _ring_ properties SHALL be identical.
+^|C |A _TexCoordList_ element SHALL provide _textureCoordinates_ for all _gml:LinearRing_ elements contained in the surface geometry that is referenced by the _target_ property of the embracing _TextureAssociation_. This explicitly includes both exterior and interior rings.
+^|D |The _ring_ property (type: _anyURI_) SHALL reference the _gml:id_ of the target _gml:LinearRing_ using an appropriate XPointer.
+^|E |Each point in a ring of a surface geometry SHALL receive a point in texture space. The number of 2D points in the _textureCoordinates_ element therefore SHALL be identical with the number of 3D points in the ring referenced by the corresponding _ring_ property. This explicitly includes texture coordinates for the last point in a _gml:LinearRing_ element which, by GML definition, must be coincident with the first point.
+^|F |The order of points in the _textureCoordinates_ SHALL follow the order of the points in the referenced _ring_ element as given in the CityGML document regardless of a possibly flipped surface orientation.
+2+|Note: The order of the _ring_ properties MAY follow the order of the _gml:LinearRing_ elements in the target surface geometry but this is not required.
+|===

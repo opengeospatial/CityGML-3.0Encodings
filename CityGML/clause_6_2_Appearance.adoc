@@ -26,7 +26,7 @@ The following decisions have been made regarding implementation of the CityGML 3
 . All associations allow by default that the referenced features can be provided inline or by reference. However, a restriction is defined for the following association:
 * The assocation class TextureAssociation which connects ParameterizedTexture with AbstractTextureParameterization; here, AbstractTextureParameterization (or rather of the non-abstract subclasses TexCoordList and TexCoordGen) must be represented inline. For the GML encoding this means that the element ParameterizedTexture embeds the element TextureAssociation which, in turn, embeds either the element TexCoordList or TexCoordGen.
 
-==== Requirements
+==== Requirements and Recommendations
 
 include::requirements/appearance/REQ_Appearance_Elements.adoc[]
 
@@ -58,3 +58,11 @@ The CityGML Appearance XML elements and their corresponding CityGML UML classes 
 |https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/appearance/#element_TexCoordGen[TexCoordGen^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#TexCoordGen-section[TexCoordGen^]
 |https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/appearance/#element_TexCoordList[TexCoordList^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#TexCoordList-section[TexCoordList^]
 |===
+
+include::requirements/appearance/REQ_Appearance_Target.adoc[]
+
+include::requirements/appearance/REQ_Appearance_ParameterizedTexture.adoc[]
+
+include::requirements/appearance/REQ_Appearance_GeoreferencedTexture.adoc[]
+
+include::requirements/appearance/REC_Appearance_Global.adoc[]

@@ -1,0 +1,6 @@
+[[req_appearance_target]]
+[width="100%",cols="2,6"]
+|===
+^|*Requirement  {counter:req-id}* |*/req/appearance/target*
+2+|Surface data SHALL only be applied to surface geometries. The _target_ property of a surface data element therefore SHALL only reference a subtype of _gml:AbstractSurfaceType_ or a _gml:MultiSurface_.
+|===

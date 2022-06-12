@@ -1,0 +1,8 @@
+[[req_appearance_georeferencedtexture]]
+[width="100%",cols="2,6"]
+|===
+^|*Requirement  {counter:req-id}* |*/req/appearance/georeferencedtexture*
+2+|Using GeoreferencedTexture elements is subject to the following restrictions:
+^|A |A GeoreferencedTexture element SHALL define the geo-reference either inline using the _referencePoint_ and _orientation_ properties or externally inside the texture image (e.g., by using the GeoTIFF image format) or through an accompanying world file.
+^|B |The _referencePoint_ property (type: _gml:PointPropertyType_) SHALL only contain or reference a 2D point geometry.
+|===

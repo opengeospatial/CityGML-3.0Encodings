@@ -1,0 +1,6 @@
+[[rec_appearance_global]]
+[width="100%",cols="2,6"]
+|===
+^|*Recommendation  {counter:rec-id}* |*/rec/appearance/global*
+2+|The use of local appearances (i.e., appearances stored as property of a city object) SHOULD be preferred over the use of global appearances (i.e., appearances stored as _appearanceMember_ of a _CityModel_).
+|===
