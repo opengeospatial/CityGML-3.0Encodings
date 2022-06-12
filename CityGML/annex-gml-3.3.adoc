@@ -7,6 +7,7 @@
 The CityGML 3.0 GML schemas have been derived based on the OGC GML 3.2 standard. This means that CityGML GML instance documents must be created and exchanged in the GML version 3.2.
 
 For certain applications, however, it might be useful to create CityGML GML instance documents in the GML version 3.3. GML 3.3 complements GML 3.2 with concepts such as compact encodings of geometry types, linear referencing concepts (e.g., linear element, distance along, linear referencing methods), TINs, and encoding rules for association classes.
+
 Please note that software compliant to this standard might not be able to read the additional GML 3.3 concepts. This depends on whether the software only supports GML 3.2 or also GML 3.3.
 
 === Using GML 3.3 concepts in a CityGML instance document
@@ -17,7 +18,10 @@ To be able to create CityGML instance documents based on GML 3.3, those GML 3.3 
 .Use of GML 3.3 concepts in a CityGML GML instance document.
 [source,XML,highlight="1,10,12"]
 ----
-<CityModel xmlns:gmlce="http://www.opengis.net/gml/3.3/ce" ... further Namespaces ... xsi:schemaLocation="http://www.opengis.net/gml/3.3/ce http://schemas.opengis.net/gml/3.3/geometryCompact.xsd ... further schema location entries ...">
+<CityModel xmlns:gmlce="http://www.opengis.net/gml/3.3/ce"
+  ... further namespaces ...
+  xsi:schemaLocation="http://www.opengis.net/gml/3.3/ce http://schemas.opengis.net/gml/3.3/geometryCompact.xsd
+  ... further schema location entries ...">
   <cityObjectMember>
     <bldg:Building gml:id="DEBY_LOD2_5744682">
       ....
@@ -44,6 +48,6 @@ To be able to create CityGML instance documents based on GML 3.3, those GML 3.3 
 
 GML 3.3 introduces compact encodings for commonly used surface geometries such as _SimplePolygon_, _SimpleRectangle_, and _SimpleTriangle_. These simplified encodings are logically equivalent to a surface with a single gml:LinearRing as exterior boundary and without interior boundaries. Due to the simplification, the encodings do not use a gml:LinearRing element anymore that could be referenced from the ring property of a TexCoordList element.
 
-To still be able to assign texture coordinates to simplified surface geometries of GML 3.3, the following recommendation should be followed:
+To still be able to assign texture coordinates to simplified surface geometries of GML 3.3, the following recommendation should be followed.
 
 include::requirements/appearance/REC_Appearance_ParameterizedTexture_GML3.3.adoc[]
