@@ -36,7 +36,7 @@ The following decisions have been made regarding implementation of the CityGML 3
 . The UML class XALAddress is a placeholder for representing address details according to the OASIS xAL standard. The class is not encoded in the GML schema, but is simply mapped to xAL:Address, the root element for xAL-based address information.
 . The UML class CityModelMember was defined as a container for all the different types of objects that can occur as members of a city model. To allow that these objects can occur directly as members of a CityModel element and not as members of a CityModelMember element, this class is not mapped to a corresponding XML element, but to a global XML group.
 
-==== Requirements
+==== Requirements and Recommendations
 
 include::requirements/core/REQ_Core_Elements.adoc[]
 
@@ -97,3 +97,5 @@ The CityGML Core XML elements and their corresponding CityGML UML classes are li
 |https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/core/#element_QualifiedVolume[QualifiedVolume^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#QualifiedVolume-section[QualifiedVolume^]
 |--- (not mapped to XML, see <<core-section-implementation-decisions>>) |«DataType» https://docs.ogc.org/is/20-010/20-010.html#XALAddress-section[XALAddress^]
 |===
+
+include::requirements/core/REC_Core_CRS.adoc[]
