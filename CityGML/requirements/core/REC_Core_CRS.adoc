@@ -3,5 +3,5 @@
 |===
 ^|*Recommendation  {counter:rec-id}* |*/rec/core/crs*
 2+|It is _strongly recommended_ that any CityGML GML instance document SHOULD explicitly specify and use a single coordinate reference system (CRS), either well-known CRS or local engineering CRS, for all contained geometry elements. This is especially important if the instance document is to be exchanged externally with third parties or is to be integrated with other spatial datasets. In addition, it simplifies the processing of the dataset by software systems.
-2+|Note: For convenience, the CRS MAY be given as value of the _srsName_ attribute on the _gml:Envelope_ which is the value of the _gml:boundedBy_ property of the root _core:CityModel_ element. Following GML rules, this CRS is inherited by all contained geometries to any depth of nesting unless overruled by the presence of a local _srsName_.
+2+|Note: For convenience, the CRS MAY be given as value of the _srsName_ attribute on the _gml:Envelope_ which is the value of the _gml:boundedBy_ property of the root _core:CityModel_ element. Following GML rules, this CRS is inherited by all geometries contained in the instance document to any depth of nesting unless overruled by the presence of a local _srsName_.
 |===
