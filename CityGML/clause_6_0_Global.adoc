@@ -138,50 +138,50 @@ Three different cases for non-redundant representation need to be differentiated
 
 For these cases, different requirements are provided for how to encode the references in CityGML. Although these requirements impose restrictions, they facilitate at the same time reading, storing, processing, and generating of CityGML documents, because they reduce the multiple possibilities of how to represent and link features and geometries in CityGML documents to the most appropriate ones. Furthermore, top-level features can now completely be loaded in the main memory, because links to shared geometries that are part of different top-level features represented further down in the GML document do not need to be resolved any more. This also facilitates querying features and geometries using web services, as up to now queries cannot address specific parts of a geometry. Maintenance at the level of the top-level features becomes easier as well, because links between feature geometries do not need to be maintained and updated any more when a feature changes its geometry or when the feature does not exist anymore.
 
-<<table-global-requirements>> provides an overview of the different requirements, the link types used to encode the references and whether the link references geometries or features.
+// <<table-global-requirements>> provides an overview of the different requirements, the link types used to encode the references and whether the link references geometries or features.
+//
+// [[table-global-requirements]]
+// .Overview of linking rules.
+// [cols="60,20,20",options="headers"]
+// |===
+// ^|*Requirement* ^|*Link type* ^|*Link level*
+// |*<<req_global_referencinggeometries1,/req/global/referencinggeometries1>>* +
+// Referencing geometries from another top-level feature +
+// Exception for ImplicitGeometry objects
+// ^|{empty} +
+// - +
+// XLink
+// ^|{empty} +
+// - +
+// Geometry link
+// |*<<req_global_referencinggeometries2,/req/global/referencinggeometries2>>* +
+// Referencing geometries within the same top-level feature
+// ^|{empty} +
+// XLink
+// ^|{empty} +
+// Geometry link
+// |*<<req_global_referencinggeometries3,/req/global/referencinggeometries3>>* +
+// Referencing geometries between different LoDs
+// ^|{empty} +
+// -
+// ^|{empty} +
+// -
+// |*<<req_global_referencinggeometries4,/req/global/referencinggeometries4>>* +
+// Referencing geometries shared between different top-level features
+// ^|{empty} +
+// CityObjectRelation
+// ^|{empty} +
+// Feature link
+// |*<<req_global_alternativeaggregations,/req/global/alternativeaggregations>>* +
+// Referencing features from alternative aggregations
+// ^|{empty} +
+// XLink
+// ^|{empty} +
+// Feature link
+// |===
 
-[[table-global-requirements]]
-.Overview of linking rules.
-[cols="60,20,20",options="headers"]
-|===
-^|*Requirement* ^|*Link type* ^|*Link level*
-|*<<req_global_referencinggeometries1,/req/global/referencinggeometries1>>* +
-Referencing geometries from another top-level feature +
-Exception for ImplicitGeometry objects
-^|{empty} +
-- +
-XLink
-^|{empty} +
-- +
-Geometry link
-|*<<req_global_referencinggeometries2,/req/global/referencinggeometries2>>* +
-Referencing geometries within the same top-level feature
-^|{empty} +
-XLink
-^|{empty} +
-Geometry link
-|*<<req_global_referencinggeometries3,/req/global/referencinggeometries3>>* +
-Referencing geometries between different LoDs
-^|{empty} +
--
-^|{empty} +
--
-|*<<req_global_referencinggeometries4,/req/global/referencinggeometries4>>* +
-Referencing geometries shared between different top-level features
-^|{empty} +
-CityObjectRelation
-^|{empty} +
-Feature link
-|*<<req_global_alternativeaggregations,/req/global/alternativeaggregations>>* +
-Referencing features from alternative aggregations
-^|{empty} +
-XLink
-^|{empty} +
-Feature link
-|===
-
-[[linking-rules-1-section]]
-===== Requirements for referencing geometries using XLinks
+// [[linking-rules-1-section]]
+// ===== Requirements for referencing geometries using XLinks
 
 include::requirements/global/REQ_Global_ReferencingGeometries1.adoc[]
 
@@ -192,13 +192,23 @@ include::requirements/global/REQ_Global_ReferencingGeometries3.adoc[]
 Here, XLink represents a link at the geometry level (“geometry link”), i.e., a reference to the ID of the geometry to be reused. The link direction is always from the geometry of the space to the geometries of the space boundaries (example 1).
 
 
+include::requirements/global/REQ_Global_ReferencingGeometries4.adoc[]
+
+CityObjectRelation represents a link at the feature level (“feature link”) referencing the ID of another feature that contains a shared geometry. The explicit representation of the relation between the features facilitates spatial analyses.
+
+
+include::requirements/global/REQ_Global_AlternativeAggregations.adoc[]
+
+Here, XLink represents a link at the feature level (“feature link”), i.e., a reference to the ID of the feature being part of the natural aggregation. All features are part of a natural aggregation, i.e., features are typically represented in a data set once in physical form, either directly as part of the city model when they are top-level features (e.g. a Building), or inline as part of other (top-level) features (e.g. a BuildingRoom represented inline as part of the top-level feature Building). At the same time, the features can also occur in alternative aggregations.
+
+
 *Example 1: Building with Solid geometry and boundary surfaces*
 
 [[figure-example-simple-building]]
 .Simple building with solid geometry and boundary surfaces.
 image::images/Example_SimpleBuilding.png[width="25%"]
 
-The building (=space) in <<figure-example-simple-building>> is modelled in LOD2 as Solid geometry and is bounded by four WallSurfaces, one RoofSurface, and one GroundSurface (=space boundaries). All space boundaries are modelled as Polygon geometries. The Solid geometry of the building references the Polygon geometries using XLink.
+The building (=space) in <<figure-example-simple-building>> is modelled in LOD2 as Solid geometry and is bounded by four WallSurfaces, one RoofSurface, and one GroundSurface (=space boundaries). All space boundaries are modelled as Polygon geometries. The Solid geometry of the building references the Polygon geometries using XLink. This example refers to Requirement <<req_global_referencinggeometries2,/req/global/referencinggeometries2>>.
 
 The GML file is available here:
 https://github.com/opengeospatial/CityGML-3.0Encodings/tree/xlinks-discussion/CityGML/Examples/Building/XLink_examples/1_SimpleBuilding
@@ -215,7 +225,7 @@ image::images/UML_SimpleBuilding.png[align="center"]
 .Building with roof overhangs.
 image::images/Example_BuildingWithRoofOverhangs.png[width="25%"]
 
-The building (=space) in <<figure-example-building-with-roof-overhangs>> is modelled in LOD2 as Solid geometry and is bounded by four WallSurfaces, one RoofSurface, and one GroundSurface (=space boundaries). All space boundaries are modelled as Polygon geometries. The Solid geometry of the building references the Polygon geometries using XLink.
+The building (=space) in <<figure-example-building-with-roof-overhangs>> is modelled in LOD2 as Solid geometry and is bounded by four WallSurfaces, one RoofSurface, and one GroundSurface (=space boundaries). All space boundaries are modelled as Polygon geometries. The Solid geometry of the building references the Polygon geometries using XLink. This example refers to Requirement <<req_global_referencinggeometries2,/req/global/referencinggeometries2>>.
 
 The RoofSurface contains four Polygon geometries. Two of these Polygons are roof overhangs (i.e. dangling surfaces), and, thus, are not referenced by the Solid geometry of the building, as they would render the solid invalid if referenced. For this reason, an additional MultiSurface geometry is added to the building that references the dangling surfaces. In accordance with Requirement <<req_global_referencinggeometries2,/req/global/referencinggeometries2>> this MultiSurface geometry is optional. It is added to the building to provide additional information, but it is not mandatory to add this geometry.
 
@@ -234,7 +244,7 @@ image::images/UML_BuildingWithRoofOverhangs.png[align="center"]
 .Building with building installation.
 image::images/Example_BuildingWithBuildingInstallation.png[width="25%"]
 
-The building (=space) in <<figure-example-building-with-building-installation>> is modelled in LOD2 as Solid geometry and is bounded by eight WallSurfaces, four RoofSurfaces, and one GroundSurface (=space boundaries). In addition, the building has a dormer that is modelled as BuildingInstallation (=space). The building installation is modelled as MultiSurface geometry and is bounded by one RoofSurface and three WallSurfaces (=space boundaries).
+The building (=space) in <<figure-example-building-with-building-installation>> is modelled in LOD2 as Solid geometry and is bounded by eight WallSurfaces, four RoofSurfaces, and one GroundSurface (=space boundaries). In addition, the building has a dormer that is modelled as BuildingInstallation (=space). The building installation is modelled as MultiSurface geometry and is bounded by one RoofSurface and three WallSurfaces (=space boundaries). This example refers to Requirement <<req_global_referencinggeometries2,/req/global/referencinggeometries2>>.
 
 The space boundaries of the building and of the building installation are all modelled as Polygon geometries. The Solid geometry of the building references those Polygon geometries that represent the space boundaries of the building space using XLink. The MultiSurface geometry of the building installation references those Polygon geometries that represent the space boundaries of the building installation using XLink. In addition, the Solid geometry may also reference the Polygon geometries that represent the space boundaries of the building installation using XLink. These references to the geometries of a nested space are optional, in accordance with Requirement <<req_global_referencinggeometries2,/req/global/referencinggeometries2>> it is also allowed to not reference these geometries.
 
@@ -248,19 +258,16 @@ The Building from the GML file is illustrated in the object diagram in <<figure-
 image::images/UML_BuildingWithBuildingInstallation.png[align="center"]
 
 //[[linking-rules-2-section]]
-===== Requirements for referencing geometries using CityObjectRelations
+//===== Requirements for referencing geometries using CityObjectRelations
 
-include::requirements/global/REQ_Global_ReferencingGeometries4.adoc[]
 
-CityObjectRelation represents a link at the feature level (“feature link”) referencing the ID of another feature that contains a shared geometry. The explicit representation of the relation between the features facilitates spatial analyses.
-
-*Example 1: Two buildings with shared boundary surface*
+*Example 4: Two buildings with shared boundary surface*
 
 [[figure-example-two-buildings]]
 .Two buildings with shared boundary surface.
 image::images/Example_TwoBuildings.png[width="25%"]
 
-The two buildings (=top-level features) in <<figure-example-two-buildings>> are modelled in LOD2 as Solid geometry and are bounded by Wall-, Roof-, and GroundSurfaces that are modelled as Polygon geometries. One of the WallSurfaces of the first Building shares the Polygon geometry with one of the WallSurfaces of the second Building. Both WallSurfaces might appear identical, however, the surface normals of the Polygon geometries of the WallSurfaces are pointing in opposite directions.
+The two buildings (=top-level features) in <<figure-example-two-buildings>> are modelled in LOD2 as Solid geometry and are bounded by Wall-, Roof-, and GroundSurfaces that are modelled as Polygon geometries. One of the WallSurfaces of the first Building shares the Polygon geometry with one of the WallSurfaces of the second Building. Both WallSurfaces might appear identical, however, the surface normals of the Polygon geometries of the WallSurfaces are pointing in opposite directions. This example refers to Requirements <<req_global_referencinggeometries1,/req/global/referencinggeometries1>> and <<req_global_referencinggeometries4,/req/global/referencinggeometries4>>.
 
 To express that the WallSurfaces of the two buildings share the Polygon geometry, the WallSurfaces reference each other using a CityObjectRelation with the relation type “shared”. Both WallSurfaces contain the Polygon geometry themselves, the second WallSurface, however, in reverse order.
 
@@ -273,13 +280,13 @@ The Buildings from the GML file are illustrated in the object diagram in <<figur
 .UML object diagram for the building in <<figure-example-two-buildings>>.
 image::images/UML_TwoBuildings.png[align="center"]
 
-*Example 2: Road crossing a Bridge*
+*Example 5: Road crossing a Bridge*
 
 [[figure-example-road-over-bridge]]
 .Shared surfaces between a road and a bridge.
 image::images/Example_RoadOverBridge.png[align="center",width="70%"]
 
-A Road and a Bridge (=top-level features) are modelled in LOD2, as is shown in <<figure-example-road-over-bridge>>. The Bridge is bounded by Ground-, Roof-, and WallSurfaces that are modelled as MultiSurface geometries. The Road consists of three sections; each section is bounded by two TrafficAreas that are modelled as MultiSurface geometries as well. The RoofSurfaces of the Bridge share MultiSurface geometries with two TrafficAreas of the Road. The RoofSurfaces and the TrafficAreas are geometrically identical, but they differ semantically.
+A Road and a Bridge (=top-level features) are modelled in LOD2, as is shown in <<figure-example-road-over-bridge>>. The Bridge is bounded by Ground-, Roof-, and WallSurfaces that are modelled as MultiSurface geometries. The Road consists of three sections; each section is bounded by two TrafficAreas that are modelled as MultiSurface geometries as well. The RoofSurfaces of the Bridge share MultiSurface geometries with two TrafficAreas of the Road. The RoofSurfaces and the TrafficAreas are geometrically identical, but they differ semantically. This example refers to Requirements <<req_global_referencinggeometries1,/req/global/referencinggeometries1>> and <<req_global_referencinggeometries4,/req/global/referencinggeometries4>>.
 
 To express that the RoofSurfaces share MultiSurface geometries with two TrafficAreas, they reference each other using CityObjectRelations with the relation type “shared”.
 
@@ -292,18 +299,40 @@ The Road and Bridge from the GML file are illustrated in the object diagram in <
 .UML object diagram for the building in <<figure-example-road-over-bridge>>.
 image::images/UML_RoadOverBridge.png[align="center"]
 
-*Example 3: Parking garage*
+*Example 6: Parking garage*
 
 [[figure-example-parking-garage]]
 .Shared surfaces in a parking garage.
 image::images/Example_ParkingGarage.png[align="center",width="70%"]
 
-The parking garage in <<figure-example-parking-garage>> is modelled in LOD2 as a building (=top-level feature) with Floor-, Roof-, and WallSurfaces that are modelled as MultiSurface geometries. The parking garage contains a Road with Sections and TrafficAreas that are modelled as MultiSurface geometries as well. The Floor- and RoofSurface of the Building share MultiSurface geometries with the Sections and TrafficAreas of the Road.
+The parking garage in <<figure-example-parking-garage>> is modelled in LOD2 as a building (=top-level feature) with Floor-, Roof-, and WallSurfaces that are modelled as MultiSurface geometries. The parking garage contains a Road with Sections and TrafficAreas that are modelled as MultiSurface geometries as well. The Floor- and RoofSurface of the Building share MultiSurface geometries with the Sections and TrafficAreas of the Road. This example refers to Requirements <<req_global_referencinggeometries1,/req/global/referencinggeometries1>> and <<req_global_referencinggeometries4,/req/global/referencinggeometries4>>.
 
 To express the sharing of MultiSurface geometries between the Roof-/WallSurfaces and the Sections/TrafficAreas, they reference each other using CityObjectRelations with the relation type “shared”.
 
 The GML file is available here:
 https://github.com/opengeospatial/CityGML-3.0Encodings/blob/master/CityGML/Examples/Transportation/Basic%20examples/Road_over_Bridge_CityGML3.0_LOD2_with_CityObjectRelations.gml
+
+//
+//[[linking-rules-3-section]]
+//===== Requirements for referencing features using XLinks
+
+
+*Example 7: A specific version of a city model*
+
+A Version features groups, for instance, versions of city objects that are valid within a specific time period. The city model represents the natural aggregation of these versioned city objects, whereas the Version feature represents the alternative aggregation. Thus, the versioned city objects are represented inline as part of the city model, whereas they are referenced by the Version feature using XLink references. This example refers to Requirement <<req_global_alternativeaggregations,/req/global/alternativeaggregations>>.
+
+*Example 8: Building rooms belonging to a Storey*
+
+BuildingRooms are usually represented inline as part of the Building they belong to, thus, the Building represents the natural aggregation. In addition, Storeys can group BuildingRooms to indicate which BuildingRoom belongs to which Storey. In this case, when the BuildingRooms are already part of the Building, the grouping into Storeys would represent an alternative aggregation, thus, the Storeys would reference the BuildingRooms using XLink relations. This example refers to Requirement <<req_global_alternativeaggregations,/req/global/alternativeaggregations>>.
+
+*Example 9: A Building installation spanning across several Building Parts*
+
+Installations that are spanning across several building parts are to be physically modelled as part of one building part, all other building parts reference the installation using XLinks, expressing in this way, that the installation does not exclusively belong to one building part only. This means, that one of the BuildingParts represents the natural aggregation of the BuildingInstallation (i.e. inline representation), whereas the other BuildingParts represent alternative aggregations (i.e. XLink reference). This example refers to Requirement <<req_global_alternativeaggregations,/req/global/alternativeaggregations>>.
+
+*Example 10: CityObjectGroups*
+
+A CityObjectGroup groups existing city objects that are usually represented inline somewhere else in the data set. Thus, CityObjectGroups represent alternative aggregations and have to use XLink to reference the city objects they are grouping. This example refers to Requirement <<req_global_alternativeaggregations,/req/global/alternativeaggregations>>.
+
 
 *Exception: Intersection as part of two Roads*
 
@@ -311,7 +340,7 @@ https://github.com/opengeospatial/CityGML-3.0Encodings/blob/master/CityGML/Examp
 .Intersection shared by two roads.
 image::images/Example_Intersection.png[align="center",width="70%"]
 
-In <<figure-example-intersection>>, two Roads (=top-level features) are shown that each have two Sections and one Intersection. The two Roads cross each other at the Intersection. Although the Intersection and, thus, also its geometry is shared by both Roads, it exists in reality only once; i.e., the Intersection is integral part of both Roads. In contrast to the examples above, this should not be expressed by duplicating the Intersection to represent it inline of both Roads and link the duplicates using CityObjectRelations. Instead, the Intersection should be represented inline as part of one Road (here: Road 2) and be referenced by the other Road (here: Road 3) using an XLink that references the ID of the Intersection feature. This type of feature link is similar to Requirement <<req_global_alternativeaggregations,/req/global/alternativeaggregations>>, where XLinks are used to relate features to alternative aggregations, with the difference that Road 3 cannot semantically be considered an alternative aggregation of the Intersection.
+In <<figure-example-intersection>>, two Roads (=top-level features) are shown that each have two Sections and one Intersection. The two Roads cross each other at the Intersection. Although the Intersection and, thus, also its geometry is shared by both Roads, it exists in reality only once; i.e., the Intersection is integral part of both Roads. In contrast to Requirement <<req_global_referencinggeometries4,/req/global/referencinggeometries4>>, this should not be expressed by duplicating the Intersection to represent it inline of both Roads and link the duplicates using CityObjectRelations. Instead, the Intersection should be represented inline as part of one Road (here: Road 2) and be referenced by the other Road (here: Road 3) using an XLink that references the ID of the Intersection feature. This type of feature link is similar to Requirement <<req_global_alternativeaggregations,/req/global/alternativeaggregations>>, where XLinks are used to relate features to alternative aggregations, with the difference that Road 3 cannot semantically be considered an alternative aggregation of the Intersection.
 
 The GML file is available here:
 https://github.com/opengeospatial/CityGML-3.0Encodings/blob/master/CityGML/Examples/Transportation/Basic%20examples/ParkingGarage_CityGML3.0_LOD2_with_CityObjectRelations_and_XLinks.gml
@@ -321,29 +350,3 @@ The two Roads and the Intersection from the GML file are illustrated in the obje
 [[figure-uml-intersection]]
 .UML object diagram for the building in <<figure-example-intersection>>.
 image::images/UML_Intersection.png[align="center"]
-
-//
-[[linking-rules-3-section]]
-===== Requirements for referencing features using XLinks
-
-include::requirements/global/REQ_Global_AlternativeAggregations.adoc[]
-
-Here, XLink represents a link at the feature level (“feature link”), i.e., a reference to the ID of the feature being part of the natural aggregation. All features are part of a natural aggregation, i.e., features are typically represented in a data set once in physical form, either directly as part of the city model when they are top-level features (e.g. a Building), or inline as part of other (top-level) features (e.g. a BuildingRoom represented inline as part of the top-level feature Building). At the same time, the features can also occur in alternative aggregations.
-
-*Example 1: A specific version of a city model*
-
-A Version features groups, for instance, versions of city objects that are valid within a specific time period. The city model represents the natural aggregation of these versioned city objects, whereas the Version feature represents the alternative aggregation. Thus, the versioned city objects are represented inline as part of the city model, whereas they are referenced by the Version feature using XLink references.
-
-*Example 2: Building rooms belonging to a Storey*
-
-BuildingRooms are usually represented inline as part of the Building they belong to, thus, the Building represents the natural aggregation. In addition, Storeys can group BuildingRooms to indicate which BuildingRoom belongs to which Storey. In this case, when the BuildingRooms are already part of the Building, the grouping into Storeys would represent an alternative aggregation, thus, the Storeys would reference the BuildingRooms using XLink relations.
-
-*Example 3: A Building installation spanning across several Building Parts*
-
-Installations that are spanning across several building parts are to be physically modelled as part of one building part, all other building parts reference the installation using XLinks, expressing in this way, that the installation does not exclusively belong to one building part only.
-
-This means, that one of the BuildingParts represents the natural aggregation of the BuildingInstallation (i.e. inline representation), whereas the other BuildingParts represent alternative aggregations (i.e. XLink reference).
-
-*Example 4: CityObjectGroups*
-
-A CityObjectGroup groups existing city objects that are usually represented inline somewhere else in the data set. Thus, CityObjectGroups represent alternative aggregations and have to use XLink to reference the city objects they are grouping.
