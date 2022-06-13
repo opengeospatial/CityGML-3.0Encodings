@@ -1,8 +1,0 @@
-[[req_cityobjectgroup_referencetype]]
-[width="100%",cols="2,6"]
-|===
-^|*Requirement  {counter:req-id}* |*/req/cityobjectgroup/referencetype*
-2+|The following properties only allow to reference other features. The use of these properties is subject to the following restrictions:
-^|A |If the _parent_ property (type: _gml:ReferenceType_) of the _CityObjectGroup_ is not null, it SHALL contain a reference to a _core:AbstractCityObject_ element.
-^|B |If the _groupMember_ property (type: _gml:AbstractFeatureMemberType_) of the _Role_ element is not null, it SHALL contain a reference to a _core:AbstractCityObject_ element.
-|===

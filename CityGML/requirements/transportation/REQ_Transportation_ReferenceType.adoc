@@ -1,8 +1,0 @@
-[[req_transportation_referencetype]]
-[width="100%",cols="2,6"]
-|===
-^|*Requirement  {counter:req-id}* |*/req/transportation/referencetype*
-2+|The following properties only allow to reference other features. The use of these properties is subject to the following restrictions:
-^|A |If the _predecessor_ property (type: _gml:ReferenceType_) of the _TrafficSpace_ element is not null, it SHALL contain a reference to a _TrafficSpace_ element.
-^|B |If the _successor_ property (type: _gml:ReferenceType_) of the _TrafficSpace_ element is not null, it SHALL contain a reference to a _TrafficSpace_ element.
-|===

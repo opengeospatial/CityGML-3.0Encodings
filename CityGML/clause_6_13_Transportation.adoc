@@ -76,4 +76,4 @@ The CityGML Transportation XML elements and their corresponding CityGML UML clas
 |https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/transportation/#element_ADEOfWaterway[ADEOfWaterway^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfWaterway-section[ADEOfWaterway^]
 |===
 
-include::requirements/transportation/REQ_Transportation_ReferenceType.adoc[]
+include::requirements/transportation/REQ_Transportation_Reference.adoc[]

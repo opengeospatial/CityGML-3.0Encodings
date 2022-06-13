@@ -1,0 +1,8 @@
+[[req_core_reference]]
+[width="100%",cols="2,6"]
+|===
+^|*Requirement  {counter:req-id}* |*/req/core/reference*
+2+|The following properties only allow to reference other features. The use of these properties is subject to the following restrictions:
+^|A |If the _generalizesTo_ property (type: _gml:ReferenceType_) of the _AbstractCityObject_ element is not null, it SHALL contain an XLink reference to an _AbstractCityObject_ element.
+^|B |If the _relatedTo_ property (type: _gml:ReferenceType_) of the _CityObjectRelation_ is not null, it SHALL contain an XLink reference to an _AbstractCityObject_ element.
+|===

@@ -98,7 +98,7 @@ The CityGML Core XML elements and their corresponding CityGML UML classes are li
 |--- (not mapped to XML, see <<core-section-implementation-decisions>>) |«DataType» https://docs.ogc.org/is/20-010/20-010.html#XALAddress-section[XALAddress^]
 |===
 
-include::requirements/core/REQ_Core_ReferenceType.adoc[]
+include::requirements/core/REQ_Core_Reference.adoc[]
 
 Surface boundaries are constrained by the following requirement:
 

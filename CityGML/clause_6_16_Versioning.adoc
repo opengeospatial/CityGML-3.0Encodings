@@ -52,4 +52,4 @@ The CityGML Versioning XML elements and their corresponding CityGML UML classes 
 |https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/versioning/#element_Transaction[Transaction^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#Transaction-section[Transaction^]
 |===
 
-include::requirements/versioning/REQ_Versioning_ReferenceType.adoc[]
+include::requirements/versioning/REQ_Versioning_Reference.adoc[]
