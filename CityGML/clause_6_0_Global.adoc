@@ -189,7 +189,7 @@ include::requirements/global/REQ_Global_ReferencingGeometries2.adoc[]
 
 include::requirements/global/REQ_Global_ReferencingGeometries3.adoc[]
 
-Here, XLink represents a link at the geometry level (“geometry link”), i.e., a reference to the ID of the geometry to be reused. The link direction is always from the geometry of the space to the geometries of the space boundaries (example 1).
+In these requirements, XLink represents a link at the geometry level (“geometry link”), i.e., a reference to the ID of the geometry to be reused. The link direction is always from the geometry of the space to the geometries of the space boundaries (example 1).
 
 
 include::requirements/global/REQ_Global_ReferencingGeometries4.adoc[]
@@ -199,7 +199,7 @@ CityObjectRelation represents a link at the feature level (“feature link”) r
 
 include::requirements/global/REQ_Global_AlternativeAggregations.adoc[]
 
-Here, XLink represents a link at the feature level (“feature link”), i.e., a reference to the ID of the feature being part of the natural aggregation. All features are part of a natural aggregation, i.e., features are typically represented in a data set once in physical form, either directly as part of the city model when they are top-level features (e.g. a Building), or inline as part of other (top-level) features (e.g. a BuildingRoom represented inline as part of the top-level feature Building). At the same time, the features can also occur in alternative aggregations.
+In this requirement, XLink represents a link at the feature level (“feature link”), i.e., a reference to the ID of the feature being part of the natural aggregation. All features are part of a natural aggregation, i.e., features are typically represented in a data set once in physical form, either directly as part of the city model when they are top-level features (e.g. a Building), or inline as part of other (top-level) features (e.g. a BuildingRoom represented inline as part of the top-level feature Building). At the same time, the features can also occur in alternative aggregations.
 
 
 *Example 1: Building with Solid geometry and boundary surfaces*
