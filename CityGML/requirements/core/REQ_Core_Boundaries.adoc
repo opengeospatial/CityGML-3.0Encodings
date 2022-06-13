@@ -1,0 +1,6 @@
+[[req_core_boundaries]]
+[width="100%",cols="2,6"]
+|===
+^|*Requirement  {counter:req-id}* |*/req/core/boundaries*
+2+|<<core-boundaries-table>> lists the surfaces that are allowed as thematic surface boundaries of the space elements defined in the Core module. If a space element is bounded by thematic surface boundaries using the property _core:boundary_ (type: _core:AbstractSpaceBoundaryPropertyType_), the property SHALL contain exactly one surface element from <<core-boundaries-table>> that is supported for the specific space element.
+|===

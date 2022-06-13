@@ -1,0 +1,11 @@
+[[req_versioning_referencetype]]
+[width="100%",cols="2,6"]
+|===
+^|*Requirement  {counter:req-id}* |*/req/versioning/referencetype*
+2+|The following properties only allow to reference other features. The use of these properties is subject to the following restrictions:
+^|A |If the _from_ property (type: _gml:ReferenceType_) of the _VersionTransition_ element is not null, it SHALL contain a reference to a _Version_ element.
+^|B |If the _to_ property (type: _gml:ReferenceType_) of the _VersionTransition_ element is not null, it SHALL contain a reference to a _Version_ element.
+^|C |If the _oldFeature_ property (type: _gml:ReferenceType_) of the _Transaction_ element is not null, it SHALL contain a reference to a _core:AbstractFeatureWithLifespan_ element.
+^|D |If the _newFeature_ property (type: _gml:ReferenceType_) of the _Transaction_ element is not null, it SHALL contain a reference to a _core:AbstractFeatureWithLifespan_ element.
+^|E |If the _versionMember_ property (type: _gml:AbstractFeatureMemberType_) of the _Version_ element is not null, it SHALL contain a reference to a _core:AbstractFeatureWithLifespan_ element.
+|===

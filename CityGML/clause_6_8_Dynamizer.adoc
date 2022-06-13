@@ -59,3 +59,7 @@ The CityGML Dynamizer XML elements and their corresponding CityGML UML classes a
 |https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/dynamizer/#element_TimeseriesComponent[TimeseriesComponent^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#TimeseriesComponent-section[TimeseriesComponent^]
 |https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/dynamizer/#element_TimeValuePair[TimeValuePair^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#TimeValuePair-section[TimeValuePair^]
 |===
+
+include::requirements/dynamizer/REQ_Dynamizer_ReferenceType.adoc[]
+
+include::requirements/dynamizer/REQ_Dynamizer_AttributeRef.adoc[]

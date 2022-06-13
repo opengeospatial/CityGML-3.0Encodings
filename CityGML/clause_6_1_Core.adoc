@@ -99,3 +99,52 @@ The CityGML Core XML elements and their corresponding CityGML UML classes are li
 |===
 
 include::requirements/core/REC_Core_CRS.adoc[]
+
+include::requirements/core/REQ_Core_ReferenceType.adoc[]
+
+Surface boundaries are constrained by the following requirement:
+
+include::requirements/Core/REQ_Core_Boundaries.adoc[]
+
+<<core-boundaries-table>> lists the surfaces that are allowed as thematic surface boundaries of the space elements defined in the Core module:
+
+[[core-boundaries-table]]
+.Core space elements and their allowed thematic surface boundaries
+[cols="2,6",options="headers"]
+|===
+^|*Space element* ^|*Allowed space boundaries*
+|core:AbstractLogicalSpace
+a| * core:AbstractSpaceBoundary and the substitutable elements: +
+{nbsp}{nbsp}{nbsp}{nbsp}core:AbstractThematicSurface, +
+{nbsp}{nbsp}{nbsp}{nbsp}core:ClosureSurface
+   * gen:GenericThematicSurface
+   * possible surface elements from ADEs
+
+|core:AbstractOccupiedSpace
+a| * core:AbstractSpaceBoundary and the substitutable elements: +
+{nbsp}{nbsp}{nbsp}{nbsp}core:AbstractThematicSurface, +
+{nbsp}{nbsp}{nbsp}{nbsp}core:ClosureSurface
+   * gen:GenericThematicSurface
+   * possible surface elements from ADEs
+
+|core:AbstractPhysicalSpace
+a| * core:AbstractSpaceBoundary and the substitutable elements: +
+{nbsp}{nbsp}{nbsp}{nbsp}core:AbstractThematicSurface, +
+{nbsp}{nbsp}{nbsp}{nbsp}core:ClosureSurface
+   * gen:GenericThematicSurface
+   * possible surface elements from ADEs
+
+|core:AbstractSpace
+a| * core:AbstractSpaceBoundary and the substitutable elements: +
+{nbsp}{nbsp}{nbsp}{nbsp}core:AbstractThematicSurface, +
+{nbsp}{nbsp}{nbsp}{nbsp}core:ClosureSurface
+   * gen:GenericThematicSurface
+   * possible surface elements from ADEs
+
+|core:AbstractUnoccupiedSpace
+a| * core:AbstractSpaceBoundary and the substitutable elements: +
+{nbsp}{nbsp}{nbsp}{nbsp}core:AbstractThematicSurface, +
+{nbsp}{nbsp}{nbsp}{nbsp}core:ClosureSurface
+   * gen:GenericThematicSurface
+   * possible surface elements from ADEs
+|===

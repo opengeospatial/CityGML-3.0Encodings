@@ -1,0 +1,6 @@
+[[req_dynamizer_referencetype]]
+[width="100%",cols="2,6"]
+|===
+^|*Requirement  {counter:req-id}* |*/req/dynamizer/referencetype*
+2+|If the _sensorLocation_ property (type: _gml:ReferenceType_) of the _SensorConnection_ element is not null, it SHALL contain a reference to a _core:AbstractCityObject_ element.
+|===

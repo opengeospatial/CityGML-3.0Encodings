@@ -46,3 +46,5 @@ The CityGML CityObjectGroup XML elements and their corresponding CityGML UML cla
 |https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/cityObjectGroup/#element_Role[Role^] |«ObjectType» https://docs.ogc.org/is/20-010/20-010.html#Role-section[Role^]
 |https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/cityObjectGroup/#element_ADEOfCityObjectGroup[ADEOfCityObjectGroup^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfCityObjectGroup-section[ADEOfCityObjectGroup^]
 |===
+
+include::requirements/cityobjectgroup/REQ_CityObjectGroup_ReferenceType.adoc[]

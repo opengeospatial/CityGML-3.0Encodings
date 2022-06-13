@@ -1,0 +1,9 @@
+[[req_dynamizer_attributeref]]
+[width="100%",cols="2,6"]
+|===
+^|*Requirement  {counter:req-id}* |*/req/dynamizer/attributeref*
+2+|Referencing a feature property value using the _attributeRef_ property of a _Dynamizer_ element is subject to the following restrictions:
+^|A |The _attributeRef_ property (type: _xs:string_) SHALL reference a feature property value using XPath.
+^|B |The feature property referenced by the _attributeRef_ property SHALL exist.
+^|C |The data type of the timeseries data provided by a _Dynamizer_ element SHALL be equal to the data type of the static value of the feature property that is referenced by the _attributeRef_ property or be of a type that can be converted to the type of the feature property without information loss.
+|===
