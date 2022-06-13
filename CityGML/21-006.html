@@ -648,7 +648,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_examples">E.2. Examples</a></li>
 </ul>
 </li>
-<li><a href="#annex-gml-3.3">Annex F: Use of GML 3.3 (Informative)</a></li>
+<li><a href="#annex-gml-3.3">Annex F: Use of GML 3.3 (Informative)</a>
+<ul class="sectlevel2">
+<li><a href="#_using_gml_3_3_concepts_in_a_citygml_instance_document">F.1. Using GML 3.3 concepts in a CityGML instance document</a></li>
+<li><a href="#_assigning_textures_to_compact_surface_geometries">F.2. Assigning textures to compact surface geometries</a></li>
+</ul>
+</li>
 <li><a href="#annex-implementation-decisions">Annex G: Implementation Decisions (Informative)</a>
 <ul class="sectlevel2">
 <li><a href="#association-classes-section">G.1. Encoding of association classes</a></li>
@@ -1203,7 +1208,7 @@ NOTE Top-level features are denoted by the stereotype «TopLevelFeatureType» in
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">???</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">-</p></td>
 </tr>
 </tbody>
 </table>
@@ -1373,69 +1378,6 @@ NOTE Top-level features are denoted by the stereotype «TopLevelFeatureType» in
 <div class="paragraph">
 <p>For these cases, different requirements are provided for how to encode the references in CityGML. Although these requirements impose restrictions, they facilitate at the same time reading, storing, processing, and generating of CityGML documents, because they reduce the multiple possibilities of how to represent and link features and geometries in CityGML documents to the most appropriate ones. Furthermore, top-level features can now completely be loaded in the main memory, because links to shared geometries that are part of different top-level features represented further down in the GML document do not need to be resolved any more. This also facilitates querying features and geometries using web services, as up to now queries cannot address specific parts of a geometry. Maintenance at the level of the top-level features becomes easier as well, because links between feature geometries do not need to be maintained and updated any more when a feature changes its geometry or when the feature does not exist anymore.</p>
 </div>
-<div class="paragraph">
-<p><a href="#table-global-requirements">Table 4</a> provides an overview of the different requirements, the link types used to encode the references and whether the link references geometries or features.</p>
-</div>
-<table id="table-global-requirements" class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 4. Overview of linking rules.</caption>
-<colgroup>
-<col style="width: 60%;">
-<col style="width: 20%;">
-<col style="width: 20%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement</strong></p></td>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Link type</strong></p></td>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Link level</strong></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong><a href="#req_global_referencinggeometries1">/req/global/referencinggeometries1</a></strong><br>
-Referencing geometries from another top-level feature<br>
-Exception for ImplicitGeometry objects</p></td>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><br>
--<br>
-XLink</p></td>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><br>
--<br>
-Geometry link</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong><a href="#req_global_referencinggeometries2">/req/global/referencinggeometries2</a></strong><br>
-Referencing geometries within the same top-level feature</p></td>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><br>
-XLink</p></td>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><br>
-Geometry link</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong><a href="#req_global_referencinggeometries3">/req/global/referencinggeometries3</a></strong><br>
-Referencing geometries between different LoDs</p></td>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><br>
--</p></td>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><br>
--</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong><a href="#req_global_referencinggeometries4">/req/global/referencinggeometries4</a></strong><br>
-Referencing geometries shared between different top-level features</p></td>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><br>
-CityObjectRelation</p></td>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><br>
-Feature link</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong><a href="#req_global_alternativeaggregations">/req/global/alternativeaggregations</a></strong><br>
-Referencing features from alternative aggregations</p></td>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><br>
-XLink</p></td>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><br>
-Feature link</p></td>
-</tr>
-</tbody>
-</table>
-<div class="sect4">
-<h5 id="linking-rules-1-section"><a class="anchor" href="#linking-rules-1-section"></a>6.1.4.1. Requirements for referencing geometries using XLinks</h5>
 <table id="req_global_referencinggeometries1" class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -1502,92 +1444,8 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 </tbody>
 </table>
 <div class="paragraph">
-<p>Here, XLink represents a link at the geometry level (“geometry link”), i.e., a reference to the ID of the geometry to be reused. The link direction is always from the geometry of the space to the geometries of the space boundaries (example 1).</p>
+<p>In these requirements, XLink represents a link at the geometry level (“geometry link”), i.e., a reference to the ID of the geometry to be reused. The link direction is always from the geometry of the space to the geometries of the space boundaries (example 1).</p>
 </div>
-<div class="paragraph">
-<p><strong>Example 1: Building with Solid geometry and boundary surfaces</strong></p>
-</div>
-<div id="figure-example-simple-building" class="imageblock">
-<div class="content">
-<img src="images/Example_SimpleBuilding.png" alt="Example SimpleBuilding" width="25%">
-</div>
-<div class="title">Figure 1. Simple building with solid geometry and boundary surfaces.</div>
-</div>
-<div class="paragraph">
-<p>The building (=space) in <a href="#figure-example-simple-building">Figure 1</a> is modelled in LOD2 as Solid geometry and is bounded by four WallSurfaces, one RoofSurface, and one GroundSurface (=space boundaries). All space boundaries are modelled as Polygon geometries. The Solid geometry of the building references the Polygon geometries using XLink.</p>
-</div>
-<div class="paragraph">
-<p>The GML file is available here:
-<a href="https://github.com/opengeospatial/CityGML-3.0Encodings/tree/xlinks-discussion/CityGML/Examples/Building/XLink_examples/1_SimpleBuilding" class="bare">https://github.com/opengeospatial/CityGML-3.0Encodings/tree/xlinks-discussion/CityGML/Examples/Building/XLink_examples/1_SimpleBuilding</a></p>
-</div>
-<div class="paragraph">
-<p>The Building from the GML file is illustrated in the object diagram in <a href="#figure-uml-simple-building">Figure 2</a>. The XLink references between the Solid geometry and the Polygon geometries are highlighted in red.</p>
-</div>
-<div id="figure-uml-simple-building" class="imageblock text-center">
-<div class="content">
-<img src="images/UML_SimpleBuilding.png" alt="UML SimpleBuilding">
-</div>
-<div class="title">Figure 2. UML object diagram for the building in <a href="#figure-example-simple-building">Figure 1</a>.</div>
-</div>
-<div class="paragraph">
-<p><strong>Example 2: Building with roof overhangs</strong></p>
-</div>
-<div id="figure-example-building-with-roof-overhangs" class="imageblock">
-<div class="content">
-<img src="images/Example_BuildingWithRoofOverhangs.png" alt="Example BuildingWithRoofOverhangs" width="25%">
-</div>
-<div class="title">Figure 3. Building with roof overhangs.</div>
-</div>
-<div class="paragraph">
-<p>The building (=space) in <a href="#figure-example-building-with-roof-overhangs">Figure 3</a> is modelled in LOD2 as Solid geometry and is bounded by four WallSurfaces, one RoofSurface, and one GroundSurface (=space boundaries). All space boundaries are modelled as Polygon geometries. The Solid geometry of the building references the Polygon geometries using XLink.</p>
-</div>
-<div class="paragraph">
-<p>The RoofSurface contains four Polygon geometries. Two of these Polygons are roof overhangs (i.e. dangling surfaces), and, thus, are not referenced by the Solid geometry of the building, as they would render the solid invalid if referenced. For this reason, an additional MultiSurface geometry is added to the building that references the dangling surfaces. In accordance with Requirement <a href="#req_global_referencinggeometries2">/req/global/referencinggeometries2</a> this MultiSurface geometry is optional. It is added to the building to provide additional information, but it is not mandatory to add this geometry.</p>
-</div>
-<div class="paragraph">
-<p>The GML file is available here:
-<a href="https://github.com/opengeospatial/CityGML-3.0Encodings/tree/xlinks-discussion/CityGML/Examples/Building/XLink_examples/2_SimpleBuilding_Roof_Overhangs" class="bare">https://github.com/opengeospatial/CityGML-3.0Encodings/tree/xlinks-discussion/CityGML/Examples/Building/XLink_examples/2_SimpleBuilding_Roof_Overhangs</a></p>
-</div>
-<div class="paragraph">
-<p>The Building from the GML file is illustrated in the object diagram in <a href="#figure-uml-building-with-roof-overhangs">Figure 4</a>. The XLink references between the Solid geometry and the Polygon geometries are highlighted in red, the XLink references between the MultiSurface geometry and the dangling surfaces in blue.</p>
-</div>
-<div id="figure-uml-building-with-roof-overhangs" class="imageblock text-center">
-<div class="content">
-<img src="images/UML_BuildingWithRoofOverhangs.png" alt="UML BuildingWithRoofOverhangs">
-</div>
-<div class="title">Figure 4. UML object diagram for the building in <a href="#figure-example-building-with-roof-overhangs">Figure 3</a>.</div>
-</div>
-<div class="paragraph">
-<p><strong>Example 3: Building with BuildingInstallation</strong></p>
-</div>
-<div id="figure-example-building-with-building-installation" class="imageblock">
-<div class="content">
-<img src="images/Example_BuildingWithBuildingInstallation.png" alt="Example BuildingWithBuildingInstallation" width="25%">
-</div>
-<div class="title">Figure 5. Building with building installation.</div>
-</div>
-<div class="paragraph">
-<p>The building (=space) in <a href="#figure-example-building-with-building-installation">Figure 5</a> is modelled in LOD2 as Solid geometry and is bounded by eight WallSurfaces, four RoofSurfaces, and one GroundSurface (=space boundaries). In addition, the building has a dormer that is modelled as BuildingInstallation (=space). The building installation is modelled as MultiSurface geometry and is bounded by one RoofSurface and three WallSurfaces (=space boundaries).</p>
-</div>
-<div class="paragraph">
-<p>The space boundaries of the building and of the building installation are all modelled as Polygon geometries. The Solid geometry of the building references those Polygon geometries that represent the space boundaries of the building space using XLink. The MultiSurface geometry of the building installation references those Polygon geometries that represent the space boundaries of the building installation using XLink. In addition, the Solid geometry may also reference the Polygon geometries that represent the space boundaries of the building installation using XLink. These references to the geometries of a nested space are optional, in accordance with Requirement <a href="#req_global_referencinggeometries2">/req/global/referencinggeometries2</a> it is also allowed to not reference these geometries.</p>
-</div>
-<div class="paragraph">
-<p>The GML file is available here:
-<a href="https://github.com/opengeospatial/CityGML-3.0Encodings/tree/xlinks-discussion/CityGML/Examples/Building/XLink_examples/3_Building_With_Nested_Features" class="bare">https://github.com/opengeospatial/CityGML-3.0Encodings/tree/xlinks-discussion/CityGML/Examples/Building/XLink_examples/3_Building_With_Nested_Features</a></p>
-</div>
-<div class="paragraph">
-<p>The Building from the GML file is illustrated in the object diagram in <a href="#figure-uml-building-with-building-installation">Figure 6</a>. The XLink references from the building to the space boundaries of the building are highlighted in red, whereas those to the space boundaries of the building installation are highlighted in blue.</p>
-</div>
-<div id="figure-uml-building-with-building-installation" class="imageblock text-center">
-<div class="content">
-<img src="images/UML_BuildingWithBuildingInstallation.png" alt="UML BuildingWithBuildingInstallation">
-</div>
-<div class="title">Figure 6. UML object diagram for the building in <a href="#figure-example-building-with-building-installation">Figure 5</a>.</div>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_requirements_for_referencing_geometries_using_cityobjectrelations"><a class="anchor" href="#_requirements_for_referencing_geometries_using_cityobjectrelations"></a>6.1.4.2. Requirements for referencing geometries using CityObjectRelations</h5>
 <table id="req_global_referencinggeometries4" class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -1617,109 +1475,6 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 <div class="paragraph">
 <p>CityObjectRelation represents a link at the feature level (“feature link”) referencing the ID of another feature that contains a shared geometry. The explicit representation of the relation between the features facilitates spatial analyses.</p>
 </div>
-<div class="paragraph">
-<p><strong>Example 1: Two buildings with shared boundary surface</strong></p>
-</div>
-<div id="figure-example-two-buildings" class="imageblock">
-<div class="content">
-<img src="images/Example_TwoBuildings.png" alt="Example TwoBuildings" width="25%">
-</div>
-<div class="title">Figure 7. Two buildings with shared boundary surface.</div>
-</div>
-<div class="paragraph">
-<p>The two buildings (=top-level features) in <a href="#figure-example-two-buildings">Figure 7</a> are modelled in LOD2 as Solid geometry and are bounded by Wall-, Roof-, and GroundSurfaces that are modelled as Polygon geometries. One of the WallSurfaces of the first Building shares the Polygon geometry with one of the WallSurfaces of the second Building. Both WallSurfaces might appear identical, however, the surface normals of the Polygon geometries of the WallSurfaces are pointing in opposite directions.</p>
-</div>
-<div class="paragraph">
-<p>To express that the WallSurfaces of the two buildings share the Polygon geometry, the WallSurfaces reference each other using a CityObjectRelation with the relation type “shared”. Both WallSurfaces contain the Polygon geometry themselves, the second WallSurface, however, in reverse order.</p>
-</div>
-<div class="paragraph">
-<p>The GML file is available here:
-<a href="https://github.com/opengeospatial/CityGML-3.0Encodings/tree/xlinks-discussion/CityGML/Examples/Building/XLink_examples/4_Cross-Top-Level-XLink" class="bare">https://github.com/opengeospatial/CityGML-3.0Encodings/tree/xlinks-discussion/CityGML/Examples/Building/XLink_examples/4_Cross-Top-Level-XLink</a></p>
-</div>
-<div class="paragraph">
-<p>The Buildings from the GML file are illustrated in the object diagram in <a href="#figure-uml-two-buildings">Figure 8</a>. The CityObjectRelation is highlighted in red.</p>
-</div>
-<div id="figure-uml-two-buildings" class="imageblock text-center">
-<div class="content">
-<img src="images/UML_TwoBuildings.png" alt="UML TwoBuildings">
-</div>
-<div class="title">Figure 8. UML object diagram for the building in <a href="#figure-example-two-buildings">Figure 7</a>.</div>
-</div>
-<div class="paragraph">
-<p><strong>Example 2: Road crossing a Bridge</strong></p>
-</div>
-<div id="figure-example-road-over-bridge" class="imageblock text-center">
-<div class="content">
-<img src="images/Example_RoadOverBridge.png" alt="Example RoadOverBridge" width="70%">
-</div>
-<div class="title">Figure 9. Shared surfaces between a road and a bridge.</div>
-</div>
-<div class="paragraph">
-<p>A Road and a Bridge (=top-level features) are modelled in LOD2, as is shown in <a href="#figure-example-road-over-bridge">Figure 9</a>. The Bridge is bounded by Ground-, Roof-, and WallSurfaces that are modelled as MultiSurface geometries. The Road consists of three sections; each section is bounded by two TrafficAreas that are modelled as MultiSurface geometries as well. The RoofSurfaces of the Bridge share MultiSurface geometries with two TrafficAreas of the Road. The RoofSurfaces and the TrafficAreas are geometrically identical, but they differ semantically.</p>
-</div>
-<div class="paragraph">
-<p>To express that the RoofSurfaces share MultiSurface geometries with two TrafficAreas, they reference each other using CityObjectRelations with the relation type “shared”.</p>
-</div>
-<div class="paragraph">
-<p>The GML file is available here:
-<a href="https://github.com/opengeospatial/CityGML-3.0Encodings/blob/master/CityGML/Examples/Transportation/Basic%20examples/Road_over_Bridge_CityGML3.0_LOD2_with_CityObjectRelations.gml" class="bare">https://github.com/opengeospatial/CityGML-3.0Encodings/blob/master/CityGML/Examples/Transportation/Basic%20examples/Road_over_Bridge_CityGML3.0_LOD2_with_CityObjectRelations.gml</a></p>
-</div>
-<div class="paragraph">
-<p>The Road and Bridge from the GML file are illustrated in the object diagram in <a href="#figure-uml-road-over-bridge">Figure 10</a>. The CityObjectRelations are highlighted in red.</p>
-</div>
-<div id="figure-uml-road-over-bridge" class="imageblock text-center">
-<div class="content">
-<img src="images/UML_RoadOverBridge.png" alt="UML RoadOverBridge">
-</div>
-<div class="title">Figure 10. UML object diagram for the building in <a href="#figure-example-road-over-bridge">Figure 9</a>.</div>
-</div>
-<div class="paragraph">
-<p><strong>Example 3: Parking garage</strong></p>
-</div>
-<div id="figure-example-parking-garage" class="imageblock text-center">
-<div class="content">
-<img src="images/Example_ParkingGarage.png" alt="Example ParkingGarage" width="70%">
-</div>
-<div class="title">Figure 11. Shared surfaces in a parking garage.</div>
-</div>
-<div class="paragraph">
-<p>The parking garage in <a href="#figure-example-parking-garage">Figure 11</a> is modelled in LOD2 as a building (=top-level feature) with Floor-, Roof-, and WallSurfaces that are modelled as MultiSurface geometries. The parking garage contains a Road with Sections and TrafficAreas that are modelled as MultiSurface geometries as well. The Floor- and RoofSurface of the Building share MultiSurface geometries with the Sections and TrafficAreas of the Road.</p>
-</div>
-<div class="paragraph">
-<p>To express the sharing of MultiSurface geometries between the Roof-/WallSurfaces and the Sections/TrafficAreas, they reference each other using CityObjectRelations with the relation type “shared”.</p>
-</div>
-<div class="paragraph">
-<p>The GML file is available here:
-<a href="https://github.com/opengeospatial/CityGML-3.0Encodings/blob/master/CityGML/Examples/Transportation/Basic%20examples/Road_over_Bridge_CityGML3.0_LOD2_with_CityObjectRelations.gml" class="bare">https://github.com/opengeospatial/CityGML-3.0Encodings/blob/master/CityGML/Examples/Transportation/Basic%20examples/Road_over_Bridge_CityGML3.0_LOD2_with_CityObjectRelations.gml</a></p>
-</div>
-<div class="paragraph">
-<p><strong>Exception: Intersection as part of two Roads</strong></p>
-</div>
-<div id="figure-example-intersection" class="imageblock text-center">
-<div class="content">
-<img src="images/Example_Intersection.png" alt="Example Intersection" width="70%">
-</div>
-<div class="title">Figure 12. Intersection shared by two roads.</div>
-</div>
-<div class="paragraph">
-<p>In <a href="#figure-example-intersection">Figure 12</a>, two Roads (=top-level features) are shown that each have two Sections and one Intersection. The two Roads cross each other at the Intersection. Although the Intersection and, thus, also its geometry is shared by both Roads, it exists in reality only once; i.e., the Intersection is integral part of both Roads. In contrast to the examples above, this should not be expressed by duplicating the Intersection to represent it inline of both Roads and link the duplicates using CityObjectRelations. Instead, the Intersection should be represented inline as part of one Road (here: Road 2) and be referenced by the other Road (here: Road 3) using an XLink that references the ID of the Intersection feature. This type of feature link is similar to Requirement <a href="#req_global_alternativeaggregations">/req/global/alternativeaggregations</a>, where XLinks are used to relate features to alternative aggregations, with the difference that Road 3 cannot semantically be considered an alternative aggregation of the Intersection.</p>
-</div>
-<div class="paragraph">
-<p>The GML file is available here:
-<a href="https://github.com/opengeospatial/CityGML-3.0Encodings/blob/master/CityGML/Examples/Transportation/Basic%20examples/ParkingGarage_CityGML3.0_LOD2_with_CityObjectRelations_and_XLinks.gml" class="bare">https://github.com/opengeospatial/CityGML-3.0Encodings/blob/master/CityGML/Examples/Transportation/Basic%20examples/ParkingGarage_CityGML3.0_LOD2_with_CityObjectRelations_and_XLinks.gml</a></p>
-</div>
-<div class="paragraph">
-<p>The two Roads and the Intersection from the GML file are illustrated in the object diagram in <a href="#figure-uml-intersection">Figure 13</a>. The XLink reference is highlighted in red.</p>
-</div>
-<div id="figure-uml-intersection" class="imageblock text-center">
-<div class="content">
-<img src="images/UML_Intersection.png" alt="UML Intersection">
-</div>
-<div class="title">Figure 13. UML object diagram for the building in <a href="#figure-example-intersection">Figure 12</a>.</div>
-</div>
-</div>
-<div class="sect4">
-<h5 id="linking-rules-3-section"><a class="anchor" href="#linking-rules-3-section"></a>6.1.4.3. Requirements for referencing features using XLinks</h5>
 <table id="req_global_alternativeaggregations" class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -1744,35 +1499,212 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 </tbody>
 </table>
 <div class="paragraph">
-<p>Here, XLink represents a link at the feature level (“feature link”), i.e., a reference to the ID of the feature being part of the natural aggregation. All features are part of a natural aggregation, i.e., features are typically represented in a data set once in physical form, either directly as part of the city model when they are top-level features (e.g. a Building), or inline as part of other (top-level) features (e.g. a BuildingRoom represented inline as part of the top-level feature Building). At the same time, the features can also occur in alternative aggregations.</p>
+<p>In this requirement, XLink represents a link at the feature level (“feature link”), i.e., a reference to the ID of the feature being part of the natural aggregation. All features are part of a natural aggregation, i.e., features are typically represented in a data set once in physical form, either directly as part of the city model when they are top-level features (e.g. a Building), or inline as part of other (top-level) features (e.g. a BuildingRoom represented inline as part of the top-level feature Building). At the same time, the features can also occur in alternative aggregations.</p>
 </div>
 <div class="paragraph">
-<p><strong>Example 1: A specific version of a city model</strong></p>
+<p><strong>Example 1: Building with Solid geometry and boundary surfaces</strong></p>
+</div>
+<div id="figure-example-simple-building" class="imageblock">
+<div class="content">
+<img src="images/Example_SimpleBuilding.png" alt="Example SimpleBuilding" width="25%">
+</div>
+<div class="title">Figure 1. Simple building with solid geometry and boundary surfaces.</div>
 </div>
 <div class="paragraph">
-<p>A Version features groups, for instance, versions of city objects that are valid within a specific time period. The city model represents the natural aggregation of these versioned city objects, whereas the Version feature represents the alternative aggregation. Thus, the versioned city objects are represented inline as part of the city model, whereas they are referenced by the Version feature using XLink references.</p>
+<p>The building (=space) in <a href="#figure-example-simple-building">Figure 1</a> is modelled in LOD2 as Solid geometry and is bounded by four WallSurfaces, one RoofSurface, and one GroundSurface (=space boundaries). All space boundaries are modelled as Polygon geometries. The Solid geometry of the building references the Polygon geometries using XLink. This example refers to Requirement <a href="#req_global_referencinggeometries2">/req/global/referencinggeometries2</a>.</p>
 </div>
 <div class="paragraph">
-<p><strong>Example 2: Building rooms belonging to a Storey</strong></p>
+<p>The GML file is available here:
+<a href="https://github.com/opengeospatial/CityGML-3.0Encodings/tree/xlinks-discussion/CityGML/Examples/Building/XLink_examples/1_SimpleBuilding" class="bare">https://github.com/opengeospatial/CityGML-3.0Encodings/tree/xlinks-discussion/CityGML/Examples/Building/XLink_examples/1_SimpleBuilding</a></p>
 </div>
 <div class="paragraph">
-<p>BuildingRooms are usually represented inline as part of the Building they belong to, thus, the Building represents the natural aggregation. In addition, Storeys can group BuildingRooms to indicate which BuildingRoom belongs to which Storey. In this case, when the BuildingRooms are already part of the Building, the grouping into Storeys would represent an alternative aggregation, thus, the Storeys would reference the BuildingRooms using XLink relations.</p>
+<p>The Building from the GML file is illustrated in the object diagram in <a href="#figure-uml-simple-building">Figure 2</a>. The XLink references between the Solid geometry and the Polygon geometries are highlighted in red.</p>
+</div>
+<div id="figure-uml-simple-building" class="imageblock text-center">
+<div class="content">
+<img src="images/UML_SimpleBuilding.png" alt="UML SimpleBuilding">
+</div>
+<div class="title">Figure 2. UML object diagram for the building in <a href="#figure-example-simple-building">Figure 1</a>.</div>
 </div>
 <div class="paragraph">
-<p><strong>Example 3: A Building installation spanning across several Building Parts</strong></p>
+<p><strong>Example 2: Building with roof overhangs</strong></p>
+</div>
+<div id="figure-example-building-with-roof-overhangs" class="imageblock">
+<div class="content">
+<img src="images/Example_BuildingWithRoofOverhangs.png" alt="Example BuildingWithRoofOverhangs" width="25%">
+</div>
+<div class="title">Figure 3. Building with roof overhangs.</div>
 </div>
 <div class="paragraph">
-<p>Installations that are spanning across several building parts are to be physically modelled as part of one building part, all other building parts reference the installation using XLinks, expressing in this way, that the installation does not exclusively belong to one building part only.</p>
+<p>The building (=space) in <a href="#figure-example-building-with-roof-overhangs">Figure 3</a> is modelled in LOD2 as Solid geometry and is bounded by four WallSurfaces, one RoofSurface, and one GroundSurface (=space boundaries). All space boundaries are modelled as Polygon geometries. The Solid geometry of the building references the Polygon geometries using XLink. This example refers to Requirement <a href="#req_global_referencinggeometries2">/req/global/referencinggeometries2</a>.</p>
 </div>
 <div class="paragraph">
-<p>This means, that one of the BuildingParts represents the natural aggregation of the BuildingInstallation (i.e. inline representation), whereas the other BuildingParts represent alternative aggregations (i.e. XLink reference).</p>
+<p>The RoofSurface contains four Polygon geometries. Two of these Polygons are roof overhangs (i.e. dangling surfaces), and, thus, are not referenced by the Solid geometry of the building, as they would render the solid invalid if referenced. For this reason, an additional MultiSurface geometry is added to the building that references the dangling surfaces. In accordance with Requirement <a href="#req_global_referencinggeometries2">/req/global/referencinggeometries2</a> this MultiSurface geometry is optional. It is added to the building to provide additional information, but it is not mandatory to add this geometry.</p>
 </div>
 <div class="paragraph">
-<p><strong>Example 4: CityObjectGroups</strong></p>
+<p>The GML file is available here:
+<a href="https://github.com/opengeospatial/CityGML-3.0Encodings/tree/xlinks-discussion/CityGML/Examples/Building/XLink_examples/2_SimpleBuilding_Roof_Overhangs" class="bare">https://github.com/opengeospatial/CityGML-3.0Encodings/tree/xlinks-discussion/CityGML/Examples/Building/XLink_examples/2_SimpleBuilding_Roof_Overhangs</a></p>
 </div>
 <div class="paragraph">
-<p>A CityObjectGroup groups existing city objects that are usually represented inline somewhere else in the data set. Thus, CityObjectGroups represent alternative aggregations and have to use XLink to reference the city objects they are grouping.</p>
+<p>The Building from the GML file is illustrated in the object diagram in <a href="#figure-uml-building-with-roof-overhangs">Figure 4</a>. The XLink references between the Solid geometry and the Polygon geometries are highlighted in red, the XLink references between the MultiSurface geometry and the dangling surfaces in blue.</p>
 </div>
+<div id="figure-uml-building-with-roof-overhangs" class="imageblock text-center">
+<div class="content">
+<img src="images/UML_BuildingWithRoofOverhangs.png" alt="UML BuildingWithRoofOverhangs">
+</div>
+<div class="title">Figure 4. UML object diagram for the building in <a href="#figure-example-building-with-roof-overhangs">Figure 3</a>.</div>
+</div>
+<div class="paragraph">
+<p><strong>Example 3: Building with BuildingInstallation</strong></p>
+</div>
+<div id="figure-example-building-with-building-installation" class="imageblock">
+<div class="content">
+<img src="images/Example_BuildingWithBuildingInstallation.png" alt="Example BuildingWithBuildingInstallation" width="25%">
+</div>
+<div class="title">Figure 5. Building with building installation.</div>
+</div>
+<div class="paragraph">
+<p>The building (=space) in <a href="#figure-example-building-with-building-installation">Figure 5</a> is modelled in LOD2 as Solid geometry and is bounded by eight WallSurfaces, four RoofSurfaces, and one GroundSurface (=space boundaries). In addition, the building has a dormer that is modelled as BuildingInstallation (=space). The building installation is modelled as MultiSurface geometry and is bounded by one RoofSurface and three WallSurfaces (=space boundaries). This example refers to Requirement <a href="#req_global_referencinggeometries2">/req/global/referencinggeometries2</a>.</p>
+</div>
+<div class="paragraph">
+<p>The space boundaries of the building and of the building installation are all modelled as Polygon geometries. The Solid geometry of the building references those Polygon geometries that represent the space boundaries of the building space using XLink. The MultiSurface geometry of the building installation references those Polygon geometries that represent the space boundaries of the building installation using XLink. In addition, the Solid geometry may also reference the Polygon geometries that represent the space boundaries of the building installation using XLink. These references to the geometries of a nested space are optional, in accordance with Requirement <a href="#req_global_referencinggeometries2">/req/global/referencinggeometries2</a> it is also allowed to not reference these geometries.</p>
+</div>
+<div class="paragraph">
+<p>The GML file is available here:
+<a href="https://github.com/opengeospatial/CityGML-3.0Encodings/tree/xlinks-discussion/CityGML/Examples/Building/XLink_examples/3_Building_With_Nested_Features" class="bare">https://github.com/opengeospatial/CityGML-3.0Encodings/tree/xlinks-discussion/CityGML/Examples/Building/XLink_examples/3_Building_With_Nested_Features</a></p>
+</div>
+<div class="paragraph">
+<p>The Building from the GML file is illustrated in the object diagram in <a href="#figure-uml-building-with-building-installation">Figure 6</a>. The XLink references from the building to the space boundaries of the building are highlighted in red, whereas those to the space boundaries of the building installation are highlighted in blue.</p>
+</div>
+<div id="figure-uml-building-with-building-installation" class="imageblock text-center">
+<div class="content">
+<img src="images/UML_BuildingWithBuildingInstallation.png" alt="UML BuildingWithBuildingInstallation">
+</div>
+<div class="title">Figure 6. UML object diagram for the building in <a href="#figure-example-building-with-building-installation">Figure 5</a>.</div>
+</div>
+<div class="paragraph">
+<p><strong>Example 4: Two buildings with shared boundary surface</strong></p>
+</div>
+<div id="figure-example-two-buildings" class="imageblock">
+<div class="content">
+<img src="images/Example_TwoBuildings.png" alt="Example TwoBuildings" width="25%">
+</div>
+<div class="title">Figure 7. Two buildings with shared boundary surface.</div>
+</div>
+<div class="paragraph">
+<p>The two buildings (=top-level features) in <a href="#figure-example-two-buildings">Figure 7</a> are modelled in LOD2 as Solid geometry and are bounded by Wall-, Roof-, and GroundSurfaces that are modelled as Polygon geometries. One of the WallSurfaces of the first Building shares the Polygon geometry with one of the WallSurfaces of the second Building. Both WallSurfaces might appear identical, however, the surface normals of the Polygon geometries of the WallSurfaces are pointing in opposite directions. This example refers to Requirements <a href="#req_global_referencinggeometries1">/req/global/referencinggeometries1</a> and <a href="#req_global_referencinggeometries4">/req/global/referencinggeometries4</a>.</p>
+</div>
+<div class="paragraph">
+<p>To express that the WallSurfaces of the two buildings share the Polygon geometry, the WallSurfaces reference each other using a CityObjectRelation with the relation type “shared”. Both WallSurfaces contain the Polygon geometry themselves, the second WallSurface, however, in reverse order.</p>
+</div>
+<div class="paragraph">
+<p>The GML file is available here:
+<a href="https://github.com/opengeospatial/CityGML-3.0Encodings/tree/xlinks-discussion/CityGML/Examples/Building/XLink_examples/4_Cross-Top-Level-XLink" class="bare">https://github.com/opengeospatial/CityGML-3.0Encodings/tree/xlinks-discussion/CityGML/Examples/Building/XLink_examples/4_Cross-Top-Level-XLink</a></p>
+</div>
+<div class="paragraph">
+<p>The Buildings from the GML file are illustrated in the object diagram in <a href="#figure-uml-two-buildings">Figure 8</a>. The CityObjectRelation is highlighted in red.</p>
+</div>
+<div id="figure-uml-two-buildings" class="imageblock text-center">
+<div class="content">
+<img src="images/UML_TwoBuildings.png" alt="UML TwoBuildings">
+</div>
+<div class="title">Figure 8. UML object diagram for the building in <a href="#figure-example-two-buildings">Figure 7</a>.</div>
+</div>
+<div class="paragraph">
+<p><strong>Example 5: Road crossing a Bridge</strong></p>
+</div>
+<div id="figure-example-road-over-bridge" class="imageblock text-center">
+<div class="content">
+<img src="images/Example_RoadOverBridge.png" alt="Example RoadOverBridge" width="70%">
+</div>
+<div class="title">Figure 9. Shared surfaces between a road and a bridge.</div>
+</div>
+<div class="paragraph">
+<p>A Road and a Bridge (=top-level features) are modelled in LOD2, as is shown in <a href="#figure-example-road-over-bridge">Figure 9</a>. The Bridge is bounded by Ground-, Roof-, and WallSurfaces that are modelled as MultiSurface geometries. The Road consists of three sections; each section is bounded by two TrafficAreas that are modelled as MultiSurface geometries as well. The RoofSurfaces of the Bridge share MultiSurface geometries with two TrafficAreas of the Road. The RoofSurfaces and the TrafficAreas are geometrically identical, but they differ semantically. This example refers to Requirements <a href="#req_global_referencinggeometries1">/req/global/referencinggeometries1</a> and <a href="#req_global_referencinggeometries4">/req/global/referencinggeometries4</a>.</p>
+</div>
+<div class="paragraph">
+<p>To express that the RoofSurfaces share MultiSurface geometries with two TrafficAreas, they reference each other using CityObjectRelations with the relation type “shared”.</p>
+</div>
+<div class="paragraph">
+<p>The GML file is available here:
+<a href="https://github.com/opengeospatial/CityGML-3.0Encodings/blob/master/CityGML/Examples/Transportation/Basic%20examples/Road_over_Bridge_CityGML3.0_LOD2_with_CityObjectRelations.gml" class="bare">https://github.com/opengeospatial/CityGML-3.0Encodings/blob/master/CityGML/Examples/Transportation/Basic%20examples/Road_over_Bridge_CityGML3.0_LOD2_with_CityObjectRelations.gml</a></p>
+</div>
+<div class="paragraph">
+<p>The Road and Bridge from the GML file are illustrated in the object diagram in <a href="#figure-uml-road-over-bridge">Figure 10</a>. The CityObjectRelations are highlighted in red.</p>
+</div>
+<div id="figure-uml-road-over-bridge" class="imageblock text-center">
+<div class="content">
+<img src="images/UML_RoadOverBridge.png" alt="UML RoadOverBridge">
+</div>
+<div class="title">Figure 10. UML object diagram for the building in <a href="#figure-example-road-over-bridge">Figure 9</a>.</div>
+</div>
+<div class="paragraph">
+<p><strong>Example 6: Parking garage</strong></p>
+</div>
+<div id="figure-example-parking-garage" class="imageblock text-center">
+<div class="content">
+<img src="images/Example_ParkingGarage.png" alt="Example ParkingGarage" width="70%">
+</div>
+<div class="title">Figure 11. Shared surfaces in a parking garage.</div>
+</div>
+<div class="paragraph">
+<p>The parking garage in <a href="#figure-example-parking-garage">Figure 11</a> is modelled in LOD2 as a building (=top-level feature) with Floor-, Roof-, and WallSurfaces that are modelled as MultiSurface geometries. The parking garage contains a Road with Sections and TrafficAreas that are modelled as MultiSurface geometries as well. The Floor- and RoofSurface of the Building share MultiSurface geometries with the Sections and TrafficAreas of the Road. This example refers to Requirements <a href="#req_global_referencinggeometries1">/req/global/referencinggeometries1</a> and <a href="#req_global_referencinggeometries4">/req/global/referencinggeometries4</a>.</p>
+</div>
+<div class="paragraph">
+<p>To express the sharing of MultiSurface geometries between the Roof-/WallSurfaces and the Sections/TrafficAreas, they reference each other using CityObjectRelations with the relation type “shared”.</p>
+</div>
+<div class="paragraph">
+<p>The GML file is available here:
+<a href="https://github.com/opengeospatial/CityGML-3.0Encodings/blob/master/CityGML/Examples/Transportation/Basic%20examples/Road_over_Bridge_CityGML3.0_LOD2_with_CityObjectRelations.gml" class="bare">https://github.com/opengeospatial/CityGML-3.0Encodings/blob/master/CityGML/Examples/Transportation/Basic%20examples/Road_over_Bridge_CityGML3.0_LOD2_with_CityObjectRelations.gml</a></p>
+</div>
+<div class="paragraph">
+<p><strong>Example 7: A specific version of a city model</strong></p>
+</div>
+<div class="paragraph">
+<p>A Version features groups, for instance, versions of city objects that are valid within a specific time period. The city model represents the natural aggregation of these versioned city objects, whereas the Version feature represents the alternative aggregation. Thus, the versioned city objects are represented inline as part of the city model, whereas they are referenced by the Version feature using XLink references. This example refers to Requirement <a href="#req_global_alternativeaggregations">/req/global/alternativeaggregations</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Example 8: Building rooms belonging to a Storey</strong></p>
+</div>
+<div class="paragraph">
+<p>BuildingRooms are usually represented inline as part of the Building they belong to, thus, the Building represents the natural aggregation. In addition, Storeys can group BuildingRooms to indicate which BuildingRoom belongs to which Storey. In this case, when the BuildingRooms are already part of the Building, the grouping into Storeys would represent an alternative aggregation, thus, the Storeys would reference the BuildingRooms using XLink relations. This example refers to Requirement <a href="#req_global_alternativeaggregations">/req/global/alternativeaggregations</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Example 9: A Building installation spanning across several Building Parts</strong></p>
+</div>
+<div class="paragraph">
+<p>Installations that are spanning across several building parts are to be physically modelled as part of one building part, all other building parts reference the installation using XLinks, expressing in this way, that the installation does not exclusively belong to one building part only. This means, that one of the BuildingParts represents the natural aggregation of the BuildingInstallation (i.e. inline representation), whereas the other BuildingParts represent alternative aggregations (i.e. XLink reference). This example refers to Requirement <a href="#req_global_alternativeaggregations">/req/global/alternativeaggregations</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Example 10: CityObjectGroups</strong></p>
+</div>
+<div class="paragraph">
+<p>A CityObjectGroup groups existing city objects that are usually represented inline somewhere else in the data set. Thus, CityObjectGroups represent alternative aggregations and have to use XLink to reference the city objects they are grouping. This example refers to Requirement <a href="#req_global_alternativeaggregations">/req/global/alternativeaggregations</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Exception: Intersection as part of two Roads</strong></p>
+</div>
+<div id="figure-example-intersection" class="imageblock text-center">
+<div class="content">
+<img src="images/Example_Intersection.png" alt="Example Intersection" width="70%">
+</div>
+<div class="title">Figure 12. Intersection shared by two roads.</div>
+</div>
+<div class="paragraph">
+<p>In <a href="#figure-example-intersection">Figure 12</a>, two Roads (=top-level features) are shown that each have two Sections and one Intersection. The two Roads cross each other at the Intersection. Although the Intersection and, thus, also its geometry is shared by both Roads, it exists in reality only once; i.e., the Intersection is integral part of both Roads. In contrast to Requirement <a href="#req_global_referencinggeometries4">/req/global/referencinggeometries4</a>, this should not be expressed by duplicating the Intersection to represent it inline of both Roads and link the duplicates using CityObjectRelations. Instead, the Intersection should be represented inline as part of one Road (here: Road 2) and be referenced by the other Road (here: Road 3) using an XLink that references the ID of the Intersection feature. This type of feature link is similar to Requirement <a href="#req_global_alternativeaggregations">/req/global/alternativeaggregations</a>, where XLinks are used to relate features to alternative aggregations, with the difference that Road 3 cannot semantically be considered an alternative aggregation of the Intersection.</p>
+</div>
+<div class="paragraph">
+<p>The GML file is available here:
+<a href="https://github.com/opengeospatial/CityGML-3.0Encodings/blob/master/CityGML/Examples/Transportation/Basic%20examples/ParkingGarage_CityGML3.0_LOD2_with_CityObjectRelations_and_XLinks.gml" class="bare">https://github.com/opengeospatial/CityGML-3.0Encodings/blob/master/CityGML/Examples/Transportation/Basic%20examples/ParkingGarage_CityGML3.0_LOD2_with_CityObjectRelations_and_XLinks.gml</a></p>
+</div>
+<div class="paragraph">
+<p>The two Roads and the Intersection from the GML file are illustrated in the object diagram in <a href="#figure-uml-intersection">Figure 13</a>. The XLink reference is highlighted in red.</p>
+</div>
+<div id="figure-uml-intersection" class="imageblock text-center">
+<div class="content">
+<img src="images/UML_Intersection.png" alt="UML Intersection">
+</div>
+<div class="title">Figure 13. UML object diagram for the building in <a href="#figure-example-intersection">Figure 12</a>.</div>
 </div>
 </div>
 </div>
@@ -1881,7 +1813,7 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 </div>
 </div>
 <div class="sect3">
-<h4 id="_requirements"><a class="anchor" href="#_requirements"></a>6.2.3. Requirements</h4>
+<h4 id="_requirements_and_recommendations"><a class="anchor" href="#_requirements_and_recommendations"></a>6.2.3. Requirements and Recommendations</h4>
 <table id="req_core_elements" class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -1898,10 +1830,10 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 </tbody>
 </table>
 <div class="paragraph">
-<p>The CityGML Core XML elements and their corresponding CityGML UML classes are listed in <a href="#core-xml-elements">Table 5</a>. In addition, the CityGML Core XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/3.0/core.xsd" target="_blank" rel="noopener">core.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/core/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
+<p>The CityGML Core XML elements and their corresponding CityGML UML classes are listed in <a href="#core-xml-elements">Table 4</a>. In addition, the CityGML Core XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/3.0/core.xsd" target="_blank" rel="noopener">core.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/core/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
 </div>
 <table id="core-xml-elements" class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 5. Core XML Elements</caption>
+<caption class="title">Table 4. Core XML Elements</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -2097,6 +2029,174 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 </tr>
 </tbody>
 </table>
+<table id="rec_core_crs" class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation  1</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/rec/core/crs</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock">It is <em>strongly recommended</em> that any CityGML GML instance document SHOULD explicitly specify and use a single coordinate reference system (CRS), either well-known CRS or local engineering CRS, for all contained geometry elements. This is especially important if the instance document is to be exchanged externally with third parties or is to be integrated with other spatial datasets. In addition, it simplifies the processing of the dataset by software systems.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock">Note: For convenience, the CRS MAY be given as value of the <em>srsName</em> attribute on the <em>gml:Envelope</em> which is the value of the <em>gml:boundedBy</em> property of the root <em>core:CityModel</em> element. Following GML rules, this CRS is inherited by all geometries contained in the instance document to any depth of nesting unless overruled by the presence of a local <em>srsName</em>.</p></td>
+</tr>
+</tbody>
+</table>
+<table id="req_core_referencetype" class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  8</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/core/referencetype</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock">The following properties only allow to reference other features. The use of these properties is subject to the following restrictions:</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">If the <em>generalizesTo</em> property (type: <em>gml:ReferenceType</em>) of the <em>AbstractCityObject</em> element is not null, it SHALL contain a reference to an <em>AbstractCityObject</em> element.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">If the <em>relatedTo</em> property (type: <em>gml:ReferenceType</em>) of the <em>CityObjectRelation</em> is not null, it SHALL contain a reference to an <em>AbstractCityObject</em> element.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Surface boundaries are constrained by the following requirement:</p>
+</div>
+<table id="req_core_boundaries" class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  9</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/core/boundaries</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#core-boundaries-table">Table 5</a> lists the surfaces that are allowed as thematic surface boundaries of the space elements defined in the Core module. If a space element is bounded by thematic surface boundaries using the property <em>core:boundary</em> (type: <em>core:AbstractSpaceBoundaryPropertyType</em>), the property SHALL contain exactly one surface element from <a href="#core-boundaries-table">Table 5</a> that is supported for the specific space element.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><a href="#core-boundaries-table">Table 5</a> lists the surfaces that are allowed as thematic surface boundaries of the space elements defined in the Core module:</p>
+</div>
+<table id="core-boundaries-table" class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 5. Core space elements and their allowed thematic surface boundaries</caption>
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Space element</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Allowed space boundaries</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">core:AbstractLogicalSpace</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>core:AbstractSpaceBoundary and the substitutable elements:<br>
+&#160;&#160;&#160;&#160;core:AbstractThematicSurface,<br>
+&#160;&#160;&#160;&#160;core:ClosureSurface</p>
+</li>
+<li>
+<p>gen:GenericThematicSurface</p>
+</li>
+<li>
+<p>possible surface elements from ADEs</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">core:AbstractOccupiedSpace</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>core:AbstractSpaceBoundary and the substitutable elements:<br>
+&#160;&#160;&#160;&#160;core:AbstractThematicSurface,<br>
+&#160;&#160;&#160;&#160;core:ClosureSurface</p>
+</li>
+<li>
+<p>gen:GenericThematicSurface</p>
+</li>
+<li>
+<p>possible surface elements from ADEs</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">core:AbstractPhysicalSpace</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>core:AbstractSpaceBoundary and the substitutable elements:<br>
+&#160;&#160;&#160;&#160;core:AbstractThematicSurface,<br>
+&#160;&#160;&#160;&#160;core:ClosureSurface</p>
+</li>
+<li>
+<p>gen:GenericThematicSurface</p>
+</li>
+<li>
+<p>possible surface elements from ADEs</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">core:AbstractSpace</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>core:AbstractSpaceBoundary and the substitutable elements:<br>
+&#160;&#160;&#160;&#160;core:AbstractThematicSurface,<br>
+&#160;&#160;&#160;&#160;core:ClosureSurface</p>
+</li>
+<li>
+<p>gen:GenericThematicSurface</p>
+</li>
+<li>
+<p>possible surface elements from ADEs</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">core:AbstractUnoccupiedSpace</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>core:AbstractSpaceBoundary and the substitutable elements:<br>
+&#160;&#160;&#160;&#160;core:AbstractThematicSurface,<br>
+&#160;&#160;&#160;&#160;core:ClosureSurface</p>
+</li>
+<li>
+<p>gen:GenericThematicSurface</p>
+</li>
+<li>
+<p>possible surface elements from ADEs</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div class="sect2">
@@ -2184,7 +2284,7 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 </div>
 </div>
 <div class="sect3">
-<h4 id="_requirements_2"><a class="anchor" href="#_requirements_2"></a>6.3.3. Requirements</h4>
+<h4 id="_requirements_and_recommendations_2"><a class="anchor" href="#_requirements_and_recommendations_2"></a>6.3.3. Requirements and Recommendations</h4>
 <table id="req_appearance_elements" class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -2192,7 +2292,7 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  8</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  10</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/appearance/elements</strong></p></td>
 </tr>
 <tr>
@@ -2284,6 +2384,101 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 </tr>
 </tbody>
 </table>
+<table id="req_appearance_target" class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  11</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/appearance/target</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock">Surface data SHALL only be applied to surface geometries. The <em>target</em> property of a surface data element therefore SHALL only reference a subtype of <em>gml:AbstractSurfaceType</em> or a <em>gml:MultiSurface</em>.</p></td>
+</tr>
+</tbody>
+</table>
+<table id="req_appearance_parameterizedtexture" class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  12</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/appearance/parameterizedtexture</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock">Assigning texture coordinates to a surface geometry using ParameterizedTexture elements is subject to the following restrictions:</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Texture coordinates given by the <em>textureCoordinates</em> property of the <em>TexCoordList</em> element define an explicit mapping of a surface’s boundary points to points in texture space. A point in texture space SHALL be given as a coordinate pair consisting of two doubles.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">The <em>textureCoordinates</em> and <em>ring</em> properties of a <em>TexCoordList</em> element form pairs and their order is decisive. The first <em>textureCoordinates</em> property in the sequence forms a pair with the first <em>ring</em> property in the sequence, the second <em>textureCoordinates</em> property forms a pair with the second <em>ring</em> property, and so on. As a consequence, the number of <em>textureCoordinates</em> and <em>ring</em> properties SHALL be identical.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">C</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A <em>TexCoordList</em> element SHALL provide <em>textureCoordinates</em> for all <em>gml:LinearRing</em> elements contained in the surface geometry that is referenced by the <em>target</em> property of the embracing <em>TextureAssociation</em>. This explicitly includes both exterior and interior rings.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">D</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">The <em>ring</em> property (type: <em>anyURI</em>) SHALL reference the <em>gml:id</em> of the target <em>gml:LinearRing</em> using an appropriate XPointer.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">E</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Each point in a ring of a surface geometry SHALL receive a point in texture space. The number of 2D points in the <em>textureCoordinates</em> element therefore SHALL be identical with the number of 3D points in the ring referenced by the corresponding <em>ring</em> property. This explicitly includes texture coordinates for the last point in a <em>gml:LinearRing</em> element which, by GML definition, must be coincident with the first point.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">F</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">The order of points in the <em>textureCoordinates</em> SHALL follow the order of the points in the referenced <em>ring</em> element as given in the CityGML document regardless of a possibly flipped surface orientation.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock">Note: The order of the <em>ring</em> properties MAY follow the order of the <em>gml:LinearRing</em> elements in the target surface geometry but this is not required.</p></td>
+</tr>
+</tbody>
+</table>
+<table id="req_appearance_georeferencedtexture" class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  13</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/appearance/georeferencedtexture</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock">Using GeoreferencedTexture elements is subject to the following restrictions:</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A GeoreferencedTexture element SHALL define the geo-reference either inline using the <em>referencePoint</em> and <em>orientation</em> properties or externally inside the texture image (e.g., by using the GeoTIFF image format) or through an accompanying world file.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">The <em>referencePoint</em> property (type: <em>gml:PointPropertyType</em>) SHALL only contain or reference a 2D point geometry.</p></td>
+</tr>
+</tbody>
+</table>
+<table id="rec_appearance_global" class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation  2</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/rec/appearance/global</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock">The use of local appearances (i.e., appearances stored as property of a city object) SHOULD be preferred over the use of global appearances (i.e., appearances stored as <em>appearanceMember</em> of a <em>CityModel</em>).</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div class="sect2">
@@ -2364,7 +2559,7 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 </div>
 </div>
 <div class="sect3">
-<h4 id="_requirements_3"><a class="anchor" href="#_requirements_3"></a>6.4.3. Requirements</h4>
+<h4 id="_requirements"><a class="anchor" href="#_requirements"></a>6.4.3. Requirements</h4>
 <table id="req_bridge_elements" class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -2372,7 +2567,7 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  9</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  14</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/bridge/elements</strong></p></td>
 </tr>
 <tr>
@@ -2536,7 +2731,7 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 </div>
 </div>
 <div class="sect3">
-<h4 id="_requirements_4"><a class="anchor" href="#_requirements_4"></a>6.5.3. Requirements</h4>
+<h4 id="_requirements_2"><a class="anchor" href="#_requirements_2"></a>6.5.3. Requirements</h4>
 <table id="req_building_elements" class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -2544,7 +2739,7 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  10</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  15</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/building/elements</strong></p></td>
 </tr>
 <tr>
@@ -2736,7 +2931,7 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 </div>
 </div>
 <div class="sect3">
-<h4 id="_requirements_5"><a class="anchor" href="#_requirements_5"></a>6.6.3. Requirements</h4>
+<h4 id="_requirements_3"><a class="anchor" href="#_requirements_3"></a>6.6.3. Requirements</h4>
 <table id="req_city_furniture_elements" class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -2744,7 +2939,7 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  11</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  16</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/cityfurniture/elements</strong></p></td>
 </tr>
 <tr>
@@ -2870,7 +3065,7 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 </div>
 </div>
 <div class="sect3">
-<h4 id="_requirements_6"><a class="anchor" href="#_requirements_6"></a>6.7.3. Requirements</h4>
+<h4 id="_requirements_4"><a class="anchor" href="#_requirements_4"></a>6.7.3. Requirements</h4>
 <table id="req_city_object_group_elements" class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -2878,7 +3073,7 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  12</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  17</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/cityobjectgroup/elements</strong></p></td>
 </tr>
 <tr>
@@ -2915,6 +3110,29 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/cityObjectGroup/#element_ADEOfCityObjectGroup" target="_blank" rel="noopener">ADEOfCityObjectGroup</a></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">«DataType» <a href="https://docs.ogc.org/is/20-010/20-010.html#ADEOfCityObjectGroup-section" target="_blank" rel="noopener">ADEOfCityObjectGroup</a></p></td>
+</tr>
+</tbody>
+</table>
+<table id="req_cityobjectgroup_referencetype" class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  18</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/cityobjectgroup/referencetype</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock">The following properties only allow to reference other features. The use of these properties is subject to the following restrictions:</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">If the <em>parent</em> property (type: <em>gml:ReferenceType</em>) of the <em>CityObjectGroup</em> is not null, it SHALL contain a reference to a <em>core:AbstractCityObject</em> element.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">If the <em>groupMember</em> property (type: <em>gml:AbstractFeatureMemberType</em>) of the <em>Role</em> element is not null, it SHALL contain a reference to a <em>core:AbstractCityObject</em> element.</p></td>
 </tr>
 </tbody>
 </table>
@@ -2998,7 +3216,7 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 </div>
 </div>
 <div class="sect3">
-<h4 id="_requirements_7"><a class="anchor" href="#_requirements_7"></a>6.8.3. Requirements</h4>
+<h4 id="_requirements_5"><a class="anchor" href="#_requirements_5"></a>6.8.3. Requirements</h4>
 <table id="req_construction_elements" class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -3006,7 +3224,7 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  13</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  19</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/construction/elements</strong></p></td>
 </tr>
 <tr>
@@ -3293,7 +3511,7 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 </div>
 </div>
 <div class="sect3">
-<h4 id="_requirements_8"><a class="anchor" href="#_requirements_8"></a>6.9.3. Requirements</h4>
+<h4 id="_requirements_6"><a class="anchor" href="#_requirements_6"></a>6.9.3. Requirements</h4>
 <table id="req_dynamizer_elements" class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -3301,7 +3519,7 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  14</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  20</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/dynamizer/elements</strong></p></td>
 </tr>
 <tr>
@@ -3397,6 +3615,48 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 </tr>
 </tbody>
 </table>
+<table id="req_dynamizer_referencetype" class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  21</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/dynamizer/referencetype</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock">If the <em>sensorLocation</em> property (type: <em>gml:ReferenceType</em>) of the <em>SensorConnection</em> element is not null, it SHALL contain a reference to a <em>core:AbstractCityObject</em> element.</p></td>
+</tr>
+</tbody>
+</table>
+<table id="req_dynamizer_attributeref" class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  22</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/dynamizer/attributeref</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock">Referencing a feature property value using the <em>attributeRef</em> property of a <em>Dynamizer</em> element is subject to the following restrictions:</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">The <em>attributeRef</em> property (type: <em>xs:string</em>) SHALL reference a feature property value using XPath.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">The feature property referenced by the <em>attributeRef</em> property SHALL exist.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">C</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">The data type of the timeseries data provided by a <em>Dynamizer</em> element SHALL be equal to the data type of the static value of the feature property that is referenced by the <em>attributeRef</em> property or be of a type that can be converted to the type of the feature property without information loss.</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div class="sect2">
@@ -3477,7 +3737,7 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 </div>
 </div>
 <div class="sect3">
-<h4 id="_requirements_9"><a class="anchor" href="#_requirements_9"></a>6.10.3. Requirements</h4>
+<h4 id="_requirements_7"><a class="anchor" href="#_requirements_7"></a>6.10.3. Requirements</h4>
 <table id="req_generics_elements" class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -3485,7 +3745,7 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  15</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  23</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/generics/elements</strong></p></td>
 </tr>
 <tr>
@@ -3657,7 +3917,7 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 </div>
 </div>
 <div class="sect3">
-<h4 id="_requirements_10"><a class="anchor" href="#_requirements_10"></a>6.11.3. Requirements</h4>
+<h4 id="_requirements_8"><a class="anchor" href="#_requirements_8"></a>6.11.3. Requirements</h4>
 <table id="req_land_use_elements" class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -3665,7 +3925,7 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  16</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  24</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/landuse/elements</strong></p></td>
 </tr>
 <tr>
@@ -3797,7 +4057,7 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 </div>
 </div>
 <div class="sect3">
-<h4 id="_requirements_11"><a class="anchor" href="#_requirements_11"></a>6.12.3. Requirements</h4>
+<h4 id="_requirements_9"><a class="anchor" href="#_requirements_9"></a>6.12.3. Requirements</h4>
 <table id="req_point_cloud_elements" class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -3805,7 +4065,7 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  17</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  25</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/pointcloud/elements</strong></p></td>
 </tr>
 <tr>
@@ -3921,7 +4181,7 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 </div>
 </div>
 <div class="sect3">
-<h4 id="_requirements_12"><a class="anchor" href="#_requirements_12"></a>6.13.3. Requirements</h4>
+<h4 id="_requirements_10"><a class="anchor" href="#_requirements_10"></a>6.13.3. Requirements</h4>
 <table id="req_reliefe_elements" class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -3929,7 +4189,7 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  18</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  26</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/relief/elements</strong></p></td>
 </tr>
 <tr>
@@ -4095,7 +4355,7 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 </div>
 </div>
 <div class="sect3">
-<h4 id="_requirements_13"><a class="anchor" href="#_requirements_13"></a>6.14.3. Requirements</h4>
+<h4 id="_requirements_11"><a class="anchor" href="#_requirements_11"></a>6.14.3. Requirements</h4>
 <table id="req_transportation_elements" class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -4103,7 +4363,7 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  19</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  27</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/transportation/elements</strong></p></td>
 </tr>
 <tr>
@@ -4259,6 +4519,29 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 </tr>
 </tbody>
 </table>
+<table id="req_transportation_referencetype" class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  28</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/transportation/referencetype</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock">The following properties only allow to reference other features. The use of these properties is subject to the following restrictions:</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">If the <em>predecessor</em> property (type: <em>gml:ReferenceType</em>) of the <em>TrafficSpace</em> element is not null, it SHALL contain a reference to a <em>TrafficSpace</em> element.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">If the <em>successor</em> property (type: <em>gml:ReferenceType</em>) of the <em>TrafficSpace</em> element is not null, it SHALL contain a reference to a <em>TrafficSpace</em> element.</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div class="sect2">
@@ -4339,7 +4622,7 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 </div>
 </div>
 <div class="sect3">
-<h4 id="_requirements_14"><a class="anchor" href="#_requirements_14"></a>6.15.3. Requirements</h4>
+<h4 id="_requirements_12"><a class="anchor" href="#_requirements_12"></a>6.15.3. Requirements</h4>
 <table id="req_tunnel_elements" class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -4347,7 +4630,7 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  20</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  29</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/tunnel/elements</strong></p></td>
 </tr>
 <tr>
@@ -4511,7 +4794,7 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 </div>
 </div>
 <div class="sect3">
-<h4 id="_requirements_15"><a class="anchor" href="#_requirements_15"></a>6.16.3. Requirements</h4>
+<h4 id="_requirements_13"><a class="anchor" href="#_requirements_13"></a>6.16.3. Requirements</h4>
 <table id="req_vegetation_elements" class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -4519,7 +4802,7 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  21</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  30</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/vegetation/elements</strong></p></td>
 </tr>
 <tr>
@@ -4670,7 +4953,7 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 </div>
 </div>
 <div class="sect3">
-<h4 id="_requirements_16"><a class="anchor" href="#_requirements_16"></a>6.17.3. Requirements</h4>
+<h4 id="_requirements_14"><a class="anchor" href="#_requirements_14"></a>6.17.3. Requirements</h4>
 <table id="req_versioning_elements" class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -4678,7 +4961,7 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  22</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  31</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/versioning/elements</strong></p></td>
 </tr>
 <tr>
@@ -4723,6 +5006,41 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/versioning/#element_Transaction" target="_blank" rel="noopener">Transaction</a></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">«DataType» <a href="https://docs.ogc.org/is/20-010/20-010.html#Transaction-section" target="_blank" rel="noopener">Transaction</a></p></td>
+</tr>
+</tbody>
+</table>
+<table id="req_versioning_referencetype" class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  32</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/versioning/referencetype</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock">The following properties only allow to reference other features. The use of these properties is subject to the following restrictions:</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">If the <em>from</em> property (type: <em>gml:ReferenceType</em>) of the <em>VersionTransition</em> element is not null, it SHALL contain a reference to a <em>Version</em> element.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">If the <em>to</em> property (type: <em>gml:ReferenceType</em>) of the <em>VersionTransition</em> element is not null, it SHALL contain a reference to a <em>Version</em> element.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">C</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">If the <em>oldFeature</em> property (type: <em>gml:ReferenceType</em>) of the <em>Transaction</em> element is not null, it SHALL contain a reference to a <em>core:AbstractFeatureWithLifespan</em> element.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">D</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">If the <em>newFeature</em> property (type: <em>gml:ReferenceType</em>) of the <em>Transaction</em> element is not null, it SHALL contain a reference to a <em>core:AbstractFeatureWithLifespan</em> element.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">E</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">If the <em>versionMember</em> property (type: <em>gml:AbstractFeatureMemberType</em>) of the <em>Version</em> element is not null, it SHALL contain a reference to a <em>core:AbstractFeatureWithLifespan</em> element.</p></td>
 </tr>
 </tbody>
 </table>
@@ -4806,7 +5124,7 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 </div>
 </div>
 <div class="sect3">
-<h4 id="_requirements_17"><a class="anchor" href="#_requirements_17"></a>6.18.3. Requirements</h4>
+<h4 id="_requirements_15"><a class="anchor" href="#_requirements_15"></a>6.18.3. Requirements</h4>
 <table id="req_water_body_elements" class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -4814,7 +5132,7 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  23</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  33</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/waterbody/elements</strong></p></td>
 </tr>
 <tr>
@@ -15621,19 +15939,26 @@ Code|3100|saddle roof</pre>
 <h2 id="annex-gml-3.3"><a class="anchor" href="#annex-gml-3.3"></a>Annex F: Use of GML 3.3 (Informative)</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The CityGML 3.0 GML schemas have been derived based on the OGC GML 3.2.1 standard. This means that CityGML GML instance documents must be created and exchanged in the GML version 3.2.1.</p>
+<p>The CityGML 3.0 GML schemas have been derived based on the OGC GML 3.2 standard. This means that CityGML GML instance documents must be created and exchanged in the GML version 3.2.</p>
 </div>
 <div class="paragraph">
-<p>For certain applications, however, it might be useful to create CityGML GML instance documents in the GML version 3.3. GML 3.3 complements GML 3.2.1 with concepts such as compact encodings of geometry types, linear referencing concepts (e.g., linear element, distance along, linear referencing methods), TINs, and encoding rules for association classes.
-Please note that software compliant to this standard might not be able to read the additional GML 3.3 concepts. This depends on whether the software only supports GML 3.2.1 or also GML 3.3.</p>
+<p>For certain applications, however, it might be useful to create CityGML GML instance documents in the GML version 3.3. GML 3.3 complements GML 3.2 with concepts such as compact encodings of geometry types, linear referencing concepts (e.g., linear element, distance along, linear referencing methods), TINs, and encoding rules for association classes.</p>
 </div>
+<div class="paragraph">
+<p>Please note that software compliant to this standard might not be able to read the additional GML 3.3 concepts. This depends on whether the software only supports GML 3.2 or also GML 3.3.</p>
+</div>
+<div class="sect2">
+<h3 id="_using_gml_3_3_concepts_in_a_citygml_instance_document"><a class="anchor" href="#_using_gml_3_3_concepts_in_a_citygml_instance_document"></a>F.1. Using GML 3.3 concepts in a CityGML instance document</h3>
 <div class="paragraph">
 <p>To be able to create CityGML instance documents based on GML 3.3, those GML 3.3 XML schemas that define the required concepts need to be referenced in the XML root element &lt;CityModel&gt; of CityGML GML instance documents. This is illustrated in <a href="#listing-gml-3.3">Listing 45</a>. The RoofSurface of the building is to be represented by a SimplePolygon which is a compact encoding of a Polygon defined in the GML 3.3 XML schema <a href="http://www.opengis.net/gml/3.3/ce" class="bare">http://www.opengis.net/gml/3.3/ce</a>. Thus, this XML schema is referenced in the root element by indicating its namespace and schema location.</p>
 </div>
 <div id="listing-gml-3.3" class="listingblock">
 <div class="title">Listing 45. Use of GML 3.3 concepts in a CityGML GML instance document.</div>
 <div class="content">
-<pre class="highlight"><code class="language-XML" data-lang="XML">&lt;CityModel xmlns:gmlce="http://www.opengis.net/gml/3.3/ce" ... further Namespaces ... xsi:schemaLocation="http://www.opengis.net/gml/3.3/ce http://schemas.opengis.net/gml/3.3/geometryCompact.xsd ... further schema location entries ..."&gt;
+<pre class="highlight"><code class="language-XML" data-lang="XML">&lt;CityModel xmlns:gmlce="http://www.opengis.net/gml/3.3/ce"
+  ... further namespaces ...
+  xsi:schemaLocation="http://www.opengis.net/gml/3.3/ce http://schemas.opengis.net/gml/3.3/geometryCompact.xsd
+  ... further schema location entries ..."&gt;
   &lt;cityObjectMember&gt;
     &lt;bldg:Building gml:id="DEBY_LOD2_5744682"&gt;
       ....
@@ -15655,6 +15980,43 @@ Please note that software compliant to this standard might not be able to read t
   &lt;/cityObjectMember&gt;
 &lt;/CityModel&gt;</code></pre>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_assigning_textures_to_compact_surface_geometries"><a class="anchor" href="#_assigning_textures_to_compact_surface_geometries"></a>F.2. Assigning textures to compact surface geometries</h3>
+<div class="paragraph">
+<p>GML 3.3 introduces compact encodings for commonly used surface geometries such as <em>SimplePolygon</em>, <em>SimpleRectangle</em>, and <em>SimpleTriangle</em>. These simplified encodings are logically equivalent to a surface with a single gml:LinearRing as exterior boundary and without interior boundaries. Due to the simplification, the encodings do not use a gml:LinearRing element anymore that could be referenced from the ring property of a TexCoordList element.</p>
+</div>
+<div class="paragraph">
+<p>To still be able to assign texture coordinates to simplified surface geometries of GML 3.3, the following recommendation should be followed.</p>
+</div>
+<table id="rec_appearance_parameterizedtexture_gml_3.3" class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation  3</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/rec/appearance/parameterizedtexture-gml-3.3</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock">Assigning texture coordinates to a compact surface geometry of GML 3.3 using ParameterizedTexture elements should adhere to the following recommendations:</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">The <em>textureCoordinates</em> property SHOULD be used in the same way as for a normal surface geometry and as defined by <a href="#req_appearance_parameterizedtexture">/req/appearance/parameterizedtexture</a>. The number of 2D points in the <em>textureCoordinates</em> element therefore must be identical with the number of 3D points of the simplified geometry.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">In contrast to a <em>gml:LinearRing</em>, the last point of a compact geometry does not have to repeat the first point. If it is repeated though, it SHOULD also be repeated for the texture coordinates.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">C</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">The <em>ring</em> property SHOULD be an empty element.</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
