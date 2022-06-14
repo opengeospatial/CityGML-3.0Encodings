@@ -55,3 +55,102 @@ The CityGML Bridge XML elements and their corresponding CityGML UML classes are 
 |https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/bridge/#element_ADEOfBridgePart[ADEOfBridgePart^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfBridgePart-section[ADEOfBridgePart^]
 |https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/bridge/#element_ADEOfBridgeRoom[ADEOfBridgeRoom^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfBridgeRoom-section[ADEOfBridgeRoom^]
 |===
+
+Surface boundaries are constrained by the following requirement:
+
+include::requirements/Bridge/REQ_Bridge_Boundaries.adoc[]
+
+<<bridge-boundaries-table>> lists the surfaces that are allowed as thematic surface boundaries of the space elements defined in the Bridge module:
+
+[[bridge-boundaries-table]]
+.Bridge space elements and their allowed thematic surface boundaries
+[cols="40,60",options="headers"]
+|===
+^|*Space element* ^|*Allowed space boundaries*
+|_brid:AbstractBridge_
+a| * _con:AbstractConstructionSurface_ and the substitutable elements: +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:GroundSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:RoofSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:CeilingSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:OuterCeilingSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:FloorSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:OuterFloorSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:WallSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:InteriorWallSurface_
+   * _core:ClosureSurface_
+   * _gen:GenericThematicSurface_
+   * possible surface elements from ADEs
+
+|_brid:Bridge_
+a| * _con:AbstractConstructionSurface_ and the substitutable elements: +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:GroundSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:RoofSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:CeilingSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:OuterCeilingSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:FloorSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:OuterFloorSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:WallSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:InteriorWallSurface_
+   * _core:ClosureSurface_
+   * _gen:GenericThematicSurface_
+   * possible surface elements from ADEs
+
+|_brid:BridgeConstructiveElement_
+a| * _con:AbstractConstructionSurface_ and the substitutable elements: +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:GroundSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:RoofSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:CeilingSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:OuterCeilingSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:FloorSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:OuterFloorSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:WallSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:InteriorWallSurface_
+   * _core:ClosureSurface_
+   * _gen:GenericThematicSurface_
+   * possible surface elements from ADEs
+
+|_brid:BridgeFurniture_
+a|No boundaries allowed
+
+|_brid:BridgeInstallation_
+a| * _con:AbstractConstructionSurface_ and the substitutable elements: +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:GroundSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:RoofSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:CeilingSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:OuterCeilingSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:FloorSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:OuterFloorSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:WallSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:InteriorWallSurface_
+   * _core:ClosureSurface_
+   * _gen:GenericThematicSurface_
+   * possible surface elements from ADEs
+
+|_brid:BridgePart_
+a| * _con:AbstractConstructionSurface_ and the substitutable elements: +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:GroundSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:RoofSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:CeilingSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:OuterCeilingSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:FloorSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:OuterFloorSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:WallSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:InteriorWallSurface_
+   * _core:ClosureSurface_
+   * _gen:GenericThematicSurface_
+   * possible surface elements from ADEs
+
+|_brid:BridgeRoom_
+a| * _con:AbstractConstructionSurface_ and the substitutable elements: +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:GroundSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:RoofSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:CeilingSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:OuterCeilingSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:FloorSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:OuterFloorSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:WallSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:InteriorWallSurface_
+   * _core:ClosureSurface_
+   * _gen:GenericThematicSurface_
+   * possible surface elements from ADEs
+|===
