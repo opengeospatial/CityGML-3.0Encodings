@@ -62,3 +62,124 @@ The CityGML Building XML elements and their corresponding CityGML UML classes ar
 |https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/building/#element_ADEOfStorey[ADEOfStorey^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfStorey-section[ADEOfStorey^]
 |https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/building/#element_RoomHeight[RoomHeight^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#RoomHeight-section[RoomHeight^]
 |===
+
+Surface boundaries are constrained by the following requirement:
+
+include::requirements/Building/REQ_Building_Boundaries.adoc[]
+
+<<building-boundaries-table>> lists the surfaces that are allowed as thematic surface boundaries of the space elements defined in the Building module:
+
+[[building-boundaries-table]]
+.Building space elements and their allowed thematic surface boundaries
+[cols="40,60",options="headers"]
+|===
+^|*Space element* ^|*Allowed space boundaries*
+|_bldg:AbstractBuilding_
+a| * _con:AbstractConstructionSurface_ and the substitutable elements: +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:GroundSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:RoofSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:CeilingSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:OuterCeilingSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:FloorSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:OuterFloorSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:WallSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:InteriorWallSurface_
+   * _core:ClosureSurface_
+   * _gen:GenericThematicSurface_
+   * possible surface elements from ADEs
+
+|_bldg:AbstractBuildingSubdivision_
+a|No boundaries allowed
+
+|_bldg:bldg:Building_
+a| * _con:AbstractConstructionSurface_ and the substitutable elements: +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:GroundSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:RoofSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:CeilingSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:OuterCeilingSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:FloorSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:OuterFloorSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:WallSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:InteriorWallSurface_
+   * _core:ClosureSurface_
+   * _gen:GenericThematicSurface_
+   * possible surface elements from ADEs
+
+|_bldg:BuildingConstructiveElement_
+a| * _con:AbstractConstructionSurface_ and the substitutable elements: +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:GroundSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:RoofSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:CeilingSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:OuterCeilingSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:FloorSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:OuterFloorSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:WallSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:InteriorWallSurface_
+   * _core:ClosureSurface_
+   * _gen:GenericThematicSurface_
+   * possible surface elements from ADEs
+
+|_bldg:BuildingFurniture_
+a|No boundaries allowed
+
+|_bldg:BuildingInstallation_
+a| * _con:AbstractConstructionSurface_ and the substitutable elements: +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:GroundSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:RoofSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:CeilingSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:OuterCeilingSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:FloorSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:OuterFloorSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:WallSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:InteriorWallSurface_
+   * _core:ClosureSurface_
+   * _gen:GenericThematicSurface_
+   * possible surface elements from ADEs
+
+|_bldg:BuildingPart_
+a| * _con:AbstractConstructionSurface_ and the substitutable elements: +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:GroundSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:RoofSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:CeilingSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:OuterCeilingSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:FloorSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:OuterFloorSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:WallSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:InteriorWallSurface_
+   * _core:ClosureSurface_
+   * _gen:GenericThematicSurface_
+   * possible surface elements from ADEs
+
+|_bldg:BuildingRoom_
+a| * _con:AbstractConstructionSurface_ and the substitutable elements: +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:GroundSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:RoofSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:CeilingSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:OuterCeilingSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:FloorSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:OuterFloorSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:WallSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:InteriorWallSurface_
+   * _core:ClosureSurface_
+   * _gen:GenericThematicSurface_
+   * possible surface elements from ADEs
+
+|_bldg:BuildingUnit_
+a| * _core:ClosureSurface_
+   * _gen:GenericThematicSurface_
+   * possible surface elements from ADEs
+
+|_bldg:Storey_
+a| * _con:AbstractConstructionSurface_ and the substitutable elements: +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:GroundSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:RoofSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:CeilingSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:OuterCeilingSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:FloorSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:OuterFloorSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:WallSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:InteriorWallSurface_
+   * _core:ClosureSurface_
+   * _gen:GenericThematicSurface_
+   * possible surface elements from ADEs
+|===
