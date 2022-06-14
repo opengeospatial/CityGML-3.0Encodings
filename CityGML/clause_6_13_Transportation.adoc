@@ -77,3 +77,86 @@ The CityGML Transportation XML elements and their corresponding CityGML UML clas
 |===
 
 include::requirements/transportation/REQ_Transportation_Reference.adoc[]
+
+Surface boundaries are constrained by the following requirement:
+
+include::requirements/Transportation/REQ_Transportation_Boundaries.adoc[]
+
+<<transportation-boundaries-table>> lists the surfaces that are allowed as thematic surface boundaries of the space elements defined in the Transportation module:
+
+[[transportation-boundaries-table]]
+.Transportation space elements and their allowed thematic surface boundaries
+[cols="40,60",options="headers"]
+|===
+^|*Space element* ^|*Allowed space boundaries*
+|_tran:AbstractTransportationSpace_
+a| * _tran:Marking_
+   * _core:ClosureSurface_
+   * _gen:GenericThematicSurface_
+   * possible surface elements from ADEs
+
+|_tran:AuxiliaryTrafficSpace_
+a| * _tran:AuxiliaryTrafficArea_
+   * _core:ClosureSurface_
+   * _gen:GenericThematicSurface_
+   * possible surface elements from ADEs
+
+|_tran:ClearanceSpace_
+a| * _core:ClosureSurface_
+   * _gen:GenericThematicSurface_
+   * possible surface elements from ADEs
+
+|_tran:Hole_
+a| * _tran:HoleSurface_
+   * _core:ClosureSurface_
+   * _gen:GenericThematicSurface_
+   * possible surface elements from ADEs
+
+|_tran:Intersection_
+a| * _tran:Marking_
+   * _core:ClosureSurface_
+   * _gen:GenericThematicSurface_
+   * possible surface elements from ADEs
+
+|_tran:Railway_
+a| * _tran:Marking_
+   * _core:ClosureSurface_
+   * _gen:GenericThematicSurface_
+   * possible surface elements from ADEs
+
+|_tran:Road_
+a| * _tran:Marking_
+   * _core:ClosureSurface_
+   * _gen:GenericThematicSurface_
+   * possible surface elements from ADEs
+
+|_tran:Section_
+a| * _tran:Marking_
+   * _core:ClosureSurface_
+   * _gen:GenericThematicSurface_
+   * possible surface elements from ADEs
+
+|_tran:Square_
+a| * _tran:Marking_
+   * _core:ClosureSurface_
+   * _gen:GenericThematicSurface_
+   * possible surface elements from ADEs
+
+|_tran:Track_
+a| * _tran:Marking_
+   * _core:ClosureSurface_
+   * _gen:GenericThematicSurface_
+   * possible surface elements from ADEs
+
+|_tran:TrafficSpace_
+a| * _tran:TrafficArea_
+   * _core:ClosureSurface_
+   * _gen:GenericThematicSurface_
+   * possible surface elements from ADEs
+
+|_tran:Waterway_
+a| * _tran:Marking_
+   * _core:ClosureSurface_
+   * _gen:GenericThematicSurface_
+   * possible surface elements from ADEs
+|===
