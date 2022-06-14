@@ -57,3 +57,30 @@ The CityGML Generics XML elements and their corresponding CityGML UML classes ar
 |https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/generics/#element_StringAttribute[StringAttribute^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#StringAttribute-section[StringAttribute^]
 |https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/generics/#element_UriAttribute[UriAttribute^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#UriAttribute-section[UriAttribute^]
 |===
+
+Surface boundaries are constrained by the following requirement:
+
+include::requirements/Generics/REQ_Generics_Boundaries.adoc[]
+
+<<generics-boundaries-table>> lists the surfaces that are allowed as thematic surface boundaries of the space elements defined in the Generics module:
+
+[[generics-boundaries-table]]
+.Generics space elements and their allowed thematic surface boundaries
+[cols="40,60",options="headers"]
+|===
+^|*Space element* ^|*Allowed space boundaries*
+|_gen:GenericLogicalSpace_
+a| * _core:ClosureSurface_
+   * _gen:GenericThematicSurface_
+   * possible surface elements from ADEs
+
+|_gen:GenericOccupiedSpace_
+a| * _core:ClosureSurface_
+   * _gen:GenericThematicSurface_
+   * possible surface elements from ADEs
+
+|_gen:GenericUnoccupiedSpace_
+a| * _core:ClosureSurface_
+   * _gen:GenericThematicSurface_
+   * possible surface elements from ADEs
+|===
