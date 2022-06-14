@@ -108,42 +108,42 @@ include::requirements/Core/REQ_Core_Boundaries.adoc[]
 
 [[core-boundaries-table]]
 .Core space elements and their allowed thematic surface boundaries
-[cols="2,6",options="headers"]
+[cols="40,60",options="headers"]
 |===
 ^|*Space element* ^|*Allowed space boundaries*
-|core:AbstractLogicalSpace
-a| * core:AbstractSpaceBoundary and the substitutable elements: +
-{nbsp}{nbsp}{nbsp}{nbsp}core:AbstractThematicSurface, +
-{nbsp}{nbsp}{nbsp}{nbsp}core:ClosureSurface
-   * gen:GenericThematicSurface
+|_core:AbstractLogicalSpace_
+a| * _core:AbstractSpaceBoundary_ and the substitutable elements: +
+{nbsp}{nbsp}{nbsp}{nbsp} _core:AbstractThematicSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _core:ClosureSurface_
+   * _gen:GenericThematicSurface_
    * possible surface elements from ADEs
 
-|core:AbstractOccupiedSpace
-a| * core:AbstractSpaceBoundary and the substitutable elements: +
-{nbsp}{nbsp}{nbsp}{nbsp}core:AbstractThematicSurface, +
-{nbsp}{nbsp}{nbsp}{nbsp}core:ClosureSurface
-   * gen:GenericThematicSurface
+|_core:AbstractOccupiedSpace_
+a| * _core:AbstractSpaceBoundary_ and the substitutable elements: +
+{nbsp}{nbsp}{nbsp}{nbsp} _core:AbstractThematicSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _core:ClosureSurface_
+   * _gen:GenericThematicSurface_
    * possible surface elements from ADEs
 
-|core:AbstractPhysicalSpace
-a| * core:AbstractSpaceBoundary and the substitutable elements: +
-{nbsp}{nbsp}{nbsp}{nbsp}core:AbstractThematicSurface, +
-{nbsp}{nbsp}{nbsp}{nbsp}core:ClosureSurface
-   * gen:GenericThematicSurface
+|_core:AbstractPhysicalSpace_
+a| * _core:AbstractSpaceBoundary_ and the substitutable elements: +
+{nbsp}{nbsp}{nbsp}{nbsp} _core:AbstractThematicSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _core:ClosureSurface_
+   * _gen:GenericThematicSurface_
    * possible surface elements from ADEs
 
-|core:AbstractSpace
-a| * core:AbstractSpaceBoundary and the substitutable elements: +
-{nbsp}{nbsp}{nbsp}{nbsp}core:AbstractThematicSurface, +
-{nbsp}{nbsp}{nbsp}{nbsp}core:ClosureSurface
-   * gen:GenericThematicSurface
+|_core:AbstractSpace_
+a| * _core:AbstractSpaceBoundary_ and the substitutable elements: +
+{nbsp}{nbsp}{nbsp}{nbsp} _core:AbstractThematicSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _core:ClosureSurface_
+   * _gen:GenericThematicSurface_
    * possible surface elements from ADEs
 
-|core:AbstractUnoccupiedSpace
-a| * core:AbstractSpaceBoundary and the substitutable elements: +
-{nbsp}{nbsp}{nbsp}{nbsp}core:AbstractThematicSurface, +
-{nbsp}{nbsp}{nbsp}{nbsp}core:ClosureSurface
-   * gen:GenericThematicSurface
+|_core:AbstractUnoccupiedSpace_
+a| * _core:AbstractSpaceBoundary_ and the substitutable elements: +
+{nbsp}{nbsp}{nbsp}{nbsp} _core:AbstractThematicSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _core:ClosureSurface_
+   * _gen:GenericThematicSurface_
    * possible surface elements from ADEs
 |===
 
