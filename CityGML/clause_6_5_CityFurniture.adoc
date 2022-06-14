@@ -43,3 +43,19 @@ The CityGML CityFurniture XML elements and their corresponding CityGML UML class
 |https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/cityFurniture/#element_CityFurniture[CityFurniture^] |«TopLevelFeatureType» https://docs.ogc.org/is/20-010/20-010.html#CityFurniture-section[CityFurniture^]
 |https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/cityFurniture/#element_ADEOfCityFurniture[ADEOfCityFurniture^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfCityFurniture-section[ADEOfCityFurniture^]
 |===
+
+Surface boundaries are constrained by the following requirement:
+
+include::requirements/CityFurniture/REQ_CityFurniture_Boundaries.adoc[]
+
+<<cityfurniture-boundaries-table>> lists the surfaces that are allowed as thematic surface boundaries of the space elements defined in the CityFurniture module:
+
+[[cityfurniture-boundaries-table]]
+.CityFurniture space elements and their allowed thematic surface boundaries
+[cols="40,60",options="headers"]
+|===
+^|*Space element* ^|*Allowed space boundaries*
+|_frn:CityFurniture_  a|  * _core:ClosureSurface_
+                    * _gen:GenericThematicSurface_
+                    * possible surface elements from ADEs
+|===
