@@ -47,3 +47,24 @@ The CityGML Vegetation XML elements and their corresponding CityGML UML classes 
 |https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/vegetation/#element_ADEOfPlantCover[ADEOfPlantCover^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfPlantCover-section[ADEOfPlantCover^]
 |https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/vegetation/#element_ADEOfSolitaryVegetationObject[ADEOfSolitaryVegetationObject^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfSolitaryVegetationObject-section[ADEOfSolitaryVegetationObject^]
 |===
+
+Surface boundaries are constrained by the following requirement:
+
+include::requirements/Vegetation/REQ_Vegetation_Boundaries.adoc[]
+
+<<vegetation-boundaries-table>> lists the surfaces that are allowed as thematic surface boundaries of the space elements defined in the Vegetation module.
+
+[[vegetation-boundaries-table]]
+.Vegetation space elements and their allowed thematic surface boundaries
+[cols="40,60",options="headers"]
+|===
+^|*Space element* ^|*Allowed space boundaries*
+|_veg:AbstractVegetationObject_
+a|No boundaries allowed
+
+|_veg:PlantCover_
+a|No boundaries allowed
+
+|_veg:SolitaryVegetationObject_
+a|No boundaries allowed
+|===
