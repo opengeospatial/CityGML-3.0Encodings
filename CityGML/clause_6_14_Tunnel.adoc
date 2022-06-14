@@ -55,3 +55,102 @@ The CityGML Tunnel XML elements and their corresponding CityGML UML classes are 
 |https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/tunnel/#element_ADEOfTunnelInstallation[ADEOfTunnelInstallation^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfTunnelInstallation-section[ADEOfTunnelInstallation^]
 |https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/tunnel/#element_ADEOfTunnelPart[ADEOfTunnelPart^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfTunnelPart-section[ADEOfTunnelPart^]
 |===
+
+Surface boundaries are constrained by the following requirement:
+
+include::requirements/Tunnel/REQ_Tunnel_Boundaries.adoc[]
+
+<<tunnel-boundaries-table>> lists the surfaces that are allowed as thematic surface boundaries of the space elements defined in the Tunnel module:
+
+[[tunnel-boundaries-table]]
+.Tunnel space elements and their allowed thematic surface boundaries
+[cols="40,60",options="headers"]
+|===
+^|*Space element* ^|*Allowed space boundaries*
+|_tun:AbstractTunnel_
+a| * _con:AbstractConstructionSurface_ and the substitutable elements: +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:GroundSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:RoofSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:CeilingSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:OuterCeilingSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:FloorSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:OuterFloorSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:WallSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:InteriorWallSurface_
+   * _core:ClosureSurface_
+   * _gen:GenericThematicSurface_
+   * possible surface elements from ADEs
+
+|_tun:HollowSpace_
+a| * _con:AbstractConstructionSurface_ and the substitutable elements: +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:GroundSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:RoofSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:CeilingSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:OuterCeilingSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:FloorSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:OuterFloorSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:WallSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:InteriorWallSurface_
+   * _core:ClosureSurface_
+   * _gen:GenericThematicSurface_
+   * possible surface elements from ADEs
+
+|_tun:Tunnel_
+a| * _con:AbstractConstructionSurface_ and the substitutable elements: +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:GroundSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:RoofSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:CeilingSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:OuterCeilingSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:FloorSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:OuterFloorSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:WallSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:InteriorWallSurface_
+   * _core:ClosureSurface_
+   * _gen:GenericThematicSurface_
+   * possible surface elements from ADEs
+
+|_tun:TunnelConstructiveElement_
+a| * _con:AbstractConstructionSurface_ and the substitutable elements: +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:GroundSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:RoofSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:CeilingSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:OuterCeilingSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:FloorSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:OuterFloorSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:WallSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:InteriorWallSurface_
+   * _core:ClosureSurface_
+   * _gen:GenericThematicSurface_
+   * possible surface elements from ADEs
+
+|_tun:TunnelFurniture_
+a|No boundaries allowed
+
+|_tun:TunnelInstallation_
+a| * _con:AbstractConstructionSurface_ and the substitutable elements: +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:GroundSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:RoofSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:CeilingSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:OuterCeilingSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:FloorSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:OuterFloorSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:WallSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:InteriorWallSurface_
+   * _core:ClosureSurface_
+   * _gen:GenericThematicSurface_
+   * possible surface elements from ADEs
+
+|_tun:TunnelPart_
+a| * _con:AbstractConstructionSurface_ and the substitutable elements: +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:GroundSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:RoofSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:CeilingSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:OuterCeilingSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:FloorSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:OuterFloorSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:WallSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _con:InteriorWallSurface_
+   * _core:ClosureSurface_
+   * _gen:GenericThematicSurface_
+   * possible surface elements from ADEs
+|===
