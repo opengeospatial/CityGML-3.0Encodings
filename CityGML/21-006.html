@@ -2029,25 +2029,7 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 </tr>
 </tbody>
 </table>
-<table id="rec_core_crs" class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 75%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation  1</strong></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/rec/core/crs</strong></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock">It is <em>strongly recommended</em> that any CityGML GML instance document SHOULD explicitly specify and use a single coordinate reference system (CRS), either well-known CRS or local engineering CRS, for all contained geometry elements. This is especially important if the instance document is to be exchanged externally with third parties or is to be integrated with other spatial datasets. In addition, it simplifies the processing of the dataset by software systems.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock">Note: For convenience, the CRS MAY be given as value of the <em>srsName</em> attribute on the <em>gml:Envelope</em> which is the value of the <em>gml:boundedBy</em> property of the root <em>core:CityModel</em> element. Following GML rules, this CRS is inherited by all geometries contained in the instance document to any depth of nesting unless overruled by the presence of a local <em>srsName</em>.</p></td>
-</tr>
-</tbody>
-</table>
-<table id="req_core_referencetype" class="tableblock frame-all grid-all stretch">
+<table id="req_core_reference" class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -2055,21 +2037,18 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 <tbody>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  8</strong></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/core/referencetype</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/core/reference</strong></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock">The following properties only allow to reference other features. The use of these properties is subject to the following restrictions:</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">If the <em>generalizesTo</em> property (type: <em>gml:ReferenceType</em>) of the <em>AbstractCityObject</em> element is not null, it SHALL contain a reference to an <em>AbstractCityObject</em> element.</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">If the <em>generalizesTo</em> property (type: <em>gml:ReferenceType</em>) of the <em>AbstractCityObject</em> element is not null, it SHALL contain an XLink reference to an <em>AbstractCityObject</em> element.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">If the <em>relatedTo</em> property (type: <em>gml:ReferenceType</em>) of the <em>CityObjectRelation</em> is not null, it SHALL contain a reference to an <em>AbstractCityObject</em> element.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">If the <em>relatedTo</em> property (type: <em>gml:ReferenceType</em>) of the <em>CityObjectRelation</em> is not null, it SHALL contain an XLink reference to an <em>AbstractCityObject</em> element.</p></td>
 </tr>
 </tbody>
 </table>
@@ -2087,7 +2066,7 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/core/boundaries</strong></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#core-boundaries-table">Table 5</a> lists the surfaces that are allowed as thematic surface boundaries of the space elements defined in the Core module. If a space element is bounded by thematic surface boundaries using the property <em>core:boundary</em> (type: <em>core:AbstractSpaceBoundaryPropertyType</em>), the property SHALL contain exactly one surface element from <a href="#core-boundaries-table">Table 5</a> that is supported for the specific space element.</p></td>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#core-boundaries-table">Table 5</a> lists the surfaces that are allowed as thematic surface boundaries of the space elements defined in the Core module. If a space element is bounded by thematic surface boundaries using the property <em>core:boundary</em> (type: <em>core:AbstractSpaceBoundaryPropertyType</em>), the property SHALL contain exactly one surface element from <a href="#core-boundaries-table">Table 5</a> that is supported for the specific space element. If no surface element is supported, the space element SHALL NOT be bounded by thematic surface boundaries.</p></td>
 </tr>
 </tbody>
 </table>
@@ -2097,8 +2076,8 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 <table id="core-boundaries-table" class="tableblock frame-all grid-all stretch">
 <caption class="title">Table 5. Core space elements and their allowed thematic surface boundaries</caption>
 <colgroup>
-<col style="width: 25%;">
-<col style="width: 75%;">
+<col style="width: 40%;">
+<col style="width: 60%;">
 </colgroup>
 <tbody>
 <tr>
@@ -2106,16 +2085,16 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Allowed space boundaries</strong></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">core:AbstractLogicalSpace</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><em>core:AbstractLogicalSpace</em></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="ulist">
 <ul>
 <li>
-<p>core:AbstractSpaceBoundary and the substitutable elements:<br>
-&#160;&#160;&#160;&#160;core:AbstractThematicSurface,<br>
-&#160;&#160;&#160;&#160;core:ClosureSurface</p>
+<p><em>core:AbstractSpaceBoundary</em> and the substitutable elements:<br>
+&#160;&#160;&#160;&#160; <em>core:AbstractThematicSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>core:ClosureSurface</em></p>
 </li>
 <li>
-<p>gen:GenericThematicSurface</p>
+<p><em>gen:GenericThematicSurface</em></p>
 </li>
 <li>
 <p>possible surface elements from ADEs</p>
@@ -2124,16 +2103,16 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">core:AbstractOccupiedSpace</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><em>core:AbstractOccupiedSpace</em></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="ulist">
 <ul>
 <li>
-<p>core:AbstractSpaceBoundary and the substitutable elements:<br>
-&#160;&#160;&#160;&#160;core:AbstractThematicSurface,<br>
-&#160;&#160;&#160;&#160;core:ClosureSurface</p>
+<p><em>core:AbstractSpaceBoundary</em> and the substitutable elements:<br>
+&#160;&#160;&#160;&#160; <em>core:AbstractThematicSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>core:ClosureSurface</em></p>
 </li>
 <li>
-<p>gen:GenericThematicSurface</p>
+<p><em>gen:GenericThematicSurface</em></p>
 </li>
 <li>
 <p>possible surface elements from ADEs</p>
@@ -2142,16 +2121,16 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">core:AbstractPhysicalSpace</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><em>core:AbstractPhysicalSpace</em></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="ulist">
 <ul>
 <li>
-<p>core:AbstractSpaceBoundary and the substitutable elements:<br>
-&#160;&#160;&#160;&#160;core:AbstractThematicSurface,<br>
-&#160;&#160;&#160;&#160;core:ClosureSurface</p>
+<p><em>core:AbstractSpaceBoundary</em> and the substitutable elements:<br>
+&#160;&#160;&#160;&#160; <em>core:AbstractThematicSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>core:ClosureSurface</em></p>
 </li>
 <li>
-<p>gen:GenericThematicSurface</p>
+<p><em>gen:GenericThematicSurface</em></p>
 </li>
 <li>
 <p>possible surface elements from ADEs</p>
@@ -2160,16 +2139,16 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">core:AbstractSpace</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><em>core:AbstractSpace</em></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="ulist">
 <ul>
 <li>
-<p>core:AbstractSpaceBoundary and the substitutable elements:<br>
-&#160;&#160;&#160;&#160;core:AbstractThematicSurface,<br>
-&#160;&#160;&#160;&#160;core:ClosureSurface</p>
+<p><em>core:AbstractSpaceBoundary</em> and the substitutable elements:<br>
+&#160;&#160;&#160;&#160; <em>core:AbstractThematicSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>core:ClosureSurface</em></p>
 </li>
 <li>
-<p>gen:GenericThematicSurface</p>
+<p><em>gen:GenericThematicSurface</em></p>
 </li>
 <li>
 <p>possible surface elements from ADEs</p>
@@ -2178,22 +2157,40 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">core:AbstractUnoccupiedSpace</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><em>core:AbstractUnoccupiedSpace</em></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="ulist">
 <ul>
 <li>
-<p>core:AbstractSpaceBoundary and the substitutable elements:<br>
-&#160;&#160;&#160;&#160;core:AbstractThematicSurface,<br>
-&#160;&#160;&#160;&#160;core:ClosureSurface</p>
+<p><em>core:AbstractSpaceBoundary</em> and the substitutable elements:<br>
+&#160;&#160;&#160;&#160; <em>core:AbstractThematicSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>core:ClosureSurface</em></p>
 </li>
 <li>
-<p>gen:GenericThematicSurface</p>
+<p><em>gen:GenericThematicSurface</em></p>
 </li>
 <li>
 <p>possible surface elements from ADEs</p>
 </li>
 </ul>
 </div></div></td>
+</tr>
+</tbody>
+</table>
+<table id="rec_core_crs" class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation  1</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/rec/core/crs</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock">It is <em>strongly recommended</em> that any CityGML GML instance document SHOULD explicitly specify and use a single coordinate reference system (CRS), either well-known CRS or local engineering CRS, for all contained geometry elements. This is especially important if the instance document is to be exchanged externally with third parties or is to be integrated with other spatial datasets. In addition, it simplifies the processing of the dataset by software systems.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock">Note: For convenience, the CRS MAY be given as value of the <em>srsName</em> attribute on the <em>gml:Envelope</em> which is the value of the <em>gml:boundedBy</em> property of the root <em>core:CityModel</em> element. Following GML rules, this CRS is inherited by all geometries contained in the instance document to any depth of nesting unless overruled by the presence of a local <em>srsName</em>.</p></td>
 </tr>
 </tbody>
 </table>
@@ -2651,6 +2648,208 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 </tr>
 </tbody>
 </table>
+<div class="paragraph">
+<p>Surface boundaries are constrained by the following requirement:</p>
+</div>
+<table id="req_bridge_boundaries" class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  15</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/bridge/boundaries</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#bridge-boundaries-table">Table 8</a> lists the surfaces that are allowed as thematic surface boundaries of the space elements defined in the Bridge module. If a space element is bounded by thematic surface boundaries using the property <em>core:boundary</em> (type: <em>core:AbstractSpaceBoundaryPropertyType</em>), the property SHALL contain exactly one surface element from <a href="#bridge-boundaries-table">Table 8</a> that is supported for the specific space element. If no surface element is supported, the space element SHALL NOT be bounded by thematic surface boundaries.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><a href="#bridge-boundaries-table">Table 8</a> lists the surfaces that are allowed as thematic surface boundaries of the space elements defined in the Bridge module:</p>
+</div>
+<table id="bridge-boundaries-table" class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 8. Bridge space elements and their allowed thematic surface boundaries</caption>
+<colgroup>
+<col style="width: 40%;">
+<col style="width: 60%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Space element</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Allowed space boundaries</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><em>brid:AbstractBridge</em></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p><em>con:AbstractConstructionSurface</em> and the substitutable elements:<br>
+&#160;&#160;&#160;&#160; <em>con:GroundSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:RoofSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:CeilingSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:OuterCeilingSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:FloorSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:OuterFloorSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:WallSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:InteriorWallSurface</em></p>
+</li>
+<li>
+<p><em>core:ClosureSurface</em></p>
+</li>
+<li>
+<p><em>gen:GenericThematicSurface</em></p>
+</li>
+<li>
+<p>possible surface elements from ADEs</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><em>brid:Bridge</em></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p><em>con:AbstractConstructionSurface</em> and the substitutable elements:<br>
+&#160;&#160;&#160;&#160; <em>con:GroundSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:RoofSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:CeilingSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:OuterCeilingSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:FloorSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:OuterFloorSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:WallSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:InteriorWallSurface</em></p>
+</li>
+<li>
+<p><em>core:ClosureSurface</em></p>
+</li>
+<li>
+<p><em>gen:GenericThematicSurface</em></p>
+</li>
+<li>
+<p>possible surface elements from ADEs</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><em>brid:BridgeConstructiveElement</em></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p><em>con:AbstractConstructionSurface</em> and the substitutable elements:<br>
+&#160;&#160;&#160;&#160; <em>con:GroundSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:RoofSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:CeilingSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:OuterCeilingSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:FloorSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:OuterFloorSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:WallSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:InteriorWallSurface</em></p>
+</li>
+<li>
+<p><em>core:ClosureSurface</em></p>
+</li>
+<li>
+<p><em>gen:GenericThematicSurface</em></p>
+</li>
+<li>
+<p>possible surface elements from ADEs</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><em>brid:BridgeFurniture</em></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>No boundaries allowed</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><em>brid:BridgeInstallation</em></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p><em>con:AbstractConstructionSurface</em> and the substitutable elements:<br>
+&#160;&#160;&#160;&#160; <em>con:GroundSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:RoofSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:CeilingSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:OuterCeilingSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:FloorSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:OuterFloorSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:WallSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:InteriorWallSurface</em></p>
+</li>
+<li>
+<p><em>core:ClosureSurface</em></p>
+</li>
+<li>
+<p><em>gen:GenericThematicSurface</em></p>
+</li>
+<li>
+<p>possible surface elements from ADEs</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><em>brid:BridgePart</em></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p><em>con:AbstractConstructionSurface</em> and the substitutable elements:<br>
+&#160;&#160;&#160;&#160; <em>con:GroundSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:RoofSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:CeilingSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:OuterCeilingSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:FloorSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:OuterFloorSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:WallSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:InteriorWallSurface</em></p>
+</li>
+<li>
+<p><em>core:ClosureSurface</em></p>
+</li>
+<li>
+<p><em>gen:GenericThematicSurface</em></p>
+</li>
+<li>
+<p>possible surface elements from ADEs</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><em>brid:BridgeRoom</em></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p><em>con:AbstractConstructionSurface</em> and the substitutable elements:<br>
+&#160;&#160;&#160;&#160; <em>con:GroundSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:RoofSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:CeilingSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:OuterCeilingSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:FloorSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:OuterFloorSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:WallSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:InteriorWallSurface</em></p>
+</li>
+<li>
+<p><em>core:ClosureSurface</em></p>
+</li>
+<li>
+<p><em>gen:GenericThematicSurface</em></p>
+</li>
+<li>
+<p>possible surface elements from ADEs</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div class="sect2">
@@ -2739,7 +2938,7 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  15</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  16</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/building/elements</strong></p></td>
 </tr>
 <tr>
@@ -2748,10 +2947,10 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 </tbody>
 </table>
 <div class="paragraph">
-<p>The CityGML Building XML elements and their corresponding CityGML UML classes are listed in <a href="#building-xml-elements">Table 8</a>. In addition, the CityGML Building XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/building/3.0/building.xsd" target="_blank" rel="noopener">building.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/building/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
+<p>The CityGML Building XML elements and their corresponding CityGML UML classes are listed in <a href="#building-xml-elements">Table 9</a>. In addition, the CityGML Building XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/building/3.0/building.xsd" target="_blank" rel="noopener">building.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/building/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
 </div>
 <table id="building-xml-elements" class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 8. Building XML Elements</caption>
+<caption class="title">Table 9. Building XML Elements</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -2851,6 +3050,257 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 </tr>
 </tbody>
 </table>
+<div class="paragraph">
+<p>Surface boundaries are constrained by the following requirement:</p>
+</div>
+<table id="req_building_boundaries" class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  17</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/building/boundaries</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#building-boundaries-table">Table 10</a> lists the surfaces that are allowed as thematic surface boundaries of the space elements defined in the Building module. If a space element is bounded by thematic surface boundaries using the property <em>core:boundary</em> (type: <em>core:AbstractSpaceBoundaryPropertyType</em>), the property SHALL contain exactly one surface element from <a href="#building-boundaries-table">Table 10</a> that is supported for the specific space element. If no surface element is supported, the space element SHALL NOT be bounded by thematic surface boundaries.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><a href="#building-boundaries-table">Table 10</a> lists the surfaces that are allowed as thematic surface boundaries of the space elements defined in the Building module:</p>
+</div>
+<table id="building-boundaries-table" class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 10. Building space elements and their allowed thematic surface boundaries</caption>
+<colgroup>
+<col style="width: 40%;">
+<col style="width: 60%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Space element</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Allowed space boundaries</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><em>bldg:AbstractBuilding</em></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p><em>con:AbstractConstructionSurface</em> and the substitutable elements:<br>
+&#160;&#160;&#160;&#160; <em>con:GroundSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:RoofSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:CeilingSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:OuterCeilingSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:FloorSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:OuterFloorSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:WallSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:InteriorWallSurface</em></p>
+</li>
+<li>
+<p><em>core:ClosureSurface</em></p>
+</li>
+<li>
+<p><em>gen:GenericThematicSurface</em></p>
+</li>
+<li>
+<p>possible surface elements from ADEs</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><em>bldg:AbstractBuildingSubdivision</em></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>No boundaries allowed</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><em>bldg:bldg:Building</em></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p><em>con:AbstractConstructionSurface</em> and the substitutable elements:<br>
+&#160;&#160;&#160;&#160; <em>con:GroundSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:RoofSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:CeilingSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:OuterCeilingSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:FloorSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:OuterFloorSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:WallSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:InteriorWallSurface</em></p>
+</li>
+<li>
+<p><em>core:ClosureSurface</em></p>
+</li>
+<li>
+<p><em>gen:GenericThematicSurface</em></p>
+</li>
+<li>
+<p>possible surface elements from ADEs</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><em>bldg:BuildingConstructiveElement</em></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p><em>con:AbstractConstructionSurface</em> and the substitutable elements:<br>
+&#160;&#160;&#160;&#160; <em>con:GroundSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:RoofSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:CeilingSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:OuterCeilingSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:FloorSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:OuterFloorSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:WallSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:InteriorWallSurface</em></p>
+</li>
+<li>
+<p><em>core:ClosureSurface</em></p>
+</li>
+<li>
+<p><em>gen:GenericThematicSurface</em></p>
+</li>
+<li>
+<p>possible surface elements from ADEs</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><em>bldg:BuildingFurniture</em></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>No boundaries allowed</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><em>bldg:BuildingInstallation</em></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p><em>con:AbstractConstructionSurface</em> and the substitutable elements:<br>
+&#160;&#160;&#160;&#160; <em>con:GroundSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:RoofSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:CeilingSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:OuterCeilingSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:FloorSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:OuterFloorSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:WallSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:InteriorWallSurface</em></p>
+</li>
+<li>
+<p><em>core:ClosureSurface</em></p>
+</li>
+<li>
+<p><em>gen:GenericThematicSurface</em></p>
+</li>
+<li>
+<p>possible surface elements from ADEs</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><em>bldg:BuildingPart</em></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p><em>con:AbstractConstructionSurface</em> and the substitutable elements:<br>
+&#160;&#160;&#160;&#160; <em>con:GroundSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:RoofSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:CeilingSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:OuterCeilingSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:FloorSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:OuterFloorSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:WallSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:InteriorWallSurface</em></p>
+</li>
+<li>
+<p><em>core:ClosureSurface</em></p>
+</li>
+<li>
+<p><em>gen:GenericThematicSurface</em></p>
+</li>
+<li>
+<p>possible surface elements from ADEs</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><em>bldg:BuildingRoom</em></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p><em>con:AbstractConstructionSurface</em> and the substitutable elements:<br>
+&#160;&#160;&#160;&#160; <em>con:GroundSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:RoofSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:CeilingSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:OuterCeilingSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:FloorSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:OuterFloorSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:WallSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:InteriorWallSurface</em></p>
+</li>
+<li>
+<p><em>core:ClosureSurface</em></p>
+</li>
+<li>
+<p><em>gen:GenericThematicSurface</em></p>
+</li>
+<li>
+<p>possible surface elements from ADEs</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><em>bldg:BuildingUnit</em></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p><em>core:ClosureSurface</em></p>
+</li>
+<li>
+<p><em>gen:GenericThematicSurface</em></p>
+</li>
+<li>
+<p>possible surface elements from ADEs</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><em>bldg:Storey</em></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p><em>con:AbstractConstructionSurface</em> and the substitutable elements:<br>
+&#160;&#160;&#160;&#160; <em>con:GroundSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:RoofSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:CeilingSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:OuterCeilingSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:FloorSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:OuterFloorSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:WallSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:InteriorWallSurface</em></p>
+</li>
+<li>
+<p><em>core:ClosureSurface</em></p>
+</li>
+<li>
+<p><em>gen:GenericThematicSurface</em></p>
+</li>
+<li>
+<p>possible surface elements from ADEs</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div class="sect2">
@@ -2939,7 +3389,7 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  16</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  18</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/cityfurniture/elements</strong></p></td>
 </tr>
 <tr>
@@ -2948,10 +3398,10 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 </tbody>
 </table>
 <div class="paragraph">
-<p>The CityGML CityFurniture XML elements and their corresponding CityGML UML classes are listed in <a href="#city-furniture-xml-elements">Table 9</a>. In addition, the CityGML CityFurniture XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/cityfurniture/3.0/cityFurniture.xsd" target="_blank" rel="noopener">cityFurniture.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/cityFurniture/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
+<p>The CityGML CityFurniture XML elements and their corresponding CityGML UML classes are listed in <a href="#city-furniture-xml-elements">Table 11</a>. In addition, the CityGML CityFurniture XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/cityfurniture/3.0/cityFurniture.xsd" target="_blank" rel="noopener">cityFurniture.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/cityFurniture/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
 </div>
 <table id="city-furniture-xml-elements" class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 9. CityFurniture XML Elements</caption>
+<caption class="title">Table 11. CityFurniture XML Elements</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -2972,6 +3422,56 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/cityFurniture/#element_ADEOfCityFurniture" target="_blank" rel="noopener">ADEOfCityFurniture</a></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">«DataType» <a href="https://docs.ogc.org/is/20-010/20-010.html#ADEOfCityFurniture-section" target="_blank" rel="noopener">ADEOfCityFurniture</a></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Surface boundaries are constrained by the following requirement:</p>
+</div>
+<table id="req_cityfurniture_boundaries" class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  19</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/cityfurniture/boundaries</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#cityfurniture-boundaries-table">Table 12</a> lists the surfaces that are allowed as thematic surface boundaries of the space elements defined in the CityFurniture module. If a space element is bounded by thematic surface boundaries using the property <em>core:boundary</em> (type: <em>core:AbstractSpaceBoundaryPropertyType</em>), the property SHALL contain exactly one surface element from <a href="#cityfurniture-boundaries-table">Table 12</a> that is supported for the specific space element. If no surface element is supported, the space element SHALL NOT be bounded by thematic surface boundaries.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><a href="#cityfurniture-boundaries-table">Table 12</a> lists the surfaces that are allowed as thematic surface boundaries of the space elements defined in the CityFurniture module:</p>
+</div>
+<table id="cityfurniture-boundaries-table" class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 12. CityFurniture space elements and their allowed thematic surface boundaries</caption>
+<colgroup>
+<col style="width: 40%;">
+<col style="width: 60%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Space element</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Allowed space boundaries</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><em>frn:CityFurniture</em></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p><em>core:ClosureSurface</em></p>
+</li>
+<li>
+<p><em>gen:GenericThematicSurface</em></p>
+</li>
+<li>
+<p>possible surface elements from ADEs</p>
+</li>
+</ul>
+</div></div></td>
 </tr>
 </tbody>
 </table>
@@ -3073,7 +3573,7 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  17</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  20</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/cityobjectgroup/elements</strong></p></td>
 </tr>
 <tr>
@@ -3082,10 +3582,10 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 </tbody>
 </table>
 <div class="paragraph">
-<p>The CityGML CityObjectGroup XML elements and their corresponding CityGML UML classes are listed in <a href="#city-object-group-xml-elements">Table 10</a>. In addition, the CityGML CityObjectGroup XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/cityobjectgroup/3.0/cityObjectGroup.xsd" target="_blank" rel="noopener">cityObjectGroup.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/cityObjectGroup/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
+<p>The CityGML CityObjectGroup XML elements and their corresponding CityGML UML classes are listed in <a href="#city-object-group-xml-elements">Table 13</a>. In addition, the CityGML CityObjectGroup XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/cityobjectgroup/3.0/cityObjectGroup.xsd" target="_blank" rel="noopener">cityObjectGroup.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/cityObjectGroup/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
 </div>
 <table id="city-object-group-xml-elements" class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 10. CityObjectGroup XML Elements</caption>
+<caption class="title">Table 13. CityObjectGroup XML Elements</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -3113,26 +3613,76 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 </tr>
 </tbody>
 </table>
-<table id="req_cityobjectgroup_referencetype" class="tableblock frame-all grid-all stretch">
+<table id="req_cityobjectgroup_reference" class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  18</strong></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/cityobjectgroup/referencetype</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  21</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/cityobjectgroup/reference</strong></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock">The following properties only allow to reference other features. The use of these properties is subject to the following restrictions:</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">If the <em>parent</em> property (type: <em>gml:ReferenceType</em>) of the <em>CityObjectGroup</em> is not null, it SHALL contain a reference to a <em>core:AbstractCityObject</em> element.</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">If the <em>parent</em> property (type: <em>gml:ReferenceType</em>) of the <em>CityObjectGroup</em> is not null, it SHALL contain an XLink reference to a <em>core:AbstractCityObject</em> element.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">If the <em>groupMember</em> property (type: <em>gml:AbstractFeatureMemberType</em>) of the <em>Role</em> element is not null, it SHALL contain a reference to a <em>core:AbstractCityObject</em> element.</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">If the <em>groupMember</em> property (type: <em>gml:AbstractFeatureMemberType</em>) of the <em>Role</em> element is not null, it SHALL contain an XLink reference to a <em>core:AbstractCityObject</em> element.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Surface boundaries are constrained by the following requirement:</p>
+</div>
+<table id="req_cityobjectgroup_boundaries" class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  22</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/cityobjectgroup/boundaries</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#cityobjectgroup-boundaries-table">Table 14</a> lists the surfaces that are allowed as thematic surface boundaries of the space elements defined in the CityObjectGroup module. If a space element is bounded by thematic surface boundaries using the property <em>core:boundary</em> (type: <em>core:AbstractSpaceBoundaryPropertyType</em>), the property SHALL contain exactly one surface element from <a href="#cityobjectgroup-boundaries-table">Table 14</a> that is supported for the specific space element. If no surface element is supported, the space element SHALL NOT be bounded by thematic surface boundaries.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><a href="#cityobjectgroup-boundaries-table">Table 14</a> lists the surfaces that are allowed as thematic surface boundaries of the space elements defined in the CityObjectGroup module:</p>
+</div>
+<table id="cityobjectgroup-boundaries-table" class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 14. CityObjectGroup space elements and their allowed thematic surface boundaries</caption>
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Space element</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Allowed space boundaries</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><em>grp:CityObjectGroup</em></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p><em>core:ClosureSurface</em></p>
+</li>
+<li>
+<p><em>gen:GenericThematicSurface</em></p>
+</li>
+<li>
+<p>possible surface elements from ADEs</p>
+</li>
+</ul>
+</div></div></td>
 </tr>
 </tbody>
 </table>
@@ -3224,7 +3774,7 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  19</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  23</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/construction/elements</strong></p></td>
 </tr>
 <tr>
@@ -3233,10 +3783,10 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 </tbody>
 </table>
 <div class="paragraph">
-<p>The CityGML Construction XML elements and their corresponding CityGML UML classes are listed in <a href="#construction-xml-elements">Table 11</a>. In addition, the CityGML Construction XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/construction/3.0/construction.xsd" target="_blank" rel="noopener">construction.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/construction/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
+<p>The CityGML Construction XML elements and their corresponding CityGML UML classes are listed in <a href="#construction-xml-elements">Table 15</a>. In addition, the CityGML Construction XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/construction/3.0/construction.xsd" target="_blank" rel="noopener">construction.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/construction/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
 </div>
 <table id="construction-xml-elements" class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 11. Construction XML Elements</caption>
+<caption class="title">Table 15. Construction XML Elements</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -3424,6 +3974,198 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 </tr>
 </tbody>
 </table>
+<div class="paragraph">
+<p>Surface boundaries are constrained by the following requirement:</p>
+</div>
+<table id="req_construction_boundaries" class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  24</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/construction/boundaries</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#construction-boundaries-table">Table 16</a> lists the surfaces that are allowed as thematic surface boundaries of the space elements defined in the Construction module. If a space element is bounded by thematic surface boundaries using the property <em>core:boundary</em> (type: <em>core:AbstractSpaceBoundaryPropertyType</em>), the property SHALL contain exactly one surface element from <a href="#construction-boundaries-table">Table 16</a> that is supported for the specific space element. If no surface element is supported, the space element SHALL NOT be bounded by thematic surface boundaries.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><a href="#construction-boundaries-table">Table 16</a> lists the surfaces that are allowed as thematic surface boundaries of the space elements defined in the Construction module:</p>
+</div>
+<table id="construction-boundaries-table" class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 16. Construction space elements and their allowed thematic surface boundaries</caption>
+<colgroup>
+<col style="width: 40%;">
+<col style="width: 60%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Space element</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Allowed space boundaries</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><em>con:AbstractConstruction</em></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p><em>con:AbstractConstructionSurface</em> and the substitutable elements:<br>
+&#160;&#160;&#160;&#160; <em>con:GroundSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:RoofSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:CeilingSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:OuterCeilingSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:FloorSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:OuterFloorSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:WallSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:InteriorWallSurface</em></p>
+</li>
+<li>
+<p><em>core:ClosureSurface</em></p>
+</li>
+<li>
+<p><em>gen:GenericThematicSurface</em></p>
+</li>
+<li>
+<p>possible surface elements from ADEs</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><em>con:AbstractConstructiveElement</em></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p><em>con:AbstractConstructionSurface</em> and the substitutable elements:<br>
+&#160;&#160;&#160;&#160; <em>con:GroundSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:RoofSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:CeilingSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:OuterCeilingSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:FloorSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:OuterFloorSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:WallSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:InteriorWallSurface</em></p>
+</li>
+<li>
+<p><em>core:ClosureSurface</em></p>
+</li>
+<li>
+<p><em>gen:GenericThematicSurface</em></p>
+</li>
+<li>
+<p>possible surface elements from ADEs</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><em>con:AbstractFillingElement</em></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>No boundaries allowed</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><em>con:AbstractFurniture</em></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>No boundaries allowed</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><em>con:AbstractInstallation</em></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p><em>con:AbstractConstructionSurface</em> and the substitutable elements:<br>
+&#160;&#160;&#160;&#160; <em>con:GroundSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:RoofSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:CeilingSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:OuterCeilingSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:FloorSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:OuterFloorSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:WallSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:InteriorWallSurface</em></p>
+</li>
+<li>
+<p><em>core:ClosureSurface</em></p>
+</li>
+<li>
+<p><em>gen:GenericThematicSurface</em></p>
+</li>
+<li>
+<p>possible surface elements from ADEs</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><em>con:Door</em></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p><em>con:DoorSurface</em></p>
+</li>
+<li>
+<p><em>core:ClosureSurface</em></p>
+</li>
+<li>
+<p><em>gen:GenericThematicSurface</em></p>
+</li>
+<li>
+<p>possible surface elements from ADEs</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><em>con:OtherConstruction</em></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p><em>con:AbstractConstructionSurface</em> and the substitutable elements:<br>
+&#160;&#160;&#160;&#160; <em>con:GroundSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:RoofSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:CeilingSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:OuterCeilingSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:FloorSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:OuterFloorSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:WallSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:InteriorWallSurface</em></p>
+</li>
+<li>
+<p><em>core:ClosureSurface</em></p>
+</li>
+<li>
+<p><em>gen:GenericThematicSurface</em></p>
+</li>
+<li>
+<p>possible surface elements from ADEs</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><em>con:Window</em></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p><em>con:WindowSurface</em></p>
+</li>
+<li>
+<p><em>core:ClosureSurface</em></p>
+</li>
+<li>
+<p><em>gen:GenericThematicSurface</em></p>
+</li>
+<li>
+<p>possible surface elements from ADEs</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div class="sect2">
@@ -3519,7 +4261,7 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  20</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  25</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/dynamizer/elements</strong></p></td>
 </tr>
 <tr>
@@ -3528,10 +4270,10 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 </tbody>
 </table>
 <div class="paragraph">
-<p>The CityGML Dynamizer XML elements and their corresponding CityGML UML classes are listed in <a href="#dynamizer-xml-elements">Table 12</a>. In addition, the CityGML Dynamizer XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/dynamizer/3.0/dynamizer.xsd" target="_blank" rel="noopener">dynamizer.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/dynamizer/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
+<p>The CityGML Dynamizer XML elements and their corresponding CityGML UML classes are listed in <a href="#dynamizer-xml-elements">Table 17</a>. In addition, the CityGML Dynamizer XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/dynamizer/3.0/dynamizer.xsd" target="_blank" rel="noopener">dynamizer.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/dynamizer/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
 </div>
 <table id="dynamizer-xml-elements" class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 12. Dynamizer XML Elements</caption>
+<caption class="title">Table 17. Dynamizer XML Elements</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -3615,18 +4357,18 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 </tr>
 </tbody>
 </table>
-<table id="req_dynamizer_referencetype" class="tableblock frame-all grid-all stretch">
+<table id="req_dynamizer_reference" class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  21</strong></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/dynamizer/referencetype</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  26</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/dynamizer/reference</strong></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock">If the <em>sensorLocation</em> property (type: <em>gml:ReferenceType</em>) of the <em>SensorConnection</em> element is not null, it SHALL contain a reference to a <em>core:AbstractCityObject</em> element.</p></td>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock">If the <em>sensorLocation</em> property (type: <em>gml:ReferenceType</em>) of the <em>SensorConnection</em> element is not null, it SHALL contain an XLink reference to a <em>core:AbstractCityObject</em> element.</p></td>
 </tr>
 </tbody>
 </table>
@@ -3637,7 +4379,7 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  22</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  27</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/dynamizer/attributeref</strong></p></td>
 </tr>
 <tr>
@@ -3745,7 +4487,7 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  23</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  28</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/generics/elements</strong></p></td>
 </tr>
 <tr>
@@ -3754,10 +4496,10 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 </tbody>
 </table>
 <div class="paragraph">
-<p>The CityGML Generics XML elements and their corresponding CityGML UML classes are listed in <a href="#generics-xml-elements">Table 13</a>. In addition, the CityGML Generics XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/generics/3.0/generics.xsd" target="_blank" rel="noopener">generics.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/generics/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
+<p>The CityGML Generics XML elements and their corresponding CityGML UML classes are listed in <a href="#generics-xml-elements">Table 18</a>. In addition, the CityGML Generics XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/generics/3.0/generics.xsd" target="_blank" rel="noopener">generics.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/generics/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
 </div>
 <table id="generics-xml-elements" class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 13. Generics XML Elements</caption>
+<caption class="title">Table 18. Generics XML Elements</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -3834,6 +4576,88 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/generics/#element_UriAttribute" target="_blank" rel="noopener">UriAttribute</a></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">«DataType» <a href="https://docs.ogc.org/is/20-010/20-010.html#UriAttribute-section" target="_blank" rel="noopener">UriAttribute</a></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Surface boundaries are constrained by the following requirement:</p>
+</div>
+<table id="req_generics_boundaries" class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  29</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/generics/boundaries</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#generics-boundaries-table">Table 19</a> lists the surfaces that are allowed as thematic surface boundaries of the space elements defined in the Generics module. If a space element is bounded by thematic surface boundaries using the property <em>core:boundary</em> (type: <em>core:AbstractSpaceBoundaryPropertyType</em>), the property SHALL contain exactly one surface element from <a href="#generics-boundaries-table">Table 19</a> that is supported for the specific space element. If no surface element is supported, the space element SHALL NOT be bounded by thematic surface boundaries.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><a href="#generics-boundaries-table">Table 19</a> lists the surfaces that are allowed as thematic surface boundaries of the space elements defined in the Generics module:</p>
+</div>
+<table id="generics-boundaries-table" class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 19. Generics space elements and their allowed thematic surface boundaries</caption>
+<colgroup>
+<col style="width: 40%;">
+<col style="width: 60%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Space element</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Allowed space boundaries</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><em>gen:GenericLogicalSpace</em></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p><em>core:ClosureSurface</em></p>
+</li>
+<li>
+<p><em>gen:GenericThematicSurface</em></p>
+</li>
+<li>
+<p>possible surface elements from ADEs</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><em>gen:GenericOccupiedSpace</em></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p><em>core:ClosureSurface</em></p>
+</li>
+<li>
+<p><em>gen:GenericThematicSurface</em></p>
+</li>
+<li>
+<p>possible surface elements from ADEs</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><em>gen:GenericUnoccupiedSpace</em></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p><em>core:ClosureSurface</em></p>
+</li>
+<li>
+<p><em>gen:GenericThematicSurface</em></p>
+</li>
+<li>
+<p>possible surface elements from ADEs</p>
+</li>
+</ul>
+</div></div></td>
 </tr>
 </tbody>
 </table>
@@ -3925,7 +4749,7 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  24</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  30</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/landuse/elements</strong></p></td>
 </tr>
 <tr>
@@ -3934,10 +4758,10 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 </tbody>
 </table>
 <div class="paragraph">
-<p>The CityGML LandUse XML elements and their corresponding CityGML UML classes are listed in <a href="#land-use-xml-elements">Table 14</a>. In addition, the CityGML LandUse XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/landuse/3.0/landUse.xsd" target="_blank" rel="noopener">landUse.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/landUse/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
+<p>The CityGML LandUse XML elements and their corresponding CityGML UML classes are listed in <a href="#land-use-xml-elements">Table 20</a>. In addition, the CityGML LandUse XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/landuse/3.0/landUse.xsd" target="_blank" rel="noopener">landUse.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/landUse/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
 </div>
 <table id="land-use-xml-elements" class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 14. LandUse XML Elements</caption>
+<caption class="title">Table 20. LandUse XML Elements</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -4065,7 +4889,7 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  25</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  31</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/pointcloud/elements</strong></p></td>
 </tr>
 <tr>
@@ -4074,10 +4898,10 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 </tbody>
 </table>
 <div class="paragraph">
-<p>The CityGML PointCloud XML elements and their corresponding CityGML UML classes are listed in <a href="#point-cloud-xml-elements">Table 15</a>. In addition, the CityGML PointCloud XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/pointcloud/3.0/pointCloud.xsd" target="_blank" rel="noopener">pointCloud.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/pointCloud/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
+<p>The CityGML PointCloud XML elements and their corresponding CityGML UML classes are listed in <a href="#point-cloud-xml-elements">Table 21</a>. In addition, the CityGML PointCloud XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/pointcloud/3.0/pointCloud.xsd" target="_blank" rel="noopener">pointCloud.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/pointCloud/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
 </div>
 <table id="point-cloud-xml-elements" class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 15. PointCloud XML Elements</caption>
+<caption class="title">Table 21. PointCloud XML Elements</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -4189,7 +5013,7 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  26</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  32</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/relief/elements</strong></p></td>
 </tr>
 <tr>
@@ -4198,10 +5022,10 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 </tbody>
 </table>
 <div class="paragraph">
-<p>The CityGML Relief XML elements and their corresponding CityGML UML classes are listed in <a href="#relief-xml-elements">Table 16</a>. In addition, the CityGML Relief XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/relief/3.0/relief.xsd" target="_blank" rel="noopener">relief.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/relief/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
+<p>The CityGML Relief XML elements and their corresponding CityGML UML classes are listed in <a href="#relief-xml-elements">Table 22</a>. In addition, the CityGML Relief XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/relief/3.0/relief.xsd" target="_blank" rel="noopener">relief.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/relief/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
 </div>
 <table id="relief-xml-elements" class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 16. Relief XML Elements</caption>
+<caption class="title">Table 22. Relief XML Elements</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -4363,7 +5187,7 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  27</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  33</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/transportation/elements</strong></p></td>
 </tr>
 <tr>
@@ -4372,10 +5196,10 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 </tbody>
 </table>
 <div class="paragraph">
-<p>The CityGML Transportation XML elements and their corresponding CityGML UML classes are listed in <a href="#transportation-xml-elements">Table 17</a>. In addition, the CityGML Transportation XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/transportation/3.0/transportation.xsd" target="_blank" rel="noopener">transportation.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/transportation/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
+<p>The CityGML Transportation XML elements and their corresponding CityGML UML classes are listed in <a href="#transportation-xml-elements">Table 23</a>. In addition, the CityGML Transportation XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/transportation/3.0/transportation.xsd" target="_blank" rel="noopener">transportation.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/transportation/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
 </div>
 <table id="transportation-xml-elements" class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 17. Transportation XML Elements</caption>
+<caption class="title">Table 23. Transportation XML Elements</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -4519,26 +5343,285 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 </tr>
 </tbody>
 </table>
-<table id="req_transportation_referencetype" class="tableblock frame-all grid-all stretch">
+<table id="req_transportation_reference" class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  28</strong></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/transportation/referencetype</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  34</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/transportation/reference</strong></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock">The following properties only allow to reference other features. The use of these properties is subject to the following restrictions:</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">If the <em>predecessor</em> property (type: <em>gml:ReferenceType</em>) of the <em>TrafficSpace</em> element is not null, it SHALL contain a reference to a <em>TrafficSpace</em> element.</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">If the <em>predecessor</em> property (type: <em>gml:ReferenceType</em>) of the <em>TrafficSpace</em> element is not null, it SHALL contain an XLink reference to a <em>TrafficSpace</em> element.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">If the <em>successor</em> property (type: <em>gml:ReferenceType</em>) of the <em>TrafficSpace</em> element is not null, it SHALL contain a reference to a <em>TrafficSpace</em> element.</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">If the <em>successor</em> property (type: <em>gml:ReferenceType</em>) of the <em>TrafficSpace</em> element is not null, it SHALL contain an XLink reference to a <em>TrafficSpace</em> element.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Surface boundaries are constrained by the following requirement:</p>
+</div>
+<table id="req_transportation_boundaries" class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  35</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/transportation/boundaries</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#transportation-boundaries-table">Table 24</a> lists the surfaces that are allowed as thematic surface boundaries of the space elements defined in the Transportation module. If a space element is bounded by thematic surface boundaries using the property <em>core:boundary</em> (type: <em>core:AbstractSpaceBoundaryPropertyType</em>), the property SHALL contain exactly one surface element from <a href="#transportation-boundaries-table">Table 24</a> that is supported for the specific space element. If no surface element is supported, the space element SHALL NOT be bounded by thematic surface boundaries.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><a href="#transportation-boundaries-table">Table 24</a> lists the surfaces that are allowed as thematic surface boundaries of the space elements defined in the Transportation module:</p>
+</div>
+<table id="transportation-boundaries-table" class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 24. Transportation space elements and their allowed thematic surface boundaries</caption>
+<colgroup>
+<col style="width: 40%;">
+<col style="width: 60%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Space element</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Allowed space boundaries</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><em>tran:AbstractTransportationSpace</em></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p><em>tran:Marking</em></p>
+</li>
+<li>
+<p><em>core:ClosureSurface</em></p>
+</li>
+<li>
+<p><em>gen:GenericThematicSurface</em></p>
+</li>
+<li>
+<p>possible surface elements from ADEs</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><em>tran:AuxiliaryTrafficSpace</em></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p><em>tran:AuxiliaryTrafficArea</em></p>
+</li>
+<li>
+<p><em>core:ClosureSurface</em></p>
+</li>
+<li>
+<p><em>gen:GenericThematicSurface</em></p>
+</li>
+<li>
+<p>possible surface elements from ADEs</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><em>tran:ClearanceSpace</em></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p><em>core:ClosureSurface</em></p>
+</li>
+<li>
+<p><em>gen:GenericThematicSurface</em></p>
+</li>
+<li>
+<p>possible surface elements from ADEs</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><em>tran:Hole</em></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p><em>tran:HoleSurface</em></p>
+</li>
+<li>
+<p><em>core:ClosureSurface</em></p>
+</li>
+<li>
+<p><em>gen:GenericThematicSurface</em></p>
+</li>
+<li>
+<p>possible surface elements from ADEs</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><em>tran:Intersection</em></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p><em>tran:Marking</em></p>
+</li>
+<li>
+<p><em>core:ClosureSurface</em></p>
+</li>
+<li>
+<p><em>gen:GenericThematicSurface</em></p>
+</li>
+<li>
+<p>possible surface elements from ADEs</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><em>tran:Railway</em></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p><em>tran:Marking</em></p>
+</li>
+<li>
+<p><em>core:ClosureSurface</em></p>
+</li>
+<li>
+<p><em>gen:GenericThematicSurface</em></p>
+</li>
+<li>
+<p>possible surface elements from ADEs</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><em>tran:Road</em></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p><em>tran:Marking</em></p>
+</li>
+<li>
+<p><em>core:ClosureSurface</em></p>
+</li>
+<li>
+<p><em>gen:GenericThematicSurface</em></p>
+</li>
+<li>
+<p>possible surface elements from ADEs</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><em>tran:Section</em></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p><em>tran:Marking</em></p>
+</li>
+<li>
+<p><em>core:ClosureSurface</em></p>
+</li>
+<li>
+<p><em>gen:GenericThematicSurface</em></p>
+</li>
+<li>
+<p>possible surface elements from ADEs</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><em>tran:Square</em></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p><em>tran:Marking</em></p>
+</li>
+<li>
+<p><em>core:ClosureSurface</em></p>
+</li>
+<li>
+<p><em>gen:GenericThematicSurface</em></p>
+</li>
+<li>
+<p>possible surface elements from ADEs</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><em>tran:Track</em></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p><em>tran:Marking</em></p>
+</li>
+<li>
+<p><em>core:ClosureSurface</em></p>
+</li>
+<li>
+<p><em>gen:GenericThematicSurface</em></p>
+</li>
+<li>
+<p>possible surface elements from ADEs</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><em>tran:TrafficSpace</em></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p><em>tran:TrafficArea</em></p>
+</li>
+<li>
+<p><em>core:ClosureSurface</em></p>
+</li>
+<li>
+<p><em>gen:GenericThematicSurface</em></p>
+</li>
+<li>
+<p>possible surface elements from ADEs</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><em>tran:Waterway</em></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p><em>tran:Marking</em></p>
+</li>
+<li>
+<p><em>core:ClosureSurface</em></p>
+</li>
+<li>
+<p><em>gen:GenericThematicSurface</em></p>
+</li>
+<li>
+<p>possible surface elements from ADEs</p>
+</li>
+</ul>
+</div></div></td>
 </tr>
 </tbody>
 </table>
@@ -4630,7 +5713,7 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  29</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  36</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/tunnel/elements</strong></p></td>
 </tr>
 <tr>
@@ -4639,10 +5722,10 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 </tbody>
 </table>
 <div class="paragraph">
-<p>The CityGML Tunnel XML elements and their corresponding CityGML UML classes are listed in <a href="#tunnel-xml-elements">Table 18</a>. In addition, the CityGML Tunnel XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/tunnel/3.0/tunnel.xsd" target="_blank" rel="noopener">tunnel.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/tunnel/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
+<p>The CityGML Tunnel XML elements and their corresponding CityGML UML classes are listed in <a href="#tunnel-xml-elements">Table 25</a>. In addition, the CityGML Tunnel XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/tunnel/3.0/tunnel.xsd" target="_blank" rel="noopener">tunnel.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/tunnel/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
 </div>
 <table id="tunnel-xml-elements" class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 18. Tunnel XML Elements</caption>
+<caption class="title">Table 25. Tunnel XML Elements</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -4711,6 +5794,208 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/tunnel/#element_ADEOfTunnelPart" target="_blank" rel="noopener">ADEOfTunnelPart</a></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">«DataType» <a href="https://docs.ogc.org/is/20-010/20-010.html#ADEOfTunnelPart-section" target="_blank" rel="noopener">ADEOfTunnelPart</a></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Surface boundaries are constrained by the following requirement:</p>
+</div>
+<table id="req_tunnel_boundaries" class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  37</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/tunnel/boundaries</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#tunnel-boundaries-table">Table 26</a> lists the surfaces that are allowed as thematic surface boundaries of the space elements defined in the Tunnel module. If a space element is bounded by thematic surface boundaries using the property <em>core:boundary</em> (type: <em>core:AbstractSpaceBoundaryPropertyType</em>), the property SHALL contain exactly one surface element from <a href="#tunnel-boundaries-table">Table 26</a> that is supported for the specific space element. If no surface element is supported, the space element SHALL NOT be bounded by thematic surface boundaries.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><a href="#tunnel-boundaries-table">Table 26</a> lists the surfaces that are allowed as thematic surface boundaries of the space elements defined in the Tunnel module:</p>
+</div>
+<table id="tunnel-boundaries-table" class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 26. Tunnel space elements and their allowed thematic surface boundaries</caption>
+<colgroup>
+<col style="width: 40%;">
+<col style="width: 60%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Space element</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Allowed space boundaries</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><em>tun:AbstractTunnel</em></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p><em>con:AbstractConstructionSurface</em> and the substitutable elements:<br>
+&#160;&#160;&#160;&#160; <em>con:GroundSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:RoofSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:CeilingSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:OuterCeilingSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:FloorSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:OuterFloorSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:WallSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:InteriorWallSurface</em></p>
+</li>
+<li>
+<p><em>core:ClosureSurface</em></p>
+</li>
+<li>
+<p><em>gen:GenericThematicSurface</em></p>
+</li>
+<li>
+<p>possible surface elements from ADEs</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><em>tun:HollowSpace</em></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p><em>con:AbstractConstructionSurface</em> and the substitutable elements:<br>
+&#160;&#160;&#160;&#160; <em>con:GroundSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:RoofSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:CeilingSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:OuterCeilingSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:FloorSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:OuterFloorSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:WallSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:InteriorWallSurface</em></p>
+</li>
+<li>
+<p><em>core:ClosureSurface</em></p>
+</li>
+<li>
+<p><em>gen:GenericThematicSurface</em></p>
+</li>
+<li>
+<p>possible surface elements from ADEs</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><em>tun:Tunnel</em></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p><em>con:AbstractConstructionSurface</em> and the substitutable elements:<br>
+&#160;&#160;&#160;&#160; <em>con:GroundSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:RoofSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:CeilingSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:OuterCeilingSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:FloorSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:OuterFloorSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:WallSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:InteriorWallSurface</em></p>
+</li>
+<li>
+<p><em>core:ClosureSurface</em></p>
+</li>
+<li>
+<p><em>gen:GenericThematicSurface</em></p>
+</li>
+<li>
+<p>possible surface elements from ADEs</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><em>tun:TunnelConstructiveElement</em></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p><em>con:AbstractConstructionSurface</em> and the substitutable elements:<br>
+&#160;&#160;&#160;&#160; <em>con:GroundSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:RoofSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:CeilingSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:OuterCeilingSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:FloorSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:OuterFloorSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:WallSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:InteriorWallSurface</em></p>
+</li>
+<li>
+<p><em>core:ClosureSurface</em></p>
+</li>
+<li>
+<p><em>gen:GenericThematicSurface</em></p>
+</li>
+<li>
+<p>possible surface elements from ADEs</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><em>tun:TunnelFurniture</em></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>No boundaries allowed</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><em>tun:TunnelInstallation</em></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p><em>con:AbstractConstructionSurface</em> and the substitutable elements:<br>
+&#160;&#160;&#160;&#160; <em>con:GroundSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:RoofSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:CeilingSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:OuterCeilingSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:FloorSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:OuterFloorSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:WallSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:InteriorWallSurface</em></p>
+</li>
+<li>
+<p><em>core:ClosureSurface</em></p>
+</li>
+<li>
+<p><em>gen:GenericThematicSurface</em></p>
+</li>
+<li>
+<p>possible surface elements from ADEs</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><em>tun:TunnelPart</em></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p><em>con:AbstractConstructionSurface</em> and the substitutable elements:<br>
+&#160;&#160;&#160;&#160; <em>con:GroundSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:RoofSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:CeilingSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:OuterCeilingSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:FloorSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:OuterFloorSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:WallSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>con:InteriorWallSurface</em></p>
+</li>
+<li>
+<p><em>core:ClosureSurface</em></p>
+</li>
+<li>
+<p><em>gen:GenericThematicSurface</em></p>
+</li>
+<li>
+<p>possible surface elements from ADEs</p>
+</li>
+</ul>
+</div></div></td>
 </tr>
 </tbody>
 </table>
@@ -4802,7 +6087,7 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  30</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  38</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/vegetation/elements</strong></p></td>
 </tr>
 <tr>
@@ -4811,10 +6096,10 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 </tbody>
 </table>
 <div class="paragraph">
-<p>The CityGML Vegetation XML elements and their corresponding CityGML UML classes are listed in <a href="#vegetation-xml-elements">Table 19</a>. In addition, the CityGML Vegetation XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/vegetation/3.0/vegetation.xsd" target="_blank" rel="noopener">vegetation.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/vegetation/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
+<p>The CityGML Vegetation XML elements and their corresponding CityGML UML classes are listed in <a href="#vegetation-xml-elements">Table 27</a>. In addition, the CityGML Vegetation XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/vegetation/3.0/vegetation.xsd" target="_blank" rel="noopener">vegetation.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/vegetation/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
 </div>
 <table id="vegetation-xml-elements" class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 19. Vegetation XML Elements</caption>
+<caption class="title">Table 27. Vegetation XML Elements</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -4851,6 +6136,58 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/vegetation/#element_ADEOfSolitaryVegetationObject" target="_blank" rel="noopener">ADEOfSolitaryVegetationObject</a></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">«DataType» <a href="https://docs.ogc.org/is/20-010/20-010.html#ADEOfSolitaryVegetationObject-section" target="_blank" rel="noopener">ADEOfSolitaryVegetationObject</a></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Surface boundaries are constrained by the following requirement:</p>
+</div>
+<table id="req_vegetation_boundaries" class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  39</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/vegetation/boundaries</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#vegetation-boundaries-table">Table 28</a> lists the surfaces that are allowed as thematic surface boundaries of the space elements defined in the Vegetation module. If a space element is bounded by thematic surface boundaries using the property <em>core:boundary</em> (type: <em>core:AbstractSpaceBoundaryPropertyType</em>), the property SHALL contain exactly one surface element from <a href="#vegetation-boundaries-table">Table 28</a> that is supported for the specific space element. If no surface element is supported, the space element SHALL NOT be bounded by thematic surface boundaries.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><a href="#vegetation-boundaries-table">Table 28</a> lists the surfaces that are allowed as thematic surface boundaries of the space elements defined in the Vegetation module.</p>
+</div>
+<table id="vegetation-boundaries-table" class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 28. Vegetation space elements and their allowed thematic surface boundaries</caption>
+<colgroup>
+<col style="width: 40%;">
+<col style="width: 60%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Space element</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Allowed space boundaries</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><em>veg:AbstractVegetationObject</em></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>No boundaries allowed</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><em>veg:PlantCover</em></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>No boundaries allowed</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><em>veg:SolitaryVegetationObject</em></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>No boundaries allowed</p>
+</div></div></td>
 </tr>
 </tbody>
 </table>
@@ -4961,7 +6298,7 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  31</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  40</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/versioning/elements</strong></p></td>
 </tr>
 <tr>
@@ -4970,10 +6307,10 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 </tbody>
 </table>
 <div class="paragraph">
-<p>The CityGML Versioning XML elements and their corresponding CityGML UML classes are listed in <a href="#versioning-xml-elements">Table 20</a>. In addition, the CityGML Versioning XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/versioning/3.0/versioning.xsd" target="_blank" rel="noopener">versioning.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/versioning/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
+<p>The CityGML Versioning XML elements and their corresponding CityGML UML classes are listed in <a href="#versioning-xml-elements">Table 29</a>. In addition, the CityGML Versioning XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/versioning/3.0/versioning.xsd" target="_blank" rel="noopener">versioning.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/versioning/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
 </div>
 <table id="versioning-xml-elements" class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 20. Versioning XML Elements</caption>
+<caption class="title">Table 29. Versioning XML Elements</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -5009,38 +6346,38 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 </tr>
 </tbody>
 </table>
-<table id="req_versioning_referencetype" class="tableblock frame-all grid-all stretch">
+<table id="req_versioning_reference" class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  32</strong></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/versioning/referencetype</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  41</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/versioning/reference</strong></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock">The following properties only allow to reference other features. The use of these properties is subject to the following restrictions:</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">If the <em>from</em> property (type: <em>gml:ReferenceType</em>) of the <em>VersionTransition</em> element is not null, it SHALL contain a reference to a <em>Version</em> element.</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">If the <em>from</em> property (type: <em>gml:ReferenceType</em>) of the <em>VersionTransition</em> element is not null, it SHALL contain an XLink reference to a <em>Version</em> element.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">If the <em>to</em> property (type: <em>gml:ReferenceType</em>) of the <em>VersionTransition</em> element is not null, it SHALL contain a reference to a <em>Version</em> element.</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">If the <em>to</em> property (type: <em>gml:ReferenceType</em>) of the <em>VersionTransition</em> element is not null, it SHALL contain an XLink reference to a <em>Version</em> element.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">C</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">If the <em>oldFeature</em> property (type: <em>gml:ReferenceType</em>) of the <em>Transaction</em> element is not null, it SHALL contain a reference to a <em>core:AbstractFeatureWithLifespan</em> element.</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">If the <em>oldFeature</em> property (type: <em>gml:ReferenceType</em>) of the <em>Transaction</em> element is not null, it SHALL contain an XLink reference to a <em>core:AbstractFeatureWithLifespan</em> element.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">D</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">If the <em>newFeature</em> property (type: <em>gml:ReferenceType</em>) of the <em>Transaction</em> element is not null, it SHALL contain a reference to a <em>core:AbstractFeatureWithLifespan</em> element.</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">If the <em>newFeature</em> property (type: <em>gml:ReferenceType</em>) of the <em>Transaction</em> element is not null, it SHALL contain an XLink reference to a <em>core:AbstractFeatureWithLifespan</em> element.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">E</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">If the <em>versionMember</em> property (type: <em>gml:AbstractFeatureMemberType</em>) of the <em>Version</em> element is not null, it SHALL contain a reference to a <em>core:AbstractFeatureWithLifespan</em> element.</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">If the <em>versionMember</em> property (type: <em>gml:AbstractFeatureMemberType</em>) of the <em>Version</em> element is not null, it SHALL contain an XLink reference to a <em>core:AbstractFeatureWithLifespan</em> element.</p></td>
 </tr>
 </tbody>
 </table>
@@ -5132,7 +6469,7 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  33</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  42</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/waterbody/elements</strong></p></td>
 </tr>
 <tr>
@@ -5141,10 +6478,10 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 </tbody>
 </table>
 <div class="paragraph">
-<p>The CityGML WaterBody XML elements and their corresponding CityGML UML classes are listed in <a href="#water-body-xml-elements">Table 21</a>. In addition, the CityGML WaterBody XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/waterbody/3.0/waterBody.xsd" target="_blank" rel="noopener">waterBody.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/waterBody/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
+<p>The CityGML WaterBody XML elements and their corresponding CityGML UML classes are listed in <a href="#water-body-xml-elements">Table 30</a>. In addition, the CityGML WaterBody XML elements are documented in the GML schema <a href="http://schemas.opengis.net/citygml/waterbody/3.0/waterBody.xsd" target="_blank" rel="noopener">waterBody.xsd</a> and in this <a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/waterBody/" target="_blank" rel="noopener">XML Schema documentation</a>.</p>
 </div>
 <table id="water-body-xml-elements" class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 21. WaterBody XML Elements</caption>
+<caption class="title">Table 30. WaterBody XML Elements</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -5189,6 +6526,61 @@ Note 2: If the space does not have space boundaries, then the geometry is stored
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/waterBody/#element_ADEOfWaterSurface" target="_blank" rel="noopener">ADEOfWaterSurface</a></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">«DataType» <a href="https://docs.ogc.org/is/20-010/20-010.html#ADEOfWaterSurface-section" target="_blank" rel="noopener">ADEOfWaterSurface</a></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Surface boundaries are constrained by the following requirement:</p>
+</div>
+<table id="req_waterbody_boundaries" class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement  43</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/waterbody/boundaries</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#waterbody-boundaries-table">Table 31</a> lists the surfaces that are allowed as thematic surface boundaries of the space elements defined in the WaterBody module. If a space element is bounded by thematic surface boundaries using the property <em>core:boundary</em> (type: <em>core:AbstractSpaceBoundaryPropertyType</em>), the property SHALL contain exactly one surface element from <a href="#waterbody-boundaries-table">Table 31</a> that is supported for the specific space element. If no surface element is supported, the space element SHALL NOT be bounded by thematic surface boundaries.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><a href="#waterbody-boundaries-table">Table 31</a> lists the surfaces that are allowed as thematic surface boundaries of the space elements defined in the WaterBody module:</p>
+</div>
+<table id="waterbody-boundaries-table" class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 31. WaterBody space elements and their allowed thematic surface boundaries</caption>
+<colgroup>
+<col style="width: 40%;">
+<col style="width: 60%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Space element</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Allowed space boundaries</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><em>wtr:WaterBody</em></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p><em>wtr:AbstractWaterBoundarySurface</em> and the substitutable elements:<br>
+&#160;&#160;&#160;&#160; <em>wtr:WaterGroundSurface</em>,<br>
+&#160;&#160;&#160;&#160; <em>wtr:WaterSurface</em></p>
+</li>
+<li>
+<p><em>core:ClosureSurface</em></p>
+</li>
+<li>
+<p><em>gen:GenericThematicSurface</em></p>
+</li>
+<li>
+<p>possible surface elements from ADEs</p>
+</li>
+</ul>
+</div></div></td>
 </tr>
 </tbody>
 </table>
@@ -6008,7 +7400,7 @@ wall2,2015-01,kWh,1313.344,3112.122,4109.742
 <div class="content">
 <img src="images/Example_CompositeTimeseries.png" alt="Example CompositeTimeseries">
 </div>
-<div class="title">Figure 14. Example of a energy consumption pattern composed of atomic timeseries.</div>
+<div class="title">Figure 14. Example of a energy consumption pattern composed of atomic timeseries (source: <a href="#Chaturvedi2021">Chaturvedi 2021</a>).</div>
 </div>
 <div class="paragraph">
 <p>A CompositeTimeseries object may now contain five repetitions of timeseries A to reflect a pattern of energy consumption values for all weekdays, whereas the energy consumption for Saturday is represented by timeseries B and for Sunday by timeseries C. In this way, a weekly pattern can be defined containing the energy values for all seven days of a week (represented as 'AAAAABC'). This is illustrated in <a href="#listing-gml-composite-timeseries">[listing-gml-composite-timeseries]</a>.</p>
@@ -6155,7 +7547,7 @@ wall2,2015-01,kWh,1313.344,3112.122,4109.742
 <div class="content">
 <img src="images/Example_ComplexCompositeTimeseries.png" alt="Example ComplexCompositeTimeseries">
 </div>
-<div class="title">Figure 15. Example of a monthly pattern composed of individual CompositeTimeseries  defined by complex energy consumption pattern comosed of atomic timeseries.</div>
+<div class="title">Figure 15. Example of a monthly pattern composed of individual CompositeTimeseries  defined by complex energy consumption pattern comosed of atomic timeseries (source: <a href="#Chaturvedi2021">Chaturvedi 2021</a>).</div>
 </div>
 <div class="paragraph">
 <p><a href="#listing-gml-composite-timeseries">[listing-gml-composite-timeseries]</a> is an example for a CompositeTimeseries object representing periodic patterns of electricity consumption values for one week. Depending on the use case, more complex CompositeTimeseries objects can be defined based on individual CompositeTimeseries components, such as a monthly pattern consisting of 5 weekly patterns as is shown in <a href="#figure-example-complex-timeseries">Figure 15</a> or a yearly pattern which consists of 52 repetitions of the weekly pattern. Similarly, a CompositeTimeseries object could contain components for weekdays only to represent weekday patterns.</p>
