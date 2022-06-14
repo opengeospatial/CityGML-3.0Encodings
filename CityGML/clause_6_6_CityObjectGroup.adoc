@@ -48,3 +48,19 @@ The CityGML CityObjectGroup XML elements and their corresponding CityGML UML cla
 |===
 
 include::requirements/cityobjectgroup/REQ_CityObjectGroup_Reference.adoc[]
+
+Surface boundaries are constrained by the following requirement:
+
+include::requirements/CityObjectGroup/REQ_CityObjectGroup_Boundaries.adoc[]
+
+<<cityobjectgroup-boundaries-table>> lists the surfaces that are allowed as thematic surface boundaries of the space elements defined in the CityObjectGroup module:
+
+[[cityobjectgroup-boundaries-table]]
+.CityObjectGroup space elements and their allowed thematic surface boundaries
+[cols="2,6",options="headers"]
+|===
+^|*Space element* ^|*Allowed space boundaries*
+  |_grp:CityObjectGroup_  a|  * _core:ClosureSurface_
+                        * _gen:GenericThematicSurface_
+                        * possible surface elements from ADEs
+|===

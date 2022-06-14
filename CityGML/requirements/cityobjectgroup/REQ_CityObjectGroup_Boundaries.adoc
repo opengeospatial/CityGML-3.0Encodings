@@ -1,0 +1,6 @@
+[[req_cityobjectgroup_boundaries]]
+[width="100%",cols="2,6"]
+|===
+^|*Requirement  {counter:req-id}* |*/req/cityobjectgroup/boundaries*
+2+|<<cityobjectgroup-boundaries-table>> lists the surfaces that are allowed as thematic surface boundaries of the space elements defined in the CityObjectGroup module. If a space element is bounded by thematic surface boundaries using the property _core:boundary_ (type: _core:AbstractSpaceBoundaryPropertyType_), the property SHALL contain exactly one surface element from <<cityobjectgroup-boundaries-table>> that is supported for the specific space element. If no surface element is supported, the space element SHALL NOT be bounded by thematic surface boundaries.
+|===
