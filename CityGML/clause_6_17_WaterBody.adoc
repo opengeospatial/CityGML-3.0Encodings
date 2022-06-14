@@ -49,3 +49,23 @@ The CityGML WaterBody XML elements and their corresponding CityGML UML classes a
 |https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/waterBody/#element_ADEOfWaterGroundSurface[ADEOfWaterGroundSurface^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfWaterGroundSurface-section[ADEOfWaterGroundSurface^]
 |https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/waterBody/#element_ADEOfWaterSurface[ADEOfWaterSurface^] |«DataType» https://docs.ogc.org/is/20-010/20-010.html#ADEOfWaterSurface-section[ADEOfWaterSurface^]
 |===
+
+Surface boundaries are constrained by the following requirement:
+
+include::requirements/Waterbody/REQ_Waterbody_Boundaries.adoc[]
+
+<<waterbody-boundaries-table>> lists the surfaces that are allowed as thematic surface boundaries of the space elements defined in the WaterBody module:
+
+[[waterbody-boundaries-table]]
+.WaterBody space elements and their allowed thematic surface boundaries
+[cols="40,60",options="headers"]
+|===
+^|*Space element* ^|*Allowed space boundaries*
+|_wtr:WaterBody_
+a| * _wtr:AbstractWaterBoundarySurface_ and the substitutable elements: +
+{nbsp}{nbsp}{nbsp}{nbsp} _wtr:WaterGroundSurface_, +
+{nbsp}{nbsp}{nbsp}{nbsp} _wtr:WaterSurface_
+   * _core:ClosureSurface_
+   * _gen:GenericThematicSurface_
+   * possible surface elements from ADEs
+|===
