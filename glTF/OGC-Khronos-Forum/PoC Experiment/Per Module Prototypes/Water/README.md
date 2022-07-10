@@ -1,3 +1,3 @@
 ### glTF PoC
 
-TBD: write ReadMe content.
+This will include the previous contents plus two areas implenting the CityGML Water Module.
