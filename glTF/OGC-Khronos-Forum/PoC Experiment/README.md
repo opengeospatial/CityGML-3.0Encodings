@@ -1,3 +1,3 @@
 ### glTF PoC
 
-TBD: write ReadMe content.
+This folder contains each CityGML 3.0 Module implemented in the experiment.
