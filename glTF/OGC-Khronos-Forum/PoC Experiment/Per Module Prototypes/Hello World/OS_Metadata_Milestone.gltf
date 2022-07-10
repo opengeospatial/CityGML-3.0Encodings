@@ -1,0 +1,150 @@
+{
+	"extensionsUsed": [
+		"OGC_Geo_Semantic_Replica"
+	],
+	"extensionsRequired": [
+		"OGC_Geo_Semantic_Replica"
+	],
+	"asset": {
+		"generator": "SGR00",
+		"version": "2.0"
+	},
+	"scene": 0,
+	"scenes": [
+		{
+			"name": "Scene",
+			"nodes": [
+				0
+			],
+			"extensions": {
+				"OGC_Geo_Semantic_Replica": {
+					"gsr_uri": "https://citygml.info/OGC-Khronos-Forum/Prototype/Proto.gltf",
+					"gsr_name": "OS_Proto",
+					"gsr_geoPose": {
+						"position": {
+							"lat": 50.938138822,
+							"lon": -1.470733806,
+							"h": 17.0
+						},
+						"angles": {
+							"yaw": 0,
+							"pitch": -90.0,
+							"roll": 0.0
+						}
+					},
+					"gsr_minEast": -140.0,
+					"gsr_maxEast": 140.0,
+					"gsr_minNorth": -160.0,
+					"gsr_maxNorth": 160.0,
+					"gsr_minH": 10.0,
+					"gsr_maxH": 60.0,
+					"gsr_minUnixTime": 1560618000,
+					"gsr_maxUnixTime": 1560621600
+				}
+			}
+		}
+	],
+	"nodes": [
+		{
+			"mesh": 0,
+			"name": "OS Southampton Bounds"
+		}
+	],
+	"materials": [
+		{
+			"pbrMetallicRoughness": {
+				"baseColorFactor": [
+					1.0,
+					0.766,
+					0.336,
+					0.5
+				],
+				"metallicFactor": 0.5,
+				"roughnessFactor": 0.1
+			}
+		}
+	],
+	"meshes": [
+		{
+			"name": "OS Southampton Bounds",
+			"primitives": [
+				{
+					"attributes": {
+						"POSITION": 0,
+						"NORMAL": 1
+					},
+					"indices": 3,
+					"material": 0
+				}
+			]
+		}
+	],
+	"accessors": [
+		{
+			"bufferView": 0,
+			"componentType": 5126,
+			"count": 24,
+			"max": [
+				140,
+				60,
+				160
+			],
+			"min": [
+				-140,
+				10,
+				-160
+			],
+			"type": "VEC3"
+		},
+		{
+			"bufferView": 1,
+			"componentType": 5126,
+			"count": 24,
+			"type": "VEC3"
+		},
+		{
+			"bufferView": 2,
+			"componentType": 5126,
+			"count": 24,
+			"type": "VEC2"
+		},
+		{
+			"bufferView": 3,
+			"componentType": 5123,
+			"count": 36,
+			"type": "SCALAR"
+		}
+	],
+	"bufferViews": [
+		{
+			"buffer": 0,
+			"byteLength": 288,
+			"byteOffset": 0,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 288,
+			"byteOffset": 288,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 192,
+			"byteOffset": 576,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 72,
+			"byteOffset": 768,
+			"target": 34963
+		}
+	],
+	"buffers": [
+		{
+			"byteLength": 840,
+			"uri": "data:application/octet-stream;base64,AAAMwwAAcEIAACDDAAAMQwAAIEEAACDDAAAMwwAAIEEAACDDAAAMQwAAcEIAACDDAAAMQwAAcEIAACDDAAAMwwAAcEIAACBDAAAMQwAAcEIAACBDAAAMwwAAcEIAACDDAAAMwwAAcEIAACDDAAAMwwAAIEEAACBDAAAMwwAAcEIAACBDAAAMwwAAIEEAACDDAAAMQwAAcEIAACBDAAAMwwAAIEEAACBDAAAMQwAAIEEAACBDAAAMwwAAcEIAACBDAAAMQwAAIEEAACDDAAAMQwAAcEIAACBDAAAMQwAAIEEAACBDAAAMQwAAcEIAACDDAAAMwwAAIEEAACDDAAAMQwAAIEEAACBDAAAMwwAAIEEAACBDAAAMQwAAIEEAACDDAAAAAAAAgD8AAAAAAAAAAAAAgD8AAAAAAAAAAAAAgD8AAAAAAAAAAAAAgD8AAAAAAAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AACAvwAAAAAAAAAAAACAvwAAAAAAAAAAAACAvwAAAAAAAAAAAACAvwAAAAAAAAAAAAAAAAAAgL8AAACAAAAAAAAAgL8AAACAAAAAAAAAgL8AAACAAAAAAAAAgL8AAACAAACAPwAAAAAAAAAAAACAPwAAAAAAAAAAAACAPwAAAAAAAAAAAACAPwAAAAAAAAAAAAAAAAAAAAAAAIC/AAAAAAAAAAAAAIC/AAAAAAAAAAAAAIC/AAAAAAAAAAAAAIC/AAAgPwAAQD8AAMA+AACAPwAAID8AAIA/AADAPgAAQD8AACA/AABAPwAAwD4AAAA/AADAPgAAQD8AACA/AAAAPwAAID8AAAA/AADAPgAAgD4AAMA+AAAAPwAAID8AAIA+AAAgPwAAAAAAAMA+AACAPgAAID8AAIA+AADAPgAAAAAAAMA+AAAAPwAAAD4AAIA+AAAAPgAAAD8AAMA+AACAPgAAYD8AAAA/AAAgPwAAgD4AACA/AAAAPwAAYD8AAIA+AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"
+		}
+	]
+}
