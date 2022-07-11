@@ -52,14 +52,16 @@
 	],
 	"materials": [
 		{
+			"doubleSided": true,
+			"alphaMode": "BLEND",
 			"pbrMetallicRoughness": {
 				"baseColorFactor": [
-					1.0,
-					0.766,
-					0.336,
-					0.5
+					0.4,
+					0.4,
+					0.4,
+					0.45
 				],
-				"metallicFactor": 0.5,
+				"metallicFactor": 0.1,
 				"roughnessFactor": 0.1
 			}
 		}
