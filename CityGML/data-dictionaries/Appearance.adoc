@@ -1,5 +1,5 @@
 [[Appearance-package-dd]]
-=== *Appearance*
+=== Appearance
 
 [cols="1,4",frame=none,grid=none]
 |===
@@ -8,7 +8,7 @@
 |{nbsp}{nbsp}{nbsp}{nbsp}Stereotype: | «ApplicationSchema»
 |===
 
-==== *Classes*
+==== Classes
 
 [[AbstractSurfaceData-section]]
 [cols="1a"]
