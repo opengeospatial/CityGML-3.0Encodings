@@ -14,6 +14,6 @@ Implementation Specifications define how a Conceptual Model should be implemente
 [[conformance-class-section]]
 === Conformance Classes
 
-This standard identifies seventeen (17) conformance classes. One conformance class is defined for each GML schema. Each conformance class is defined by one requirements class. The tests in <<abstract-test-suite,Annex A>> are organized by requirements class. So an implementation of the _Core_ conformance class must pass all tests specified in Annex A for the _Core_ requirements class.
+This standard identifies seventeen (17) conformance classes. Each conformance class is defined by one requirements class. One GML schema is provided for each conformance class / requirements class. The tests in <<abstract-test-suite,Annex A>> are organized by requirements class. So an implementation of the _Core_ conformance class must pass all tests specified in Annex A for the _Core_ requirements class.
 
 Of these seventeen conformance classes, only the _Core_ conformance class is mandatory. All other conformance classes are optional. In the case where a conformance class has a dependency on another conformance class, that conformance class should also be implemented.
