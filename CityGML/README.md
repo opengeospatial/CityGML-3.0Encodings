@@ -1,6 +1,6 @@
 # GML Encoding Standard for CityGML 3.0
 
-Draft versions of this standard are available as [PDF](https://github.com/opengeospatial/CityGML-3.0Encodings/blob/working/CityGML/21-006.pdf) and [HTML](https://github.com/opengeospatial/CityGML-3.0Encodings/blob/working/CityGML/21-006.html) documents.
+Draft versions of this standard are available as [PDF](https://github.com/opengeospatial/CityGML-3.0Encodings/blob/master/CityGML/21-006.pdf) and [HTML](https://github.com/opengeospatial/CityGML-3.0Encodings/blob/master/CityGML/21-006.html) documents.
 
 ## Content
 
