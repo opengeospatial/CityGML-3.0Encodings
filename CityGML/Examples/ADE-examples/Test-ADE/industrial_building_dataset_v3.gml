@@ -10,31 +10,35 @@
       <bldg:storeysBelowGround>0</bldg:storeysBelowGround>
       <bldg:storeyHeightsAboveGround uom="#m">2.0</bldg:storeyHeightsAboveGround>
       <bldg:storeyHeightsBelowGround uom="#m">0.0</bldg:storeyHeightsBelowGround>
-      <test:ownerName>Smith</test:ownerName>
-      <test:energyPerformanceCertification>
-        <test:EnergyPerformanceCertification>
-          <test:certificationName>certName</test:certificationName>
-          <test:certificationId>certId</test:certificationId>
-        </test:EnergyPerformanceCertification>
-      </test:energyPerformanceCertification>
-      <test:buildingUnderground>
-        <test:BuildingUnderground>
-          <test:lod0GenericGeometry>
-            <gml:Polygon>
-              <gml:exterior>
-                <gml:LinearRing>
-                  <gml:posList srsDimension="3">6.0 0.0 0.0 0.0 0.0 0.0 0.0 8.0 0.0 6.0 8.0 0.0 6.0 0.0 0.0</gml:posList>
-                </gml:LinearRing>
-              </gml:exterior>
-            </gml:Polygon>
-          </test:lod0GenericGeometry>
-          <test:equippedWith>
-            <test:LightingFacility>
-              <test:electricalPower uom="W">4000.0</test:electricalPower>
-            </test:LightingFacility>
-          </test:equippedWith>
-        </test:BuildingUnderground>
-      </test:buildingUnderground>
+      <bldg:adeOfAbstractBuilding>
+        <test:BuildingProperties>
+          <test:ownerName>Smith</test:ownerName>
+          <test:energyPerformanceCertification>
+            <test:EnergyPerformanceCertification>
+              <test:certificationName>certName</test:certificationName>
+              <test:certificationId>certId</test:certificationId>
+            </test:EnergyPerformanceCertification>
+          </test:energyPerformanceCertification>
+          <test:buildingUnderground>
+            <test:BuildingUnderground>
+              <test:lod0GenericGeometry>
+                <gml:Polygon>
+                  <gml:exterior>
+                    <gml:LinearRing>
+                      <gml:posList srsDimension="3">6.0 0.0 0.0 0.0 0.0 0.0 0.0 8.0 0.0 6.0 8.0 0.0 6.0 0.0 0.0</gml:posList>
+                    </gml:LinearRing>
+                  </gml:exterior>
+                </gml:Polygon>
+              </test:lod0GenericGeometry>
+              <test:equippedWith>
+                <test:LightingFacility>
+                  <test:electricalPower uom="W">4000.0</test:electricalPower>
+                </test:LightingFacility>
+              </test:equippedWith>
+            </test:BuildingUnderground>
+          </test:buildingUnderground>
+        </test:BuildingProperties>
+      </bldg:adeOfAbstractBuilding>
       <test:remark>remark</test:remark>
     </test:IndustrialBuilding>
   </cityObjectMember>
