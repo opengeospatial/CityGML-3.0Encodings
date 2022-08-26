@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:bldg="http://www.opengis.net/citygml/building/3.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:grp="http://www.opengis.net/citygml/cityobjectgroup/3.0" xmlns:luse="http://www.opengis.net/citygml/landuse/3.0" xmlns:tran="http://www.opengis.net/citygml/transportation/3.0" xmlns:uro="http://www.kantei.go.jp/jp/singi/tiiki/toshisaisei/itoshisaisei/iur/uro/1.4" elementFormDefault="qualified" targetNamespace="http://www.kantei.go.jp/jp/singi/tiiki/toshisaisei/itoshisaisei/iur/uro/1.4" version="1.4.1">
-  <import namespace="http://www.opengis.net/citygml/building/3.0" schemaLocation="../schema/building.xsd"/>
-  <import namespace="http://www.opengis.net/citygml/cityobjectgroup/3.0" schemaLocation="../schema/cityObjectGroup.xsd"/>
-  <import namespace="http://www.opengis.net/citygml/landuse/3.0" schemaLocation="../schema/landUse.xsd"/>
-  <import namespace="http://www.opengis.net/citygml/transportation/3.0" schemaLocation="../schema/transportation.xsd"/>
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:bldg="http://www.opengis.net/citygml/building/3.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:grp="http://www.opengis.net/citygml/cityobjectgroup/3.0" xmlns:luse="http://www.opengis.net/citygml/landuse/3.0" xmlns:tran="http://www.opengis.net/citygml/transportation/3.0" xmlns:uro="https://www.chisou.go.jp/tiiki/toshisaisei/itoshisaisei/iur/uro/1.5" elementFormDefault="qualified" targetNamespace="https://www.chisou.go.jp/tiiki/toshisaisei/itoshisaisei/iur/uro/1.5" version="1.5">
+  <import namespace="http://www.opengis.net/citygml/building/3.0" schemaLocation="../../../schema/building.xsd"/>
+  <import namespace="http://www.opengis.net/citygml/cityobjectgroup/3.0" schemaLocation="../../../schema/cityObjectGroup.xsd"/>
+  <import namespace="http://www.opengis.net/citygml/landuse/3.0" schemaLocation="../../../schema/landUse.xsd"/>
+  <import namespace="http://www.opengis.net/citygml/transportation/3.0" schemaLocation="../../../schema/transportation.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
   <element name="BuildingDetails" substitutionGroup="gml:AbstractObject" type="uro:BuildingDetailsType"/>
