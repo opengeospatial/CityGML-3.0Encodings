@@ -452,7 +452,7 @@ link:Examples/ADE-examples/Urban-Planning-ADE/ShapeChangeConfigurationFile_CityG
 .XML schema document of the ADE derived from UML model.
 [source,XML]
 ----
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:bldg="http://www.opengis.net/citygml/building/3.0" ...  xmlns:uro="https://www.chisou.go.jp/tiiki/toshisaisei/itoshisaisei/iur/uro/1.5" elementFormDefault="qualified" targetNamespace="http://www.kantei.go.jp/jp/singi/tiiki/toshisaisei/itoshisaisei/iur/uro/1.4" version="1.4.1">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:bldg="http://www.opengis.net/citygml/building/3.0" ...  xmlns:uro="https://www.chisou.go.jp/tiiki/toshisaisei/itoshisaisei/iur/uro/1.5" elementFormDefault="qualified" targetNamespace="https://www.chisou.go.jp/tiiki/toshisaisei/itoshisaisei/iur/uro/1.5" version="1.5">
   <import namespace="http://www.opengis.net/citygml/building/3.0" schemaLocation="../schema/building.xsd"/>
   ...
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
@@ -654,8 +654,8 @@ image::images/Example_ADE_Realworld.png[align="center"]
 [source,XML]
 ----
 <?xml version="1.0" encoding="UTF-8"?>
-<core:CityModel xmlns:uro="http://www.kantei.go.jp/jp/singi/tiiki/toshisaisei/itoshisaisei/iur/uro/1.4" ...
-xsi:schemaLocation="http://www.kantei.go.jp/jp/singi/tiiki/toshisaisei/itoshisaisei/iur/uro/1.4 ./urbanObject_CityGML3.xsd ...">
+<core:CityModel xmlns:uro="https://www.chisou.go.jp/tiiki/toshisaisei/itoshisaisei/iur/uro/1.5" ...
+xsi:schemaLocation="https://www.chisou.go.jp/tiiki/toshisaisei/itoshisaisei/iur/uro/1.5 ./urbanObject_CityGML3.xsd ...">
   <gml:boundedBy> ... </gml:boundedBy>
   <core:cityObjectMember>
     <bldg:Building gml:id="BLD_77ca1a15-3b35-4386-8f86-152ed71c4c64">
