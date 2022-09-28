@@ -1,4 +1,4 @@
-[[req_water_body_elements]]
+[[req_waterbody_elements]]
 [width="100%",cols="2,6"]
 |===
 ^|*Requirement  {counter:req-id}* |*/req/waterbody/elements*

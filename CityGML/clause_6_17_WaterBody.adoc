@@ -1,4 +1,4 @@
-[[water-body-section]]
+[[waterbody-section]]
 === WaterBody
 
 The WaterBody module supports representation of the thematic aspects and 3D geometry of rivers, canals, lakes, and basins. It does, however, not inherit any hydrological or other dynamic aspects of fluid flow.
@@ -29,10 +29,10 @@ The following decisions have been made regarding implementation of the CityGML 3
 
 include::requirements/waterbody/REQ_WaterBody_Elements.adoc[]
 
-The CityGML WaterBody XML elements and their corresponding CityGML UML classes are listed in <<water-body-xml-elements>>. In addition, the CityGML WaterBody XML elements are documented in the GML schema http://schemas.opengis.net/citygml/waterbody/3.0/waterBody.xsd[waterBody.xsd^] and in this https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/waterBody/[XML Schema documentation^].
+The CityGML WaterBody XML elements and their corresponding CityGML UML classes are listed in <<waterbody-xml-elements>>. In addition, the CityGML WaterBody XML elements are documented in the GML schema http://schemas.opengis.net/citygml/waterbody/3.0/waterBody.xsd[waterBody.xsd^] and in this https://opengeospatial.github.io/CityGML-3.0Encodings/xsd-doc/3.0/waterBody/[XML Schema documentation^].
 
 //[#water-body-xml-elements,reftext='{table-caption} {counter:table-num}']
-[[water-body-xml-elements]]
+[[waterbody-xml-elements]]
 .WaterBody XML Elements
 [width="100%",cols="10,10",options="header"]
 |===
