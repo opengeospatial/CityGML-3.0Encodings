@@ -2,6 +2,8 @@ CityGML 3.0 Encodings
 ===========
 
 This is the public repository for standards defining Encodings of the Open Geospatial Consortium (OGC) CityGML Standards Working Group (SWG) CityGML version 3.0 Conceptual Model. 
+
+Note: during the public review of the GML encoding, please review the document on OGC "pending documents" (link to be provided) and raise any issues at https://github.com/opengeospatial/CityGML3.0-GML-Encoding rather than in this repository.
  
 Discovery, discussions, and the raising and resolution of issues regarding the Encodings of the Conceptual Model are focussed here and under the OGC policies and procedures for the eventual adoption of results by the SWG.
 Interested reviewers and participants should use the Issues tab to direct questions, comments, criticisms, and issues toward the chairs or other relevant party. Consensus and mutual understanding is the goal. 
