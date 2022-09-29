@@ -1,1 +1,0 @@
-The PDF [CityGML3.0 - Shared Objects - CityObjectRelations and XLinks](../Basic%20examples/CityGML3.0%20-%20Shared%20Objects%20-%20CityObjectRelations%20and%20XLinks.pdf) contains additional information on the three data sets.
