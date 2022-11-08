@@ -44,7 +44,7 @@ Encodings Details
 Definition
 
 Each encoding uses a specific representational methodology to implement the CityGML Conceptual Model. The number of independent encoding standards is unlimited.
-Several encodings (GML, relational database/SQL, JSON) are in commercial use with CityGML 2.0. It is likely that these will be updated to comply with the changes in the 3.0 Conceptual Model but, as of July 2018, results provided by the Work Package 2 team led by the Technische Universitaet Muenchen are only available for GML. These can be found at [https://github.com/opengeospatial/CityGML-3.0Encodings/tree/master/GML/Examples].
+Several encodings (GML, relational database/SQL, JSON) are in commercial use with CityGML 2.0. It is likely that these will be updated to comply with the changes in the 3.0 Conceptual Model but, as of July 2018, results provided by the Work Package 2 team led by the Technische Universitaet Muenchen are only available for GML. These can be found at [https://github.com/opengeospatial/CityGML3.0-GML-Encoding/tree/main/resources/examples].
 
 Purpose
 
